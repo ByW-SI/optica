@@ -14,3 +14,27 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('sucursales',function(){
+
+	return View::make('Sucursales.sucursales');
+});
+Route::get('gastos',function(){
+
+	return View::make('Gastos.gastos');
+});
+Route::get('consulta',function(){
+
+	return View::make('Empleadoconsulta.consulta');
+});
+Route::get('bonos',function(){
+
+	return View::make('Empleadobonos.bonos');
+});
+
+
+Route::resource('provedor','ProvedoresController');
+
+Route::get('comision',function(){
+
+	return View::make('Empleadobonos.comision');
+});

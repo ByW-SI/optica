@@ -13,7 +13,9 @@
 			 	<h4> <strong>Sucursales</strong></h4>
 			 	 <br /><br />
 			   <div class="col-sm-4">
-			 		<h5>Nombre Sucursal</h5>
+			 		<h5>Nombre Sucursal
+			 			<i class="fa fa-font" aria-hidden="true"></i>
+			 		</h5>
 			 		<input type="text" name="nombre" class="form-control" placeholder="Nombre de la Sucursal" pattern="[A-Za-z]+">
 			 	
       			
@@ -21,16 +23,22 @@
 			 	</div>
 	    		
 	    	 <div class="col-sm-4">
-	    		<h5>Responsable</h5>
+	    		<h5>Responsable
+	    			<i class="fa fa-user" aria-hidden="true"></i>
+	    		</h5>
 	    		<input type="text" name="responsable" class="form-control" placeholder="Nombre del Responsable" pattern="[A-Za-z]+">
 	    	 </div>
 
 	    		<div class="col-sm-4">
-	    			<h5>ID Sucursal</h5><input type="text" name="id_sucursal" class="form-control" placeholder="Clave ID">
+	    			<h5>ID Sucursal
+	    				<i class="fa fa-bookmark" aria-hidden="true"></i>
+	    			</h5><input type="text" name="id_sucursal" class="form-control" placeholder="Clave ID">
 	    		</div>	<br /><br /><br /><br />
 
 	    		<div class="col-sm-4">
-	    			<h5><strong>Región</strong></h5> <select name="region">
+	    			<h5><strong>Región</strong>
+	    				<i class="fa fa-map-o" aria-hidden="true"></i>
+	    			</h5> <select name="region">
  							 <option value="region1"> Región 1 zona </option>
   							 <option value="region2"> Región 2 zona </option>
   							 <option value="region3"> Región 3 zona </option>

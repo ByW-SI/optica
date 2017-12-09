@@ -30,11 +30,12 @@ Route::get('bonos',function(){
 
 	return View::make('Empleadobonos.bonos');
 });
-
-
-Route::resource('provedor','ProvedoresController');
-
 Route::get('comision',function(){
 
 	return View::make('Empleadobonos.comision');
 });
+//-----------------------------------------------------
+Route::resource('provedores','Provedor\ProvedorController');
+
+Route::resource('clientes.direccionfisica','Provedor\ProvedorDireccionFisicaController');
+Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');

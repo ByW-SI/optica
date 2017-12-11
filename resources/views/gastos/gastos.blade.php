@@ -1,5 +1,5 @@
-@extends('layouts.test')
-@section('content')
+@extends('Sucursales.sucursales')
+@section('gastos')
 
 <div class="container" align="left">
 	<form>

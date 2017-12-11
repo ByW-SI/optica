@@ -145,6 +145,7 @@
             </div>
         </nav>
         @yield('content')
+
     </div>
 
     <!-- Scripts -->
@@ -177,5 +178,7 @@
     </script> --}}
     <script src="{{ asset('js/sweetalert.js') }}"></script>
     @include('sweet::alert')
+
+   
 </body>
 </html>

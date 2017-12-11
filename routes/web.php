@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 Route::get('sucursales',function(){
 
-	return View::make('Sucursales.sucursales');
+	return View::make('sucursales.sucursales');
 });
 Route::get('gastos',function(){
 

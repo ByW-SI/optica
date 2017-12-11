@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 
 
-class Provedor extends Model
+class Provedor extends ModelC
 {
    
     use Sortable;

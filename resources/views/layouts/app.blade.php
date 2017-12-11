@@ -65,7 +65,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                           <!-- <li><a href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>-->
+                            <li><a href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
                             <li><a href="{{ route('register') }}"><i class="fa fa-clipboard" aria-hidden="true"></i> Register</a></li>
                         @else
                             <li class="dropdown">

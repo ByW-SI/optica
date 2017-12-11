@@ -45,3 +45,6 @@ Route::resource('clientes.contacto','Personal\PersonalContactoController');
 Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
 
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

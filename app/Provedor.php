@@ -8,7 +8,7 @@ use Kyslik\ColumnSortable\Sortable;
 
 
 
-class Provedor extends Model
+class Provedor extends ModelC
 {
    
     use Sortable;

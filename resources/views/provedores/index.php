@@ -27,7 +27,11 @@
 					<th>Operacion</th>
 				</tr>
 			</thead>
+<<<<<<< HEAD
 			@foreach($personals as $personal)
+=======
+			@foreach($provedores as $personal)
+>>>>>>> 3959c603c50cefa9e10ac7950f3b15e83ae0fa03
 				<tr class="active">
 					<td>{{$personal->id}}</td>
 					<td>
@@ -51,9 +55,15 @@
 			@endforeach
 		</table>
 	</div>
+<<<<<<< HEAD
 	{{ $personals->links()}}
 </div>
 @foreach ($personals as $personal)
+=======
+	{{ $provedores->links()}}
+</div>
+@foreach ($provedores as $personal)
+>>>>>>> 3959c603c50cefa9e10ac7950f3b15e83ae0fa03
 	{{-- expr --}}
 	<div class="container" id="tab">
 				<div role="application" class="panel panel-group" >

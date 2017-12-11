@@ -37,5 +37,11 @@ Route::get('comision',function(){
 //-----------------------------------------------------
 Route::resource('provedores','Provedor\ProvedorController');
 
+Route::resource('formacontactos','FormaContacto\FormaContactoController');
+
+Route::resource('clientes','Personal\PersonalController');
 Route::resource('clientes.direccionfisica','Provedor\ProvedorDireccionFisicaController');
+Route::resource('clientes.contacto','Personal\PersonalContactoController');
+Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
+
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');

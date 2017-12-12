@@ -1,57 +1,59 @@
-@extends('Sucursales.sucursales')
+@extends('sucursales.sucursales')
 @section('gastos')
 
 <div class="container" align="left">
-	<form>
-			 <div class="container well well-lg">
-			 	<h4> <strong>Gastos</strong></h4>
-			 	 <br />
+  <form>
+       
+        <h4> <strong>Gastos</strong></h4>
+         <br />
 
                <div class="col-sm-4">
-			 		<h5>Descripción</h5>
-			 		<input type="text" name="descripcion" class="form-control" placeholder="Breve descripciòn" pattern="[A-Za-z]+">
-			 	
-      		
+          <h5>Descripción</h5>
+          <input type="text" name="descripcion" class="form-control" placeholder="Breve descripciòn" pattern="[A-Za-z]+">
+        
+          
 
-			 	</div>
+        </div>
 
-			 	<div class="col-sm-4">
-	    		<h5>Monto</h5>
-	    		<input type="text" name="monto" class="form-control" placeholder="$---" 
+        <div class="col-sm-4">
+          <h5>Monto</h5>
+          <input type="text" name="monto" class="form-control" placeholder="$---" 
           pattern="[0-9]+">
-	    	 </div>
+         </div>
 
-               <div class="col-sm-2">
-               	<button type="submit" name="submit" value="Ingresar">
-	    				<strong>
-	    					Ingresar
-	    					<i class="fa fa-reply" aria-hidden="true"></i>
-	    				</strong>
-	    				
-	    					
-	    			</button>
+               <div class="col-sm-2"><br /><br />
+                <button type="submit" name="submit" value="Ingresar">
+              <strong>
+                Ingresar
+                <i class="fa fa-reply" aria-hidden="true"></i>
+              </strong>
+              
+                
+            </button>
                </div>
 
 
-			 </div>
+       
     </form>
+<br />
 
 
-<div class="container well well-lg">
 
-	   	<div class="container-fluid">
+      <div class="container-fluid">
+        <br />
+      <br /><br />
   <strong><h4>Despliegue de datos <i class="fa fa-television" aria-hidden="true"></i></h4></strong>
   <br />
 
-  		<table class="table">
+      <table class="table">
     <thead>
       <tr>
         <th>Descripción 
-        	<i class="fa fa-file-text-o" aria-hidden="true"></i></th>
+          <i class="fa fa-file-text-o" aria-hidden="true"></i></th>
         <th>Monto  
-    		<i class="fa fa-money" aria-hidden="true"></i></th>
+        <i class="fa fa-money" aria-hidden="true"></i></th>
         <th>Opciones
-        	<i class="fa fa-list-ul" aria-hidden="true"></i>
+          <i class="fa fa-list-ul" aria-hidden="true"></i>
         </th>
       </tr>
     </thead>
@@ -61,7 +63,7 @@
         <td>Salarios</td>
         <td>$--</td>
         <td>
-        	<div class="btn-group">
+          <div class="btn-group">
 
     <button type="button" class="btn btn-info">Editar
 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -80,7 +82,7 @@
         <td>Otro</td>
         <td>$--</td>
         <td>
-        	<div class="btn-group">
+          <div class="btn-group">
 
     <button type="button" class="btn btn-info">Editar
 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -98,7 +100,7 @@
         <td>Otro</td>
         <td>$--</td>
         <td>
-        	<div class="btn-group">
+          <div class="btn-group">
 
     <button type="button" class="btn btn-info">Editar
 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -120,13 +122,13 @@
  </div>
  
   <div class="col-sm-4">
-	    		<h5><strong>Total</strong></h5>
-	    		<input type="text" name="total" class="form-control" placeholder="$--" readonly>
-	    	 </div>
-
-</div>
+          <h5><strong>Total</strong></h5>
+          <input type="text" name="total" class="form-control" placeholder="$--" readonly>
+         </div>
 
 
-</div>
+
+
+ </div>
 
 @endsection

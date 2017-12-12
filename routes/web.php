@@ -20,11 +20,11 @@ Route::get('sucursales',function(){
 });
 Route::get('gastos',function(){
 
-	return View::make('Gastos.gastos');
+	return View::make('gastos.gastos');
 });
 Route::get('consulta',function(){
 
-	return View::make('Empleadoconsulta.consulta');
+	return View::make('empleadoconsulta.consulta');
 });
 Route::get('bonos',function(){
 

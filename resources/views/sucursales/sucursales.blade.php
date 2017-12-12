@@ -1,5 +1,5 @@
 @extends('layouts.test')
-@section('content')
+@section('content1')
 
 
 
@@ -71,19 +71,19 @@
   								  <ul class="nav nav-pills ">
 
     <li class="active">
-    	<a data-toggle="tab" href="#dir">Direcciòn  
+    	<a data-toggle="tab" href="#dir" class="btn-info">Direcciòn  
     		<i class="fa fa-map-signs" aria-hidden="true"></i>
     	</a>
     </li>
 
     <li>
-    	<a data-toggle="tab" href="#gas">Gastos
+    	<a data-toggle="tab" href="#gas" class="btn-info">Gastos
     		<i class="fa fa-money" aria-hidden="true"></i>
     	</a>
 
     </li>
 
-    <li><a data-toggle="tab" href="#emp">Empleados
+    <li><a data-toggle="tab" href="#emp" class="btn-info">Empleados
     	<i class="fa fa-address-card-o" aria-hidden="true"></i>
        </a>
    </li>
@@ -92,8 +92,11 @@
 
 
   	<div class="tab-content">
+
 		<div id="dir" class="tab-pane fade in active">
-    	<br>
+			<h4> <strong>Dirección</strong></h4>
+			 	 <br />
+    	
       
 
       		<div class="col-md-12 offset-md-2 mt-3">
@@ -149,22 +152,207 @@
 
 
     </div>
+
+
 							 	
-<div id="gas" class="tab-pane fade in active">
-      <h3>Gastos</h3>
-      @yield('gastos')
+<div id="gas" class="tab-pane fade">
+    <!--@yield('content')-->
+<div class="container" align="left">
+	<form>
+			 
+			 	<h4> <strong>Gastos</strong></h4>
+			 	 <br />
+
+               <div class="col-sm-4">
+			 		<h5>Descripción</h5>
+			 		<input type="text" name="descripcion" class="form-control" placeholder="Breve descripciòn" pattern="[A-Za-z]+">
+			 	
+      		
+
+			 	</div>
+
+			 	<div class="col-sm-4">
+	    		<h5>Monto</h5>
+	    		<input type="text" name="monto" class="form-control" placeholder="$---" 
+          pattern="[0-9]+">
+	    	 </div>
+
+               <div class="col-sm-2"><br /><br />
+               	<button type="submit" name="submit" value="Ingresar">
+	    				<strong>
+	    					Ingresar
+	    					<i class="fa fa-reply" aria-hidden="true"></i>
+	    				</strong>
+	    				
+	    					
+	    			</button>
+               </div>
+
+
+			 
+    </form>
+<br />
+
+
+
+	   	<div class="container-fluid">
+	   		<br />
+	   	<br /><br />
+  <strong><h4>Despliegue de datos <i class="fa fa-television" aria-hidden="true"></i></h4></strong>
+  <br />
+
+  		<table class="table">
+    <thead>
+      <tr>
+        <th>Descripción 
+        	<i class="fa fa-file-text-o" aria-hidden="true"></i></th>
+        <th>Monto  
+    		<i class="fa fa-money" aria-hidden="true"></i></th>
+        <th>Opciones
+        	<i class="fa fa-list-ul" aria-hidden="true"></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr class="warning">
+        <td>Salarios</td>
+        <td>$--</td>
+        <td>
+        	<div class="btn-group">
+
+    <button type="button" class="btn btn-info">Editar
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </button>
+
+    <button type="button" class="btn btn-warning">Eliminar
+<i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+
+    </div>
+
+        </td>
+      </tr>
+
+      <tr>
+        <td>Otro</td>
+        <td>$--</td>
+        <td>
+        	<div class="btn-group">
+
+    <button type="button" class="btn btn-info">Editar
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </button>
+
+    <button type="button" class="btn btn-warning">Eliminar
+<i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+
+    </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Otro</td>
+        <td>$--</td>
+        <td>
+        	<div class="btn-group">
+
+    <button type="button" class="btn btn-info">Editar
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </button>
+
+    <button type="button" class="btn btn-warning">Eliminar
+<i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+
+    </div>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+
+
+
+ </div>
+ 
+  <div class="col-sm-4">
+	    		<h5><strong>Total</strong></h5>
+	    		<input type="text" name="total" class="form-control" placeholder="$--" readonly>
+	    	 </div>
+
+
+
+
+ </div>
+</div>
+    <!-- ***************************************************** -->  
+    
+
+ <div id="emp" class="tab-pane fade">
+     <!-- @yield('consulta') -->
+<div class="container" align="left">
+	
+	
+		<h4> <strong>Empleados</strong>
+			
+		</h4>
+			 	 <br />
+			 	 <div class="container-fluid">
+			 	 	 <br /> 
+  	<table class="table table-hover">
+    	<thead>
+      	<tr>
+        	<th>Nombre</th>
+        	<th>Apellido Paterno</th>
+        	<th>Apellido Materno</th>
+        	<th>Puesto</th>
+      	</tr>
+    	</thead>
+    	<tbody>
+      	<tr>
+        	<td>John</td>
+        	<td>Doe</td>
+        	<td>Moe</td>
+        	<td>Director</td>
+      	</tr>
+      	<tr>
+        	<td>Mary</td>
+        	<td>Moe</td>
+        	<td>Doe</td>
+        	<td>Sub-Director</td>
+        </tr>
+        <tr>
+        	<td>July</td>
+        	<td>Dooley</td>
+        	<td>Yooled</td>
+        	<td>Asistente</td>
+        </tr>
+        </tbody>
+  </table>
+			 	 </div>
+
+	</div>
+</div>
+
+
+
+			 	 
+  	
+  	         
+			</div>
+
+	</div>
+</div>
+
+
+      <!--************************************************************ -->
     </div>
 
 
 
 							 </div>
-
-
-
-
-
-
-
 
 						</div>
 					</div>	

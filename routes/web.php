@@ -48,3 +48,8 @@ Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//----------  13/DIC/2017  ---------------------
+Route::get('rh',function(){
+
+	return View::make('rhpersonal.create');
+});

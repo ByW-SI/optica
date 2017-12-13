@@ -1,3 +1,7 @@
+
+
+@extends('layouts.test')
+@section('content1')
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -93,3 +97,4 @@
         </div>
     </body>
 </html>
+@endsection

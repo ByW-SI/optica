@@ -1,4 +1,4 @@
-@extends('sucursales.sucursales')
+@extends('layouts.test')
 @section('gastos')
 
 <div class="container" align="left">

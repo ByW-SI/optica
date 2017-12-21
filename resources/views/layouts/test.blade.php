@@ -115,9 +115,26 @@
                             <li>
                                 <a href=""><i class="fa fa-plus" aria-hidden="true"></i> Alta</a>
                                 {{-- <a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>     --}}
+                                <a href='sucursales'><i class="fa fa-bookmark" aria-hidden="true"></i> Sucursales</a>
                             </li>                     
                         </ul>
                     </li>
+                    
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-truck" aria-hidden="true"></i> Proveedores<span class="caret"></span> </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="provedores" onclick="AgregarNuevoTab('{{ url('/provedores/create')}}','Agrega Proveedor')"><i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
+                                <a href="provedores" 
+                                onclick="AgregarNuevoTab('{{ url('/provedores') }}','Buscar Proveedor')">
+                                <i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
+                            </li>                     
+                        </ul>
+                    </li>
+
+
+
                     
                     {{-- <li class="dropdown-submenu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Productos <span class="caret"></span> </a>

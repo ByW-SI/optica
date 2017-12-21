@@ -116,6 +116,10 @@
                                 <a href=""><i class="fa fa-plus" aria-hidden="true"></i> Alta</a>
                                 {{-- <a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>     --}}
                                 <a href='sucursales'><i class="fa fa-bookmark" aria-hidden="true"></i> Sucursales</a>
+
+                                 <a href='bonos'><i class="fa fa-gift" aria-hidden="true"></i> Bonos</a>
+
+                                 <a href='comision'><i class="fa fa-money" aria-hidden="true"></i> Comisiones</a>
                             </li>                     
                         </ul>
                     </li>

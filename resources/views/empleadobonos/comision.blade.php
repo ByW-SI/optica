@@ -3,7 +3,7 @@
 <div class="container" align="left">
 	<form>
 			 <div class="container well well-lg">
-			 	<h4> <strong>Comisión</strong></h4>
+			 <!--<div class="panel-heading"></div>-->	<h4> <strong>Comisión</strong></h4>
 			 	 <br /><br />
 
 			 	 <div class="col-sm-4">

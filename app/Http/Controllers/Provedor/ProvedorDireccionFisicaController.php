@@ -37,6 +37,7 @@ class ProvedorDireccionFisicaController extends Controller
     public function create(Provedor $provedore)
     {
         //
+        dd($provedore);
         return view('direccionprovedores.create',['provedore'=>$provedore]);
     }
 
@@ -49,7 +50,8 @@ class ProvedorDireccionFisicaController extends Controller
     public function store(Request $request, Provedor $provedore)
     {
         //
-        // dd($request->all());
+        // dd($request;->all());
+        dd($provedore);
         $direccion = DireccionFisicaProvedor::create($request->all());
         return redirect()->route('provedores.contacto.index',['provedore'=>$provedore]);
         // return view('d}ireccion.view',['direccion'=>$direccion,'personal'=>$cliente]);

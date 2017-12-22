@@ -1,7 +1,7 @@
 
 
-@extends('layouts.test')
-@section('content1')
+@extends('layouts.app')
+@section('content')
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -68,7 +68,7 @@
             }
         </style>
     </head>
-    <body>
+    <body><!--
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -94,7 +94,7 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
-        </div>
+        </div>-->
     </body>
 </html>
 @endsection

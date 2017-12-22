@@ -130,7 +130,17 @@
 
                             <a href="#"
                                    onclick="AgregarNuevoTab('{{ url('/sucursales')}}','Sucursales')">
-                            <i class="fa fa-search" aria-hidden="true"></i> Sucursales
+                            <i class="fa fa-university" aria-hidden="true"></i> Sucursales
+                                </a>
+
+                                <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('/bonos')}}','Bonos')">
+                            <i class="fa fa-gift" aria-hidden="true"></i> Bonos
+                                </a>
+
+                                 <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('/comision')}}','Comisiones')">
+                            <i class="fa fa-money" aria-hidden="true"></i> Comisiones
                                 </a>
 
 
@@ -151,7 +161,7 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="#" 
-                                   onclick="AgregarNuevoTab('{{ url('/provedores/create')}}','Agrega Proveedor')">
+                                   onclick="AgregarNuevoTab('{{ url('/provedores/create')}}','Agregar Proveedor')">
                                    <i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
                                 <a href="#" 
                                 onclick="AgregarNuevoTab('{{ url('/provedores') }}','Buscar Proveedor')">

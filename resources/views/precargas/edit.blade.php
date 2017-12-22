@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 @extends('layouts.blank')
-=======
-@extends('layouts.app')
->>>>>>> 573f5ee624fd157f62f6e36e0ba8671f97fec627
 @section('content')
 	<div class="container">
 		<form role="form" method="POST" action="{{ route($actualizar,['familia'=>$precarga]) }}">

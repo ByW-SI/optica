@@ -92,7 +92,7 @@
                                 </ul>
                             </li>
                         @endguest
-                        <li class="dropdown">
+                        <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Clientes<span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
@@ -101,7 +101,7 @@
                                 <a href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Seguimiento</a>    
                             </li>                     
                         </ul>
-                    </li>
+                    </li> -->
                     
                     <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Productos <span class="caret"></span> </a>
@@ -118,15 +118,22 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="#"
-                                   onclick="AgregarNuevoTab('{{ url('/empleados.create')}}','Agrega Proveedor')">
+                                   onclick="AgregarNuevoTab('{{ url('/empleados/create')}}','Agrega Proveedor')">
                                 <i class="fa fa-plus" aria-hidden="true">
                                 </i> Alta de Empleado
                                 </a>
 
                                 <a href="#"
                                    onclick="AgregarNuevoTab('{{ url('/empleados')}}','Agrega Proveedor')">
-                            <i class="fa fa-search" aria-hidden="true"></i> Busqueda 
+                            <i class="fa fa-search" aria-hidden="true"></i> Busqueda de Empleados
                                 </a>
+
+                            <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('/sucursales')}}','Agrega Proveedor')">
+                            <i class="fa fa-search" aria-hidden="true"></i> Sucursales
+                                </a>
+
+
                                 <li class="dropdown-submenu">
                                 <a tabindex="-1" href="#"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas:</a>
                                     <ul class="dropdown-menu">

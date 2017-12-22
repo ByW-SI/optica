@@ -18,9 +18,8 @@ class ProvedorController extends Controller{
     public function index()
     {
         //
-        // $provedores = Provedor::get();
+        $provedores = Provedor::sortable()->paginate(10);
         // Alert::message('Robots are working!');
-        $provedores=Provedor::sortable()->paginate(10);
         return view('provedores.index', ['provedores'=>$provedores]);
     }
 
@@ -66,7 +65,6 @@ class ProvedorController extends Controller{
      * @param  \App\provedore  $provedore
      * @return \Illuminate\Http\Response
      */
-
     public function show(Provedor $provedore)
     {
         
@@ -92,7 +90,6 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-
     public function update(Request $request, Provedor $provedor)
     {
         //
@@ -107,7 +104,6 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-
     public function destroy(Provedor $provedore)
     {
         //
@@ -117,7 +113,6 @@ class ProvedorController extends Controller{
     $query = $request->input('busqueda');
     $wordsquery = explode(' ',$query);
     $provedore = Provedor::where(function($q) use($wordsquery){
-
             foreach ($wordsquery as $word) {
                 # code...
             $q->orWhere('nombre','LIKE',"%$word%")
@@ -131,7 +126,6 @@ class ProvedorController extends Controller{
         })->get();
     return view('provedores.busqueda', ['provedore'=>$provedore]);
         
-
 
     }
 

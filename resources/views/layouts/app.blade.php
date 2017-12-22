@@ -117,8 +117,23 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-briefcase" aria-hidden="true"></i> Recursos Humanos <span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{url('pruebas')}}"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a>
-                                {{-- <a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>     --}}
+                                <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('/empleados.create')}}','Agrega Proveedor')">
+                                <i class="fa fa-plus" aria-hidden="true">
+                                </i> Alta de Empleado
+                                </a>
+
+                                <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('/empleados')}}','Agrega Proveedor')">
+                            <i class="fa fa-search" aria-hidden="true"></i> Busqueda 
+                                </a>
+                                <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas:</a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#" onclick="AgregarNuevoTab('{{ url('bajas') }}','Bajas')"><i class="fa fa-level-down" aria-hidden="true"></i> Bajas</a></li>
+                                      <li><a href="#" onclick="AgregarNuevoTab('{{ url('contratos') }}','Contratos')"><i class="fa fa-file-text-o" aria-hidden="true"></i> Contratos</a></li>
+                                    </ul>
+                                  </li>
                             </li>                     
                         </ul>
                     </li>

@@ -1,5 +1,5 @@
-@extends('layouts.app')
-	@section('content')
+@extends('layouts.blank')
+@section('content')
 		<div class="container" id="tab">
 			<form role="form" id="form-cliente" method="POST" action="{{ route('clientes.store') }}" name="form">
 				{{ csrf_field() }}

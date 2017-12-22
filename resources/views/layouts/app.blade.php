@@ -31,6 +31,10 @@
     <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
+    <!-- ********************************** -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+         <script src="{{ asset('js/peticion.js') }}"></script>
+
 
 </head>
 <body>
@@ -88,7 +92,7 @@
                                 </ul>
                             </li>
                         @endguest
-                        <li class="dropdown">
+                        <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Clientes<span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
@@ -97,9 +101,9 @@
                                 <a href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Seguimiento</a>    
                             </li>                     
                         </ul>
-                    </li>
+                    </li> -->
                     
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Productos <span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
@@ -107,14 +111,36 @@
                                 <a href="{{ url('productos') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>  
                             </li>                     
                         </ul>
-                    </li>
+                    </li> -->
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-briefcase" aria-hidden="true"></i> Recursos Humanos <span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{url('pruebas')}}"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a>
-                                {{-- <a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>     --}}
+                                <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('/empleados/create')}}','Agrega Proveedor')">
+                                <i class="fa fa-plus" aria-hidden="true">
+                                </i> Alta de Empleado
+                                </a>
+
+                                <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('/empleados')}}','Agrega Proveedor')">
+                            <i class="fa fa-search" aria-hidden="true"></i> Busqueda de Empleados
+                                </a>
+
+                            <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('/sucursales')}}','Agrega Proveedor')">
+                            <i class="fa fa-search" aria-hidden="true"></i> Sucursales
+                                </a>
+
+
+                                <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas:</a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#" onclick="AgregarNuevoTab('{{ url('bajas') }}','Bajas')"><i class="fa fa-level-down" aria-hidden="true"></i> Bajas</a></li>
+                                      <li><a href="#" onclick="AgregarNuevoTab('{{ url('contratos') }}','Contratos')"><i class="fa fa-file-text-o" aria-hidden="true"></i> Contratos</a></li>
+                                    </ul>
+                                  </li>
                             </li>                     
                         </ul>
                     </li>
@@ -124,7 +150,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-truck" aria-hidden="true"></i> Proveedores<span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="#" onclick="AgregarNuevoTab('{{ url('/provedores/create')}}','Agrega Proveedor')"><i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
+                                <a href="#" 
+                                   onclick="AgregarNuevoTab('{{ url('/provedores/create')}}','Agrega Proveedor')">
+                                   <i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
                                 <a href="#" 
                                 onclick="AgregarNuevoTab('{{ url('/provedores') }}','Buscar Proveedor')">
                                 <i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
@@ -193,7 +221,27 @@
     </script> --}}
     <script src="{{ asset('js/sweetalert.js') }}"></script>
     @include('sweet::alert')
+<!-- ********************************************** -->
+        
+    
+        <!-- /.container -->
+    <div class="container" style="width: 100%; height: 100%;">
+        <ul id="tabsApp" class="nav nav-tabs"></ul>
+        <div id="contenedortab" class="tab-content"></div>
+    </div>
 
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/pestanas.js') }}"></script>
+    <script src="{{ asset('js/forms.js') }}"></script>
+    <script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
    
 </body>
 </html>

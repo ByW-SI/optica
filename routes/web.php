@@ -45,6 +45,13 @@ Route::resource('clientes.contacto','Personal\PersonalContactoController');
 Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
 
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
+Route::resource('empleados.datoslaborales','Empleado\EmpleadosDatosLabController');
+Route::resource('empleados.estudios','Empleado\EmpleadosEstudiosController');
+Route::resource('empleados.emergencias','Empleado\EmpleadosEmergenciasController');
+Route::resource('empleados.vacaciones','Empleado\EmpleadosVacacionesController');
+Route::resource('empleados.faltas','Empleado\EmpleadosFaltasAdministrativasController');
+Route::resource('contratos','Precargas\TipoContratoController');
+Route::resource('bajas','Precargas\TipoBajaController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

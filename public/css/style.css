@@ -162,3 +162,8 @@ input:checked + .slider:before {
 .toggle-off.btn-xs{padding-left:12px}
 .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 32px; }
 .toggle.ios .toggle-handle { border-radius: 32px; }
+
+div.panel-heading{
+    background-color: rgb(100,200,200);
+    border-radius: 2px;
+}

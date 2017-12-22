@@ -20,15 +20,13 @@ class CreateProveedoresTable extends Migration
             $table->string('apellidopaterno')->nullable();
             $table->string('apellidomaterno')->nullable();
             $table->string('razonsocial')->nullable();
-            $table->string('prioridad')->nullable();
-            $table->string('calificacion')->nullable();
+            $table->string('email')->nullable();
             $table->string('alias');
             $table->string('rfc');
             $table->string('vendedor')->nullable();
             $table->string('calle');
             $table->string('numext');
             $table->string('numinter')->nullable();
-            $table->string('cp')->nullable();
             $table->string('colonia');
             $table->string('municipio');
             $table->string('ciudad');
@@ -36,6 +34,7 @@ class CreateProveedoresTable extends Migration
             $table->string('calle1')->nullable();
             $table->string('calle2')->nullable();
             $table->string('referencia')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -16,15 +16,15 @@ Route::get('/', function () {
 });
 Route::get('sucursales',function(){
 
-	return View::make('Sucursales.sucursales');
+	return View::make('sucursales.sucursales');
 });
 Route::get('gastos',function(){
 
-	return View::make('Gastos.gastos');
+	return View::make('gastos.gastos');
 });
 Route::get('consulta',function(){
 
-	return View::make('Empleadoconsulta.consulta');
+	return View::make('empleadoconsulta.consulta');
 });
 Route::get('bonos',function(){
 
@@ -42,7 +42,7 @@ Route::resource('formacontactos','FormaContacto\FormaContactoController');
 Route::resource('clientes','Personal\PersonalController');
 Route::resource('clientes.direccionfisica','Provedor\ProvedorDireccionFisicaController');
 Route::resource('clientes.contacto','Personal\PersonalContactoController');
-Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
+Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController',['except'=>'show']);
 
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
 Route::resource('empleados.datoslaborales','Empleado\EmpleadosDatosLabController');
@@ -55,3 +55,28 @@ Route::resource('bajas','Precargas\TipoBajaController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//----------  13/DIC/2017  ---------------------
+Route::get('rh',function(){
+
+	return View::make('rhpersonal.create');
+});
+
+//-----------------------------------------------------
+
+
+Route::resource('formacontactos','FormaContacto\FormaContactoController');
+
+Route::resource('clientes','Personal\PersonalController');
+Route::resource('clientes.direccionfisica','Provedor\ProvedorDireccionFisicaController');
+Route::resource('clientes.contacto','Personal\PersonalContactoController');
+Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
+
+Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
+//-----------------------------------------------------
+Route::resource('provedores','Provedor\ProvedorController');
+Route::get('buscarprovedor','Provedor\ProvedorController@buscar');
+Route::resource('provedores.direccionfisica','Provedor\ProvedorDireccionFisicaController');
+Route::resource('provedores.datosgenerales','Provedor\ProvedorDatosGeneralesController', ['except'=>'show']);
+Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
+Route::resource('provedores.crm','Provedor\ProvedorCRMController');
+//----------------------------------------------------------

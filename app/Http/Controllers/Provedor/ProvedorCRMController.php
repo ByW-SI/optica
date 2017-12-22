@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Provedor;
 
-use App\DireccionFisicaProvedor;
 use App\Http\Controllers\Controller;
 use App\Provedor;
+use App\ProvedorCRM;
 use Illuminate\Http\Request;
 
-class ProvedorDireccionFisicaController extends Controller
+class ProvedorCRMController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,15 +17,11 @@ class ProvedorDireccionFisicaController extends Controller
     public function index(Provedor $provedore)
     {
         //
-        $direccion = $provedore->direccionFisicaProvedor;
-        if ($direccion ==null) {
-            # code...
-            return redirect()->route('provedores.direccionfisica.create',['provedore'=>$provedore]);
-        }
-        else{
-            return view('direccionprovedores.view',['direccion'=>$direccion,'provedore'=>$provedore]);
-        }
-
+        
+        $crms = $provedore->crm;
+        // dd($crms);
+        return view('crmprovedores.index',['provedore'=>$provedore, 'crms'=>$crms]);
+        
 
     }
 
@@ -34,10 +30,9 @@ class ProvedorDireccionFisicaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Provedor $provedore)
+    public function create()
     {
         //
-        return view('direccionprovedores.create',['provedore'=>$provedore]);
     }
 
     /**
@@ -50,10 +45,8 @@ class ProvedorDireccionFisicaController extends Controller
     {
         //
         // dd($request->all());
-        $direccion = DireccionFisicaProvedor::create($request->all());
-        return redirect()->route('provedores.contacto.index',['provedore'=>$provedore]);
-        // return view('d}ireccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
-
+        $crm = ProvedorCRM::create($request->all());
+        return redirect()->route('provedores.crm.index',['provedore'=>$provedore]);
     }
 
     /**
@@ -62,12 +55,11 @@ class ProvedorDireccionFisicaController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Provedor $provedore)
+    public function show(Provedor $provedore, $crm)
     {
         //
-        $direccion = $provedore->direccionFisicaProvedor;
-        return view('direccionprovedores.view',['direccion'=>$direccion,'provedore'=>$provedore]);
-
+        $crm = ProvedorCRM::findOrFail($crm);
+        return view('crmprovedores.view',['provedore'=>$provedore,'crm'=>$crm]);
     }
 
     /**
@@ -79,8 +71,6 @@ class ProvedorDireccionFisicaController extends Controller
     public function edit(Provedor $provedore)
     {
         //
-        $direccion = $provedore->direccionFisicaProvedor;
-        return view('direccionprovedores.edit',['provedore'=>$provedore, 'direccion'=>$direccion]);
     }
 
     /**
@@ -90,12 +80,9 @@ class ProvedorDireccionFisicaController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provedor $provedore, DireccionFisicaProvedor $direccionFisicaProvedor )
+    public function update(Request $request, Provedor $provedore)
     {
         //
-        // dd($DireccionFiscal);
-        $provedore->direccionFisicaProvedor->update($request->all());
-        return redirect()->route('provedores.direccionfisica.index',['provedore'=>$provedore]);
     }
 
     /**
@@ -107,8 +94,5 @@ class ProvedorDireccionFisicaController extends Controller
     public function destroy(Provedor $provedore)
     {
         //
-    }
-    public function prueba(){
-        return view('direccionprovedores.view');
     }
 }

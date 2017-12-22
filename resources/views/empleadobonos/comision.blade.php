@@ -1,9 +1,9 @@
 @extends('layouts.test')
-@section('content')
+@section('content1')
 <div class="container" align="left">
 	<form>
 			 <div class="container well well-lg">
-			 	<h4> <strong>Comisión</strong></h4>
+			 <!--<div class="panel-heading"></div>-->	<h4> <strong>Comisión</strong></h4>
 			 	 <br /><br />
 
 			 	 <div class="col-sm-4">
@@ -34,7 +34,7 @@
 
 	    		<div class="col-sm-4">
 
-			 		<h5>Nombre Bonmonto Máximo Mensual
+			 		<h5>Monto Máximo Mensual
 			 			<i class="fa fa-money" aria-hidden="true"></i>
 			 		</h5>
 			 		
@@ -47,7 +47,7 @@
 
 			 	<div class="col-sm-4">
 
-			 		<h5>Nombre Bonmonto Mínimo Mensual
+			 		<h5>Monto Mínimo Mensual
 			 			<i class="fa fa-money" aria-hidden="true"></i>
 			 		</h5>
 			 		

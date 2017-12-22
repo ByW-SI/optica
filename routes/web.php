@@ -12,8 +12,8 @@
 */
 Auth::routes();
 
-// Route::resource('giros','Giro\GiroController', ['except'=>'show']);
-// Route::resource('formacontactos','FormaContacto\FormaContactoController');
+Route::resource('giros','Giro\GiroController', ['except'=>'show']);
+Route::resource('formacontactos','FormaContacto\FormaContactoController');
 
 Route::resource('clientes','Personal\PersonalController');
 Route::resource('clientes.direccionfisica','Personal\PersonalDireccionFisicaController');
@@ -71,7 +71,7 @@ Route::get('comision',function(){
 	return View::make('Empleadobonos.comision');
 });
 //-----------------------------------------------------
-// Route::resource('provedores','Provedor\ProvedorController');
+
 
 Route::resource('formacontactos','FormaContacto\FormaContactoController');
 

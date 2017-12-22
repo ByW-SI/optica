@@ -17,6 +17,7 @@ class CreateFormaContactoTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('etiqueta')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

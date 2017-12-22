@@ -95,6 +95,25 @@
                 </div>
             </div>
         </div>-->
+
+<!-- ************************************************************* -->
+    <div class="container" style="width: 100%; height: 100%;">
+        <ul id="tabsApp" class="nav nav-tabs"></ul>
+        <div id="contenedortab" class="tab-content"></div>
+    </div>
+
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/pestanas.js') }}"></script>
+    <script src="{{ asset('js/forms.js') }}"></script>
+    <script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
     </body>
 </html>
 @endsection

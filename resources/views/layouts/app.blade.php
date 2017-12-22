@@ -31,6 +31,10 @@
     <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
+    <!-- ********************************** -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+         <script src="{{ asset('js/peticion.js') }}"></script>
+
 
 </head>
 <body>
@@ -99,7 +103,7 @@
                         </ul>
                     </li>
                     
-                   <!--  <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Productos <span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
@@ -195,7 +199,27 @@
     </script> --}}
     <script src="{{ asset('js/sweetalert.js') }}"></script>
     @include('sweet::alert')
+<!-- ********************************************** -->
+        
+    
+        <!-- /.container -->
+    <div class="container" style="width: 100%; height: 100%;">
+        <ul id="tabsApp" class="nav nav-tabs"></ul>
+        <div id="contenedortab" class="tab-content"></div>
+    </div>
 
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/pestanas.js') }}"></script>
+    <script src="{{ asset('js/forms.js') }}"></script>
+    <script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
    
 </body>
 </html>

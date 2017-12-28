@@ -4,15 +4,14 @@ $.ajaxSetup({
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
-function obtener_registros(busqueda)
+function obtener_registros(busqueda,etiqueta)
 {
 
 
 	
-	
 	$.ajax({
 		//url : "http://localhost/clientes",
-		url : "buscarcliente",
+		url : ""+etiqueta+"",
 		type : "GET",
 		dataType : "html",
 		data :{busqueda:busqueda},
@@ -22,22 +21,21 @@ function obtener_registros(busqueda)
 	});
 }
 
-$(document).on('keyup', '#query', function()
+$(document).on('keyup', ':input', function()
 {
 
 	var valor=$(this).val();
-
-	
+	var etiqueta=$(this).attr('id');
 
 
 	
 	if (valor!="")
 	{
-		obtener_registros(valor);
+		obtener_registros(valor,etiqueta);
 	}
 	else
 		{
-			obtener_registros();
+			obtener_registros("",etiqueta);
 			
 		}
 });

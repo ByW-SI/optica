@@ -14,20 +14,10 @@ Auth::routes();
 
 Route::resource('giros','Giro\GiroController', ['except'=>'show']);
 Route::resource('formacontactos','FormaContacto\FormaContactoController');
-
-Route::resource('clientes','Personal\PersonalController');
-Route::resource('clientes.direccionfisica','Personal\PersonalDireccionFisicaController');
-Route::resource('clientes.contacto','Personal\PersonalContactoController');
-Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
-
-// Route::resource('clientes.crm','Personal\PersonalCRMController');
-// Route::resource('pruebas','PruebasController', ['except'=>'show']);
-//-----------------------------------------------------
 Route::resource('provedores','Provedor\ProvedorController');
 
 Route::get('provedores.create','Provedor\ProvedorController@create');
 
-Route::get('buscarprovedor','Provedor\ProvedorController@buscar');
 Route::resource('provedores.direccionfisica','Provedor\ProvedorDireccionFisicaController');
 Route::resource('provedores.datosgenerales','Provedor\ProvedorDatosGeneralesController', ['except'=>'show']);
 Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
@@ -44,6 +34,10 @@ Route::resource('empleados.vacaciones','Empleado\EmpleadosVacacionesController')
 Route::resource('empleados.faltas','Empleado\EmpleadosFaltasAdministrativasController');
 Route::resource('contratos','Precargas\TipoContratoController');
 Route::resource('bajas','Precargas\TipoBajaController');
+
+/* RUTAS DE BUSQUEDAS*/
+Route::get('buscarempleado','Empleado\EmpleadoController@buscar');
+Route::get('buscarproveedor','Provedor\ProvedorController@buscar');
 
 
 

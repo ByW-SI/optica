@@ -19,7 +19,7 @@ Route::resource('provedores','Provedor\ProvedorController');
 Route::get('provedores.create','Provedor\ProvedorController@create');
 
 Route::resource('provedores.direccionfisica','Provedor\ProvedorDireccionFisicaController');
-Route::resource('provedores.datosgenerales','Provedor\ProvedorDatosGeneralesController', ['except'=>'show']);
+Route::resource('provedores.datosgenerales','Provedor\ProvedorDatosGeneralesController');
 Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
 Route::resource('provedores.crm','Provedor\ProvedorCRMController');
 //----------------------------------------------------------

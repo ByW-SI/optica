@@ -22,15 +22,17 @@ class ProvedorDatosGeneralesController extends Controller
     {
         //
         $datos = $provedore->datosGeneralesProvedor;
-        if ($datos==null) {
+        // dd($datos);
+        if ($datos == null) {
             # code...
-            return redirect()->route('provedores.datosgenerales.create',['provedore'=>$provedore]);;
+            return redirect()->route('provedores.datosgenerales.create',['provedore'=>$provedore]);
         }
-        else{
-            $giro = Giro::findorFail($datos->giro_id);
-            $formaContacto = FormaContacto::findorFail($datos->forma_contacto_id);
+        elseif ($datos != null){
+            $giro = Giro::find($datos->giro_id);
             // dd($giro);
-            return view('datosgeneralesprovedores.view',['datos'=>$datos, 'provedore'=>$provedore, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
+            $formaContacto = FormaContacto::find($datos->forma_contacto_id);
+            // dd($giro);
+            return view('datosgeneralesprovedores.view', ['provedore'=>$provedore, 'datos'=>$datos, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
             
         }
     }

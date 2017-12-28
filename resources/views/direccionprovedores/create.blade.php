@@ -22,7 +22,7 @@
 							
 							<label>
 
-								<input type="checkbox" checked data-toggle="toggle" onchange="datosFiscal();">
+								<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="datosFiscal();">
 								¿Usar datos de dirección fiscal?.
 							</label>
 						</div>

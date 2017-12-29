@@ -23,14 +23,20 @@
 								<dd>{{$empleado->identificador}}</dd>
 							@else
 								{{-- false expr --}}
-							<input class="form-control" id="identificador" type="text" name="identificador" required="required">
+							<input class="form-control" id="identificador" type="text" name="identificador" required="required" @if ($edit == false)
+								{{-- expr --}}
+								autofocus="autofocus" 
+							@endif>
 							@endif
 						</div>
 					</div>
 					<div class="col-xs-12 offset-md-2 mt-3">
 						<div class="form-group col-xs-3">
 							<label class="control-label" for="appaterno">* Apellido Paterno:</label>
-							<input type="text" class="form-control" id="appaterno" name="appaterno" required="required" value="{{ $empleado->appaterno }}">
+							<input type="text" class="form-control" id="appaterno" name="appaterno" required="required" value="{{ $empleado->appaterno }}" @if ($edit == true)
+								{{-- expr --}}
+								autofocus="autofocus" 
+							@endif>
 						</div>
 						<div class="form-group col-xs-3">
 							<label class="control-label" for="apmaterno">* Apellido Materno:</label>
@@ -47,6 +53,24 @@
 					</div>
 				</div>
 			</div>
+			@if ($edit == true)
+				{{-- expr --}}
+				<div>
+					<ul class="nav nav-pills nav-justified">
+						<li role="presentation" class="active"><a href="{{ route('empleados.show',['empleado'=>$empleado]) }}"  class="ui-tabs-anchor">Generales:</a></li>
+
+						<li role="presentation" class=""><a href="{{ route('empleados.datoslaborales.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Laborales:</a></li>
+
+						<li role="presentation" class=""><a href="{{ route('empleados.estudios.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Estudios:</a></li>
+
+						<li role="presentation" class=""><a href="{{ route('empleados.emergencias.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Emergencias:</a></li>
+
+						<li role="presentation" class=""><a href="{{ route('empleados.vacaciones.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Vacaciones:</a></li>
+
+						<li role="presentation" class=""><a href="{{ route('empleados.faltas.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Administrativo:</a></li>
+					</ul>
+				</div>
+			@else
 			<div>
 				<ul class="nav nav-pills nav-justified">
 					<li class="active"><a href="#tab1"  class="ui-tabs-anchor">Generales:</a></li>
@@ -62,6 +86,7 @@
 					<li role="presentation" class="disabled" disabled="disabled"><a class="ui-tabs-anchor" disabled="disabled">Administrativo:</a></li>
 				</ul>
 			</div>
+			@endif
 				<div class="panel-default">
 					<div class="panel-heading"><h5>Datos Generales:</h5></div>
 					<div class="panel-body">

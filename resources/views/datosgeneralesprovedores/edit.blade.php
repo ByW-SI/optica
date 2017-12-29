@@ -23,9 +23,13 @@
 	 			<label class="control-label" for="nombre">Giro:</label>
 				<select type="select" name="giro_id" class="form-control" id="giro_id">
 						@foreach ($giros as $giro)
-							<option id="'{{$giro->id}}'" value="{{$giro->id}}" @if ($datos->giro_id == $giro->id)
+							<option id="'{{$giro->id}}'" value="{{$giro->id}}" @if($datos->giro_id == null)
+								" "
+							@elseif ($datos->giro_id == $giro->id)
 								{{-- expr --}}
 								selected="selected"
+							@else
+
 							@endif >{{$giro->nombre}}</option>
 						@endforeach
 				</select>
@@ -56,9 +60,13 @@
 					<select type="select" name="forma_contacto_id" class="form-control" id="forma_contacto_id">
 						@foreach ($formaContactos as $formaContacto)
 							{{-- expr --}}
-							<option id="{{$formaContacto->id}}" value="{{ $formaContacto->id }}" @if ($datos->forma_contacto_id == $formaContacto->id)
+							<option id="{{$formaContacto->id}}" value="{{ $formaContacto->id }}" @if($datos->forma_contacto_id == null)
+								
+							@elseif ($datos->forma_contacto_id == $formaContacto->id)
 								{{-- expr --}}
 								selected="selected"
+							@else
+
 							@endif>{{ $formaContacto->nombre }}</option>
 						@endforeach
 					</select>

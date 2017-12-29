@@ -15,17 +15,14 @@ Auth::routes();
 Route::resource('giros','Giro\GiroController', ['except'=>'show']);
 Route::resource('formacontactos','FormaContacto\FormaContactoController');
 Route::resource('provedores','Provedor\ProvedorController');
-
 Route::get('provedores.create','Provedor\ProvedorController@create');
-
+Route::get('provedores.datosgenerales.show', 'Provedor\ProvedorDatosGeneralesController@show');
 Route::resource('provedores.direccionfisica','Provedor\ProvedorDireccionFisicaController');
 Route::resource('provedores.datosgenerales','Provedor\ProvedorDatosGeneralesController');
 Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
 Route::resource('provedores.crm','Provedor\ProvedorCRMController');
 //----------------------------------------------------------
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
-
-// Route::get('busqueda','Personal\PersonalController@busqueda');
 Route::resource('empleados','Empleado\EmpleadoController');
 Route::resource('empleados.datoslaborales','Empleado\EmpleadosDatosLabController');
 Route::resource('empleados.estudios','Empleado\EmpleadosEstudiosController');
@@ -68,46 +65,4 @@ Route::get('comision',function(){
 
 
 Route::resource('formacontactos','FormaContacto\FormaContactoController');
-
-// Route::resource('clientes','Personal\PersonalController');
-// Route::resource('clientes.direccionfisica','Provedor\ProvedorDireccionFisicaController');
-// Route::resource('clientes.contacto','Personal\PersonalContactoController');
-// Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController',['except'=>'show']);
-
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
-// Route::resource('empleados','Empleado\EmpleadoController');
-// Route::resource('empleados.datoslaborales','Empleado\EmpleadosDatosLabController');
-// Route::resource('empleados.estudios','Empleado\EmpleadosEstudiosController');
-// Route::resource('empleados.emergencias','Empleado\EmpleadosEmergenciasController');
-// Route::resource('empleados.vacaciones','Empleado\EmpleadosVacacionesController');
-// Route::resource('empleados.faltas','Empleado\EmpleadosFaltasAdministrativasController');
-// Route::resource('contratos','Precargas\TipoContratoController');
-// Route::resource('bajas','Precargas\TipoBajaController');
-
-// Route::get('/home', 'HomeController@index')->name('home');
-// //----------  13/DIC/2017  ---------------------
-// Route::get('rh',function(){
-
-// 	return View::make('rhpersonal.create');
-// });
-
-// //-----------------------------------------------------
-
-
-// Route::resource('formacontactos','FormaContacto\FormaContactoController');
-
-// // Route::resource('clientes','Personal\PersonalController');
-// // Route::resource('clientes.direccionfisica','Provedor\ProvedorDireccionFisicaController');
-// // Route::resource('clientes.contacto','Personal\PersonalContactoController');
-// // Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
-
-// // Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
-// //-----------------------------------------------------
-// Route::resource('provedores','Provedor\ProvedorController');
-// Route::get('buscarprovedor','Provedor\ProvedorController@buscar');
-// Route::resource('provedores.direccionfisica','Provedor\ProvedorDireccionFisicaController');
-// Route::resource('provedores.datosgenerales','Provedor\ProvedorDatosGeneralesController', ['except'=>'show']);
-// Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
-// Route::resource('provedores.crm','Provedor\ProvedorCRMController');
-// //----------------------------------------------------------
-// Auth::routes();

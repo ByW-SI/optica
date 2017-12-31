@@ -15,7 +15,7 @@ class AddSoftdeletesInGiroTable extends Migration
     {
         Schema::table('giro', function (Blueprint $table) {
             //
-            $table->softDeletes();
+            // $table->softDeletes();
         });
     }
 

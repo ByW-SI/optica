@@ -13,9 +13,9 @@
 .pestana{
 	display: none;
 }
-.dropdown-submenu {
+/*.dropdown-submenu {
     position: relative;
-}
+}*/
 .modal-content {
     position: absolute;
     margin-left: -300px;
@@ -28,8 +28,9 @@
     background-clip: padding-box;
     outline: 0;
 }
-.dropdown-submenu .dropdown-menu {
+
+/*.dropdown-submenu .dropdown-menu {
     margin-top: 0;
     right: 0;
     left: auto;
-}
+}*/

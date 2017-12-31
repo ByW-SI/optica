@@ -23,15 +23,15 @@
 				{{ csrf_field() }}
 				<input type="hidden" name="empleado_id" value="{{$empleado->id}}">
 				<div class="col-xs-12 offset-md-2 mt-3">
-					<div class="form-group col-xs-4">
+					<div class="form-group col-xs-3">
 						<label class="control-label" for="fecha" id="lbl_fecha">Fecha:</label>
 						<input type="date" class="form-control" id="id_fecha" name="fecha">
 					</div>
-					<div class="form-group col-xs-3">
+					<div class="form-group col-xs-4">
 						<label class="control-label" for="comentarios" id="lbl_comen">Comentarios:</label>
 						<textarea class="form-control" id="id_coment" name="comentarios" maxlength="500"></textarea>
 					</div>
-					<div class="form-group col-xs-3">
+					<div class="form-group col-xs-5">
 						<label class="control-label" for="problema" id="lbl_problema">Problema:</label>
 						<textarea class="form-control" id="id_problema" name="problema" maxlength="500"></textarea>
 					</div>

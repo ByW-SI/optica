@@ -15,7 +15,7 @@ class AddSoftdeletesInFormaContactoTable extends Migration
     {
         Schema::table('forma_contacto', function (Blueprint $table) {
             //
-            $table->softDeletes();
+            // $table->softDeletes();
         });
     }
 

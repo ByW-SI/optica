@@ -68,7 +68,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                        @guest
+                        {{-- @guest
                             <li><a href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
                             <li><a href="{{ route('register') }}"><i class="fa fa-clipboard" aria-hidden="true"></i> Register</a></li>
                         @else
@@ -91,7 +91,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endguest
+                        @endguest --}}
                         <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Clientes<span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
@@ -150,7 +150,7 @@
                                       <li><a href="#" onclick="AgregarNuevoTab('{{ url('bajas') }}','Bajas')"><i class="fa fa-level-down" aria-hidden="true"></i> Bajas</a></li>
                                       <li><a href="#" onclick="AgregarNuevoTab('{{ url('contratos') }}','Contratos')"><i class="fa fa-file-text-o" aria-hidden="true"></i> Contratos</a></li>
                                     </ul>
-                                  </li>
+                                </li>
                             </li>                     
                         </ul>
                     </li>
@@ -162,11 +162,35 @@
                             <li>
                                 <a href="#" 
                                    onclick="AgregarNuevoTab('{{ url('/provedores/create')}}','Agregar Proveedor')">
-                                   <i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
                                 <a href="#" 
                                 onclick="AgregarNuevoTab('{{ url('/provedores') }}','Buscar Proveedor')">
                                 <i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
                             </li>                     
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-md" aria-hidden="true"></i> Pacientes<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#" 
+                                   onclick="AgregarNuevoTab('{{ url('/')}}','Agregar Paciente')">
+                                   <i class="fa fa-user-plus" aria-hidden="true"></i> Agregar Paciente</a>
+                                <a href="#" 
+                                onclick="AgregarNuevoTab('{{ url('/') }}','Buscar Proveedor')">
+                                <i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
+                                <a href="#" 
+                                onclick="AgregarNuevoTab('{{ url('/') }}','Buscar Proveedor')">
+                                <i class="fa fa-address-book-o" aria-hidden="true"></i> C.R.M.</a>
+                                <li class="dropdown-submenu pull-left">
+                                <a tabindex="-1" href="#"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas:</a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#" onclick="AgregarNuevoTab('{{ url('bajas') }}','Bajas')"><i class="fa fa-level-down" aria-hidden="true"></i> Bajas</a></li>
+                                      <li><a href="#" onclick="AgregarNuevoTab('{{ url('contratos') }}','Contratos')"><i class="fa fa-file-text-o" aria-hidden="true"></i> Contratos</a></li>
+                                    </ul>
+                                </li>
+                            </li>
                         </ul>
                     </li>
 

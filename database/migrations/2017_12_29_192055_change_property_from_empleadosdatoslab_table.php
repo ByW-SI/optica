@@ -13,13 +13,13 @@ class ChangePropertyFromEmpleadosdatoslabTable extends Migration
      */
     public function up()
     {
+        /* CODIGO PARA QUE DBAL PUEDA LEER TABLAS CON COLUMNAS ENUM*/
+        $platform = Schema::getConnection()->getDoctrineSchemaManager()->getDatabasePlatform();
+        $platform->registerDoctrineTypeMapping('enum', 'string');
         Schema::table('empleadosdatoslab', function (Blueprint $table) {
             //
-            $table->dropColumn('periodopaga');
-            $table->dropColumn('regimen');
+            
             $table->integer('contrato_id')->nullable()->unsigned()->change();
-            $table->enum('periodopaga',['Semanal','Quincenal','Mensual']);
-            $table->enum('regimen',['Sueldos y salarios','Jubilados','Pensionados']);
         });
     }
 
@@ -32,6 +32,7 @@ class ChangePropertyFromEmpleadosdatoslabTable extends Migration
     {
         Schema::table('empleadosdatoslab', function (Blueprint $table) {
             //
+            $table->dropColumn('contrato_id');
         });
     }
 }

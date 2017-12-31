@@ -63,7 +63,7 @@
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="salariodia">Salario Diario:</label>
-						<input class="form-control" type="number" placeholder="0.00" required step="0.01" title="Solo cantidades mayores a 0.01" pattern="^\d+(?:\.\d{1,2})?$" id="salariodia" name="salariodia" value="{{ $datoslab->salariodia }}">
+						<input class="form-control" type="number" placeholder="0.00" required step="0.01" data-number-to-fixed="2" title="Solo cantidades mayores a 0.01" pattern="^\d+(?:\.\d{1,2})?$" id="salariodia" name="salariodia" value="{{ $datoslab->salariodia }}">
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="puesto_inicio">Puesto Inicial:</label>

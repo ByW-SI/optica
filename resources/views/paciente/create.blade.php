@@ -43,21 +43,21 @@
 					{{-- PESTAÑAS --}}
 					<div>
 						<ul class="nav nav-pills">
-							<li class="active"><a href="#tab1"  class="ui-tabs-anchor">Generales:</a></li>
+							<li class="active"><a data-toggle="tab" href="#tab1"  class="ui-tabs-anchor">Generales:</a></li>
 
-							<li role="presentation"><a class="ui-tabs-anchor">Historial Medico:</a></li>
+							<li><a data-toggle="tab" href="#" class="ui-tabs-anchor">Historial Medico:</a></li>
 
-							<li role="presentation"><a class="ui-tabs-anchor">Ocular:</a></li>
+							<li><a data-toggle="tab" href="#" class="ui-tabs-anchor">Ocular:</a></li>
 
-							<li role="presentation"><a class="ui-tabs-anchor">Ortopedico:</a></li>
+							<li><a data-toggle="tab" href="#" class="ui-tabs-anchor">Ortopedico:</a></li>
 
-							<li role="presentation"><a class="ui-tabs-anchor">Citas:</a></li>
+							<li><a data-toggle="tab" href="#" class="ui-tabs-anchor">Citas:</a></li>
 
-							<li role="presentation"><a class="ui-tabs-anchor">C.R.M.:</a></li>
+							<li><a data-toggle="tab" href="#" class="ui-tabs-anchor">C.R.M.:</a></li>
 						</ul>
 					</div>
 					{{-- DATOS GENERALES --}}
-					<div class="panel-default">
+					<div id="tab1" class="panel-default">
 						<div class="panel-heading"><h5>Datos Generales:</h5></div>
 						<div class="panel-body">
 							<div class="col-xs-offset-2 form-group col-xs-4">
@@ -125,7 +125,7 @@
 						</div>
 						<div class="panel-heading">Tutores:</div>
 						<div class="panel-body">
-							<button class="btn btn-info">Agregar Tutores</button>
+							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#formularioTutor">Agregar Tutores</button>
 							<div class="container">
 								
 								<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
@@ -145,6 +145,70 @@
 										</tr>
 									</tbody>
 								</table>
+							</div>
+							<!-- Modal -->
+							<div class="modal fade" id="formularioTutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Tutor</h5>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+							        <div class="panel-default">
+							        	<div class="panel-heading"><h5>Tutor:</h5></div>
+							        	<div class="panel-body">
+							        		<div class="form-group col-xs-4">
+												<label class="control-label">Nombre:</label>
+												<input class="form-control" type="text">
+											</div>
+											<div class="form-group col-xs-4">
+												<label class="control-label">Apellido Paterno:</label>
+												<input class="form-control" type="text">
+											</div>
+											<div class="form-group col-xs-4">
+												<label class="control-label">Apellido Materno:</label>
+												<input class="form-control" type="text">
+											</div>
+											<div class="form-group col-xs-4">
+												<label class="control-label">Edad:</label>
+												<input class="form-control" type="text">
+											</div>
+											<div class="form-group col-xs-4">
+												<label class="control-label">Fecha de nacimiento:</label>
+												<input class="form-control" type="date">
+											</div>
+											<div class="form-group col-xs-4">
+												<label class="control-label">Sexo:</label>
+												<select class="form-control">
+													<option>Masculino</option>
+													<option>Femenino</option>
+													<option>Otro</option>
+												</select>
+											</div>
+											<div class="col-xs-offset-4 form-group col-xs-4">
+												<label class="control-label">Relación con el paciente:</label>
+												<select class="form-control">
+													<option>Padre</option>
+													<option>Madre</option>
+													<option>Tio/Tia</option>
+													<option>Abuelo/Abuela</option>
+													<option>Hermano/Hermana</option>
+													<option>Primos</option>
+													<option>Otros</option>
+												</select>
+											</div>
+							        	</div>
+							        </div>
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+							        <button type="button" class="btn btn-primary">Agregar</button>
+							      </div>
+							    </div>
+							  </div>
 							</div>
 						</div>
 					</div>

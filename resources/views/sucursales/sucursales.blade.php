@@ -91,7 +91,7 @@
   								  <ul class="nav nav-pills ">
 
     <li class="active">
-    	<a data-toggle="tab" href="#dir" class="btn-info">Direcciòn  
+    	<a data-toggle="tab" href="#dir" class="btn-info">Dirección  
     		<i class="fa fa-map-signs" aria-hidden="true"></i>
     	</a>
     </li>

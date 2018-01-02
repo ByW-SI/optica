@@ -252,6 +252,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
+    <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
 
     {{-- <script type="text/javascript">
         function formulario(elemento){

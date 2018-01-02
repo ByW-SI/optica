@@ -5,7 +5,14 @@
 					<div class="panel-default">
 						<div class="panel-heading"><h4>Datos del Proveedor:
 							&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos
-						</h4></div>
+						</h4>
+						<a class="btn btn-info" 
+				           href="{{ route('provedores.create')}}">
+							 <strong>
+							   Agregar Nuevo Proveedor
+							</strong>
+							</a>
+					</div>
 						<div class="panel-body">
 							<div class="col-md-12 offset-md-2 mt-3">
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

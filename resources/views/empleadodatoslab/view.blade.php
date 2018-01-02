@@ -18,7 +18,7 @@
 		</ul>
 	</div>
 	<div class="panel-default">
-		<div class="panel-heading"><h5>Laborales:</h5></div>
+		<div class="panel-heading"><h5><strong>Laborales:</strong></h5></div>
 		<div class="panel-body">
 			<div class="col-md-12 offset-md-2 mt-3">
 				<div class="form-group col-xs-3">

@@ -22,7 +22,7 @@
 			 		       class="form-control" 
 			 		       placeholder="Nombre de la Sucursal" 
 			 		       pattern="[A-Za-z]+" 
-			 		       autofocus="on">
+			 		       autofocus>
 			  </div>
 	    		
 

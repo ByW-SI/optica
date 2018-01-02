@@ -163,9 +163,33 @@
                                 <a href="#" 
                                    onclick="AgregarNuevoTab('{{ url('/provedores/create')}}','Agregar Proveedor')">
                                 <i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
+
                                 <a href="#" 
                                 onclick="AgregarNuevoTab('{{ url('/provedores') }}','Buscar Proveedor')">
                                 <i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
+                                <li class="dropdown-submenu">
+                                <a tabindex="-1" 
+                                   href="#">
+                                   <i class="fa fa-refresh" 
+                                      aria-hidden="true"></i> 
+                                  Precargas:</a>
+                                    <ul class="dropdown-menu">
+                                      <li>
+                                        <a href="#" 
+                                           onclick="AgregarNuevoTab('{{ url('/giros') }}','Giros')">
+                                           <i class="fa fa-refresh" aria-hidden="true"></i> 
+                                       Giros</a></li>
+
+                                      <li><a href="#" 
+                                             onclick="AgregarNuevoTab('{{ url('/formacontactos') }}','Forma de Contacto')">
+                                             <i class="fa fa-refresh" aria-hidden="true"></i>Forma Contactos</a></li>
+                                    </ul>
+                                  </li>
+
+
+
+
+
                             </li>                     
                         </ul>
                     </li>

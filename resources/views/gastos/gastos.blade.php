@@ -1,5 +1,5 @@
 @extends('layouts.test')
-@section('gastos')
+@section('content1')
 
 <div class="container" align="left">
   <form>

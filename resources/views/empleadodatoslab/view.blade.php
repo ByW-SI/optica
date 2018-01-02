@@ -18,7 +18,7 @@
 		</ul>
 	</div>
 	<div class="panel-default">
-		<div class="panel-heading"><h5>Laborales:</h5></div>
+		<div class="panel-heading"><h5><strong>Laborales:</strong></h5></div>
 		<div class="panel-body">
 			<div class="col-md-12 offset-md-2 mt-3">
 				<div class="form-group col-xs-3">
@@ -96,7 +96,9 @@
 					<dd>{{ $datoslab->clabe }}</dd>
 				</div>
 			</div>
-			<a class="btn btn-info btn-md" href="{{ route('empleados.datoslaborales.edit',['empleado'=>$empleado,'datoslaborale'=>$datoslab]) }}">Editar</a>
+			<a class="btn btn-info btn-md" href="{{ route('empleados.datoslaborales.edit',['empleado'=>$empleado,'datoslaborale'=>$datoslab]) }}">
+				<strong>Editar</strong>
+			</a>
 		</div>
 	</div>
 @endsection

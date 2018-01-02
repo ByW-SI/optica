@@ -1,3 +1,4 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 /*.navbar.navbar-default.navbar-static-top{
 	background: #55688a;
 }
@@ -13,9 +14,9 @@
 .pestana{
 	display: none;
 }
-.dropdown-submenu {
+/*.dropdown-submenu {
     position: relative;
-}
+}*/
 .modal-content {
     position: absolute;
     margin-left: -300px;
@@ -27,9 +28,4 @@
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
     background-clip: padding-box;
     outline: 0;
-}
-.dropdown-submenu .dropdown-menu {
-    margin-top: 0;
-    right: 0;
-    left: auto;
 }

@@ -14,7 +14,7 @@ class Provedor extends Model
    
     use Sortable, SoftDeletes;
     //
-    public $table='proveedores';
+    protected $table='proveedores';
 
     public $sortable = ['id', 'nombre','apellidopaterno','apellidomaterno', 'razonsocial', 'email'];
    /**

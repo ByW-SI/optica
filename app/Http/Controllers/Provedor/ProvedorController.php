@@ -18,7 +18,7 @@ class ProvedorController extends Controller{
     public function index()
     {
         //
-        $provedores = Provedor::sortable()->paginate(10);
+        $provedores = Provedor::sortable()->paginate(5);
         // Alert::message('Robots are working!');
         return view('provedores.index', ['provedores'=>$provedores]);
     }
@@ -90,12 +90,12 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provedor $provedor)
+    public function update(Request $request, Provedor $provedore)
     {
-        //
-        $provedor->update($request->all());
+        
+        $provedore->update($request->all());
         Alert::success('Proveedor actualizado')->persistent("Cerrar");
-        return redirect()->route('provedores.index');
+        return redirect()->route('provedores.show',['provedore'=>$provedore]);
     }
 
     /**
@@ -112,19 +112,19 @@ class ProvedorController extends Controller{
     // dd($request);
     $query = $request->input('busqueda');
     $wordsquery = explode(' ',$query);
-    $provedore = Provedor::where(function($q) use($wordsquery){
+    $provedores = Provedor::where(function($q) use($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
             $q->orWhere('nombre','LIKE',"%$word%")
                 ->orWhere('apellidopaterno','LIKE',"%$word%")
                 ->orWhere('apellidomaterno','LIKE',"%$word%")
-                ->orWhere('razonsocial','LIKE',"%$word%");
-                // ->orWhere('rfc','LIKE',"%$word%");
-                // ->orWhere('alias','LIKE',"%$word%");
-                // ->orWhere('tipopersona','LIKE',"%$word%")
+                ->orWhere('razonsocial','LIKE',"%$word%")
+                ->orWhere('rfc','LIKE',"%$word%")
+                ->orWhere('alias','LIKE',"%$word%")
+                ->orWhere('tipopersona','LIKE',"%$word%");
             }
         })->get();
-    return view('provedores.busqueda', ['provedore'=>$provedore]);
+    return view('provedores.busqueda', ['provedores'=>$provedores]);
         
 
     }

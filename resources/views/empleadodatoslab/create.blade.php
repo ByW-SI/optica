@@ -237,7 +237,9 @@
 						</div>
 					</div>
 				</div>
-				<button type="submit" class="btn btn-success">Guardar</button>
+				<button type="submit" class="btn btn-success">
+			<strong>Guardar</strong>	
+			</button>
 				<p><strong>*Campo requerido</strong></p>
 			</form>
 		</div>

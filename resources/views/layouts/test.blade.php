@@ -14,7 +14,8 @@
     <link rel="icon" href="{{ asset('img//favicon.ico') }}" type="image/x-icon">
     
     <!-- Styles -->
-     <script href="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script href="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('bootstrap-toggle/css/bootstrap-toggle.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -66,7 +67,7 @@
             }
         }
     </script> --}}
-    <script src=""></script>
+    <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
     
 
    

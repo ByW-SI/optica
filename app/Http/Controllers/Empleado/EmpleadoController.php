@@ -110,4 +110,26 @@ class EmpleadoController extends Controller
     {
         return view('empleado.consulta');
     }
+
+    public function buscar(Request $request){
+    // dd($request);
+    $query = $request->input('busqueda');
+    $wordsquery = explode(' ',$query);
+    $empleados = Empleado::where(function($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+            $q->orWhere('nombre','LIKE',"%$word%")
+                ->orWhere('appaterno','LIKE',"%$word%")
+                ->orWhere('apmaterno','LIKE',"%$word%")
+                ->orWhere('rfc','LIKE',"%$word%")
+                ->orWhere('curp','LIKE',"%$word%");
+                // ->orWhere('rfc','LIKE',"%$word%");
+                // ->orWhere('alias','LIKE',"%$word%");
+                // ->orWhere('tipopersona','LIKE',"%$word%")
+            }
+        })->get();
+    return view('empleado.busqueda', ['empleados'=>$empleados]);
+        
+
+    }
 }

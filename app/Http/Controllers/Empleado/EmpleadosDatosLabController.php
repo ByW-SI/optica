@@ -128,7 +128,35 @@ class EmpleadosDatosLabController extends Controller
     {
         //
         $datoslab = EmpleadosDatosLab::findOrFail($datoslaborale);
-        $datoslab->update($request->all());
+        $datoslab->fechacontratacion = $request->fechacontratacion;
+        $datoslab->area = $request->area;
+        $datoslab->puesto = $request->puesto;
+        $datoslab->salarionom = $request->salarionom;
+        $datoslab->salariodia = $request->salariodia ;
+        $datoslab->puesto_inicio = $request->puesto_inicio ;
+        $datoslab->periodopaga = $request->periodopaga ;
+        $datoslab->prestaciones = $request->prestaciones ;
+        $datoslab->regimen = $request->regimen ;
+        $datoslab->hentrada = $request->hentrada ;
+        $datoslab->hsalida = $request->hsalida ;
+        $datoslab->hcomida = $request->hcomida ;
+        $datoslab->lugartrabajo = $request->lugartrabajo ;
+        $datoslab->banco = $request->banco ;
+        $datoslab->cuenta = $request->cuenta ;
+        $datoslab->clabe = $request->clabe ;
+        $datoslab->fechabaja = $request->fechabaja ;
+        $datoslab->tipobaja_id = $request->tipobaja_id ;
+        $datoslab->comentariobaja = $request->comentariobaja ;
+        $datoslab->contrato_id = $request->contrato_id ;
+        if ($request->bonopuntualidad == 'on') {
+            # code...
+            $datoslab->bonopuntualidad = true;
+            // dd($request->all());
+        } else {
+            # code...
+            $datoslab->bonopuntualidad = false;
+        }
+        $datoslab->save();
         return redirect()->route('empleados.datoslaborales.index',['empleado'=>$empleado,'datoslab'=>$datoslab]);
     }
 

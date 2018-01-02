@@ -17,22 +17,11 @@
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="nombre">Giro de la empresa:</label>
-	 				@if ($giro == null)
-	 					{{-- expr --}}
-	 					<dd>Sin giro</dd>
-	 				@else
-						<dd>{{$giro->nombre}}</dd>
-	 				@endif
+					<dd>{{$giro->nombre}}</dd>
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="nombre">Forma de contacto:</label>
-	 				@if ($formaContacto == null)
-	 					{{-- true expr --}}
-	 					<dd>Sin forma de contacto</dd>
-	 				@else
-	 					<dd>{{$formaContacto->nombre}}</dd>
-	 					{{-- false expr --}}
-	 				@endif
+	 				<dd>{{$formaContacto->nombre}}</dd>
 	 			</div>
 	 		</div>
 	 		<div class="col-md-12 offset-md-2 mt-3">
@@ -48,9 +37,11 @@
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="fechacontacto">Fecha de contacto:</label>
 	 				<dd>{{$datos->fechacontacto}}</dd>
+	 				
 	 			</div>
 	 		</div>
- 		<a class="btn btn-info" href="{{ route('provedores.datosgenerales.edit',['provedores'=>$provedore,'datosgenerale'=>$datos]) }}">Editar</a>
+ 		<a class="btn btn-info" href="{{ route('provedores.datosgenerales.edit',['provedores'=>$provedore,'datosgenerale'=>$datos]) }}">
+ 	<strong>Editar</strong>	</a>
 	 	</div>
 	</div>
-@endsection
+	@endsection

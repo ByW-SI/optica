@@ -175,10 +175,10 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="#" 
-                                   onclick="AgregarNuevoTab('{{ url('/')}}','Agregar Paciente')">
+                                   onclick="AgregarNuevoTab('{{ url('/pacientes/create')}}','Agregar Paciente')">
                                    <i class="fa fa-user-plus" aria-hidden="true"></i> Agregar Paciente</a>
                                 <a href="#" 
-                                onclick="AgregarNuevoTab('{{ url('/') }}','Buscar Proveedor')">
+                                onclick="AgregarNuevoTab('{{ url('/pacientes') }}','Buscar Paciente')">
                                 <i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
                                 <a href="#" 
                                 onclick="AgregarNuevoTab('{{ url('/') }}','Buscar Proveedor')">

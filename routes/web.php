@@ -21,6 +21,7 @@ Route::resource('provedores.direccionfisica','Provedor\ProvedorDireccionFisicaCo
 Route::resource('provedores.datosgenerales','Provedor\ProvedorDatosGeneralesController');
 Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
 Route::resource('provedores.crm','Provedor\ProvedorCRMController');
+Route::resource('pacientes','Paciente\PacienteController');
 //----------------------------------------------------------
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
 Route::resource('empleados','Empleado\EmpleadoController');

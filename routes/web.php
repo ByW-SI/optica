@@ -67,3 +67,8 @@ Route::get('comision',function(){
 
 Route::resource('formacontactos','FormaContacto\FormaContactoController');
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
+//-----------------------------------
+Route::get('citas',function(){
+
+	return View::make('citas.create');
+});

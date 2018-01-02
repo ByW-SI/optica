@@ -1,3 +1,4 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 /*.navbar.navbar-default.navbar-static-top{
 	background: #55688a;
 }
@@ -28,9 +29,3 @@
     background-clip: padding-box;
     outline: 0;
 }
-
-/*.dropdown-submenu .dropdown-menu {
-    margin-top: 0;
-    right: 0;
-    left: auto;
-}*/

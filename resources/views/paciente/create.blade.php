@@ -243,11 +243,184 @@
 									<strong>Agregar</strong>	</button>
 										<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
 									<strong>Modificar</strong>	</a>
-										
-
 									</div>
-									<input type="checkbox" checked data-toggle="toggle">
+									<div class="col-xs-offset-2 form-group">
+										<label>&nbsp;&nbsp;&nbsp;¿Le molesta la luz solar?&nbsp;&nbsp;</label><input type="checkbox" checked data-toggle="toggle">
+										
+									</div>
+									<br>
+									<div class="col-xs-offset-2 form-group col-xs-5">
+										<label class="control-label">Fecha de su último examen de la vista</label>
+										<input type="date" class="form-control">
+									</div>
+									<div class="form-group col-xs-4">
+										<label class="control-label">¿Usa anteojos?</label>
+										<br>
+										<input type="checkbox" class="form-control" checked data-toggle="toggle">
+									</div>
+									<div class="col-xs-offset-2 form-group">
+										<label class="control-label">&nbsp;&nbsp;&nbsp;¿A qué edad empezó a usar anteojos?</label>
+
+									<div class="input-group col-xs-4">
+										<input type="text" class="input-group form-control"><span class="input-group-addon">años</span>
+									</div>
+									</div>
+									<div class="col-xs-offset-2 form-group col-xs-4">
+										<label class="control-label">¿Usa computadora?</label>
+										<br>
+										<input type="checkbox" class="form-control" checked data-toggle="toggle">
+									</div>
+									<div class="form-group col-xs-4">
+										<label class="control-label">¿Causa molestias o cansancio?</label>
+										<br>
+										<input type="checkbox" class="form-control" checked data-toggle="toggle">
+									</div>
+									<div class="col-xs-offset-2 form-group col-xs-4">
+										<label class="control-label">¿Siente dolor de cabeza?</label>
+										<br>
+										<input type="checkbox" class="form-control" checked data-toggle="toggle">
+									</div>
 						 		</div>
+						 		<div class="panel-heading">
+									<h5>Citas</h5>
+								</div>
+								<div class="panel-body">
+									<div class="form-group col-xs-6">
+										<div style="
+										height: 250px;
+										overflow: scroll;">
+											<table class="table table-striped table-bordered table-hover" 
+										       style="color:rgb(51,51,51); 
+										              border-collapse: collapse;
+										              margin-bottom: 0px;
+										              overflow: scroll;"
+										       >
+											<thead>
+												<tr class="info">
+													<th>Fecha</th>
+													<th>Hora</th>								
+												</tr>
+											</thead>
+											<tbody >
+												<tr onclick='' 
+												title='Has Click Aquì para ver o Modificar'
+												style='cursor: pointer'>
+													<td>21/01/2018</td>
+													<td>02:00 p.m.</td>
+												</tr>
+
+												<?php
+													for ($i=0; $i <4 ; $i++) { 
+														echo"<tr onclick='' 
+												title='Has Click Aquì para ver o Modificar'
+												style='cursor: pointer'>
+													<td>15/02/2018</td>
+													<td>1:00 pm</td>
+													
+													
+												</tr>";
+													}
+												?>
+											</tbody>
+										</table>
+										</div>
+									</div>
+									<div class="col-xs-offset-1 form-group col-xs-4">
+										<label class="control-label" for="fecha_act">Fecha:</label>
+										<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
+									</div>
+								</div>
+								<div class="panel-body">
+									<h3><span class="label label-default">A.V.S. Lentes</span></h3>
+									<div class="col-xs-offset-2 form-group col-sm-4">
+										<label class="col-xs-offset-4 control-label">Actual:</label>
+										<div class="input-group">
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-4">
+										<label class="col-xs-offset-4 control-label">Anterior:</label>
+										<div class="input-group">
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class=" col-xs-offset-2 form-group col-sm-4">
+										
+										<div class="input-group">
+										  <span class="input-group-addon">O.L.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-4">
+										
+										<div class="input-group">
+										  <span class="input-group-addon">O.L.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="col-xs-offset-2 form-group col-sm-4">
+										
+										<div class="input-group">
+										  <span class="input-group-addon">K.O.D.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-4">
+										
+										<div class="input-group">
+										  <span class="input-group-addon">K.O.D.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class=" col-xs-offset-2 form-group col-sm-4">
+										
+										<div class="input-group">
+										  <span class="input-group-addon">K.O.L.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-4">
+										
+										<div class="input-group">
+										  <span class="input-group-addon">K.O.L.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+
+								</div>
+								<div class="panel-body">
+									<h3><span class="label label-default">A.V. Clientes</span></h3>
+									<div class="col-xs-offset-2 form-group col-sm-4">
+										<label class="col-xs-offset-4 control-label">Actual:</label>
+										<div class="input-group">
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-4">
+										<label class="col-xs-offset-4 control-label">Anterior:</label>
+										<div class="input-group">
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class=" col-xs-offset-2 form-group col-sm-4">
+										
+										<div class="input-group">
+										  <span class="input-group-addon">O.L.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-4">
+										
+										<div class="input-group">
+										  <span class="input-group-addon">O.L.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+								</div>
 						 	</div>
 						 </div>
 

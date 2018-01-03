@@ -158,7 +158,7 @@
 
 					<div class="panel-heading">Dirección Fisica:</div>
 					<div class="panel-body">
-						@if (isset($provedore->direccionFisicaProvedor))
+						@if (!isset($provedore->direccionFisicaProvedor))
 							{{-- true expr --}}
 							<h3>Aun no tiene direccion Fisica</h3>
 						@else
@@ -218,12 +218,12 @@
 						contactos Provedor:
 					</div>
 					
-					@if (isset($provedore->contactosProvedor))
+					@if (!isset($provedore->contactosProvedor))
 					<div class="panel-body">
 						<h3>Aún no tienes contactos Provedor</h3>
 					</div>
 					@endif
-					@if (!isset($provedore->contactosProvedor))
+					@if (isset($provedore->contactosProvedor))
 					<div class="panel-body">
 						<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 							<thead>

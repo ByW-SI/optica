@@ -27,8 +27,8 @@ class ProvedorDatosGeneralesController extends Controller
             return redirect()->route('provedores.datosgenerales.create',['provedore'=>$provedore]);;
         }
         else{
-            $giro = Giro::findorFail($datos->giro_id);
-            $formaContacto = FormaContacto::findorFail($datos->forma_contacto_id);
+            $giro = Giro::find($datos->giro_id);
+            $formaContacto = FormaContacto::find($datos->forma_contacto_id);
             // dd($giro);
             return view('datosgeneralesprovedores.view',['datos'=>$datos, 'provedore'=>$provedore, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
             
@@ -77,9 +77,9 @@ class ProvedorDatosGeneralesController extends Controller
         $datos = $provedore->datosGeneralesProvedor;
         
         
-        $giro = Giro::findorFail($datos->giro_id);
+        $giro = Giro::find($datos->giro_id);
 
-        $formaContacto = FormaContacto::findorFail($datos->forma_contacto_id);
+        $formaContacto = FormaContacto::find($datos->forma_contacto_id);
        
         return view('datosgeneralesprovedores.view',
         ['datos'=>$datos, 'provedore'=>$provedore, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);

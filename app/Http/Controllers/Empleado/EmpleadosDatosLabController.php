@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\TipoBaja;
 use App\TipoContrato;
 use Illuminate\Http\Request;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class EmpleadosDatosLabController extends Controller
 {
@@ -43,6 +44,7 @@ class EmpleadosDatosLabController extends Controller
         $contratos = TipoContrato::get();
         $bajas = TipoBaja::get();
         $edit = false;
+        
         return view('empleadodatoslab.create',['empleado'=>$empleado,'bajas'=>$bajas,'contratos'=>$contratos,'datoslab'=>$datoslab,'edit'=>$edit]);
     }
 
@@ -86,6 +88,8 @@ class EmpleadosDatosLabController extends Controller
             $datoslab->bonopuntualidad = false;
         }
         $datoslab->save();
+        Alert::success('Datos laborales creado', 'Siga agregando información al empleado');
+        
         return redirect()->route('empleados.datoslaborales.index',['empleado'=>$empleado,'datoslab'=>$datoslab]);
     }
 
@@ -157,6 +161,7 @@ class EmpleadosDatosLabController extends Controller
             $datoslab->bonopuntualidad = false;
         }
         $datoslab->save();
+        Alert::success('Datos laborales actualizados');
         return redirect()->route('empleados.datoslaborales.index',['empleado'=>$empleado,'datoslab'=>$datoslab]);
     }
 

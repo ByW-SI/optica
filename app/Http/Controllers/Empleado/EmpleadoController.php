@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Empleado;
 use App\Empleado;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class EmpleadoController extends Controller
 {
@@ -31,6 +32,7 @@ class EmpleadoController extends Controller
         //
         $empleado = new Empleado;
         $edit = false;
+
         return view('empleado.create',['empleado'=>$empleado,'edit'=>$edit]);
     }
 
@@ -50,6 +52,7 @@ class EmpleadoController extends Controller
         }
         else {
             $empleado = Empleado::create($request->all());
+            Alert::success('Empleado Creado', 'Siga agregando información al empleado');
             return redirect()->route('empleados.show',['empleado'=>$empleado])->with('success','Empleado Creado');
         }
     }
@@ -63,6 +66,7 @@ class EmpleadoController extends Controller
     public function show(Empleado $empleado)
     {
         //
+        Alert::success('Empleado Creado', 'Siga agregando información al empleado');
         return view('empleado.view',['empleado'=>$empleado]);
     }
 
@@ -76,6 +80,7 @@ class EmpleadoController extends Controller
     {
         //
         $edit= true;
+        Alert::success('Empleado Creado', 'Siga agregando información al empleado');
         return view('empleado.create',['empleado'=>$empleado,'edit'=>$edit]);
     }
 
@@ -90,6 +95,7 @@ class EmpleadoController extends Controller
     {
         //
         $empleado->update($request->all());
+        Alert::success('Empleado actualizado');
         return redirect()->route('empleados.show',['empleado'=>$empleado])->with('success','Empleado Actualizado');
 
     }

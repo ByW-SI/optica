@@ -154,10 +154,9 @@
 
 					<div class="panel-heading">Datos Laborales:</div>
 					<div class="panel-body">
-						@if (!isset($empleado->datosLab))
+						@if (isset($empleado->datosLab))
 							{{-- true expr --}}
 							<h3>Aun no tiene Datos Laborales</h3>
-							
 						@else
 							{{-- false expr --}}
 
@@ -212,12 +211,12 @@
 						Estudios:
 					</div>
 					
-					@if (!isset($empleado->estudios))
+					@if (isset($empleado->estudios))
 					<div class="panel-body">
 						<h3>Aún no tienes Estudios Agregados</h3>
 					</div>
 					@endif
-					@if (isset($empleado->estudios))
+					@if (!isset($empleado->estudios))
 					<div class="panel-body">
 						<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 							<thead>
@@ -258,12 +257,12 @@
 							
 				<div class="panel-default pestana" id="tab4{{$empleado->id}}">
 				 	<div class="panel-heading">Datos Emergencias:</div>
-				 	@if (!isset($empleado->emergencias))
+				 	@if (isset($empleado->emergencias))
 						<div class="panel-body">
 							<h3>Aún no tienes datos de Emergencias</h3>
 						</div>
 						@endif
-						@if (isset($empleado->emergencias))
+						@if (!isset($empleado->emergencias))
 				 	<div class="panel-body">
 				 		<div class="col-md-12 offset-md-2 mt-3">
 				 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

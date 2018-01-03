@@ -6,6 +6,7 @@ use App\Empleado;
 use App\EmpleadosEstudios;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class EmpleadosEstudiosController extends Controller
 {
@@ -91,6 +92,7 @@ class EmpleadosEstudiosController extends Controller
         }
         // dd($estudios);
         $estudios->save();
+        Alert::success('Estudios creados correctamente', 'Siga agregando información al empleado');
         return redirect()->route('empleados.estudios.index',['empleado'=>$empleado,'estudios'=>$estudios]);
     }
 
@@ -168,6 +170,8 @@ class EmpleadosEstudiosController extends Controller
         }
         // dd($estudios);
         $estudios->save();
+
+        Alert::success('Estudios actualizados correctamente');
         return redirect()->route('empleados.estudios.index',['empleado'=>$empleado,'estudios'=>$estudios]);
     }
 

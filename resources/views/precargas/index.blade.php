@@ -46,10 +46,13 @@
 								
 							</div>
 						</div>
-						<form role="form" method="POST" action="{{ route($borrar,['precarga'=>$precarga]) }}">
+						<form role="form" 
+						method="POST" 
+						action="{{ route($borrar,['precarga'=>$precarga]) }}"
+						id="eliminar {{ $precarga->id }}">
 							{{ csrf_field() }}
 							<input type="hidden" name="_method" value="DELETE">
-						<button type="submit" onclick="deleteFunction()" class="btn btn-info btn-sm" ><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button>
+						<button type="submit" onclick="deleteFunction('eliminar {{ $precarga->id }}')" class="btn btn-info btn-sm" ><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button>
 						</form>
 				</tr>
 					</td>

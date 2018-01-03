@@ -421,6 +421,209 @@
 										</div>
 									</div>
 								</div>
+								<div class="panel-body">
+									<h3><span class="label label-default">R.X. Actual</span></h3>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">O.D. Est.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">Cil.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">Eje</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">Add</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">D.N.P.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">A.O.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">O.L. Est.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">Cil.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">Eje</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">Add</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">D.N.P.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">A.O.</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+								</div>
+								<div class="panel-body">
+									<h3><span class="label label-default">R.X. Anterior</span></h3>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">O.D. Est.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">Cil.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">Eje</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">Add</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">D.N.P.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">A.O.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">O.L. Est.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">Cil.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">Eje</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">Add</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">D.N.P.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<div class="input-group">
+										  <span class="input-group-addon">A.O.</span>
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+								</div>
+								<div class="panel-body">
+									<div class="col-xs-offset-2 form-group col-xs-4">
+										<label class="col-xs-offset-5 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actual:</label>
+										<div class="form-inline form-group">
+										  <label class="control-label">Tipo de anteojos: &nbsp;&nbsp;</label>
+										  <select class="form-control">
+										  	<option>Tipo 1</option>
+										  	<option>Tipo 2</option>
+										  	<option>Tipo ...</option>
+										  </select>
+										</div>
+									</div>
+									<div class="form-group col-xs-4">
+										<label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anterior:</label>
+										<br>
+										<div class="form-group col-xs-4">
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="col-xs-offset-2 form-group col-xs-4">
+										<div class="form-inline form-group">
+										  <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tipo de L/C: &nbsp;&nbsp;&nbsp;</label>
+										  <select class="form-control">
+										  	<option>Tipo 1</option>
+										  	<option>Tipo 2</option>
+										  	<option>Tipo ...</option>
+										  </select>
+										</div>
+									</div>
+									<div class="form-group col-xs-4">
+										<div class="form-group col-xs-4">
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="col-xs-offset-2 form-group col-xs-4">
+										<div class="form-inline form-group">
+										  <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DR./opt: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+										  <input type="text" class="form-control" style="width: 91px">
+										</div>
+									</div>
+									<div class="form-group col-xs-4">
+										<div class="form-group col-xs-4">
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="col-xs-offset-2 form-inline col-xs-4">
+										<label class="control-label">Observaciones/<br>Comentarios: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+										<textarea class="form-control"></textarea>
+									</div>
+									<div class="form-inline">
+										  <textarea class="form-control" readonly=""></textarea>
+									</div>
+								</div>
 						 	</div>
 						 </div>
 

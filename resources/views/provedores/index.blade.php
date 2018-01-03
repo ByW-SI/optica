@@ -158,7 +158,7 @@
 
 					<div class="panel-heading">Dirección Fisica:</div>
 					<div class="panel-body">
-						@if (count($provedore->direccionFisicaProvedor) == 0 )
+						@if (isset($provedore->direccionFisicaProvedor))
 							{{-- true expr --}}
 							<h3>Aun no tiene direccion Fisica</h3>
 						@else
@@ -215,15 +215,15 @@
 				</div>
 				<div class="panel-default pestana" id="tab3{{$provedore->id}}">
 					<div class="panel-heading">
-						contactosProvedor:
+						contactos Provedor:
 					</div>
 					
-					@if (count($provedore->contactosProvedor) == 0)
+					@if (isset($provedore->contactosProvedor))
 					<div class="panel-body">
-						<h3>Aún no tienes contactosProvedor</h3>
+						<h3>Aún no tienes contactos Provedor</h3>
 					</div>
 					@endif
-					@if (count($provedore->contactosProvedor) !=0)
+					@if (!isset($provedore->contactosProvedor))
 					<div class="panel-body">
 						<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 							<thead>
@@ -253,12 +253,12 @@
 							
 				<div class="panel-default pestana" id="tab4{{$provedore->id}}">
 				 	<div class="panel-heading">Datos Generales:</div>
-				 	@if (count($provedore->datosGeneralesProvedor) == 0)
+				 	@if ($provedore->datosGeneralesProvedor == null)
 						<div class="panel-body">
 							<h3>Aún no tienes datos generales</h3>
 						</div>
 						@endif
-						@if (count($provedore->datosGeneralesProvedor) !=0)
+						@if ($provedore->datosGeneralesProvedor != null)
 				 	<div class="panel-body">
 				 		<div class="col-md-12 offset-md-2 mt-3">
 				 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

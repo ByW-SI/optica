@@ -17,11 +17,19 @@
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="nombre">Giro de la empresa:</label>
+	 				@if($datos->giro_id == null)
+	 				<dd>No tiene giro</dd>
+	 				@else
 					<dd>{{$giro->nombre}}</dd>
+					@endif
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="nombre">Forma de contacto:</label>
+	 				@if($datos->forma_contacto_id == null)
+	 				<dd>No tiene forma de contacto</dd>
+	 				@else
 	 				<dd>{{$formaContacto->nombre}}</dd>
+	 				@endif
 	 			</div>
 	 		</div>
 	 		<div class="col-md-12 offset-md-2 mt-3">

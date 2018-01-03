@@ -14,18 +14,23 @@
     <link rel="icon" href="{{ asset('img//favicon.ico') }}" type="image/x-icon">
     
     <!-- Styles -->
+    <script href="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sweetalert.css') }}">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
     <!-- Optional theme -->
-
-    <!-- Latest compiled and minified JavaScript -->
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    Latest compiled and minified JavaScript
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> --}}
 
      <!-- Custom Fonts -->
     <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- ********************************** -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
          <script src="{{ asset('js/peticion.js') }}"></script>
 
@@ -70,7 +75,6 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -78,7 +82,6 @@
                                                      document.getElementById('logout-form').submit();">
                                             <i class="fa fa-sign-out" aria-hidden="true"></i>Logout
                                         </a>
-
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
@@ -240,19 +243,61 @@
             </div>
         </nav>
         @yield('content')
-           <!-- /.container -->
-    <div class="container" style="width: 100%; height: 100%;">
-        <ul id="tabsApp" class="nav nav-tabs"></ul>
-        <div id="contenedortab" class="tab-content"></div>
-    </div>
+        
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
+    <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
+
+    {{-- <script type="text/javascript">
+        function formulario(elemento){
+            if (elemento.value == "Prospecto") {
+                document.getElementById('cliente').style.display='none';
+                document.getElementById('cliente1').style.display='none';
+                document.getElementById('cliente2').style.display='none';
+            }
+            if (elemento.value == "Cliente") {
+                document.getElementById('cliente').style.display='inline';
+                document.getElementById('cliente1').style.display='inline';
+                document.getElementById('cliente2').style.display='inline';
+            }
+        }
+        function persona(elemento){
+            if(elemento.value == "Fisica"){
+                document.getElementById('perfisica').style.display='inline';
+                document.getElementById('permoral').style.display='none';
+            }
+            if(elemento.value =="Moral"){
+                document.getElementById('perfisica').style.display='none';
+                document.getElementById('permoral').style.display='inline';
+            }
+        }
+    </script> --}}
     <script src="{{ asset('js/sweetalert.js') }}"></script>
     @include('sweet::alert')
+<!-- ********************************************** -->
+        
+    
+        <!-- /.container -->
+    <div class="container" style="width: 100%; height: 100%;">
+        <ul id="tabsApp" class="nav nav-tabs"></ul>
+        <div id="contenedortab" class="tab-content"></div>
+    </div>
+
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/pestanas.js') }}"></script>
     <script src="{{ asset('js/forms.js') }}"></script>
+    <script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
    
 </body>
 </html>

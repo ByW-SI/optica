@@ -165,6 +165,19 @@
 							@endif>3 hrs.</option>
 						</select>
 					</div>
+
+						<div class="form-group col-xs-3">
+						<label class="control-label" for="contrato">Sucursal:</label>
+						<select type="select" class="form-control" name="contrato_id">
+							<!-- @foreach ($contratos as $contrato)
+								{{-- expr --}}
+								<option id="{{$contrato->id}}" value="{{$contrato->id}}" @if ($datoslab->contrato_id == $contrato->id)
+									{{-- expr --}}
+									selected="selected" 
+								@endif>{{$contrato->nombre}}</option>
+							@endforeach -->
+						</select>
+					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="lugartrabajo">Lugar de Trabajo:</label>
 						<select type="select" name="lugartrabajo" class="form-control" id="lugartrabajo" value="{{ $datoslab->lugartrabajo }}">
@@ -203,6 +216,7 @@
 						<label class="control-label" for="clabe">CLABE(Clave Bancaria Estandarizada):</label>
 						<input class="form-control" type="clabe" name="clabe" id="clabe" value="{{ $datoslab->clabe }}">
 					</div>
+				
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="bonopuntualidad" id="lbl_inst2">Bono Puntualidad:</label>
 						<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="bonopuntualidad" @if ($datoslab->bonopuntualidad == 1)

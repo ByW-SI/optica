@@ -18,6 +18,7 @@
 					Campos Requeridos&nbsp;&nbsp;
 					<a class="btn btn-info" href="{{ route('empleados.create') }}"><strong>Nuevo Empleado</strong></a>
 				</h4></div>
+				
 				<div class="panel-body">
 					<div class="col-xs-12 offset-md-2 mt-3">
 						<div class="form-group col-xs-3">

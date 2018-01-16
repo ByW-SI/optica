@@ -12,7 +12,28 @@ class Empleado extends Model
     protected $table = 'empleados';
 
     protected $fillable = [
-    	'id','identificador','nombre','appaterno','apmaterno','rfc','telefono','movil','email','nss','curp','infonavit','fnac','cp','calle','numext','numint','colonia','municipio','estado','calles','referencia'
+    	'id',
+        'identificador',
+        'nombre',
+        'appaterno',
+        'apmaterno',
+        'rfc',
+        'telefono',
+        'movil',
+        'email',
+        'nss',
+        'curp',
+        'infonavit',
+        'fnac',
+        'cp',
+        'calle',
+        'numext',
+        'numint',
+        'colonia',
+        'municipio',
+        'estado',
+        'calles',
+        'referencia'
     ];
     public $sortable = [
     	'identificador','nombre','appaterno','apmaterno','rfc'
@@ -37,4 +58,5 @@ class Empleado extends Model
     public function faltasAdmin(){
         return $this->hasMany('App\EmpleadosFaltasAdministrativas');
     }
+    
 }

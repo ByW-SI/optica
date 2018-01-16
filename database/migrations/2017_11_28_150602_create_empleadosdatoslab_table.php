@@ -35,6 +35,10 @@ class CreateEmpleadosdatoslabTable extends Migration
             $table->string('banco');
             $table->string('cuenta')->nullable();
             $table->string('clabe')->nullable();
+
+            $table->integer('sucursal_id')->unsigned();
+            $table->foreign('sucursal_id')->references('id')->on('sucursals');
+            
             $table->timestampsTz();
         });
     }

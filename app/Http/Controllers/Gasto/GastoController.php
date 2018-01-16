@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Gasto;
 
 use App\Gasto;
+use App\Sucursal;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class GastoController extends Controller
 {
@@ -25,10 +27,12 @@ class GastoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
-        return view('gastos.create');
+        $sucursal = Sucursal::find($request->sucursal);
+        // dd($sucursal);
+        $gasto= new Gasto; 
+        return view('gastos.create',['gasto'=>$gasto,'sucursal'=>$sucursal]);
     }
 
     /**
@@ -40,9 +44,14 @@ class GastoController extends Controller
     public function store(Request $request)
     {
         //
-
+       $sucursal = Sucursal::find($request->sucursal_id);
         Gasto::create($request->all());
-        return redirect('gastos');
+        Alert::success("Gasto registrado con exito")->persistent("Cerrar");
+        
+        
+        $gastos=Gasto::where('sucursal_id',$request->sucursal_id);
+        $gasto= new Gasto;
+        return view('gastos.create',['gastos'=>$gastos, 'sucursal'=>$sucursal,'gasto'=>$gasto]);
     }
 
     /**

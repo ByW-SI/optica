@@ -35,15 +35,14 @@
 
        
     </form>
-<br />
 
 
 
-      <div class="container-fluid">
-        <br />
-      <br /><br />
-  <strong><h4>Despliegue de datos <i class="fa fa-television" aria-hidden="true"></i></h4></strong>
-  <br />
+
+      
+      
+      
+
 
       <table class="table">
     <thead>
@@ -119,7 +118,7 @@
 
 
 
- </div>
+
  
   <div class="col-sm-4">
           <h5><strong>Total</strong></h5>

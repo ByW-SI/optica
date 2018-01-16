@@ -50,8 +50,11 @@
 					<div class="col-xs-12 offset-md-2 mt-3">
 						<div class="form-group col-xs-4">
 						<label class="control-label" for="region">Región:</label>
-			    					<select type="select" name="region" class="form-control" 
+			    					<select type="select" 
+			    					        name="region" 
+			    					        class="form-control" 
 			    					        id="region" >
+			    					        
 			    					<option id="Region 1" value="Region 1">Region 1</option>
 			    					<option id="Region 2" value="Region 2">Region 2</option>
 			    					<option id="Region 3" value="Region 3">Region 3</option>
@@ -75,7 +78,7 @@
 <div role="application" class="panel panel-group">
 				<div class="panel-default">
 
-					<div class="panel-heading"><h4>Detalles de Sucursal :
+					<div class="panel-heading"><h4>Direcciòn de Sucursal :
 					&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
 					Campos Requeridos&nbsp;&nbsp;
 					<!-- <a class="btn btn-info" href="{{ route('sucursales.create') }}"><strong>Nueva Sucursal</strong></a> -->
@@ -83,34 +86,12 @@
 
                   
                    <div class="panel-body">
-                   	 <ul class="nav nav-pills ">
-
-    <li class="active">
-    	<a data-toggle="tab" href="#dir" class="btn-info">Dirección  
-    		
-    	</a>
-    </li>
-
-    <li>
-    	<a data-toggle="tab" href="#gas" class="btn-info">Gastos
-    		
-    	</a>
-
-    </li>
-
-    <li><a data-toggle="tab" href="#emp" class="btn-info">Empleados
-    	
-       </a>
-   </li>
-    
-  </ul>
+                   
 
 
 
 
-  <div class="tab-content">
-
-  	<div id="dir" class="tab-pane fade in active">
+  
 			
 			 	 <br />
     	
@@ -119,35 +100,77 @@
       		<div class="col-md-12 offset-md-2 mt-3">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="calle"><i class="fa fa-asterisk" aria-hidden="true"></i> Calle:</label>
-			    					<input type="text" class="form-control" id="calle" name="calle" required>
+			    					<input type="text" 
+			    					      class="form-control" 
+			    					      id="calle" 
+			    					      name="calle"
+			    					      value="{{ $sucursal->calle }}" 
+			    					      required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="numext"><i class="fa fa-asterisk" aria-hidden="true"></i> Numero exterior:</label>
-			    					<input type="text" class="form-control" id="numext" name="numext" required>
+			    					<input type="text" 
+			    					       class="form-control" 
+			    					       id="numext" 
+			    					       name="numext"
+			    					       value="{{ $sucursal->numext }}" 
+			    					       required>
 			  					</div>	
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="numint">Numero interior:</label>
-			    					<input type="text" class="form-control" id="numint" name="numint">
+			    					<input type="text" 
+			    					       class="form-control" 
+			    					       id="numint" 
+			    					       name="numint"
+			    					       value="{{ $sucursal->numint }}">
 			  					</div>
-			  					
+			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12" align="right">
+							<button type="submit" 
+									        class="btn btn-success">
+									 <strong>Guardar</strong>
+								</button>
+						
+
+
+    </div>
 							</div>
 
 								<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="colonia"><i class="fa fa-asterisk" aria-hidden="true"></i> Colonia:</label>
-			  						<input type="text" class="form-control" id="colonia" name="colonia" required>
+			  						<input type="text" 
+			  						class="form-control" 
+			  						id="colonia" 
+			  						name="colonia"
+			  						value="{{ $sucursal->colonia }}" 
+			  						required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="delegacion"><i class="fa fa-asterisk" aria-hidden="true"></i> Delegación o Municipio:</label>
-			  						<input type="text" class="form-control" id="delegacion" name="delegacion" required>
+			  						<input type="text" 
+			  						class="form-control" 
+			  						id="delegacion" 
+			  						name="delegacion"
+			  						value="{{ $sucursal->delegacion }}" 
+			  						required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="ciudad"> <i class="fa fa-asterisk" aria-hidden="true"></i>Ciudad:</label>
-			  						<input type="text" class="form-control" id="ciudad" name="ciudad" required>
+			  						<input type="text" 
+			  						class="form-control" 
+			  						id="ciudad" 
+			  						name="ciudad"
+			  						value="{{ $sucursal->ciudad }}" 
+			  						required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="estado"> <i class="fa fa-asterisk" aria-hidden="true"></i>Estado:</label>
-			  						<input type="text" class="form-control" id="estado" name="estado" required>
+			  						<input type="text" 
+			  						class="form-control" 
+			  						id="estado" 
+			  						name="estado"
+			  						value="{{ $sucursal->estado }}" 
+			  						required>
 			  					</div>
 							</div>
 
@@ -155,43 +178,35 @@
 								<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="calle1">Entre calle:</label>
-			  						<input type="text" class="form-control" id="calle1" name="calle1">
+			  						<input type="text" 
+			  						class="form-control" 
+			  						id="calle1" 
+			  						name="calle1"
+			  						value="{{ $sucursal->calle1 }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="calle2">Y calle:</label>
-			  						<input type="text" class="form-control" id="calle2" name="calle2">
+			  						<input type="text" 
+			  						class="form-control" 
+			  						id="calle2" 
+			  						name="calle2"
+			  						value="{{ $sucursal->calle2 }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="referencia">Referencia:</label>
-			  						<input type="text" class="form-control" id="referencia" name="referencia">
+			  						<input type="text" 
+			  						class="form-control" 
+			  						id="referencia" 
+			  						name="referencia"
+			  						value="{{ $sucursal->referencia }}">
 			  					</div>
-			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12" align="right">
-							<button type="submit" 
-									        class="btn btn-success">
-									 <strong>Guardar</strong>
-								</button>
-						</div>
-							</div>
-
-
-    </div>
+			  					
 
 
 
 
 
-    <div id="gas" class="tab-pane fade ">
-    	<iframe src="/gastos.create" >
-    		
-    	</iframe>
-    </div>
-
-
-    <div id="emp" class="tab-pane fade ">
-    	<iframe src="empleados.index" >
-    		
-    	</iframe>
-    </div>
+ 
 
 
 

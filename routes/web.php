@@ -76,12 +76,10 @@ Route::get('citas',function(){
 });
 //--------------------------------------------------------------------
 Route::resource('gastos','Gasto\GastoController', ['except'=>'show']);
-Route::resource('gastos.create','Gasto\GastoController@create');
+// Route::resource('gastos.create','Gasto\GastoController@create');
 
 Route::resource('sucursales','Sucursal\SucursalController');
 Route::get('sucursales.create','Sucursal\SucursalController@create');
-Route::get('sucursales.datosgenerales.show', 'Sucursal\SucursalDatosGeneralesController@show');
-Route::resource('sucursales.direccionfisica','Sucursal\SucursalDireccionFisicaController');
-Route::resource('sucursales.datosgenerales','Sucursal\SucursalDatosGeneralesController');
-Route::resource('sucursales.contacto','Sucursal\SucursalContactoController');
-Route::resource('sucursales.crm','Sucursal\SucursalCRMController');
+// Route::get('sucursales.datosgenerales.show', 'Sucursal\SucursalDatosGeneralesController@show');
+
+

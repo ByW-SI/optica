@@ -1,29 +1,159 @@
-@extends('layouts.blank')
-	@section('content')
-	<div class="container">
-		<form role="form" method="POST" action="{{ route('giros.store') }}">
+@extends('layouts.test')
+@section('content1')
+	
+		
+		
+		<form role="form" 
+		      method="POST" 
+		      action="{{ route('gastos.store',['gasto'=>$gasto]) }}">
 			{{ csrf_field() }}
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					Nuevo Giro &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos
-				</div>
-				<div class="panel-body">
-					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-						<label class="control-label" for="nombre"><i class="fa fa-asterisk" aria-hidden="true"></i> Nombre del Giro:</label>
-	  					<input type="text" class="form-control" id="nombre" name="nombre" required autofocus>
-					</div>
-					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-						<label class="control-label" for="etiqueta">Etiqueta:</label>
-	  					<input type="text" class="form-control" id="etiqueta" name="etiqueta">
-					</div>
-				</div>
-				<div class="panel-body">
-					<button type="submit" class="btn btn-success">
-					<strong>Guardar</strong>
-				</button>
+			<div role="application" class="panel panel-group">
+				<div class="panel-default">
+
+
+
+					<div class="panel-heading"><h4>Datos de Gastos:
+					&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
+					Campos Requeridos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</h4></div>
+
 					
-				</div>	
+
+				<div class="panel-body">
+					<div class="col-xs-12 offset-md-2 mt-3">
+						<div class="form-group col-xs-4">
+							<label class="control-label" for="descripcion"><i class="fa fa-asterisk" aria-hidden="true"></i> Descripcion:</label>
+							<input type="text" class="form-control" id="descripcion" name="descripcion" required="required" value="{{ $gasto->descripcion }}" placeholder="Breve Descripcion">
+						</div>
+
+						<div class="form-group col-xs-4">
+							<label class="control-label" for="monto"><i class="fa fa-asterisk" aria-hidden="true"></i> Monto :</label>
+							<input type="text" class="form-control" id="monto" name="monto" required="required" value="{{ $gasto->monto }}" placeholder="$---">
+						</div>
+
+							<input type="hidden" class="form-control" id="sucursal_id" name="sucursal_id"  value="{{ $sucursal->id }}">
+
+						<div class="form-group col-xs-4" align="right">
+							<button type="submit" 
+									        class="btn btn-success">
+									 <strong>Agregar</strong>
+								</button>
+						</div>
+						
+						</div>
+					</div>
+
+
+
+				</div>
+
 			</div>
+	
+			
 		</form>
-	</div>
+
+
+
+
+
+
+
+
+
+
+
+		
+       
+
+
+      <table class="table">
+    <thead>
+      <tr>
+        <th>Descripción 
+          <i class="fa fa-file-text-o" aria-hidden="true"></i></th>
+        <th>Monto  
+        <i class="fa fa-money" aria-hidden="true"></i></th>
+        <th>Opciones
+          <i class="fa fa-list-ul" aria-hidden="true"></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr class="warning">
+        <td>Salarios</td>
+        <td>$--</td>
+        <td>
+          <div class="btn-group">
+
+    <button type="button" class="btn btn-info">Editar
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </button>
+
+    
+
+    </div>
+
+        </td>
+
+      </tr>
+@if(isset($gastos))
+@foreach($gastos as $g)
+      <tr>
+        <td>{{$g->descripcion}}</td>
+        <td>{{$g->monto}}</td>
+        <td>
+          <div class="btn-group">
+
+    <button type="button" class="btn btn-info">Editar
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </button>
+
+    <button type="button" class="btn btn-warning">Eliminar
+<i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+
+    </div>
+        </td>
+      </tr>
+@endforeach
+@else
+<tr>
+        <td>descripcion</td>
+        <td>monto</td>
+        <td>
+          <div class="btn-group">
+
+    <button type="button" class="btn btn-info">Editar
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </button>
+
+    <button type="button" class="btn btn-warning">Eliminar
+<i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+
+    </div>
+        </td>
+      </tr>
+      @endif
+     
+
+     
+    </tbody>
+  </table>
+
+
+
+ 
+ 
+  <div class="col-sm-4">
+          <h5><strong>Total</strong></h5>
+          <input type="text" name="total" class="form-control" placeholder="$--" readonly>
+         </div>
+
+
+
+
+ </div>
+	
 	@endsection

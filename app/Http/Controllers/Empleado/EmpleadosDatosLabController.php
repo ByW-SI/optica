@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Empleado;
 
 use App\Empleado;
+use App\Sucursal;
 use App\EmpleadosDatosLab;
 use App\Http\Controllers\Controller;
 use App\TipoBaja;
@@ -43,9 +44,10 @@ class EmpleadosDatosLabController extends Controller
         $datoslab = new EmpleadosDatosLab;
         $contratos = TipoContrato::get();
         $bajas = TipoBaja::get();
+        $sucursales =Sucursal::get();
         $edit = false;
         
-        return view('empleadodatoslab.create',['empleado'=>$empleado,'bajas'=>$bajas,'contratos'=>$contratos,'datoslab'=>$datoslab,'edit'=>$edit]);
+        return view('empleadodatoslab.create',['empleado'=>$empleado,'bajas'=>$bajas,'contratos'=>$contratos,'datoslab'=>$datoslab,'edit'=>$edit,'sucursales'=>$sucursales]);
     }
 
     /**
@@ -116,8 +118,9 @@ class EmpleadosDatosLabController extends Controller
         $datoslab = $empleado->datosLab;
         $contratos = TipoContrato::get();
         $bajas = TipoBaja::get();
+        $sucursales =Sucursal::get();
         $edit = true;
-        return view('empleadodatoslab.create',['datoslab'=>$datoslab,'bajas'=>$bajas,'contratos'=>$contratos,'empleado'=>$empleado,'edit'=>$edit]);
+        return view('empleadodatoslab.create',['datoslab'=>$datoslab,'bajas'=>$bajas,'contratos'=>$contratos,'empleado'=>$empleado,'edit'=>$edit,'sucursales'=>$sucursales]);
 
     }
 

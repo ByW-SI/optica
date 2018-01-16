@@ -130,10 +130,7 @@
                             <i class="fa fa-university" aria-hidden="true"></i> Sucursales
                                 </a>
 
-                                 <a href="#"
-                                   onclick="AgregarNuevoTab('{{ url('sucursaleses')}}','VIEW')">
-                            <i class="fa fa-university" aria-hidden="true"></i> VIEW
-                                </a>
+                                
 
                                 <a href="#"
                                    onclick="AgregarNuevoTab('{{ url('/bonos')}}','Bonos')">
@@ -203,12 +200,15 @@
                                 <a href="#" 
                                    onclick="AgregarNuevoTab('{{ url('/pacientes/create')}}','Agregar Paciente')">
                                    <i class="fa fa-user-plus" aria-hidden="true"></i> Agregar Paciente</a>
+
                                 <a href="#" 
                                 onclick="AgregarNuevoTab('{{ url('/pacientes') }}','Buscar Paciente')">
                                 <i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
-                                <a href="#" 
+
+                                <!-- <a href="#" 
                                 onclick="AgregarNuevoTab('{{ url('/') }}','Buscar Proveedor')">
-                                <i class="fa fa-address-book-o" aria-hidden="true"></i> C.R.M.</a>
+                                <i class="fa fa-address-book-o" aria-hidden="true"></i> C.R.M.</a> -->
+                                
                                 <li class="dropdown-submenu pull-left">
                                 <a tabindex="-1" href="#"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas:</a>
                                     <ul class="dropdown-menu">

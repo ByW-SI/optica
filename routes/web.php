@@ -59,6 +59,11 @@ Route::get('comision',function(){
 
 	return View::make('Empleadobonos.comision');
 });
+
+Route::get('comision',function(){
+
+	return View::make('Empleadobonos.comision');
+});
 //-----------------------------------------------------
 
 

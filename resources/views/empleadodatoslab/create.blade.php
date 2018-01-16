@@ -168,14 +168,14 @@
 
 						<div class="form-group col-xs-3">
 						<label class="control-label" for="contrato">Sucursal:</label>
-						<select type="select" class="form-control" name="contrato_id">
-							<!-- @foreach ($contratos as $contrato)
+						<select type="select" class="form-control" name="sucursal_id">
+							@foreach ($sucursales as $sucursal)
 								{{-- expr --}}
-								<option id="{{$contrato->id}}" value="{{$contrato->id}}" @if ($datoslab->contrato_id == $contrato->id)
+								<option id="{{$sucursal->id}}" value="{{$sucursal->id}}" @if ($datoslab->sucursal_id == $sucursal->id)
 									{{-- expr --}}
 									selected="selected" 
-								@endif>{{$contrato->nombre}}</option>
-							@endforeach -->
+								@endif>{{$sucursal->nombre}}</option>
+							@endforeach
 						</select>
 					</div>
 					<div class="form-group col-xs-3">

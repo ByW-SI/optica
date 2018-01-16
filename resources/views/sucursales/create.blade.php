@@ -21,8 +21,8 @@
 
 					<div class="panel-heading"><h4>Datos de la Sucursal:
 					&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
-					Campos Requeridos&nbsp;&nbsp;
-					<a class="btn btn-info" href="{{ route('sucursales.create') }}"><strong>Nueva Sucursal</strong></a>
+					Campos Requeridos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a class="btn btn-info" href="{{ route('sucursales.create') }}"><strong>Ver Sucursales</strong></a>
 				</h4></div>
 
 				<div class="panel-body">
@@ -181,7 +181,14 @@
 
 
     <div id="gas" class="tab-pane fade ">
-    	<iframe src="gastos.create" >
+    	<iframe src="/gastos.create" >
+    		
+    	</iframe>
+    </div>
+
+
+    <div id="emp" class="tab-pane fade ">
+    	<iframe src="empleados.index" >
     		
     	</iframe>
     </div>

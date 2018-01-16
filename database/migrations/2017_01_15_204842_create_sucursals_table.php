@@ -18,7 +18,7 @@ class CreateSucursalsTable extends Migration
             $table->increments('id');
             $table->string('nombre');
 
-            $table->string('resposable');
+            $table->string('responsable');
             $table->string('claveid');
             
 
@@ -29,7 +29,7 @@ class CreateSucursalsTable extends Migration
             $table->string('numint')->nullable();
             $table->string('colonia');
             $table->string('delegacion');
-            $table->string('cuidad');
+            $table->string('ciudad');
             $table->string('estado');
             $table->string('calle1')->nullable();
             $table->string('calle2')->nullable();

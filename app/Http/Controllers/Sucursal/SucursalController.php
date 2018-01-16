@@ -47,10 +47,10 @@ class SucursalController extends Controller{
             
         $sucursal = Sucursal::create($request->all());
 
-        Alert::success("Sucursal registrada con exito, sigue agregando información")->persistent("Cerrar");
+Alert::success("Sucursal registrada con exito")->persistent("Cerrar");
 
-    return redirect()->route('sucursales.direccionfisica.create',['sucursal'=>$sucursal]);
-        
+return redirect()->route('sucursales.create',['sucursal'=>$sucursal]);
+    Alert::success("Sucursal registrada con exito")->persistent("Cerrar");    
         
     }
 

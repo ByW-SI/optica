@@ -152,7 +152,7 @@
   <div class="col-sm-4">
           <h5><strong>Total</strong></h5>
 @if(isset($total))
-          <input type="text" name="total" class="form-control" placeholder="$.{{$total}}" readonly>
+          <input type="text" name="total" class="form-control" value="$.{{$total}}" readonly>
 @else
           <input type="text" name="total" class="form-control" placeholder="$--" readonly>
           @endif

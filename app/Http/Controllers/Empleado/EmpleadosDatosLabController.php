@@ -81,6 +81,7 @@ class EmpleadosDatosLabController extends Controller
         $datoslab->tipobaja_id = $request->tipobaja_id ;
         $datoslab->comentariobaja = $request->comentariobaja ;
         $datoslab->contrato_id = $request->contrato_id ;
+        $datoslab->sucursal_id = $request->sucursal_id ;
         if ($request->bonopuntualidad == 'on') {
             # code...
             $datoslab->bonopuntualidad = true;
@@ -101,9 +102,11 @@ class EmpleadosDatosLabController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function show(Empleado $empleado)
+    public function show(Request $request)
     {
-        //
+        dd($request->sucursal_id);
+    $empleados=EmpleadoDatosLab::where('sucursal_id',$request->sucursal_id);
+    return view('empleadodatoslab.show');
     }
 
     /**
@@ -155,6 +158,8 @@ class EmpleadosDatosLabController extends Controller
         $datoslab->tipobaja_id = $request->tipobaja_id ;
         $datoslab->comentariobaja = $request->comentariobaja ;
         $datoslab->contrato_id = $request->contrato_id ;
+        $datoslab->sucursal_id = $request->sucursal_id ;
+
         if ($request->bonopuntualidad == 'on') {
             # code...
             $datoslab->bonopuntualidad = true;
@@ -178,4 +183,9 @@ class EmpleadosDatosLabController extends Controller
     {
         //
     }
+
+
+
+
+
 }

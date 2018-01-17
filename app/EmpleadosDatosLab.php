@@ -11,8 +11,30 @@ class EmpleadosDatosLab extends Model
     use Sortable;
 
     protected $table='empleadosdatoslab';
-    protected $fillable=['id','empleado_id', 'fechacontratacion','contrato_id','area','puesto','salarionom','salariodia','puesto_inicio','periodopaga','prestaciones','regimen','hentrada','hsalida','hcomida','lugartrabajo','banco','cuenta','clabe','fechabaja','tipobaja_id','comentariobaja','bonopuntualidad',
-        'sucursal_id'];
+    protected $fillable=['id',
+                         'empleado_id',
+                         'fechacontratacion',
+                         'contrato_id',
+                         'area',
+                         'puesto',
+                         'salarionom',
+                         'salariodia',
+                         'puesto_inicio',
+                         'periodopaga',
+                         'prestaciones',
+                         'regimen',
+                         'hentrada',
+                         'hsalida',
+                         'hcomida',
+                         'lugartrabajo',
+                         'banco',
+                         'cuenta',
+                         'clabe',
+                         'fechabaja',
+                         'tipobaja_id',
+                         'comentariobaja',
+                         'bonopuntualidad',
+                         'sucursal_id'];
         
     protected $hidden=['created_at','updated_at'];
     public $sortable=['id'];

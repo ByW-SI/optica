@@ -204,7 +204,7 @@
 
 
     <div id="emp" class="tab-pane fade ">
-    	<iframe src="empleados"
+    	<iframe src="{{route ('empleados.datoslaborales.sucursal',['sucursal'=>$sucursal->id])}}"
     	        height="500px" >
     		
     	</iframe>

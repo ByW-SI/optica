@@ -24,12 +24,18 @@ Route::resource('provedores.crm','Provedor\ProvedorCRMController');
 Route::resource('pacientes','Paciente\PacienteController');
 //----------------------------------------------------------
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
+
+Route::get('sucursales/{sucursal}/empleados'
+	,'Sucursal\SucursalController@empleados');
 Route::resource('empleados','Empleado\EmpleadoController');
 Route::resource('empleados.datoslaborales','Empleado\EmpleadosDatosLabController');
 Route::resource('empleados.estudios','Empleado\EmpleadosEstudiosController');
 Route::resource('empleados.emergencias','Empleado\EmpleadosEmergenciasController');
 Route::resource('empleados.vacaciones','Empleado\EmpleadosVacacionesController');
 Route::resource('empleados.faltas','Empleado\EmpleadosFaltasAdministrativasController');
+
+
+
 Route::resource('contratos','Precargas\TipoContratoController');
 Route::resource('bajas','Precargas\TipoBajaController');
 

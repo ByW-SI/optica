@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Sucursal;
 use App\Sucursal;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 use Illuminate\Http\Request;
+use App\Empleado;
+use App\EmpleadosDatosLab;
 use App\Http\Controllers\Controller;
 
 
@@ -122,6 +124,28 @@ return view('sucursales.view',['sucursal'=>$sucursal,'edit'=>true]);
     return view('sucursales.busqueda', ['sucursales'=>$sucursales]);
         
 
+    }
+
+
+
+    public function empleados(Sucursal $sucursal)
+    {
+    
+    
+    $empleados=array();
+    $datos=EmpleadosDatosLab::where('sucursal_id',$sucursal->id)->get();
+
+foreach ($datos as $dato ): 
+
+$empleado=Empleado::where('id',$dato->empleado_id)->get();
+
+array_push($empleados, $empleado);
+
+endforeach;
+
+  
+
+    return view('empleado.show',['empleados'=>$empleados]);
     }
 
 

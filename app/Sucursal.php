@@ -42,7 +42,9 @@ class Sucursal extends Model
         return $this->hasMany('App\Gasto');
     }
    
-    
+    public function empleados(){
+        return $this->hasMany('App\empleados');
+    }
     public function datosLab(){
         return $this->hasMany('App\EmpleadosDatosLab');
     }

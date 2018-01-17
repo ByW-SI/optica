@@ -58,5 +58,8 @@ class Empleado extends Model
     public function faltasAdmin(){
         return $this->hasMany('App\EmpleadosFaltasAdministrativas');
     }
+    public function sucursal(){
+        return $this->belongsTo('App\Sucursal');
+    }
     
 }

@@ -12,7 +12,7 @@
 
 					<div class="panel-heading"><h4>Datos de la Sucursal:</h4>
 					
-					<a class="btn btn-info" href="{{ route('sucursales.create') }}"><strong>Ver Sucursales</strong></a>
+					<a class="btn btn-info" href="{{ route('sucursales.index') }}"><strong>Ver Sucursales</strong></a>
 					<a class="btn btn-success" href="{{ route('sucursales.create') }}"><strong>Nueva Sucursal</strong></a>
 				</div>
 
@@ -204,7 +204,7 @@
 
 
     <div id="emp" class="tab-pane fade ">
-    	<iframe src="{{route ('empleados.datoslaborales.sucursal',['sucursal'=>$sucursal->id])}}"
+    	<iframe src="{{route ('sucursales.empleados',['sucursal'=>$sucursal->id])}}"
     	        height="500px" >
     		
     	</iframe>

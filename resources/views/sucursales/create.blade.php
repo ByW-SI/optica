@@ -22,7 +22,7 @@
 					<div class="panel-heading"><h4>Datos de la Sucursal:
 					&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
 					Campos Requeridos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a class="btn btn-info" href="{{ route('sucursales.create') }}"><strong>Ver Sucursales</strong></a>
+					<a class="btn btn-info" href="{{ route('sucursales.index') }}"><strong>Ver Sucursales</strong></a>
 				</h4></div>
 
 				<div class="panel-body">

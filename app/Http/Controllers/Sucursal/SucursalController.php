@@ -20,7 +20,7 @@ class SucursalController extends Controller{
     public function index()
     {
         //
-        $sucursales = Sucursal::sortable()->paginate(5);
+        $sucursales = Sucursal::get();
         // Alert::message('Robots are working!');
         return view('sucursales.index', ['sucursales'=>$sucursales]);
     }
@@ -50,6 +50,7 @@ class SucursalController extends Controller{
         $sucursal = Sucursal::create($request->all());
 
 Alert::success("Sucursal registrada con exito")->persistent("Cerrar");
+
 return view('sucursales.view',['sucursal'=>$sucursal,'edit'=>true]);
 //return redirect()->route('sucursales.view',['sucursal'=>$sucursal]);
     //Alert::success("Sucursal registrada con exito")->persistent("Cerrar");    
@@ -77,7 +78,7 @@ return view('sucursales.view',['sucursal'=>$sucursal,'edit'=>true]);
     public function edit(Sucursal $sucursal)
     {
         //
-        return view('sucursales.edit',['sucursal'=>$sucursal]);
+        return view('sucursales.create',['edit'=>true,'sucursal'=>$sucursal]);
     }
 
     /**

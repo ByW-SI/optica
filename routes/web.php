@@ -25,8 +25,7 @@ Route::resource('pacientes','Paciente\PacienteController');
 //----------------------------------------------------------
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
 
-Route::get('sucursales/{sucursal}/empleados'
-	,'Sucursal\SucursalController@empleados');
+
 Route::resource('empleados','Empleado\EmpleadoController');
 Route::resource('empleados.datoslaborales','Empleado\EmpleadosDatosLabController');
 Route::resource('empleados.estudios','Empleado\EmpleadosEstudiosController');
@@ -86,6 +85,9 @@ Route::resource('gastos','Gasto\GastoController', ['except'=>'show']);
 
 Route::resource('sucursales','Sucursal\SucursalController');
 Route::get('sucursales.create','Sucursal\SucursalController@create');
-// Route::get('sucursales.datosgenerales.show', 'Sucursal\SucursalDatosGeneralesController@show');
+//Route::get('sucursales.empleados','Sucursal\SucursalController@empleados');
+Route::resource('sucursales','Sucursal\SucursalController', ['except'=>'show']);
+
+//Route::get('sucursales/{sucursal}/empleados','Sucursal\SucursalController@empleados');
 
 

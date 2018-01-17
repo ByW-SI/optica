@@ -97,11 +97,13 @@
         </td>
 
       </tr>
+      
 @if(isset($gastos))
-@foreach($gastos as $g)
+@foreach($gastos as $gasto)
+
       <tr>
-        <td>{{$g->descripcion}}</td>
-        <td>{{$g->monto}}</td>
+        <td>{{$gasto->descripcion}}</td>
+        <td>{{$gasto->monto}}</td>
         <td>
           <div class="btn-group">
 

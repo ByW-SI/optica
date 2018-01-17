@@ -32,7 +32,9 @@ class GastoController extends Controller
         $sucursal = Sucursal::find($request->sucursal);
         // dd($sucursal);
         $gasto= new Gasto; 
-        return view('gastos.create',['gasto'=>$gasto,'sucursal'=>$sucursal]);
+        $gastos=null;
+
+        return view('gastos.create',['gasto'=>$gasto,'sucursal'=>$sucursal,'gastos'=>$gastos]);//
     }
 
     /**
@@ -45,13 +47,17 @@ class GastoController extends Controller
     {
         //
        $sucursal = Sucursal::find($request->sucursal_id);
+      
         Gasto::create($request->all());
         Alert::success("Gasto registrado con exito")->persistent("Cerrar");
         
         
-        $gastos=Gasto::where('sucursal_id',$request->sucursal_id);
+        $gastos=Gasto::where('sucursal_id',$request->sucursal_id)->get();
+          
+         
         $gasto= new Gasto;
-        return view('gastos.create',['gastos'=>$gastos, 'sucursal'=>$sucursal,'gasto'=>$gasto]);
+        return view('gastos.create',
+            ['gastos'=>$gastos, 'sucursal'=>$sucursal,'gasto'=>$gasto]);
     }
 
     /**

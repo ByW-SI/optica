@@ -56,8 +56,12 @@ class GastoController extends Controller
           
          
         $gasto= new Gasto;
+        $total=0;
+        foreach ($gastos as $suma ) {
+            $total+=$suma->monto;
+        }
         return view('gastos.create',
-            ['gastos'=>$gastos, 'sucursal'=>$sucursal,'gasto'=>$gasto]);
+            ['gastos'=>$gastos, 'sucursal'=>$sucursal,'gasto'=>$gasto,'total'=>$total]);
     }
 
     /**

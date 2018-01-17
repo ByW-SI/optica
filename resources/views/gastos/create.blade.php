@@ -97,13 +97,14 @@
         </td>
 
       </tr>
-      
+
 @if(isset($gastos))
+
 @foreach($gastos as $gasto)
 
       <tr>
         <td>{{$gasto->descripcion}}</td>
-        <td>{{$gasto->monto}}</td>
+        <td>$.{{$gasto->monto}}</td>
         <td>
           <div class="btn-group">
 
@@ -150,7 +151,11 @@
  
   <div class="col-sm-4">
           <h5><strong>Total</strong></h5>
+@if(isset($total))
+          <input type="text" name="total" class="form-control" placeholder="$.{{$total}}" readonly>
+@else
           <input type="text" name="total" class="form-control" placeholder="$--" readonly>
+          @endif
          </div>
 
 

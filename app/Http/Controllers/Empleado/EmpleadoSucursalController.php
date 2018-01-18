@@ -22,7 +22,7 @@ class EmpleadoSucursalController extends Controller
     $empleados=array();
     
     $datos=EmpleadosDatosLab::where('sucursal_id',$request->sucursal)->get();
-    $empleado=array();
+    
 foreach ($datos as $dato ): 
 
 $empleado=Empleado::where('id',$dato->empleado_id)->get();

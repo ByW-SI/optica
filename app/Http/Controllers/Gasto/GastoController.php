@@ -30,11 +30,14 @@ class GastoController extends Controller
     public function create(Request $request)
     {
         $sucursal = Sucursal::find($request->sucursal);
-        // dd($sucursal);
+       
         $gasto= new Gasto; 
-        $gastos=null;
-
-        return view('gastos.create',['gasto'=>$gasto,'sucursal'=>$sucursal,'gastos'=>$gastos]);//
+        $gastos=Gasto::where('sucursal_id',$request->sucursal)->get();
+         $total=0;
+        foreach ($gastos as $suma ) {
+            $total+=$suma->monto;
+        }
+        return view('gastos.create',['gasto'=>$gasto,'sucursal'=>$sucursal,'gastos'=>$gastos,'total'=>$total]);//
     }
 
     /**

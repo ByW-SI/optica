@@ -51,7 +51,7 @@ class SucursalController extends Controller{
 
 Alert::success("Sucursal registrada con exito")->persistent("Cerrar");
 
-return view('sucursales.view',['sucursal'=>$sucursal,'edit'=>true]);
+return view('sucursales.view',['sucursal'=>$sucursal]);
 //return redirect()->route('sucursales.view',['sucursal'=>$sucursal]);
     //Alert::success("Sucursal registrada con exito")->persistent("Cerrar");    
         
@@ -63,10 +63,12 @@ return view('sucursales.view',['sucursal'=>$sucursal,'edit'=>true]);
      * @param  \App\Sucursale  $sucursal
      * @return \Illuminate\Http\Response
      */
-    public function show(Sucursal $sucursal)
+    public function show( $sucursal)
     {
         
-        return view('sucursales.view',['sucursal'=>$sucursal]);
+        $suc= Sucursal::find($sucursal);
+       // dd($suc);
+        return view('sucursales.view',['sucursal'=>$suc]);
     }
 
     /**
@@ -104,8 +106,26 @@ return view('sucursales.view',['sucursal'=>$sucursal,'edit'=>true]);
      */
     public function destroy(Sucursal $sucursal)
     {
-        //
+         $empleados=array();
+    $datos=EmpleadosDatosLab::where('sucursal_id',$sucursal->id)->get();
+
+foreach ($datos as $dato ): 
+
+$empleado=Empleado::where('id',$dato->empleado_id)->get();
+
+array_push($empleados, $empleado);
+
+endforeach;
+
+  
+
+    return view('empleado.index',['empleados'=>$empleados]);
+
     }
+
+
+
+
     public function buscar(Request $request){
     // dd($request);
     $query = $request->input('busqueda');
@@ -146,7 +166,7 @@ endforeach;
 
   
 
-    return view('empleado.show',['empleados'=>$empleados]);
+    return view('empleado.index',['empleados'=>$empleados]);
     }
 
 

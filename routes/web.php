@@ -47,10 +47,6 @@ Route::get('buscarproveedor','Provedor\ProvedorController@buscar');
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('sucursaleses',function(){
-
-	return View::make('sucursales.sucursales');
-});
 
 Route::get('consulta',function(){
 
@@ -65,10 +61,7 @@ Route::get('comision',function(){
 	return View::make('Empleadobonos.comision');
 });
 
-Route::get('comision',function(){
 
-	return View::make('Empleadobonos.comision');
-});
 //-----------------------------------------------------
 
 
@@ -85,9 +78,9 @@ Route::resource('gastos','Gasto\GastoController', ['except'=>'show']);
 
 Route::resource('sucursales','Sucursal\SucursalController');
 Route::get('sucursales.create','Sucursal\SucursalController@create');
-//Route::get('sucursales.empleados','Sucursal\SucursalController@empleados');
-Route::resource('sucursales','Sucursal\SucursalController', ['except'=>'show']);
+Route::get('sucursales.destroy','Sucursal\SucursalController@destroy');
+Route::get('sucursales.empleados','Sucursal\SucursalController@empleados');
 
-//Route::get('sucursales/{sucursal}/empleados','Sucursal\SucursalController@empleados');
+
 
 

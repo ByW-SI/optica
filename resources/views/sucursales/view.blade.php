@@ -204,7 +204,7 @@
 
 
     <div id="emp" class="tab-pane fade ">
-    	<iframe src="{{route ('sucursales.empleados',['sucursal'=>$sucursal->id])}}"
+    	<iframe src="{{route ('sucursales.destroy',['sucursal'=>$sucursal->id])}}"
     	        height="500px" >
     		
     	</iframe>

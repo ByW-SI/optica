@@ -38,7 +38,10 @@
 						<th>{{$sucursal->estado}}</th>
 
 						<th>
-							<a class="btn btn-success btn-sm" href="{{ route('sucursales.edit',['sucursal'=>$sucursal]) }}">
+							
+							<a class="btn btn-success btn-sm" 
+							   href="{{ route('sucursales.show',['sucursal'=>$sucursal]) }}">
+
 								<i class="fa fa-eye" aria-hidden="true"></i> 
 								<strong>Ver
 							</strong></a>

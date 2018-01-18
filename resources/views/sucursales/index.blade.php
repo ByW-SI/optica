@@ -4,13 +4,7 @@
 	<div class="container">
 		<div class="panel-body">
 			<div class="col-lg-6">
-				<!-- <form onKeypress="if(event.keyCode == 13) event.returnValue = false;">
-					<div class="input-group">
-					  <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-					  <input type="text" class="form-control" placeholder="Buscar" aria-describedby="basic-addon1">
-					</div>
-				</form> -->
-
+				
 				<div class="panel-heading">
 					
 					

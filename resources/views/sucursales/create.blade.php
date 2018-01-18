@@ -55,10 +55,33 @@
 			    					        class="form-control" 
 			    					        id="region" >
 			    					        
-			    					<option id="Region 1" value="Region 1">Region 1</option>
-			    					<option id="Region 2" value="Region 2">Region 2</option>
-			    					<option id="Region 3" value="Region 3">Region 3</option>
-			    					<option id="Region 4" value="Region 4">Region 4</option>
+			    					<option id="Region 1" value="Region 1"
+			    					@if ($sucursal->region == "Region 1")
+			    							{{-- expr --}}
+			    							selected="selected" 
+			    						@endif>
+			    					Region 1</option>
+			    					<option id="Region 2" value="Region 2"
+			    					@if ($sucursal->region == "Region 2")
+			    							{{-- expr --}}
+			    							selected="selected" 
+			    						@endif>
+			    					Region 2</option>
+			    					<option id="Region 3" value="Region 3"
+			    					@if ($sucursal->region == "Region 3")
+			    							{{-- expr --}}
+			    							selected="selected" 
+			    						@endif>
+			    					Region 3</option>
+			    					<option id="Region 4" value="Region 4"
+			    					@if ($sucursal->region == "Region 4")
+			    							{{-- expr --}}
+			    							selected="selected" 
+			    						@endif>
+			    					Region 4</option>
+
+
+
 			    					</select>
 						</div>
 

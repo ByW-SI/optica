@@ -22,13 +22,15 @@ class EmpleadosDatosLabController extends Controller
     {
         //
         $datoslab = $empleado->datosLab;
-        // dd($datoslab);
+        //dd( $empleado);
+        
+        // 
         if ($datoslab == null) {
             # code...
             return redirect()->route('empleados.datoslaborales.create',['empleado'=>$empleado]);
         } else {
-            # code...
-            return view('empleadodatoslab.view',['empleado'=>$empleado,'datoslab'=>$datoslab]); 
+            $sucursal=Sucursal::find($datoslab->sucursal_id);
+            return view('empleadodatoslab.view',['empleado'=>$empleado,'datoslab'=>$datoslab,'sucursal'=>$sucursal]); 
         }
         
     }

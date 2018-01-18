@@ -92,8 +92,14 @@
 					<dd>{{ $datoslab->cuenta }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
-					<label class="control-label" for="clabe">CLABE(Clave Bancaria Estandarizada):</label>
+					<label class="control-label" for="clabe">CLABE:</label>
 					<dd>{{ $datoslab->clabe }}</dd>
+				</div>
+			</div>
+			<div class="col-md-12 offset-md-2 mt-3">
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="sucursal">Sucursal:</label>
+					<dd>{{ $sucursal->nombre }}</dd>
 				</div>
 			</div>
 			<a class="btn btn-info btn-md" href="{{ route('empleados.datoslaborales.edit',['empleado'=>$empleado,'datoslaborale'=>$datoslab]) }}">

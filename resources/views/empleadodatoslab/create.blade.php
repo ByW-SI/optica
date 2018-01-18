@@ -213,7 +213,7 @@
 						<input class="form-control" type="text" id="cuenta" name="cuenta" value="{{ $datoslab->cuenta }}">
 					</div>
 					<div class="form-group col-xs-3">
-						<label class="control-label" for="clabe">CLABE(Clave Bancaria Estandarizada):</label>
+						<label class="control-label" for="clabe">CLABE:</label>
 						<input class="form-control" type="clabe" name="clabe" id="clabe" value="{{ $datoslab->clabe }}">
 					</div>
 				

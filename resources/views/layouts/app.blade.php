@@ -126,7 +126,7 @@
                                 </a>
 
                             <a href="#"
-                                   onclick="AgregarNuevoTab('{{ url('sucursales.create')}}','Sucursales')">
+                                   onclick="AgregarNuevoTab('{{ url('sucursales.index')}}','Sucursales')">
                             <i class="fa fa-university" aria-hidden="true"></i> Sucursales
                                 </a>
 

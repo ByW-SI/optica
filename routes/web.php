@@ -23,7 +23,7 @@ Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
 Route::resource('provedores.crm','Provedor\ProvedorCRMController');
 Route::resource('pacientes','Paciente\PacienteController');
 //----------------------------------------------------------
-Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
+
 
 
 Route::resource('empleados','Empleado\EmpleadoController');
@@ -78,8 +78,11 @@ Route::resource('gastos','Gasto\GastoController', ['except'=>'show']);
 
 Route::resource('sucursales','Sucursal\SucursalController');
 Route::get('sucursales.create','Sucursal\SucursalController@create');
-Route::get('sucursales.destroy','Sucursal\SucursalController@destroy');
-Route::get('sucursales.empleados','Sucursal\SucursalController@empleados');
+Route::get('sucursales.index','Sucursal\SucursalController@index');
+
+Route::resource('sucursal','Empleado\EmpleadoSucursalController');
+
+
 
 
 

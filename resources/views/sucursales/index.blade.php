@@ -4,12 +4,19 @@
 	<div class="container">
 		<div class="panel-body">
 			<div class="col-lg-6">
-				<form onKeypress="if(event.keyCode == 13) event.returnValue = false;">
+				<!-- <form onKeypress="if(event.keyCode == 13) event.returnValue = false;">
 					<div class="input-group">
 					  <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
 					  <input type="text" class="form-control" placeholder="Buscar" aria-describedby="basic-addon1">
 					</div>
-				</form>
+				</form> -->
+
+				<div class="panel-heading">
+					
+					
+					<a class="btn btn-success" href="{{ route('sucursales.create') }}"><strong>Nueva Sucursal</strong></a>
+				</div>
+
 			</div>
 		</div>
 		<div id="datos" name="datos" class="jumbotron">
@@ -46,7 +53,7 @@
 								<strong>Ver
 							</strong></a>
 
-							<a class="btn btn-info btn-sm" href="{{ route('sucursales.edit',['sucursal'=>$sucursal]) }}">
+							<a class="btn btn-info btn-sm" href="{{ route('sucursales.edit',['sucursal'=>$sucursal->id]) }}">
 								
 								<i class="fa fa-pencil-square-o" aria-hidden="true"></i> <strong>Editar</strong>
 							</a>

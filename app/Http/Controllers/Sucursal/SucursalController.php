@@ -21,7 +21,7 @@ class SucursalController extends Controller{
     {
         //
         $sucursales = Sucursal::get();
-        // Alert::message('Robots are working!');
+       
         return view('sucursales.index', ['sucursales'=>$sucursales]);
     }
 
@@ -77,10 +77,10 @@ return view('sucursales.view',['sucursal'=>$sucursal]);
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sucursal $sucursal)
+    public function edit( $sucursal)
     {
-        //
-        return view('sucursales.create',['edit'=>true,'sucursal'=>$sucursal]);
+        $suc= Sucursal::find($sucursal);
+        return view('sucursales.create',['edit'=>true,'sucursal'=>$suc]);
     }
 
     /**
@@ -104,70 +104,25 @@ return view('sucursales.view',['sucursal'=>$sucursal]);
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sucursal $sucursal)
+    public function destroy($sucursal)
     {
-         $empleados=array();
-    $datos=EmpleadosDatosLab::where('sucursal_id',$sucursal->id)->get();
-
-foreach ($datos as $dato ): 
-
-$empleado=Empleado::where('id',$dato->empleado_id)->get();
-
-array_push($empleados, $empleado);
-
-endforeach;
-
-  
-
-    return view('empleado.index',['empleados'=>$empleados]);
-
-    }
-
-
-
-
-    public function buscar(Request $request){
-    // dd($request);
-    $query = $request->input('busqueda');
-    $wordsquery = explode(' ',$query);
-    $sucursales = Sucursal::where(function($q) use($wordsquery){
-            foreach ($wordsquery as $word) {
-                # code...
-            $q->orWhere('nombre','LIKE',"%$word%")
-                ->orWhere('apellidopaterno','LIKE',"%$word%")
-                ->orWhere('apellidomaterno','LIKE',"%$word%")
-                ->orWhere('razonsocial','LIKE',"%$word%")
-                ->orWhere('rfc','LIKE',"%$word%")
-                ->orWhere('alias','LIKE',"%$word%")
-                ->orWhere('tipopersona','LIKE',"%$word%");
-            }
-        })->get();
-    return view('sucursales.busqueda', ['sucursales'=>$sucursales]);
         
 
     }
 
 
 
-    public function empleados(Sucursal $sucursal)
-    {
-    
-    
-    $empleados=array();
-    $datos=EmpleadosDatosLab::where('sucursal_id',$sucursal->id)->get();
 
-foreach ($datos as $dato ): 
+    public function buscar( $sucursal){
+   
+        
 
-$empleado=Empleado::where('id',$dato->empleado_id)->get();
+    }
 
-array_push($empleados, $empleado);
 
-endforeach;
 
   
-
-    return view('empleado.index',['empleados'=>$empleados]);
-    }
+   
 
 
 }

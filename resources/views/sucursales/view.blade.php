@@ -14,6 +14,10 @@
 					
 					<a class="btn btn-info" href="{{ route('sucursales.index') }}"><strong>Ver Sucursales</strong></a>
 					<a class="btn btn-success" href="{{ route('sucursales.create') }}"><strong>Nueva Sucursal</strong></a>
+					<a class="btn btn-warning" href="{{ route('sucursales.edit',['sucursal'=>$sucursal->id]) }}">
+								
+								 <strong>Editar</strong>
+							</a>
 				</div>
 
 				<div class="panel-body">
@@ -121,15 +125,13 @@
 			    					<label class="control-label" for="numint">Numero interior:</label>
 			    					<dd>{{ $sucursal->numint }}</dd>
 			  					</div>
-			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12" align="right">
-							<button type="submit" 
-									        class="btn btn-warning">
-									 <strong>Editar</strong>
-								</button>
-						
 
 
-    </div>
+			  				
+
+
+
+
 							</div>
 
 								<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
@@ -204,8 +206,8 @@
 
 
     <div id="emp" class="tab-pane fade ">
-    	<iframe src="{{route ('sucursales.destroy',['sucursal'=>$sucursal->id])}}"
-    	        height="500px" >
+    	<iframe src="{{route ('sucursal.index',['sucursal'=>$sucursal])}}"
+    			height="500px" >
     		
     	</iframe>
     </div>

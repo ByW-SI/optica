@@ -14,9 +14,10 @@ class EmpleadosDatosLab extends Model
     protected $fillable=['id',
                          'empleado_id',
                          'fechacontratacion',
+                         'fechaactualizacion',
                          'contrato_id',
-                         'area',
-                         'puesto',
+                         'area_id',
+                         'puesto_id',
                          'salarionom',
                          'salariodia',
                          'puesto_inicio',
@@ -50,6 +51,12 @@ class EmpleadosDatosLab extends Model
     }
      public function sucursal(){
         return $this->belongsTo('App\Sucursal', 'sucursal_id');
+    }
+    public function areas(){
+        return $this->hasOne('App\Area','area_id');
+    }
+    public function puestos(){ 
+        return $this->hasOne('App\Puesto','puesto_id');
     }
 
 }

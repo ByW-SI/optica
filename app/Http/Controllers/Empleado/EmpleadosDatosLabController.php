@@ -8,6 +8,8 @@ use App\EmpleadosDatosLab;
 use App\Http\Controllers\Controller;
 use App\TipoBaja;
 use App\TipoContrato;
+use App\Area;
+use App\Puesto;
 use Illuminate\Http\Request;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 
@@ -22,7 +24,22 @@ class EmpleadosDatosLabController extends Controller
     {
         //
         $datoslab = $empleado->datosLab;
-        //dd( $empleado);
+
+        $area='';
+      if($datoslab->area_id==null){
+        $area='NO DEFINIDO';
+      }else{
+        $areas=Area::where('id',$datoslab->area_id)->first();
+      $area=$areas->nombre;
+      }
+      
+      $puesto='';
+      if($datoslab->puesto_id==null){
+        $puesto='NO DEFINIDO';
+      }else{
+        $puestos=Puesto::where('id',$datoslab->puesto_id)->first();
+      $puesto=$areas->nombre;
+      }
         
         // 
         if ($datoslab == null) {
@@ -30,7 +47,12 @@ class EmpleadosDatosLabController extends Controller
             return redirect()->route('empleados.datoslaborales.create',['empleado'=>$empleado]);
         } else {
             $sucursal=Sucursal::find($datoslab->sucursal_id);
-            return view('empleadodatoslab.view',['empleado'=>$empleado,'datoslab'=>$datoslab,'sucursal'=>$sucursal]); 
+            return view('empleadodatoslab.view',[
+                'empleado'=>$empleado,
+                'datoslab'=>$datoslab,
+                'sucursal'=>$sucursal,
+                'area'=>$area,
+                'puesto'=>$puesto]); 
         }
         
     }
@@ -46,10 +68,20 @@ class EmpleadosDatosLabController extends Controller
         $datoslab = new EmpleadosDatosLab;
         $contratos = TipoContrato::get();
         $bajas = TipoBaja::get();
+        $areas =   Area::get();
+        $puestos = Puesto::get();
         $sucursales =Sucursal::get();
         $edit = false;
         
-        return view('empleadodatoslab.create',['empleado'=>$empleado,'bajas'=>$bajas,'contratos'=>$contratos,'datoslab'=>$datoslab,'edit'=>$edit,'sucursales'=>$sucursales]);
+        return view('empleadodatoslab.create',[
+            'empleado'=>$empleado,
+            'bajas'=>$bajas,
+            'contratos'=>$contratos,
+            'datoslab'=>$datoslab,
+            'areas'=>$areas, 
+            'puestos'=>$puestos,
+            'edit'=>$edit,
+            'sucursales'=>$sucursales]);
     }
 
     /**
@@ -63,9 +95,13 @@ class EmpleadosDatosLabController extends Controller
         //
         $datoslab = new EmpleadosDatosLab;
         $datoslab->empleado_id = $request->empleado_id;
+
         $datoslab->fechacontratacion = $request->fechacontratacion;
-        $datoslab->area = $request->area;
-        $datoslab->puesto = $request->puesto;
+        $datoslab->fechaactualizacion = date("Y-m-d");
+
+        $datoslab->area_id = $request->area_id;
+        $datoslab->puesto_id = $request->puesto_id;
+
         $datoslab->salarionom = $request->salarionom;
         $datoslab->salariodia = $request->salariodia ;
         $datoslab->puesto_inicio = $request->puesto_inicio ;
@@ -108,7 +144,30 @@ class EmpleadosDatosLabController extends Controller
     {
         dd($request->sucursal_id);
     $empleados=EmpleadoDatosLab::where('sucursal_id',$request->sucursal_id);
-    return view('empleadodatoslab.show');
+    
+    $area='';
+      if($datos->area_id==null){
+        $area='NO DEFINIDO';
+      }else{
+        $areas=Area::where('id',$datos->area_id)->first();
+      $area=$areas->nombre;
+      }
+      
+      $puesto='';
+      if($datos->puesto_id==null){
+        $puesto='NO DEFINIDO';
+      }else{
+        $puestos=Puesto::where('id',$datos->puesto_id)->first();
+      $puesto=$areas->nombre;
+      }
+
+    return view('empleadodatoslab.view',[
+                'empleado'=>$empleado,
+                'datoslab'=>$datos,
+                'area'=>$area,
+                'puesto'=>$puesto
+                
+                ]);
     }
 
     /**
@@ -123,9 +182,19 @@ class EmpleadosDatosLabController extends Controller
         $datoslab = $empleado->datosLab;
         $contratos = TipoContrato::get();
         $bajas = TipoBaja::get();
+        $areas =   Area::get();
+        $puestos = Puesto::get();
         $sucursales =Sucursal::get();
         $edit = true;
-        return view('empleadodatoslab.create',['datoslab'=>$datoslab,'bajas'=>$bajas,'contratos'=>$contratos,'empleado'=>$empleado,'edit'=>$edit,'sucursales'=>$sucursales]);
+        return view('empleadodatoslab.create',[
+            'datoslab'=>$datoslab,
+            'bajas'=>$bajas,
+            'contratos'=>$contratos,
+            'empleado'=>$empleado,
+            'areas'=>$areas, 
+            'puestos'=>$puestos,
+            'edit'=>$edit,
+            'sucursales'=>$sucursales]);
 
     }
 
@@ -140,9 +209,16 @@ class EmpleadosDatosLabController extends Controller
     {
         //
         $datoslab = EmpleadosDatosLab::findOrFail($datoslaborale);
+
         $datoslab->fechacontratacion = $request->fechacontratacion;
-        $datoslab->area = $request->area;
-        $datoslab->puesto = $request->puesto;
+        
+        $datoslab->fechaactualizacion = date("Y-m-d");
+
+        $datoslab->area_id = $request->area_id;
+         //dd($request->all());
+        $datoslab->puesto_id = $request->puesto_id;
+
+
         $datoslab->salarionom = $request->salarionom;
         $datoslab->salariodia = $request->salariodia ;
         $datoslab->puesto_inicio = $request->puesto_inicio ;
@@ -170,7 +246,7 @@ class EmpleadosDatosLabController extends Controller
             # code...
             $datoslab->bonopuntualidad = false;
         }
-        $datoslab->save();
+        $datoslab->update();
         Alert::success('Datos laborales actualizados');
         return redirect()->route('empleados.datoslaborales.index',['empleado'=>$empleado,'datoslab'=>$datoslab]);
     }

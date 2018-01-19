@@ -282,7 +282,7 @@
 									</div>
 						 		</div>
 						 		<div class="panel-heading">
-									<h5>Citas</h5>
+									<h5>Historial Citas</h5>
 								</div>
 								<div class="panel-body">
 									<div class="form-group col-xs-6">
@@ -298,7 +298,7 @@
 											<thead>
 												<tr class="info">
 													<th>Fecha</th>
-													<th>Hora</th>								
+																					
 												</tr>
 											</thead>
 											<tbody >
@@ -306,16 +306,16 @@
 												title='Has Click Aquì para ver o Modificar'
 												style='cursor: pointer'>
 													<td>21/01/2018</td>
-													<td>02:00 p.m.</td>
+													
 												</tr>
 
 												<?php
-													for ($i=0; $i <4 ; $i++) { 
+													for ($i=1; $i <11 ; $i++) { 
 														echo"<tr onclick='' 
 												title='Has Click Aquì para ver o Modificar'
 												style='cursor: pointer'>
-													<td>15/02/2018</td>
-													<td>1:00 pm</td>
+													<td>".$i."/02/2018</td>
+													
 													
 													
 												</tr>";
@@ -330,7 +330,10 @@
 										<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
 									</div>
 								</div>
-								<div class="panel-body">
+
+
+
+								<!-- <div class="panel-body">
 									<h3><span class="label label-default">A.V.S. Lentes</span></h3>
 									<div class="col-xs-offset-2 form-group col-sm-4">
 										<label class="col-xs-offset-4 control-label">Actual:</label>
@@ -389,8 +392,10 @@
 										</div>
 									</div>
 
-								</div>
-								<div class="panel-body">
+								</div> -->
+
+
+								<!-- <div class="panel-body">
 									<h3><span class="label label-default">A.V. Clientes</span></h3>
 									<div class="col-xs-offset-2 form-group col-sm-4">
 										<label class="col-xs-offset-4 control-label">Actual:</label>
@@ -420,8 +425,10 @@
 										  <input type="text" class="form-control" readonly="">
 										</div>
 									</div>
-								</div>
-								<div class="panel-body">
+								</div> -->
+
+
+								<!-- <div class="panel-body">
 									<h3><span class="label label-default">R.X. Actual</span></h3>
 									<div class="form-group col-sm-2">
 										<div class="input-group">
@@ -496,6 +503,8 @@
 										</div>
 									</div>
 								</div>
+
+
 								<div class="panel-body">
 									<h3><span class="label label-default">R.X. Anterior</span></h3>
 									<div class="form-group col-sm-2">
@@ -570,7 +579,10 @@
 										  <input type="text" class="form-control" readonly="">
 										</div>
 									</div>
-								</div>
+								</div> -->
+
+
+								
 								<div class="panel-body">
 									<div class="col-xs-offset-2 form-group col-xs-4">
 										<label class="col-xs-offset-5 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actual:</label>

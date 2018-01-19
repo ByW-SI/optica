@@ -29,14 +29,18 @@
 					<label class="control-label" for="contrato">Tipo de contrato:</label>
 					<dd>{{ $datoslab->contrato }}</dd>
 				</div>
+
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="area">Área:</label>
-					<dd>{{ $datoslab->area }}</dd>
+					
+					<dd>{{ $area }}</dd>
 				</div>
+				
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="puesto">Puesto:</label>
-					<dd>{{ $datoslab->puesto }}</dd>
+					<dd>{{ $puesto }}</dd>
 				</div>
+
 			</div>
 			<div class="col-md-12 offset-md-2 mt-3">
 				<div class="form-group col-xs-3">

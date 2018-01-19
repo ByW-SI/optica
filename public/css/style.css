@@ -133,8 +133,10 @@ input:checked + .slider:before {
     color: #ffffff;
     background-color: transparent;
 }
+
 .dropdown-submenu {
     position: relative;
+
 }
 .dropdown-submenu>.dropdown-menu {
     top: 0;
@@ -145,8 +147,11 @@ input:checked + .slider:before {
     -moz-border-radius: 0 6px 6px;
     border-radius: 0 6px 6px 6px;
 }
+.dropdown:hover .dropdown-menu .dropdown-submenu>.dropdown-menu {
+    display: none;
+}
 
-.dropdown-submenu:hover>.dropdown-menu {
+.dropdown:hover .dropdown-menu .dropdown-submenu:hover>.dropdown-menu {
     display: block;
 }
 
@@ -166,4 +171,8 @@ input:checked + .slider:before {
 
 .dropdown-submenu:hover>a:after {
     border-left-color: #fff;
+}
+.dropdown:hover .dropdown-menu{
+    display: block;
+    
 }

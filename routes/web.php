@@ -81,6 +81,9 @@ Route::get('sucursales.create','Sucursal\SucursalController@create');
 Route::get('sucursales.index','Sucursal\SucursalController@index');
 
 Route::resource('sucursal','Empleado\EmpleadoSucursalController');
+//---------------------------------------------------------------------------
+Route::resource('areas','Area\AreaController', ['except'=>'show']);
+Route::resource('puestos','Puesto\PuestoController', ['except'=>'show']);
 
 
 

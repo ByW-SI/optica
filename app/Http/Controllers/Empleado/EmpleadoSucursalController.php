@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Empleado;
 
 use App\Empleado;
 use App\Sucursal;
+use App\Area;
+use App\Puesto;
 use App\EmpleadosDatosLab;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,7 +24,8 @@ class EmpleadoSucursalController extends Controller
     $empleados=array();
     
     $datos=EmpleadosDatosLab::where('sucursal_id',$request->sucursal)->get();
-    
+    $areas=Area::get();
+    $puestos=Puesto::get();
 foreach ($datos as $dato ): 
 
 $empleado=Empleado::where('id',$dato->empleado_id)->get();
@@ -33,7 +36,11 @@ endforeach;
 
   
 
-    return view('sucursales.show',['empleados'=>$empleados]);
+    return view('sucursales.show',[
+        'empleados'=>$empleados,
+        'areas'=>$areas,
+        'puestos'=>$puestos
+         ]);
 
     }
 

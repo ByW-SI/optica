@@ -30,9 +30,20 @@
 						<th>{{$emplead->nombre}}</th>
 						<th>{{$emplead->appaterno}}</th>
 						<th>{{$emplead->apmaterno}}</th>
-						<th>{{$emplead->datosLab->area}}</th>
-						<th>{{$emplead->datosLab->puesto}}</th>
+
+                         @foreach($areas as $area)
+                         @if($area->id==$emplead->datosLab->area_id)
+						<th>{{$area->nombre}}</th>
+
+						@endif
+							@endforeach
+
+						@foreach($puestos as $puesto)
+						 @if($puesto->id==$emplead->datosLab->puesto_id)
+						<th>{{$puesto->nombre}}</th>
 						
+						@endif
+						@endforeach
 
 					</tr>	
 					 @endforeach

@@ -147,6 +147,10 @@
 	    						{{-- expr --}}
 	    						selected="selected" 
 	    					@endif>Japones</option>
+	    					<option id="8" value="Otro" @if ($estudios->idioma1 == "Otro")
+	    						{{-- expr --}}
+	    						selected="selected" 
+	    					@endif>Otro</option>
 						</select>
 					</div>
 					<div class="form-group col-xs-3">
@@ -199,6 +203,10 @@
 	    						{{-- expr --}}
 	    						selected="selected" 
 	    					@endif>Japones</option>
+	    					<option id="8" value="Otro" @if ($estudios->idioma1 == "Otro")
+	    						{{-- expr --}}
+	    						selected="selected" 
+	    					@endif>Otro</option>
 						</select>
 					</div>
 					<div class="form-group col-xs-3">
@@ -251,6 +259,10 @@
 	    						{{-- expr --}}
 	    						selected="selected" 
 	    					@endif>Japones</option>
+	    					<option id="8" value="Otro" @if ($estudios->idioma1 == "Otro")
+	    						{{-- expr --}}
+	    						selected="selected" 
+	    					@endif>Otro</option>
 						</select>
 					</div>
 					<div class="form-group col-xs-3">

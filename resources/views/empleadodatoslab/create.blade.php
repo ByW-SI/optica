@@ -17,7 +17,8 @@
 		</ul>
 	</div>
 	<div class="panel-default">
-		<div class="panel-heading"><h5>Laborales:</h5></div>
+		<div class="panel-heading"><h5>Laborales:
+		&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5></div>
 		<div class="panel-body">
 			@if ($edit == true)
 				{{-- true expr --}}
@@ -47,14 +48,54 @@
 							@endforeach
 						</select>
 					</div>
+
+
+
 					<div class="form-group col-xs-3">
-						<label class="control-label" for="area">Área:</label>
-						<input class="form-control" type="text" id="area" name="area" value="{{ $datoslab->area }}">
+						<label class="control-label" for="area_id">
+						Área:</label>
+						<select type="select" 
+						        class="form-control" 
+						        name="area_id">
+						        <option id="area_id" value="">Sin Definir</option>
+ 
+							@foreach ($areas as $area)
+								{{-- expr --}}
+								<option id="{{$area->id}}" 
+									    value="{{$area->id}}" 
+							@if ($datoslab->area_id == $area->id)
+									{{-- expr --}}
+									selected="selected" 
+								@endif>{{$area->nombre}}</option>
+							@endforeach
+						</select>
 					</div>
+
+
+					
 					<div class="form-group col-xs-3">
-						<label class="control-label" for="puesto">Puesto:</label>
-						<input class="form-control" type="text" id="puesto" name="puesto" value="{{ $datoslab->puesto }}">
+						<label class="control-label" for="puesto_id">
+						Puesto:</label>
+						<select type="select" name="puesto_id" id="puesto_id" class="form-control">
+							<option id="puesto_id" value="">Sin Definir</option>
+
+							@foreach ($puestos as $puesto)
+								{{-- expr --}}
+								<option id="{{$puesto->id}}" 
+									    value="{{$puesto->id}}" 
+									    
+							@if ($datoslab->puesto_id == $puesto->id)
+									{{-- expr --}}
+									selected
+								@endif>{{$puesto->nombre}}</option>
+							@endforeach
+						</select>
 					</div>
+
+
+
+
+
 				</div>
 				<div class="col-md-12 offset-md-2 mt-3">
 					<div class="form-group col-xs-3">

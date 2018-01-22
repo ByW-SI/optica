@@ -38,7 +38,7 @@ class EmpleadosDatosLabController extends Controller
         $puesto='NO DEFINIDO';
       }else{
         $puestos=Puesto::where('id',$datoslab->puesto_id)->first();
-      $puesto=$areas->nombre;
+      $puesto=$puestos->nombre;
       }
         
         // 

@@ -232,12 +232,13 @@
 						 </div>
 
 						 {{-- HISTORIAL OCULAR --}}
+						  <div class="tab-pane" id="ocular">
+						  	<div class="panel-default">
+						  		<div class="panel-heading"><h5>Historial Ocular:</h5></div>
 
-						 <div class="tab-pane" id="ocular">
-						 	<div class="panel-default">
-						 		<div class="panel-heading"><h5>Historial Ocular:</h5></div>
-						 		<div class="panel-body">
-						 			<div class="col-xs-4 col-xs-offset-10">
+
+						  		<div class="panel-body">
+						  			<div class="col-xs-4 col-xs-offset-10">
 
 										<button id="submit" type="submit" class="btn btn-success">
 									<strong>Agregar</strong>	</button>
@@ -250,112 +251,11 @@
 
 									</div>
 
-
-
-									<div class="form-group col-xs-16">
-										<label class="control-label">&nbsp;&nbsp;&nbsp;Historial Ocular Familiar:</label>
-										<br>
-										<div class="form-group col-xs-4">
-										  <textarea class="form-control" ></textarea>
-										</div>
-										<label>&nbsp;¿Le molesta la luz solar?&nbsp;&nbsp;</label><input type="checkbox" checked data-toggle="toggle">
-
-
-
-									</div>
-
-								
-
-									<br><br><br>
-
-
-									<div class=" form-group ">
-
-										
-										  <label class="control-label">Panatlleo: &nbsp;&nbsp;&nbsp;</label>
-										
-              
-  <table class="table">
-    <thead>
-      <tr>
-      	<th> </th>
-        <th>Lejos</th>
-        <th>Cerca</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Unilaterarlmente</td>
-        <td><input type="text"  class="form-control"></td>
-        <td><input type="text"  class="form-control"></td>
-      </tr>
-      <tr>
-        <td>Alternamente</td>
-        <td><input type="text"  class="form-control"></td>
-        <td><input type="text"  class="form-control"></td>
-      </tr>
-     
-    </tbody>
-  </table>
-
-
-									</div><hr><br>
-
-
-
-
-
-                                    
-
-									
-
-									<div class="col-xs-5 form-group ">
-										<label class="control-label">Fecha de su último examen de la vista</label>
-										<input type="date" class="form-control">
-									</div>
-
 									<div class="form-group col-xs-4">
-										<label class="control-label">¿Usa anteojos?</label>
-										<br>
-										<input type="checkbox" class="form-control" checked data-toggle="toggle">
-									</div>
-
-									<div class="col-xs-2 form-group">
-										<label class="control-label">&nbsp;&nbsp;&nbsp;¿A qué edad empezó a usar anteojos?</label>
-
-									
-
-									</div>
-
-									<div class="input-group col-xs-2">
-										<input type="text" class="input-group form-control"><span class="input-group-addon">años</span>
-									</div>
-									<!-- <div class="col-xs-offset-2 form-group col-xs-4">
-										<label class="control-label">¿Usa computadora?</label>
-										<br>
-										<input type="checkbox" class="form-control" checked data-toggle="toggle">
-									</div>
-									<div class="form-group col-xs-4">
-										<label class="control-label">¿Causa molestias o cansancio?</label>
-										<br>
-										<input type="checkbox" class="form-control" checked data-toggle="toggle">
-									</div>
-									<div class="col-xs-offset-2 form-group col-xs-4">
-										<label class="control-label">¿Siente dolor de cabeza?</label>
-										<br>
-										<input type="checkbox" class="form-control" checked data-toggle="toggle">
-									</div> -->
-						 		
-
-						 		<div class="panel-heading">
-									<h5>Historial Citas</h5>
-								</div>
-								<div class="panel-body">
-									<div class="form-group col-xs-3">
 										<div style="
 										height: 250px;
 										overflow: scroll;">
+										<label class="control-label">Historial de Citas</label>
 											<table class="table table-striped table-bordered table-hover" 
 										       style="color:rgb(51,51,51); 
 										              border-collapse: collapse;
@@ -393,7 +293,8 @@
 										</div>
 
 									</div>
-									<div class="col-xs-offset-1 form-group col-xs-4">
+
+										<div class="col-xs-offset-1 form-group col-xs-4">
 										<label class="control-label" for="fecha_act">Fecha Actual:</label>
 										<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
 									</div>
@@ -405,8 +306,257 @@
 										
 
 									</div>
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+									           <div class="col-xs-offset-1 form-group col-xs-4 ">
+              	<label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panatlleo: &nbsp;&nbsp;&nbsp;</label>
+  <table class="table">
+    <thead>
+      <tr>
+      	<th> </th>
+        <th>Lejos</th>
+        <th>Cerca</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><label class="control-label">Unilaterarlmente</label></td>
+        <td><input type="text"  class="form-control"></td>
+        <td><input type="text"  class="form-control"></td>
+      </tr>
+      <tr>
+        <td><label class="control-label">Alternamente</label></td>
+        <td><input type="text"  class="form-control"></td>
+        <td><input type="text"  class="form-control"></td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+<br><br><br><br><br><br><br><br><br>
+
+
+										<div class="form-group col-xs-5">
+										<label class="control-label">&nbsp;&nbsp;&nbsp;Historial Ocular Familiar:</label>
+										<textarea class="form-control" ></textarea>
+										<br>
+										</div>
+
+
+										<div class="form-group col-xs-2 form-inline">
+										<label class="control-label">¿Usa anteojos?</label>
+										<br>
+										<input type="checkbox" class="form-control" checked data-toggle="toggle"><br><br>
+
+										</div>
+
+									<div class="form-group col-xs-3 form-inline">
+										<label>&nbsp;¿Le molesta la luz solar?&nbsp;&nbsp;</label><br>
+										<input type="checkbox" checked data-toggle="toggle">
+										
+									</div>
+
+									<div class="form-group col-xs-3 form-inline">
+										<label class="control-label">¿A qué edad empezó a usar anteojos?</label>
+										<input type="text" class="input-group form-control" placeholder="Años...">
+										</div>
+<br><br><br><br><br><br><br><br><br>
+
+										<hr>
+							<br><br><br>
+
+<div class="col-xs-offset-2 form-group col-xs-4">
+										<label class="col-xs-offset-5 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actual:</label>
+										<div class="form-inline form-group">
+										  <label class="control-label">Tipo de anteojos: &nbsp;&nbsp;</label>
+										  <select class="form-control">
+										  	<option>Tipo 1</option>
+										  	<option>Tipo 2</option>
+										  	<option>Tipo ...</option>
+										  </select>
+										</div>
+									</div>
+
+										<div class="form-group col-xs-4">
+										<label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anterior:</label>
+										<br>
+										<div class="form-group col-xs-4">
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+
+									<div class="col-xs-offset-2 form-group col-xs-4">
+										<div class="form-inline form-group">
+										  <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tipo de L/C: &nbsp;&nbsp;&nbsp;</label>
+										  <select class="form-control">
+										  	<option>Tipo 1</option>
+										  	<option>Tipo 2</option>
+										  	<option>Tipo ...</option>
+										  </select>
+										</div>
+									</div>
+									<div class="form-group col-xs-4">
+										<div class="form-group col-xs-4">
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="col-xs-offset-2 form-group col-xs-4">
+										<div class="form-inline form-group">
+										  <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DR./opt: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+										  <input type="text" class="form-control" style="width: 91px">
+										</div>
+									</div>
+
+									<div class="form-group col-xs-4">
+										<div class="form-group col-xs-4">
+										  <input type="text" class="form-control" readonly="">
+										</div>
+									</div>
+
+									<div class="col-xs-offset-2 form-inline col-xs-4">
+										<label class="control-label">Observaciones/<br>Comentarios: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+										<textarea class="form-control"></textarea>
+									</div>
+
+									<div class="form-inline">
+										  <textarea class="form-control" readonly=""></textarea>
+									</div>
+
+									<hr>
+
+
+									<div class="row" >
+										
+										
+
+										  <label class="control-label"> &nbsp;&nbsp;&nbsp;&nbsp;DIP: </label><br>
+										   <div class="col-sm-1"> <input type="text" class="form-control" style="width: 91px"></div>
+										    <div class="col-sm-1"> <input type="text" class="form-control" style="width: 91px"></div>
+										
+										 
+										
+
+
+									 <div class="col-xs-offset-1 form-group col-xs-4 ">
+              	
+  <table class="table">
+    <thead>
+      <tr>
+      	<th> </th>
+        <th>Ojo Izq.</th>
+        <th>Ojo Der.</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><label class="control-label">Queratometrìa</label></td>
+        <td><input type="text"  class="form-control"></td>
+        <td><input type="text"  class="form-control"></td>
+      </tr>
+     
+     
+    </tbody>
+  </table>
+</div>
+										
+
+									</div>
+
+
+<div class="row col-xs-3" >
+
+	<ul class="list-group">
+  <li class="list-group-item"><label class="control-label">ARN: </label> <input type="text" class="form-control" style="width: 91px"></li>
+  <li class="list-group-item"><label class="control-label">ARP: </label> <input type="text" class="form-control" style="width: 91px"></li>
+  
+</ul>
+
+</div>
+<br><br>
+ <div class= "col-xs-offset-1 form-group col-xs-4 " >
+              	
+  <table class="table">
+  	<label class="control-label">Amplitud de Acomodaciòn</label>
+    <thead>
+      <tr>
+      	
+        <th>Ojo Izq.</th>
+        <th>Ojo Der.</th>
+        <th>A.O. </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text"  class="form-control"></td>
+        <td><input type="text"  class="form-control"></td>
+        <td><input type="text"  class="form-control"></td>
+      </tr>
+     
+     
+    </tbody>
+  </table>
+</div>
 									
-								</div>
+										  
+
+
+									
+
+<!-- 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label class="control-label">Querametometrìa</label> <br>
+
+								<div class=" form-group col-xs-1">
+										<div class="form-inline form-group">
+											 
+										 
+										  <input type="text" class="form-control" style="width: 91px" placeholder="Ojo Der">
+										</div>
+
+									</div>
+									<div class="form-group col-xs-1">
+										<div class="form-group col-xs-1">
+										  <input type="text" class="form-control" style="width: 91px" placeholder="Ojo Izq">
+										</div>
+									</div>
+ -->
+
+
+
+
+
+
+
+
+						  			<!-- adentro de panel-body -->
+						  		</div>
+						  		<!-- afuera de panel-body -->
+
+
+						  		
+						  	</div>
+						  	
+						  </div>
+
+					
+
+
+                                    
+
+									
+
+									
+
+									
+									
+						 		
+									
+						 	
+
 
 
 
@@ -660,61 +810,7 @@
 
 
 								
-								<div class="panel-body">
-									<div class="col-xs-offset-2 form-group col-xs-4">
-										<label class="col-xs-offset-5 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actual:</label>
-										<div class="form-inline form-group">
-										  <label class="control-label">Tipo de anteojos: &nbsp;&nbsp;</label>
-										  <select class="form-control">
-										  	<option>Tipo 1</option>
-										  	<option>Tipo 2</option>
-										  	<option>Tipo ...</option>
-										  </select>
-										</div>
-									</div>
-									<div class="form-group col-xs-4">
-										<label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anterior:</label>
-										<br>
-										<div class="form-group col-xs-4">
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="col-xs-offset-2 form-group col-xs-4">
-										<div class="form-inline form-group">
-										  <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tipo de L/C: &nbsp;&nbsp;&nbsp;</label>
-										  <select class="form-control">
-										  	<option>Tipo 1</option>
-										  	<option>Tipo 2</option>
-										  	<option>Tipo ...</option>
-										  </select>
-										</div>
-									</div>
-									<div class="form-group col-xs-4">
-										<div class="form-group col-xs-4">
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="col-xs-offset-2 form-group col-xs-4">
-										<div class="form-inline form-group">
-										  <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DR./opt: &nbsp;&nbsp;&nbsp;&nbsp;</label>
-										  <input type="text" class="form-control" style="width: 91px">
-										</div>
-									</div>
-									<div class="form-group col-xs-4">
-										<div class="form-group col-xs-4">
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="col-xs-offset-2 form-inline col-xs-4">
-										<label class="control-label">Observaciones/<br>Comentarios: &nbsp;&nbsp;&nbsp;&nbsp;</label>
-										<textarea class="form-control"></textarea>
-									</div>
-									<div class="form-inline">
-										  <textarea class="form-control" readonly=""></textarea>
-									</div>
-								</div>
-						 	</div>
-						 </div>
+								
 
 						 {{-- CITAS --}}
 
@@ -880,6 +976,8 @@
 			</div>
 		</div>
 	</div>
+
+
 	<!-- Modal -->
 								<div class="modal fade" id="formularioTutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
 								  <div class="modal-dialog" role="document">

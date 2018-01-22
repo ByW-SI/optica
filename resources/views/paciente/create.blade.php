@@ -241,31 +241,97 @@
 
 										<button id="submit" type="submit" class="btn btn-success">
 									<strong>Agregar</strong>	</button>
+
+									<button id="submit" type="submit" class="btn btn-warning">
+									<strong>Limpiar</strong>	</button>
+
 										<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
 									<strong>Modificar</strong>	</a>
+
 									</div>
-									<div class="col-xs-offset-2 form-group">
-										<label>&nbsp;&nbsp;&nbsp;¿Le molesta la luz solar?&nbsp;&nbsp;</label><input type="checkbox" checked data-toggle="toggle">
+
+
+
+									<div class="form-group col-xs-16">
+										<label class="control-label">&nbsp;&nbsp;&nbsp;Historial Ocular Familiar:</label>
+										<br>
+										<div class="form-group col-xs-4">
+										  <textarea class="form-control" ></textarea>
+										</div>
+										<label>&nbsp;¿Le molesta la luz solar?&nbsp;&nbsp;</label><input type="checkbox" checked data-toggle="toggle">
+
+
+
+									</div>
+
+								
+
+									<br><br><br>
+
+
+									<div class=" form-group ">
+
 										
-									</div>
-									<br>
-									<div class="col-xs-offset-2 form-group col-xs-5">
+										  <label class="control-label">Panatlleo: &nbsp;&nbsp;&nbsp;</label>
+										
+              
+  <table class="table">
+    <thead>
+      <tr>
+      	<th> </th>
+        <th>Lejos</th>
+        <th>Cerca</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Unilaterarlmente</td>
+        <td><input type="text"  class="form-control"></td>
+        <td><input type="text"  class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Alternamente</td>
+        <td><input type="text"  class="form-control"></td>
+        <td><input type="text"  class="form-control"></td>
+      </tr>
+     
+    </tbody>
+  </table>
+
+
+									</div><hr><br>
+
+
+
+
+
+                                    
+
+									
+
+									<div class="col-xs-5 form-group ">
 										<label class="control-label">Fecha de su último examen de la vista</label>
 										<input type="date" class="form-control">
 									</div>
+
 									<div class="form-group col-xs-4">
 										<label class="control-label">¿Usa anteojos?</label>
 										<br>
 										<input type="checkbox" class="form-control" checked data-toggle="toggle">
 									</div>
-									<div class="col-xs-offset-2 form-group">
+
+									<div class="col-xs-2 form-group">
 										<label class="control-label">&nbsp;&nbsp;&nbsp;¿A qué edad empezó a usar anteojos?</label>
 
-									<div class="input-group col-xs-4">
+									
+
+									</div>
+
+									<div class="input-group col-xs-2">
 										<input type="text" class="input-group form-control"><span class="input-group-addon">años</span>
 									</div>
-									</div>
-									<div class="col-xs-offset-2 form-group col-xs-4">
+									<!-- <div class="col-xs-offset-2 form-group col-xs-4">
 										<label class="control-label">¿Usa computadora?</label>
 										<br>
 										<input type="checkbox" class="form-control" checked data-toggle="toggle">
@@ -279,13 +345,14 @@
 										<label class="control-label">¿Siente dolor de cabeza?</label>
 										<br>
 										<input type="checkbox" class="form-control" checked data-toggle="toggle">
-									</div>
-						 		</div>
+									</div> -->
+						 		
+
 						 		<div class="panel-heading">
 									<h5>Historial Citas</h5>
 								</div>
 								<div class="panel-body">
-									<div class="form-group col-xs-6">
+									<div class="form-group col-xs-3">
 										<div style="
 										height: 250px;
 										overflow: scroll;">
@@ -324,11 +391,21 @@
 											</tbody>
 										</table>
 										</div>
+
 									</div>
 									<div class="col-xs-offset-1 form-group col-xs-4">
-										<label class="control-label" for="fecha_act">Fecha:</label>
+										<label class="control-label" for="fecha_act">Fecha Actual:</label>
 										<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
 									</div>
+									<div class="col-xs-offset-1 form-group col-xs-4">
+
+										<label class="control-label" for="fecha_act">Fecha de Último Exámen:</label>
+										<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
+
+										
+
+									</div>
+									
 								</div>
 
 

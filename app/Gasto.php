@@ -18,7 +18,8 @@ class Gasto extends Model
     id',
     'descripcion',
     'monto',
-    'sucursal_id'];
+    'sucursal_id',
+    'almacen_id'];
 
     protected $hidden=[ 'created_at', 'updated_at','deleted_at'];
     public $sortable=['id','descripcion', 'monto'];
@@ -26,4 +27,8 @@ class Gasto extends Model
     public function sucursal(){
         return $this->belongsTo('App\Sucursal', 'sucursal_id');
     }
+    public function almacen(){
+        return $this->belongsTo('App\Almacen', 'almacen_id');
+    }
+
 }

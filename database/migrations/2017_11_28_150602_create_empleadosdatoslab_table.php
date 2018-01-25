@@ -48,6 +48,9 @@ class CreateEmpleadosdatoslabTable extends Migration
 
             $table->integer('sucursal_id')->unsigned()->nullable();
             $table->foreign('sucursal_id')->references('id')->on('sucursals');
+
+            $table->integer('almacen_id')->unsigned()->nullable();
+            $table->foreign('almacen_id')->references('id')->on('almacens');
             
             $table->timestampsTz();
         });

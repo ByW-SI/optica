@@ -21,6 +21,9 @@ class CreateGastosTable extends Migration
             $table->integer('sucursal_id')->unsigned();
             $table->foreign('sucursal_id')->references('id')->on('sucursals');
 
+            $table->integer('almacen_id')->unsigned();
+            $table->foreign('almacen_id')->references('id')->on('almacens');
+
             $table->decimal('monto',8,2);
 
             $table->timestamps();

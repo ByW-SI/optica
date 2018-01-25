@@ -35,7 +35,8 @@ class EmpleadosDatosLab extends Model
                          'tipobaja_id',
                          'comentariobaja',
                          'bonopuntualidad',
-                         'sucursal_id'];
+                         'sucursal_id',
+                         'almacen_id'];
         
     protected $hidden=['created_at','updated_at'];
     public $sortable=['id'];
@@ -58,5 +59,9 @@ class EmpleadosDatosLab extends Model
     public function puestos(){ 
         return $this->hasOne('App\Puesto','puesto_id');
     }
+     public function almacen(){
+        return $this->belongsTo('App\Almacen', 'almacen_id');
+    }
+
 
 }

@@ -117,7 +117,7 @@
                             <li>
                                 <a href="#"
                                    onclick="AgregarNuevoTab('{{ url('/empleados/create')}}','Agrega Empleado')">
-                                <i class="fa fa-plus" aria-hidden="true">
+                                <i class="fa fa-user-plus" aria-hidden="true">
                                 </i> Alta de Empleado
                                 </a>
 
@@ -206,6 +206,40 @@
                             </li>                     
                         </ul>
                     </li>
+
+
+
+
+
+
+
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-industry" aria-hidden="true"></i> Almacenes<span class="caret"></span> </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                 <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('almacens.index')}}','Almacenes')">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Almacenes
+                                </a>
+
+                            
+                                  </li>
+
+
+
+
+
+                            </li>                     
+                        </ul>
+                    </li>
+
+
+
+
+
+
+
+
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-md" aria-hidden="true"></i> Pacientes<span class="caret"></span></a>

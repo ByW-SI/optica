@@ -307,67 +307,53 @@
 
 									</div>
 
-<br><br><br><br><br><br><br><br><br><br><br>
-
-									           <div class="col-xs-offset-1 form-group col-xs-4 ">
-              	<label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panatlleo: &nbsp;&nbsp;&nbsp;</label>
-  <table class="table">
-    <thead>
-      <tr>
-      	<th> </th>
-        <th>Lejos</th>
-        <th>Cerca</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><label class="control-label">Unilaterarlmente</label></td>
-        <td><input type="text"  class="form-control"></td>
-        <td><input type="text"  class="form-control"></td>
-      </tr>
-      <tr>
-        <td><label class="control-label">Alternamente</label></td>
-        <td><input type="text"  class="form-control"></td>
-        <td><input type="text"  class="form-control"></td>
-      </tr>
-     
-    </tbody>
-  </table>
-</div>
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-										<div class="form-group col-xs-5">
-										<label class="control-label">&nbsp;&nbsp;&nbsp;Historial Ocular Familiar:</label>
+
+
+
+<div class="form-group col-xs-12" align="left">
+
+
+										<div class="form-group col-xs-12" align="left">
+										<label class="control-label">Historial Ocular Familiar:</label>
 										<textarea class="form-control" ></textarea>
 										<br>
 										</div>
 
+										<div class="form-group col-xs-12" align="left">
+										<label class="control-label">Anexos:</label>
+										<textarea class="form-control" ></textarea>
+										<br>
+										</div>
 
-										<div class="form-group col-xs-2 form-inline">
+										
+
+
+										<div class="col-xs-offset-2 form-group col-xs-2 form-inline">
 										<label class="control-label">¿Usa anteojos?</label>
 										<br>
 										<input type="checkbox" class="form-control" checked data-toggle="toggle"><br><br>
 
 										</div>
 
-									<div class="form-group col-xs-3 form-inline">
+									<div class="form-group col-xs-3 ">
 										<label>&nbsp;¿Le molesta la luz solar?&nbsp;&nbsp;</label><br>
 										<input type="checkbox" checked data-toggle="toggle">
 										
 									</div>
 
-									<div class="form-group col-xs-3 form-inline">
+									<div class="form-group col-xs-3 ">
 										<label class="control-label">¿A qué edad empezó a usar anteojos?</label>
 										<input type="text" class="input-group form-control" placeholder="Años...">
 										</div>
-<br><br><br><br><br><br><br><br><br>
+<br><br><br> <br><br><br><br><br><br>
 
-										<hr>
-							<br><br><br>
+										
+							<br><br><br><br><br><br>
 
-<div class="col-xs-offset-2 form-group col-xs-4">
+                                 <div class="col-xs-offset-2 form-group col-xs-4">
 										<label class="col-xs-offset-5 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actual:</label>
 										<div class="form-inline form-group">
 										  <label class="control-label">Tipo de anteojos: &nbsp;&nbsp;</label>
@@ -427,85 +413,182 @@
 									<hr>
 
 
-									<div class="row" >
+									
 										
 										
 
-										  <label class="control-label"> &nbsp;&nbsp;&nbsp;&nbsp;DIP: </label><br>
-										   <div class="col-sm-1"> <input type="text" class="form-control" style="width: 91px"></div>
-										    <div class="col-sm-1"> <input type="text" class="form-control" style="width: 91px"></div>
+									
+									<div class="col-xs-offset-2 form-group col-sm-4">
+										<label class="col-xs-offset-2 control-label">DIP:</label>
+										<div class="input-group">
+										  
+										  <input type="text" class="form-control" style="width: 91px">
+										  <input type="text" class="form-control" style="width: 91px">
+
+										</div>
 										
-										 
+									</div>
+
+<label class=" control-label">Dominancia Ocular:</label>
+			<div class="radio">
+      <label><input type="radio" name="optradio">Ojo Derecho</label>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="optradio">Ojo Izquierdo</label>
+    </div>
+   
+<br>
+										
+										 <div class="col-xs-offset-1 form-group col-sm-4 ">
+										<label class=" control-label">Quertatometría:</label>
+										<div class="input-group">
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control" style="width: 91px">
+										   <span class="input-group-addon">O.I.</span>
+										  <input type="text" class="form-control" style="width: 91px">
+										</div>
+									</div>
 										
 
 
-									 <div class="col-xs-offset-1 form-group col-xs-4 ">
-              	
-  <table class="table">
-    <thead>
-      <tr>
-      	<th> </th>
-        <th>Ojo Izq.</th>
-        <th>Ojo Der.</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><label class="control-label">Queratometrìa</label></td>
-        <td><input type="text"  class="form-control"></td>
-        <td><input type="text"  class="form-control"></td>
-      </tr>
-     
-     
-    </tbody>
-  </table>
-</div>
+
 										
 
+									
+
+
+ 								<div class="form-group col-sm-4">
+										<label class=" control-label"> </label>
+										<div class="input-group">
+										  <span class="input-group-addon">ARN</span>
+										  <input type="text" class="form-control" style="width: 91px">
+										   <span class="input-group-addon">ARP</span>
+										  <input type="text" class="form-control" style="width: 91px">
+										</div>
 									</div>
 
 
-<div class="row col-xs-3" >
+<br><br><br><br><br><br>
 
-	<ul class="list-group">
-  <li class="list-group-item"><label class="control-label">ARN: </label> <input type="text" class="form-control" style="width: 91px"></li>
-  <li class="list-group-item"><label class="control-label">ARP: </label> <input type="text" class="form-control" style="width: 91px"></li>
-  
-</ul>
-
-</div>
-<br><br>
- <div class= "col-xs-offset-1 form-group col-xs-4 " >
-              	
-  <table class="table">
-  	<label class="control-label">Amplitud de Acomodaciòn</label>
-    <thead>
-      <tr>
-      	
-        <th>Ojo Izq.</th>
-        <th>Ojo Der.</th>
-        <th>A.O. </th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><input type="text"  class="form-control"></td>
-        <td><input type="text"  class="form-control"></td>
-        <td><input type="text"  class="form-control"></td>
-      </tr>
-     
-     
-    </tbody>
-  </table>
-</div>
-									
+									<div class=" form-group col-sm-4">
+										<label class=" control-label">Amplitud de Acomodación </label>
+										<div class="input-group">
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control" style="width: 91px">
+										   <span class="input-group-addon">O.I.</span>
+										  <input type="text" class="form-control" style="width: 91px">
+										  <span class="input-group-addon">A.O.</span>
+										  <input type="text" class="form-control" style="width: 91px">
+										</div>
+									</div>
+									<br><br><br>
+									<hr>
 										  
 
 
 									
+									<div class=" form-group col-sm-6  " >
+										<h4><span class="label label-default">Forias con RX</span></h4>
+										
+										<div class="input-group">
+											<span class="input-group-addon">HORIZONTAL</span>
+										  <span class="input-group-addon">Lejos</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">Cerca</span>
+										  <input type="text" class="form-control">
+										</div>
+										
+										<div class="input-group">
+											<span class="input-group-addon">VETICAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <span class="input-group-addon">Lejos</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">Cerca</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
 
+
+
+									<div class=" form-group col-sm-6  " >
+										<h4><span class="label label-default">Pantalleo</span></h4>
+										
+										<div class="input-group">
+											<span class="input-group-addon">Unilateralmente</span>
+										  <span class="input-group-addon">Lejos</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">Cerca</span>
+										  <input type="text" class="form-control">
+										</div>
+										
+										<div class="input-group">
+											<span class="input-group-addon">Alternamente&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <span class="input-group-addon">Lejos</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">Cerca</span>
+										  <input type="text" class="form-control">
+										</div>
+									</div>
+
+
+									
+									<div class=" form-group col-sm-4">
+										<label class=" control-label">CA/A:</label>
+										<div class="input-group">
+										  <span class="input-group-addon">Medida</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">Calculada</span>
+										  <input type="text" class="form-control">
+										</div>
+										
+									</div>
+
+									<br>
+
+										<div class=" form-group col-sm-6  " >
+										<h4><span class="label label-default">Vergencias</span></h4>
+										
+										<div class="input-group">
+											<span class="input-group-addon">Negativas</span>
+										  <span class="input-group-addon">Lejos</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">Cerca</span>
+										  <input type="text" class="form-control">
+
+
+										
+										
+										
+									</div>
+									<div class="input-group">
+											<span class="input-group-addon">Positivas&nbsp;&nbsp;</span>
+										  <span class="input-group-addon">Lejos</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">Cerca</span>
+										  <input type="text" class="form-control">
+										</div>
+
+										<div class="input-group">
+											<span class="input-group-addon">Supravergencias</span>
+										  <span class="input-group-addon">Lejos</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">Cerca</span>
+										  <input type="text" class="form-control">
+
+
+										
+										
+										
+									</div>
+									<div class="input-group">
+											<span class="input-group-addon">Infravergencias&nbsp;&nbsp;&nbsp;</span>
+										  <span class="input-group-addon">Lejos</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">Cerca</span>
+										  <input type="text" class="form-control">
+										</div>
+
+
+									</div>
 <!-- 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <label class="control-label">Querametometrìa</label> <br>

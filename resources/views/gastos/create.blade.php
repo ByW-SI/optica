@@ -31,8 +31,14 @@
 							<input type="text" class="form-control" id="monto" name="monto" required="required" value="{{ $gasto->monto }}" placeholder="$---">
 						</div>
 
+@if ($tipo == false)
+{{-- true expr --}}
 							<input type="hidden" class="form-control" id="sucursal_id" name="sucursal_id"  value="{{ $sucursal->id }}">
+@else
+{{-- false expr --}}
+              <input type="hidden" class="form-control" id="almacen_id" name="almacen_id"  value="{{ $almacen->id }}">
 
+@endif
 						<div class="form-group col-xs-4" align="right">
 							<button type="submit" 
 									        class="btn btn-success">

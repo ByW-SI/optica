@@ -10,11 +10,11 @@
 			<div role="application" class="panel panel-group">
 				<div class="panel-default">
 
-					<div class="panel-heading"><h4>Datos de la Sucursal:</h4>
+					<div class="panel-heading"><h4>Datos del Almacen:</h4>
 					
-					<a class="btn btn-info" href="{{ route('sucursales.index') }}"><strong>Ver Sucursales</strong></a>
-					<a class="btn btn-success" href="{{ route('sucursales.create') }}"><strong>Nueva Sucursal</strong></a>
-					<a class="btn btn-warning" href="{{ route('sucursales.edit',['sucursal'=>$sucursal->id]) }}">
+					<a class="btn btn-info" href="{{ route('almacens.index') }}"><strong>Ver Almacenes</strong></a>
+					<a class="btn btn-success" href="{{ route('almacens.create') }}"><strong>Nuevo Almacen</strong></a>
+					<a class="btn btn-warning" href="{{ route('almacens.edit',['almacen'=>$almacen->id]) }}">
 								
 								 <strong>Editar</strong>
 							</a>
@@ -25,17 +25,17 @@
 
 						<div class="form-group col-xs-4">
 							<label class="control-label" for="nombre"> Nombre:</label>
-							<dd>{{ $sucursal->nombre }}</dd>
+							<dd>{{ $almacen->nombre }}</dd>
 						</div>
 
 						<div class="form-group col-xs-4">
 							<label class="control-label" for="responsable"> Responsable :</label>
-							<dd>{{ $sucursal->responsable }}</dd>
+							<dd>{{ $almacen->responsable }}</dd>
 						</div>
 
 						<div class="form-group col-xs-4">
 							<label class="control-label" for="claveid"> Clave ID :</label>
-							<dd>{{ $sucursal->claveid }}</dd>
+							<dd>{{ $almacen->claveid }}</dd>
 						</div>
 
 
@@ -44,8 +44,8 @@
 
 					<div class="col-xs-12 offset-md-2 mt-3">
 						<div class="form-group col-xs-4">
-						<label class="control-label" for="region">Región:</label>
-			    					<dd>{{ $sucursal->region }}</dd>
+						<label class="control-label" for="tipo">Tipo de Almacen:</label>
+			    					<dd>{{ $almacen->tipo }}</dd>
 						</div>
 
 						
@@ -89,7 +89,7 @@
 <div role="application" class="panel panel-group">
 				<div class="panel-default">
 
-					<div class="panel-heading"><h4>Direcciòn de Sucursal :
+					<div class="panel-heading"><h4>Direcciòn de Almacen :
 					
 					 
 				</h4></div>
@@ -113,17 +113,17 @@
       		<div class="col-md-12 offset-md-2 mt-3">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="calle"> Calle:</label>
-			    					<dd>{{ $sucursal->calle }}</dd>
+			    					<dd>{{ $almacen->calle }}</dd>
 			  					</div>
 
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="numext"> Numero exterior:</label>
-			    					<dd>{{ $sucursal->numext }}</dd>
+			    					<dd>{{ $almacen->numext }}</dd>
 			  					</div>	
 
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="numint">Numero interior:</label>
-			    					<dd>{{ $sucursal->numint }}</dd>
+			    					<dd>{{ $almacen->numint }}</dd>
 			  					</div>
 
 
@@ -137,23 +137,23 @@
 								<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="colonia"> Colonia:</label>
-			  						<dd>{{ $sucursal->colonia }}</dd>
+			  						<dd>{{ $almacen->colonia }}</dd>
 			  					</div>
 
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="delegacion"> Delegación o Municipio:</label>
-			  						<dd>{{ $sucursal->delegacion }}</dd>
+			  						<dd>{{ $almacen->delegacion }}</dd>
 			  					</div>
 
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="ciudad"> Ciudad:</label>
 			  						<dd>
-			  						{{ $sucursal->ciudad }}</dd>
+			  						{{ $almacen->ciudad }}</dd>
 			  					</div>
 
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="estado"> Estado:</label>
-			  						<dd>{{ $sucursal->estado }}</dd>
+			  						<dd>{{ $almacen->estado }}</dd>
 			  					</div>
 							</div>
 
@@ -161,17 +161,17 @@
 								<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="calle1">Entre calle:</label>
-			  						<dd>{{ $sucursal->calle1 }}</dd>
+			  						<dd>{{ $almacen->calle1 }}</dd>
 			  					</div>
 
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="calle2">Y calle:</label>
-			  						<dd>{{ $sucursal->calle2 }}</dd>
+			  						<dd>{{ $almacen->calle2 }}</dd>
 			  					</div>
 
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="referencia">Referencia:</label>
-			  						<dd>{{ $sucursal->referencia }}</dd>
+			  						<dd>{{ $almacen->referencia }}</dd>
 			  					</div>
 			  					
 
@@ -198,7 +198,7 @@
 
 
  <div id="gas" class="tab-pane fade ">
-    	<iframe src="{{route ('gastos.create',['sucursal'=>$sucursal->id])}}"
+    	<iframe src="{{route ('gastos.create',['almacen'=>$almacen->id])}}"
     			height="500px" >
     		
     	</iframe>
@@ -206,7 +206,7 @@
 
 
     <div id="emp" class="tab-pane fade ">
-    	<iframe src="{{route ('sucursal.index',['sucursal'=>$sucursal])}}"
+    	<iframe src="{{route ('almacen.index',['almacen'=>$almacen])}}"
     			height="500px" >
     		
     	</iframe>

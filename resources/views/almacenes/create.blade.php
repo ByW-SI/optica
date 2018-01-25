@@ -7,22 +7,22 @@
 	<div class="container">
 		@if ($edit == true)
 		{{-- true expr --}}
-		<form role="form" method="POST" action="{{ route('sucursales.update',['sucursal'=>$sucursal]) }}">
+		<form role="form" method="POST" action="{{ route('almacens.update',['almacen'=>$almacen]) }}">
 			{{ csrf_field() }}
 			<input type="hidden" name="_method" value="PUT">
 	@else
 		{{-- false expr --}}
-		<form role="form" id="form-sucursal" method="POST" action="{{ route('sucursales.store') }}" name="form">
+		<form role="form" id="form-almacen" method="POST" action="{{ route('almacens.store') }}" name="form">
 			{{ csrf_field()}}
 	@endif
 
 			<div role="application" class="panel panel-group">
 				<div class="panel-default">
 
-					<div class="panel-heading"><h4>Datos de la Sucursal:
+					<div class="panel-heading"><h4>Datos del Almacen:
 					&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
 					Campos Requeridos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a class="btn btn-info" href="{{ route('sucursales.index') }}"><strong>Ver Sucursales</strong></a>
+					<a class="btn btn-info" href="{{ route('almacens.index') }}"><strong>Ver Almacenes</strong></a>
 				</h4></div>
 
 				<div class="panel-body">
@@ -30,17 +30,17 @@
 
 						<div class="form-group col-xs-4">
 							<label class="control-label" for="nombre"><i class="fa fa-asterisk" aria-hidden="true"></i> Nombre:</label>
-							<input type="text" class="form-control" id="nombre" name="nombre" required="required" value="{{ $sucursal->nombre }}" placeholder="Nombre de Sucursal">
+							<input type="text" class="form-control" id="nombre" name="nombre" required="required" value="{{ $almacen->nombre }}" placeholder="Nombre de Almacen">
 						</div>
 
 						<div class="form-group col-xs-4">
 							<label class="control-label" for="responsable"><i class="fa fa-asterisk" aria-hidden="true"></i> Responsable :</label>
-							<input type="text" class="form-control" id="responsable" name="responsable" required="required" value="{{ $sucursal->responsable }}" placeholder="Nombre del Responsable">
+							<input type="text" class="form-control" id="responsable" name="responsable" required="required" value="{{ $almacen->responsable }}" placeholder="Nombre del Responsable">
 						</div>
 
 						<div class="form-group col-xs-4">
 							<label class="control-label" for="claveid"><i class="fa fa-asterisk" aria-hidden="true"></i> Clave ID :</label>
-							<input type="text" class="form-control" id="claveid" name="claveid" required="required" value="{{ $sucursal->claveid }}" placeholder="ID de Sucursal">
+							<input type="text" class="form-control" id="claveid" name="claveid" required="required" value="{{ $almacen->claveid }}" placeholder="ID de Almacen">
 						</div>
 
 
@@ -49,36 +49,21 @@
 
 					<div class="col-xs-12 offset-md-2 mt-3">
 						<div class="form-group col-xs-4">
-						<label class="control-label" for="region">Región:</label>
+						<label class="control-label" for="tipo">Tipo del Almacen:</label>
 			    					<select type="select" 
-			    					        name="region" 
+			    					        name="tipo" 
 			    					        class="form-control" 
-			    					        id="region" >
+			    					        id="tipo" >
 			    					        
-			    					<option id="Region 1" value="Region 1"
-			    					@if ($sucursal->region == "Region 1")
+			    					<option id="Central" value="Central" @if ($almacen->tipo == "Central")
 			    							{{-- expr --}}
 			    							selected="selected" 
-			    						@endif>
-			    					Region 1</option>
-			    					<option id="Region 2" value="Region 2"
-			    					@if ($sucursal->region == "Region 2")
+			    						@endif>Central</option>
+			    					<option id="Vitrina" value="Vitrina" @if ($almacen->tipo == "Vitrina")
 			    							{{-- expr --}}
 			    							selected="selected" 
-			    						@endif>
-			    					Region 2</option>
-			    					<option id="Region 3" value="Region 3"
-			    					@if ($sucursal->region == "Region 3")
-			    							{{-- expr --}}
-			    							selected="selected" 
-			    						@endif>
-			    					Region 3</option>
-			    					<option id="Region 4" value="Region 4"
-			    					@if ($sucursal->region == "Region 4")
-			    							{{-- expr --}}
-			    							selected="selected" 
-			    						@endif>
-			    					Region 4</option>
+			    						@endif>Vitrina</option>
+			    					
 
 
 
@@ -101,10 +86,10 @@
 <div role="application" class="panel panel-group">
 				<div class="panel-default">
 
-					<div class="panel-heading"><h4>Direcciòn de Sucursal :
+					<div class="panel-heading"><h4>Direcciòn de Almacen :
 					&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
 					Campos Requeridos&nbsp;&nbsp;
-					<!-- <a class="btn btn-info" href="{{ route('sucursales.create') }}"><strong>Nueva Sucursal</strong></a> -->
+					<!-- <a class="btn btn-info" href="{{ route('almacens.create') }}"><strong>Nueva Almacen</strong></a> -->
 				</h4></div>
 
                   
@@ -127,7 +112,7 @@
 			    					      class="form-control" 
 			    					      id="calle" 
 			    					      name="calle"
-			    					      value="{{ $sucursal->calle }}" 
+			    					      value="{{ $almacen->calle }}" 
 			    					      required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -136,7 +121,7 @@
 			    					       class="form-control" 
 			    					       id="numext" 
 			    					       name="numext"
-			    					       value="{{ $sucursal->numext }}" 
+			    					       value="{{ $almacen->numext }}" 
 			    					       required>
 			  					</div>	
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -145,7 +130,7 @@
 			    					       class="form-control" 
 			    					       id="numint" 
 			    					       name="numint"
-			    					       value="{{ $sucursal->numint }}">
+			    					       value="{{ $almacen->numint }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12" align="right">
 							<button type="submit" 
@@ -165,7 +150,7 @@
 			  						class="form-control" 
 			  						id="colonia" 
 			  						name="colonia"
-			  						value="{{ $sucursal->colonia }}" 
+			  						value="{{ $almacen->colonia }}" 
 			  						required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -174,7 +159,7 @@
 			  						class="form-control" 
 			  						id="delegacion" 
 			  						name="delegacion"
-			  						value="{{ $sucursal->delegacion }}" 
+			  						value="{{ $almacen->delegacion }}" 
 			  						required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -183,7 +168,7 @@
 			  						class="form-control" 
 			  						id="ciudad" 
 			  						name="ciudad"
-			  						value="{{ $sucursal->ciudad }}" 
+			  						value="{{ $almacen->ciudad }}" 
 			  						required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -192,7 +177,7 @@
 			  						class="form-control" 
 			  						id="estado" 
 			  						name="estado"
-			  						value="{{ $sucursal->estado }}" 
+			  						value="{{ $almacen->estado }}" 
 			  						required>
 			  					</div>
 							</div>
@@ -205,7 +190,7 @@
 			  						class="form-control" 
 			  						id="calle1" 
 			  						name="calle1"
-			  						value="{{ $sucursal->calle1 }}">
+			  						value="{{ $almacen->calle1 }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="calle2">Y calle:</label>
@@ -213,7 +198,7 @@
 			  						class="form-control" 
 			  						id="calle2" 
 			  						name="calle2"
-			  						value="{{ $sucursal->calle2 }}">
+			  						value="{{ $almacen->calle2 }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="referencia">Referencia:</label>
@@ -221,7 +206,7 @@
 			  						class="form-control" 
 			  						id="referencia" 
 			  						name="referencia"
-			  						value="{{ $sucursal->referencia }}">
+			  						value="{{ $almacen->referencia }}">
 			  					</div>
 			  					
 

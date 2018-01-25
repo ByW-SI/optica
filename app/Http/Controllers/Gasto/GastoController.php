@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Gasto;
 
 use App\Gasto;
 use App\Sucursal;
+use App\Almacen;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use UxWeb\SweetAlert\SweetAlert as Alert;
@@ -19,6 +20,7 @@ class GastoController extends Controller
     {
         //
         $gastos = Gasto::sortable()->paginate(10);
+        
         return view('gastos.index',['gastos'=>$gastos]);
     }
 
@@ -30,14 +32,34 @@ class GastoController extends Controller
     public function create(Request $request)
     {
         $sucursal = Sucursal::find($request->sucursal);
+        $almacen = Almacen::find($request->almacen);
        
         $gasto= new Gasto; 
-        $gastos=Gasto::where('sucursal_id',$request->sucursal)->get();
+
+        $tipo;
+if( $sucursal==null){
+ $tipo=true;
+ $gastos=Gasto::where('almacen_id',$request->almacen)->get();
+
+}else{
+    $tipo=false;
+    $gastos=Gasto::where('sucursal_id',$request->sucursal)->get();
+}
+        
+
          $total=0;
+
         foreach ($gastos as $suma ) {
             $total+=$suma->monto;
         }
-        return view('gastos.create',['gasto'=>$gasto,'sucursal'=>$sucursal,'gastos'=>$gastos,'total'=>$total]);//
+
+        return view('gastos.create',[
+        'gasto'=>$gasto,
+        'sucursal'=>$sucursal,
+        'almacen'=>$almacen,
+        'gastos'=>$gastos,
+        'tipo'=>$tipo,
+        'total'=>$total]);//
     }
 
     /**
@@ -50,12 +72,23 @@ class GastoController extends Controller
     {
         //
        $sucursal = Sucursal::find($request->sucursal_id);
+       $almacen = Almacen::find($request->almacen_id);
       
         Gasto::create($request->all());
         Alert::success("Gasto registrado con exito")->persistent("Cerrar");
         
         
-        $gastos=Gasto::where('sucursal_id',$request->sucursal_id)->get();
+       // $gastos=Gasto::where('sucursal_id',$request->sucursal_id)->get();
+
+         $tipo;
+if( $sucursal==null){
+ $tipo=true;
+ $gastos=Gasto::where('almacen_id',$request->almacen_id)->get();
+
+}else{
+    $tipo=false;
+    $gastos=Gasto::where('sucursal_id',$request->sucursal_id)->get();
+}
           
          
         $gasto= new Gasto;
@@ -64,7 +97,12 @@ class GastoController extends Controller
             $total+=$suma->monto;
         }
         return view('gastos.create',
-            ['gastos'=>$gastos, 'sucursal'=>$sucursal,'gasto'=>$gasto,'total'=>$total]);
+            ['gastos'=>$gastos, 
+            'sucursal'=>$sucursal,
+            'almacen'=>$almacen,
+            'gasto'=>$gasto,
+            'tipo'=>$tipo,
+            'total'=>$total]);
     }
 
     /**

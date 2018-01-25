@@ -18,10 +18,10 @@ class CreateGastosTable extends Migration
             $table->increments('id');
             $table->string('descripcion');
 
-            $table->integer('sucursal_id')->unsigned();
+            $table->integer('sucursal_id')->nullable()->unsigned();
             $table->foreign('sucursal_id')->references('id')->on('sucursals');
 
-            $table->integer('almacen_id')->unsigned();
+            $table->integer('almacen_id')->nullable()->unsigned();
             $table->foreign('almacen_id')->references('id')->on('almacens');
 
             $table->decimal('monto',8,2);

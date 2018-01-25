@@ -90,10 +90,12 @@ return view('sucursales.view',['sucursal'=>$sucursal]);
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sucursal $sucursal)
+    public function update(Request $request,$sucursal)
     {
-        
-        $sucursal->update($request->all());
+        //dd($sucursal);
+         $suc= Sucursal::find($sucursal);
+
+        $suc->update($request->all());
         Alert::success('Proveedor actualizado')->persistent("Cerrar");
         return redirect()->route('sucursales.show',['sucursal'=>$sucursal]);
     }

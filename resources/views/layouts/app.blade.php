@@ -208,6 +208,43 @@
                     </li>
 
 
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cube" aria-hidden="true"></i>Productos<span class="caret"></span> </a>
+                       <!--  <ul class="dropdown-menu" role="menu">
+                            <li>
+                                 <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('almacens.index')}}','Almacenes')">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Almacenes
+                                </a>
+
+                            
+                                  </li>
+                                  </ul> -->
+
+
+
+
+
+                            </li> 
+
+                             <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-database" aria-hidden="true"></i> Inventarios<span class="caret"></span> </a>
+                     <!--    <ul class="dropdown-menu" role="menu">
+                            <li>
+                                 <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('almacens.index')}}','Almacenes')">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Almacenes
+                                </a>
+
+                            
+                                  </li>
+                                  </ul> -->
+
+
+
+
+
+                            </li> 
 
 
 
@@ -224,14 +261,14 @@
 
                             
                                   </li>
+                                </ul>
 
 
 
 
 
                             </li>                     
-                        </ul>
-                    </li>
+                     
 
 
 

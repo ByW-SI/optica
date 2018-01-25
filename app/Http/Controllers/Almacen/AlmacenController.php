@@ -90,10 +90,10 @@ return view('almacenes.view',['almacen'=>$almacen]);
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Almacen $almacen)
+    public function update(Request $request, $almacen)
     {
-        
-        $almacen->update($request->all());
+        $alm= Almacen::find($almacen);
+        $alm->update($request->all());
         Alert::success('Alamacen actualizado')->persistent("Cerrar");
         return redirect()->route('almacens.show',['almacen'=>$almacen]);
     }

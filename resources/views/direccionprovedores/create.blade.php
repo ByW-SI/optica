@@ -24,14 +24,13 @@
 							
 						</div>
 						
-						<div class=" col-md-12 º mt-3">
-							
-							<label>
-								¿Usar datos de dirección fìsica?
-							</label><br>
-								<input  type="checkbox"  data-on="Sí" data-off="No" onchange="datosFiscal()">
+						<div class="boton checkbox-disabled">
+                            <label>
 
-						</div>
+                                <input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="datosFiscal();">
+                                ¿Usar datos de dirección fisica?.
+                            </label>
+                        </div>
 
 					<div class="col-md-12 offset-md-2 mt-3">
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -88,7 +87,9 @@
 			</div>
 	</form>
 </div>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <script>
+
 	function datosFiscal(){
                 if($(':checkbox').prop('checked') == true){
                 	document.domicilio.calle.defaultValue = "{{$provedore->calle}}";

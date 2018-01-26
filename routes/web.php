@@ -22,6 +22,14 @@ Route::resource('provedores.datosgenerales','Provedor\ProvedorDatosGeneralesCont
 Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
 Route::resource('provedores.crm','Provedor\ProvedorCRMController');
 Route::resource('pacientes','Paciente\PacienteController');
+
+// CONVENIOS
+Route::resource('convenios','Convenio\ConvenioController');
+Route::resource('convenios.direccionfiscal','Convenio\ConvenioDireccionFiscalController');
+Route::resource('convenios.contactos','Convenio\ConvenioContactoController');
+Route::resource('convenios.tipoconvenios','Convenio\ConvenioTipoConvenioController');
+// Route::resource('convenios.tipoconvenios','Convenio\ConvenioTipoConvenioController');
+
 //----------------------------------------------------------
 
 

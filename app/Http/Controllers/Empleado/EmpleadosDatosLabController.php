@@ -25,7 +25,17 @@ class EmpleadosDatosLabController extends Controller
         //
         $datoslab = $empleado->datosLab;
 
-        $area='';
+       
+        
+        // 
+        if ($datoslab == null) {
+            # code...
+            return redirect()->route('empleados.datoslaborales.create',['empleado'=>$empleado]);
+        } else {
+
+
+
+           $area='';
       if($datoslab->area_id==null){
         $area='NO DEFINIDO';
       }else{
@@ -40,19 +50,23 @@ class EmpleadosDatosLabController extends Controller
         $puestos=Puesto::where('id',$datoslab->puesto_id)->first();
       $puesto=$puestos->nombre;
       }
-        
-        // 
-        if ($datoslab == null) {
-            # code...
-            return redirect()->route('empleados.datoslaborales.create',['empleado'=>$empleado]);
-        } else {
+
+       $contrato='';
+      if($datoslab->contrato_id==null){
+        $contrato='NO DEFINIDO';
+      }else{
+        $contratos=TipoContrato::where('id',$datoslab->contrato_id)->first();
+      $contrato=$contratos->nombre;
+      }
+          
             $sucursal=Sucursal::find($datoslab->sucursal_id);
             return view('empleadodatoslab.view',[
                 'empleado'=>$empleado,
                 'datoslab'=>$datoslab,
                 'sucursal'=>$sucursal,
                 'area'=>$area,
-                'puesto'=>$puesto]); 
+                'puesto'=>$puesto,
+                'contrato'=>$contrato]); 
         }
         
     }

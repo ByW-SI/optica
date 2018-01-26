@@ -27,7 +27,7 @@
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="contrato">Tipo de contrato:</label>
-					<dd>{{ $datoslab->contrato }}</dd>
+					<dd>{{ $contrato }}</dd>
 				</div>
 
 				<div class="form-group col-xs-3">

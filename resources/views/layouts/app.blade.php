@@ -126,10 +126,7 @@
                             <i class="fa fa-search" aria-hidden="true"></i> Busqueda de Empleados
                                 </a>
 
-                            <a href="#"
-                                   onclick="AgregarNuevoTab('{{ url('sucursales.index')}}','Sucursales')">
-                            <i class="fa fa-university" aria-hidden="true"></i> Sucursales
-                                </a>
+                           
 
                                 
 
@@ -247,7 +244,38 @@
                             </li> 
 
 
+                            
 
+
+ <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-university" aria-hidden="true"></i> Sucursales<span class="caret"></span> </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                 <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('sucursales.index')}}','Ver Sucursales')">
+                            <i class="fa fa-bars" aria-hidden="true"></i> Lista de Sucursales
+                                </a>
+
+                            
+                                  </li>
+
+                                  <li>
+                                 <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('sucursales.create')}}','Nueva Sucursal')">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Agregar Sucursal
+                                </a>
+
+                            
+                                  </li>
+
+                                </ul>
+
+
+
+
+
+                            </li>                     
+                     
 
 
                      <li class="dropdown">
@@ -255,12 +283,22 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                  <a href="#"
-                                   onclick="AgregarNuevoTab('{{ url('almacens.index')}}','Almacenes')">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Almacenes
+                                   onclick="AgregarNuevoTab('{{ url('almacens.index')}}','Ver Almacenes')">
+                            <i class="fa fa-bars" aria-hidden="true"></i> Lista de Almacenes
                                 </a>
 
                             
                                   </li>
+
+                                  <li>
+                                 <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('almacens.create')}}','Nuevo Almacen')">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Agregar Almacen
+                                </a>
+
+                            
+                                  </li>
+
                                 </ul>
 
 

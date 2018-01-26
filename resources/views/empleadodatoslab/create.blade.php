@@ -33,12 +33,22 @@
 				<input type="hidden" name="empleado_id" value="{{$empleado->id}}">
 				<div class="col-md-12 offset-md-2 mt-3">
 					<div class="form-group col-xs-3">
-						<label class="control-label" for="fechacontratacion">Fecha de contratación:</label>
-						<input class="form-control" type="date" id="fechacontratacion" name="fechacontratacion" value="{{ $datoslab->fechacontratacion }}">
+						<label class="control-label" for="fechacontratacion"><i class="fa fa-asterisk" aria-hidden="true"></i>Fecha de contratación:</label>
+						<input class="form-control" 
+						       type="date" 
+						       id="fechacontratacion" 
+						       name="fechacontratacion" 
+						       value="{{ $datoslab->fechacontratacion }}" 
+						       required
+						       @if ($edit == true)
+						       readonly
+						       @else
+						       @endif>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="contrato">Tipo de contrato:</label>
-						<select type="select" class="form-control" name="contrato_id">
+						<select type="select" class="form-control" name="contrato_id" >
+							<option id="contrato_id" value="">Sin Definir</option>
 							@foreach ($contratos as $contrato)
 								{{-- expr --}}
 								<option id="{{$contrato->id}}" value="{{$contrato->id}}" @if ($datoslab->contrato_id == $contrato->id)
@@ -56,7 +66,8 @@
 						Área:</label>
 						<select type="select" 
 						        class="form-control" 
-						        name="area_id">
+						        name="area_id"
+						        >
 						        <option id="area_id" value="">Sin Definir</option>
  
 							@foreach ($areas as $area)
@@ -76,7 +87,7 @@
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="puesto_id">
 						Puesto:</label>
-						<select type="select" name="puesto_id" id="puesto_id" class="form-control">
+						<select type="select" name="puesto_id" id="puesto_id" class="form-control" >
 							<option id="puesto_id" value="">Sin Definir</option>
 
 							@foreach ($puestos as $puesto)
@@ -93,14 +104,40 @@
 					</div>
 
 
+	<div class="form-group col-xs-3">
+						<label class="control-label" for="contrato">Sucursal:</label>
+						<select type="select" class="form-control" name="sucursal_id" >
+							<option id="sucursal_id" value="">Sin Definir</option>
+							@foreach ($sucursales as $sucursal)
+								{{-- expr --}}
+								<option id="{{$sucursal->id}}" value="{{$sucursal->id}}" @if ($datoslab->sucursal_id == $sucursal->id)
+									{{-- expr --}}
+									selected="selected" 
+								@endif>{{$sucursal->nombre}}</option>
+							@endforeach
+						</select>
+					</div>
 
+						<div class="form-group col-xs-3">
+						<label class="control-label" for="contrato">Almacen:</label>
+						<select type="select" class="form-control" name="almacen_id">
+							<option id="almacen_id" value="">Sin Definir</option>
+							@foreach ($almacenes as $almacen)
+								{{-- expr --}}
+								<option id="{{$almacen->id}}" value="{{$almacen->id}}" @if ($datoslab->almacen_id == $almacen->id)
+									{{-- expr --}}
+									selected="selected" 
+								@endif>{{$almacen->nombre}}</option>
+							@endforeach
+						</select>
+					</div>
 
 
 				</div>
 				<div class="col-md-12 offset-md-2 mt-3">
 					<div class="form-group col-xs-3">
-						<label class="control-label" for="salarionom">Salario Nóminal:</label>
-						<input class="form-control" type="text" id="salarionom" name="salarionom" value="{{ $datoslab->salarionom }}">
+						<label class="control-label" for="salarionom"><i class="fa fa-asterisk" aria-hidden="true"></i>Salario Nóminal:</label>
+						<input class="form-control" type="text" id="salarionom" name="salarionom" value="{{ $datoslab->salarionom }}" required>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="salariodia">Salario Diario:</label>
@@ -207,18 +244,7 @@
 						</select>
 					</div>
 
-						<div class="form-group col-xs-3">
-						<label class="control-label" for="contrato">Sucursal:</label>
-						<select type="select" class="form-control" name="sucursal_id">
-							@foreach ($sucursales as $sucursal)
-								{{-- expr --}}
-								<option id="{{$sucursal->id}}" value="{{$sucursal->id}}" @if ($datoslab->sucursal_id == $sucursal->id)
-									{{-- expr --}}
-									selected="selected" 
-								@endif>{{$sucursal->nombre}}</option>
-							@endforeach
-						</select>
-					</div>
+					
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="lugartrabajo">Lugar de Trabajo:</label>
 						<select type="select" name="lugartrabajo" class="form-control" id="lugartrabajo" value="{{ $datoslab->lugartrabajo }}">

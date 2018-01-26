@@ -153,6 +153,7 @@
 				<div class="panel-default pestana" id="tab2{{$empleado->id}}">
 
 					<div class="panel-heading">Datos Laborales:</div>
+
 					<div class="panel-body">
 						@if (count($empleado->datosLab) == 0 )
 							{{-- true expr --}}
@@ -163,7 +164,7 @@
 						<div class="col-md-12 offset-md-2 mt-3">
 							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		    					<label class="control-label" for="calle">ID Empleado:</label>
-		    					<dd>{{$empleado->datosLab->empleado_id}}</dd>
+		    					<dd>{{$empleado->identificador}}</dd>
 		  					</div>
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		    					<label class="control-label" for="numext">Número de Seguro Social (IMSS):</label>
@@ -172,30 +173,77 @@
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		    					<label class="control-label" for="numint">Número Infonavit:</label>
 		    					<dd>{{$empleado->infonavit}}</dd>
-		  					</div>		
-						</div>
-						<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
-							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		  					</div>	
+		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="colonia">Fecha de contratación:</label>
 		  						<dd>{{$empleado->datosLab->fechacontratacion}}</dd>
-		  					</div>
-		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  						<label class="control-label" for="municipio">Puesto:</label>
-		  						<dd>{{$empleado->datosLab->puesto}}</dd>
-		  					</div>
-		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  						<label class="control-label" for="ciudad">Área:</label>
-		  						<dd>{{ $empleado->datosLab->area }}</dd>
-		  					</div>
-		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  						<label class="control-label" for="estado">Fecha de la baja:</label>
-		  						<dd>{{$empleado->datosLab->fechabaja}}</dd>
-		  					</div>
+		  					</div>	
 						</div>
+
+						<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
+
+							
+
+		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		  						<label class="control-label" for="puesto">Puesto:</label>
+		  						<?php $p='NO DEFINIDO'; ?>
+		  						@foreach($puestos as $puesto)
+		  						@if($empleado->datosLab->puesto_id==$puesto->id)
+		  						<?php $p=$puesto->nombre; ?>
+		  						
+		  						
+		  						@endif
+		  						@endforeach
+		  						<dd>{{$p}}</dd>
+		  					</div>
+
+		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		  						<label class="control-label" for="area">Area:</label>
+		  						<?php $a='NO DEFINIDO'; ?>
+		  						@foreach($areas as $area)
+		  						@if($empleado->datosLab->area_id==$area->id)
+		  						<?php $a=$area->nombre; ?>
+		  						
+		  						@endif
+		  						@endforeach
+		  						<dd>{{$a}}</dd>
+		  					</div>
+
+		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		  						<label class="control-label" for="sucursal">Sucursal:</label>
+		  						<?php $s='NO DEFINIDO'; ?>
+		  						@foreach($sucursales as $sucursal)
+		  						@if($empleado->datosLab->sucursal_id==$sucursal->id)
+		  						<?php $s=$sucursal->nombre; ?>
+		  						
+		  						
+		  						@endif
+		  						@endforeach
+		  						<dd>{{$s}}</dd>
+		  					</div>
+
+		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		  						<label class="control-label" for="almacen">Almacen:</label>
+		  						<?php $l='NO DEFINIDO'; ?>
+		  						@foreach($almacenes as $almacen)
+		  						@if($empleado->datosLab->almacen_id==$almacen->id)
+		  						<?php $l=$almacen->nombre; ?>
+
+		  						@endif
+		  						@endforeach
+		  						<dd>{{$l}}</dd>
+		  					</div>
+		  					
+						</div>
+
 						<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="calle1">Tipo de Baja:</label>
 		  						<dd>{{$empleado->datosLab->tipobaja_id}}</dd>
+		  					</div>
+		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		  						<label class="control-label" for="estado">Fecha de la baja:</label>
+		  						<dd>{{$empleado->datosLab->fechabaja}}</dd>
 		  					</div>
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="calle2">Comentarios (Baja):</label>

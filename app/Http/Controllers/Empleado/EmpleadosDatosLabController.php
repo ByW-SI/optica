@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Empleado;
 
 use App\Empleado;
 use App\Sucursal;
+use App\Almacen;
 use App\EmpleadosDatosLab;
 use App\Http\Controllers\Controller;
 use App\TipoBaja;
@@ -60,10 +61,14 @@ class EmpleadosDatosLabController extends Controller
       }
           
             $sucursal=Sucursal::find($datoslab->sucursal_id);
+
+            $almacen=Almacen::find($datoslab->almacen_id);
+
             return view('empleadodatoslab.view',[
                 'empleado'=>$empleado,
                 'datoslab'=>$datoslab,
                 'sucursal'=>$sucursal,
+                'almacen'=>$almacen,
                 'area'=>$area,
                 'puesto'=>$puesto,
                 'contrato'=>$contrato]); 
@@ -85,6 +90,7 @@ class EmpleadosDatosLabController extends Controller
         $areas =   Area::get();
         $puestos = Puesto::get();
         $sucursales =Sucursal::get();
+        $almacenes =Almacen::get();
         $edit = false;
         
         return view('empleadodatoslab.create',[
@@ -95,7 +101,8 @@ class EmpleadosDatosLabController extends Controller
             'areas'=>$areas, 
             'puestos'=>$puestos,
             'edit'=>$edit,
-            'sucursales'=>$sucursales]);
+            'sucursales'=>$sucursales,
+            'almacenes'=>$almacenes]);
     }
 
     /**
@@ -132,8 +139,10 @@ class EmpleadosDatosLabController extends Controller
         $datoslab->fechabaja = $request->fechabaja ;
         $datoslab->tipobaja_id = $request->tipobaja_id ;
         $datoslab->comentariobaja = $request->comentariobaja ;
+
         $datoslab->contrato_id = $request->contrato_id ;
         $datoslab->sucursal_id = $request->sucursal_id ;
+        $datoslab->almacen_id = $request->almacen_id ;
         if ($request->bonopuntualidad == 'on') {
             # code...
             $datoslab->bonopuntualidad = true;
@@ -199,6 +208,7 @@ class EmpleadosDatosLabController extends Controller
         $areas =   Area::get();
         $puestos = Puesto::get();
         $sucursales =Sucursal::get();
+        $almacenes =Almacen::get();
         $edit = true;
         return view('empleadodatoslab.create',[
             'datoslab'=>$datoslab,
@@ -208,7 +218,8 @@ class EmpleadosDatosLabController extends Controller
             'areas'=>$areas, 
             'puestos'=>$puestos,
             'edit'=>$edit,
-            'sucursales'=>$sucursales]);
+            'sucursales'=>$sucursales,
+            'almacenes'=>$almacenes]);
 
     }
 
@@ -249,8 +260,10 @@ class EmpleadosDatosLabController extends Controller
         $datoslab->fechabaja = $request->fechabaja ;
         $datoslab->tipobaja_id = $request->tipobaja_id ;
         $datoslab->comentariobaja = $request->comentariobaja ;
+
         $datoslab->contrato_id = $request->contrato_id ;
         $datoslab->sucursal_id = $request->sucursal_id ;
+        $datoslab->almacen_id = $request->almacen_id ;
 
         if ($request->bonopuntualidad == 'on') {
             # code...

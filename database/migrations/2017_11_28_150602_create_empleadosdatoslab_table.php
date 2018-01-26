@@ -21,14 +21,14 @@ class CreateEmpleadosdatoslabTable extends Migration
             $table->date('fechacontratacion')->nullable();
             $table->date('fechaactualizacion');
             
-            $table->integer('contrato_id')->unsigned();
+            $table->integer('contrato_id')->unsigned()->nullable();
             $table->foreign('contrato_id')->references('id')->on('tipocontrato');
 
 
-            $table->integer('area_id')->unsigned();
+            $table->integer('area_id')->unsigned()->nullable();
             $table->foreign('area_id')->references('id')->on('areas');
             
-            $table->integer('puesto_id')->unsigned();
+            $table->integer('puesto_id')->unsigned()->nullable();
             $table->foreign('puesto_id')->references('id')->on('puestos');
 
 

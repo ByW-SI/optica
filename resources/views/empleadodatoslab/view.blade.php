@@ -103,9 +103,23 @@
 			<div class="col-md-12 offset-md-2 mt-3">
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="sucursal">Sucursal:</label>
+					@if($sucursal==null)
+					<dd>NO DEFINIDO</dd>
+					@else
 					<dd>{{ $sucursal->nombre }}</dd>
+					@endif
+
+				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="almacen">Almacen:</label>
+					@if($almacen==null)
+					<dd>NO DEFINIDO</dd>
+					@else
+					<dd>{{ $almacen->nombre }}</dd>
+					@endif
 				</div>
 			</div>
+			
 			<a class="btn btn-info btn-md" href="{{ route('empleados.datoslaborales.edit',['empleado'=>$empleado,'datoslaborale'=>$datoslab]) }}">
 				<strong>Editar</strong>
 			</a>

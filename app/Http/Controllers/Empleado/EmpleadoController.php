@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Empleado;
 
 use App\Empleado;
+use App\Area;
+use App\Puesto;
+use App\Sucursal;
+use App\Almacen;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use UxWeb\SweetAlert\SweetAlert as Alert;
@@ -18,7 +22,16 @@ class EmpleadoController extends Controller
     {
         //
         $empleados = Empleado::sortable()->paginate(10);
-        return view('empleado.index',['empleados'=>$empleados]);
+        $areas=Area::get();
+        $puestos=Puesto::get();
+        $sucursales=Sucursal::get();
+        $almacenes=Almacen::get();
+        return view('empleado.index',[
+            'empleados' => $empleados,
+            'areas'     =>     $areas,
+            'puestos'   =>   $puestos,
+            'sucursales'=>$sucursales,
+            'almacenes' =>$almacenes]);
 
     }
 

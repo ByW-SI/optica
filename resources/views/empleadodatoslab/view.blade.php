@@ -23,81 +23,81 @@
 			<div class="col-md-12 offset-md-2 mt-3">
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="fechacontratacion">Fecha de contratación:</label>
-					<dd>{{ $datoslab->fechacontratacion }}</dd>
+					<dd>{{ $actual->fechacontratacion }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="contrato">Tipo de contrato:</label>
-					<dd>{{ $contrato }}</dd>
+					<dd>{{ $contrato->nombre }}</dd>
 				</div>
 
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="area">Área:</label>
 					
-					<dd>{{ $area }}</dd>
+					<dd>{{ $area->nombre }}</dd>
 				</div>
 				
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="puesto">Puesto:</label>
-					<dd>{{ $puesto }}</dd>
+					<dd>{{ $puesto->nombre }}</dd>
 				</div>
 
 			</div>
 			<div class="col-md-12 offset-md-2 mt-3">
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="salarionom">Salario Nóminal:</label>
-					<dd>{{ $datoslab->salarionom }}</dd>
+					<dd>{{ $actual->salarionom }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="salariodia">Salario Diario:</label>
-					<dd>{{ $datoslab->salariodia }}</dd>
+					<dd>{{ $actual->salariodia }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="puesto_inicio">Puesto Inicial:</label>
-					<dd>{{ $datoslab->puesto_inicio }}</dd>
+					<dd>{{ $actual->puesto_inicio }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="periodopaga">Periodicidad de Pago:</label>
-					<dd>{{ $datoslab->periodopaga }}</dd>
+					<dd>{{ $actual->periodopaga }}</dd>
 				</div>
 			</div>
 			<div class="col-md-12 offset-md-2 mt-3">
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="prestaciones">Prestaciones:</label>
-					<dd>{{ $datoslab->prestaciones }}</dd>
+					<dd>{{ $actual->prestaciones }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="regimen">Régimen de Contratación:</label>
-					<dd>{{ $datoslab->regimen }}</dd>
+					<dd>{{ $actual->regimen }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="hentrada">Hora de Entrada:</label>
-					<dd>{{ $datoslab->hentrada }}</dd>
+					<dd>{{ $actual->hentrada }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="hsalida">Hora de Salida:</label>
-					<dd>{{ $datoslab->hsalida }}</dd>
+					<dd>{{ $actual->hsalida }}</dd>
 				</div>
 			</div>
 			<div class="col-md-12 offset-md-2 mt-3">
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="hcomida">Tiempo de Comida:</label>
-					<dd>{{ $datoslab->hcomida }}</dd>
+					<dd>{{ $actual->hcomida }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="lugartrabajo">Lugar de Trabajo:</label>
-					<dd>{{ $datoslab->lugartrabajo }}</dd>
+					<dd>{{ $actual->lugartrabajo }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="banco">Banco:</label>
-					<dd>{{ $datoslab->banco }}</dd>
+					<dd>{{ $actual->banco }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="cuenta">Cuenta:</label>
-					<dd>{{ $datoslab->cuenta }}</dd>
+					<dd>{{ $actual->cuenta }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="clabe">CLABE:</label>
-					<dd>{{ $datoslab->clabe }}</dd>
+					<dd>{{ $actual->clabe }}</dd>
 				</div>
 			</div>
 			<div class="col-md-12 offset-md-2 mt-3">
@@ -120,7 +120,7 @@
 				</div>
 			</div>
 			
-			<a class="btn btn-info btn-md" href="{{ route('empleados.datoslaborales.edit',['empleado'=>$empleado,'datoslaborale'=>$datoslab]) }}">
+			<a class="btn btn-info btn-md" href="{{ route('empleados.datoslaborales.edit',['empleado'=>$empleado,'datoslaborale'=>$actual]) }}">
 				<strong>Editar</strong>
 			</a>
 		</div>

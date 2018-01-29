@@ -458,7 +458,7 @@
 
 
  								<div class="form-group col-sm-4">
-										<label class=" control-label"> </label>
+										<h4><span class="label label-default">Arn y Arp</span></h4>
 										<div class="input-group">
 										  <span class="input-group-addon">ARN</span>
 										  <input type="text" class="form-control" style="width: 91px">
@@ -663,8 +663,8 @@
 
 
 
-<br><br><br><br><br><br><br><br><br>
-									 <div class="col-xs-offset-3 form-group col-xs-6">
+
+									 <div class="col-xs-offset-3 form-group col-sm-6 " >
 										<h4><span class="label label-default">Habilida,Integración y Visión</span></h4>
 										<div class="form-inline form-group">
 										  <label class="control-label">Habilidad Acomodativa: &nbsp;</label>
@@ -674,10 +674,300 @@
 										 <label class="control-label">Visión Esteroscópica:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</label>
 										 <input type="text" class="form-control" >
 										</div>
+
+
+
+									</div>
+
+ 									
+									<div class=" form-group col-sm-6  " >
+										<h4><span class="label label-default">Otros</span></h4>
+										
+										<div class="input-group">
+									<span class="input-group-addon">POLAR MIRROR</span>
+										  <input type="text" class="form-control" style="width: 91px">
+
+
+										
+										
+										
+									</div>
+									<div class="input-group">
+											<span class="input-group-addon">OTROS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  
+										  <input type="text" class="form-control" style="width: 91px">
+										</div>
+
+										<div class="input-group">
+											<span class="input-group-addon">RANDOM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										
+										  <input type="text" class="form-control" style="width: 91px">
+
+
+										
+										
+										
+									</div>
+									<div class="input-group">
+											<span class="input-group-addon">OTROS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										 
+										  <input type="text" class="form-control" style="width: 91px">
+										</div>
+
+
+									</div> <!-- ----- -->
+
+										<div class=" form-group col-sm-6  " >
+										
+										<h4><span class="label label-default">Otros</span></h4>
+
+										<div class="input-group">
+									<span class="input-group-addon">DIRECTA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <input type="text" class="form-control" style="width: 91px">
+											</div>
+
+										<div class="input-group">
+									<span class="input-group-addon">INDIRECTA&nbsp;&nbsp;</span>
+										  <input type="text" class="form-control" style="width: 91px">
+											</div>
+
+										<div class="input-group">
+									<span class="input-group-addon">GOLDMANN</span>
+										  <input type="text" class="form-control" style="width: 91px">
+											</div>
+
+										<div class="input-group">
+									<span class="input-group-addon">HRUBY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <input type="text" class="form-control" style="width: 91px">
+											</div>
+
+
 									</div>
 
 									
 
+
+
+									<div class="col-xs-offset-3 form-group col-sm-6  " >
+										<h4><span class="label label-default">Oftalmoscopìa</span></h4>
+										
+										<div class="input-group">
+											<span class="input-group-addon">PAPILA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">O.I.</span>
+										  <input type="text" class="form-control"></div>
+
+
+
+
+									<div class="input-group">
+											<span class="input-group-addon">EXCAVACIÒN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">O.I.</span>
+										  <input type="text" class="form-control">
+										</div>
+
+										<div class="input-group">
+											<span class="input-group-addon">RADIO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">O.I.</span>
+										  <input type="text" class="form-control">
+										</div>
+
+
+									<div class="input-group">
+											<span class="input-group-addon">PROFUNDIDAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">O.I.</span>
+										  <input type="text" class="form-control">
+										</div>
+
+
+											<div class="input-group">
+											<span class="input-group-addon">VASOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">O.I.</span>
+										  <input type="text" class="form-control">
+										</div>
+
+
+											<div class="input-group">
+											<span class="input-group-addon">REL A/V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">O.I.</span>
+										  <input type="text" class="form-control">
+										</div>
+
+
+											<div class="input-group">
+											<span class="input-group-addon">MACULA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">O.I.</span>
+										  <input type="text" class="form-control">
+										</div>
+
+
+											<div class="input-group">
+											<span class="input-group-addon">REFLEJO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">O.I.</span>
+										  <input type="text" class="form-control">
+										</div>
+
+
+											<div class="input-group">
+											<span class="input-group-addon">RETINA PERIFÈRICA</span>
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control">
+										   <span class="input-group-addon">O.I.</span>
+										  <input type="text" class="form-control">
+										</div>
+
+
+
+									</div>
+
+
+
+
+									<div class="form-group col-xs-12" align="left">
+										<label class="control-label">Pruebas de funciones visuales:</label>
+										<textarea class="form-control" ></textarea>
+										<br>
+										</div>
+
+										<div class="form-group col-xs-12" align="left">
+										<label class="control-label">Biomicroscopìa:</label>
+										<textarea class="form-control" ></textarea>
+										<br>
+										</div>
+
+
+
+
+
+											<div class=" form-group col-sm-6  " >
+										<h4><span class="label label-default">Otros</span></h4>
+										
+										<div class="input-group">
+									<span class="input-group-addon">GLARE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <input type="text" class="form-control" style="width: 91px">
+										</div>
+
+
+									<div class="input-group">
+											<span class="input-group-addon">RECUPERACIÒN AL DESLUMBRAMIENTO</span>
+										  
+										  <input type="text" class="form-control" style="width: 91px">
+										</div>
+
+										<div class="input-group">
+											<span class="input-group-addon">RECUPERACIÒN A LA OBSCURIDAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										
+										  <input type="text" class="form-control" style="width: 91px">
+										</div>
+
+										<div class="input-group">
+											<span class="input-group-addon">SENSIBILIDAD AL CONTRASTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										
+										  <input type="text" class="form-control" style="width: 91px">
+										</div>
+
+
+
+									
+
+
+									</div> 
+
+										<div class=" form-group col-sm-6  " >
+										
+										<h4><span class="label label-default">Otros</span></h4>
+
+										<div class="input-group">
+									<span class="input-group-addon">APLANACIÒN</span>
+										  <input type="text" class="form-control" style="width: 91px">
+											</div>
+
+										<div class="input-group">
+									<span class="input-group-addon">IDENTACIÒN&nbsp;</span>
+										  <input type="text" class="form-control" style="width: 91px">
+											</div>
+
+										<div class="input-group">
+									<span class="input-group-addon">AIRE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										  <input type="text" class="form-control" style="width: 91px">
+											</div>
+
+									
+
+
+									</div>
+
+									 <div class="col-xs-offset-1 form-group col-sm-4 ">
+										<h4><span class="label label-default">Paquimetría</span></h4>
+										<div class="input-group">
+										  <span class="input-group-addon">O.D.</span>
+										  <input type="text" class="form-control" style="width: 91px">
+										   <span class="input-group-addon">O.I.</span>
+										  <input type="text" class="form-control" style="width: 91px">
+										</div>
+									</div>
+
+									 <div class="col-xs-offset-1 form-group col-sm-4 ">
+										<h4><span class="label label-default">Tonometría</span></h4>
+										<div class="input-group">
+										  <span class="input-group-addon">MÈTODO ANESTÈSICO: </span>
+										  <input type="text" class="form-control" style="width: 200px">
+										   <span class="input-group-addon">RESPUESTA DEL PACIENTE: </span>
+										  <input type="text" class="form-control" style="width: 200px">
+										</div>
+
+										<div class="input-group">
+										  <span class="input-group-addon">FECHA: </span>
+										  <input type="date" class="form-control" style="width: 200px">
+										   <span class="input-group-addon">HORA: </span>
+										  <select class="form-control" type="select" name="tipo_cont" id="tipo_cont" style="width: 100px">
+												<?php
+												for($i=0;$i<24;$i++){
+
+													if($i<=11){
+
+									echo"<option id='' value='".$i.":00 am'>".$i.":00 am </option>";
+
+													}else{
+									echo"<option id='' value='".$i.":00 pm'>".$i.":00 pm </option>";
+													}										
+
+
+												}
+												?>
+												
+												
+											</select>
+										</div>
+
+										<div class="input-group">
+										  <span class="input-group-addon">O.D. </span>
+										  <input type="text" class="form-control" style="width: 200px">
+										   <span class="input-group-addon">O.I. </span>
+										  <input type="text" class="form-control" style="width: 200px">
+										</div>
+
+									</div>
+
+
+
+								
+										
 
 
 						  			<!-- adentro de panel-body -->

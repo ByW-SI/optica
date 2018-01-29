@@ -40,7 +40,7 @@
 
 			@foreach($convenios as $convenio)
 				<tr class="active"
-				    title="Has Click Aquì para Ver"
+				    title="Haz Click Aquì para Ver"
 					style="cursor: pointer"
 					href="#{{$convenio->id}}">
 					<td>{{$convenio->id}}</td>

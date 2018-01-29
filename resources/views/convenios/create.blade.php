@@ -156,9 +156,9 @@
 				&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 				<div class="panel-body">
 						<div class="col-lg-offset-10">
-							<button type="submit" class="btn btn-success">
+							{{-- <button type="submit" class="btn btn-success">
 								<strong> Guardar
-							</strong></button>
+							</strong></button> --}}
 							
 						</div>
 						<div class="boton checkbox-disabled">
@@ -233,8 +233,8 @@
 							{{ csrf_field() }}
 							<input type="hidden" name="convenio_id" value="{{-- {{$convenio->id}} --}}" required>
 							<div class="col-xs-offset-10">
-								<button type="submit" class="btn btn-success">
-							<strong>Guardar</strong>	</button>
+								{{-- <button type="submit" class="btn btn-success">
+							<strong>Guardar</strong>	</button> --}}
 								
 							</div>	
 							<div class="col-md-12 offset-md-2 mt-3">
@@ -316,8 +316,8 @@
 						{{ csrf_field() }}
 						<input type="hidden" name="convenio_id" value="{{-- {{$convenio->id}} --}}" {{-- required --}}>
 						<div class="col-xs-offset-10">
-								<button type="submit" class="btn btn-success">
-							<strong>Guardar</strong>	</button>
+								{{-- <button type="submit" class="btn btn-success">
+							<strong>Guardar</strong>	</button> --}}
 								
 						</div>
 							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

@@ -160,6 +160,10 @@
 							<h3>Aun no tiene Datos Laborales</h3>
 						@else
 							{{-- false expr --}}
+							<?php $ultimo;?>
+							@foreach($empleado->datosLab as $datos)
+							<?php $ultimo=$datos;?>
+							@endforeach
 
 						<div class="col-md-12 offset-md-2 mt-3">
 							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -176,7 +180,7 @@
 		  					</div>	
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="colonia">Fecha de contratación:</label>
-		  						<dd>{{$empleado->datosLab->fechacontratacion}}</dd>
+		  						<dd>{{$ultimo->fechacontratacion}}</dd>
 		  					</div>	
 						</div>
 
@@ -188,7 +192,7 @@
 		  						<label class="control-label" for="puesto">Puesto:</label>
 		  						<?php $p='NO DEFINIDO'; ?>
 		  						@foreach($puestos as $puesto)
-		  						@if($empleado->datosLab->puesto_id==$puesto->id)
+		  						@if($ultimo->puesto_id==$puesto->id)
 		  						<?php $p=$puesto->nombre; ?>
 		  						
 		  						
@@ -201,7 +205,7 @@
 		  						<label class="control-label" for="area">Area:</label>
 		  						<?php $a='NO DEFINIDO'; ?>
 		  						@foreach($areas as $area)
-		  						@if($empleado->datosLab->area_id==$area->id)
+		  						@if($ultimo->area_id==$area->id)
 		  						<?php $a=$area->nombre; ?>
 		  						
 		  						@endif
@@ -213,7 +217,7 @@
 		  						<label class="control-label" for="sucursal">Sucursal:</label>
 		  						<?php $s='NO DEFINIDO'; ?>
 		  						@foreach($sucursales as $sucursal)
-		  						@if($empleado->datosLab->sucursal_id==$sucursal->id)
+		  						@if($ultimo->sucursal_id==$sucursal->id)
 		  						<?php $s=$sucursal->nombre; ?>
 		  						
 		  						
@@ -226,7 +230,7 @@
 		  						<label class="control-label" for="almacen">Almacen:</label>
 		  						<?php $l='NO DEFINIDO'; ?>
 		  						@foreach($almacenes as $almacen)
-		  						@if($empleado->datosLab->almacen_id==$almacen->id)
+		  						@if($ultimo->almacen_id==$almacen->id)
 		  						<?php $l=$almacen->nombre; ?>
 
 		  						@endif
@@ -239,21 +243,26 @@
 						<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="calle1">Tipo de Baja:</label>
-		  						<dd>{{$empleado->datosLab->tipobaja_id}}</dd>
+		  						<dd>{{$ultimo->tipobaja_id}}</dd>
 		  					</div>
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="estado">Fecha de la baja:</label>
-		  						<dd>{{$empleado->datosLab->fechabaja}}</dd>
+		  						<dd>{{$ultimo->fechabaja}}</dd>
 		  					</div>
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="calle2">Comentarios (Baja):</label>
-		  						<dd>{{$empleado->datosLab->comentariobaja}}</dd>
+		  						<dd>{{$ultimo->comentariobaja}}</dd>
 		  					</div>
 		  					
 						</div>
 						@endif
 					</div>
 				</div>
+
+
+
+
+
 				<div class="panel-default pestana" id="tab3{{$empleado->id}}">
 					<div class="panel-heading">
 						Estudios:

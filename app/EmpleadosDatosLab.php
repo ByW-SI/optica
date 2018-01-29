@@ -20,7 +20,7 @@ class EmpleadosDatosLab extends Model
                          'puesto_id',
                          'salarionom',
                          'salariodia',
-                         'puesto_inicio',
+                         
                          'periodopaga',
                          'prestaciones',
                          'regimen',
@@ -34,7 +34,6 @@ class EmpleadosDatosLab extends Model
                          'fechabaja',
                          'tipobaja_id',
                          'comentariobaja',
-                         'bonopuntualidad',
                          'sucursal_id',
                          'almacen_id'];
         

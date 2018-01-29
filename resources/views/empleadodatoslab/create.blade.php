@@ -22,8 +22,11 @@
 		<div class="panel-body">
 			@if ($edit == true)
 				{{-- true expr --}}
-			<form role="form" method="POST" action="{{ route('empleados.datoslaborales.update',['datoslaborale'=>$datoslab,'empleado'=>$empleado]) }}">
-				<input type="hidden" name="_method" value="PUT">
+
+		<!-- 	<form role="form" method="POST" action="{{ route('empleados.datoslaborales.update',['datoslaborale'=>$datoslab,'empleado'=>$empleado]) }}">
+				<input type="hidden" name="_method" value="PUT"> -->
+				<form role="form" method="POST" action="{{ route('empleados.datoslaborales.store',['empleado'=>$empleado]) }}">
+
 				{{ csrf_field() }}
 			@else
 				{{-- false expr --}}
@@ -284,13 +287,13 @@
 						<input class="form-control" type="clabe" name="clabe" id="clabe" value="{{ $datoslab->clabe }}">
 					</div>
 				
-					<div class="form-group col-xs-3">
+					<!-- <div class="form-group col-xs-3">
 						<label class="control-label" for="bonopuntualidad" id="lbl_inst2">Bono Puntualidad:</label>
 						<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="bonopuntualidad" @if ($datoslab->bonopuntualidad == 1)
-							{{-- expr --}}
+							
 							checked="checked"
 						@endif>
-					</div>
+					</div> -->
 				</div>
 				<div class="panel">
 					<div class="panel-heading">Datos de Baja:</div>
@@ -321,7 +324,7 @@
 				<button type="submit" class="btn btn-success">
 			<strong>Guardar</strong>	
 			</button>
-				<p><strong>*Campo requerido</strong></p>
+				
 			</form>
 		</div>
 	</div>

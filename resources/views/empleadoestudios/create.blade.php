@@ -287,43 +287,44 @@
 					<div class="form-group col-xs-4">
 						<label class="control-label" for="curso1" id="lbl_curso">Curso:</label>
 						<input type="text" class="form-control" id="id_curso1" name="curso1" value="{{ $estudios->curso1 }}">
-						<div class="boton checkbox-disabled">
+						
 							<label>
 						<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="certificado1" @if ($estudios->certificado1 == 1)
 							{{-- expr --}}
 							checked="checked"
 						@endif> ¿Certificación?
 						</label>
+						
 					</div>
-				</div>
 				<div class="form-group col-xs-4">
 						<label class="control-label" for="curso2" id="lbl_curso">Curso 2:</label>
 						<input type="text" class="form-control" id="id_curso2" name="curso2" value="{{ $estudios->curso2 }}">
-						<div class="boton checkbox-disabled">
 							<label>
 						<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="certificado2" @if ($estudios->certificado2 == 1)
 							{{-- expr --}}
 							checked="checked"
 						@endif> ¿Certificación?
 						</label>
-					</div>
+					
 				</div>
 				<div class="form-group col-xs-4">
 						<label class="control-label" for="curso3" id="lbl_curso">Curso 3:</label>
 						<input type="text" class="form-control" id="id_curso3" name="curso3" value="{{ $estudios->curso3 }}">
-						<div class="boton checkbox-disabled">
+						
 							<label>
-						<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="certificado3" @if ($estudios->certificado3 == 1)
+						<input type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="certificado3" @if ($estudios->certificado3 == 1)
 							{{-- expr --}}
 							checked="checked"
 						@endif>
 						¿Certificación?
 						</label>
-					</div>
+				</div>
 				</div>
 				<button type="submit" class="btn btn-success">Guardar</button>
 				<p><strong>*Campo requerido</strong></p>
 				</form>
+				</div>
 		</div>
 	</div>
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection

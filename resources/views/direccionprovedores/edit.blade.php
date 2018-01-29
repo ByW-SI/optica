@@ -23,11 +23,11 @@
 								</button>
 									
 								</div>
-								<div class="col-lg-3">
+								<div class="boton checkbox-disabled">
 									
 									<label>
 
-										<input type="checkbox" checked data-toggle="toggle" onchange="datosFiscal();">
+										<input id="boton-toggle" type="checkbox" checked data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="datosFiscal();">
 										¿Usar datos de dirección fìsica?.
 									</label>
 								</div>
@@ -83,6 +83,8 @@
 			</form>
 		</div>
 	</div>
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script>
 		<script type="text/javascript">
 			function datosFiscal(){
 				document.domicilio.calle.defaultValue = "{{$provedore->calle}}";

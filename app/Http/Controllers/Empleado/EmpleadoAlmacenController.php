@@ -26,6 +26,7 @@ class EmpleadoAlmacenController extends Controller
     $datos=EmpleadosDatosLab::where('almacen_id',$request->almacen)->get();
     $areas=Area::get();
     $puestos=Puesto::get();
+    
 foreach ($datos as $dato ): 
 
 $empleado=Empleado::where('id',$dato->empleado_id)->get();

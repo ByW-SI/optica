@@ -26,6 +26,7 @@ class EmpleadoSucursalController extends Controller
     $datos=EmpleadosDatosLab::where('sucursal_id',$request->sucursal)->get();
     $areas=Area::get();
     $puestos=Puesto::get();
+
 foreach ($datos as $dato ): 
 
 $empleado=Empleado::where('id',$dato->empleado_id)->get();

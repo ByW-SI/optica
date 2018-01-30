@@ -31,16 +31,28 @@
 						<th>{{$emplead->appaterno}}</th>
 						<th>{{$emplead->apmaterno}}</th>
 
-                         @foreach($areas as $area)
-                         @if($area->id==$emplead->datosLab->area_id)
-						<th>{{$area->nombre}}</th>
+                       	<?php $act;?>
+							@foreach($emplead->datosLab as $datos)
+							<?php $act=$datos;?>
+							@endforeach
 
+                         @foreach($areas as $area)
+                         @if($act->area_id==$area->id)
+						<th>{{$area->nombre}}</th>
+							@else
+							<th>NO DEFINIDO</th>
 						@endif
 							@endforeach
 
+
+							
+
 						@foreach($puestos as $puesto)
-						 @if($puesto->id==$emplead->datosLab->puesto_id)
+						@if($act->puesto_id==$puesto->id)
+						
 						<th>{{$puesto->nombre}}</th>
+						@else
+							<th>NO DEFINIDO</th>
 						
 						@endif
 						@endforeach

@@ -264,18 +264,18 @@
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="banco">Banco:</label>
 						<select class="form-control" type="select" name="banco" id="banco">
-							<option id="1" value="HSBC" @if ($datoslab->banco == "HSBC")
+
+
+							<option id="banco" value="">Sin Definir</option>
+							@foreach ($bancos as $banco)
 								{{-- expr --}}
-								selected="selected" 
-							@endif>HSBC</option>
-							<option id="2" value="Banorte" @if ($datoslab->banco == "Banorte")
-								{{-- expr --}}
-								selected="selected" 
-							@endif>BANORTE</option>
-							<option id="3" value="Banamex" @if ($datoslab->banco == "Banamex")
-								{{-- expr --}}
-								selected="selected" 
-							@endif>BANAMEX</option>
+								<option id="{{$banco->nombre}}" value="{{$banco->nombre}}" @if ($datoslab->banco == $banco->nombre)
+									{{-- expr --}}
+									selected="selected" 
+								@endif>{{$banco->nombre}}</option>
+							@endforeach
+
+
 						</select>
 					</div>
 					<div class="form-group col-xs-3">

@@ -92,6 +92,7 @@ Route::resource('sucursal','Empleado\EmpleadoSucursalController');
 //---------------------------------------------------------------------------
 Route::resource('areas','Area\AreaController', ['except'=>'show']);
 Route::resource('puestos','Puesto\PuestoController', ['except'=>'show']);
+Route::resource('bancos','Banco\BancoController', ['except'=>'show']);
 //---------------------------------------------------------------------------
 Route::resource('almacens','Almacen\AlmacenController');
 Route::get('almacens.create','Almacen\AlmacenController@create');

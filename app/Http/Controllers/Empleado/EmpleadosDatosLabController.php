@@ -11,6 +11,7 @@ use App\TipoBaja;
 use App\TipoContrato;
 use App\Area;
 use App\Puesto;
+use App\Banco;
 use Illuminate\Http\Request;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 
@@ -31,6 +32,7 @@ class EmpleadosDatosLabController extends Controller
         $sucursales =Sucursal::get();
         $almacenes =Almacen::get();
         $contratos =TipoContrato::get();
+        
         
         // 
         if (count($datoslab)==0) {
@@ -65,7 +67,8 @@ class EmpleadosDatosLabController extends Controller
                 'areas'=>$areas,
                 'puestos'=>$puestos,
                 'sucursales'=>$sucursales,
-                'almacenes'=>$almacenes]); 
+                'almacenes'=>$almacenes
+                ]); 
         }
         
     }
@@ -85,6 +88,7 @@ class EmpleadosDatosLabController extends Controller
         $puestos = Puesto::get();
         $sucursales =Sucursal::get();
         $almacenes =Almacen::get();
+        $bancos=Banco::get();
         $edit = false;
         
         return view('empleadodatoslab.create',[
@@ -96,7 +100,8 @@ class EmpleadosDatosLabController extends Controller
             'puestos'=>$puestos,
             'edit'=>$edit,
             'sucursales'=>$sucursales,
-            'almacenes'=>$almacenes]);
+            'almacenes'=>$almacenes,
+            'bancos'=>$bancos]);
     }
 
     /**
@@ -207,6 +212,7 @@ $actual1=EmpleadosDatosLab::where('id', $actual)->first();
         $puestos = Puesto::get();
         $sucursales =Sucursal::get();
         $almacenes =Almacen::get();
+        $bancos=Banco::get();
         $edit = true;
         return view('empleadodatoslab.create',[
             'datoslab'=>$datoslab,
@@ -217,7 +223,8 @@ $actual1=EmpleadosDatosLab::where('id', $actual)->first();
             'puestos'=>$puestos,
             'edit'=>$edit,
             'sucursales'=>$sucursales,
-            'almacenes'=>$almacenes]);
+            'almacenes'=>$almacenes,
+            'bancos'=>$bancos]);
 
     }
 

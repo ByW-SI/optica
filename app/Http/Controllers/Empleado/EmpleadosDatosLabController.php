@@ -30,6 +30,7 @@ class EmpleadosDatosLabController extends Controller
         $puestos = Puesto::get();
         $sucursales =Sucursal::get();
         $almacenes =Almacen::get();
+        $contratos =TipoContrato::get();
         
         // 
         if (count($datoslab)==0) {
@@ -60,6 +61,7 @@ class EmpleadosDatosLabController extends Controller
                 'area'=>$area,
                 'puesto'=>$puesto,
                 'contrato'=>$contrato,
+                'contratos'=>$contratos,
                 'areas'=>$areas,
                 'puestos'=>$puestos,
                 'sucursales'=>$sucursales,

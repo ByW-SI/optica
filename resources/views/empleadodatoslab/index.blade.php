@@ -159,15 +159,17 @@
 						<th>Sucursal</th>
 						<th>Almacen</th>
 						<th>Salario Nominal</th>
+						<th>Tipo de Contrato</th>
 						<th>Fecha de Actualización</th>
-
-
-						<th>Operaciones</th>
 					</tr>
 				</thead>
                 <tbody>
 				@foreach ($datoslab as $dato)
-					<tr class="active">
+					<tr  class="active"
+				    title="Has Click Aquì para Ver"
+					style="cursor: pointer"
+					data-toggle="modal" 
+					data-target="#{{$dato->id}}">
 
  					@if($dato->area_id==null)
 						<td>NO DEFINIDO</td>
@@ -220,21 +222,207 @@
 						@endif
 
 						<td>{{$dato->salarionom}}</td>
+						
+
+
+							@if($dato->contrato_id==null)
+						<td>NO DEFINIDO</td>
+						@else
+						 <?php $c='';?>
+							@foreach($contratos as $contrato)
+								@if($dato->contrato_id==$contrato->id)
+								<?php $c=$contrato->nombre; ?>
+								<td>{{$c}}</td>
+								@endif
+							@endforeach
+						@endif
+
 						<td>{{$dato->fechaactualizacion}}</td>  
-
-
-						<td>
-
-							<a class="btn btn-success btn-sm" href="{{ route('empleados.datoslaborales.show',['empleado'=>$empleado,'datoslaborale'=>$dato]) }}">
-						<strong>Ver</strong>	</a>
-
-							
-
-					</tr>
-						</td>
-
+						</tr>
 
 					</tbody>
+					{{-- MODAL --}}
+					<div class="modal fade" id="{{$dato->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Detalles de Datos Laborales</strong>
+								        </h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+
+
+								      <div class="modal-body">
+								        <div class="panel-default">
+								        	<div class="panel-heading"><h5><strong>Fecha de Contratación:&nbsp;&nbsp;&nbsp;&nbsp;{{$dato->fechacontratacion}} </strong></h5></div>
+								        	<div class="panel-body">
+
+								        	<div class="col-md-12 offset-md-2 mt-3"> 
+			<div class="form-group col-xs-3">
+					<label class="control-label" for="fechaactualizacion">Fecha de Actualización:</label>
+					
+					<dd><strong> {{ $dato->fechaactualizacion }}</strong></dd>
+				</div>
+				
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="contrato">Tipo de contrato:</label>
+
+					@if($dato->contrato_id==null)
+						<dd>NO DEFINIDO</dd>
+						@else
+						 <?php $c='';?>
+							@foreach($contratos as $contrato)
+								@if($dato->contrato_id==$contrato->id)
+								<?php $c=$contrato->nombre; ?>
+								<dd>{{$c}}</dd>
+								@endif
+							@endforeach
+						@endif
+
+				</div>
+
+                <div class="form-group col-xs-3">
+					<label class="control-label" for="area">Área:</label>
+
+					@if($dato->area_id==null)
+						<dd>NO DEFINIDO</dd>
+						@else
+						 <?php $a='';?>
+							@foreach($areas as $area)
+								@if($dato->area_id==$area->id)
+								<?php $a=$area->nombre; ?>
+								<dd>{{$a}}</dd>
+								@endif
+							@endforeach
+						@endif
+					
+				</div>
+				
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="puesto">Puesto:</label>
+
+					@if($dato->puesto_id==null)
+						<dd>NO DEFINIDO</dd>
+						@else
+						 <?php $p='';?>
+							@foreach($puestos as $puesto)
+								@if($dato->puesto_id==$puesto->id)
+								<?php $p=$puesto->nombre; ?>
+								<dd>{{$p}}</dd>
+								@endif
+							@endforeach
+						@endif
+
+				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="sucursal">Sucursal:</label>
+
+					@if($dato->sucursal_id==null)
+						<dd>NO DEFINIDO</dd>
+						@else
+						 <?php $s='';?>
+							@foreach($sucursales as $sucursal)
+								@if($dato->sucursal_id==$sucursal->id)
+								<?php $s=$sucursal->nombre; ?>
+								<dd>{{$s}}</dd>
+								@endif
+							@endforeach
+						@endif
+
+				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="almacen">almacen:</label>
+
+					@if($dato->almacen_id==null)
+						<dd>NO DEFINIDO</dd>
+						@else
+						 <?php $l='';?>
+							@foreach($almacenes as $almacen)
+								@if($dato->almacen_id==$almacen->id)
+								<?php $l=$almacen->nombre; ?>
+								<dd>{{$l}}</dd>
+								@endif
+							@endforeach
+						@endif
+
+				</div>
+				
+
+
+
+			</div>
+			<div class="col-md-12 offset-md-2 mt-3">
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="salarionom">Salario Nóminal:</label>
+					<dd>{{ $dato->salarionom }}</dd>
+				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="salariodia">Salario Diario:</label>
+					<dd>{{ $dato->salariodia }}</dd>
+				</div>
+
+				
+
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="periodopaga">Periodicidad de Pago:</label>
+					<dd>{{ $dato->periodopaga }}</dd>
+				</div>
+			</div>
+			<div class="col-md-12 offset-md-2 mt-3">
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="prestaciones">Prestaciones:</label>
+					<dd>{{ $dato->prestaciones }}</dd>
+				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="regimen">Régimen de Contratación:</label>
+					<dd>{{ $dato->regimen }}</dd>
+				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="hentrada">Hora de Entrada:</label>
+					<dd>{{ $dato->hentrada }}</dd>
+				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="hsalida">Hora de Salida:</label>
+					<dd>{{ $dato->hsalida }}</dd>
+				</div>
+			</div>
+			<div class="col-md-12 offset-md-2 mt-3">
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="hcomida">Tiempo de Comida:</label>
+					<dd>{{ $dato->hcomida }}</dd>
+				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="lugartrabajo">Lugar de Trabajo:</label>
+					<dd>{{ $dato->lugartrabajo }}</dd>
+				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="banco">Banco:</label>
+					<dd>{{ $dato->banco }}</dd>
+				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="cuenta">Cuenta:</label>
+					<dd>{{ $dato->cuenta }}</dd>
+				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="clabe">CLABE:</label>
+					<dd>{{ $dato->clabe }}</dd>
+				</div>
+			</div>
+								        	</div>
+								        </div>
+								      </div>
+
+
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+								       
+								      </div>
+								    </div>
+								  </div>
+								</div>
+					{{-- MODAL --}}
 				@endforeach
 			</table>
 		@endif

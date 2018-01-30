@@ -26,10 +26,10 @@
 					 @foreach($empleado as $emplead)
 					
                    <tr>
-						<th>{{$emplead->identificador}}</th>
-						<th>{{$emplead->nombre}}</th>
-						<th>{{$emplead->appaterno}}</th>
-						<th>{{$emplead->apmaterno}}</th>
+						<td>{{$emplead->identificador}}</td>
+						<td>{{$emplead->nombre}}</td>
+						<td>{{$emplead->appaterno}}</td>
+						<td>{{$emplead->apmaterno}}</td>
 
 
 							<?php $act;?>
@@ -39,24 +39,27 @@
 
                          @foreach($areas as $area)
                          @if($act->area_id==$area->id)
-						<th>{{$area->nombre}}</th>
-							@else
-							<th>NO DEFINIDO</th>
+						<td>{{$area->nombre}}</td>
+							
 						@endif
 							@endforeach
-
+							@if($act->area_id==null)
+							<td>No Definido</td>
+							@endif
 
 							
 
 						@foreach($puestos as $puesto)
 						@if($act->puesto_id==$puesto->id)
 						
-						<th>{{$puesto->nombre}}</th>
-						@else
-							<th>NO DEFINIDO</th>
+						<td>{{$puesto->nombre}}</td>
+						
 						
 						@endif
 						@endforeach
+						@if($act->puesto_id==null)
+							<td>No Definido</td>
+							@endif
 
 
 

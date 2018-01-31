@@ -82,7 +82,7 @@ Route::get('citas',function(){
 });
 //--------------------------------------------------------------------
 Route::resource('gastos','Gasto\GastoController', ['except'=>'show']);
-// Route::resource('gastos.create','Gasto\GastoController@create');
+//Route::resource('gastos.destroy','Gasto\GastoController@destroy');
 
 Route::resource('sucursales','Sucursal\SucursalController');
 Route::get('sucursales.create','Sucursal\SucursalController@create');

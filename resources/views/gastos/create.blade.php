@@ -92,9 +92,7 @@
         <td>
           <div class="btn-group">
 
-    <button type="button" class="btn btn-info">Editar
-<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-    </button>
+    
 
     
 
@@ -114,13 +112,26 @@
         <td>
           <div class="btn-group">
 
-    <button type="button" class="btn btn-info">Editar
-<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-    </button>
+    
 
-    <button type="button" class="btn btn-warning">Eliminar
-<i class="fa fa-times" aria-hidden="true"></i>
-    </button>
+  
+
+<form role="form" id="{{ $gasto->id }}" method="POST" action="{{ route('gastos.destroy',['gasto'=>$gasto]) }}">
+              {{ csrf_field() }}
+
+              @if ($tipo == false)
+{{-- true expr --}}
+              <input type="hidden" class="form-control" id="sucursal_id" name="sucursal_id"  value="{{ $sucursal->id }}">
+@else
+{{-- false expr --}}
+              <input type="hidden" class="form-control" id="almacen_id" name="almacen_id"  value="{{ $almacen->id }}">
+
+@endif
+              <input type="submit" name="submit" value="Eliminar" class="btn btn-warning btn-sm">
+            
+            </form>
+   
+    
 
     </div>
         </td>
@@ -133,13 +144,11 @@
         <td>
           <div class="btn-group">
 
-    <button type="button" class="btn btn-info">Editar
-<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-    </button>
+
 
     <button type="button" class="btn btn-warning">Eliminar
 <i class="fa fa-times" aria-hidden="true"></i>
-    </button>
+    </button> 
 
     </div>
         </td>

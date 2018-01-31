@@ -39,7 +39,8 @@
 				<tr class="active"
 				    title="Has Click Aquì para Ver"
 					style="cursor: pointer"
-					href="#{{$empleado->id}}">
+					href="#{{$empleado->id}}"
+					data-target="#{{$empleado->id}}">
 					
 					<td>{{$empleado->identificador}}</td>
 					<td>{{$empleado->nombre}}</td>

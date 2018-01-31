@@ -146,19 +146,22 @@ if( $sucursal==null){
 
     /**
      * Remove the specified resource from storage.
-     *
+     *@param  \Illuminate\Http\Request  $request
      * @param  \App\Gasto  $gasto
      * @return \Illuminate\Http\Response
      */
+
     public function destroy(Gasto $gasto)
     {
-        //
-        // var_dump($gasto);
-        // $gasto = Gasto::findoorFail($gasto);
-        // Gasto::destroy($gasto);
+        dd('HOLA');
         $gasto->delete();
-        return  redirect('gastos');
+
+         
+    return redirect('gastos.create');
+
     }
+
+
     public function buscar(Request $request){
         $query = $request->input('query');
         $wordsquery = explode(' ',$query);

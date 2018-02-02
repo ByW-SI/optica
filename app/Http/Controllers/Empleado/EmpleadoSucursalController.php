@@ -22,16 +22,16 @@ class EmpleadoSucursalController extends Controller
     {
          
     $empleados=array();
-    
-    $datos=EmpleadosDatosLab::where('sucursal_id',$request->sucursal)->get();
+   
+    $datos=EmpleadosDatosLab::where('sucursal_id',$request->sucursal)->get()->unique('empleado_id')->pluck('empleado_id');
     $areas=Area::get();
     $puestos=Puesto::get();
-
+   
 foreach ($datos as $dato ): 
 
-$empleado=Empleado::where('id',$dato->empleado_id)->get();
-
-array_push($empleados, $empleado);
+ $empleado=Empleado::where('id',$dato)->get();
+ 
+ array_push($empleados, $empleado);
 
 endforeach;
 

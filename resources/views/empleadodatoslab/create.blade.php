@@ -134,6 +134,19 @@
 							@endforeach
 						</select>
 					</div>
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="lugartrabajo">Lugar de Trabajo:</label>
+						<select type="select" name="lugartrabajo" class="form-control" id="lugartrabajo" value="{{ $datoslab->lugartrabajo }}">
+							<option id="1" value="Oficinas" @if ($datoslab->lugartrabajo == "Oficinas")
+								{{-- expr --}}
+								selected="selected" 
+							@endif>Oficinas</option>
+							<option id="2" value="Campo" @if ($datoslab->lugartrabajo == "Campo")
+								{{-- expr --}}
+								selected="selected" 
+							@endif>Campo</option>
+						</select>
+					</div>
 
 
 				</div>
@@ -248,19 +261,7 @@
 					</div>
 
 					
-					<div class="form-group col-xs-3">
-						<label class="control-label" for="lugartrabajo">Lugar de Trabajo:</label>
-						<select type="select" name="lugartrabajo" class="form-control" id="lugartrabajo" value="{{ $datoslab->lugartrabajo }}">
-							<option id="1" value="Oficinas" @if ($datoslab->lugartrabajo == "Oficinas")
-								{{-- expr --}}
-								selected="selected" 
-							@endif>Oficinas</option>
-							<option id="2" value="Campo" @if ($datoslab->lugartrabajo == "Campo")
-								{{-- expr --}}
-								selected="selected" 
-							@endif>Campo</option>
-						</select>
-					</div>
+					
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="banco">Banco:</label>
 						<select class="form-control" type="select" name="banco" id="banco">

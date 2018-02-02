@@ -23,13 +23,13 @@ class EmpleadoAlmacenController extends Controller
          
     $empleados=array();
     
-    $datos=EmpleadosDatosLab::where('almacen_id',$request->almacen)->get();
+    $datos=EmpleadosDatosLab::where('almacen_id',$request->almacen)->get()->unique('empleado_id')->pluck('empleado_id');
     $areas=Area::get();
     $puestos=Puesto::get();
     
 foreach ($datos as $dato ): 
 
-$empleado=Empleado::where('id',$dato->empleado_id)->get();
+$empleado=Empleado::where('id',$dato)->get();
 
 array_push($empleados, $empleado);
 

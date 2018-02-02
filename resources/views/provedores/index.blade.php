@@ -94,13 +94,13 @@
 					
 				</div>
 				<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
-					<li role="tab" tabindex="0" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active active"><a href="#tab1{{$provedore->id}}" tabindex="-1">Dirección Fiscal:</a></li>
-					<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#tab2{{$provedore->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Dirección Fisica:</a></li>
+					<li role="tab" tabindex="0" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active active"><a href="#tab1{{$provedore->id}}" tabindex="-1">Dirección Fìsica:</a></li>
+					<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#tab2{{$provedore->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Dirección Fiscal:</a></li>
 					<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3{{$provedore->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
 					<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab4{{$provedore->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
 				</ul>
 				<div class="panel-default pestana" aria-hidden="false" id="tab1{{$provedore->id}}" style="display: block;">
-					<div class="panel-heading">Dirección Fiscal:</div>
+					<div class="panel-heading">Dirección Fisìca:</div>
 					<div class="panel-body">
 						<div class="col-md-12 offset-md-2 mt-3">
 							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -156,7 +156,7 @@
 				</div>
 				<div class="panel-default pestana" id="tab2{{$provedore->id}}">
 
-					<div class="panel-heading">Dirección Fisica:</div>
+					<div class="panel-heading">Dirección Fiscal:</div>
 					<div class="panel-body">
 						@if (!isset($provedore->direccionFisicaProvedor))
 							{{-- true expr --}}

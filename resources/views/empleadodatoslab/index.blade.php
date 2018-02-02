@@ -78,6 +78,10 @@
 					<dd>{{ $almacen->nombre }}</dd>
 					@endif
 				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="lugartrabajo">Lugar de Trabajo:</label>
+					<dd>{{ $actual->lugartrabajo }}</dd>
+				</div>
 				
 
 
@@ -123,13 +127,15 @@
 					<label class="control-label" for="hcomida">Tiempo de Comida:</label>
 					<dd>{{ $actual->hcomida }}</dd>
 				</div>
-				<div class="form-group col-xs-3">
-					<label class="control-label" for="lugartrabajo">Lugar de Trabajo:</label>
-					<dd>{{ $actual->lugartrabajo }}</dd>
-				</div>
+				
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="banco">Banco:</label>
+					
+					@if($actual->banco==null)
+					<dd>NO DEFINIDO</dd>
+					@else
 					<dd>{{ $actual->banco }}</dd>
+					@endif
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="cuenta">Cuenta:</label>

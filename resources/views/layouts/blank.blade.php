@@ -41,6 +41,8 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
     <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script>
+    {{-- JQUERY 3.3.7 NECESARIO PARA VISTA RAPIDA, NO ELIMINES PORFA  --}}
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     @include('sweet::alert')
     <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
     <script src="{{ asset('js/sweetalert.js') }}"></script>

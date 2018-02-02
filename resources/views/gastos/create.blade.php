@@ -116,17 +116,10 @@
 
   
 
-<form role="form" id="{{ $gasto->id }}" method="POST" action="{{ route('gastos.destroy',['gasto'=>$gasto]) }}">
+<form role="form" id="{{ $gasto->id }}" method="PUT" action="{{ route('gastos.edit',['gasto'=>$gasto]) }}">
               {{ csrf_field() }}
 
-              @if ($tipo == false)
-{{-- true expr --}}
-              <input type="hidden" class="form-control" id="sucursal_id" name="sucursal_id"  value="{{ $sucursal->id }}">
-@else
-{{-- false expr --}}
-              <input type="hidden" class="form-control" id="almacen_id" name="almacen_id"  value="{{ $almacen->id }}">
-
-@endif
+             
               <input type="submit" name="submit" value="Eliminar" class="btn btn-warning btn-sm">
             
             </form>

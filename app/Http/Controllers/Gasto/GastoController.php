@@ -31,6 +31,7 @@ class GastoController extends Controller
      */
     public function create(Request $request)
     {
+
         $sucursal = Sucursal::find($request->sucursal);
         $almacen = Almacen::find($request->almacen);
        
@@ -119,14 +120,52 @@ if( $sucursal==null){
 
     /**
      * Show the form for editing the specified resource.
-     *
+     * 
      * @param  \App\Gasto  $gasto
      * @return \Illuminate\Http\Response
      */
     public function edit(Gasto $gasto)
     {
-        //
-        return view('gastos.edit',['gasto'=>$gasto]);
+       
+        
+           
+        
+
+
+        $sucursal = Sucursal::find($gasto->sucursal_id);
+        $almacen = Almacen::find($gasto->almacen_id);
+
+         $gasto->delete();
+       
+        $gasto= new Gasto; 
+
+        $tipo;
+if( $sucursal==null){
+ $tipo=true;
+ $gastos=Gasto::where('almacen_id',$almacen->id)->get();
+
+}else{
+    $tipo=false;
+    $gastos=Gasto::where('sucursal_id',$sucursal->id)->get();
+}
+        
+
+         $total=0;
+
+        foreach ($gastos as $suma ) {
+            $total+=$suma->monto;
+        }
+
+        return view('gastos.create',[
+        'gasto'=>$gasto,
+        'sucursal'=>$sucursal,
+        'almacen'=>$almacen,
+        'gastos'=>$gastos,
+        'tipo'=>$tipo,
+        'total'=>$total]);//
+        
+
+        
     }
 
     /**
@@ -138,26 +177,25 @@ if( $sucursal==null){
      */
     public function update(Request $request, Gasto $gasto)
     {
-        //
-        $gasto->update($request->all());
-        return redirect('gastos');
+        
+
 
     }
 
     /**
      * Remove the specified resource from storage.
-     *@param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Gasto  $gasto
      * @return \Illuminate\Http\Response
      */
 
     public function destroy(Gasto $gasto)
     {
-        dd('HOLA');
+       
         $gasto->delete();
 
          
-    return redirect('gastos.create');
+    return view('gastos.create');
 
     }
 

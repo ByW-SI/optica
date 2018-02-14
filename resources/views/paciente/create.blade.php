@@ -9,15 +9,16 @@
 		<div class="panel panel-group">
 			<div class="panel-default">
 				<div class="panel-heading">
-					<h4>Datos del paciente:</h4>
+					<h4>Datos del paciente:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
+					Campos Requeridos</h4>
 				</div>
 				<div class="panel-body">
 					<div class="form-group col-xs-3">
-						<label class="control-label">Nombre:</label>
+						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Nombre:</label>
 						<input class="form-control" type="text">
 					</div>
 					<div class="form-group col-xs-3">
-						<label class="control-label">Apellido Paterno:</label>
+						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Apellido Paterno:</label>
 						<input class="form-control" type="text">
 					</div>
 					<div class="form-group col-xs-3">
@@ -25,16 +26,16 @@
 						<input class="form-control" type="text">
 					</div>
 					<div class="form-group col-xs-3">
-						<label class="control-label">ID:</label>
-						<input class="form-control" type="text" value="001" disabled="">
+						<label class="control-label">ID:(Automàtico)</label>
+						<input class="form-control" type="text" value="001" readonly style="width:150px">
 					</div>
 					<div class="col-xs-offset-2 form-group col-xs-3">
-						<label class="control-label">Edad:</label>
-						<input class="form-control" type="text">
+						<label class="control-label">Edad:(Automàtico)</label>
+						<input class="form-control" type="text" readonly="" placeholder="Edad" id="edad" name="edad" style="width: 91px">
 					</div>
 					<div class="form-group col-xs-3">
-						<label class="control-label">Fecha de nacimiento:</label>
-						<input class="form-control" type="date">
+						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Fecha de nacimiento:</label>
+						<input class="form-control" type="date" id="fechanacimiento"  required>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label">Sexo:</label>
@@ -164,69 +165,93 @@
 						
 						 <div class="tab-pane" id="hmedico">
 						 	<div class="panel-default">
-						 		<div class="panel-heading"><h5>Historial Medico:</h5></div>
+						 		<div class="panel-heading"><h5>Historial Mèdico:</h5></div>
 						 		<div class="panel-body">
 						 			<div class="col-xs-4 col-xs-offset-10">
 					
 										<button id="submit" type="submit" class="btn btn-success">
 									<strong>Agregar</strong>	</button>
+
 										<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
 									<strong>Modificar</strong>	</a>
 										
 
-									</div>
-						 			<div class="col-xs-offset-2 form-group col-xs-4">
-										<label class="control-label">Problema Visual:</label>
-										<select class="form-control">
-											<option>Problema 1</option>
-											<option>Problema 2</option>
-											<option>Problema ...</option>
-										</select>
-									</div>
-									<div class="form-group col-xs-4">
-										<label class="control-label">Problema Ortopedico:</label>
-										<select class="form-control">
-											<option>Problema Ortopedico 1</option>
-											<option>Problema Ortopedico 2</option>
-											<option>Problema Ortopedico ...</option>
-										</select>
-									</div>
+									</div><br><br><br>
+					<div class="form-group col-xs-6">
+						<div class="boton checkbox-disabled">
+                            <label>
+
+                                <input id="chkalerg" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="alergias();">
+                                ¿Alèrgico a algùn medicamento ò alguna alèrgia en especial? .
+                            </label>
+                        </div>
+                    </div>
+
+						 	<div class="form-group col-xs-3" style="display: none;" id="alergias1" name="alergias1">
+						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>¿Cuàl?:</label>
+						<input class="form-control" type="text" >
+							</div>
+							<div class="form-group col-xs-3"  id="alergias2" style="display: none;">
+						<label class="control-label">¿Tiene algùn Tratamiento?:</label>
+						<input class="form-control" type="text"  >
+							</div>
 						 		</div>
-						 		<div class="panel-heading"><h6>Enfermedades</h6></div>
+						 		<div class="panel-heading"><h5>Enfermedades</h5></div>
 						 		<div class="panel-body">
-						 			<div class="col-xs-offset-2 form-group checkbox">
-								    	<label class="col-xs-4 label-text"><input type="checkbox" > Diabetes</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > Pulmon</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > E2</label>	
-						 			</div>
-						 			<div class="col-xs-offset-2 form-group checkbox">
-						 				<label class="col-xs-4 label-text"><input type="checkbox" > Hipertensión</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > Reuma</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > E3</label>
-						 			</div>
-						 			<div class="col-xs-offset-2 form-group checkbox">
-						 				<label class="col-xs-4 label-text"><input type="checkbox" > Asma</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > Migraña</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > E4</label>
-						 			</div>
-						 			<div class="col-xs-offset-2 form-group checkbox">
-						 				<label class="col-xs-4 label-text"><input type="checkbox" > Epilepsia</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > Corazón</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > otro: <textarea class="form-control"></textarea></label>
-								      	
-						 			</div>
-						 			<div class="form-group col-xs-4">
-						 				<label class="control-label">Enfermedades crónicas:</label>
-						 				<textarea class="form-control"></textarea>
-						 			</div>
-						 			<div class="form-group col-xs-4">
-						 				<label class="control-label">Operaciones:</label>
-						 				<textarea class="form-control"></textarea>
-						 			</div>
-						 			<div class="form-group col-xs-4">
-						 				<label class="control-label">Alergias:</label>
-						 				<textarea class="form-control"></textarea>
-						 			</div>
+
+					<div class="form-group col-xs-6">
+						<div class="boton checkbox-disabled">
+                            <label>
+
+                                <input id="chkenf" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="enfermedades();">
+                                ¿Padece alguna Enfermedad Crònica? .
+                            </label>
+                        </div>
+                    </div><br><br><br>
+
+                    <div class="jumbotron"  id="enfermedades"> <!-- style="display: none"-->
+
+                    				<div class="row">
+                    					<div class="col-sm-3">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Diabetes</label>
+                    					</div>
+                    					
+                    					<div class="col-sm-3">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo"> Epilepsia</label>
+                    					</div>
+                    				</div>
+
+                    				<div class="row">
+                    					<div class="col-sm-3">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Hipertensión</label>
+                    					</div>
+                    					
+                    					<div class="col-sm-3">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">  Migraña</label>
+                    					</div>
+                    				</div>
+
+                    				<div class="row">
+                    					<div class="col-sm-3">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Asma</label>
+                    					</div>
+                    					
+                    					<div class="col-sm-3">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">  Otra</label>
+                    					</div>
+                    				</div>
+								    	
+								    	
+								    
+
+						 			
+
+                    </div>
+						 			
+						 			
+						 			
+						 			
+						 			
 						 		</div>
 						 	</div>
 						 </div>
@@ -1480,5 +1505,38 @@
 								    </div>
 								  </div>
 								</div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#fechanacimiento").change(function(){
+
+        var año1=$("#fechanacimiento").val();
+        var año2= Date();
+        var nacimiento=año1.substring(0,4);
+        var actual=año2.substring(11,15);
+        var edad=actual-nacimiento;
+       $("#edad").val(edad);
+
+    });
+});
+	
+function alergias(){
+                if($(':checkbox').prop('checked') == true){
+
+                	document.getElementById('alergias1').style.display = 'block';
+                	document.getElementById('alergias2').style.display = 'block';
+
+ 
+                	
+				}else{
+					document.getElementById('alergias1').style.display = 'none';
+                	document.getElementById('alergias2').style.display = 'none';
+				}
+
+
+			}
+
+</script>
 
 @endsection

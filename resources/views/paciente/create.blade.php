@@ -436,7 +436,7 @@
 												
 								</div>
 							</div>
-<br><br>
+<br><br><br><br>
 
   <div class="jumbotron col-xs-12" align="left">
 	<div class="form-group " >
@@ -445,13 +445,13 @@
 			<label class="control-label">Problema Visual</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" class="form-check-input">Lejos</label>
+				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Lejos</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" >Cerca</label>
+				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Cerca</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" >Ambas</label>
+				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Ambas</label>
 			</div>
 		</div><br><br>
 		<div class="row">
@@ -460,13 +460,13 @@
 			<label class="control-label">Usuario de Lentes</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" >Si</label>
+				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Si</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" >No</label>
+				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">No</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" >Ocasionalmente</label>
+				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Ocasionalmente</label>
 			</div>
 		    
 		</div><br><br>
@@ -490,13 +490,13 @@
 			<label class="control-label">Molestias a la luz Solar</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" >Si</label>
+				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Si</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" >No</label>
+				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">No</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" >Regular</label>
+				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Regular</label>
 			</div>
 		    
 		</div><br><br>
@@ -506,10 +506,10 @@
 			<label class="control-label">Usuario de Computadora</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" >Si</label>
+				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Si</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" >No</label>
+				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">No</label>
 			</div>
 			
 		    
@@ -536,7 +536,9 @@
                     					<div class="col-sm-5">
                     						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo"> Glaucoma</label>
                     					</div>
-
+                    					<div class="col-sm-5">
+                    						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo" id="ante_otra">Otra</label>
+                    					</div>
                     					
                     				</div>
 
@@ -545,9 +547,7 @@
                     						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo">Estrabismo</label>
                     					</div>
                     					
-                    					<div class="col-sm-5">
-                    						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo" id="ante_otra">Otra</label>
-                    					</div>
+                    					
                     				</div> <br>
 
                     				<div class="row" id="ante_text" style="display: none">
@@ -562,7 +562,7 @@
 
 
 
- <div class=" col-xs-6" align="left">
+ <div class=" col-xs-6" align="left" style="border: solid; border-color: grey; padding: 10px;">
 
  	<div class="col-xs-6" align="center">
 	<strong><h4>Revisión Visual</h4></strong>	
@@ -689,525 +689,480 @@
                     			
 												
 	
- </div>
+ </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+<div class="col-xs-6" align="center">
+	<strong><h4>Pantalleo</h4></strong>	
+	</div>
+<div class="jumbotron col-xs-6">
+	
+	<div class="row">
+		<div class="col-sm-4">
+		<label class="col-xs-8 label-text ">Unilateral</label>
+	    </div>
+		<div class="col-sm-4">
+            <span class="badge badge-secondary">Lejos</span>
+                <select class="form-control">
+					<option value='Orto'>Orto</option>
+					<option value='Endo'>Endo</option>
+					<option value='Exo'>Exo</option>
+					<option value='Hiper'>Hiper</option>
+					<option value='Hipo'>Hipo</option>
+				</select>
+		</div>
+		<div class="col-sm-4">
+            <span class="badge badge-secondary">Cerca</span>
+                <select class="form-control">
+					<option value='Orto'>Orto</option>
+					<option value='Endo'>Endo</option>
+					<option value='Exo'>Exo</option>
+					<option value='Hiper'>Hiper</option>
+					<option value='Hipo'>Hipo</option>
+				</select>
+		</div>
+	</div><br><br>
+	<div class="row">
+		<div class="col-sm-4">
+		<label class="col-xs-8 label-text ">Alternante</label>
+	   </div>
+		<div class="col-sm-4">
+            <span class="badge badge-secondary">Lejos</span>
+                <select class="form-control">
+					<option value='Orto'>Orto</option>
+					<option value='Endo'>Endo</option>
+					<option value='Exo'>Exo</option>
+					<option value='Hiper'>Hiper</option>
+					<option value='Hipo'>Hipo</option>
+				</select>
+		</div>
+		<div class="col-sm-4">
+            <span class="badge badge-secondary">Cerca</span>
+                <select class="form-control">
+					<option value='Orto'>Orto</option>
+					<option value='Endo'>Endo</option>
+					<option value='Exo'>Exo</option>
+					<option value='Hiper'>Hiper</option>
+					<option value='Hipo'>Hipo</option>
+				</select>
+		</div>
+	</div>
+</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<div class="form-group col-xs-12" align="left">
 
+<div  align="left" class="col-xs-12">
+	<strong><h4>Queratometría</h4></strong>	
+	</div>
+<div class="jumbotron col-xs-12" align="left">
+	 
+	<div class="row">
+		<div class="col-sm-2">
+			<label class="control-label"><h4>O.D.</h4></label>
+		   </div>
+		<div class="col-sm-2">
+            <span class="badge badge-secondary">Plana</span>
+                <select class="form-control">
+					<?php for($i=32;$i<=55;$i+=0.25){
+				echo"<option value='".$i."'>".$i."</option>";
+						}?>
+				</select>
+		</div>
+		<div class="col-sm-2">
+            <span class="badge badge-secondary">Curva</span>
+                <select class="form-control">
+				<?php for($i=32;$i<=55;$i+=0.25){
+				echo"<option value='".$i."'>".$i."</option>";
+						}?>
+				</select>
+		</div>
+		<div class="col-sm-2">
+            <span class="badge badge-secondary">Eje</span>
+                <select class="form-control">
+					<?php for($i=0;$i<=180;$i+=5){
+				echo"<option value='".$i."'>".$i."°</option>";
+						}?>
+				</select>
+		</div>
+	</div><br><br>
+	<div class="row">
+		<div class="col-sm-2">
+			<label class="control-label"><h4>O.I.</h4></label>
+		   </div>
+		<div class="col-sm-2">
+            <span class="badge badge-secondary">Plana</span>
+                <select class="form-control">
+					<?php for($i=32;$i<=55;$i+=0.25){
+				echo"<option value='".$i."'>".$i."</option>";
+						}?>
+				</select>
+		</div>
+		<div class="col-sm-2">
+            <span class="badge badge-secondary">Curva</span>
+                <select class="form-control">
+					<?php for($i=32;$i<=55;$i+=0.25){
+				echo"<option value='".$i."'>".$i." </option>";
+						}?>
+				</select>
+		</div>
+		<div class="col-sm-2">
+            <span class="badge badge-secondary">Eje</span>
+                <select class="form-control">
+					<?php for($i=0;$i<=180;$i+=5){
+				echo"<option value='".$i."'>".$i."°</option>";
+						}?>
+				</select>
+		</div>
+	</div>
+</div><br><br><br><br>
 
-										<div class="form-group col-xs-12" align="left">
-										<label class="control-label">Historial Ocular Familiar:</label>
+<div class="form-group col-xs-12" align="center" style="border: solid; border-color: grey; padding: 20px;">
+	 <div  align="left">
+	<strong><h4>Visión Estereoscópica</h4></strong>	
+	</div>
+	<div class="row">
+		<div class="col-sm-2">
+            <span class="badge badge-secondary">seg/arco</span>
+                <select class="form-control">
+					<option value='40'>40'</option>
+					<option value='50'>50'</option>
+					<option value='60'>60'</option>
+					<option value='80'>80'</option>
+					<option value='100'>100'</option>
+					<option value='140'>140'</option>
+					<option value='200'>200'</option>
+					<option value='400'>400'</option>
+					<option value='800'>800'</option>
+				</select>
+		</div>
+		
+	</div><br><br>
+	<div  align="left">
+	<strong><h4>Oftalmoscopía</h4></strong>	
+	</div><br><br>
+	<div class="row">
+		
+		<div class="col-sm-3">
+			<span class="badge badge-secondary">O.D.</span>
+			<label class="control-label">Papila</label>
+            
+            <input class="form-control" type="text" name="papila_od" id="papila_od">
+        </div>
+        <div class="col-sm-3">
+        	<span class="badge badge-secondary">O.I.</span>
+			<label class="control-label">Papila</label>
+            
+            <input class="form-control" type="text" name="papila_oi" id="papila_oi">
+        </div>
+	</div>
+	<div class="row">
+		
+		<div class="col-sm-3">
+			<span class="badge badge-secondary">O.D.</span>
+			<label class="control-label">Excavación</label>
+            
+            <input class="form-control" type="text" name="excavacion_od" id="excavacion_od">
+        </div>
+        <div class="col-sm-3">
+        	 <span class="badge badge-secondary">O.I.</span>
+			<label class="control-label">Excavación</label>
+            
+            <input class="form-control" type="text" name="excavacion_oi" id="excavacion_oi">
+        </div>
+	</div>
+	<div class="row">
+		
+		<div class="col-sm-3">
+			<span class="badge badge-secondary">O.D.</span>
+			<label class="control-label">Radio</label>
+            
+            <input class="form-control" type="text" name="radio_od" id="radio_od">
+        </div>
+        <div class="col-sm-3">
+        	 <span class="badge badge-secondary">O.I.</span>
+			<label class="control-label">Radio</label>
+            
+            <input class="form-control" type="text" name="radio_oi" id="radio_oi">
+        </div>
+	</div>
+	<div class="row">
+		
+		<div class="col-sm-3">
+			<span class="badge badge-secondary">O.D.</span>
+			<label class="control-label">Profundidad</label>
+            
+            <input class="form-control" type="text" name="profundidad_od" id="profundidad_od">
+        </div>
+        <div class="col-sm-3">
+        	 <span class="badge badge-secondary">O.I.</span>
+			<label class="control-label">Profundidad</label>
+            
+            <input class="form-control" type="text" name="profundidad_oi" id="profundidad_oi">
+        </div>
+	</div>
+	<div class="row">
+		
+		<div class="col-sm-3">
+			<span class="badge badge-secondary">O.D.</span>
+			<label class="control-label">Vasos</label>
+            
+            <input class="form-control" type="text" name="vasos_od" id="vasos_od">
+        </div>
+        <div class="col-sm-3">
+        	 <span class="badge badge-secondary">O.I.</span>
+			<label class="control-label">Vasos</label>
+            
+            <input class="form-control" type="text" name="vasos_oi" id="vasos_oi">
+        </div>
+	</div>
+	<div class="row">
+		
+		<div class="col-sm-3">
+			<span class="badge badge-secondary">O.D.</span>
+			<label class="control-label">Rel. A/V</label>
+            
+            <input class="form-control" type="text" name="rel_od" id="rel_od">
+        </div>
+        <div class="col-sm-3">
+        	 <span class="badge badge-secondary">O.I.</span>
+			<label class="control-label">Rel. A/V</label>
+            
+            <input class="form-control" type="text" name="rel_oi" id="rel_oi">
+        </div>
+	</div>
+	<div class="row">
+		
+		<div class="col-sm-3">
+			<span class="badge badge-secondary">O.D.</span>
+			<label class="control-label">Macula</label>
+          
+            <input class="form-control" type="text" name="macula_od" id="macula_od">
+        </div>
+        <div class="col-sm-3">
+        	 <span class="badge badge-secondary">O.I.</span>
+			<label class="control-label">Macula</label>
+            
+            <input class="form-control" type="text" name="macula_oi" id="macula_oi">
+        </div>
+	</div>
+	<div class="row">
+		
+		<div class="col-sm-3">
+			<span class="badge badge-secondary">O.D.</span>
+			<label class="control-label">Reflejo</label>
+            
+            <input class="form-control" type="text" name="reflejo_od" id="reflejo_od">
+        </div>
+        <div class="col-sm-3">
+        	 <span class="badge badge-secondary">O.I.</span>
+			<label class="control-label">Reflejo</label>
+           
+            <input class="form-control" type="text" name="reflejo_oi" id="reflejo_oi">
+        </div>
+	</div>
+	<div class="row">
+		
+		<div class="col-sm-3">
+			<span class="badge badge-secondary">O.D.</span>
+			<label class="control-label">Retina Periférica</label>
+            
+            <input class="form-control" type="text" name="retina_perif_od" id="retina_perif_od">
+        </div>
+        <div class="col-sm-3">
+        	 <span class="badge badge-secondary">O.I.</span>
+			<label class="control-label">Retina Periférica</label>
+           
+            <input class="form-control" type="text" name="retina_perif_oi" id="retina_perif_oi">
+        </div>
+        <div class="col-sm-6">
+        	<div class="form-group col-xs-8" align="left">
+<input type="file" name="archivo_foto" ><br>
+<input type="button" value="Enviar" class="btn btn-primary">
+			</div>
+        </div>
+	</div>
+	<div class="form-group col-xs-12" align="left">
+										<label class="control-label">Anexos y Biomicroscopía</label>
 										<textarea class="form-control" ></textarea>
-										<br>
-										</div>
+	</div>
+	<br><br><br><br><br><br>
+	<div  align="left">
+	<strong><h4>Tonometría</h4></strong>	
+	</div><br><br>
+      <div class="row">
+      	<div class="col-sm-3">
+      		<label class="control-label">Fecha</label>
+            <input class="form-control" type="date" name="fecha_tono" id="fecha_tono" value="{{date('Y-m-d')}}">
+      	</div>
+      	<div class="col-sm-3">
+      		<label class="control-label">Hora</label>
+            <input class="form-control" type="time" name="fecha_tono" id="fecha_tono" value="{{date('H:i')}}">
+      	</div>
+      </div>
+      <div class="row">
+      	<div class="col-sm-3">
+      		<span class="badge badge-secondary">O.D.</span>
+			 <select class="form-control" name="tonometria_od" id="tonometria_od">
+				<?php for($i=10;$i<=35;$i++){
+				echo"<option value='".$i."'>".$i."mm/Hg</option>";
+						}?>
+				</select>
+      	</div>
+      	<div class="col-sm-3">
+      		<span class="badge badge-secondary">O.I.</span>
+			<select class="form-control" name="tonometria_oi" id="tonometria_oi">
+				<?php for($i=10;$i<=35;$i++){
+				echo"<option value='".$i."'>".$i."mm/Hg</option>";
+						}?>
+				</select>
+      	</div>
+      </div>
 
-										<div class="form-group col-xs-12" align="left">
-										<label class="control-label">Anexos:</label>
-										<textarea class="form-control" ></textarea>
-										<br>
-										</div>
-
-										
-
-
-										<div class="col-xs-offset-2 form-group col-xs-2 form-inline">
-										<label class="control-label">¿Usa anteojos?</label>
-										<br>
-										<input type="checkbox" class="form-control" checked data-toggle="toggle"><br><br>
-
-										</div>
-
-									<div class="form-group col-xs-3 ">
-										<label>&nbsp;¿Le molesta la luz solar?&nbsp;&nbsp;</label><br>
-										<input type="checkbox" checked data-toggle="toggle">
-										
-									</div>
-
-									<div class="form-group col-xs-3 ">
-										<label class="control-label">¿A qué edad empezó a usar anteojos?</label>
-										<input type="text" class="input-group form-control" placeholder="Años...">
-										</div>
-<br><br><br> <br><br><br><br><br><br>
-
-										
-							<br><br><br><br><br><br>
-
-                                 <div class="col-xs-offset-2 form-group col-xs-4">
-										<label class="col-xs-offset-5 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actual:</label>
-										<div class="form-inline form-group">
-										  <label class="control-label">Tipo de anteojos: &nbsp;&nbsp;</label>
-										  <select class="form-control">
-										  	<option>Tipo 1</option>
-										  	<option>Tipo 2</option>
-										  	<option>Tipo ...</option>
-										  </select>
-										</div>
-									</div>
-
-										<div class="form-group col-xs-4">
-										<label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anterior:</label>
-										<br>
-										<div class="form-group col-xs-4">
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-
-									<div class="col-xs-offset-2 form-group col-xs-4">
-										<div class="form-inline form-group">
-										  <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tipo de L/C: &nbsp;&nbsp;&nbsp;</label>
-										  <select class="form-control">
-										  	<option>Tipo 1</option>
-										  	<option>Tipo 2</option>
-										  	<option>Tipo ...</option>
-										  </select>
-										</div>
-									</div>
-									<div class="form-group col-xs-4">
-										<div class="form-group col-xs-4">
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="col-xs-offset-2 form-group col-xs-4">
-										<div class="form-inline form-group">
-										  <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DR./opt: &nbsp;&nbsp;&nbsp;&nbsp;</label>
-										  <input type="text" class="form-control" style="width: 91px">
-										</div>
-									</div>
-
-									<div class="form-group col-xs-4">
-										<div class="form-group col-xs-4">
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-
-									<div class="col-xs-offset-2 form-inline col-xs-4">
-										<label class="control-label">Observaciones/<br>Comentarios: &nbsp;&nbsp;&nbsp;&nbsp;</label>
-										<textarea class="form-control"></textarea>
-									</div>
-
-									<div class="form-inline">
-										  <textarea class="form-control" readonly=""></textarea>
-									</div>
-
-									<hr>
-
-
-									
-										
-										
-
-									
-									<div class="col-xs-offset-2 form-group col-sm-4">
-										<h4><span class="label label-default">DIP:</span></h4>
-										<div class="input-group">
-										  
-										  <input type="text" class="form-control" style="width: 91px">
-										  <input type="text" class="form-control" style="width: 91px">
-
-										</div>
-										
-									</div>
-
-<h4><span class="label label-default">Dominancia Ocular</span></h4>
-			<div class="radio">
-      <label><input type="radio" name="optradio">Ojo Derecho</label>
-    </div>
-    <div class="radio">
-      <label><input type="radio" name="optradio">Ojo Izquierdo</label>
-    </div>
-   
-<br>
-										
-										 <div class="col-xs-offset-1 form-group col-sm-4 ">
-										<h4><span class="label label-default">Queratometría</span></h4>
-										<div class="input-group">
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control" style="width: 91px">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control" style="width: 91px">
-										</div>
-									</div>
-										
+</div><br><br><br>
 
 
 
-										
+ 	<div class="col-xs-offset-1 col-xs-12" style="margin-top: 20px;">
+	<strong><h3>Graduación:</h3></strong>	
+	</div>
 
-									
-
-
- 								<div class="form-group col-sm-4">
-										<h4><span class="label label-default">Arn y Arp</span></h4>
-										<div class="input-group">
-										  <span class="input-group-addon">ARN</span>
-										  <input type="text" class="form-control" style="width: 91px">
-										   <span class="input-group-addon">ARP</span>
-										  <input type="text" class="form-control" style="width: 91px">
-										</div>
-									</div>
-
+ 	<div class="jumbotron col-xs-12"  id="antecedentes" >
+		<div class="row">
+			<div class="col-sm-2">
+			<label class="control-label"><h4>O.D.</h4></label>
+		   </div>
+			<div class="col-sm-2">
+      		<span class="badge badge-secondary">ESF.</span>
+			<select class="form-control" name="esf_od" id="esf_od">
+				<?php for($i=(-25);$i<=25;$i+=0.25){
+				echo"<option value='".$i."'>".$i."</option>";
+						}?>
+				</select>
+      	</div>
+      	<div class="col-sm-2">
+      		<span class="badge badge-secondary">CIL.</span>
+			<select class="form-control" name="esf_od" id="esf_od">
+				<?php for($i=(-0.25);$i>=(-15);$i-=0.25){
+				echo"<option value='".$i."'>".$i."</option>";
+						}?>
+				</select>
+      	</div>
+      	<div class="col-sm-2">
+      		<span class="badge badge-secondary">EJE.</span>
+			<select class="form-control" name="eje_od" id="eje_od">
+				<?php for($i=0;$i<=180;$i+=5){
+				echo"<option value='".$i."'>".$i."°</option>";
+						}?>
+				</select>
+      	</div>
+      	<div class="col-sm-2">
+      		<span class="badge badge-secondary">ADD.</span>
+			<select class="form-control" name="add_od" id="add_od">
+				<?php for($i=1;$i<=3.50;$i+=0.25){
+				echo"<option value='".$i."'>+".$i."</option>";
+						}?>
+				</select>
+      	</div>
+      	<div class="col-sm-2">
+      		<span class="badge badge-secondary">AV.</span>
+			<select class="form-control" name="av_od" id="av_od">
+				<option value="20/400">20/400</option>
+											<option value="20/300">20/300</option>
+											<option value="20/200">20/200</option>
+											<option value="20/150">20/150</option>
+											<option value="20/120">20/120</option>
+											<option value="20/100">20/100</option>
+											<option value="20/70">20/70</option>
+											<option value="20/60">20/60</option>
+											<option value="20/50">20/50</option>
+											<option value="20/40">20/40</option>
+											<option value="20/30">20/30</option>
+											<option value="20/25">20/25</option>
+											<option value="20/20">20/20</option>
+											<option value="20/15">20/15</option>
+											<option value="20/10">20/10</option>
+											<option value="S.P.L">S.P.L</option>
+											<option value="N.P.L">N.P.L</option>
+											<option value="Protésis">Protésis</option>
+				</select>
+      	</div>
+	</div>	
+	<div class="row">
+			<div class="col-sm-2">
+			<label class="control-label"><h4>O.I.</h4></label>
+		   </div>
+			<div class="col-sm-2">
+      		<span class="badge badge-secondary">ESF.</span>
+			<select class="form-control" name="esf_oi" id="esf_oi">
+				<?php for($i=(-25);$i<=25;$i+=0.25){
+				echo"<option value='".$i."'>".$i."</option>";
+						}?>
+				</select>
+      	</div>
+      	<div class="col-sm-2">
+      		<span class="badge badge-secondary">CIL.</span>
+			<select class="form-control" name="esf_oi" id="esf_oi">
+				<?php for($i=(-0.25);$i>=(-15);$i-=0.25){
+				echo"<option value='".$i."'>".$i."</option>";
+						}?>
+				</select>
+      	</div>
+      	<div class="col-sm-2">
+      		<span class="badge badge-secondary">EJE.</span>
+			<select class="form-control" name="eje_oi" id="eje_oi">
+				<?php for($i=0;$i<=180;$i+=5){
+				echo"<option value='".$i."'>".$i."°</option>";
+						}?>
+				</select>
+      	</div>
+      	<div class="col-sm-2">
+      		<span class="badge badge-secondary">ADD.</span>
+			<select class="form-control" name="add_oi" id="add_oi">
+				<?php for($i=1;$i<=3.50;$i+=0.25){
+				echo"<option value='".$i."'>+".$i."</option>";
+						}?>
+				</select>
+      	</div>
+      	<div class="col-sm-2">
+      		<span class="badge badge-secondary">AV.</span>
+			<select class="form-control" name="av_oi" id="av_oi">
+				<option value="20/400">20/400</option>
+											<option value="20/300">20/300</option>
+											<option value="20/200">20/200</option>
+											<option value="20/150">20/150</option>
+											<option value="20/120">20/120</option>
+											<option value="20/100">20/100</option>
+											<option value="20/70">20/70</option>
+											<option value="20/60">20/60</option>
+											<option value="20/50">20/50</option>
+											<option value="20/40">20/40</option>
+											<option value="20/30">20/30</option>
+											<option value="20/25">20/25</option>
+											<option value="20/20">20/20</option>
+											<option value="20/15">20/15</option>
+											<option value="20/10">20/10</option>
+											<option value="S.P.L">S.P.L</option>
+											<option value="N.P.L">N.P.L</option>
+											<option value="Protésis">Protésis</option>
+				</select>
+      	</div>
+	</div>	
 
 <br><br><br><br><br><br>
-
-									<div class=" form-group col-sm-4">
-										<h4><span class="label label-default">Amplitud de Acomodación</span></h4>
-										<div class="input-group">
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control" style="width: 91px">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control" style="width: 91px">
-										  <span class="input-group-addon">A.O.</span>
-										  <input type="text" class="form-control" style="width: 91px">
-										</div>
-									</div>
-									<br><br><br>
-									<hr>
-										  
-
-
-									
-									<div class=" form-group col-sm-6  " >
-										<h4><span class="label label-default">Forias con RX</span></h4>
-										
-										<div class="input-group">
-											<span class="input-group-addon">HORIZONTAL</span>
-										  <span class="input-group-addon">Lejos</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">Cerca</span>
-										  <input type="text" class="form-control">
-										</div>
-										
-										<div class="input-group">
-											<span class="input-group-addon">VETICAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">Lejos</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">Cerca</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-
-
-
-									<div class=" form-group col-sm-6  " >
-										<h4><span class="label label-default">Pantalleo</span></h4>
-										
-										<div class="input-group">
-											<span class="input-group-addon">UNILATERALMENTE</span>
-										  <span class="input-group-addon">Lejos</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">Cerca</span>
-										  <input type="text" class="form-control">
-										</div>
-										
-										<div class="input-group">
-											<span class="input-group-addon">ALTERNAMENTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">Lejos</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">Cerca</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-
-
-									
-									<div class=" form-group col-sm-4">
-										<h4><span class="label label-default">CA/A:</span></h4>
-										<div class="input-group">
-										  <span class="input-group-addon">Medida</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">Calculada</span>
-										  <input type="text" class="form-control">
-										</div>
-										
-									</div>
-
-									<br>
-
-										<div class=" form-group col-sm-6  " >
-										<h4><span class="label label-default">Vergencias</span></h4>
-										
-										<div class="input-group">
-											<span class="input-group-addon">NEGATIVAS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">Lejos</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">Cerca</span>
-										  <input type="text" class="form-control">
+	<div  align="left">
+	<strong><h4>Diagnóstico</h4></strong>	
+	</div><br><br>
+	<div class="row">
+		<div class="col-sm-3">
+      		<label class="control-label">Refractivo</label>
+            <input class="form-control" type="text" name="fecha_tono" id="fecha_tono" >
+      	</div>
+	</div>				
+												
+	</div>
+ 
 
 
 										
-										
-										
-									</div>
-									<div class="input-group">
-											<span class="input-group-addon">POSITIVAS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">Lejos</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">Cerca</span>
-										  <input type="text" class="form-control">
-										</div>
 
-										<div class="input-group">
-											<span class="input-group-addon">SUPRAVERGENCIAS</span>
-										  <span class="input-group-addon">Lejos</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">Cerca</span>
-										  <input type="text" class="form-control">
-
-
-										
-										
-										
-									</div>
-									<div class="input-group">
-											<span class="input-group-addon">INFRAVERGENCIAS&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">Lejos</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">Cerca</span>
-										  <input type="text" class="form-control">
-										</div>
-
-
-									</div>
-
-
-
-
-									<div class=" form-group col-sm-6  " >
-										<h4><span class="label label-default">Subjetivo Cerca (con RX de Lejos)</span></h4>
-										
-										<div class="input-group">
-											<span class="input-group-addon">M&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control">
-
-
-										
-										
-										
-									</div>
-									<div class="input-group">
-											<span class="input-group-addon">JEAGER&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control">
-										</div>
-
-										<div class="input-group">
-											<span class="input-group-addon">PUNTOS&nbsp;</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control">
-
-
-										
-										
-										
-									</div>
-									<div class="input-group">
-											<span class="input-group-addon">SNELLEN</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control">
-										</div>
-
-
-									</div>
-
-
-
-									<div class=" form-group col-sm-6  " >
-										
-										<h4><span class="label label-default">Subjetivo</span></h4>
-										<div class="input-group">
-											
-										  <span class="input-group-addon">ADD.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">A.V.</span>
-										  <input type="text" class="form-control">
-										</div>
-										
-										<div class="input-group">
-											
-										  <span class="input-group-addon">DISTANCIA</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">RANGO</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-
-
-
-
-									 <div class="col-xs-offset-3 form-group col-sm-6 " >
-										<h4><span class="label label-default">Habilida,Integración y Visión</span></h4>
-										<div class="form-inline form-group">
-										  <label class="control-label">Habilidad Acomodativa: &nbsp;</label>
-										 <input type="text" class="form-control" ><br>
-										  <label class="control-label">Integración Binocular: &nbsp;&nbsp;&nbsp;&nbsp;</label>
-										 <input type="text" class="form-control" ><br>
-										 <label class="control-label">Visión Esteroscópica:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</label>
-										 <input type="text" class="form-control" >
-										</div>
-
-
-
-									</div>
-
- 									
-									<div class=" form-group col-sm-6  " >
-										<h4><span class="label label-default">Otros</span></h4>
-										
-										<div class="input-group">
-									<span class="input-group-addon">POLAR MIRROR</span>
-										  <input type="text" class="form-control" style="width: 91px">
-
-
-										
-										
-										
-									</div>
-									<div class="input-group">
-											<span class="input-group-addon">OTROS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  
-										  <input type="text" class="form-control" style="width: 91px">
-										</div>
-
-										<div class="input-group">
-											<span class="input-group-addon">RANDOM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										
-										  <input type="text" class="form-control" style="width: 91px">
-
-
-										
-										
-										
-									</div>
-									<div class="input-group">
-											<span class="input-group-addon">OTROS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										 
-										  <input type="text" class="form-control" style="width: 91px">
-										</div>
-
-
-									</div> <!-- ----- -->
-
-										<div class=" form-group col-sm-6  " >
-										
-										<h4><span class="label label-default">Otros</span></h4>
-
-										<div class="input-group">
-									<span class="input-group-addon">DIRECTA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <input type="text" class="form-control" style="width: 91px">
-											</div>
-
-										<div class="input-group">
-									<span class="input-group-addon">INDIRECTA&nbsp;&nbsp;</span>
-										  <input type="text" class="form-control" style="width: 91px">
-											</div>
-
-										<div class="input-group">
-									<span class="input-group-addon">GOLDMANN</span>
-										  <input type="text" class="form-control" style="width: 91px">
-											</div>
-
-										<div class="input-group">
-									<span class="input-group-addon">HRUBY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <input type="text" class="form-control" style="width: 91px">
-											</div>
-
-
-									</div>
-
-									
-
-
-
-									<div class="col-xs-offset-3 form-group col-sm-6  " >
-										<h4><span class="label label-default">Oftalmoscopìa</span></h4>
-										
-										<div class="input-group">
-											<span class="input-group-addon">PAPILA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control"></div>
-
-
-
-
-									<div class="input-group">
-											<span class="input-group-addon">EXCAVACIÒN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control">
-										</div>
-
-										<div class="input-group">
-											<span class="input-group-addon">RADIO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control">
-										</div>
-
-
-									<div class="input-group">
-											<span class="input-group-addon">PROFUNDIDAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control">
-										</div>
-
-
-											<div class="input-group">
-											<span class="input-group-addon">VASOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control">
-										</div>
-
-
-											<div class="input-group">
-											<span class="input-group-addon">REL A/V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control">
-										</div>
-
-
-											<div class="input-group">
-											<span class="input-group-addon">MACULA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control">
-										</div>
-
-
-											<div class="input-group">
-											<span class="input-group-addon">REFLEJO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control">
-										</div>
-
-
-											<div class="input-group">
-											<span class="input-group-addon">RETINA PERIFÈRICA</span>
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control">
-										</div>
 
 
 
@@ -1216,17 +1171,6 @@
 
 
 
-									<div class="form-group col-xs-12" align="left">
-										<label class="control-label">Pruebas de funciones visuales:</label>
-										<textarea class="form-control" ></textarea>
-										<br>
-										</div>
-
-										<div class="form-group col-xs-12" align="left">
-										<label class="control-label">Biomicroscopìa:</label>
-										<textarea class="form-control" ></textarea>
-										<br>
-										</div>
 
 
 

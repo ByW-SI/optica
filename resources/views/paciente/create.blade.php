@@ -9,15 +9,16 @@
 		<div class="panel panel-group">
 			<div class="panel-default">
 				<div class="panel-heading">
-					<h4>Datos del paciente:</h4>
+					<h4>Datos del paciente:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
+					Campos Requeridos</h4>
 				</div>
 				<div class="panel-body">
 					<div class="form-group col-xs-3">
-						<label class="control-label">Nombre:</label>
+						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Nombre:</label>
 						<input class="form-control" type="text">
 					</div>
 					<div class="form-group col-xs-3">
-						<label class="control-label">Apellido Paterno:</label>
+						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Apellido Paterno:</label>
 						<input class="form-control" type="text">
 					</div>
 					<div class="form-group col-xs-3">
@@ -25,16 +26,16 @@
 						<input class="form-control" type="text">
 					</div>
 					<div class="form-group col-xs-3">
-						<label class="control-label">ID:</label>
-						<input class="form-control" type="text" value="001" disabled="">
+						<label class="control-label">ID:(Automàtico)</label>
+						<input class="form-control" type="text" value="001" readonly style="width:150px">
 					</div>
 					<div class="col-xs-offset-2 form-group col-xs-3">
-						<label class="control-label">Edad:</label>
-						<input class="form-control" type="text">
+						<label class="control-label">Edad:(Automàtico)</label>
+						<input class="form-control" type="text" readonly="" placeholder="Edad" id="edad" name="edad" style="width: 91px">
 					</div>
 					<div class="form-group col-xs-3">
-						<label class="control-label">Fecha de nacimiento:</label>
-						<input class="form-control" type="date">
+						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Fecha de nacimiento:</label>
+						<input class="form-control" type="date" id="fechanacimiento"  required>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label">Sexo:</label>
@@ -164,69 +165,127 @@
 						
 						 <div class="tab-pane" id="hmedico">
 						 	<div class="panel-default">
-						 		<div class="panel-heading"><h5>Historial Medico:</h5></div>
+						 		<div class="panel-heading"><h4><strong>Historial Médico:</strong> </h4></div>
 						 		<div class="panel-body">
 						 			<div class="col-xs-4 col-xs-offset-10">
 					
 										<button id="submit" type="submit" class="btn btn-success">
 									<strong>Agregar</strong>	</button>
+
 										<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
 									<strong>Modificar</strong>	</a>
 										
 
-									</div>
-						 			<div class="col-xs-offset-2 form-group col-xs-4">
-										<label class="control-label">Problema Visual:</label>
-										<select class="form-control">
-											<option>Problema 1</option>
-											<option>Problema 2</option>
-											<option>Problema ...</option>
-										</select>
-									</div>
-									<div class="form-group col-xs-4">
-										<label class="control-label">Problema Ortopedico:</label>
-										<select class="form-control">
-											<option>Problema Ortopedico 1</option>
-											<option>Problema Ortopedico 2</option>
-											<option>Problema Ortopedico ...</option>
-										</select>
-									</div>
+									</div><br><br><br>
+					<div class="form-group col-xs-6">
+						<div class="boton checkbox-disabled">
+                            <label>
+
+                                <input id="chkalerg" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="alergias();" >
+                                ¿Alèrgico a algùn medicamento ò alguna alèrgia en especial? .
+                            </label>
+                        </div>
+                    </div>
+
+						 	<div class="form-group col-xs-3" style="display: none;" id="alergias1" name="alergias1">
+						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>¿Cuàl?:</label>
+						<input class="form-control" type="text" >
+							</div>
+							<div class="form-group col-xs-3"  id="alergias2" style="display: none;">
+						<label class="control-label">¿Tiene algùn Tratamiento?</label>
+						<input class="form-control" type="text"  >
+							</div>
 						 		</div>
-						 		<div class="panel-heading"><h6>Enfermedades</h6></div>
+						 		<div class="panel-heading"><h4>Enfermedades</h4></div>
 						 		<div class="panel-body">
-						 			<div class="col-xs-offset-2 form-group checkbox">
-								    	<label class="col-xs-4 label-text"><input type="checkbox" > Diabetes</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > Pulmon</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > E2</label>	
-						 			</div>
-						 			<div class="col-xs-offset-2 form-group checkbox">
-						 				<label class="col-xs-4 label-text"><input type="checkbox" > Hipertensión</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > Reuma</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > E3</label>
-						 			</div>
-						 			<div class="col-xs-offset-2 form-group checkbox">
-						 				<label class="col-xs-4 label-text"><input type="checkbox" > Asma</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > Migraña</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > E4</label>
-						 			</div>
-						 			<div class="col-xs-offset-2 form-group checkbox">
-						 				<label class="col-xs-4 label-text"><input type="checkbox" > Epilepsia</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > Corazón</label>
-								      	<label class="col-xs-4 label-text"><input type="checkbox" > otro: <textarea class="form-control"></textarea></label>
-								      	
-						 			</div>
-						 			<div class="form-group col-xs-4">
-						 				<label class="control-label">Enfermedades crónicas:</label>
-						 				<textarea class="form-control"></textarea>
-						 			</div>
-						 			<div class="form-group col-xs-4">
-						 				<label class="control-label">Operaciones:</label>
-						 				<textarea class="form-control"></textarea>
-						 			</div>
-						 			<div class="form-group col-xs-4">
-						 				<label class="control-label">Alergias:</label>
-						 				<textarea class="form-control"></textarea>
-						 			</div>
+
+					<div class="form-group col-xs-6">
+						<div class="boton checkbox-disabled">
+                            <label>
+
+                                <input id="cronica" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" >
+                                ¿Padece alguna Enfermedad Crònica? .
+                            </label>
+                        </div>
+                    </div><br><br><br>
+
+                    <div class="jumbotron"  id="enfermedades" style="display: none"> 
+
+                    				<div class="row">
+                    					<div class="col-sm-3">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Diabetes</label>
+                    					</div>
+                    					
+                    					<div class="col-sm-3">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo"> Epilepsia</label>
+                    					</div>
+
+                    					<div class="col-sm-3" id="especifique" style="display: none">
+                    						<label class="control-label">Especifique:</label>
+									<input class="form-control" type="text" >
+                    					</div>
+
+                    					<div class="col-sm-3">
+                    						<div class="boton checkbox-disabled">
+                            <label>
+                            	 ¿Tiene Tratamiento/Control ?
+                            </label>
+                                <input id="control" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="chkalerg()">
+                               
+                       						 </div>
+                    					</div>
+                    				</div>
+
+                    				<div class="row">
+                    					<div class="col-sm-3">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Hipertensión</label>
+                    					</div>
+                    					
+                    					<div class="col-sm-3">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">  Migraña</label>
+                    					</div>
+
+                    				</div>
+
+                    				<div class="row">
+                    					<div class="col-sm-3">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Asma</label>
+                    					</div>
+                    					
+                    					<div class="col-sm-3">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" id="otra">  Otra</label>
+                    					</div>
+
+                    					<div class="col-sm-3" id="trat" style="display: none;">
+                    						<label class="control-label">Tratamiento Actual:</label>
+			<input class="form-control" type="text" id="tratamiento_enfermedades" name="tratamiento_enfermedades">
+                    					</div>
+                    				</div>
+								    	
+								    	
+								    
+
+						 			
+
+                    </div>
+
+
+					<div class="form-group col-xs-6">
+						<div class="row">
+                    			<div class="col-sm-3">
+						 	      <label>
+						 	      	<input id="embarazo" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios"  >
+                                Embarazo.
+                                 </label>	
+                                </div>
+                                <div class="col-sm-5" style="display: none" id="emb_tiempo">
+						 	     <label class="control-label">¿Cuanto Tiempo?:</label>
+                                 <input id="embarazo_tiempo" type="text" class="form-control"  >	
+                                </div>
+                        </div>	
+                    </div>
+						 			
+						 			
 						 		</div>
 						 	</div>
 						 </div>
@@ -294,24 +353,343 @@
 
 									</div>
 
-										<div class="col-xs-offset-1 form-group col-xs-4">
-										<label class="control-label" for="fecha_act">Fecha Actual:</label>
-										<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
-									</div>
+										
 									<div class="col-xs-offset-1 form-group col-xs-4">
 
 										<label class="control-label" for="fecha_act">Fecha de Último Exámen:</label>
 										<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
 
 										
-
+										<br><br>
+									</div>
+									<div class="col-xs-offset-1 form-group col-xs-4">
+										 <label>
+						 	      	<input id="cirugias" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="cirugias" >
+                                Cirugías en los ojos:
+                                 </label>
+									</div>
+									<div class="col-xs-offset-1 form-group col-xs-6">
+										 <div class="jumbotron"  id="cirug" style="display: none;">
+										 		<div class="row">
+									<div class="form-group col-xs-6">
+									<label class="control-label">¿Cuál?</label>
+									<input class="form-control" type="text" name="cirug_1">
 									</div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+									<div class="form-group col-xs-6">
+									<label class="control-label">¿Hace Cuánto?</label>
+									<input class="form-control" type="text" name="cirug_2">
+									</div>
+												</div>
+												<div class="row">
+									<div class="form-group col-xs-6">
+									<label class="control-label">¿Tiene Tratamiento Actualmente?</label>
+									<input class="form-control" type="text" name="cirug_3">
+									</div>
+												</div>
+								</div>
+							</div>
+
+<br><br>
+
+							<div class="col-xs-offset-1 form-group col-xs-4">
+										 <label>
+						 	      	<input id="padecimientos" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="cirugias" >
+                               Padecimientos oculares:
+                                 </label>
+									</div>
+
+							<div class=" form-group col-xs-6">
+								<div class="jumbotron"  id="padec" style="display: none">
+									<div class="row">
+                    					<div class="col-sm-4">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Catarata</label>
+                    					</div>
+                    					
+                    					<div class="col-sm-4">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo"> Glaucoma</label>
+                    					</div>
+
+                    					<div class="col-sm-4">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Retinopatía Diabética</label>
+                    					</div>
+                    				</div>
+                    				<div class="row">
+                    					<div class="col-sm-4">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Retinopatía Hipertensiva</label>
+                    					</div>
+                    					
+                    					<div class="col-sm-4">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Queratocono</label>
+                    					</div>
+
+                    					<div class="col-sm-4">
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" id="padec_otra">Otra</label>
+                    					</div>
+                    				</div><br>
+                    				<div class="row" id="padec_text" style="display: none">
+                    					<div class="col-sm-6">
+                    					<label class="control-label">Especifíque:</label>
+									<input class="form-control" type="text" name="padec_text" >
+										</div>
+                    				</div>
+												
+								</div>
+							</div>
+<br><br>
+
+  <div class="jumbotron col-xs-12" align="left">
+	<div class="form-group " >
+		<div class="row">
+			<div class="col-sm-2">
+			<label class="control-label">Problema Visual</label>
+			</div>
+			<div class="col-sm-2">
+				<label class="col-xs-2 label-text"><input type="radio" class="form-check-input">Lejos</label>
+			</div>
+			<div class="col-sm-2">
+				<label class="col-xs-2 label-text"><input type="radio" >Cerca</label>
+			</div>
+			<div class="col-sm-2">
+				<label class="col-xs-2 label-text"><input type="radio" >Ambas</label>
+			</div>
+		</div><br><br>
+		<div class="row">
+			
+			<div class="col-sm-2 ">
+			<label class="control-label">Usuario de Lentes</label>
+			</div>
+			<div class="col-sm-2">
+				<label class="col-xs-2 label-text"><input type="radio" >Si</label>
+			</div>
+			<div class="col-sm-2">
+				<label class="col-xs-2 label-text"><input type="radio" >No</label>
+			</div>
+			<div class="col-sm-2">
+				<label class="col-xs-2 label-text"><input type="radio" >Ocasionalmente</label>
+			</div>
+		    
+		</div><br><br>
+		<div class="row">
+			<div class="col-sm-3">
+			<label class="control-label">Edad a la que inició uso de Lentes</label>
+			</div>
+			<div class="form-group col-xs-2">
+										
+										<select class="form-control">
+											<?php for($i=1;$i<71;$i++){ ?>
+											
+											<?php echo "<option value='".$i."'><strong>".$i."</strong></option>";} ?>
+										</select>
+									</div>
+			
+		</div><br><br>
+		<div class="row">
+			
+			<div class="col-sm-2 ">
+			<label class="control-label">Molestias a la luz Solar</label>
+			</div>
+			<div class="col-sm-2">
+				<label class="col-xs-2 label-text"><input type="radio" >Si</label>
+			</div>
+			<div class="col-sm-2">
+				<label class="col-xs-2 label-text"><input type="radio" >No</label>
+			</div>
+			<div class="col-sm-2">
+				<label class="col-xs-2 label-text"><input type="radio" >Regular</label>
+			</div>
+		    
+		</div><br><br>
+		<div class="row">
+			
+			<div class="col-sm-2 ">
+			<label class="control-label">Usuario de Computadora</label>
+			</div>
+			<div class="col-sm-2">
+				<label class="col-xs-2 label-text"><input type="radio" >Si</label>
+			</div>
+			<div class="col-sm-2">
+				<label class="col-xs-2 label-text"><input type="radio" >No</label>
+			</div>
+			
+		    
+		</div>
+	
+	</div>
+  </div>
+
+
+ <div class=" col-xs-12" align="left">
+
+ 	<div class="col-xs-offset-1">
+	<strong><h4>Antecedentes Oculares Familiares:</h4></strong>	
+	</div>
+
+ 	<div class="jumbotron"  id="antecedentes" >
+									<div class="row">
+                    					<div class="col-sm-5">
+                    						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo">Usuarios de Lentes</label>
+                    					</div>
+                    					<div class="col-sm-5">
+                    						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo">Catarata</label>
+                    					</div>
+                    					<div class="col-sm-5">
+                    						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo"> Glaucoma</label>
+                    					</div>
+
+                    					
+                    				</div>
+
+                    				<div class="row">
+                    					<div class="col-sm-5">
+                    						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo">Estrabismo</label>
+                    					</div>
+                    					
+                    					<div class="col-sm-5">
+                    						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo" id="ante_otra">Otra</label>
+                    					</div>
+                    				</div> <br>
+
+                    				<div class="row" id="ante_text" style="display: none">
+                    					<div class="col-sm-6">
+                    					<label class="control-label">Especifíque:</label>
+									<input class="form-control" type="text" name="padec_text" >
+										</div>
+                    				</div>
+												
+	</div>
+ </div>
 
 
 
+ <div class=" col-xs-6" align="left">
 
+ 	<div class="col-xs-6" align="center">
+	<strong><h4>Revisión Visual</h4></strong>	
+	</div><br><br><br><br>
+
+ 	
+									<div class="row">
+										<div class="col-sm-6">
+										<label class="col-xs-8 label-text ">A.V. sin Rx. de Lejos(Snellen)</label>
+									</div>
+                    					<div class="col-sm-3">
+                    						<h1><span class="badge badge-secondary">O.D.</span></h1>
+                    						<select class="form-control">
+											<option value="20/400">20/400</option>
+											<option value="20/300">20/300</option>
+											<option value="20/200">20/200</option>
+											<option value="20/150">20/150</option>
+											<option value="20/120">20/120</option>
+											<option value="20/100">20/100</option>
+											<option value="20/70">20/70</option>
+											<option value="20/60">20/60</option>
+											<option value="20/50">20/50</option>
+											<option value="20/40">20/40</option>
+											<option value="20/30">20/30</option>
+											<option value="20/25">20/25</option>
+											<option value="20/20">20/20</option>
+											<option value="20/15">20/15</option>
+											<option value="20/10">20/10</option>
+											<option value="S.P.L">S.P.L</option>
+											<option value="N.P.L">N.P.L</option>
+											<option value="Protésis">Protésis</option>
+											</select>
+                    						
+                    					</div>
+
+                    					<div class="col-sm-3">
+                    						<h1><span class="badge badge-secondary">O.I.</span></h1>
+                    						<select class="form-control">
+											<option value="20/400">20/400</option>
+											<option value="20/300">20/300</option>
+											<option value="20/200">20/200</option>
+											<option value="20/150">20/150</option>
+											<option value="20/120">20/120</option>
+											<option value="20/100">20/100</option>
+											<option value="20/70">20/70</option>
+											<option value="20/60">20/60</option>
+											<option value="20/50">20/50</option>
+											<option value="20/40">20/40</option>
+											<option value="20/30">20/30</option>
+											<option value="20/25">20/25</option>
+											<option value="20/20">20/20</option>
+											<option value="20/15">20/15</option>
+											<option value="20/10">20/10</option>
+											<option value="S.P.L">S.P.L</option>
+											<option value="N.P.L">N.P.L</option>
+											<option value="Protésis">Protésis</option>
+										</select>
+                    					</div>
+                    					
+
+                    					
+                    				</div><br><br>
+
+
+                    				<div class="row">
+										<div class="col-sm-6">
+										<label class="col-xs-5 label-text ">D.N.P. Ojo Derecho</label>
+									</div>
+									
+                    					<div class="col-sm-3">
+
+                    						<h1><span class="badge badge-secondary">O.D. Lejos</span></h1>
+                    						<select class="form-control">
+                    							<?php for($i=20;$i<=50;$i+=0.5){
+											
+											   echo"<option value='".$i."'>".$i." mm</option>";
+											}?>
+											</select>
+                    						
+                    					</div>
+
+                    					<div class="col-sm-3">
+                    						<h1><span class="badge badge-secondary">O.D. Cerca</span></h1>
+                    						<select class="form-control">
+											<?php for($i=20;$i<=50;$i+=0.5){
+											
+											   echo"<option value='".$i."'>".$i." mm</option>";
+											}?>
+										</select>
+                    					</div>
+
+                    					
+
+                    				</div>
+                    				<div class="row">
+                    					<div class="col-sm-6">
+										<label class="col-xs-5 label-text ">D.N.P. Ojo Izquierdo</label>
+									</div>
+                    					<div class="col-sm-3">
+                    						<h1><span class="badge badge-secondary">O.I. Lejos</span></h1>
+                    						<select class="form-control">
+											<?php for($i=20;$i<=50;$i+=0.5){
+											
+											   echo"<option value='".$i."'>".$i." mm</option>";
+											}?>
+										</select>
+                    					</div>
+
+                    					<div class="col-sm-3">
+                    						<h1><span class="badge badge-secondary">O.I. Cerca</span></h1>
+                    						<select class="form-control">
+											<?php for($i=20;$i<=50;$i+=0.5){
+											
+											   echo"<option value='".$i."'>".$i." mm</option>";
+											}?>
+										</select>
+                    					</div>
+                    				</div>
+
+                    				
+
+                    				
+
+                    			
+												
+	
+ </div>
 
 <div class="form-group col-xs-12" align="left">
 
@@ -998,254 +1376,6 @@
 
 
 
-								<!-- <div class="panel-body">
-									<h3><span class="label label-default">A.V.S. Lentes</span></h3>
-									<div class="col-xs-offset-2 form-group col-sm-6">
-										<label class="col-xs-offset-4 control-label">Actual:</label>
-										<div class="input-group">
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-4">
-										<label class="col-xs-offset-4 control-label">Anterior:</label>
-										<div class="input-group">
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class=" col-xs-offset-2 form-group col-sm-4">
-										
-										<div class="input-group">
-										  <span class="input-group-addon">O.L.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-4">
-										
-										<div class="input-group">
-										  <span class="input-group-addon">O.L.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="col-xs-offset-2 form-group col-sm-4">
-										
-										<div class="input-group">
-										  <span class="input-group-addon">K.O.D.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-4">
-										
-										<div class="input-group">
-										  <span class="input-group-addon">K.O.D.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class=" col-xs-offset-2 form-group col-sm-4">
-										
-										<div class="input-group">
-										  <span class="input-group-addon">K.O.L.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-4">
-										
-										<div class="input-group">
-										  <span class="input-group-addon">K.O.L.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-
-								</div> -->
-
-
-								<!-- <div class="panel-body">
-									<h3><span class="label label-default">A.V. Clientes</span></h3>
-									<div class="col-xs-offset-2 form-group col-sm-4">
-										<label class="col-xs-offset-4 control-label">Actual:</label>
-										<div class="input-group">
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-4">
-										<label class="col-xs-offset-4 control-label">Anterior:</label>
-										<div class="input-group">
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class=" col-xs-offset-2 form-group col-sm-4">
-										
-										<div class="input-group">
-										  <span class="input-group-addon">O.L.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-4">
-										
-										<div class="input-group">
-										  <span class="input-group-addon">O.L.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-								</div> -->
-
-
-								<!-- <div class="panel-body">
-									<h3><span class="label label-default">R.X. Actual</span></h3>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">O.D. Est.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">Cil.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">Eje</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">Add</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">D.N.P.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">A.O.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">O.L. Est.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">Cil.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">Eje</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">Add</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">D.N.P.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">A.O.</span>
-										  <input type="text" class="form-control">
-										</div>
-									</div>
-								</div>
-
-
-								<div class="panel-body">
-									<h3><span class="label label-default">R.X. Anterior</span></h3>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">O.D. Est.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">Cil.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">Eje</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">Add</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">D.N.P.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">A.O.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">O.L. Est.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">Cil.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">Eje</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">Add</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">D.N.P.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<div class="input-group">
-										  <span class="input-group-addon">A.O.</span>
-										  <input type="text" class="form-control" readonly="">
-										</div>
-									</div>
-								</div> -->
-
 
 								
 								
@@ -1480,5 +1610,170 @@
 								    </div>
 								  </div>
 								</div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    $("#fechanacimiento").change(function(){
+
+        var año1=$("#fechanacimiento").val();
+        var año2= Date();
+        var nacimiento=año1.substring(0,4);
+        var actual=año2.substring(11,15);
+        var edad=actual-nacimiento;
+       $("#edad").val(edad);
+
+    });
+
+
+     $("#chkalerg").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('alergias1').style.display = 'block';
+       document.getElementById('alergias2').style.display = 'block';
+       }else{
+       	document.getElementById('alergias1').style.display = 'none';
+       document.getElementById('alergias2').style.display = 'none';
+       }
+    });
+
+
+     $("#cronica").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('enfermedades').style.display = 'block';
+       
+       }else{
+       	document.getElementById('enfermedades').style.display = 'none';
+       
+       }
+    });
+
+
+
+     $("#otra").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('especifique').style.display = 'block';
+       
+       }else{
+       	document.getElementById('especifique').style.display = 'none';
+       
+       }
+    });
+
+
+        $("#control").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('trat').style.display = 'block';
+       
+       }else{
+       	document.getElementById('trat').style.display = 'none';
+       
+       }
+    });
+
+
+        $("#embarazo").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('emb_tiempo').style.display = 'block';
+       
+       }else{
+       	document.getElementById('emb_tiempo').style.display = 'none';
+       
+       }
+    });
+
+         $("#cirugias").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('cirug').style.display = 'block';
+       
+       }else{
+       	document.getElementById('cirug').style.display = 'none';
+       
+       }
+    });
+
+         $("#padecimientos").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('padec').style.display = 'block';
+       
+       }else{
+       	document.getElementById('padec').style.display = 'none';
+       
+       }
+    });
+
+
+        $("#padec_otra").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('padec_text').style.display = 'block';
+       
+       }else{
+       	document.getElementById('padec_text').style.display = 'none';
+       
+       }
+    });
+
+          $("#ante_otra").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('ante_text').style.display = 'block';
+       
+       }else{
+       	document.getElementById('ante_text').style.display = 'none';
+       
+       }
+    });
+
+
+   
+
+
+});
+	
+
+
+
+
+// function alergias(){
+//                 if($(this).prop('checked') == true){
+
+//                 	document.getElementById('alergias1').style.display = 'block';
+//                 	document.getElementById('alergias2').style.display = 'block';
+
+ 
+                	
+// 				}else{
+// 					document.getElementById('alergias1').style.display = 'none';
+//                 	document.getElementById('alergias2').style.display = 'none';
+// 				}
+
+
+
+// 			}
+
+
+
+
+
+
+
+</script>
 
 @endsection

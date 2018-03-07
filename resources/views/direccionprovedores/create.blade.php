@@ -14,7 +14,7 @@
 			{{ csrf_field() }}
 			 <input type="hidden" name="provedor_id" value="{{$provedore->id}}">
 			 <div class="panel-default">
-				<div class="panel-heading">Dirección Fisica:
+				<div class="panel-heading">Dirección Fiscal:
 				&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 				<div class="panel-body">
 						<div class="col-lg-offset-10">

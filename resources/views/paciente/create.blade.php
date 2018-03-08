@@ -1310,7 +1310,7 @@
 	      	</div>
 	 </div>
 	 <br><br>
-	<div class="col-xs-12" id="tratamiento_div" style="border: solid; border-color: grey;background-color: white; padding: 10px; ">
+	<div class="col-xs-12" id="tratamiento_div" style="border: solid; border-color: grey;background-color: white; padding: 10px; display: none; ">
 	    <div class="row">
             <div class="col-sm-4">
                 <input type="checkbox" class="squaredTwo" name="antirreflejante" id="antirreflejante">
@@ -1891,6 +1891,15 @@ $("#tipo_antirreflejante").change(function(){
        		
        }
     });
+
+ $("#tratamiento1").change(function(){
+      document.getElementById('tratamiento_div').style.display = 'block';
+      
+     });
+  $("#tratamiento2").change(function(){
+      document.getElementById('tratamiento_div').style.display = 'none';
+      
+     });
 
 
 

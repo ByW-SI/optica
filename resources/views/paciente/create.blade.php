@@ -445,13 +445,16 @@
 			<label class="control-label">Problema Visual</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Lejos</label>
+				<span class="badge badge-secondary">LEJOS</span>
+				<input type="radio" class="option-input radio" name="problema_visual">
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Cerca</label>
+				<span class="badge badge-secondary">CERCA</span>
+				<input type="radio" class="option-input radio" name="problema_visual">
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Ambas</label>
+				<span class="badge badge-secondary">AMBAS</span>
+				<input type="radio" class="option-input radio" name="problema_visual">
 			</div>
 		</div><br><br>
 		<div class="row">
@@ -460,13 +463,16 @@
 			<label class="control-label">Usuario de Lentes</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Si</label>
+				<span class="badge badge-secondary">SI</span>
+				<input type="radio" class="option-input radio" name="usuario_lentes">
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">No</label>
+				<span class="badge badge-secondary">NO</span>
+				<input type="radio" class="option-input radio" name="usuario_lentes">
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Ocasionalmente</label>
+				<span class="badge badge-secondary">OCASIONALMENTE</span>
+				<input type="radio" class="option-input radio" name="usuario_lentes">
 			</div>
 		    
 		</div><br><br>
@@ -476,10 +482,10 @@
 			</div>
 			<div class="form-group col-xs-2">
 										
-										<select class="form-control">
+										<select class="form-control" name="edad_lentes">
 											<?php for($i=1;$i<71;$i++){ ?>
 											
-											<?php echo "<option value='".$i."'><strong>".$i."</strong></option>";} ?>
+											<?php echo "<option value='".$i."'><h3>".$i." Años</h3></option>";} ?>
 										</select>
 									</div>
 			
@@ -490,13 +496,18 @@
 			<label class="control-label">Molestias a la luz Solar</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Si</label>
+				<span class="badge badge-secondary">SI</span>
+				<input type="radio" class="option-input radio" name="molestia_luz">
+
+
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">No</label>
+				<span class="badge badge-secondary">NO</span>
+				<input type="radio" class="option-input radio" name="molestia_luz">
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Regular</label>
+				<span class="badge badge-secondary">REGULAR</span>
+				<input type="radio" class="option-input radio" name="molestia_luz">
 			</div>
 		    
 		</div><br><br>
@@ -506,10 +517,12 @@
 			<label class="control-label">Usuario de Computadora</label>
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">Si</label>
+				<span class="badge badge-secondary">SI</span>
+				<input type="radio" class="option-input radio" name="usuario_computadora">
 			</div>
 			<div class="col-sm-2">
-				<label class="col-xs-2 label-text"><input type="radio" class="squaredTwo">No</label>
+				<span class="badge badge-secondary">NO</span>
+				<input type="radio" class="option-input radio"  name="usuario_computadora">
 			</div>
 			
 		    
@@ -527,26 +540,29 @@
 
  	<div class="jumbotron"  id="antecedentes" >
 									<div class="row">
-                    					<div class="col-sm-5">
-                    						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo">Usuarios de Lentes</label>
+                    					<div class="col-sm-4">
+                    						<input type="checkbox" class="squaredTwo">
+                    						<label class="col-xs-6 label-text">Usuarios de Lentes</label>
                     					</div>
-                    					<div class="col-sm-5">
-                    						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo">Catarata</label>
+                    					<div class="col-sm-4">
+                    						<input type="checkbox" class="squaredTwo">
+                    						<label class="col-xs-6 label-text">Catarata</label>
                     					</div>
-                    					<div class="col-sm-5">
-                    						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo"> Glaucoma</label>
+                    					<div class="col-sm-4">
+                    						<input type="checkbox" class="squaredTwo">
+                    						<label class="col-xs-6 label-text"> Glaucoma</label>
                     					</div>
-                    					<div class="col-sm-5">
-                    						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo" id="ante_otra">Otra</label>
-                    					</div>
-                    					
-                    				</div>
+                    				</div><br>
 
                     				<div class="row">
-                    					<div class="col-sm-5">
-                    						<label class="col-xs-8 label-text"><input type="checkbox" class="squaredTwo">Estrabismo</label>
+                    					<div class="col-sm-4">
+                    						<input type="checkbox" class="squaredTwo">
+                    						<label class="col-xs-6 label-text">Estrabismo</label>
                     					</div>
-                    					
+                    					<div class="col-sm-4">
+                    						<input type="checkbox" class="squaredTwo" id="ante_otra">
+                    						<label class="col-xs-6 label-text">Otra</label>
+                    					</div>
                     					
                     				</div> <br>
 
@@ -1024,7 +1040,7 @@
 	<strong><h3>Graduación:</h3></strong>	
 	</div>
 
- 	<div class="jumbotron col-xs-12"  id="antecedentes" >
+ 	<div class="jumbotron col-xs-12" >
 		<div class="row">
 			<div class="col-sm-2">
 			<label class="control-label"><h4>O.D.</h4></label>
@@ -1153,176 +1169,254 @@
 	<div class="row">
 		<div class="col-sm-3">
       		<label class="control-label">Refractivo</label>
-            <input class="form-control" type="text" name="fecha_tono" id="fecha_tono" >
+            <input class="form-control" type="text" name="refractivo" id="refractivo" >
       	</div>
-	</div>				
+      	<div class="col-sm-3">
+      		<label class="control-label">Patológico</label>
+            <input class="form-control" type="text" name="patologico" id="patologico" >
+      	</div>
+      	<div class="col-sm-3">
+      		<label class="control-label">Binocularidad</label>
+            <input class="form-control" type="text" name="binocularidad" id="binocularidad" >
+      	</div>
+	</div>	<br><br>
+	<div class="row">
+			<div class="col-sm-3">
+      		<label class="control-label">Nombre del Lic. Optometrísta</label>
+            <select class="form-control" name="optometrista" id="optometrista">
+				<option value="Lic.Almendares">Lic.Almendares</option>
+				<option value="Lic.Barrera">Lic.Barrera</option>
+				<option value="Lic.Carmona">Lic.Carmona</option>
+											
+				</select>
+      	</div>
+	</div>			
 												
 	</div>
+
+<div class="form-group col-xs-12" align="center" style="border: solid; border-color: grey; padding: 20px;">
+	 <div  align="left">
+	<strong><h4>Tipo de Anteojo</h4></strong>	
+	</div><br><br>
+	<div class="row">
+		<div class="col-sm-3">
+			<label class="control-label">Armazón</label>
+			<input type="radio" name="armazon_radio" value="lentes_armazon" class="option-input radio" 
+			id="armazon_radio1">
+		</div>
+		<div class="col-sm-3">
+			<label class="control-label">Lentes de Contacto</label>
+			<input type="radio" name="armazon_radio" value="lentes_contacto" class="option-input radio"
+			id="armazon_radio2">
+		</div>
+		<div class="col-sm-3">
+			<label class="control-label">Ambos</label>
+			<input type="radio" name="armazon_radio" value="lentes_ambos" class="option-input radio"
+			id="armazon_radio3">
+		</div>
+	</div><br><br>
+
+	<div class="jumbotron col-xs-12" id="armazon" style="display: none;">
+	 <div class="row">
+	 	<div class="col-sm-3">
+      		<label class="control-label">Tipo de Lente</label>
+            <select class="form-control" name="tipo_lente" id="tipo_lente">
+				<option value="Monofocal" selected>Monofocal</option>
+				<option value="Bifocal">Bifocal</option>
+				<option value="Progresivo">Progresivo</option>
+			</select>
+      	</div>
+      	<div class="col-sm-8" id="monofocal_div" style="display: block;">
+      		<div class="col-sm-2">
+      			<span class="badge badge-secondary">LEJOS</span>
+				<input type="radio" class="option-input radio"  name="monofocal">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">CERCA</span>
+				<input type="radio" class="option-input radio"  name="monofocal">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">AMBAS</span>
+				<input type="radio" class="option-input radio"  name="monofocal">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">SUB-CORRECCIÓN</span>
+				<input type="radio" class="option-input radio"  name="monofocal">
+			</div>
+      	</div>
+      	<div class="col-sm-8" id="bifocal_div" style="display: none;">
+      		<div class="col-sm-2">
+      			<span class="badge badge-secondary">FLAT-TOP</span>
+				<input type="radio" class="option-input radio"  name="bifocal">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">BLEND</span>
+				<input type="radio" class="option-input radio"  name="bifocal">
+			</div>
+		</div>
+		<div class="col-sm-8" id="progresivo_div" style="display: none;">
+      		<div class="col-sm-2">
+      			<span class="badge badge-secondary">BÁSICO</span>
+				<input type="radio" class="option-input radio"  name="progresivo">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">KODAK</span>
+				<input type="radio" class="option-input radio"  name="progresivo">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">VARILUX</span>
+				<input type="radio" class="option-input radio"  name="progresivo">
+			</div>
+			
+      	</div>
+	 </div> <br><br><br><br>
+	  <div class="row">
+	 	<div class="col-sm-2" align="left">
+      		<label class="control-label">Material</label>
+        </div>
+        	<div class="col-sm-10">
+      		<div class="col-sm-2">
+      			<span class="badge badge-secondary">CR-39 W</span>
+				<input type="radio" class="option-input radio"  name="material">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">HIGH-INDEX W</span>
+				<input type="radio" class="option-input radio"  name="material">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">POLICARBONATO</span>
+				<input type="radio" class="option-input radio"  name="material">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">CRISTAL W</span>
+				<input type="radio" class="option-input radio"  name="material">
+			</div>
+      	</div>
+	 </div>
+	 <br><br><br><br>
+	  <div class="row">
+	 	<div class="col-sm-2" align="left">
+      		<label class="control-label">Tratamiento</label>
+        </div>
+        	<div class="col-sm-10">
+      		<div class="col-sm-2">
+      			<span class="badge badge-secondary">SI</span>
+				<input type="radio" class="option-input radio"  name="tratamiento" id="tratamiento1">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">NO</span>
+				<input type="radio" class="option-input radio"  name="tratamiento" id="tratamiento2">
+			</div>
+	      	</div>
+	 </div>
+	 <br><br>
+	<div class="col-xs-12" id="tratamiento_div" style="border: solid; border-color: grey;background-color: white; padding: 10px; ">
+	    <div class="row">
+            <div class="col-sm-4">
+                <input type="checkbox" class="squaredTwo" name="antirreflejante" id="antirreflejante">
+                <label class="col-xs-6 label-text">Antirreflejante</label>
+            </div>
+            <div class="col-sm-4">
+                <input type="checkbox" class="squaredTwo" name="fotocromatico" id="fotocromatico">
+                <label class="col-xs-6 label-text">Fotocromático</label>
+            </div>
+            <div class="col-sm-4">
+                <input type="checkbox" class="squaredTwo" name="polarizado" id="polarizado">
+                <label class="col-xs-6 label-text">Polarizado</label>
+            </div>
+        </div><br><br>
+        <div class="row" id="antirreflejante_div" style="display: none;">
+        	<div class="col-sm-3">
+        	 <label class="control-label">Tipo de Antirreflejante</label>
+             <select class="form-control" name="tipo_antirreflejante" id="tipo_antirreflejante">
+				<option value="Básico">Básico</option>
+				<option value="Premium">Premium</option>
+			 </select>
+			</div>
+			<div class="col-sm-9" id="anti_premium_div" style="display: none;">
+      		<div class="col-sm-3">
+      			<span class="badge badge-secondary">CRIZAL EASY</span>
+				<input type="radio" class="option-input radio"  name="anti_premium">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">CRIZAL ALIZE</span>
+				<input type="radio" class="option-input radio"  name="anti_premium">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">CRIZAL FORTE</span>
+				<input type="radio" class="option-input radio"  name="anti_premium">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">CRIZAL PREVENCIA</span>
+				<input type="radio" class="option-input radio"  name="anti_premium">
+			</div>
+      	</div>
+	    </div><br><br>
+	    <div class="row" id="fotocromatico_div" style="display: none;">
+        	<div class="col-sm-3">
+        	 <label class="control-label">Tipo de Fotocromático</label>
+             <select class="form-control" name="tipo_fotocromatico" id="tipo_fotocromatico">
+				<option value="Básico">Básico</option>
+				<option value="Premium">Premium</option>
+			 </select>
+			</div>
+			<div class="col-sm-9" id="foto_premium_div" style="display: none;">
+      		<div class="col-sm-3">
+      			<span class="badge badge-secondary">TRANSITIONS GRIS</span>
+				<input type="radio" class="option-input radio"  name="foto_premium">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">TRANSITIONS CAFÉ</span>
+				<input type="radio" class="option-input radio"  name="foto_premium">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">TRANSITIONS VERDE</span>
+				<input type="radio" class="option-input radio"  name="foto_premium">
+			</div>
+      	    </div>
+	    </div><br><br>
+	    <div class="row" id="polarizado_div" style="display: none;">
+        	<div class="col-sm-3">
+        	 <label class="control-label">Tipo de Polarizado</label>
+             <select class="form-control" name="tipo_polarizado" id="tipo_polarizado">
+				<option value="Básico">Básico</option>
+				<option value="Premium">Premium (Xperio)</option>
+			 </select>
+			</div>
+		</div><br><br>
+	</div>
+
+	<br><br>
+
+	<div class="jumbotron col-xs-12" id="contacto" style="display: none;">
+	 <div class="row">
+	 	<h2>PENDIENTE SECCIÓN DE LENTES DE CONTACTO</h2>
+	 </div>
+	</div>
+
+	<br><br>
+
+	
+
+
+</div>
  
 
-
 										
+   
+   </div>
+  </div>
+ </div>
+</div>
 
-
-
-
-									</div>
-
-
-
-
-
-
-
-
-
-											<div class=" form-group col-sm-6  " >
-										<h4><span class="label label-default">Otros</span></h4>
-										
-										<div class="input-group">
-									<span class="input-group-addon">GLARE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <input type="text" class="form-control" style="width: 91px">
-										</div>
-
-
-									<div class="input-group">
-											<span class="input-group-addon">RECUPERACIÒN AL DESLUMBRAMIENTO</span>
-										  
-										  <input type="text" class="form-control" style="width: 91px">
-										</div>
-
-										<div class="input-group">
-											<span class="input-group-addon">RECUPERACIÒN A LA OBSCURIDAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										
-										  <input type="text" class="form-control" style="width: 91px">
-										</div>
-
-										<div class="input-group">
-											<span class="input-group-addon">SENSIBILIDAD AL CONTRASTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										
-										  <input type="text" class="form-control" style="width: 91px">
-										</div>
-
-
-
-									
-
-
-									</div> 
-
-										<div class=" form-group col-sm-6  " >
-										
-										<h4><span class="label label-default">Otros</span></h4>
-
-										<div class="input-group">
-									<span class="input-group-addon">APLANACIÒN</span>
-										  <input type="text" class="form-control" style="width: 91px">
-											</div>
-
-										<div class="input-group">
-									<span class="input-group-addon">IDENTACIÒN&nbsp;</span>
-										  <input type="text" class="form-control" style="width: 91px">
-											</div>
-
-										<div class="input-group">
-									<span class="input-group-addon">AIRE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										  <input type="text" class="form-control" style="width: 91px">
-											</div>
-
-									
-
-
-									</div>
-
-									 <div class="col-xs-offset-1 form-group col-sm-4 ">
-										<h4><span class="label label-default">Paquimetría</span></h4>
-										<div class="input-group">
-										  <span class="input-group-addon">O.D.</span>
-										  <input type="text" class="form-control" style="width: 91px">
-										   <span class="input-group-addon">O.I.</span>
-										  <input type="text" class="form-control" style="width: 91px">
-										</div>
-									</div>
-
-									 <div class="col-xs-offset-1 form-group col-sm-4 ">
-										<h4><span class="label label-default">Tonometría</span></h4>
-										<div class="input-group">
-										  <span class="input-group-addon">MÈTODO ANESTÈSICO: </span>
-										  <input type="text" class="form-control" style="width: 200px">
-										   <span class="input-group-addon">RESPUESTA DEL PACIENTE: </span>
-										  <input type="text" class="form-control" style="width: 200px">
-										</div>
-
-										<div class="input-group">
-										  <span class="input-group-addon">FECHA: </span>
-										  <input type="date" class="form-control" style="width: 200px">
-										   <span class="input-group-addon">HORA: </span>
-										  <select class="form-control" type="select" name="tipo_cont" id="tipo_cont" style="width: 100px">
-												<?php
-												for($i=0;$i<24;$i++){
-
-													if($i<=11){
-
-									echo"<option id='' value='".$i.":00 am'>".$i.":00 am </option>";
-
-													}else{
-									echo"<option id='' value='".$i.":00 pm'>".$i.":00 pm </option>";
-													}										
-
-
-												}
-												?>
-												
-												
-											</select>
-										</div>
-
-										<div class="input-group">
-										  <span class="input-group-addon">O.D. </span>
-										  <input type="text" class="form-control" style="width: 200px">
-										   <span class="input-group-addon">O.I. </span>
-										  <input type="text" class="form-control" style="width: 200px">
-										</div>
-
-									</div>
-
-
-
-								
-										
-
-
-						  			<!-- adentro de panel-body -->
-						  		</div>
-						  		<!-- afuera de panel-body -->
-
-
-						  		
-						  	</div>
-						  	
-						  </div>
-
-					
-
-
-                                    
-
-									
-
-									
-
-									
-									
-						 		
-									
-						 	
+{{-- HISTORIAL OCULAR --}}
 
 
 
 
 
-								
-								
+
+
 
 						 {{-- CITAS --}}
 
@@ -1481,6 +1575,8 @@
 							  </div>
 							</div>
 						</div>
+
+						{{-- CITAS --}}
 					</div>
 						
 					</div>
@@ -1685,8 +1781,117 @@ $(document).ready(function(){
        }
     });
 
+      $("#tipo_lente").change(function(){
 
-   
+      	var option=document.getElementById("tipo_lente").value;
+       
+
+       if(option == 'Monofocal'){
+       	
+       	document.getElementById('monofocal_div').style.display = 'block';
+       	document.getElementById('bifocal_div').style.display = 'none';
+       	document.getElementById('progresivo_div').style.display = 'none';
+       
+       }else if(option  == 'Bifocal'){
+       		
+       	document.getElementById('monofocal_div').style.display = 'none';
+       	document.getElementById('bifocal_div').style.display = 'block';
+       	document.getElementById('progresivo_div').style.display = 'none';
+       
+       }else{
+       	
+       	document.getElementById('monofocal_div').style.display = 'none';
+       	document.getElementById('bifocal_div').style.display = 'none';
+       	document.getElementById('progresivo_div').style.display = 'block';		
+       }
+    });
+
+
+    $("#armazon_radio1").change(function(){
+      document.getElementById('armazon').style.display = 'block';
+      document.getElementById('contacto').style.display = 'none';
+     });
+    $("#armazon_radio2").change(function(){
+      document.getElementById('armazon').style.display = 'none';
+      document.getElementById('contacto').style.display = 'block';
+     });
+    $("#armazon_radio3").change(function(){
+      document.getElementById('armazon').style.display = 'block';
+      document.getElementById('contacto').style.display = 'block';
+     });
+
+
+    $("#fotocromatico").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('fotocromatico_div').style.display = 'block';
+       
+       }else{
+       	document.getElementById('fotocromatico_div').style.display = 'none';
+       
+       }
+    });
+
+     $("#antirreflejante").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('antirreflejante_div').style.display = 'block';
+       
+       }else{
+       	document.getElementById('antirreflejante_div').style.display = 'none';
+       
+       }
+    });
+
+
+      $("#polarizado").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('polarizado_div').style.display = 'block';
+       
+       }else{
+       	document.getElementById('polarizado_div').style.display = 'none';
+       
+       }
+    });
+
+$("#tipo_fotocromatico").change(function(){
+
+      	var option=document.getElementById("tipo_fotocromatico").value;
+       
+
+       if(option == 'Premium'){
+       	
+       	document.getElementById('foto_premium_div').style.display = 'block';
+       	
+       
+       }else{
+       	
+       	document.getElementById('foto_premium_div').style.display = 'none';
+       		
+       }
+    });
+
+$("#tipo_antirreflejante").change(function(){
+
+      	var option=document.getElementById("tipo_antirreflejante").value;
+       
+
+       if(option == 'Premium'){
+       	
+       	document.getElementById('anti_premium_div').style.display = 'block';
+       	
+       
+       }else{
+       	
+       	document.getElementById('anti_premium_div').style.display = 'none';
+       		
+       }
+    });
+
 
 
 });

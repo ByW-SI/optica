@@ -362,13 +362,24 @@
 										
 										<br><br>
 									</div>
-									<div class="col-xs-offset-1 form-group col-xs-4">
+								<div class="row">
+									<div class="col-xs-offset-1 form-group col-sm-4">
 										 <label>
 						 	      	<input id="cirugias" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="cirugias" >
                                 Cirugías en los ojos:
                                  </label>
 									</div>
-									<div class="col-xs-offset-1 form-group col-xs-6">
+									<div class="col-xs-offset-1 form-group col-sm-4">
+										 <label>
+						 	      	<input id="padecimientos" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="padecimientos" >
+                               Padecimientos oculares:
+                                 </label>
+									</div>
+									
+								</div>	
+									
+                        <div class="row">
+									<div class="form-group col-xs-6">
 										 <div class="jumbotron"  id="cirug" style="display: none;">
 										 		<div class="row">
 									<div class="form-group col-xs-6">
@@ -389,16 +400,6 @@
 												</div>
 								</div>
 							</div>
-
-<br><br>
-
-							<div class="col-xs-offset-1 form-group col-xs-4">
-										 <label>
-						 	      	<input id="padecimientos" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="cirugias" >
-                               Padecimientos oculares:
-                                 </label>
-									</div>
-
 							<div class=" form-group col-xs-6">
 								<div class="jumbotron"  id="padec" style="display: none">
 									<div class="row">
@@ -436,7 +437,13 @@
 												
 								</div>
 							</div>
-<br><br><br><br>
+						</div>
+
+
+							
+
+							
+
 
   <div class="jumbotron col-xs-12" align="left">
 	<div class="form-group " >
@@ -705,8 +712,8 @@
                     			
 												
 	
- </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br>
+ </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 <div class="col-xs-6" align="center">
 	<strong><h4>Pantalleo</h4></strong>	
 	</div>
@@ -762,7 +769,7 @@
 				</select>
 		</div>
 	</div>
-</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 <div  align="left" class="col-xs-12">
@@ -1386,21 +1393,21 @@
 		</div><br><br>
 	</div>
 
-	<br><br>
+	
 
-	<div class="jumbotron col-xs-12" id="contacto" style="display: none;">
-	 <div class="row">
-	 	<h2>PENDIENTE SECCIÓN DE LENTES DE CONTACTO</h2>
-	 </div>
-	</div>
-
-	<br><br>
+	
 
 	
 
 
 </div>
- 
+ <br><br>
+
+	<div class="jumbotron col-xs-12" id="contacto" style="display: none;">
+	 <div class="row">
+	 	<h2>PENDIENTE SECCIÓN DE LENTES DE CONTACTO</h2>
+	 </div>
+	</div><br><br>
 
 										
    
@@ -1811,9 +1818,10 @@ $(document).ready(function(){
       document.getElementById('armazon').style.display = 'block';
       document.getElementById('contacto').style.display = 'none';
      });
-    $("#armazon_radio2").change(function(){
+     $("#armazon_radio2").change(function(){
+     document.getElementById('contacto').style.display = 'block';
       document.getElementById('armazon').style.display = 'none';
-      document.getElementById('contacto').style.display = 'block';
+      
      });
     $("#armazon_radio3").change(function(){
       document.getElementById('armazon').style.display = 'block';

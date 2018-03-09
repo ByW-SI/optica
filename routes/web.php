@@ -99,7 +99,16 @@ Route::get('almacens.create','Almacen\AlmacenController@create');
 Route::get('almacens.index','Almacen\AlmacenController@index');
 
 Route::resource('almacen','Empleado\EmpleadoAlmacenController');
-
+//----------------------------------------------------
+// ruta de funcion ajax para obtener las precargas
+Route::get('getareas','Area\AreaController@getAreas');
+Route::get('getcontratos','Precargas\TipoContratoController@getContratos');
+Route::get('getbajas','Precargas\TipoBajaController@getBajas');
+Route::get('getpuestos','Puesto\PuestoController@getPuestos');
+Route::get('getsucursal','Sucursal\SucursalController@getSucursal');
+Route::get('getalmacen','Almacen\AlmacenController@getAlmacen');
+Route::get('getbancos','Banco\BancoController@getBancos');
+//---------------------------------------------------------
 
 
 

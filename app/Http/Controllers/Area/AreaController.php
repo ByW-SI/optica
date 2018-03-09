@@ -111,4 +111,11 @@ class AreaController extends Controller
         })->paginate(10);
         return view('areas.index',['areas'=>$areas]);
     }
+
+ public function getAreas(){
+        $areas = Area::get();
+        return view('precargas.select',['precargas'=>$areas]);
+        // return response()->json(['data'=>$areas,200]);
+    }
+    
 }

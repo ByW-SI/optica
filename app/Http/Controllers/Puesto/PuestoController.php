@@ -111,4 +111,10 @@ class PuestoController extends Controller
         })->paginate(10);
         return view('puestos.index',['puestos'=>$puestos]);
     }
+
+public function getPuestos(){
+        $puestos = Puesto::get();
+        return view('precargas.select',['precargas'=>$puestos]);
+    }
+    
 }

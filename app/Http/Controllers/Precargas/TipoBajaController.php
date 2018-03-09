@@ -115,4 +115,10 @@ class TipoBajaController extends Controller
         })->paginate(50);
         return view('precargas.index',['precargas'=>$tipoBaja, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
+
+     public function getBajas(){
+        $bajas = TipoBaja::get();
+        return view('precargas.select',['precargas'=>$bajas]);
+    }
+    
 }

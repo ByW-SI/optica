@@ -111,4 +111,11 @@ class BancoController extends Controller
         })->paginate(10);
         return view('bancos.index',['bancos'=>$bancos]);
     }
+
+public function getBancos(){
+        $bancos = Banco::get();
+        return view('precargas.select',['precargas'=>$bancos]);
+        
+    }
+
 }

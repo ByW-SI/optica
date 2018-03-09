@@ -50,8 +50,10 @@
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="contrato">Tipo de contrato:</label>
-						<select type="select" class="form-control" name="contrato_id" >
-							<option id="contrato_id" value="">Sin Definir</option>
+						<div class="input-group">
+						<span class="input-group-addon" id="basic-addon3" onclick='getContratos()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
+						<select type="select" class="form-control" name="contrato_id" id="contrato_id" >
+							<option  value="">Sin Definir</option>
 							@foreach ($contratos as $contrato)
 								{{-- expr --}}
 								<option id="{{$contrato->id}}" value="{{$contrato->id}}" @if ($datoslab->contrato_id == $contrato->id)
@@ -60,6 +62,7 @@
 								@endif>{{$contrato->nombre}}</option>
 							@endforeach
 						</select>
+					   </div>
 					</div>
 
 
@@ -67,11 +70,13 @@
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="area_id">
 						Área:</label>
+						<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick='getAreas()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
 						<select type="select" 
 						        class="form-control" 
-						        name="area_id"
+						        name="area_id" id="area_id"
 						        >
-						        <option id="area_id" value="">Sin Definir</option>
+						        <option  value="">Sin Definir</option>
  
 							@foreach ($areas as $area)
 								{{-- expr --}}
@@ -83,6 +88,7 @@
 								@endif>{{$area->nombre}}</option>
 							@endforeach
 						</select>
+					  </div>
 					</div>
 
 
@@ -90,8 +96,10 @@
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="puesto_id">
 						Puesto:</label>
+						<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick='getPuestos()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
 						<select type="select" name="puesto_id" id="puesto_id" class="form-control" >
-							<option id="puesto_id" value="">Sin Definir</option>
+							<option  value="">Sin Definir</option>
 
 							@foreach ($puestos as $puesto)
 								{{-- expr --}}
@@ -104,13 +112,16 @@
 								@endif>{{$puesto->nombre}}</option>
 							@endforeach
 						</select>
+						</div>
 					</div>
 
 
 	<div class="form-group col-xs-3">
 						<label class="control-label" for="contrato">Sucursal:</label>
-						<select type="select" class="form-control" name="sucursal_id" >
-							<option id="sucursal_id" value="">Sin Definir</option>
+						<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick='getSucursal()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
+						<select type="select" class="form-control" name="sucursal_id" id="sucursal_id">
+							<option  value="">Sin Definir</option>
 							@foreach ($sucursales as $sucursal)
 								{{-- expr --}}
 								<option id="{{$sucursal->id}}" value="{{$sucursal->id}}" @if ($datoslab->sucursal_id == $sucursal->id)
@@ -119,12 +130,15 @@
 								@endif>{{$sucursal->nombre}}</option>
 							@endforeach
 						</select>
+					  </div>
 					</div>
 
 						<div class="form-group col-xs-3">
 						<label class="control-label" for="contrato">Almacen:</label>
-						<select type="select" class="form-control" name="almacen_id">
-							<option id="almacen_id" value="">Sin Definir</option>
+						<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick='getAlmacen()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
+						<select type="select" class="form-control" name="almacen_id" id="almacen_id">
+							<option  value="">Sin Definir</option>
 							@foreach ($almacenes as $almacen)
 								{{-- expr --}}
 								<option id="{{$almacen->id}}" value="{{$almacen->id}}" @if ($datoslab->almacen_id == $almacen->id)
@@ -133,6 +147,7 @@
 								@endif>{{$almacen->nombre}}</option>
 							@endforeach
 						</select>
+					  </div>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="lugartrabajo">Lugar de Trabajo:</label>
@@ -259,15 +274,13 @@
 							@endif>3 hrs.</option>
 						</select>
 					</div>
-
-					
-					
+									
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="banco">Banco:</label>
+						<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick='getBancos()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
 						<select class="form-control" type="select" name="banco" id="banco">
-
-
-							<option id="banco" value="">Sin Definir</option>
+							<option value="">Sin Definir</option>
 							@foreach ($bancos as $banco)
 								{{-- expr --}}
 								<option id="{{$banco->nombre}}" value="{{$banco->nombre}}" @if ($datoslab->banco == $banco->nombre)
@@ -275,10 +288,10 @@
 									selected="selected" 
 								@endif>{{$banco->nombre}}</option>
 							@endforeach
-
-
 						</select>
+					  </div>
 					</div>
+
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="cuenta">Cuenta:</label>
 						<input class="form-control" type="text" id="cuenta" name="cuenta" value="{{ $datoslab->cuenta }}">
@@ -303,8 +316,11 @@
 							<label class="control-label" for="fechabaja">Fecha de la baja:</label>
 							<input class="form-control" type="date" id="fechabaja" name="fechabaja" value="{{ $datoslab->fechabaja }}">
 						</div>
+
 						<div class="form-group col-xs-3">
 							<label class="control-label" for="tipobaja_id">Tipo de Baja:</label>
+							<div class="input-group">
+  							<span class="input-group-addon" id="basic-addon3" onclick='getBajas()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
 							<select class="form-control" type="select" name="tipobaja_id" id="tipobaja_id">
 								<option id="0" value="">No hay baja</option>
 								@foreach ($bajas as $baja)
@@ -315,7 +331,9 @@
 									@endif>{{ $baja->nombre }}</option>
 								@endforeach
 							</select>
+						  </div>
 						</div>
+
 						<div class="form-group col-xs-3">
 							<label class="control-label" for="comentariobaja">Comentarios:</label>
 							<textarea class="form-control" id="comentariobaja" name="comentariobaja" maxlength="500">{{$datoslab->comentariobaja}}</textarea>
@@ -330,4 +348,108 @@
 		</div>
 	</div>
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+	<script type="text/javascript">
+		function getAreas()
+		{
+		  $.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+		  });
+		  $.ajax({
+		    url: "{{ url('/getareas') }}",
+		    type: "GET",
+		    dataType: "html",
+		  }).done(function(resultado){
+		    $("#area_id").html(resultado);
+		  });
+		}
+		function getContratos(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getcontratos') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#contrato_id").html(resultado);
+			});
+		}
+		function getPuestos(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getpuestos') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#puesto_id").html(resultado);
+			});
+		}
+		function getBajas(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getbajas') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#tipobaja_id").html(resultado);
+			});
+		}
+		function getBancos(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getbancos') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#banco").html(resultado);
+			});
+		}
+
+		function getSucursal(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getsucursal') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#sucursal_id").html(resultado);
+			});
+		}
+
+		function getAlmacen(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getalmacen') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#almacen_id").html(resultado);
+			});
+		}
+
+	</script>
 @endsection

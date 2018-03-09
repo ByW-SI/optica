@@ -121,7 +121,10 @@ return view('almacenes.view',['almacen'=>$almacen]);
 
 
 
-  
+     public function getAlmacen(){
+        $almacenes = Almacen::get();
+        return view('precargas.select',['precargas'=>$almacenes]);
+    }
    
 
 

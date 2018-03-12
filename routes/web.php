@@ -69,6 +69,10 @@ Route::get('comision',function(){
 	return View::make('Empleadobonos.comision');
 });
 
+Route::get('productos',function(){
+
+	return View::make('Productos.create');
+});
 
 //-----------------------------------------------------
 
@@ -108,6 +112,7 @@ Route::get('getpuestos','Puesto\PuestoController@getPuestos');
 Route::get('getsucursal','Sucursal\SucursalController@getSucursal');
 Route::get('getalmacen','Almacen\AlmacenController@getAlmacen');
 Route::get('getbancos','Banco\BancoController@getBancos');
+Route::get('getgiros','Giro\GiroController@getGiros');
 //---------------------------------------------------------
 
 

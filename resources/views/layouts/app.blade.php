@@ -89,26 +89,7 @@
                                 </ul>
                             </li>
                         @endguest --}}
-                        <!-- <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Clientes<span class="caret"></span> </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ url('/personals/create')}}"><i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
-                                <a href="{{ url('/personals') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
-                                <a href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Seguimiento</a>    
-                            </li>                     
-                        </ul>
-                    </li> -->
                     
-                    <!-- <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Productos <span class="caret"></span> </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ url('import-export-csv-excel') }}"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Alta por excel</a>
-                                <a href="{{ url('productos') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>  
-                            </li>                     
-                        </ul>
-                    </li> -->
                    
 
                     <li class="dropdown">
@@ -181,7 +162,7 @@
                                 onclick="AgregarNuevoTab('{{ url('/provedores') }}','Buscar Proveedor')">
                                 <i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
 
-                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cube" aria-hidden="true"></i>Productos<span class="caret"></span> </a>
+                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" onclick="AgregarNuevoTab('{{ url('/productos') }}','Productos')"><i class="fa fa-cube" aria-hidden="true"></i>Productos</a>
 
                                 <li class="dropdown-submenu">
                                 <a tabindex="-1" 

@@ -22,12 +22,15 @@
 	 		<div class="col-md-12 offset-md-2 mt-3">
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="nombre">Giro:</label>
+	 			<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick='getGiros()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
 				<select type="select" name="giro_id" class="form-control" id="giro_id">
-							
+							<option id="sin_definir" value="sin_definir">Sin Definir</option>
 						@foreach ($giros as $giro)
 							<option id="'{{$giro->id}}'" value="{{$giro->id}}" selected="selected">{{$giro->nombre}}</option>
 						@endforeach
 				</select>
+				 </div>
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="nombre">Tamaño de la empresa:</label>
@@ -39,8 +42,9 @@
 					</select>
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
-	 			<label class="control-label" for="forma_contacto_id">Forma de contacto:</label>
+	 			<label class="control-label" for="forma_contacto_id"> <i class="fa fa-asterisk" aria-hidden="true"></i>Forma de contacto:</label>
 					<select type="select" name="forma_contacto_id" class="form-control" id="forma_contacto_id">
+						<option id="sin_definir" value="sin_definir">Sin Definir</option>
 						@foreach ($formaContactos as $formaContacto)
 							{{-- expr --}}
 							<option id="{{$formaContacto->id}}" value="{{ $formaContacto->id }}" selected="selected">{{ $formaContacto->nombre }}</option>
@@ -59,14 +63,79 @@
 	 				<textarea  class="form-control" rows="5" id="comentario" name="comentario"></textarea>
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
-	 				<label class="control-label" for="fechacontacto">Fecha de contacto:</label>
+	 				<label class="control-label" for="fechacontacto"> <i class="fa fa-asterisk" aria-hidden="true"></i>Fecha de contacto:</label>
 	 				<input type="date" class="form-control" id="fechacontacto" name="fechacontacto" value="">
 	 			</div>
 	 		</div>
 	 	</div>
+	 	<div class="panel-heading jumbotron" style="color: black;">Datos Bancarios: &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
+	 	<div class="panel-body">
+	 	  <div class="row">
+	 	  	<div class="col-sm-3">
+	 	  		<label class="control-label" for="banco"> <i class="fa fa-asterisk" aria-hidden="true"></i>Banco</label>
+	 	  		<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick='getBancos()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
+					<select type="select" name="banco" class="form-control" id="banco">
+						<option id="sin_definir" value="sin_definir">Sin Definir</option>
+						@foreach($bancos as $banco)
+						<option id="{{$banco->id}}" value="{{$banco->id}}">{{$banco->nombre}}</option>
+						@endforeach
+					</select>
+				</div>
+	 	  	</div>
+	 	  	<div class="col-sm-3">
+	 	  		<label class="control-label" for="cuenta"> <i class="fa fa-asterisk" aria-hidden="true"></i>Número de Cuenta</label>
+	 	  		<input type="text" name="cuenta" id="cuenta" class="form-control">
+	 	  	</div>
+	 	  	<div class="col-sm-3">
+	 	  		<label class="control-label" for="clabe"> <i class="fa fa-asterisk" aria-hidden="true"></i>CLABE</label>
+	 	  		<input type="text" name="clabe" id="clabe" class="form-control">
+	 	  	</div>
+	 	  	<div class="col-sm-3">
+	 	  		<label class="control-label" for="beneficiario"> <i class="fa fa-asterisk" aria-hidden="true"></i>Beneficiario</label>
+	 	  		<input type="text" name="beneficiario" id="beneficiario" class="form-control">
+	 	  	</div>
+	 	  </div>	
+	 	</div>
 	 	</form>
 	 	</div>
 	</div>
+
+		<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+	<script type="text/javascript">
+	
+		function getBancos(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getbancos') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#banco").html(resultado);
+			});
+		}
+
+		function getGiros(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getgiros') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#giro_id").html(resultado);
+			});
+		}
+
+
+	</script>
 	@endsection
 	<script type="text/javascript">
 		// input type url agree http:// in automatic

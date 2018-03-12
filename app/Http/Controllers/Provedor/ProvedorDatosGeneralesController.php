@@ -8,6 +8,7 @@ use App\FormaContacto;
 use App\Giro;
 use App\Http\Controllers\Controller;
 use App\Provedor;
+use App\Banco;
 use Illuminate\Http\Request;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 
@@ -42,11 +43,16 @@ class ProvedorDatosGeneralesController extends Controller
      */
     public function create(Provedor $provedore)
     {
-        //
-        $giros = Giro::get();
+        
+        $giros          = Giro::get();
         $formaContactos = FormaContacto::get();
-        // dd($giros);}
-        return view('datosgeneralesprovedores.create',['provedore'=>$provedore, 'giros'=>$giros, 'formaContactos'=>$formaContactos]);
+        $bancos         = Banco::get();
+        
+        return view('datosgeneralesprovedores.create',
+                      ['provedore'     =>$provedore, 
+                       'giros'         =>$giros, 
+                       'formaContactos'=>$formaContactos,
+                       'bancos'        =>$bancos]);
     }
 
     /**

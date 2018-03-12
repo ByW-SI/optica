@@ -58,7 +58,7 @@
 
 							<li><a data-toggle="tab" href="#cita" class="ui-tabs-anchor">Citas:</a></li>
 
-							<li><a data-toggle="tab" href="#" class="ui-tabs-anchor">C.R.M.:(En Desarrollo)</a></li>
+							<li><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li>
 						</ul>
 					<div class="tab-content">
 						{{-- DATOS GENERALES --}}
@@ -1055,7 +1055,7 @@
 			<div class="col-sm-2">
       		<span class="badge badge-secondary">ESF.</span>
 			<select class="form-control" name="esf_od" id="esf_od">
-				<?php for($i=(-25);$i<=25;$i+=0.25){
+				<?php for($i=25;$i>=(-25);$i-=0.25){
 				echo"<option value='".$i."'>".$i."</option>";
 						}?>
 				</select>
@@ -1115,7 +1115,7 @@
 			<div class="col-sm-2">
       		<span class="badge badge-secondary">ESF.</span>
 			<select class="form-control" name="esf_oi" id="esf_oi">
-				<?php for($i=(-25);$i<=25;$i+=0.25){
+				<?php for($i=25;$i>=(-25);$i-=0.25){
 				echo"<option value='".$i."'>".$i."</option>";
 						}?>
 				</select>
@@ -1409,6 +1409,26 @@
 	 </div>
 	</div><br><br>
 
+	<div class="jumbotron col-xs-12">
+	 <div class="row">
+                    					<div class="col-sm-3">
+                    						<input type="checkbox" class="squaredTwo">
+                    						<label class="col-xs-6 label-text">Enviar al Área de Ventas</label>
+                    					</div>
+                    					<div class="col-sm-3">
+                    						<input type="checkbox" class="squaredTwo">
+                    						<label class="col-xs-6 label-text">Imprimir</label>
+                    					</div>
+                    					<div class="col-sm-3">
+                    						<input type="checkbox" class="squaredTwo" checked>
+                    						<label class="col-xs-6 label-text"> Guardar</label>
+                    					</div>
+                    					<div class="col-sm-3">
+                    						<button class="btn btn-primary"><strong>ACEPTAR</strong></button>
+                    					</div>
+                    				</div><br>
+	</div><br><br>
+
 										
    
    </div>
@@ -1584,6 +1604,94 @@
 						</div>
 
 						{{-- CITAS --}}
+
+				{{-- CRM --}}
+				<div class="tab-pane" id="crm">
+					<div class="panel-default">
+						<div class="panel-heading"><h5>C.R.M.&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5>
+						</div>
+						<div class="panel-body">
+							<form role="form" method="POST">
+						{{ csrf_field() }}
+						<input type="hidden" name="personal_id" >
+						<div class="col-xs-4 col-xs-offset-10">
+							<a class="btn btn-warning" id="limpiar" onclick="limpiar()">
+							<strong>Limpiar</strong>
+						</a>
+							<button id="submit" type="submit" class="btn btn-success">
+							<strong>Guardar</strong>
+						</button>
+							<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
+							<strong>Modificar</strong>
+						</a>
+							
+
+						</div>
+					<div class="col-md-12 offset-md-2 mt-3">
+						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+							<label class="control-label" for="fecha_act">Fecha Actual:</label>
+							<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
+						</div>
+						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+							<label class="control-label" for="fecha_cont"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha siguiente contacto:</label>
+							<input type="date" class="form-control" id="fecha_cont" name="fecha_cont" required="required" value="">
+						</div>
+						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+							<label class="control-label" for="fecha_aviso"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha Aviso:</label>
+							<input type="date" class="form-control" id="fecha_aviso" name="fecha_aviso" required="required" value="">
+						</div>
+						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+							<label class="control-label" for="hora">Hora:</label>
+							<input type="time" class="form-control" id="hora" name="hora" name="hora" value="">
+						</div>
+						<div class="form-group col-lg-6 col-md-3 col-sm-6 col-xs-12">
+							<label class="control-label" for="tipo_cont">Forma de contacto:</label>
+							<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" >
+								<option id="Mail" value="Mail">Email/Correo Electronico</option>
+								<option id="Telefono" value="Telefono">Telefono</option>
+								<option id="Cita" value="Cita">Cita</option>
+								<option id="Whatsapp" value="Whatsapp">Whatsapp</option>
+								<option id="Otro" value="Otro" selected="selected">Otro</option>
+							</select>
+						</div>
+						<div class="form-group col-lg-6 col-md-3 col-sm-6 col-xs-12">
+							<label class="control-label" for="status">Estado:</label>
+							<select class="form-control" type="select" name="status" id="status" >
+								<option id="Pendiente" value="Pendiente">Pendiente</option>
+								<option id="Cotizando" value="Cotizando">En Cotización</option>
+								<option id="Cancelado" value="Cancelado">Cancelado</option>
+								<option id="Toma_decision" value="Toma_decision">Tomando decisión</option>
+								<option id="Espera" value="Espera">En espera</option>
+								<option id="Revisa_doc" value="Revisa_doc">Revisando documento</option>
+								<option id="Proceso_aceptar" value="Proceso_aceptar">Proceso de Aceptación</option>
+								<option id="Entrega" value="Entrega">Para entrega</option>
+								<option id="Otro" value="Otro" selected="selected">Otro</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-12 offset-md-2 mt-3">
+						<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
+							<label class="control-label" for="acuerdos">Acuerdos: </label>
+							<textarea class="form-control" rows="5" id="acuerdos" name="acuerdos" maxlength="500"></textarea>
+						</div>
+
+						<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
+							<label class="control-label" for="comentarios">Comentarios: </label>
+							<textarea class="form-control" rows="5" id="comentarios" name="comentarios" maxlength="500"></textarea>
+						</div>
+
+						<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
+							<label class="control-label" for="observaciones">Observaciones: </label>
+							<textarea class="form-control" rows="5" id="observaciones" name="observaciones" maxlength="500"></textarea>
+						</div>
+						
+					</div>
+						
+					</form>		
+						</div>
+					</div>
+				</div>
+				{{-- CRM --}}
 					</div>
 						
 					</div>

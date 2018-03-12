@@ -17,7 +17,7 @@
 		</ul>
 	</div>
 	<div class="panel-default">
-		<div class="panel-heading"><h5>Estudios:</h5></div>
+		<div class="panel-heading"><h5>Estudios: &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5></div>
 		<div class="panel-body">
 			@if ($edit == true)
 				{{-- expr --}}
@@ -320,8 +320,8 @@
 						</label>
 				</div>
 				</div>
-				<button type="submit" class="btn btn-success">Guardar</button>
-				<p><strong>*Campo requerido</strong></p>
+				<button type="submit" class="btn btn-success"><strong>Guardar</strong></button>
+				
 				</form>
 				</div>
 		</div>

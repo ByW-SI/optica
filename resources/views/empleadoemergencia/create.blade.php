@@ -17,7 +17,7 @@
 		</ul>
 	</div>
 	<div class="panel-default">
-		<div class="panel-heading"><h5>Emergencias:</h5></div>
+		<div class="panel-heading"><h5>Emergencias:&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5></div>
 		<div class="panel-body">
 			@if ($edit == true)
 				{{-- true expr --}}
@@ -145,8 +145,8 @@
     					<input type="text" class="form-control" id="movilcontac3" name="movilcontac3" value="{{ $emergencias->movilcontac3 }}">
   					</div>
   				</div>
-  				<button type="submit" class="btn btn-success">Guardar</button>
-				<p><strong>*Campo requerido</strong></p>
+  				<button type="submit" class="btn btn-success"><strong>Guardar</strong></button>
+				
 			</form>
 		</div>
 	</div>

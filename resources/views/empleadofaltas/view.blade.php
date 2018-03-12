@@ -17,7 +17,7 @@
 		</ul>
 	</div>
 	<div class="panel-default">
-		<div class="panel-heading"><h5>Administrativo:</h5></div>
+		<div class="panel-heading"><h5>Administrativo: &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5></div>
 		<div class="panel-body">
 			<form role="for" method="POST" action="{{ route('empleados.faltas.store',['empleado'=>$empleado]) }}">
 				{{ csrf_field() }}
@@ -58,10 +58,10 @@
 	    					<input type="text" class="form-control" id="reporto" name="reporto">
 	  				</div>
 	  			</div>
-	  			<button type="submit" class="btn btn-success">Guardar</button>
-				<p><strong>*Campo requerido</strong></p>
+	  			<button type="submit" class="btn btn-success"><strong>Guardar</strong></button>
+				
 			</form>
-			
+			<br><br>
 			<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 						<thead>
 							<tr class="info">

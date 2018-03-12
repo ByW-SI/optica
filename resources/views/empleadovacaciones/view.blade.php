@@ -17,7 +17,7 @@
 		</ul>
 	</div>
 	<div class="panel-default">
-		<div class="panel-heading"><h5>Vacaciones:</h5></div>
+		<div class="panel-heading"><h5>Vacaciones: &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5></div>
 		<div class="panel-body">
 			<form role="form" method="POST" action="{{ route('empleados.vacaciones.store',['empleado'=>$empleado]) }}">
 				{{ csrf_field() }}
@@ -56,9 +56,9 @@
 						<label class="" for="dias_vac_rest">Días totales: </label> <input type="text" class="form-control" id="dias_vac_rest" name="diastotal">
 					</div>
 				</div>
-				<button type="submit" class="btn btn-success">Guardar</button>
-				<p><strong>*Campo requerido</strong></p>
-			</form>
+				<button type="submit" class="btn btn-success"><strong>Guardar</strong></button>
+				
+			</form><br><br>
 			<div class="col-xs-12 offset-md-2 mt-6">
 				<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 					<thead>

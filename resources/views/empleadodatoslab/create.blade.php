@@ -174,10 +174,7 @@
 						<label class="control-label" for="salariodia">Salario Diario:</label>
 						<input class="form-control" type="text" id="salariodia" name="salariodia" value="{{ $datoslab->salariodia }}">
 					</div>
-					<div class="form-group col-xs-3">
-						<label class="control-label" for="puesto_inicio">Puesto Inicial:</label>
-						<input class="form-control" type="text" id="puesto_inicio" name="puesto_inicio" value="{{ $datoslab->puesto_inicio }}">
-					</div>
+					
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="periodopaga">Periodicidad de Pago:</label>
 						<select type="select" class="form-control" name="periodopaga" id="periodopaga">

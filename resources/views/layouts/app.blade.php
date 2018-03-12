@@ -14,7 +14,7 @@
     <link rel="icon" href="{{ asset('img//favicon.ico') }}" type="image/x-icon">
     
     <!-- Styles -->
-    <script href="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script href="{{ asset('js/jquery-3.2.1.min.js') }}"></script> 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -24,15 +24,15 @@
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     Latest compiled and minified JavaScript
     
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> --}}
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> --> --}}
 
      <!-- Custom Fonts -->
-    <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css"> 
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- ********************************** -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-         <script src="{{ asset('js/peticion.js') }}"></script>
+    <script src="{{ asset('js/peticion.js') }}"></script>
          
 
 </head>
@@ -303,9 +303,7 @@
                                 onclick="AgregarNuevoTab('{{ url('/pacientes') }}','Buscar Paciente')">
                                 <i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
 
-                                <!-- <a href="#" 
-                                onclick="AgregarNuevoTab('{{ url('/') }}','Buscar Proveedor')">
-                                <i class="fa fa-address-book-o" aria-hidden="true"></i> C.R.M.</a> -->
+                               
                                 
                                 <li class="dropdown-submenu pull-left">
                                 <a tabindex="-1" href="#"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas:</a>
@@ -320,28 +318,7 @@
 
 
                     
-                    {{-- <li class="dropdown-submenu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Productos <span class="caret"></span> </a>
-                    <ul class="dropdown-menu">
-                      <li class="dropdown-submenu">
-                        <a class="test" href="#"><i class="fa fa-car" aria-hidden="true"></i> Vehiculos <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a></li>
-                          <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a></li>
-                        </ul>
-                        <a class="test" href="#"><i class="fa fa-motorcycle" aria-hidden="true"></i> Motocicletas <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a></li>
-                          <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a></li>
-                        </ul>
-                         <a class="test" href="#"><i class="fa fa-home" aria-hidden="true"></i> Casas <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a></li>
-                          <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                </li> --}}
+                   
                 </div>
             </div>
         </nav>
@@ -350,8 +327,8 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <!-- <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script> -->
+   <script src="{{ asset('js/app.js') }}"></script>
+     <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script> 
     <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
 
     {{-- <script type="text/javascript">
@@ -377,9 +354,9 @@
                 document.getElementById('permoral').style.display='inline';
             }
         }
-    </script> --}}
-    <script src="{{ asset('js/sweetalert.js') }}"></script>
-    @include('sweet::alert')
+    </script> --}} 
+    <script src="{{ asset('js/sweetalert.js') }}"></script> 
+    @include('sweet::alert') 
 <!-- ********************************************** -->
         
     
@@ -400,7 +377,7 @@ $(document).ready(function(){
     e.preventDefault();
   });
 });
-</script>
+</script> 
    
 </body>
 </html>

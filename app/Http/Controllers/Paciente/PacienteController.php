@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Paciente;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Paciente;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class PacienteController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -26,6 +29,8 @@ class PacienteController extends Controller
     public function create()
     {
         //
+
+        // Alert::message('Welcome back!');
         return view('paciente.create');
     }
 
@@ -37,7 +42,22 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->identificador);
+        $ident=Paciente::where('identificador',$request->identificador)->get();
+
+         if (count($ident)!=0) {
+            # code...
+            Alert::error('Error', 'Ya se ha Registrado un paciente con le mismo ID')->persistent("Cerrar");
+           
+            return redirect()->back();
+
+             
+        }
+        else {
+            $paciente = Paciente::create($request->all());
+            Alert::success('Paciente Creado', 'Siga agregando información del Paciente');
+            return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);//->with('success','Paciente Creado');
+        }
     }
 
     /**
@@ -48,7 +68,8 @@ class PacienteController extends Controller
      */
     public function show($id)
     {
-        //
+        $paciente=Paciente::where('id',$id)->first();
+       return view('paciente.view',['paciente'=>$paciente]);
     }
 
     /**

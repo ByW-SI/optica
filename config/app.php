@@ -178,7 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
-
+        
     ],
 
     /*
@@ -196,6 +196,7 @@ return [
 
         'App' => Illuminate\Support\Facades\App::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+        
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,

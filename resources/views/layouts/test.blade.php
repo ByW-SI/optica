@@ -30,7 +30,7 @@
      <!-- Custom Fonts -->
     <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
+     <link rel="stylesheet" href="{{ asset('css/sweetalert.css') }}">
 
 </head>
 <body>
@@ -68,8 +68,9 @@
         }
     </script> --}}
     <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
-    
-
+    <script src="{{ asset('js/sweetalert.js') }}"></script>
+    <!-- Include this after the sweet alert js file -->
+    @include('sweet::alert')
    
 </body>
 </html>

@@ -21,7 +21,7 @@ Route::resource('provedores.direccionfisica','Provedor\ProvedorDireccionFisicaCo
 Route::resource('provedores.datosgenerales','Provedor\ProvedorDatosGeneralesController');
 Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
 Route::resource('provedores.crm','Provedor\ProvedorCRMController');
-Route::resource('pacientes','Paciente\PacienteController');
+
 
 // CONVENIOS
 Route::resource('convenios','Convenio\ConvenioController');
@@ -114,7 +114,9 @@ Route::get('getalmacen','Almacen\AlmacenController@getAlmacen');
 Route::get('getbancos','Banco\BancoController@getBancos');
 Route::get('getgiros','Giro\GiroController@getGiros');
 //---------------------------------------------------------
-
+// *********** PACIENTES *********************************//
+Route::resource('pacientes','Paciente\PacienteController');
+//------------------------------------------------------------
 
 
 

@@ -1,9 +1,10 @@
-@extends('layouts.blank')
-@section('content')
+@extends('layouts.test')
+@section('content1')
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <div class="container">
 	<div role="application" class="panel panel-group">
 		<div class="panel-default">
@@ -68,7 +69,7 @@
 			{{-- TAB-CONTENT --}}
                    <div class="tab-content">
 		{{-- DATOS GENERALES --}}
-						<div class="tab-pane fade in " id="generales">
+						<div  class="tab-pane" id="generales">
 							
 							<div class="panel-default">
 								<div class="panel-heading"><h5>Datos Generales:</h5></div>
@@ -172,7 +173,7 @@
 
 				{{-- HISTORIAL MEDICO --}}
 						
-						 <div class="tab-pane" id="hmedico">
+						 <div class="tab-pane fade in active " id="hmedico">
 						 	<div class="panel-default">
 						 		<div class="panel-heading"><h4><strong>Historial Médico:</strong> </h4></div>
 						 		<div class="panel-body">
@@ -303,4 +304,331 @@
 					{{-- TAB-CONTENT --}}
 	</div>
 </div>
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$("#nombre").keyup(function(){
+
+		
+      var nombre=$("#nombre").val();
+      var prim=nombre.substring(0,1);
+      var appaterno=$("#appaterno").val();
+      var seg=appaterno.substring(0,1);
+      var apmaterno=$("#apmaterno").val();
+      var ter=apmaterno.substring(0,1);
+      var año1=$("#fechanacimiento").val();
+      var id=prim+seg+ter+año1;
+      var bid=id.toUpperCase(id);
+       $("#identificador").val(bid);
+	});
+
+	$("#appaterno").keyup(function(){
+
+		
+      var nombre=$("#nombre").val();
+      var prim=nombre.substring(0,1);
+      var appaterno=$("#appaterno").val();
+      var seg=appaterno.substring(0,1);
+      var apmaterno=$("#apmaterno").val();
+      var ter=apmaterno.substring(0,1);
+      var año1=$("#fechanacimiento").val();
+      var id=prim+seg+ter+año1;
+      var bid=id.toUpperCase(id);
+       $("#identificador").val(bid);
+	});
+
+		$("#apmaterno").keyup(function(){
+
+		
+      var nombre=$("#nombre").val();
+      var prim=nombre.substring(0,1);
+      var appaterno=$("#appaterno").val();
+      var seg=appaterno.substring(0,1);
+      var apmaterno=$("#apmaterno").val();
+      var ter=apmaterno.substring(0,1);
+      var año1=$("#fechanacimiento").val();
+      var id=prim+seg+ter+año1;
+      var bid=id.toUpperCase(id);
+       $("#identificador").val(bid);
+	});
+
+
+	
+
+    $("#fechanacimiento").change(function(){
+
+        var año1=$("#fechanacimiento").val();
+        var año2= Date();
+        var nacimiento=año1.substring(0,4);
+        var actual=año2.substring(11,15);
+        var edad=actual-nacimiento;
+       $("#edad").val(edad);
+
+      var nombre=$("#nombre").val();
+      var prim=nombre.substring(0,1);
+      var appaterno=$("#appaterno").val();
+      var seg=appaterno.substring(0,1);
+      var apmaterno=$("#apmaterno").val();
+      var ter=apmaterno.substring(0,1);
+      var id=prim+seg+ter+año1;
+      var bid=id.toUpperCase(id);
+       $("#identificador").val(bid);
+    });
+
+
+     $("#chkalerg").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('alergias1').style.display = 'block';
+       document.getElementById('alergias2').style.display = 'block';
+       }else{
+       	document.getElementById('alergias1').style.display = 'none';
+       document.getElementById('alergias2').style.display = 'none';
+       }
+    });
+
+
+     $("#cronica").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('enfermedades').style.display = 'block';
+       
+       }else{
+       	document.getElementById('enfermedades').style.display = 'none';
+       
+       }
+    });
+
+
+
+     $("#otra").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('especifique').style.display = 'block';
+       
+       }else{
+       	document.getElementById('especifique').style.display = 'none';
+       
+       }
+    });
+
+
+        $("#control").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('trat').style.display = 'block';
+       
+       }else{
+       	document.getElementById('trat').style.display = 'none';
+       
+       }
+    });
+
+
+        $("#embarazo").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('emb_tiempo').style.display = 'block';
+       
+       }else{
+       	document.getElementById('emb_tiempo').style.display = 'none';
+       
+       }
+    });
+
+         $("#cirugias").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('cirug').style.display = 'block';
+       
+       }else{
+       	document.getElementById('cirug').style.display = 'none';
+       
+       }
+    });
+
+         $("#padecimientos").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('padec').style.display = 'block';
+       
+       }else{
+       	document.getElementById('padec').style.display = 'none';
+       
+       }
+    });
+
+
+        $("#padec_otra").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('padec_text').style.display = 'block';
+       
+       }else{
+       	document.getElementById('padec_text').style.display = 'none';
+       
+       }
+    });
+
+          $("#ante_otra").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('ante_text').style.display = 'block';
+       
+       }else{
+       	document.getElementById('ante_text').style.display = 'none';
+       
+       }
+    });
+
+      $("#tipo_lente").change(function(){
+
+      	var option=document.getElementById("tipo_lente").value;
+       
+
+       if(option == 'Monofocal'){
+       	
+       	document.getElementById('monofocal_div').style.display = 'block';
+       	document.getElementById('bifocal_div').style.display = 'none';
+       	document.getElementById('progresivo_div').style.display = 'none';
+       
+       }else if(option  == 'Bifocal'){
+       		
+       	document.getElementById('monofocal_div').style.display = 'none';
+       	document.getElementById('bifocal_div').style.display = 'block';
+       	document.getElementById('progresivo_div').style.display = 'none';
+       
+       }else{
+       	
+       	document.getElementById('monofocal_div').style.display = 'none';
+       	document.getElementById('bifocal_div').style.display = 'none';
+       	document.getElementById('progresivo_div').style.display = 'block';		
+       }
+    });
+
+
+    $("#armazon_radio1").change(function(){
+      document.getElementById('armazon').style.display = 'block';
+      document.getElementById('contacto').style.display = 'none';
+     });
+     $("#armazon_radio2").change(function(){
+     document.getElementById('contacto').style.display = 'block';
+      document.getElementById('armazon').style.display = 'none';
+      
+     });
+    $("#armazon_radio3").change(function(){
+      document.getElementById('armazon').style.display = 'block';
+      document.getElementById('contacto').style.display = 'block';
+     });
+
+
+    $("#fotocromatico").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('fotocromatico_div').style.display = 'block';
+       
+       }else{
+       	document.getElementById('fotocromatico_div').style.display = 'none';
+       
+       }
+    });
+
+     $("#antirreflejante").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('antirreflejante_div').style.display = 'block';
+       
+       }else{
+       	document.getElementById('antirreflejante_div').style.display = 'none';
+       
+       }
+    });
+
+
+      $("#polarizado").change(function(){
+
+       
+       if($(this).prop('checked') == true){
+       	document.getElementById('polarizado_div').style.display = 'block';
+       
+       }else{
+       	document.getElementById('polarizado_div').style.display = 'none';
+       
+       }
+    });
+
+$("#tipo_fotocromatico").change(function(){
+
+      	var option=document.getElementById("tipo_fotocromatico").value;
+       
+
+       if(option == 'Premium'){
+       	
+       	document.getElementById('foto_premium_div').style.display = 'block';
+       	
+       
+       }else{
+       	
+       	document.getElementById('foto_premium_div').style.display = 'none';
+       		
+       }
+    });
+
+$("#tipo_antirreflejante").change(function(){
+
+      	var option=document.getElementById("tipo_antirreflejante").value;
+       
+
+       if(option == 'Premium'){
+       	
+       	document.getElementById('anti_premium_div').style.display = 'block';
+       	
+       
+       }else{
+       	
+       	document.getElementById('anti_premium_div').style.display = 'none';
+       		
+       }
+    });
+
+ $("#tratamiento1").change(function(){
+      document.getElementById('tratamiento_div').style.display = 'block';
+      
+     });
+  $("#tratamiento2").change(function(){
+      document.getElementById('tratamiento_div').style.display = 'none';
+      
+     });
+
+	
+
+});
+	
+
+
+
+
+
+
+
+
+
+
+
+</script>
 @endsection

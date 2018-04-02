@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Paciente;
 
 use App\Paciente;
+use App\PacientesDatosGenerales;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
-class PacienteController extends Controller
+class PacientesDatosGeneralesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,9 +25,12 @@ class PacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Paciente $paciente)
     {
-        //
+
+        return view('pacientedatos.create',
+                    ['paciente'=>$paciente,
+                     'edit'=>false]);
     }
 
     /**
@@ -33,9 +39,30 @@ class PacienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Paciente $paciente)
     {
-        //
+        
+       $datosGenerales= new PacientesDatosGenerales;
+      
+       $datosGenerales->paciente_id=$request->paciente_id;
+       $datosGenerales->ocupacion=$request->ocupacion;
+       $datosGenerales->convenio=$request->convenio;
+       $datosGenerales->calle=$request->calle;
+       $datosGenerales->numint=$request->numint;
+       $datosGenerales->numext=$request->numext;
+       $datosGenerales->cp=$request->cp;
+       $datosGenerales->municipio=$request->municipio;
+       $datosGenerales->estado=$request->estado;
+       $datosGenerales->telcasa=$request->telcasa;
+       $datosGenerales->teloficina=$request->teloficina;
+       $datosGenerales->telcelular=$request->telcelular;
+       $datosGenerales->email=$request->email;
+       $datosGenerales->save();
+
+      
+       Alert::success('Datos Generales Guardados', 'Continuar');
+
+       return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);//
     }
 
     /**

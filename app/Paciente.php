@@ -24,4 +24,8 @@ class Paciente extends Model
 
     protected $hidden=[ 'created_at', 'updated_at','deleted_at'];
     public $sortable=['id','nombre', 'identificador','appaterno'];
+
+    public function generales(){
+        return $this->hasOne('App\PacientesDatosGenerales');
+    }
 }

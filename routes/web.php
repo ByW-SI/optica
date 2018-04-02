@@ -116,6 +116,7 @@ Route::get('getgiros','Giro\GiroController@getGiros');
 //---------------------------------------------------------
 // *********** PACIENTES *********************************//
 Route::resource('pacientes','Paciente\PacienteController');
+Route::resource('pacientes.datosgenerales','Paciente\PacientesDatosGeneralesController');
 //------------------------------------------------------------
 
 

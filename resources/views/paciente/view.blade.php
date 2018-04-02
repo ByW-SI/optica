@@ -2,7 +2,7 @@
 @section('content1')
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="container">
@@ -51,28 +51,29 @@
 
 		{{-- PESTAÑAS --}}
 				
-						<ul class="nav nav-justified" >
-							<li role="presentation" class="active"><a data-toggle="tab" href="#generales" class="ui-tabs-anchor">Generales:</a></li>
+						<ul class="nav nav-tabs" >
+							<li ><a data-toggle="tab" href="#generales" >Generales:</a></li>
 
-							<li role="presentation"><a data-toggle="tab" href="#hmedico" class="ui-tabs-anchor">Historial Medico:</a></li>
+							<li ><a data-toggle="tab" href="#hmedico" >Historial Medico:</a></li>
 
-							<li role="presentation"><a data-toggle="tab" href="#ocular" class="ui-tabs-anchor">Ocular:</a></li>
+							<!-- <li role="presentation"><a data-toggle="tab" href="#ocular" class="ui-tabs-anchor">Ocular:</a></li>
 
 							<li role="presentation"><a data-toggle="tab" href="#" class="ui-tabs-anchor">Ortopedico:(En desarrollo)</a></li>
 
 							<li role="presentation"><a data-toggle="tab" href="#cita" class="ui-tabs-anchor">Citas:</a></li>
 
-							<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li>
+							<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li> -->
 						</ul>
 		{{-- PESTAÑAS --}}
+
 
 			{{-- TAB-CONTENT --}}
                    <div class="tab-content">
 		{{-- DATOS GENERALES --}}
-						<div  class="tab-pane" id="generales">
+						<div  class="tab-pane fade" id="generales">
 							
 							<div class="panel-default">
-								<div class="panel-heading"><h5>Datos Generales:</h5></div>
+								<div class="panel-heading"><h5><strong>Datos Generales:</strong></h5></div>
 								<div class="panel-body">
 									<div class="col-xs-4 col-xs-offset-10">
 					
@@ -96,7 +97,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="panel-heading"><h6>Dirección:</h6></div>
+								<div class="panel-heading"><h5><strong>Dirección:<strong></h5></div>
 								<div class="panel-body">
 								<div class="form-group col-xs-3">
 									<label class="control-label">Calle:</label>
@@ -173,7 +174,7 @@
 
 				{{-- HISTORIAL MEDICO --}}
 						
-						 <div class="tab-pane fade in active " id="hmedico">
+						 <div class="tab-pane fade in active" id="hmedico">
 						 	<div class="panel-default">
 						 		<div class="panel-heading"><h4><strong>Historial Médico:</strong> </h4></div>
 						 		<div class="panel-body">
@@ -304,6 +305,7 @@
 					{{-- TAB-CONTENT --}}
 	</div>
 </div>
+
 
 
 

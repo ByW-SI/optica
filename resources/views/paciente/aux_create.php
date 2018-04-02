@@ -1701,7 +1701,7 @@
 	</div>
 
 
-	<!-- Modal -->
+								{{-- Modal --}} 
 								<div class="modal fade" id="formularioTutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
@@ -1765,6 +1765,7 @@
 								    </div>
 								  </div>
 								</div>
+								{{-- Modal --}} 
 
 <script type="text/javascript">
 

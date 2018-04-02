@@ -23,8 +23,7 @@
 			@if ($edit == true)
 				{{-- true expr --}}
 
-		<!-- 	<form role="form" method="POST" action="{{ route('empleados.datoslaborales.update',['datoslaborale'=>$datoslab,'empleado'=>$empleado]) }}">
-				<input type="hidden" name="_method" value="PUT"> -->
+		
 				<form role="form" method="POST" action="{{ route('empleados.datoslaborales.store',['empleado'=>$empleado]) }}">
 
 				{{ csrf_field() }}

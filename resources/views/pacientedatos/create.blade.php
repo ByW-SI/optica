@@ -5,7 +5,7 @@
 			<li role="presentation" class="active"><a href=""  class="ui-tabs-anchor">Generales:</a></li> 
 			{{--  {{ route('empleados.show',['empleado'=>$empleado]) }}--}}
 
-			<li role="presentation" class=""><a href="" class="ui-tabs-anchor">Historial Médico:</a></li>
+			<li role="presentation" class=""><a href="" class="ui-tabs-anchor" >Historial Médico:</a></li>
 
 			<li role="presentation" class=""><a href="" class="ui-tabs-anchor">Historial Ocular:</a></li>
 
@@ -24,21 +24,25 @@
 				{{-- true expr --}}
 
 		
-				<form role="form" method="POST" action="{{ route('pacientes.datosgenerales.store',['paciente'=>$paciente]) }}">
+				<form role="form" method="POST" action="{{ route('pacientes.datosgenerales.update',['paciente'=>$paciente,'datosgenerale'=>$paciente->generales]) }}">
 
 				{{ csrf_field() }}
+				<input type="hidden" name="_method" value="PUT">
 			@else
 				{{-- false expr --}}
 			<form role="form" method="POST" action="{{ route('pacientes.datosgenerales.store',['paciente'=>$paciente]) }}">
 				{{ csrf_field() }}
 			@endif
 						
-								<div class="panel-heading"><h5><strong>Datos Generales:</strong></h5></div>
+								<div class="panel-heading jumbotron"><h5><strong>Datos Generales:</strong>&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5></div>
 								<div class="panel-body">
 									<input type="hidden" name="paciente_id" value="{{$paciente->id}}" id="paciente_id">	
 									<div class="col-xs-offset-2 form-group col-xs-4">
 										<label class="control-label">Ocupación:</label>
-										<input class="form-control" type="text" name="ocupacion">
+										<input class="form-control" type="text" name="ocupacion" 
+										@if ($edit == true)
+										value="{{$paciente->generales->ocupacion}}"
+										@endif>
 									</div>
 									<div class="form-group col-xs-4">
 										<label class="control-label">Convenio:</label>
@@ -49,85 +53,93 @@
 										</select>
 									</div>
 								</div>
-								<div class="panel-heading"><h5><strong>Dirección:<strong></h5></div>
+								<div class="panel-heading jumbotron"><h5><strong>Dirección:<strong>&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5></div>
 								<div class="panel-body">
 								<div class="form-group col-xs-3">
 									<label class="control-label">Calle:</label>
-									<input class="form-control" type="text" name="calle">
+									<input class="form-control" type="text" name="calle" 
+									@if ($edit == true)
+										value="{{$paciente->generales->calle}}"
+										@endif>
 								</div>
 								<div class="form-group col-xs-3">
 									<label class="control-label">Número Interior:</label>
-									<input class="form-control" type="text" name="numint">
+									<input class="form-control" type="text" name="numint" 
+									@if ($edit == true)
+										value="{{$paciente->generales->numint}}"
+										@endif>
 								</div>
 								<div class="form-group col-xs-3">
 									<label class="control-label">Número Exterior:</label>
-									<input class="form-control" type="text" name="numext">
+									<input class="form-control" type="text" name="numext"
+									@if ($edit == true)
+										value="{{$paciente->generales->numext}}"
+										@endif>
 								</div>
 								<div class="form-group col-xs-3">
 									<label class="control-label">Codigo Postal:</label>
-									<input class="form-control" type="text" name="cp">
+									<input class="form-control" type="text" name="cp"
+									@if ($edit == true)s
+										value="{{$paciente->generales->cp}}"
+										@endif>
 								</div>
 								<div class="form-group col-xs-3">
 									<label class="control-label">Delegación/Municipio:</label>
-									<input class="form-control" type="text" name="municipio">
+									<input class="form-control" type="text" name="municipio"
+									@if ($edit == true)
+										value="{{$paciente->generales->municipio}}"
+										@endif>
 								</div>
 								<div class="form-group col-xs-3">
 									<label class="control-label">Estado:</label>
-									<input class="form-control" type="text" name="estado">
+									<input class="form-control" type="text" name="estado"
+									@if ($edit == true)
+										value="{{$paciente->generales->estado}}"
+										@endif>
 								</div>
 								</div>
-								<div class="panel-heading"><h6>Contacto:</h6></div>
+								<div class="panel-heading jumbotron"><h5><strong>Contacto:</strong>&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5></div>
 								<div class="panel-body">
 								<div class="form-group col-xs-4">
 									<label class="control-label">Telefono Casa:</label>
-									<input class="form-control" type="text" name="telcasa">
+									<input class="form-control" type="text" name="telcasa"
+									@if ($edit == true)
+										value="{{$paciente->generales->telcasa}}"
+										@endif>
 								</div>
 								<div class="form-group col-xs-4">
 									<label class="control-label">Telefono Oficina:</label>
-									<input class="form-control" type="text" name="teloficina">
+									<input class="form-control" type="text" name="teloficina"
+									@if ($edit == true)
+										value="{{$paciente->generales->teloficina}}"
+										@endif>
 								</div>
 								<div class="form-group col-xs-4">
 									<label class="control-label">Telefono celular:</label>
-									<input class="form-control" type="text" name="telcelular">
+									<input class="form-control" type="text" name="telcelular"
+									@if ($edit == true)
+										value="{{$paciente->generales->telcelular}}"
+										@endif>
 								</div>
 								<div class="form-group col-xs-4">
 									<label class="control-label">Email:</label>
-									<input class="form-control" type="mail" name="email">
+									<input class="form-control" type="mail" name="email"
+									@if ($edit == true)
+										value="{{$paciente->generales->email}}"
+										@endif>
 								</div>
 								<div class="col-xs-4 col-xs-offset-5">
-										@if($edit==false)
-										<button id="submit" type="submit" class="btn btn-success">
-									<strong>Agregar</strong>	</button>
-										@else
-										<a id="modificar" class="btn btn-primary" onclick="modificar()">
-									<strong>Modificar</strong>	</a>
-										@endif
+										
+								<button id="submit" type="submit" class="btn btn-success">
+										<strong>Guardar</strong>
+								</button>
+										
+										
 
 									</div>
 								</div>
-								<div class="panel-heading">Tutores:</div>
-								<div class="panel-body">
-									
-									<button type="button" class="btn btn-info" data-toggle="modal" data-target="#formularioTutor"><strong>Agregar Tutores</strong></button>
-									<br>
-									<br>
-									<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
-										<thead>
-											<tr class="info">
-												<th>Nombre</th>
-												<th>Apellido Paterno</th>
-												<th>Apellido Materno</th>
-												<th>Relación</th>
-												<th>Telefono Casa</th>
-												<th>Celular</th>
-												<th>Ver/Modificar</th>
-											</tr>
-										</thead>
-										
-											<tr class="active"{{--  onclick="vistarapida({{$personal->id}})" --}}>
-											</tr>
-									</table>
-								</div>
+
+								
 								
 								</form>
 								</div>
@@ -140,70 +152,6 @@
 
 
 
-{{-- Modal --}} 
-								<div class="modal fade" id="formularioTutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
-								  <div class="modal-dialog" role="document">
-								    <div class="modal-content">
-								      <div class="modal-header">
-								        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Tutor</h5>
-								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-								        </button>
-								      </div>
-								      <div class="modal-body">
-								        <div class="panel-default">
-								        	<div class="panel-heading"><h5>Tutor:</h5></div>
-								        	<div class="panel-body">
-								        		<div class="form-group col-xs-4">
-													<label class="control-label">Nombre:</label>
-													<input class="form-control" type="text">
-												</div>
-												<div class="form-group col-xs-4">
-													<label class="control-label">Apellido Paterno:</label>
-													<input class="form-control" type="text">
-												</div>
-												<div class="form-group col-xs-4">
-													<label class="control-label">Apellido Materno:</label>
-													<input class="form-control" type="text">
-												</div>
-												<div class="form-group col-xs-4">
-													<label class="control-label">Edad:</label>
-													<input class="form-control" type="text">
-												</div>
-												<div class="form-group col-xs-4">
-													<label class="control-label">Fecha de nacimiento:</label>
-													<input class="form-control" type="date">
-												</div>
-												<div class="form-group col-xs-4">
-													<label class="control-label">Sexo:</label>
-													<select class="form-control">
-														<option>Masculino</option>
-														<option>Femenino</option>
-														<option>Otro</option>
-													</select>
-												</div>
-												<div class="col-xs-offset-4 form-group col-xs-4">
-													<label class="control-label">Relación con el paciente:</label>
-													<select class="form-control">
-														<option>Padre</option>
-														<option>Madre</option>
-														<option>Tio/Tia</option>
-														<option>Abuelo/Abuela</option>
-														<option>Hermano/Hermana</option>
-														<option>Primos</option>
-														<option>Otros</option>
-													</select>
-												</div>
-								        	</div>
-								        </div>
-								      </div>
-								      <div class="modal-footer">
-								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-								        <button type="button" class="btn btn-primary">Agregar</button>
-								      </div>
-								    </div>
-								  </div>
-								</div>
-								{{-- Modal --}} 
+
 
 @endsection

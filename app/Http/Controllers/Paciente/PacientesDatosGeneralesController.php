@@ -84,7 +84,10 @@ class PacientesDatosGeneralesController extends Controller
      */
     public function edit(Paciente $paciente)
     {
-        //
+        
+        return view('pacientedatos.create',
+                    ['paciente'=>$paciente,
+                     'edit'=>true]);
     }
 
     /**
@@ -96,7 +99,25 @@ class PacientesDatosGeneralesController extends Controller
      */
     public function update(Request $request, Paciente $paciente)
     {
-        //
+       $datosGenerales= $paciente->generales;
+       $datosGenerales->paciente_id=$request->paciente_id;
+       $datosGenerales->ocupacion=$request->ocupacion;
+       $datosGenerales->convenio=$request->convenio;
+       $datosGenerales->calle=$request->calle;
+       $datosGenerales->numint=$request->numint;
+       $datosGenerales->numext=$request->numext;
+       $datosGenerales->cp=$request->cp;
+       $datosGenerales->municipio=$request->municipio;
+       $datosGenerales->estado=$request->estado;
+       $datosGenerales->telcasa=$request->telcasa;
+       $datosGenerales->teloficina=$request->teloficina;
+       $datosGenerales->telcelular=$request->telcelular;
+       $datosGenerales->email=$request->email;
+       $datosGenerales->save();
+
+        Alert::success('Datos Generales Guardados', 'Continuar');
+
+       return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);//
     }
 
     /**

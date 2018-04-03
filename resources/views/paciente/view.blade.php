@@ -51,10 +51,10 @@
 
 		{{-- PESTAÑAS --}}
 				
-						<ul class="nav nav-tabs" >
-							<li ><a data-toggle="tab" href="#generales" >Generales:</a></li>
+						<ul class="nav nav-pills nav-justified" >
+							<li  role="presentation" class="active"><a data-toggle="tab" href="#generales" >Generales:</a></li>
 
-							<li ><a data-toggle="tab" href="#hmedico" >Historial Medico:</a></li>
+							<li role="presentation"><a data-toggle="tab" href="#hmedico" >Historial Medico:</a></li> 
 
 							<!-- <li role="presentation"><a data-toggle="tab" href="#ocular" class="ui-tabs-anchor">Ocular:</a></li>
 
@@ -70,80 +70,96 @@
 			{{-- TAB-CONTENT --}}
                    <div class="tab-content">
 		{{-- DATOS GENERALES --}}
-						<div  class="tab-pane fade" id="generales">
-							
-							<div class="panel-default">
-								<div class="panel-heading"><h5><strong>Datos Generales:</strong></h5></div>
-								<div class="panel-body">
-									<div class="col-xs-4 col-xs-offset-10">
-					
-										<button id="submit" type="submit" class="btn btn-success">
-									<strong>Agregar</strong>	</button>
-										<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
-									<strong>Modificar</strong>	</a>
-										
+					 <div  class="tab-pane fade in active" id="generales">
+					   <div class="panel-default">
+						  <div class="panel-heading"><h5><strong>Datos Generales:</strong></h5></div>
+						  @if($paciente->generales==null)
+						    <div class="panel-body">
+						      <div class="row">
+						      	<div class="col-sm-9">
+						      		<h2><strong>Aun no se han agregado los Datos Generales:</strong></h2>
+						      	</div>
+						      	<div class="col-sm-3">
+						      		<br>
+						      		<a  class="btn btn-primary" href="{{ route('pacientes.datosgenerales.create',['paciente'=>$paciente]) }}">
+									<strong>Agregar</strong>	</a>
+						      	</div>
+						      </div><br>
+						    </div>
+						  @else
+							<div class="panel-body">
+							  <div class="row">
+							  	<div class="col-sm-3">
+							  	  <label class="control-label">Ocupación:</label>
+							  	  <dd>{{$paciente->generales->ocupacion}}</dd>	
+							  	</div>
+							  		<div class="col-sm-3">
+							  	  <label class="control-label">Convenio:</label>
+							  	  <dd>{{$paciente->generales->convenio}}</dd>	
+							  	</div>
+							  	<div class="col-sm-3">
+							  		<a id="modificar" class="btn btn-primary" 
+							  		href="{{ route('pacientes.datosgenerales.edit',['paciente'=>$paciente,'datosgenerale'=>$paciente->generales]) }}">
+									<strong>Modificar</strong></a>
+							  	</div>
+							  </div>		
+							</div>
 
-									</div>
-									<div class="col-xs-offset-2 form-group col-xs-4">
-										<label class="control-label">Ocupación:</label>
-										<input class="form-control" type="text">
-									</div>
-									<div class="form-group col-xs-4">
-										<label class="control-label">Convenio:</label>
-										<select class="form-control">
-											<option>Convenio 1</option>
-											<option>Convenio 2</option>
-											<option>Convenio ...</option>
-										</select>
-									</div>
-								</div>
-								<div class="panel-heading"><h5><strong>Dirección:<strong></h5></div>
+						  <div class="panel-heading"><h5><strong>Dirección:</strong></h5></div>
+							<div class="panel-body">
+							  <div class="row">
+							  	<div class="col-sm-3">
+							  	 <label class="control-label">Calle:</label>
+							  	 <dd>{{$paciente->generales->calle}}</dd>	
+							  	</div>
+							  	<div class="col-sm-3">
+							  	 <label class="control-label">Número Interior:</label>
+							  	 <dd>{{$paciente->generales->numint}}</dd>	
+							  	</div>
+							  	<div class="col-sm-3">
+							  	 <label class="control-label">Número Exterior:</label>
+							  	 <dd>{{$paciente->generales->numext}}</dd>	
+							  	</div>
+							  	<div class="col-sm-3">
+							  	 <label class="control-label">Codigo Postal:</label>
+							  	 <dd>{{$paciente->generales->cp}}</dd>	
+							  	</div>
+							  </div><br>
+							  <div class="row">
+							  	<div class="col-sm-3">
+							  	 <label class="control-label">Delegación/Municipio:</label>
+							  	 <dd>{{$paciente->generales->municipio}}</dd>	
+							  	</div>
+							  	<div class="col-sm-3">
+							  	 <label class="control-label">Estado:</label>
+							  	 <dd>{{$paciente->generales->estado}}</dd>	
+							  	</div>
+							  </div>	
+							</div>
+
+								<div class="panel-heading"><h5><strong>Contacto:</strong></h5></div>
 								<div class="panel-body">
-								<div class="form-group col-xs-3">
-									<label class="control-label">Calle:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Número Interior:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Número Exterior:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Codigo Postal:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Delegación/Municipio:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Estado:</label>
-									<input class="form-control" type="text">
-								</div>
-								</div>
-								<div class="panel-heading"><h6>Contacto:</h6></div>
-								<div class="panel-body">
-								<div class="form-group col-xs-4">
-									<label class="control-label">Telefono Casa:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-4">
-									<label class="control-label">Telefono Oficina:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-4">
-									<label class="control-label">Telefono celular:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-4">
-									<label class="control-label">Email:</label>
-									<input class="form-control" type="mail">
-								</div>
-								</div>
-								<div class="panel-heading">Tutores:</div>
+							  <div class="row">
+							  	<div class="col-sm-3">
+							  	 <label class="control-label">Teléfono de Casa:</label>
+							  	 <dd>{{$paciente->generales->telcasa}}</dd>	
+							  	</div>
+							  	<div class="col-sm-3">
+							  	 <label class="control-label">Teléfono de Oficina:</label>
+							  	 <dd>{{$paciente->generales->teloficina}}</dd>	
+							  	</div>
+							  	<div class="col-sm-3">
+							  	 <label class="control-label">Teléfono Celular:</label>
+							  	 <dd>{{$paciente->generales->telcelular}}</dd>	
+							  	</div>
+							  	<div class="col-sm-3">
+							  	 <label class="control-label">E-Mail:</label>
+							  	 <dd>{{$paciente->generales->email}}</dd>	
+							  	</div>
+							  </div><br>
+							</div>
+
+								<div class="panel-heading"><h5><strong>Tutores:</strong></h5></div>
 								<div class="panel-body">
 									
 									<button type="button" class="btn btn-info" data-toggle="modal" data-target="#formularioTutor">Agregar Tutores</button>
@@ -166,6 +182,7 @@
 											</tr>
 									</table>
 								</div>
+								@endif
 							</div>
 						</div>
 						
@@ -174,9 +191,23 @@
 
 				{{-- HISTORIAL MEDICO --}}
 						
-						 <div class="tab-pane fade in active" id="hmedico">
+						 <div class="tab-pane fade" id="hmedico">
 						 	<div class="panel-default">
 						 		<div class="panel-heading"><h4><strong>Historial Médico:</strong> </h4></div>
+						 		 @if($paciente->medico==null)
+						    <div class="panel-body">
+						      <div class="row">
+						      	<div class="col-sm-9">
+						      		<h2><strong>Aun no se ha agregado Historial Médico:</strong></h2>
+						      	</div>
+						      	<div class="col-sm-3">
+						      		<br>
+						      		<a  class="btn btn-primary" href="{{ route('pacientes.historialmedico.create',['paciente'=>$paciente]) }}">
+									<strong>Agregar</strong>	</a>
+						      	</div>
+						      </div><br>
+						    </div>
+						  @else
 						 		<div class="panel-body">
 						 			<div class="col-xs-4 col-xs-offset-10">
 					
@@ -207,6 +238,7 @@
 						<input class="form-control" type="text"  >
 							</div>
 						 		</div>
+
 						 		<div class="panel-heading"><h4>Enfermedades</h4></div>
 						 		<div class="panel-body">
 
@@ -218,7 +250,7 @@
                                 ¿Padece alguna Enfermedad Crònica? .
                             </label>
                         </div>
-                    </div><br><br><br>
+                    </div></div><br><br><br>
 
                     <div class="jumbotron"  id="enfermedades" style="display: none"> 
 
@@ -272,13 +304,7 @@
 			<input class="form-control" type="text" id="tratamiento_enfermedades" name="tratamiento_enfermedades">
                     					</div>
                     				</div>
-								    	
-								    	
-								    
-
-						 			
-
-                    </div>
+					</div>
 
 
 					<div class="form-group col-xs-6">
@@ -296,7 +322,7 @@
                         </div>	
                     </div>
 						 			
-						 			
+						 			@endif
 						 		</div>
 						 	</div>
 						 </div>
@@ -307,330 +333,71 @@
 </div>
 
 
+{{-- Modal --}} 
+								<div class="modal fade" id="formularioTutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Tutor</h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								        <div class="panel-default">
+								        	<div class="panel-heading"><h5>Tutor:</h5></div>
+								        	<div class="panel-body">
+								        		<div class="form-group col-xs-4">
+													<label class="control-label">Nombre:</label>
+													<input class="form-control" type="text">
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Apellido Paterno:</label>
+													<input class="form-control" type="text">
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Apellido Materno:</label>
+													<input class="form-control" type="text">
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Edad:</label>
+													<input class="form-control" type="text">
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Fecha de nacimiento:</label>
+													<input class="form-control" type="date">
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Sexo:</label>
+													<select class="form-control">
+														<option>Masculino</option>
+														<option>Femenino</option>
+														<option>Otro</option>
+													</select>
+												</div>
+												<div class="col-xs-offset-4 form-group col-xs-4">
+													<label class="control-label">Relación con el paciente:</label>
+													<select class="form-control">
+														<option>Padre</option>
+														<option>Madre</option>
+														<option>Tio/Tia</option>
+														<option>Abuelo/Abuela</option>
+														<option>Hermano/Hermana</option>
+														<option>Primos</option>
+														<option>Otros</option>
+													</select>
+												</div>
+								        	</div>
+								        </div>
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+								        <button type="button" class="btn btn-primary">Agregar</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+								{{-- Modal --}} 
 
 
-<script type="text/javascript">
-
-$(document).ready(function(){
-
-	$("#nombre").keyup(function(){
-
-		
-      var nombre=$("#nombre").val();
-      var prim=nombre.substring(0,1);
-      var appaterno=$("#appaterno").val();
-      var seg=appaterno.substring(0,1);
-      var apmaterno=$("#apmaterno").val();
-      var ter=apmaterno.substring(0,1);
-      var año1=$("#fechanacimiento").val();
-      var id=prim+seg+ter+año1;
-      var bid=id.toUpperCase(id);
-       $("#identificador").val(bid);
-	});
-
-	$("#appaterno").keyup(function(){
-
-		
-      var nombre=$("#nombre").val();
-      var prim=nombre.substring(0,1);
-      var appaterno=$("#appaterno").val();
-      var seg=appaterno.substring(0,1);
-      var apmaterno=$("#apmaterno").val();
-      var ter=apmaterno.substring(0,1);
-      var año1=$("#fechanacimiento").val();
-      var id=prim+seg+ter+año1;
-      var bid=id.toUpperCase(id);
-       $("#identificador").val(bid);
-	});
-
-		$("#apmaterno").keyup(function(){
-
-		
-      var nombre=$("#nombre").val();
-      var prim=nombre.substring(0,1);
-      var appaterno=$("#appaterno").val();
-      var seg=appaterno.substring(0,1);
-      var apmaterno=$("#apmaterno").val();
-      var ter=apmaterno.substring(0,1);
-      var año1=$("#fechanacimiento").val();
-      var id=prim+seg+ter+año1;
-      var bid=id.toUpperCase(id);
-       $("#identificador").val(bid);
-	});
-
-
-	
-
-    $("#fechanacimiento").change(function(){
-
-        var año1=$("#fechanacimiento").val();
-        var año2= Date();
-        var nacimiento=año1.substring(0,4);
-        var actual=año2.substring(11,15);
-        var edad=actual-nacimiento;
-       $("#edad").val(edad);
-
-      var nombre=$("#nombre").val();
-      var prim=nombre.substring(0,1);
-      var appaterno=$("#appaterno").val();
-      var seg=appaterno.substring(0,1);
-      var apmaterno=$("#apmaterno").val();
-      var ter=apmaterno.substring(0,1);
-      var id=prim+seg+ter+año1;
-      var bid=id.toUpperCase(id);
-       $("#identificador").val(bid);
-    });
-
-
-     $("#chkalerg").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('alergias1').style.display = 'block';
-       document.getElementById('alergias2').style.display = 'block';
-       }else{
-       	document.getElementById('alergias1').style.display = 'none';
-       document.getElementById('alergias2').style.display = 'none';
-       }
-    });
-
-
-     $("#cronica").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('enfermedades').style.display = 'block';
-       
-       }else{
-       	document.getElementById('enfermedades').style.display = 'none';
-       
-       }
-    });
-
-
-
-     $("#otra").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('especifique').style.display = 'block';
-       
-       }else{
-       	document.getElementById('especifique').style.display = 'none';
-       
-       }
-    });
-
-
-        $("#control").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('trat').style.display = 'block';
-       
-       }else{
-       	document.getElementById('trat').style.display = 'none';
-       
-       }
-    });
-
-
-        $("#embarazo").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('emb_tiempo').style.display = 'block';
-       
-       }else{
-       	document.getElementById('emb_tiempo').style.display = 'none';
-       
-       }
-    });
-
-         $("#cirugias").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('cirug').style.display = 'block';
-       
-       }else{
-       	document.getElementById('cirug').style.display = 'none';
-       
-       }
-    });
-
-         $("#padecimientos").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('padec').style.display = 'block';
-       
-       }else{
-       	document.getElementById('padec').style.display = 'none';
-       
-       }
-    });
-
-
-        $("#padec_otra").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('padec_text').style.display = 'block';
-       
-       }else{
-       	document.getElementById('padec_text').style.display = 'none';
-       
-       }
-    });
-
-          $("#ante_otra").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('ante_text').style.display = 'block';
-       
-       }else{
-       	document.getElementById('ante_text').style.display = 'none';
-       
-       }
-    });
-
-      $("#tipo_lente").change(function(){
-
-      	var option=document.getElementById("tipo_lente").value;
-       
-
-       if(option == 'Monofocal'){
-       	
-       	document.getElementById('monofocal_div').style.display = 'block';
-       	document.getElementById('bifocal_div').style.display = 'none';
-       	document.getElementById('progresivo_div').style.display = 'none';
-       
-       }else if(option  == 'Bifocal'){
-       		
-       	document.getElementById('monofocal_div').style.display = 'none';
-       	document.getElementById('bifocal_div').style.display = 'block';
-       	document.getElementById('progresivo_div').style.display = 'none';
-       
-       }else{
-       	
-       	document.getElementById('monofocal_div').style.display = 'none';
-       	document.getElementById('bifocal_div').style.display = 'none';
-       	document.getElementById('progresivo_div').style.display = 'block';		
-       }
-    });
-
-
-    $("#armazon_radio1").change(function(){
-      document.getElementById('armazon').style.display = 'block';
-      document.getElementById('contacto').style.display = 'none';
-     });
-     $("#armazon_radio2").change(function(){
-     document.getElementById('contacto').style.display = 'block';
-      document.getElementById('armazon').style.display = 'none';
-      
-     });
-    $("#armazon_radio3").change(function(){
-      document.getElementById('armazon').style.display = 'block';
-      document.getElementById('contacto').style.display = 'block';
-     });
-
-
-    $("#fotocromatico").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('fotocromatico_div').style.display = 'block';
-       
-       }else{
-       	document.getElementById('fotocromatico_div').style.display = 'none';
-       
-       }
-    });
-
-     $("#antirreflejante").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('antirreflejante_div').style.display = 'block';
-       
-       }else{
-       	document.getElementById('antirreflejante_div').style.display = 'none';
-       
-       }
-    });
-
-
-      $("#polarizado").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('polarizado_div').style.display = 'block';
-       
-       }else{
-       	document.getElementById('polarizado_div').style.display = 'none';
-       
-       }
-    });
-
-$("#tipo_fotocromatico").change(function(){
-
-      	var option=document.getElementById("tipo_fotocromatico").value;
-       
-
-       if(option == 'Premium'){
-       	
-       	document.getElementById('foto_premium_div').style.display = 'block';
-       	
-       
-       }else{
-       	
-       	document.getElementById('foto_premium_div').style.display = 'none';
-       		
-       }
-    });
-
-$("#tipo_antirreflejante").change(function(){
-
-      	var option=document.getElementById("tipo_antirreflejante").value;
-       
-
-       if(option == 'Premium'){
-       	
-       	document.getElementById('anti_premium_div').style.display = 'block';
-       	
-       
-       }else{
-       	
-       	document.getElementById('anti_premium_div').style.display = 'none';
-       		
-       }
-    });
-
- $("#tratamiento1").change(function(){
-      document.getElementById('tratamiento_div').style.display = 'block';
-      
-     });
-  $("#tratamiento2").change(function(){
-      document.getElementById('tratamiento_div').style.display = 'none';
-      
-     });
-
-	
-
-});
-	
-
-
-
-
-
-
-
-
-
-
-
-</script>
 @endsection

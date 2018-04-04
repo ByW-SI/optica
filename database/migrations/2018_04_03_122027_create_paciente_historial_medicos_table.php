@@ -21,8 +21,10 @@ class CreatePacienteHistorialMedicosTable extends Migration
             $table->string('cual_alergia')->nullable();
             $table->string('tratamiento_alergia')->nullable();
             $table->enum('enfermedad', ['SI', 'NO']);
+
             $table->string('enfermedades_array')->nullable();
             $table->string('enfermedad_cronica')->nullable();
+
             $table->enum('tratamiento', ['SI', 'NO']);
             $table->string('tratamiento_actual')->nullable();
             $table->enum('embarazo', ['SI', 'NO']);

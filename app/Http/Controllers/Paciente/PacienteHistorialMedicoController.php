@@ -50,6 +50,7 @@ class PacienteHistorialMedicoController extends Controller
   }else{
     $medicos->alergia='NO';
   }
+
   $medicos->cual_alergia=$request->cual_alergia;
   $medicos->tratamiento_alergia=$request->tratamiento_alergia;
 
@@ -84,6 +85,7 @@ class PacienteHistorialMedicoController extends Controller
   $medicos->save();
 
   Alert::success('Nuevo Historial Guardado', 'Continuar');
+
 
        return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);//
     }

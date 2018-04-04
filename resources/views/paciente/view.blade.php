@@ -207,17 +207,22 @@
 						  @else
 						  {{-- TABLA HISTORIAL --}}
 						<div class="panel-body">
+
 							<div class="col-sm-12 offset-md-12" align="center">
+
 						      		<br>
 						      		<a  class="btn btn-primary" href="{{ route('pacientes.historialmedico.create',['paciente'=>$paciente]) }}">
 									<strong>Agregar</strong>	</a>
 						      	</div>
 							<br>
+
 							<br><br>
+
 							<br>
 						  <table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 										<thead>
 											<tr class="info">
+
 												<th>Fecha de la Cita</th>
 												<th>Alergias</th>
 												<th>Enfermedades Crónicas</th>
@@ -239,6 +244,7 @@
 											@endforeach
 										</tbody>
 							</table>
+
 						</div>
 						{{-- TABLA HISTORIAL --}}
 					<div class="panel-body">

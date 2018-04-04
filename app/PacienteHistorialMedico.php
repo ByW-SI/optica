@@ -20,8 +20,10 @@ class PacienteHistorialMedico extends Model
     	              'cual_alergia',
     	              'tratamiento_alergia',
     	              'enfermedad',
+
     	              'enfermedades_array',
                       'enfermedad_cronica',
+
     	          	  'tratamiento',
     	          	  'tratamiento_actual',
     	          	  'embarazo',
@@ -32,6 +34,8 @@ class PacienteHistorialMedico extends Model
     public $sortable=['id','paciente_id','created_at', 'updated_at'];
 
     public function paciente(){
+
         return $this->belongsTo('App\PacientesDatosGenerales','paciente_id');
+
     }
 }

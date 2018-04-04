@@ -375,13 +375,13 @@
 									<div class="col-xs-offset-1 form-group col-sm-4">
 										 <label>
 						 	      	<input id="cirugias" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="cirugias" >
-                                Cirugías en los ojos:
+                                Cirugías en los Ojos:
                                  </label>
 									</div>
 									<div class="col-xs-offset-1 form-group col-sm-4">
 										 <label>
 						 	      	<input id="padecimientos" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="padecimientos" >
-                               Padecimientos oculares:
+                               Padecimientos Oculares:
                                  </label>
 									</div>
 								</div>	
@@ -413,28 +413,28 @@
 								<div class="jumbotron"  id="padec" style="display: none">
 									<div class="row">
                     					<div class="col-sm-4">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Catarata</label>
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" name="padecimientos_array[0]" value="Catarata">Catarata</label>
                     					</div>
                     					
                     					<div class="col-sm-4">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo"> Glaucoma</label>
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" name="padecimientos_array[1]" value="Glaucoma"> Glaucoma</label>
                     					</div>
 
                     					<div class="col-sm-4">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Retinopatía Diabética</label>
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" name="padecimientos_array[2]" value="Retinopatía Diabética">Retinopatía Diabética</label>
                     					</div>
                     				</div>
                     				<div class="row">
                     					<div class="col-sm-4">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Retinopatía Hipertensiva</label>
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" name="padecimientos_array[3]" value="Retinopatía Hipertensiva">Retinopatía Hipertensiva</label>
                     					</div>
                     					
                     					<div class="col-sm-4">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Queratocono</label>
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" name="padecimientos_array[4]" value="Queratocono">Queratocono</label>
                     					</div>
 
                     					<div class="col-sm-4">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" id="padec_otra">Otra</label>
+                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" name="padecimientos_array[5]" id="padec_otra" value="Otra">Otra</label>
                     					</div>
                     				</div><br>
                     				<div class="row" id="padec_text" style="display: none">
@@ -463,15 +463,15 @@
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">LEJOS</span>
-				<input type="radio" class="option-input radio" name="problema_visual">
+				<input type="radio" class="option-input radio" name="problema_visual" value="LEJOS">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">CERCA</span>
-				<input type="radio" class="option-input radio" name="problema_visual">
+				<input type="radio" class="option-input radio" name="problema_visual" value="CERCA">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">AMBAS</span>
-				<input type="radio" class="option-input radio" name="problema_visual">
+				<input type="radio" class="option-input radio" name="problema_visual" value="AMBAS">
 			</div>
 		</div><br><br>
 		<div class="row">
@@ -481,15 +481,15 @@
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">SI</span>
-				<input type="radio" class="option-input radio" name="usuario_lentes">
+				<input type="radio" class="option-input radio" name="usuario_lentes" value="SI">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">NO</span>
-				<input type="radio" class="option-input radio" name="usuario_lentes">
+				<input type="radio" class="option-input radio" name="usuario_lentes" value="NO">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">OCASIONALMENTE</span>
-				<input type="radio" class="option-input radio" name="usuario_lentes">
+				<input type="radio" class="option-input radio" name="usuario_lentes" value="OCASIONALMENTE">
 			</div>
 		    
 		</div><br><br>
@@ -514,17 +514,17 @@
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">SI</span>
-				<input type="radio" class="option-input radio" name="molestia_luz">
+				<input type="radio" class="option-input radio" name="molestia_luz" value="SI">
 
 
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">NO</span>
-				<input type="radio" class="option-input radio" name="molestia_luz">
+				<input type="radio" class="option-input radio" name="molestia_luz" value="NO">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">REGULAR</span>
-				<input type="radio" class="option-input radio" name="molestia_luz">
+				<input type="radio" class="option-input radio" name="molestia_luz" value="REGULAR">
 			</div>
 		    
 		</div><br><br>
@@ -535,11 +535,11 @@
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">SI</span>
-				<input type="radio" class="option-input radio" name="usuario_computadora">
+				<input type="radio" class="option-input radio" name="usuario_computadora" value="SI">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">NO</span>
-				<input type="radio" class="option-input radio"  name="usuario_computadora">
+				<input type="radio" class="option-input radio"  name="usuario_computadora" value="NO">
 			</div>
 			
 		    
@@ -560,26 +560,26 @@
  	<div class="jumbotron"  id="antecedentes" >
 									<div class="row">
                     					<div class="col-sm-4">
-                    						<input type="checkbox" class="squaredTwo">
+                    						<input type="checkbox" class="squaredTwo" name="antecedentes_array[0]" value="Usuarios de Lentes">
                     						<label class="col-xs-6 label-text">Usuarios de Lentes</label>
                     					</div>
                     					<div class="col-sm-4">
-                    						<input type="checkbox" class="squaredTwo">
+                    						<input type="checkbox" class="squaredTwo" name="antecedentes_array[1]" value="Catarata">
                     						<label class="col-xs-6 label-text">Catarata</label>
                     					</div>
                     					<div class="col-sm-4">
-                    						<input type="checkbox" class="squaredTwo">
+                    						<input type="checkbox" class="squaredTwo" name="antecedentes_array[2]" value="Glaucoma">
                     						<label class="col-xs-6 label-text"> Glaucoma</label>
                     					</div>
                     				</div><br>
 
                     				<div class="row">
                     					<div class="col-sm-4">
-                    						<input type="checkbox" class="squaredTwo">
+                    						<input type="checkbox" class="squaredTwo" name="antecedentes_array[3]" value="Estrabismo">
                     						<label class="col-xs-6 label-text">Estrabismo</label>
                     					</div>
                     					<div class="col-sm-4">
-                    						<input type="checkbox" class="squaredTwo" id="ante_otra">
+                    						<input type="checkbox" class="squaredTwo" name="antecedentes_array[4]" id="ante_otra" value="Otra">
                     						<label class="col-xs-6 label-text">Otra</label>
                     					</div>
                     					
@@ -588,7 +588,7 @@
                     				<div class="row" id="ante_text" style="display: none">
                     					<div class="col-sm-6">
                     					<label class="control-label">Especifíque:</label>
-									<input class="form-control" type="text" name="padec_text" >
+									<input class="form-control" type="text" name="padecimiento_text" >
 										</div>
                     				</div>
 												
@@ -610,7 +610,7 @@
 									</div>
                     					<div class="col-sm-3">
                     						<h1><span class="badge badge-secondary">O.D.</span></h1>
-                    						<select class="form-control">
+                    						<select class="form-control" name="snellen_1">
 											<option value="20/400">20/400</option>
 											<option value="20/300">20/300</option>
 											<option value="20/200">20/200</option>
@@ -635,7 +635,7 @@
 
                     					<div class="col-sm-3">
                     						<h1><span class="badge badge-secondary">O.I.</span></h1>
-                    						<select class="form-control">
+                    						<select class="form-control" name="snellen_2">
 											<option value="20/400">20/400</option>
 											<option value="20/300">20/300</option>
 											<option value="20/200">20/200</option>
@@ -669,8 +669,8 @@
 									
                     					<div class="col-sm-3">
 
-                    						<h1><span class="badge badge-secondary">O.D. Lejos</span></h1>
-                    						<select class="form-control">
+                    						<h1><span class="badge badge-secondary">Lejos</span></h1>
+                    						<select class="form-control" name="dnp_od_lejos">
                     							<?php for($i=20;$i<=50;$i+=0.5){
 											
 											   echo"<option value='".$i."'>".$i." mm</option>";
@@ -680,8 +680,8 @@
                     					</div>
 
                     					<div class="col-sm-3">
-                    						<h1><span class="badge badge-secondary">O.D. Cerca</span></h1>
-                    						<select class="form-control">
+                    						<h1><span class="badge badge-secondary">Cerca</span></h1>
+                    						<select class="form-control" name="dnp_od_cerca">
 											<?php for($i=20;$i<=50;$i+=0.5){
 											
 											   echo"<option value='".$i."'>".$i." mm</option>";
@@ -697,8 +697,8 @@
 										<label class="col-xs-5 label-text ">D.N.P. Ojo Izquierdo</label>
 									</div>
                     					<div class="col-sm-3">
-                    						<h1><span class="badge badge-secondary">O.I. Lejos</span></h1>
-                    						<select class="form-control">
+                    						<h1><span class="badge badge-secondary">Lejos</span></h1>
+                    						<select class="form-control" name="dnp_oi_lejos">
 											<?php for($i=20;$i<=50;$i+=0.5){
 											
 											   echo"<option value='".$i."'>".$i." mm</option>";
@@ -707,8 +707,8 @@
                     					</div>
 
                     					<div class="col-sm-3">
-                    						<h1><span class="badge badge-secondary">O.I. Cerca</span></h1>
-                    						<select class="form-control">
+                    						<h1><span class="badge badge-secondary">Cerca</span></h1>
+                    						<select class="form-control" name="dnp_oi_cerca">
 											<?php for($i=20;$i<=50;$i+=0.5){
 											
 											   echo"<option value='".$i."'>".$i." mm</option>";
@@ -737,7 +737,7 @@
 	    </div>
 		<div class="col-sm-4">
             <span class="badge badge-secondary">Lejos</span>
-                <select class="form-control">
+                <select class="form-control" name="unilateral_lejos">
 					<option value='Orto'>Orto</option>
 					<option value='Endo'>Endo</option>
 					<option value='Exo'>Exo</option>
@@ -747,7 +747,7 @@
 		</div>
 		<div class="col-sm-4">
             <span class="badge badge-secondary">Cerca</span>
-                <select class="form-control">
+                <select class="form-control" name="unilateral_cerca">
 					<option value='Orto'>Orto</option>
 					<option value='Endo'>Endo</option>
 					<option value='Exo'>Exo</option>
@@ -762,7 +762,7 @@
 	   </div>
 		<div class="col-sm-4">
             <span class="badge badge-secondary">Lejos</span>
-                <select class="form-control">
+                <select class="form-control" name="alternamente_lejos">
 					<option value='Orto'>Orto</option>
 					<option value='Endo'>Endo</option>
 					<option value='Exo'>Exo</option>
@@ -772,7 +772,7 @@
 		</div>
 		<div class="col-sm-4">
             <span class="badge badge-secondary">Cerca</span>
-                <select class="form-control">
+                <select class="form-control" name="alternamente_cerca">
 					<option value='Orto'>Orto</option>
 					<option value='Endo'>Endo</option>
 					<option value='Exo'>Exo</option>
@@ -795,7 +795,7 @@
 		   </div>
 		<div class="col-sm-2">
             <span class="badge badge-secondary">Plana</span>
-                <select class="form-control">
+                <select class="form-control" name="queratom_od_plana">
 					<?php for($i=32;$i<=55;$i+=0.25){
 				echo"<option value='".$i."'>".$i."</option>";
 						}?>
@@ -803,7 +803,7 @@
 		</div>
 		<div class="col-sm-2">
             <span class="badge badge-secondary">Curva</span>
-                <select class="form-control">
+                <select class="form-control" name="queratom_od_curva">
 				<?php for($i=32;$i<=55;$i+=0.25){
 				echo"<option value='".$i."'>".$i."</option>";
 						}?>
@@ -811,7 +811,7 @@
 		</div>
 		<div class="col-sm-2">
             <span class="badge badge-secondary">Eje</span>
-                <select class="form-control">
+                <select class="form-control" name="queratom_od_eje">
 					<?php for($i=0;$i<=180;$i+=5){
 				echo"<option value='".$i."'>".$i."°</option>";
 						}?>
@@ -824,7 +824,7 @@
 		   </div>
 		<div class="col-sm-2">
             <span class="badge badge-secondary">Plana</span>
-                <select class="form-control">
+                <select class="form-control" name="queratom_oi_plana">
 					<?php for($i=32;$i<=55;$i+=0.25){
 				echo"<option value='".$i."'>".$i."</option>";
 						}?>
@@ -832,7 +832,7 @@
 		</div>
 		<div class="col-sm-2">
             <span class="badge badge-secondary">Curva</span>
-                <select class="form-control">
+                <select class="form-control" name="queratom_oi_curva">
 					<?php for($i=32;$i<=55;$i+=0.25){
 				echo"<option value='".$i."'>".$i." </option>";
 						}?>
@@ -840,7 +840,7 @@
 		</div>
 		<div class="col-sm-2">
             <span class="badge badge-secondary">Eje</span>
-                <select class="form-control">
+                <select class="form-control" name="queratom_oi_eje">
 					<?php for($i=0;$i<=180;$i+=5){
 				echo"<option value='".$i."'>".$i."°</option>";
 						}?>
@@ -856,7 +856,7 @@
 	<div class="row">
 		<div class="col-sm-2">
             <span class="badge badge-secondary">seg/arco</span>
-                <select class="form-control">
+                <select class="form-control" name="vision_estereo">
 					<option value='40'>40'</option>
 					<option value='50'>50'</option>
 					<option value='60'>60'</option>
@@ -874,140 +874,117 @@
 	<strong><h4>Oftalmoscopía</h4></strong>	
 	</div><br><br>
 	<div class="row">
-		
 		<div class="col-sm-3">
-			<span class="badge badge-secondary">O.D.</span>
+			<span class="badge badge-secondary">PARÁMETROS</span>
+		</div>
+		<div class="col-sm-3">
+			<span class="badge badge-secondary">OJO DERECHO</span>
+		</div>
+		<div class="col-sm-3">
+			<span class="badge badge-secondary">OJO IZQUIERDO</span>
+		</div>
+	</div><br>
+	<div class="row">
+		<div class="col-sm-3">
 			<label class="control-label">Papila</label>
-            
-            <input class="form-control" type="text" name="papila_od" id="papila_od">
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" name="papila_od" id="papila_od">
         </div>
         <div class="col-sm-3">
-        	<span class="badge badge-secondary">O.I.</span>
-			<label class="control-label">Papila</label>
-            
-            <input class="form-control" type="text" name="papila_oi" id="papila_oi">
+        	<input class="form-control" type="text" name="papila_oi" id="papila_oi">
         </div>
-	</div>
+	</div><br>
 	<div class="row">
-		
 		<div class="col-sm-3">
-			<span class="badge badge-secondary">O.D.</span>
 			<label class="control-label">Excavación</label>
-            
-            <input class="form-control" type="text" name="excavacion_od" id="excavacion_od">
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" name="excavacion_od" id="excavacion_od">
         </div>
         <div class="col-sm-3">
-        	 <span class="badge badge-secondary">O.I.</span>
-			<label class="control-label">Excavación</label>
-            
-            <input class="form-control" type="text" name="excavacion_oi" id="excavacion_oi">
+        	<input class="form-control" type="text" name="excavacion_oi" id="excavacion_oi">
         </div>
-	</div>
+	</div><br>
 	<div class="row">
-		
 		<div class="col-sm-3">
-			<span class="badge badge-secondary">O.D.</span>
 			<label class="control-label">Radio</label>
-            
-            <input class="form-control" type="text" name="radio_od" id="radio_od">
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" name="radio_od" id="radio_od">
         </div>
         <div class="col-sm-3">
-        	 <span class="badge badge-secondary">O.I.</span>
-			<label class="control-label">Radio</label>
-            
-            <input class="form-control" type="text" name="radio_oi" id="radio_oi">
+        	 <input class="form-control" type="text" name="radio_oi" id="radio_oi">
         </div>
-	</div>
+	</div><br>
 	<div class="row">
-		
 		<div class="col-sm-3">
-			<span class="badge badge-secondary">O.D.</span>
 			<label class="control-label">Profundidad</label>
-            
-            <input class="form-control" type="text" name="profundidad_od" id="profundidad_od">
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" name="profundidad_od" id="profundidad_od">
         </div>
         <div class="col-sm-3">
-        	 <span class="badge badge-secondary">O.I.</span>
-			<label class="control-label">Profundidad</label>
-            
-            <input class="form-control" type="text" name="profundidad_oi" id="profundidad_oi">
+        	<input class="form-control" type="text" name="profundidad_oi" id="profundidad_oi">
         </div>
-	</div>
+	</div><br>
 	<div class="row">
-		
 		<div class="col-sm-3">
-			<span class="badge badge-secondary">O.D.</span>
 			<label class="control-label">Vasos</label>
-            
-            <input class="form-control" type="text" name="vasos_od" id="vasos_od">
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" name="vasos_od" id="vasos_od">
         </div>
         <div class="col-sm-3">
-        	 <span class="badge badge-secondary">O.I.</span>
-			<label class="control-label">Vasos</label>
-            
-            <input class="form-control" type="text" name="vasos_oi" id="vasos_oi">
+        	 <input class="form-control" type="text" name="vasos_oi" id="vasos_oi">
         </div>
-	</div>
+	</div><br>
 	<div class="row">
-		
 		<div class="col-sm-3">
-			<span class="badge badge-secondary">O.D.</span>
 			<label class="control-label">Rel. A/V</label>
-            
-            <input class="form-control" type="text" name="rel_od" id="rel_od">
+		</div>
+		<div class="col-sm-3">
+			 <input class="form-control" type="text" name="rel_od" id="rel_od">
         </div>
         <div class="col-sm-3">
-        	 <span class="badge badge-secondary">O.I.</span>
-			<label class="control-label">Rel. A/V</label>
-            
-            <input class="form-control" type="text" name="rel_oi" id="rel_oi">
+        	<input class="form-control" type="text" name="rel_oi" id="rel_oi">
         </div>
-	</div>
+	</div><br>
 	<div class="row">
-		
 		<div class="col-sm-3">
-			<span class="badge badge-secondary">O.D.</span>
 			<label class="control-label">Macula</label>
-          
-            <input class="form-control" type="text" name="macula_od" id="macula_od">
-        </div>
-        <div class="col-sm-3">
-        	 <span class="badge badge-secondary">O.I.</span>
-			<label class="control-label">Macula</label>
-            
-            <input class="form-control" type="text" name="macula_oi" id="macula_oi">
-        </div>
-	</div>
-	<div class="row">
-		
+		</div>
 		<div class="col-sm-3">
-			<span class="badge badge-secondary">O.D.</span>
-			<label class="control-label">Reflejo</label>
-            
-            <input class="form-control" type="text" name="reflejo_od" id="reflejo_od">
+			<input class="form-control" type="text" name="macula_od" id="macula_od">
         </div>
         <div class="col-sm-3">
-        	 <span class="badge badge-secondary">O.I.</span>
-			<label class="control-label">Reflejo</label>
-           
-            <input class="form-control" type="text" name="reflejo_oi" id="reflejo_oi">
+        	<input class="form-control" type="text" name="macula_oi" id="macula_oi">
         </div>
-	</div>
+	</div><br>
 	<div class="row">
-		
 		<div class="col-sm-3">
-			<span class="badge badge-secondary">O.D.</span>
-			<label class="control-label">Retina Periférica</label>
-            
-            <input class="form-control" type="text" name="retina_perif_od" id="retina_perif_od">
+			<label class="control-label">Reflejo</label>
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" name="reflejo_od" id="reflejo_od">
         </div>
         <div class="col-sm-3">
-        	 <span class="badge badge-secondary">O.I.</span>
-			<label class="control-label">Retina Periférica</label>
-           
-            <input class="form-control" type="text" name="retina_perif_oi" id="retina_perif_oi">
+        	<input class="form-control" type="text" name="reflejo_oi" id="reflejo_oi">
         </div>
-        <div class="col-sm-6">
+	</div><br>
+	<div class="row">
+		<div class="col-sm-3">
+			<label class="control-label">Retina Periférica</label>
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" name="retina_od" id="retina_od">
+        </div>
+        <div class="col-sm-3">
+        	<input class="form-control" type="text" name="retina_oi" id="retina_oi">
+        </div>
+    </div><br><br>
+	<div class="row">
+		<div class="col-sm-6">
         	<div class="form-group col-xs-8" align="left">
 <input type="file" name="archivo_foto" ><br>
 <input type="button" value="Enviar" class="btn btn-primary">
@@ -1016,7 +993,7 @@
 	</div>
 	<div class="form-group col-xs-12" align="left">
 										<label class="control-label">Anexos y Biomicroscopía</label>
-										<textarea class="form-control" ></textarea>
+										<textarea class="form-control" name="anexos"></textarea>
 	</div>
 	<br><br><br><br><br><br>
 	<div  align="left">
@@ -1029,7 +1006,7 @@
       	</div>
       	<div class="col-sm-3">
       		<label class="control-label">Hora</label>
-            <input class="form-control" type="time" name="fecha_tono" id="fecha_tono" value="{{date('H:i')}}">
+            <input class="form-control" type="time" name="hora_tono" id="hora_tono" value="{{date('H:i')}}">
       	</div>
       </div>
       <div class="row">
@@ -1068,15 +1045,18 @@
       		<span class="badge badge-secondary">ESF.</span>
 			<select class="form-control" name="esf_od" id="esf_od">
 				<?php for($i=25;$i>=(-25);$i-=0.25){
-				echo"<option value='".$i."'>".$i."</option>";
-						}?>
+					if($i>0){echo"<option value='+".$i."'>+".$i."</option>";}
+					    else{echo"<option value='".$i."'>".$i."</option>";}
+				}?>
 				</select>
       	</div>
       	<div class="col-sm-2">
       		<span class="badge badge-secondary">CIL.</span>
-			<select class="form-control" name="esf_od" id="esf_od">
+			<select class="form-control" name="cil_od" id="cil_od">
 				<?php for($i=(-0.25);$i>=(-15);$i-=0.25){
-				echo"<option value='".$i."'>".$i."</option>";
+					if($i>0){echo"<option value='+".$i."'>+".$i."</option>";}
+						else{echo"<option value='".$i."'>".$i."</option>";}
+				
 						}?>
 				</select>
       	</div>
@@ -1128,15 +1108,18 @@
       		<span class="badge badge-secondary">ESF.</span>
 			<select class="form-control" name="esf_oi" id="esf_oi">
 				<?php for($i=25;$i>=(-25);$i-=0.25){
-				echo"<option value='".$i."'>".$i."</option>";
-						}?>
+					if($i>0){echo"<option value='+".$i."'>+".$i."</option>";}
+					    else{echo"<option value='".$i."'>".$i."</option>";}
+				}?>
 				</select>
       	</div>
       	<div class="col-sm-2">
       		<span class="badge badge-secondary">CIL.</span>
-			<select class="form-control" name="esf_oi" id="esf_oi">
+			<select class="form-control" name="cil_oi" id="cil_oi">
 				<?php for($i=(-0.25);$i>=(-15);$i-=0.25){
-				echo"<option value='".$i."'>".$i."</option>";
+					if($i>0){echo"<option value='+".$i."'>+".$i."</option>";}
+						else{echo"<option value='".$i."'>".$i."</option>";}
+				
 						}?>
 				</select>
       	</div>

@@ -54,14 +54,11 @@
 						<ul class="nav nav-pills nav-justified" >
 							<li  role="presentation" class="active"><a data-toggle="tab" href="#generales" >Generales:</a></li>
 
-							<li role="presentation"><a data-toggle="tab" href="#hmedico" >Historial Medico:</a></li> 
+							<li role="presentation"><a data-toggle="tab" href="#hmedico">Historial Medico:</a></li> 
 
-							<!-- <li role="presentation"><a data-toggle="tab" href="#ocular" class="ui-tabs-anchor">Ocular:</a></li>
-
-							<li role="presentation"><a data-toggle="tab" href="#" class="ui-tabs-anchor">Ortopedico:(En desarrollo)</a></li>
-
+							<li role="presentation"><a data-toggle="tab" href="#ocular">Historial Ocular:</a></li>
+							<!--<li role="presentation"><a data-toggle="tab" href="#" class="ui-tabs-anchor">Ortopedico:(En desarrollo)</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#cita" class="ui-tabs-anchor">Citas:</a></li>
-
 							<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li> -->
 						</ul>
 		{{-- PESTAÑAS --}}
@@ -194,7 +191,7 @@
 						 <div class="tab-pane fade" id="hmedico">
 						 	<div class="panel-default">
 						 		<div class="panel-heading"><h4><strong>Historial Médico:</strong> </h4></div>
-						 		 @if($paciente->medico==null)
+						 		 @if(count($paciente->medico)==0)
 						    <div class="panel-body">
 						      <div class="row">
 						      	<div class="col-sm-9">
@@ -208,120 +205,53 @@
 						      </div><br>
 						    </div>
 						  @else
-						 		<div class="panel-body">
-						 			<div class="col-xs-4 col-xs-offset-10">
-					
-										<button id="submit" type="submit" class="btn btn-success">
-									<strong>Agregar</strong>	</button>
-
-										<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
-									<strong>Modificar</strong>	</a>
-										
-
-									</div><br><br><br>
-					<div class="form-group col-xs-6">
-						<div class="boton checkbox-disabled">
-                            <label>
-
-                                <input id="chkalerg" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="alergias();" >
-                                ¿Alèrgico a algùn medicamento ò alguna alèrgia en especial? .
-                            </label>
-                        </div>
-                    </div>
-
-						 	<div class="form-group col-xs-3" style="display: none;" id="alergias1" name="alergias1">
-						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>¿Cuàl?:</label>
-						<input class="form-control" type="text" >
-							</div>
-							<div class="form-group col-xs-3"  id="alergias2" style="display: none;">
-						<label class="control-label">¿Tiene algùn Tratamiento?</label>
-						<input class="form-control" type="text"  >
-							</div>
-						 		</div>
-
-						 		<div class="panel-heading"><h4>Enfermedades</h4></div>
-						 		<div class="panel-body">
-
-					<div class="form-group col-xs-6">
-						<div class="boton checkbox-disabled">
-                            <label>
-
-                                <input id="cronica" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" >
-                                ¿Padece alguna Enfermedad Crònica? .
-                            </label>
-                        </div>
-                    </div></div><br><br><br>
-
-                    <div class="jumbotron"  id="enfermedades" style="display: none"> 
-
-                    				<div class="row">
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Diabetes</label>
-                    					</div>
-                    					
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo"> Epilepsia</label>
-                    					</div>
-
-                    					<div class="col-sm-3" id="especifique" style="display: none">
-                    						<label class="control-label">Especifique:</label>
-									<input class="form-control" type="text" >
-                    					</div>
-
-                    					<div class="col-sm-3">
-                    						<div class="boton checkbox-disabled">
-                            <label>
-                            	 ¿Tiene Tratamiento/Control ?
-                            </label>
-                                <input id="control" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="chkalerg()">
-                               
-                       						 </div>
-                    					</div>
-                    				</div>
-
-                    				<div class="row">
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Hipertensión</label>
-                    					</div>
-                    					
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">  Migraña</label>
-                    					</div>
-
-                    				</div>
-
-                    				<div class="row">
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Asma</label>
-                    					</div>
-                    					
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" id="otra">  Otra</label>
-                    					</div>
-
-                    					<div class="col-sm-3" id="trat" style="display: none;">
-                    						<label class="control-label">Tratamiento Actual:</label>
-			<input class="form-control" type="text" id="tratamiento_enfermedades" name="tratamiento_enfermedades">
-                    					</div>
-                    				</div>
+						  {{-- TABLA HISTORIAL --}}
+						<div class="panel-body">
+							<div class="col-sm-12 offset-md-12" align="center">
+						      		<br>
+						      		<a  class="btn btn-primary" href="{{ route('pacientes.historialmedico.create',['paciente'=>$paciente]) }}">
+									<strong>Agregar</strong>	</a>
+						      	</div>
+							<br>
+							<br><br>
+							<br>
+						  <table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
+										<thead>
+											<tr class="info">
+												<th>Fecha de la Cita</th>
+												<th>Alergias</th>
+												<th>Enfermedades Crónicas</th>
+												<th>Tratamiento</th>
+											</tr>
+										</thead>
+										<tbody>
+											@foreach($paciente->medico as $medico)
+											<tr class="active"
+											    title="Has Click Aquì para Ver"
+												style="cursor: pointer"
+												data-toggle="modal" 
+												data-target="#medico_modal{{$medico->id}}">
+												<td>{{$medico->created_at}}</td>
+												<td>{{$medico->alergia}}</td>
+												<td>{{$medico->enfermedad}}</td>
+												<td>{{$medico->tratamiento}}</td>
+											</tr>
+											@endforeach
+										</tbody>
+							</table>
+						</div>
+						{{-- TABLA HISTORIAL --}}
+					<div class="panel-body">
+						 		
 					</div>
 
+						 		
 
-					<div class="form-group col-xs-6">
-						<div class="row">
-                    			<div class="col-sm-3">
-						 	      <label>
-						 	      	<input id="embarazo" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios"  >
-                                Embarazo.
-                                 </label>	
-                                </div>
-                                <div class="col-sm-5" style="display: none" id="emb_tiempo">
-						 	     <label class="control-label">¿Cuanto Tiempo?:</label>
-                                 <input id="embarazo_tiempo" type="text" class="form-control"  >	
-                                </div>
-                        </div>	
-                    </div>
-						 			
+
+                  
+
+
+						
 						 			@endif
 						 		</div>
 						 	</div>
@@ -333,7 +263,7 @@
 </div>
 
 
-{{-- Modal --}} 
+                     {{-- Modal Tutores --}} 
 								<div class="modal fade" id="formularioTutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
@@ -397,7 +327,72 @@
 								    </div>
 								  </div>
 								</div>
-								{{-- Modal --}} 
+								{{-- Modal Tutores--}} 
+
+
+						 
+						 	@foreach($paciente->medico as $medico)
+								{{-- Modal Historial Médico--}} 
+								<div class="modal fade" id="medico_modal{{$medico->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Datos Médicos</strong>&nbsp;&nbsp;&nbsp;&nbsp;{{$medico->created_at}} </h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								        <div class="panel-default">
+								          <div class="panel-body">
+								        	<div class="row">
+								        	 
+								        	  	@if($medico->alergia=='SI')
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Alergia:</label>
+												<dd>{{$medico->cual_alergia}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	  	@if($medico->tratamiento_alergia!=null)
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Tratamiento a Alergia:</label>
+												<dd>{{$medico->tratamiento_alergia}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	  		@if($paciente->sexo=='Femenino' && $medico->embarazo=='SI')
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Embarazo/Tiempo:</label>
+												<dd>{{$medico->tiempo_embarazo}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	</div><br>
+								        	<div class="row">
+								        		@if($medico->enfermedad=='SI')
+								        	  <div class="col-sm-6">
+								        	  	<label class="control-label" for="apmaterno">Enfermedades Crónicas:</label>
+												<dd>{{$medico->enfermedades_array}},{{$medico->enfermedad_cronica}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	  	@if($medico->tratamiento=='SI')
+								        	  <div class="col-sm-4">
+								        	  	<label class="control-label" for="apmaterno">Tratamiento Enfermedad Crónica:</label>
+												<dd>{{$medico->tratamiento_actual}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	  
+								        	</div>
+										  </div>
+								        </div>
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+								        <button type="button" class="btn btn-primary">Agregar</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+								{{-- Modal Historial Médico --}} 
+								@endforeach
 
 
 @endsection

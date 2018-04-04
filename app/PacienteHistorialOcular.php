@@ -2,16 +2,14 @@
 
 namespace App;
 
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kyslik\ColumnSortable\Sortable;
 use Laravel\Scout\Searchable;
 
-
-class PacienteHistorialMedico extends Model
+class PacienteHistorialOcular extends Model
 {
-    use Sortable, SoftDeletes;
+     use Sortable, SoftDeletes;
 
     protected $table = 'paciente_historial_medicos';
     protected $fillable=[

@@ -73,6 +73,10 @@ Route::get('productos',function(){
 
 	return View::make('Productos.create');
 });
+Route::get('ocul',function(){
+
+	return View::make('Paciente.aux_create');
+});
 
 //-----------------------------------------------------
 
@@ -118,6 +122,7 @@ Route::get('getgiros','Giro\GiroController@getGiros');
 Route::resource('pacientes','Paciente\PacienteController');
 Route::resource('pacientes.datosgenerales','Paciente\PacientesDatosGeneralesController');
 Route::resource('pacientes.historialmedico','Paciente\PacienteHistorialMedicoController');
+Route::resource('pacientes.historialocular','Paciente\PacienteHistorialOcularController');
 //------------------------------------------------------------
 
 

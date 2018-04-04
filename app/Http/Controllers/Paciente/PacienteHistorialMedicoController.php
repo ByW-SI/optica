@@ -6,6 +6,7 @@ use App\Paciente;
 use App\PacienteHistorialMedico;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class PacienteHistorialMedicoController extends Controller
 {
@@ -37,16 +38,54 @@ class PacienteHistorialMedicoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Paciente $paciente)
     {
-//         $name = $_GET['color'];
+        
 
-// // optional
-// // echo "You chose the following color(s): <br>";
+  $medicos= new PacienteHistorialMedico;
+  //------------------------------------------------
+  $medicos->paciente_id=$request->paciente_id;
+  if($request->alergia=='on'){
+    $medicos->alergia='SI';
+  }else{
+    $medicos->alergia='NO';
+  }
+  $medicos->cual_alergia=$request->cual_alergia;
+  $medicos->tratamiento_alergia=$request->tratamiento_alergia;
 
-// foreach ($name as $color){ 
-//     echo $color."<br />";
+  if($request->enfermedad=='on'){
 
+    $medicos->enfermedad='SI';
+
+    foreach($request->enfermedades as $enf){
+      if($enf=='Otra'){}
+        else{$medicos->enfermedades_array.=",".$enf;}
+    }
+    }else{
+    $medicos->enfermedad='NO';
+  }
+  
+  
+
+  $medicos->enfermedad_cronica=$request->enfermedad_cronica;
+   if($request->tratamiento=='on'){
+    $medicos->tratamiento='SI';
+  }else{
+    $medicos->tratamiento='NO';
+  }
+  $medicos->tratamiento_actual=$request->tratamiento_actual;
+  if($request->embarazo=='on'){
+    $medicos->embarazo='SI';
+  }else{
+    $medicos->embarazo='NO';
+  }
+  $medicos->tiempo_embarazo=$request->tiempo_embarazo;
+  //-------------------------------------------------
+  $medicos->save();
+
+  Alert::success('Nuevo Historial Guardado', 'Continuar');
+
+       return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);//
     }
 
     /**

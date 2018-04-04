@@ -194,7 +194,7 @@
 						 <div class="tab-pane fade" id="hmedico">
 						 	<div class="panel-default">
 						 		<div class="panel-heading"><h4><strong>Historial Médico:</strong> </h4></div>
-						 		 @if($paciente->medico==null)
+						 		 @if(count($paciente->medico)==0)
 						    <div class="panel-body">
 						      <div class="row">
 						      	<div class="col-sm-9">
@@ -208,120 +208,44 @@
 						      </div><br>
 						    </div>
 						  @else
-						 		<div class="panel-body">
-						 			<div class="col-xs-4 col-xs-offset-10">
-					
-										<button id="submit" type="submit" class="btn btn-success">
-									<strong>Agregar</strong>	</button>
-
-										<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
-									<strong>Modificar</strong>	</a>
+						  {{-- TABLA HISTORIAL --}}
+						<div class="panel-body">
+							<div class="col-sm-3 offset-md-2">
+						      		<br>
+						      		<a  class="btn btn-primary" href="{{ route('pacientes.historialmedico.create',['paciente'=>$paciente]) }}">
+									<strong>Agregar</strong>	</a>
+						      	</div>
+							<br>
+							<br>
+						  <table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
+										<thead>
+											<tr class="info">
+												<th>Fecha de Registro</th>
+												<th>Alergias</th>
+												<th>Enfermedades Crónicas</th>
+												<th>Relación</th>
+												<th>Telefono Casa</th>
+												<th>Celular</th>
+												<th>Ver/Modificar</th>
+											</tr>
+										</thead>
 										
-
-									</div><br><br><br>
-					<div class="form-group col-xs-6">
-						<div class="boton checkbox-disabled">
-                            <label>
-
-                                <input id="chkalerg" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="alergias();" >
-                                ¿Alèrgico a algùn medicamento ò alguna alèrgia en especial? .
-                            </label>
-                        </div>
-                    </div>
-
-						 	<div class="form-group col-xs-3" style="display: none;" id="alergias1" name="alergias1">
-						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>¿Cuàl?:</label>
-						<input class="form-control" type="text" >
-							</div>
-							<div class="form-group col-xs-3"  id="alergias2" style="display: none;">
-						<label class="control-label">¿Tiene algùn Tratamiento?</label>
-						<input class="form-control" type="text"  >
-							</div>
-						 		</div>
-
-						 		<div class="panel-heading"><h4>Enfermedades</h4></div>
-						 		<div class="panel-body">
-
-					<div class="form-group col-xs-6">
-						<div class="boton checkbox-disabled">
-                            <label>
-
-                                <input id="cronica" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" >
-                                ¿Padece alguna Enfermedad Crònica? .
-                            </label>
-                        </div>
-                    </div></div><br><br><br>
-
-                    <div class="jumbotron"  id="enfermedades" style="display: none"> 
-
-                    				<div class="row">
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Diabetes</label>
-                    					</div>
-                    					
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo"> Epilepsia</label>
-                    					</div>
-
-                    					<div class="col-sm-3" id="especifique" style="display: none">
-                    						<label class="control-label">Especifique:</label>
-									<input class="form-control" type="text" >
-                    					</div>
-
-                    					<div class="col-sm-3">
-                    						<div class="boton checkbox-disabled">
-                            <label>
-                            	 ¿Tiene Tratamiento/Control ?
-                            </label>
-                                <input id="control" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="chkalerg()">
-                               
-                       						 </div>
-                    					</div>
-                    				</div>
-
-                    				<div class="row">
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Hipertensión</label>
-                    					</div>
-                    					
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">  Migraña</label>
-                    					</div>
-
-                    				</div>
-
-                    				<div class="row">
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Asma</label>
-                    					</div>
-                    					
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" id="otra">  Otra</label>
-                    					</div>
-
-                    					<div class="col-sm-3" id="trat" style="display: none;">
-                    						<label class="control-label">Tratamiento Actual:</label>
-			<input class="form-control" type="text" id="tratamiento_enfermedades" name="tratamiento_enfermedades">
-                    					</div>
-                    				</div>
+											<tr class="active"{{--  onclick="vistarapida({{$personal->id}})" --}}>
+											</tr>
+						  </table>
+						</div>
+						{{-- TABLA HISTORIAL --}}
+					<div class="panel-body">
+						 		
 					</div>
 
+						 		
 
-					<div class="form-group col-xs-6">
-						<div class="row">
-                    			<div class="col-sm-3">
-						 	      <label>
-						 	      	<input id="embarazo" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios"  >
-                                Embarazo.
-                                 </label>	
-                                </div>
-                                <div class="col-sm-5" style="display: none" id="emb_tiempo">
-						 	     <label class="control-label">¿Cuanto Tiempo?:</label>
-                                 <input id="embarazo_tiempo" type="text" class="form-control"  >	
-                                </div>
-                        </div>	
-                    </div>
-						 			
+
+                  
+
+
+						
 						 			@endif
 						 		</div>
 						 	</div>

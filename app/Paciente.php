@@ -13,7 +13,6 @@ class Paciente extends Model
 
     protected $table = 'pacientes';
     protected $fillable=[
-    	              'id',
     	              'nombre',
     	              'appaterno',
     	              'apmaterno',
@@ -27,5 +26,8 @@ class Paciente extends Model
 
     public function generales(){
         return $this->hasOne('App\PacientesDatosGenerales');
+    }
+    public function medico(){
+        return $this->hasMany('App\PacienteHistorialMedico');
     }
 }

@@ -39,14 +39,47 @@ class PacienteHistorialMedicoController extends Controller
      */
     public function store(Request $request)
     {
-//         $name = $_GET['color'];
+        
 
-// // optional
-// // echo "You chose the following color(s): <br>";
+  $medicos= new PacienteHistorialMedico;
+  //------------------------------------------------
+  $medicos->paciente_id=$request->paciente_id;
+  if($request->alergia=='on'){
+    $medicos->alergia='SI';
+  }else{
+    $medicos->alergia='NO';
+  }
+  $medicos->tratamiento_alergia=$request->tratmiento_alergia;
+  if($request->enfermedad=='on'){
+    $medicos->enfermedad='SI';
+  }else{
+    $medicos->enfermedad='NO';
+  }
+  $medicos->diabetes=$request->enfermedades;
+  $medicos->epilepsia='vacío';
+  $medicos->hipertension='vacío';
+  $medicos->migraña='vacío';
+  $medicos->asma='vacío';
+  $medicos->otra='vacío';
+  $medicos->enfermedad_cronica=$request->enfermedad_cronica;
+   if($request->tratamiento=='on'){
+    $medicos->tratamiento='SI';
+  }else{
+    $medicos->tratamiento='NO';
+  }
+  $medicos->tratamiento_actual=$request->tratamiento_actual;
+  if($request->embarazo=='on'){
+    $medicos->embarazo='SI';
+  }else{
+    $medicos->embarazo='NO';
+  }
+  $medicos->tiempo_embarazo=$request->tiempo_embarazo;
+  //-------------------------------------------------
+  $medicos->save();
 
-// foreach ($name as $color){ 
-//     echo $color."<br />";
+  Alert::success('Nuevo Historial Guardado', 'Continuar');
 
+       return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);//
     }
 
     /**

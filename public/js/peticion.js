@@ -7,7 +7,7 @@ $.ajaxSetup({
 function obtener_registros(busqueda, etiqueta)
 {
 
-	// console.log(etiqueta);
+	 
 	if (etiqueta == 'query') {
 		
 		$.ajax({
@@ -48,6 +48,17 @@ function obtener_registros(busqueda, etiqueta)
 		
 		$.ajax({
 			url : "buscarprovedor",
+			type : "GET",
+			dataType : "html",
+			data :{busqueda:busqueda},
+			}).done(function(resultado){
+			$("#datos").html(resultado);
+
+		});
+	}
+	if (etiqueta == 'paciente') {
+		$.ajax({
+			url : "buscarpaciente",
 			type : "GET",
 			dataType : "html",
 			data :{busqueda:busqueda},

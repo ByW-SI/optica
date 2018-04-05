@@ -8,48 +8,78 @@
 	<div class="container">
 		<div class="panel panel-group">
 			<div class="panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading jumbotron">
 					<h4>Datos del paciente:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
 					Campos Requeridos</h4>
 				</div>
 				<div class="panel-body">
 		{{-- FORM DATOS PERSONALES --}}
+		@if($edit==false)
 		<form role="form" id="form-empleado" method="POST" action="{{ route('pacientes.store') }}" name="form">
 			{{ csrf_field()}}
+			@else
+		<form role="form" id="form-empleado" method="POST" action="{{ route('pacientes.update',['id'=>$paciente->id]) }}" name="form">
+			{{ csrf_field()}}
+			<input type="hidden" name="_method" value="PUT">
+			@endif
 					<div class="form-group col-xs-3">
 						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Nombre:</label>
-						<input class="form-control" type="text" name="nombre" id="nombre">
+						<input class="form-control" type="text" name="nombre" id="nombre" 
+						@if($edit==true)
+						value="{{$paciente->nombre}}"
+						@endif>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Apellido Paterno:</label>
-						<input class="form-control" type="text" name="appaterno" id="appaterno">
+						<input class="form-control" type="text" name="appaterno" id="appaterno"
+						@if($edit==true)
+						value="{{$paciente->appaterno}}"
+						@endif>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label">Apellido Materno:</label>
-						<input class="form-control" type="text" name="apmaterno" id="apmaterno">
+						<input class="form-control" type="text" name="apmaterno" id="apmaterno"
+						@if($edit==true)
+						value="{{$paciente->apmaterno}}"
+						@endif>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label">ID:(Automàtico)</label>
-						<input class="form-control" type="text" readonly style="width:150px" name="identificador" id="identificador">
+						<input class="form-control" type="text" readonly style="width:150px" name="identificador" id="identificador"
+						@if($edit==true)
+						value="{{$paciente->identificador}}"
+						@endif>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label">Edad:(Automàtico)</label>
-						<input class="form-control" type="text" readonly="" placeholder="Edad" id="edad" name="edad" style="width: 91px" name="edad" id="edad">
+						<input class="form-control" type="text" readonly="" placeholder="Edad" id="edad" name="edad" style="width: 91px" name="edad" id="edad"
+						@if($edit==true)
+						value="{{$paciente->edad}}"
+						@endif>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Fecha de nacimiento:</label>
-						<input class="form-control" type="date" id="fechanacimiento" name="fecha_nacimiento" required>
+						<input class="form-control" type="date" id="fechanacimiento" name="fecha_nacimiento" required
+						@if($edit==true)
+						value="{{$paciente->fecha_nacimiento}}"
+						@endif>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label">Sexo:</label>
 						<select class="form-control" name="sexo" id="sexo">
-							<option>Masculino</option>
-							<option>Femenino</option>
-							<option>Otro</option>
+							<option @if($edit==true && $paciente->sexo=='Masculino')
+							selected="selected"
+							@endif>Masculino</option>
+							<option @if($edit==true && $paciente->sexo=='Femenino')
+							selected="selected"
+							@endif>Femenino</option>
+							<option @if($edit==true  && $paciente->sexo=='Otro')
+							selected="selected"
+							@endif>Otro</option>
 						</select>
 					</div>
-					<div class="col-xs-2" align="center">
-						<input type="submit" class="btn btn-success" name="submit_1" value="Guardar">
+					<div class="col-xs-2" align="center"><br>
+						<input type="submit" class="btn btn-info" name="submit_1" value="Guardar">
 					</div>
 				</div>
 		</form><br>

@@ -11,12 +11,12 @@
 				<div class="input-group" id="datos1">
 					<div class="row">
 						<div class="col-sm-9">
-							<input type="text" list='browsers' id="empleado" name="query" class="form-control" placeholder="Buscar..." autofocus>
+							<input type="text" list='browsers' id="paciente" name="query" class="form-control" placeholder="Buscar..." autofocus>
 						</div>
 						<div class="col-sm-3">
-							 <a class="btn btn-info" href="{{ route('empleados.create')}}">
+							 <a class="btn btn-info" href="{{ route('pacientes.create')}}">
 							        <strong>
-							   Agregar Empleado</strong>
+							   Agregar Paciente</strong>
 							</a>
 						</div>
 						
@@ -34,38 +34,39 @@
 			<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px;">
 			<thead>
 				<tr class="info">
-					<th>@sortablelink('identificador','#')</th>
+					<th>@sortablelink('identificador','Identificador')</th>
 					<th>@sortablelink('nombre','Nombre')</th>
 					<th>@sortablelink('appaterno','Apellido Paterno')</th>
 					<th>@sortablelink('apmaterno','Apellido Materno')</th>
-					<th>@sortablelink('rfc','R.F.C.')</th>
+					
 					<th>Acciones</th>
 				</tr>
 			</thead>
-			@foreach ($empleados as $empleado)
+			@foreach ($pacientes as $paciente)
 				{{-- expr --}}
 				<tr class="active"
 				    title="Has Click Aquì para Ver"
 					style="cursor: pointer"
-					href="#{{$empleado->id}}"
+					href="#{{$paciente->id}}"
 					>
 					
-					<td>{{$empleado->identificador}}</td>
-					<td>{{$empleado->nombre}}</td>
-					<td>{{$empleado->appaterno}}</td>
-					<td>{{$empleado->apmaterno}}</td>
-					<td>{{$empleado->rfc}}</td>
+					<td>{{$paciente->identificador}}</td>
+					<td>{{$paciente->nombre}}</td>
+					<td>{{$paciente->appaterno}}</td>
+					<td>{{$paciente->apmaterno}}</td>
+					
 					<td>
-						<a class="btn btn-success btn-sm" href="{{ route('empleados.show',['empleado'=>$empleado]) }}"><i class="fa fa-eye" aria-hidden="true"></i> 
+						<a class="btn btn-success btn-sm" href="{{ route('pacientes.show',['paciente'=>$paciente]) }}"><i class="fa fa-eye" aria-hidden="true"></i> 
 					<strong>Ver</strong>	</a>
-						<a class="btn btn-info btn-sm" href="{{ route('empleados.edit',['empleado'=>$empleado]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
+						<a class="btn btn-info btn-sm" href="{{ route('pacientes.edit',['paciente'=>$paciente]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
 					<strong>Editar</strong>	</a>
 					</td>
 				</tr>
 			@endforeach
 		</table>
-		{{ $empleados->links() }}
+		{{ $pacientes->links() }}
 	</div>
+	{{-- TABLA AJAX DE CLIENTES --}}
   </div>
 
 
@@ -73,84 +74,84 @@
 
 
 <!-- {{--   TABLA VISTA RÀPIDA  --}}
-@foreach ($empleados as $empleado)
+@foreach ($pacientes as $paciente)
 	{{-- expr --}}
-	<div class="persona" id="{{$empleado->id}}">
+	<div class="persona" id="{{$paciente->id}}">
 		<div class="container" id="tab">
 			<div role="application" class="panel panel-group" >
 				<div class="panel-default">
 					<div class="panel-heading"><h4>
 						
-						{{ucwords($empleado->nombre)}} &nbsp;&nbsp;&nbsp;&nbsp;
-						{{ucwords($empleado->appaterno)}} &nbsp;&nbsp;&nbsp;&nbsp;
-						{{ucwords($empleado->identificador)}}
+						{{ucwords($paciente->nombre)}} &nbsp;&nbsp;&nbsp;&nbsp;
+						{{ucwords($paciente->appaterno)}} &nbsp;&nbsp;&nbsp;&nbsp;
+						{{ucwords($paciente->identificador)}}
 					</h4></div>
 					
 				</div>
 				<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
-					<li role="tab" tabindex="0" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active active"><a href="#tab1{{$empleado->id}}" tabindex="-1">Datos Generales:</a></li>
-					<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#tab2{{$empleado->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Datos Laborales:</a></li>
-					<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3{{$empleado->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Estudios:</a></li>
-					<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab4{{$empleado->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Emergencias:</a></li>
+					<li role="tab" tabindex="0" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active active"><a href="#tab1{{$paciente->id}}" tabindex="-1">Datos Generales:</a></li>
+					<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#tab2{{$paciente->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Datos Laborales:</a></li>
+					<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3{{$paciente->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Estudios:</a></li>
+					<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab4{{$paciente->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Emergencias:</a></li>
 					
 				</ul>
 
 
 
-				<div class="panel-default pestana" aria-hidden="false" id="tab1{{$empleado->id}}" style="display: block;">
+				<div class="panel-default pestana" aria-hidden="false" id="tab1{{$paciente->id}}" style="display: block;">
 					<div class="panel-heading">Datos Generales:</div>
 					<div class="panel-body">
 						<div class="col-md-12 offset-md-2 mt-3">
 							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		    					<label class="control-label" for="calle">Nombre Completo:</label>
-		    					<dd>{{ $empleado->nombre }}&nbsp;{{ $empleado->appaterno }}
-		    					&nbsp;{{ $empleado->apmaterno }}</dd>
+		    					<dd>{{ $paciente->nombre }}&nbsp;{{ $paciente->appaterno }}
+		    					&nbsp;{{ $paciente->apmaterno }}</dd>
 		    					
 		  					</div>
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		    					<label class="control-label" for="numext">RFC:</label>
-		    					<dd>{{ $empleado->rfc }}</dd>
+		    					<dd>{{ $paciente->rfc }}</dd>
 		  					</div>	
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		    					<label class="control-label" for="numinter">CURP:</label>
-		    					<dd>{{ $empleado->curp }}</dd>
+		    					<dd>{{ $paciente->curp }}</dd>
 		  					</div>
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		    					<label class="control-label" for="cp">Telèfono:</label>
-		    					<dd>{{ $empleado->telefono }}</dd>
+		    					<dd>{{ $paciente->telefono }}</dd>
 		  					</div>		
 						</div>
 						<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="colonia">Colonia:</label>
-		  						<dd>{{ $empleado->colonia }}</dd>
+		  						<dd>{{ $paciente->colonia }}</dd>
 		  					</div>
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="municipio">Delegación o Municipio:</label>
-		  						<dd>{{ $empleado->municipio }}</dd>
+		  						<dd>{{ $paciente->municipio }}</dd>
 		  					</div>
 		  					
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="estado">Estado:</label>
-		  						<dd>{{ $empleado->estado }}</dd>
+		  						<dd>{{ $paciente->estado }}</dd>
 		  					</div>
 						</div>
 						<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="calle1">Calle:</label>
-		  						<dd>{{ $empleado->calle }}</dd>
+		  						<dd>{{ $paciente->calle }}</dd>
 		  					</div>
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="calle2">Nùmero Exterior:</label>
-		  						<dd>{{ $empleado->numext }}</dd>
+		  						<dd>{{ $paciente->numext }}</dd>
 		  					</div>
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="referencia">Nùmero Interior:</label>
-		  						<dd>{{ $empleado->numint }}</dd>
+		  						<dd>{{ $paciente->numint }}</dd>
 		  					</div>
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="referencia">Còdigo Postal:</label>
-		  						<dd>{{ $empleado->cp }}</dd>
+		  						<dd>{{ $paciente->cp }}</dd>
 		  					</div>
 						</div>
 					</div>
@@ -159,33 +160,33 @@
 
 
 
-				<div class="panel-default pestana" id="tab2{{$empleado->id}}">
+				<div class="panel-default pestana" id="tab2{{$paciente->id}}">
 
 					<div class="panel-heading">Datos Laborales:</div>
 
 					<div class="panel-body">
-						@if (count($empleado->datosLab) == 0 )
+						@if (count($paciente->datosLab) == 0 )
 							{{-- true expr --}}
 							<h3>Aun no tiene Datos Laborales</h3>
 						@else
 							{{-- false expr --}}
 							<?php $ultimo;?>
-							@foreach($empleado->datosLab as $datos)
+							@foreach($paciente->datosLab as $datos)
 							<?php $ultimo=$datos;?>
 							@endforeach
 
 						<div class="col-md-12 offset-md-2 mt-3">
 							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		    					<label class="control-label" for="calle">ID Empleado:</label>
-		    					<dd>{{$empleado->identificador}}</dd>
+		    					<label class="control-label" for="calle">ID paciente:</label>
+		    					<dd>{{$paciente->identificador}}</dd>
 		  					</div>
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		    					<label class="control-label" for="numext">Número de Seguro Social (IMSS):</label>
-		    					<dd>{{$empleado->nss}}</dd>
+		    					<dd>{{$paciente->nss}}</dd>
 		  					</div>	
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		    					<label class="control-label" for="numint">Número Infonavit:</label>
-		    					<dd>{{$empleado->infonavit}}</dd>
+		    					<dd>{{$paciente->infonavit}}</dd>
 		  					</div>	
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="colonia">Fecha de contratación:</label>
@@ -272,17 +273,17 @@
 
 
 
-				<div class="panel-default pestana" id="tab3{{$empleado->id}}">
+				<div class="panel-default pestana" id="tab3{{$paciente->id}}">
 					<div class="panel-heading">
 						Estudios:
 					</div>
 					
-					@if (count($empleado->estudios) == 0)
+					@if (count($paciente->estudios) == 0)
 					<div class="panel-body">
 						<h3>Aún no tienes Estudios Agregados</h3>
 					</div>
 					@endif
-					@if (count($empleado->estudios) !=0)
+					@if (count($paciente->estudios) !=0)
 					<div class="panel-body">
 						<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 							<thead>
@@ -296,21 +297,21 @@
 							
 								<tr class="active">
 
-									<td>{{ $empleado->estudios->escolaridad1 }}  </td>
+									<td>{{ $paciente->estudios->escolaridad1 }}  </td>
 
-									<td>{{ $empleado->estudios->institucion1 }}</td>
+									<td>{{ $paciente->estudios->institucion1 }}</td>
 									
-									<td>{{ $empleado->estudios->cedula1 }}</td>
+									<td>{{ $paciente->estudios->cedula1 }}</td>
 									
 								</tr>
 
 								<tr >
 
-									<td>{{ $empleado->estudios->escolaridad2 }}  </td>
+									<td>{{ $paciente->estudios->escolaridad2 }}  </td>
 
-									<td>{{ $empleado->estudios->institucion2 }}</td>
+									<td>{{ $paciente->estudios->institucion2 }}</td>
 									
-									<td>{{ $empleado->estudios->cedula2 }}</td>
+									<td>{{ $paciente->estudios->cedula2 }}</td>
 									
 								</tr>
 								</tbody>
@@ -321,36 +322,36 @@
 				</div>
 				
 							
-				<div class="panel-default pestana" id="tab4{{$empleado->id}}">
+				<div class="panel-default pestana" id="tab4{{$paciente->id}}">
 				 	<div class="panel-heading">Datos Emergencias:</div>
-				 	@if (count($empleado->emergencias) == 0)
+				 	@if (count($paciente->emergencias) == 0)
 						<div class="panel-body">
 							<h3>Aún no tienes datos de Emergencias</h3>
 						</div>
 						@endif
-						@if (count($empleado->emergencias) !=0)
+						@if (count($paciente->emergencias) !=0)
 				 	<div class="panel-body">
 				 		<div class="col-md-12 offset-md-2 mt-3">
 				 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 				 			<label class="control-label" for="nombre">Tipo de Sangre:</label>
-								<dd>{{$empleado->emergencias->sangre}}</dd>
+								<dd>{{$paciente->emergencias->sangre}}</dd>
 				 			</div>
 				 		</div>
 				 		<div class="col-md-12 offset-md-2 mt-3">
 				 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 				 				<label class="control-label" for="web">Enfermedades:</label>
-				 				<dd>{{$empleado->emergencias->enfermedades}}</dd>
+				 				<dd>{{$paciente->emergencias->enfermedades}}</dd>
 				 			</div>
 
 				 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 				 				<label class="control-label" for="comentario">Alergias:</label>
-				 				<dd>{{$empleado->emergencias->alergias}}</dd>
+				 				<dd>{{$paciente->emergencias->alergias}}</dd>
 				 			</div>
 				 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 				 				<label class="control-label" for="fechacontacto">Contacto para Emergencias:</label>
-				 				<dd>{{$empleado->emergencias->nombrecontac1}}&nbsp;
-				 					{{$empleado->emergencias->telefonocontac1}}&nbsp;
-				 					{{$empleado->emergencias->parentescocontac1}}&nbsp;
+				 				<dd>{{$paciente->emergencias->nombrecontac1}}&nbsp;
+				 					{{$paciente->emergencias->telefonocontac1}}&nbsp;
+				 					{{$paciente->emergencias->parentescocontac1}}&nbsp;
 				 				</dd>
 				 			</div>
 				 		</div>

@@ -131,7 +131,7 @@ class EmpleadoController extends Controller
     }
 
     public function buscar(Request $request){
-    // dd($request);
+ 
     $query = $request->input('busqueda');
     $wordsquery = explode(' ',$query);
     $empleados = Empleado::where(function($q) use($wordsquery){

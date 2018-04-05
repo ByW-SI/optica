@@ -17,8 +17,8 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        //
-        return view('paciente.index');
+        $pacientes=Paciente::sortable()->paginate(10);
+        return view('paciente.index',['pacientes'=>$pacientes]);
     }
 
     /**
@@ -31,7 +31,8 @@ class PacienteController extends Controller
         //
 
         // Alert::message('Welcome back!');
-        return view('paciente.create');
+        return view('paciente.create',
+                   ['edit'=>false]);
     }
 
     /**
@@ -86,8 +87,12 @@ class PacienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {  
+        $paciente=Paciente::where('id',$id)->first();
+
+       return view('paciente.create',
+                  ['paciente'=>$paciente,
+                   'edit'=>true]);
     }
 
     /**
@@ -99,7 +104,10 @@ class PacienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $paciente=Paciente::where('id',$id)->first();
+        $paciente->update($request->all());
+        Alert::success('Datos de Paciente Actualizados');
+        return view('paciente.view',['paciente'=>$paciente]);
     }
 
     /**
@@ -111,5 +119,25 @@ class PacienteController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+     public function buscar(Request $request){
+    
+    $query = $request->input('busqueda');
+    $wordsquery = explode(' ',$query);
+    $pacientes= Paciente::where(function($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+              $q->orWhere('nombre','LIKE',"%$word%")
+                ->orWhere('appaterno','LIKE',"%$word%")
+                ->orWhere('apmaterno','LIKE',"%$word%")
+                ->orWhere('identificador','LIKE',"%$word%");
+                //->orWhere('ed','LIKE',"%$word%");
+                
+            }
+        })->get();
+    return view('paciente.busqueda', ['pacientes'=>$pacientes]);
+        
+
     }
 }

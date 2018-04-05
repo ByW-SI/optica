@@ -374,7 +374,7 @@
 								<div class="row">
 									<div class="col-xs-offset-1 form-group col-sm-4">
 										 <label>
-						 	      	<input id="cirugias" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="cirugias" >
+						 	      	<input id="cirugias" type="checkbox" data-toggle="toggle" data-on="yes" data-off="No" data-style="ios" name="cirugias" >
                                 Cirugías en los Ojos:
                                  </label>
 									</div>
@@ -1164,7 +1164,7 @@
       	</div>
 	</div>	
 
-<br><br><br><br><br><br>
+<br><br><br>
 	<div  align="left">
 	<strong><h4>Diagnóstico</h4></strong>	
 	</div><br><br>
@@ -1181,9 +1181,7 @@
       		<label class="control-label">Binocularidad</label>
             <input class="form-control" type="text" name="binocularidad" id="binocularidad" >
       	</div>
-	</div>	<br><br>
-	<div class="row">
-			<div class="col-sm-3">
+      	<div class="col-sm-3">
       		<label class="control-label">Nombre del Lic. Optometrísta</label>
             <select class="form-control" name="optometrista" id="optometrista">
 				<option value="Lic.Almendares">Lic.Almendares</option>
@@ -1192,9 +1190,8 @@
 											
 				</select>
       	</div>
-	</div>			
-												
-	</div>
+	</div>	
+	</div><br><br>
 
 <div class="form-group col-xs-12" align="center" style="border: solid; border-color: grey; padding: 20px;">
 	 <div  align="left">
@@ -1203,17 +1200,17 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<label class="control-label">Armazón</label>
-			<input type="radio" name="armazon_radio" value="lentes_armazon" class="option-input radio" 
+			<input type="radio" name="armazon_radio" value="Armazón" class="option-input radio" 
 			id="armazon_radio1">
 		</div>
 		<div class="col-sm-3">
 			<label class="control-label">Lentes de Contacto</label>
-			<input type="radio" name="armazon_radio" value="lentes_contacto" class="option-input radio"
+			<input type="radio" name="armazon_radio" value="Lentes de Contacto" class="option-input radio"
 			id="armazon_radio2">
 		</div>
 		<div class="col-sm-3">
 			<label class="control-label">Ambos</label>
-			<input type="radio" name="armazon_radio" value="lentes_ambos" class="option-input radio"
+			<input type="radio" name="armazon_radio" value="Ambos" class="option-input radio"
 			id="armazon_radio3">
 		</div>
 	</div><br><br>
@@ -1231,43 +1228,43 @@
       	<div class="col-sm-8" id="monofocal_div" style="display: block;">
       		<div class="col-sm-2">
       			<span class="badge badge-secondary">LEJOS</span>
-				<input type="radio" class="option-input radio"  name="monofocal">
+				<input type="radio" class="option-input radio"  name="monofocal" value="LEJOS">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">CERCA</span>
-				<input type="radio" class="option-input radio"  name="monofocal">
+				<input type="radio" class="option-input radio"  name="monofocal" value="CERCA">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">AMBAS</span>
-				<input type="radio" class="option-input radio"  name="monofocal">
+				<input type="radio" class="option-input radio"  name="monofocal" value="AMBAS">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">SUB-CORRECCIÓN</span>
-				<input type="radio" class="option-input radio"  name="monofocal">
+				<input type="radio" class="option-input radio"  name="monofocal" value="SUB-CORRECCIÓN">
 			</div>
       	</div>
       	<div class="col-sm-8" id="bifocal_div" style="display: none;">
       		<div class="col-sm-2">
       			<span class="badge badge-secondary">FLAT-TOP</span>
-				<input type="radio" class="option-input radio"  name="bifocal">
+				<input type="radio" class="option-input radio"  name="bifocal" value="FLAT-TOP">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">BLEND</span>
-				<input type="radio" class="option-input radio"  name="bifocal">
+				<input type="radio" class="option-input radio"  name="bifocal" value="BLEND">
 			</div>
 		</div>
 		<div class="col-sm-8" id="progresivo_div" style="display: none;">
       		<div class="col-sm-2">
       			<span class="badge badge-secondary">BÁSICO</span>
-				<input type="radio" class="option-input radio"  name="progresivo">
+				<input type="radio" class="option-input radio"  name="progresivo" value="BÁSICO">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">KODAK</span>
-				<input type="radio" class="option-input radio"  name="progresivo">
+				<input type="radio" class="option-input radio"  name="progresivo" value="KODAK">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">VARILUX</span>
-				<input type="radio" class="option-input radio"  name="progresivo">
+				<input type="radio" class="option-input radio"  name="progresivo" value="VARILUX">
 			</div>
 			
       	</div>
@@ -1279,19 +1276,19 @@
         	<div class="col-sm-10">
       		<div class="col-sm-2">
       			<span class="badge badge-secondary">CR-39 W</span>
-				<input type="radio" class="option-input radio"  name="material">
+				<input type="radio" class="option-input radio"  name="material" value="CR-39 W">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">HIGH-INDEX W</span>
-				<input type="radio" class="option-input radio"  name="material">
+				<input type="radio" class="option-input radio"  name="material" value="HIGH-INDEX W">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">POLICARBONATO</span>
-				<input type="radio" class="option-input radio"  name="material">
+				<input type="radio" class="option-input radio"  name="material" value="POLICARBONATO">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">CRISTAL W</span>
-				<input type="radio" class="option-input radio"  name="material">
+				<input type="radio" class="option-input radio"  name="material" value="CRISTAL W">
 			</div>
       	</div>
 	 </div>
@@ -1303,11 +1300,11 @@
         	<div class="col-sm-10">
       		<div class="col-sm-2">
       			<span class="badge badge-secondary">SI</span>
-				<input type="radio" class="option-input radio"  name="tratamiento" id="tratamiento1">
+				<input type="radio" class="option-input radio"  name="tratamiento" id="tratamiento1" value="SI">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">NO</span>
-				<input type="radio" class="option-input radio"  name="tratamiento" id="tratamiento2">
+				<input type="radio" class="option-input radio"  name="tratamiento" id="tratamiento2" value="NO">
 			</div>
 	      	</div>
 	 </div>
@@ -1315,15 +1312,18 @@
 	<div class="col-xs-12" id="tratamiento_div" style="border: solid; border-color: grey;background-color: white; padding: 10px; display: none; ">
 	    <div class="row">
             <div class="col-sm-4">
-                <input type="checkbox" class="squaredTwo" name="antirreflejante" id="antirreflejante">
+                <input type="checkbox" class="squaredTwo" name="antirreflejante" id="antirreflejante" 
+                       >
                 <label class="col-xs-6 label-text">Antirreflejante</label>
             </div>
             <div class="col-sm-4">
-                <input type="checkbox" class="squaredTwo" name="fotocromatico" id="fotocromatico">
+                <input type="checkbox" class="squaredTwo" name="fotocromatico" id="fotocromatico" 
+                       >
                 <label class="col-xs-6 label-text">Fotocromático</label>
             </div>
             <div class="col-sm-4">
-                <input type="checkbox" class="squaredTwo" name="polarizado" id="polarizado">
+                <input type="checkbox" class="squaredTwo" name="polarizado" id="polarizado"
+                       >
                 <label class="col-xs-6 label-text">Polarizado</label>
             </div>
         </div><br><br>
@@ -1338,19 +1338,19 @@
 			<div class="col-sm-9" id="anti_premium_div" style="display: none;">
       		<div class="col-sm-3">
       			<span class="badge badge-secondary">CRIZAL EASY</span>
-				<input type="radio" class="option-input radio"  name="anti_premium">
+				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL EASY">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">CRIZAL ALIZE</span>
-				<input type="radio" class="option-input radio"  name="anti_premium">
+				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL ALIZE">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">CRIZAL FORTE</span>
-				<input type="radio" class="option-input radio"  name="anti_premium">
+				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL FORTE">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">CRIZAL PREVENCIA</span>
-				<input type="radio" class="option-input radio"  name="anti_premium">
+				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL PREVENCIA">
 			</div>
       	</div>
 	    </div><br><br>
@@ -1365,15 +1365,15 @@
 			<div class="col-sm-9" id="foto_premium_div" style="display: none;">
       		<div class="col-sm-3">
       			<span class="badge badge-secondary">TRANSITIONS GRIS</span>
-				<input type="radio" class="option-input radio"  name="foto_premium">
+				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS GRIS">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">TRANSITIONS CAFÉ</span>
-				<input type="radio" class="option-input radio"  name="foto_premium">
+				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS CAFÉ">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">TRANSITIONS VERDE</span>
-				<input type="radio" class="option-input radio"  name="foto_premium">
+				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS VERDE">
 			</div>
       	    </div>
 	    </div><br><br>
@@ -1407,15 +1407,15 @@
 	<div class="jumbotron col-xs-12">
 	 <div class="row">
                     					<div class="col-sm-3">
-                    						<input type="checkbox" class="squaredTwo">
+                    						<input type="checkbox" class="squaredTwo" name="opciones[0]" value="Enviar">
                     						<label class="col-xs-6 label-text">Enviar al Área de Ventas</label>
                     					</div>
                     					<div class="col-sm-3">
-                    						<input type="checkbox" class="squaredTwo">
+                    						<input type="checkbox" class="squaredTwo" name="opciones[1]" value="Imprimir">
                     						<label class="col-xs-6 label-text">Imprimir</label>
                     					</div>
                     					<div class="col-sm-3">
-                    						<input type="checkbox" class="squaredTwo" checked>
+                    						<input type="checkbox" class="squaredTwo" name="opciones[2]" checked value="Guardar">
                     						<label class="col-xs-6 label-text"> Guardar</label>
                     					</div>
                     					<div class="col-sm-3">

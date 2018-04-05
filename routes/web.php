@@ -123,6 +123,7 @@ Route::resource('pacientes','Paciente\PacienteController');
 Route::resource('pacientes.datosgenerales','Paciente\PacientesDatosGeneralesController');
 Route::resource('pacientes.historialmedico','Paciente\PacienteHistorialMedicoController');
 Route::resource('pacientes.historialocular','Paciente\PacienteHistorialOcularController');
+Route::get('buscarpaciente','Paciente\PacienteController@buscar');
 //------------------------------------------------------------
 
 

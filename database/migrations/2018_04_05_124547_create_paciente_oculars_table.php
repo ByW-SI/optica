@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePacienteHistorialOcularsTable extends Migration
+class CreatePacienteOcularsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreatePacienteHistorialOcularsTable extends Migration
      */
     public function up()
     {
-        Schema::create('paciente_historial_oculars', function (Blueprint $table) {
+        Schema::create('paciente_oculars', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('paciente_id')->unsigned();
-            $table->foreign('paciente_id')->references('id')->on('pacientes');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +26,6 @@ class CreatePacienteHistorialOcularsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paciente_historial_oculars');
+        Schema::dropIfExists('paciente_oculars');
     }
 }

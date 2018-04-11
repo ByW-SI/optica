@@ -67,6 +67,7 @@
 			<li role="presentation" class=""><a href="" class="ui-tabs-anchor">C.R.M:</a></li>
 		</ul>
 	</div>
+{{-- PESTAÑAS --}}
 
 	{{-- HISTORIAL MEDICO --}}
 						
@@ -204,11 +205,11 @@
                                 </div>
                                 
                                 	<div class="col-xs-4 col-xs-offset-10">
-					
+					<input type="hidden" name="paciente_id" value="{{$paciente->id}}">
 										<button id="submit" type="submit" class="btn btn-success">
 									<strong>Agregar</strong>	</button>
 
-										<input type="hidden" name="paciente_id" value="{{$paciente->id}}">
+										
 										
 
 									</div>

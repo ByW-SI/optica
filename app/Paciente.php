@@ -30,4 +30,7 @@ class Paciente extends Model
     public function medico(){
         return $this->hasMany('App\PacienteHistorialMedico');
     }
+    public function ocular(){
+        return $this->hasMany('App\PacienteOcular');
+    }
 }

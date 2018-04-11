@@ -1,326 +1,104 @@
 @extends('layouts.test')
 @section('content1')
-
-	{{-- expr --}}
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<div class="container">
+
+<div class="container">
+	<div role="application" class="panel panel-group">
+		<div class="panel-default">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-sm-3">
+						<h4><strong>Datos del Paciente:</strong></h4>
+					</div>
+					<div class="col-sm-2">
+						<a class="btn btn-info" href="{{ route('pacientes.create') }}"><strong>Nuevo Paciente</strong></a>
+					</div>
+					<div class="col-sm-2">
+						<a class="btn btn-primary" href="{{ route('pacientes.index') }}"><strong>Ver Pacientes</strong></a>
+					</div>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="col-xs-12 offset-md-2 mt-3">
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="identificador">ID de Paciente:</label>
+						<dd><strong>{{$paciente->identificador}}</strong></dd>
+					</div>
+				</div>
+				<div class="col-xs-12 offset-md-2 mt-3">
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="appaterno">Apellido Paterno:</label>
+						<dd>{{$paciente->appaterno}}</dd>
+					</div>
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="apmaterno">Apellido Materno:</label>
+						<dd>{{$paciente->apmaterno}}</dd>
+					</div>
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="nombre">Nombre(s):</label>
+						<dd>{{$paciente->nombre}}</dd>
+					</div>
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="edad">Edad:</label>
+						<dd>{{$paciente->edad}}</dd>
+					</div>
+				</div>
+				<div class="col-xs-12 offset-md-2 mt-3">
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="fecha_nacimiento">Fecha de Nacimiento:</label>
+						<dd>{{$paciente->fecha_nacimiento}}</dd>
+					</div>
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="sexo">Sexo:</label>
+						<dd>{{$paciente->sexo}}</dd>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	{{-- PESTAÑAS --}}
+		<ul class="nav nav-pills nav-justified">
+			<li role="presentation"><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}"  class="ui-tabs-anchor">Generales:</a></li> 
+			
+
+			<li role="presentation" ><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">Historial Médico:</a></li>
+
+			<li role="presentation" class="active"><a href="" class="ui-tabs-anchor">Historial Ocular:</a></li>
+
+			<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">Ortopédico:</a></li>
+
+			<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">Citas:</a></li>
+
+			<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">C.R.M:</a></li>
+		</ul>
+	
+{{-- PESTAÑAS --}}
+<div class="container">
 		<div class="panel panel-group">
-			<div class="panel-default">
-				<div class="panel-heading">
-					<h4>Datos del paciente:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
-					Campos Requeridos</h4>
-				</div>
-				<div class="panel-body">
-		{{-- FORM DATOS PERSONALES --}}
-		<form role="form" id="form-empleado" method="POST" action="{{ route('pacientes.store') }}" name="form">
-			{{ csrf_field()}}
-					<div class="form-group col-xs-3">
-						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Nombre:</label>
-						<input class="form-control" type="text" name="nombre" id="nombre">
-					</div>
-					<div class="form-group col-xs-3">
-						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Apellido Paterno:</label>
-						<input class="form-control" type="text" name="appaterno" id="appaterno">
-					</div>
-					<div class="form-group col-xs-3">
-						<label class="control-label">Apellido Materno:</label>
-						<input class="form-control" type="text" name="apmaterno" id="apmaterno">
-					</div>
-					<div class="form-group col-xs-3">
-						<label class="control-label">ID:(Automàtico)</label>
-						<input class="form-control" type="text" readonly style="width:150px" name="identificador" id="identificador">
-					</div>
-					<div class="form-group col-xs-3">
-						<label class="control-label">Edad:(Automàtico)</label>
-						<input class="form-control" type="text" readonly="" placeholder="Edad" id="edad" name="edad" style="width: 91px" name="edad" id="edad">
-					</div>
-					<div class="form-group col-xs-3">
-						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Fecha de nacimiento:</label>
-						<input class="form-control" type="date" id="fechanacimiento" name="fecha_nacimiento" required>
-					</div>
-					<div class="form-group col-xs-3">
-						<label class="control-label">Sexo:</label>
-						<select class="form-control" name="sexo" id="sexo">
-							<option>Masculino</option>
-							<option>Femenino</option>
-							<option>Otro</option>
-						</select>
-					</div>
-					<div class="col-xs-2" align="center">
-						<input type="submit" class="btn btn-success" name="submit_1" value="Guardar">
-					</div>
-				</div>
-		</form><br>
-		{{-- FORM DATOS PERSONALES --}}
-					{{-- PESTAÑAS --}}
-				
-						<ul class="nav nav-pills">
-							<li class="active"><a data-toggle="tab" href="#generales"  class="ui-tabs-anchor">Generales:</a></li>
+ {{-- HISTORIAL OCULAR --}}
+						  <div id="ocular">
+						  	@if ($edit == true)
+				{{-- true expr --}}
 
-							<li><a data-toggle="tab" href="#hmedico" class="ui-tabs-anchor">Historial Medico:</a></li>
+		
+			<form role="form" method="POST" action="{{ route('pacientes.historialocular.update',['paciente'=>$paciente,'datosgenerale'=>$paciente->generales]) }}">
 
-							<li><a data-toggle="tab" href="#ocular" class="ui-tabs-anchor">Ocular:</a></li>
-
-							<li><a data-toggle="tab" href="#" class="ui-tabs-anchor">Ortopedico:(En desarrollo)</a></li>
-
-							<li><a data-toggle="tab" href="#cita" class="ui-tabs-anchor">Citas:</a></li>
-
-							<li><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li>
-						</ul>
-						{{-- PESTAÑAS --}}
-					<div class="tab-content">
-						{{-- DATOS GENERALES --}}
-						<div class="tab-pane fade in active" id="generales">
-							
-							<div class="panel-default">
-								<div class="panel-heading"><h5>Datos Generales:</h5></div>
-								<div class="panel-body">
-									<div class="col-xs-4 col-xs-offset-10">
-					
-										<button id="submit" type="submit" class="btn btn-success">
-									<strong>Agregar</strong>	</button>
-										<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
-									<strong>Modificar</strong>	</a>
-										
-
-									</div>
-									<div class="col-xs-offset-2 form-group col-xs-4">
-										<label class="control-label">Ocupación:</label>
-										<input class="form-control" type="text">
-									</div>
-									<div class="form-group col-xs-4">
-										<label class="control-label">Convenio:</label>
-										<select class="form-control">
-											<option>Convenio 1</option>
-											<option>Convenio 2</option>
-											<option>Convenio ...</option>
-										</select>
-									</div>
-								</div>
-								<div class="panel-heading"><h6>Dirección:</h6></div>
-								<div class="panel-body">
-								<div class="form-group col-xs-3">
-									<label class="control-label">Calle:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Número Interior:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Número Exterior:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Codigo Postal:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Delegación/Municipio:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Estado:</label>
-									<input class="form-control" type="text">
-								</div>
-								</div>
-								<div class="panel-heading"><h6>Contacto:</h6></div>
-								<div class="panel-body">
-								<div class="form-group col-xs-4">
-									<label class="control-label">Telefono Casa:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-4">
-									<label class="control-label">Telefono Oficina:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-4">
-									<label class="control-label">Telefono celular:</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group col-xs-4">
-									<label class="control-label">Email:</label>
-									<input class="form-control" type="mail">
-								</div>
-								</div>
-								<div class="panel-heading">Tutores:</div>
-								<div class="panel-body">
-									
-									<button type="button" class="btn btn-info" data-toggle="modal" data-target="#formularioTutor">Agregar Tutores</button>
-									<br>
-									<br>
-									<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
-										<thead>
-											<tr class="info">
-												<th>Nombre</th>
-												<th>Apellido Paterno</th>
-												<th>Apellido Materno</th>
-												<th>Relación</th>
-												<th>Telefono Casa</th>
-												<th>Celular</th>
-												<th>Ver/Modificar</th>
-											</tr>
-										</thead>
-										
-											<tr class="active"{{--  onclick="vistarapida({{$personal->id}})" --}}>
-											</tr>
-									</table>
-								</div>
-							</div>
-						</div>
-						{{-- DATOS GENERALES --}}
-
-						
-						{{-- HISTORIAL MEDICO --}}
-						
-						 <div class="tab-pane" id="hmedico">
-						 	<div class="panel-default">
-						 		<div class="panel-heading"><h4><strong>Historial Médico:</strong> </h4></div>
-						 		<div class="panel-body">
-						 			<div class="col-xs-4 col-xs-offset-10">
-					
-										<button id="submit" type="submit" class="btn btn-success">
-									<strong>Agregar</strong>	</button>
-
-										<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
-									<strong>Modificar</strong>	</a>
-										
-
-									</div><br><br><br>
-					<div class="form-group col-xs-6">
-						<div class="boton checkbox-disabled">
-                            <label>
-
-                                <input id="chkalerg" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="alergias();" >
-                                ¿Alèrgico a algùn medicamento ò alguna alèrgia en especial? .
-                            </label>
-                        </div>
-                    </div>
-
-						 	<div class="form-group col-xs-3" style="display: none;" id="alergias1" name="alergias1">
-						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>¿Cuàl?:</label>
-						<input class="form-control" type="text" >
-							</div>
-							<div class="form-group col-xs-3"  id="alergias2" style="display: none;">
-						<label class="control-label">¿Tiene algùn Tratamiento?</label>
-						<input class="form-control" type="text"  >
-							</div>
-						 		</div>
-						 		<div class="panel-heading"><h4>Enfermedades</h4></div>
-						 		<div class="panel-body">
-
-					<div class="form-group col-xs-6">
-						<div class="boton checkbox-disabled">
-                            <label>
-
-                                <input id="cronica" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" >
-                                ¿Padece alguna Enfermedad Crònica? .
-                            </label>
-                        </div>
-                    </div><br><br><br>
-
-                    <div class="jumbotron"  id="enfermedades" style="display: none"> 
-
-                    				<div class="row">
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Diabetes</label>
-                    					</div>
-                    					
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo"> Epilepsia</label>
-                    					</div>
-
-                    					<div class="col-sm-3" id="especifique" style="display: none">
-                    						<label class="control-label">Especifique:</label>
-									<input class="form-control" type="text" >
-                    					</div>
-
-                    					<div class="col-sm-3">
-                    						<div class="boton checkbox-disabled">
-                            <label>
-                            	 ¿Tiene Tratamiento/Control ?
-                            </label>
-                                <input id="control" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="chkalerg()">
-                               
-                       						 </div>
-                    					</div>
-                    				</div>
-
-                    				<div class="row">
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Hipertensión</label>
-                    					</div>
-                    					
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">  Migraña</label>
-                    					</div>
-
-                    				</div>
-
-                    				<div class="row">
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo">Asma</label>
-                    					</div>
-                    					
-                    					<div class="col-sm-3">
-                    						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" id="otra">  Otra</label>
-                    					</div>
-
-                    					<div class="col-sm-3" id="trat" style="display: none;">
-                    						<label class="control-label">Tratamiento Actual:</label>
-			<input class="form-control" type="text" id="tratamiento_enfermedades" name="tratamiento_enfermedades">
-                    					</div>
-                    				</div>
-								    	
-								    	
-								    
-
-						 			
-
-                    </div>
-
-
-					<div class="form-group col-xs-6">
-						<div class="row">
-                    			<div class="col-sm-3">
-						 	      <label>
-						 	      	<input id="embarazo" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios"  >
-                                Embarazo.
-                                 </label>	
-                                </div>
-                                <div class="col-sm-5" style="display: none" id="emb_tiempo">
-						 	     <label class="control-label">¿Cuanto Tiempo?:</label>
-                                 <input id="embarazo_tiempo" type="text" class="form-control"  >	
-                                </div>
-                        </div>	
-                    </div>
-						 			
-						 			
-						 		</div>
-						 	</div>
-						 </div>
-
-						 {{-- HISTORIAL OCULAR --}}
-						  <div class="tab-pane" id="ocular">
+				{{ csrf_field() }}
+				<input type="hidden" name="_method" value="PUT">
+			@else
+				{{-- false expr --}}
+			<form role="form" method="POST" action="{{ route('pacientes.historialocular.store',['paciente'=>$paciente]) }}">
+				{{ csrf_field() }}
+			@endif
 						  	<div class="panel-default">
 						  		<div class="panel-heading"><h5>Historial Ocular:</h5></div>
 
-
+						  		<input type="hidden" name="paciente_id" value="{{$paciente->id}}">
 						  		<div class="panel-body">
-
-						  			<div class="col-xs-4 col-xs-offset-10">
-
-										<button id="submit" type="submit" class="btn btn-success">
-									<strong>Agregar</strong>	</button>
-
-									<button id="submit" type="submit" class="btn btn-warning">
-									<strong>Limpiar</strong>	</button>
-
-										<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
-									<strong>Modificar</strong>	</a>
-								</div>
 
 									<div class="form-group col-xs-4">
 										<div style="
@@ -368,7 +146,7 @@
 									<div class="col-xs-offset-1 form-group col-xs-4">
 
 										<label class="control-label" for="fecha_act">Fecha de Último Exámen:</label>
-										<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
+										<input type="date" class="form-control" id="fecha_act"  value="{{ date('Y-m-d') }}" readonly>
 
 										
 										<br><br>
@@ -377,13 +155,13 @@
 								<div class="row">
 									<div class="col-xs-offset-1 form-group col-sm-4">
 										 <label>
-						 	      	<input id="cirugias" type="checkbox" data-toggle="toggle" data-on="yes" data-off="No" data-style="ios" name="cirugias" >
+						 	      	<input id="cirugias" type="checkbox" data-toggle="toggle" data-on="SI" data-off="NO" data-style="ios" name="cirugias" >
                                 Cirugías en los Ojos:
                                  </label>
 									</div>
 									<div class="col-xs-offset-1 form-group col-sm-4">
 										 <label>
-						 	      	<input id="padecimientos" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="padecimientos" >
+						 	      	<input id="padecimientos" type="checkbox" data-toggle="toggle" data-on="SI" data-off="NO" data-style="ios" name="padecimientos" >
                                Padecimientos Oculares:
                                  </label>
 									</div>
@@ -391,20 +169,20 @@
 									
                         <div class="row">
 									<div class="form-group col-xs-6">
-										 <div class="jumbotron"  id="cirug" style="display: none;">
+										 <div class="jumbotron"  id="cirug" style="display: none;padding: 10px;">
 										 		<div class="row">
-									<div class="form-group col-xs-6">
+									<div class="form-group col-xs-5">
 									<label class="control-label">¿Cuál?</label>
 									<input class="form-control" type="text" name="cirug_1">
 									</div>
 
-									<div class="form-group col-xs-6">
+									<div class="form-group col-xs-5">
 									<label class="control-label">¿Hace Cuánto?</label>
 									<input class="form-control" type="text" name="cirug_2">
 									</div>
 												</div>
 												<div class="row">
-									<div class="form-group col-xs-6">
+									<div class="form-group col-xs-5">
 									<label class="control-label">¿Tiene Tratamiento Actualmente?</label>
 									<input class="form-control" type="text" name="cirug_3">
 									</div>
@@ -413,7 +191,7 @@
 							</div>
 
 							<div class=" form-group col-xs-6">
-								<div class="jumbotron"  id="padec" style="display: none">
+								<div class="jumbotron"  id="padec" style="display: none;padding: 10px;">
 									<div class="row">
                     					<div class="col-sm-4">
                     						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" name="padecimientos_array[0]" value="Catarata">Catarata</label>
@@ -440,10 +218,10 @@
                     						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" name="padecimientos_array[5]" id="padec_otra" value="Otra">Otra</label>
                     					</div>
                     				</div><br>
-                    				<div class="row" id="padec_text" style="display: none">
+                    				<div class="row" id="padec_text" style="display: none;">
                     					<div class="col-sm-6">
                     					<label class="control-label">Especifíque:</label>
-									<input class="form-control" type="text" name="padec_text" >
+									    <input class="form-control" type="text" name="padec_text">
 										</div>
                     				</div>
 												
@@ -800,7 +578,7 @@
             <span class="badge badge-secondary">Plana</span>
                 <select class="form-control" name="queratom_od_plana">
 					<?php for($i=32;$i<=55;$i+=0.25){
-				echo"<option value='".$i."'>".$i."</option>";
+				echo"<option value='+".$i."'>+".$i."</option>";
 						}?>
 				</select>
 		</div>
@@ -808,7 +586,7 @@
             <span class="badge badge-secondary">Curva</span>
                 <select class="form-control" name="queratom_od_curva">
 				<?php for($i=32;$i<=55;$i+=0.25){
-				echo"<option value='".$i."'>".$i."</option>";
+				echo"<option value='+".$i."'>+".$i."</option>";
 						}?>
 				</select>
 		</div>
@@ -829,7 +607,7 @@
             <span class="badge badge-secondary">Plana</span>
                 <select class="form-control" name="queratom_oi_plana">
 					<?php for($i=32;$i<=55;$i+=0.25){
-				echo"<option value='".$i."'>".$i."</option>";
+				echo"<option value='+".$i."'>+".$i."</option>";
 						}?>
 				</select>
 		</div>
@@ -837,7 +615,7 @@
             <span class="badge badge-secondary">Curva</span>
                 <select class="form-control" name="queratom_oi_curva">
 					<?php for($i=32;$i<=55;$i+=0.25){
-				echo"<option value='".$i."'>".$i." </option>";
+				echo"<option value='+".$i."'>+".$i." </option>";
 						}?>
 				</select>
 		</div>
@@ -1421,477 +1199,31 @@
                     						<input type="checkbox" class="squaredTwo" name="opciones[2]" checked value="Guardar">
                     						<label class="col-xs-6 label-text"> Guardar</label>
                     					</div>
-                    					<div class="col-sm-3">
-                    						<button class="btn btn-primary"><strong>ACEPTAR</strong></button>
-                    					</div>
-                    				</div><br>
-	</div><br><br>
-
-										
-   
-   </div>
+       <div class="col-sm-3">
+          <button id="submit" type="submit" class="btn btn-primary">
+									<strong>Agregar</strong>	</button>
+           </form>
+      </div><br>
+	 </div><br><br>
+    </div>
   </div>
+
  </div>
+ 
+</div>
+
+</div>
+</div>
 </div>
 
 {{-- HISTORIAL OCULAR --}}
-
-
-
-
-
-
-
-
-						 {{-- CITAS --}}
-
-						 <div class="tab-pane" id="cita">
-						 	<div class="panel-default"  >
-							<div class="panel-heading"><h5>Citas&nbsp;&nbsp;&nbsp;&nbsp;</h5>{{--  <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos --}}</div>
-							<div class="panel-body" >
-									<form role="form" 
-									      method="POST" 
-									      action="">
-										{{ csrf_field() }}
-										<input type="hidden" name="provedor_id" value="">
-										<div class="col-xs-4 col-xs-offset-10">
-											
-											<button id="submit" type="submit" class="btn btn-success">
-										<strong>Agregar</strong>	</button>
-											<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
-										<strong>Modificar</strong>	</a>
-											
-
-										</div>
-
-
-									<div class="col-md-12 offset-md-2 mt-3">
-										<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-											<label class="control-label" for="fecha_act">Fecha Pròxima Cita:</label>
-											<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="" >
-										</div>
-
-									
-
-										<div class="form-group col-lg-2 col-md-2 col-sm-4 col-xs-8">
-											<label class="control-label" for="tipo_cont">Hora:</label>
-											<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" >
-												<?php
-												for($i=0;$i<24;$i++){
-
-													if($i<=11){
-
-									echo"<option id='' value='".$i.":00 am'>".$i.":00 am </option>";
-
-													}else{
-									echo"<option id='' value='".$i.":00 pm'>".$i.":00 pm </option>";
-													}										
-
-
-												}
-												?>
-												
-												
-											</select>
-										</div>
-
-										<div class="form-group col-lg-2 col-md-2 col-sm-4 col-xs-8">
-											<label class="control-label" for="tipo_cont">Minutos:</label>
-											<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" >
-												<?php
-												for($i=0;$i<=60;$i+=15){
-							echo"<option id='' value='".$i." mins'>".$i." mins </option>";
-											}?>
-												
-												
-											</select>
-										</div>
-
-
-										<div class="form-group col-lg-4 col-md-2 col-sm-4 col-xs-8">
-											<label class="control-label" for="tipo_cont">Sucursal:</label>
-											<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" >
-												
-												<option id="" value="" selected="selected">Sucursal 1</option>
-												<option id="" value="">Sucursal 2</option>
-												<option id="" value="">Sucursal 3</option>
-												<option id="" value="">Sucursal 4</option>
-											</select>
-										</div>
-										
-									</div>
-									<div class="col-md-12 offset-md-2 mt-3">
-										
-
-										<!-- <div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
-											<label class="control-label" for="comentarios">Comentarios/Observaciones: </label>
-											<textarea class="form-control" rows="5" id="comentarios" name="comentarios" maxlength="500"></textarea>
-										</div> -->
-
-										
-										
-									</div>
-										
-									
-								</div>
-								<div class="panel-body">
-									<div class="col-md-6 offset-md-1 mt-1">
-										<div style="
-										height: 450px;
-										overflow: scroll;">
-											<table class="table table-striped table-bordered table-hover" 
-										       style="color:rgb(51,51,51); 
-										              border-collapse: collapse;
-										              margin-bottom: 0px;
-										              overflow: scroll;"
-										       >
-											<thead>
-												<tr class="info">
-													<th>Hora</th>
-													<th>Estado</th>
-													<th>No. de Citas</th>
-													
-													
-												</tr>
-											</thead>
-											<tbody >
-											
-												<tr onclick='' 
-												title='Has Click Aquì para ver o Modificar'
-												style='cursor: pointer'>
-													<td>12:45 pm</td>
-													<td>Ocupado</td>
-													<td>3</td>
-													
-													
-												</tr>
-
-												<?php
-													for ($i=0; $i <45 ; $i++) { 
-														echo"<tr onclick='' 
-												title='Has Click Aquì para ver o Modificar'
-												style='cursor: pointer'>
-													<td>1:00 pm</td>
-													<td>Libre</td>
-													<td>0</td>
-													
-													
-												</tr>";
-													}
-												?>
-											</tbody>
-										</table>
-										</div>
-										
-										
-								</div>
-							  </div>
-							</div>
-						</div>
-
-						{{-- CITAS --}}
-
-				{{-- CRM --}}
-				<div class="tab-pane" id="crm">
-					<div class="panel-default">
-						<div class="panel-heading"><h5>C.R.M.&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5>
-						</div>
-						<div class="panel-body">
-							<form role="form" method="POST">
-						{{ csrf_field() }}
-						<input type="hidden" name="personal_id" >
-						<div class="col-xs-4 col-xs-offset-10">
-							<a class="btn btn-warning" id="limpiar" onclick="limpiar()">
-							<strong>Limpiar</strong>
-						</a>
-							<button id="submit" type="submit" class="btn btn-success">
-							<strong>Guardar</strong>
-						</button>
-							<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
-							<strong>Modificar</strong>
-						</a>
-							
-
-						</div>
-					<div class="col-md-12 offset-md-2 mt-3">
-						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="fecha_act">Fecha Actual:</label>
-							<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
-						</div>
-						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="fecha_cont"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha siguiente contacto:</label>
-							<input type="date" class="form-control" id="fecha_cont" name="fecha_cont" required="required" value="">
-						</div>
-						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="fecha_aviso"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha Aviso:</label>
-							<input type="date" class="form-control" id="fecha_aviso" name="fecha_aviso" required="required" value="">
-						</div>
-						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="hora">Hora:</label>
-							<input type="time" class="form-control" id="hora" name="hora" name="hora" value="">
-						</div>
-						<div class="form-group col-lg-6 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="tipo_cont">Forma de contacto:</label>
-							<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" >
-								<option id="Mail" value="Mail">Email/Correo Electronico</option>
-								<option id="Telefono" value="Telefono">Telefono</option>
-								<option id="Cita" value="Cita">Cita</option>
-								<option id="Whatsapp" value="Whatsapp">Whatsapp</option>
-								<option id="Otro" value="Otro" selected="selected">Otro</option>
-							</select>
-						</div>
-						<div class="form-group col-lg-6 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="status">Estado:</label>
-							<select class="form-control" type="select" name="status" id="status" >
-								<option id="Pendiente" value="Pendiente">Pendiente</option>
-								<option id="Cotizando" value="Cotizando">En Cotización</option>
-								<option id="Cancelado" value="Cancelado">Cancelado</option>
-								<option id="Toma_decision" value="Toma_decision">Tomando decisión</option>
-								<option id="Espera" value="Espera">En espera</option>
-								<option id="Revisa_doc" value="Revisa_doc">Revisando documento</option>
-								<option id="Proceso_aceptar" value="Proceso_aceptar">Proceso de Aceptación</option>
-								<option id="Entrega" value="Entrega">Para entrega</option>
-								<option id="Otro" value="Otro" selected="selected">Otro</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-12 offset-md-2 mt-3">
-						<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="acuerdos">Acuerdos: </label>
-							<textarea class="form-control" rows="5" id="acuerdos" name="acuerdos" maxlength="500"></textarea>
-						</div>
-
-						<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="comentarios">Comentarios: </label>
-							<textarea class="form-control" rows="5" id="comentarios" name="comentarios" maxlength="500"></textarea>
-						</div>
-
-						<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="observaciones">Observaciones: </label>
-							<textarea class="form-control" rows="5" id="observaciones" name="observaciones" maxlength="500"></textarea>
-						</div>
-						
-					</div>
-						
-							
-						</div>
-					</div>
-				</div>
-				{{-- CRM --}}
-					</div>
-						
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-								{{-- Modal --}} 
-								<div class="modal fade" id="formularioTutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
-								  <div class="modal-dialog" role="document">
-								    <div class="modal-content">
-								      <div class="modal-header">
-								        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Tutor</h5>
-								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-								        </button>
-								      </div>
-								      <div class="modal-body">
-								        <div class="panel-default">
-								        	<div class="panel-heading"><h5>Tutor:</h5></div>
-								        	<div class="panel-body">
-								        		<div class="form-group col-xs-4">
-													<label class="control-label">Nombre:</label>
-													<input class="form-control" type="text">
-												</div>
-												<div class="form-group col-xs-4">
-													<label class="control-label">Apellido Paterno:</label>
-													<input class="form-control" type="text">
-												</div>
-												<div class="form-group col-xs-4">
-													<label class="control-label">Apellido Materno:</label>
-													<input class="form-control" type="text">
-												</div>
-												<div class="form-group col-xs-4">
-													<label class="control-label">Edad:</label>
-													<input class="form-control" type="text">
-												</div>
-												<div class="form-group col-xs-4">
-													<label class="control-label">Fecha de nacimiento:</label>
-													<input class="form-control" type="date">
-												</div>
-												<div class="form-group col-xs-4">
-													<label class="control-label">Sexo:</label>
-													<select class="form-control">
-														<option>Masculino</option>
-														<option>Femenino</option>
-														<option>Otro</option>
-													</select>
-												</div>
-												<div class="col-xs-offset-4 form-group col-xs-4">
-													<label class="control-label">Relación con el paciente:</label>
-													<select class="form-control">
-														<option>Padre</option>
-														<option>Madre</option>
-														<option>Tio/Tia</option>
-														<option>Abuelo/Abuela</option>
-														<option>Hermano/Hermana</option>
-														<option>Primos</option>
-														<option>Otros</option>
-													</select>
-												</div>
-								        	</div>
-								        </div>
-								      </div>
-								      <div class="modal-footer">
-								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-								        <button type="button" class="btn btn-primary">Agregar</button>
-								      </div>
-								    </div>
-								  </div>
-								</div>
-								{{-- Modal --}} 
 
 <script type="text/javascript">
 
 $(document).ready(function(){
 
-	$("#nombre").keyup(function(){
-
-		
-      var nombre=$("#nombre").val();
-      var prim=nombre.substring(0,1);
-      var appaterno=$("#appaterno").val();
-      var seg=appaterno.substring(0,1);
-      var apmaterno=$("#apmaterno").val();
-      var ter=apmaterno.substring(0,1);
-      var año1=$("#fechanacimiento").val();
-      var id=prim+seg+ter+año1;
-      var bid=id.toUpperCase(id);
-       $("#identificador").val(bid);
-	});
-
-	$("#appaterno").keyup(function(){
-
-		
-      var nombre=$("#nombre").val();
-      var prim=nombre.substring(0,1);
-      var appaterno=$("#appaterno").val();
-      var seg=appaterno.substring(0,1);
-      var apmaterno=$("#apmaterno").val();
-      var ter=apmaterno.substring(0,1);
-      var año1=$("#fechanacimiento").val();
-      var id=prim+seg+ter+año1;
-      var bid=id.toUpperCase(id);
-       $("#identificador").val(bid);
-	});
-
-		$("#apmaterno").keyup(function(){
-
-		
-      var nombre=$("#nombre").val();
-      var prim=nombre.substring(0,1);
-      var appaterno=$("#appaterno").val();
-      var seg=appaterno.substring(0,1);
-      var apmaterno=$("#apmaterno").val();
-      var ter=apmaterno.substring(0,1);
-      var año1=$("#fechanacimiento").val();
-      var id=prim+seg+ter+año1;
-      var bid=id.toUpperCase(id);
-       $("#identificador").val(bid);
-	});
-
-
 	
-
-    $("#fechanacimiento").change(function(){
-
-        var año1=$("#fechanacimiento").val();
-        var año2= Date();
-        var nacimiento=año1.substring(0,4);
-        var actual=año2.substring(11,15);
-        var edad=actual-nacimiento;
-       $("#edad").val(edad);
-
-      var nombre=$("#nombre").val();
-      var prim=nombre.substring(0,1);
-      var appaterno=$("#appaterno").val();
-      var seg=appaterno.substring(0,1);
-      var apmaterno=$("#apmaterno").val();
-      var ter=apmaterno.substring(0,1);
-      var id=prim+seg+ter+año1;
-      var bid=id.toUpperCase(id);
-       $("#identificador").val(bid);
-    });
-
-
-     $("#chkalerg").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('alergias1').style.display = 'block';
-       document.getElementById('alergias2').style.display = 'block';
-       }else{
-       	document.getElementById('alergias1').style.display = 'none';
-       document.getElementById('alergias2').style.display = 'none';
-       }
-    });
-
-
-     $("#cronica").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('enfermedades').style.display = 'block';
-       
-       }else{
-       	document.getElementById('enfermedades').style.display = 'none';
-       
-       }
-    });
-
-
-
-     $("#otra").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('especifique').style.display = 'block';
-       
-       }else{
-       	document.getElementById('especifique').style.display = 'none';
-       
-       }
-    });
-
-
-        $("#control").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('trat').style.display = 'block';
-       
-       }else{
-       	document.getElementById('trat').style.display = 'none';
-       
-       }
-    });
-
-
-        $("#embarazo").change(function(){
-
-       
-       if($(this).prop('checked') == true){
-       	document.getElementById('emb_tiempo').style.display = 'block';
-       
-       }else{
-       	document.getElementById('emb_tiempo').style.display = 'none';
-       
-       }
-    });
-
-         $("#cirugias").change(function(){
+ $("#cirugias").change(function(){
 
        
        if($(this).prop('checked') == true){
@@ -2065,17 +1397,6 @@ $("#tipo_antirreflejante").change(function(){
 
 });
 	
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 @endsection

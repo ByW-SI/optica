@@ -35,7 +35,7 @@ class PacienteHistorialMedico extends Model
 
     public function paciente(){
 
-        return $this->belongsTo('App\PacientesDatosGenerales','paciente_id');
+        return $this->belongsTo('App\Paciente','paciente_id');
 
     }
 }

@@ -65,6 +65,7 @@
 		{{-- PESTAÑAS --}}
 				
 						<ul class="nav nav-pills nav-justified" >
+
 							<li  role="presentation" class="active"><a data-toggle="tab" href="#generales" >Generales:</a></li>
 
 							<li role="presentation"><a data-toggle="tab" href="#hmedico">Historial Medico:</a></li> 
@@ -266,22 +267,39 @@
 
 						</div>
 						{{-- TABLA HISTORIAL --}}
-					<div class="panel-body">
-						 		
-					</div>
+					
 
 						 		
 
-
-                  
-
-
-						
-						 			@endif
+									@endif
 						 		</div>
 						 	</div>
-						 </div>
+						 
 					{{-- HISTORIAL MEDICO --}}
+
+					{{--  HISTORIAL OCULAR --}}
+					<div class="tab-pane fade" id="ocular">
+					 <div class="panel-default">
+					 	<div class="panel-heading"><h4><strong>Historial Ocular:</strong></h4></div>
+					 	 @if(count($paciente->ocular)==0)
+						    <div class="panel-body">
+						      <div class="row">
+						      	<div class="col-sm-9">
+						      		<h2><strong>Aun no se ha agregado Historial Ocular:</strong></h2>
+						      	</div>
+						      	<div class="col-sm-3">
+						      		<br>
+						      		<a  class="btn btn-primary" href="{{ route('pacientes.historialocular.create',['paciente'=>$paciente]) }}">
+									<strong>Agregar</strong>	</a>
+						      	</div>
+						      </div><br>
+						    </div>
+						  @else
+						  <h2><strong>Ya existe Historial Ocular:</strong></h2>
+						  @endif
+					 </div>	
+					</div>
+					{{--  HISTORIAL OCULAR --}}
 				</div>
 					{{-- TAB-CONTENT --}}
 	</div>

@@ -11,7 +11,7 @@ class PacienteOcular extends Model
 {
     use Sortable, SoftDeletes;
 
-    protected $table = 'paciente_historial_medicos';
+    protected $table = 'paciente_oculars';
     protected $fillable=[
       	              'paciente_id',
       	              'cirugias',

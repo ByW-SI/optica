@@ -29,7 +29,7 @@ class CreatePacienteOcularsTable extends Migration
             $table->enum('problema_visual', ['LEJOS', 'CERCA','AMBAS']);
             $table->enum('usuario_lentes', ['SI', 'NO','OCASIONALMENTE']);
             $table->integer('edad_lentes')->nullable();
-            $table->enum('molestia_luz' ['SI', 'NO','REGULAR']);
+            $table->enum('molestia_luz', ['SI', 'NO','REGULAR']);
             $table->enum('usuario_computadora', ['SI', 'NO']);
             //---------------------------------------------
             $table->string('antecedente_array')->nullable();
@@ -77,10 +77,10 @@ class CreatePacienteOcularsTable extends Migration
             $table->string('nombre_archivo')->nullable();
             $table->string('url_archivo')->nullable();
             //-----------------------------------------------
-            $table->text('anexos');
+            $table->text('anexos')->nullable();
             //-----------------------------------------------
             $table->date('fecha_tono')->nullable();
-            $table->dateTime('hora_tono')->nullable();
+            $table->string('hora_tono')->nullable();
             $table->string('tonometria_od');
             $table->string('tonometria_oi');
             //-----------------------------------------------
@@ -95,9 +95,9 @@ class CreatePacienteOcularsTable extends Migration
             $table->string('av_od');
             $table->string('av_oi');
             //------------------------------------------------
-            $table->string('refractivo');
-            $table->string('patologico');
-            $table->string('binocularidad');
+            $table->string('refractivo')->nullable();
+            $table->string('patologico')->nullable();
+            $table->string('binocularidad')->nullable();
             $table->string('optometrista');
             //------------------------------------------------
             $table->enum('tipo_anteojo', ['ARMAZÓN', 'LENTES DE CONTACTO','AMBOS'])->nullable();

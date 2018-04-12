@@ -56,15 +56,15 @@
 			<li role="presentation"><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}"  class="ui-tabs-anchor">Generales:</a></li> 
 			
 
-			<li role="presentation" class="active"><a href="" class="ui-tabs-anchor">Historial Médico:</a></li>
+			<li role="presentation" class="active"><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">Historial Médico:</a></li>
 
-			<li role="presentation" class=""><a href="" class="ui-tabs-anchor">Historial Ocular:</a></li>
+			<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">Historial Ocular:</a></li>
 
-			<li role="presentation" class=""><a href="" class="ui-tabs-anchor">Ortopédico:</a></li>
+			<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">Ortopédico:</a></li>
 
-			<li role="presentation" class=""><a href="" class="ui-tabs-anchor">Citas:</a></li>
+			<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">Citas:</a></li>
 
-			<li role="presentation" class=""><a href="" class="ui-tabs-anchor">C.R.M:</a></li>
+			<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">C.R.M:</a></li>
 		</ul>
 	</div>
 {{-- PESTAÑAS --}}

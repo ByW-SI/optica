@@ -219,7 +219,7 @@
 						      </div><br>
 						    </div>
 						  @else
-						  {{-- TABLA HISTORIAL --}}
+						  {{-- TABLA HISTORIAL MÉDICO --}}
 						<div class="panel-body">
 
 							<div class="col-sm-12 offset-md-12" align="center">
@@ -266,7 +266,7 @@
 							</table>
 
 						</div>
-						{{-- TABLA HISTORIAL --}}
+						{{-- TABLA HISTORIAL MÉDICO --}}
 					
 
 						 		
@@ -295,7 +295,45 @@
 						      </div><br>
 						    </div>
 						  @else
-						  <h2><strong>Ya existe Historial Ocular:</strong></h2>
+						   {{-- TABLA HISTORIAL OCULAR --}}
+						<div class="panel-body">
+
+							<div class="col-sm-12 offset-md-12" align="center">
+
+						      		<br>
+						      		<a  class="btn btn-primary" href="{{ route('pacientes.historialocular.create',['paciente'=>$paciente]) }}">
+									<strong>Agregar</strong>	</a>
+						      	</div>
+							<br>
+
+							<br><br>
+
+							<br>
+	<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
+		<thead>
+		<tr class="info">
+			<th>Fecha de la Cita</th>
+			<th>Ciruigías/Padecimientos</th>
+			<th>Problemas Visuales</th>
+			<th>Revisión Visual/Pantalleo/Queratometría</th>
+			<th>VisiónEstereoscópica/Oftalmoscopía</th>
+			
+		</thead>
+		<tbody>
+			@foreach($paciente->ocular as $ocular)
+			<tr class="active">
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}1">{{$ocular->created_at}}<br><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}2"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}3"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}4"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}4"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
+			</tr>
+											@endforeach
+		</tbody>
+	</table>
+
+						</div>
+						{{-- TABLA HISTORIAL OCULAR --}}
 						  @endif
 					 </div>	
 					</div>
@@ -376,7 +414,7 @@
 						 
 						 	@foreach($paciente->medico as $medico)
 								{{-- Modal Historial Médico--}} 
-								<div class="modal fade" id="medico_modal{{$medico->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								<div class="modal fade" draggable="true" id="medico_modal{{$medico->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
 								      <div class="modal-header">
@@ -434,8 +472,142 @@
 								    </div>
 								  </div>
 								</div>
-								{{-- Modal Historial Médico --}} 
+
+
+								{{-- Modal Historial Ocular --}} 
 								@endforeach
+
+
+
+								@foreach($paciente->ocular as $ocular)
+								{{-- Modal Historial Ocular 1 --}} 
+								<div class="modal fade" draggable="true" id="ocular_modal{{$ocular->id}}1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Fecha de Cita</strong>&nbsp;&nbsp;&nbsp;&nbsp;{{$ocular->created_at}} </h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								        <div class="panel-default">
+								          <div class="panel-body">
+								        	<div class="row">
+								        	 
+								        	  <!-- 	@if($ocular->alergia=='SI')
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Alergia:</label>
+												<dd>{{$ocular->cual_alergia}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	  	@if($ocular->tratamiento_alergia!=null)
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Tratamiento a Alergia:</label>
+												<dd>{{$ocular->tratamiento_alergia}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	  		@if($paciente->sexo=='Femenino' && $ocular->embarazo=='SI')
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Embarazo/Tiempo:</label>
+												<dd>{{$ocular->tiempo_embarazo}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	</div><br>
+								        	<div class="row">
+								        		@if($ocular->enfermedad=='SI')
+								        	  <div class="col-sm-6">
+								        	  	<label class="control-label" for="apmaterno">Enfermedades Crónicas:</label>
+												<dd>{{$ocular->enfermedades_array}},{{$ocular->enfermedad_cronica}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	  	@if($ocular->tratamiento=='SI')
+								        	  <div class="col-sm-4">
+								        	  	<label class="control-label" for="apmaterno">Tratamiento Enfermedad Crónica:</label>
+												<dd>{{$ocular->tratamiento_actual}}</dd>
+								        	  </div>
+								        	  	@endif -->
+								        	  
+								        	</div>
+										  </div>
+								        </div>
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+								        <button type="button" class="btn btn-primary">Agregar</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+								{{-- Modal Historial Ocular 1 --}} 
+
+								{{-- Modal Historial Ocular 2 --}} 
+								<div class="modal fade" id="ocular_modal{{$ocular->id}}2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Cirugías/Padecimientos</strong>&nbsp;&nbsp;&nbsp;&nbsp;{{$ocular->cirugias}} </h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								        <div class="panel-default">
+								          <div class="panel-body">
+								        	<div class="row">
+								        	 
+								        	  <!-- 	@if($ocular->alergia=='SI')
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Alergia:</label>
+												<dd>{{$ocular->cual_alergia}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	  	@if($ocular->tratamiento_alergia!=null)
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Tratamiento a Alergia:</label>
+												<dd>{{$ocular->tratamiento_alergia}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	  		@if($paciente->sexo=='Femenino' && $ocular->embarazo=='SI')
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Embarazo/Tiempo:</label>
+												<dd>{{$ocular->tiempo_embarazo}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	</div><br>
+								        	<div class="row">
+								        		@if($ocular->enfermedad=='SI')
+								        	  <div class="col-sm-6">
+								        	  	<label class="control-label" for="apmaterno">Enfermedades Crónicas:</label>
+												<dd>{{$ocular->enfermedades_array}},{{$ocular->enfermedad_cronica}}</dd>
+								        	  </div>
+								        	  	@endif
+								        	  	@if($ocular->tratamiento=='SI')
+								        	  <div class="col-sm-4">
+								        	  	<label class="control-label" for="apmaterno">Tratamiento Enfermedad Crónica:</label>
+												<dd>{{$ocular->tratamiento_actual}}</dd>
+								        	  </div>
+								        	  	@endif -->
+								        	  
+								        	</div>
+										  </div>
+								        </div>
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+								        <button type="button" class="btn btn-primary">Agregar</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+
+								{{-- Modal Historial Ocular 2 --}}
+								@endforeach
+								<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+								<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+								<script>
+									$(".modal").draggable({handle: ".modal-header"});
+								</script>
 
 
 @endsection

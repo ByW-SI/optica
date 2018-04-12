@@ -155,13 +155,15 @@
 								<div class="row">
 									<div class="col-xs-offset-1 form-group col-sm-4">
 										 <label>
-						 	      	<input id="cirugias" type="checkbox" data-toggle="toggle" data-on="SI" data-off="NO" data-style="ios" name="cirugias" >
+									<input type="hidden" name="cirugias" value="NO">	 	
+						 	      	<input id="cirugias" type="checkbox" data-toggle="toggle" data-on="SI" data-off="NO"  name="cirugias" value="SI">
                                 Cirugías en los Ojos:
                                  </label>
 									</div>
 									<div class="col-xs-offset-1 form-group col-sm-4">
 										 <label>
-						 	      	<input id="padecimientos" type="checkbox" data-toggle="toggle" data-on="SI" data-off="NO" data-style="ios" name="padecimientos" >
+									<input type="hidden" name="padecimientos" value="NO">
+						 	      	<input id="padecimientos" type="checkbox" data-toggle="toggle" data-on="SI" data-off="NO"  name="padecimientos" value="SI">
                                Padecimientos Oculares:
                                  </label>
 									</div>
@@ -241,10 +243,10 @@
 		<div class="row">
 			<div class="col-sm-2">
 			<label class="control-label">Problema Visual</label>
-			</div>
+		    </div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">LEJOS</span>
-				<input type="radio" class="option-input radio" name="problema_visual" value="LEJOS">
+				<input type="radio" class="option-input radio" name="problema_visual" value="LEJOS" required>
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">CERCA</span>
@@ -262,7 +264,7 @@
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">SI</span>
-				<input type="radio" class="option-input radio" name="usuario_lentes" value="SI">
+				<input type="radio" class="option-input radio" name="usuario_lentes" value="SI" required>
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">NO</span>
@@ -295,7 +297,7 @@
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">SI</span>
-				<input type="radio" class="option-input radio" name="molestia_luz" value="SI">
+				<input type="radio" class="option-input radio" name="molestia_luz" value="SI" required>
 
 
 			</div>
@@ -316,7 +318,7 @@
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">SI</span>
-				<input type="radio" class="option-input radio" name="usuario_computadora" value="SI">
+				<input type="radio" class="option-input radio" name="usuario_computadora" value="SI" required>
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">NO</span>
@@ -339,6 +341,7 @@
 	</div>
 
  	<div class="jumbotron"  id="antecedentes" >
+ 		                                    <input type="hidden" name="antecedentes_array[0]" value="Ninguno">
 									<div class="row">
                     					<div class="col-sm-4">
                     						<input type="checkbox" class="squaredTwo" name="antecedentes_array[0]" value="Usuarios de Lentes">
@@ -369,7 +372,7 @@
                     				<div class="row" id="ante_text" style="display: none">
                     					<div class="col-sm-6">
                     					<label class="control-label">Especifíque:</label>
-									<input class="form-control" type="text" name="padecimiento_text" >
+									<input class="form-control" type="text" name="antecedente_text" >
 										</div>
                     				</div>
 												
@@ -519,21 +522,21 @@
 		<div class="col-sm-4">
             <span class="badge badge-secondary">Lejos</span>
                 <select class="form-control" name="unilateral_lejos">
-					<option value='Orto'>Orto</option>
-					<option value='Endo'>Endo</option>
-					<option value='Exo'>Exo</option>
-					<option value='Hiper'>Hiper</option>
-					<option value='Hipo'>Hipo</option>
+					<option value='ORTO'>ORTO</option>
+					<option value='ENDO'>ENDO</option>
+					<option value='EXO'>EXO</option>
+					<option value='HIPER'>HIPER</option>
+					<option value='HIPO'>HIPO</option>
 				</select>
 		</div>
 		<div class="col-sm-4">
             <span class="badge badge-secondary">Cerca</span>
                 <select class="form-control" name="unilateral_cerca">
-					<option value='Orto'>Orto</option>
+					<option value='ORTO'>ORTO</option>
 					<option value='Endo'>Endo</option>
-					<option value='Exo'>Exo</option>
-					<option value='Hiper'>Hiper</option>
-					<option value='Hipo'>Hipo</option>
+					<option value='EXO'>EXO</option>
+					<option value='HIPER'>HIPER</option>
+					<option value='HIPO'>HIPO</option>
 				</select>
 		</div>
 	</div><br><br>
@@ -544,21 +547,21 @@
 		<div class="col-sm-4">
             <span class="badge badge-secondary">Lejos</span>
                 <select class="form-control" name="alternamente_lejos">
-					<option value='Orto'>Orto</option>
-					<option value='Endo'>Endo</option>
-					<option value='Exo'>Exo</option>
-					<option value='Hiper'>Hiper</option>
-					<option value='Hipo'>Hipo</option>
+					<option value='ORTO'>ORTO</option>
+					<option value='ENDO'>ENDO</option>
+					<option value='EXO'>EXO</option>
+					<option value='HIPER'>HIPER</option>
+					<option value='HIPO'>HIPO</option>
 				</select>
 		</div>
 		<div class="col-sm-4">
             <span class="badge badge-secondary">Cerca</span>
                 <select class="form-control" name="alternamente_cerca">
-					<option value='Orto'>Orto</option>
-					<option value='Endo'>Endo</option>
-					<option value='Exo'>Exo</option>
-					<option value='Hiper'>Hiper</option>
-					<option value='Hipo'>Hipo</option>
+					<option value='ORTO'>ORTO</option>
+					<option value='ENDO'>ENDO</option>
+					<option value='EXO'>EXO</option>
+					<option value='HIPER'>HIPER</option>
+					<option value='HIPO'>HIPO</option>
 				</select>
 		</div>
 	</div>
@@ -576,7 +579,7 @@
 		   </div>
 		<div class="col-sm-2">
             <span class="badge badge-secondary">Plana</span>
-                <select class="form-control" name="queratom_od_plana">
+                <select class="form-control" name="queratometria_od_plana">
 					<?php for($i=32;$i<=55;$i+=0.25){
 				echo"<option value='+".$i."'>+".$i."</option>";
 						}?>
@@ -584,7 +587,7 @@
 		</div>
 		<div class="col-sm-2">
             <span class="badge badge-secondary">Curva</span>
-                <select class="form-control" name="queratom_od_curva">
+                <select class="form-control" name="queratometria_od_curva">
 				<?php for($i=32;$i<=55;$i+=0.25){
 				echo"<option value='+".$i."'>+".$i."</option>";
 						}?>
@@ -592,7 +595,7 @@
 		</div>
 		<div class="col-sm-2">
             <span class="badge badge-secondary">Eje</span>
-                <select class="form-control" name="queratom_od_eje">
+                <select class="form-control" name="queratometria_od_eje">
 					<?php for($i=0;$i<=180;$i+=5){
 				echo"<option value='".$i."'>".$i."°</option>";
 						}?>
@@ -605,7 +608,7 @@
 		   </div>
 		<div class="col-sm-2">
             <span class="badge badge-secondary">Plana</span>
-                <select class="form-control" name="queratom_oi_plana">
+                <select class="form-control" name="queratometria_oi_plana">
 					<?php for($i=32;$i<=55;$i+=0.25){
 				echo"<option value='+".$i."'>+".$i."</option>";
 						}?>
@@ -613,7 +616,7 @@
 		</div>
 		<div class="col-sm-2">
             <span class="badge badge-secondary">Curva</span>
-                <select class="form-control" name="queratom_oi_curva">
+                <select class="form-control" name="queratometria_oi_curva">
 					<?php for($i=32;$i<=55;$i+=0.25){
 				echo"<option value='+".$i."'>+".$i." </option>";
 						}?>
@@ -621,7 +624,7 @@
 		</div>
 		<div class="col-sm-2">
             <span class="badge badge-secondary">Eje</span>
-                <select class="form-control" name="queratom_oi_eje">
+                <select class="form-control" name="queratometria_oi_eje">
 					<?php for($i=0;$i<=180;$i+=5){
 				echo"<option value='".$i."'>".$i."°</option>";
 						}?>
@@ -981,17 +984,17 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<label class="control-label">Armazón</label>
-			<input type="radio" name="armazon_radio" value="Armazón" class="option-input radio" 
+			<input type="radio" name="tipo_anteojo" value="ARMAZÓN" class="option-input radio" 
 			id="armazon_radio1">
 		</div>
 		<div class="col-sm-3">
 			<label class="control-label">Lentes de Contacto</label>
-			<input type="radio" name="armazon_radio" value="Lentes de Contacto" class="option-input radio"
+			<input type="radio" name="tipo_anteojo" value="LENTES DE CONTACTO" class="option-input radio"
 			id="armazon_radio2">
 		</div>
 		<div class="col-sm-3">
 			<label class="control-label">Ambos</label>
-			<input type="radio" name="armazon_radio" value="Ambos" class="option-input radio"
+			<input type="radio" name="tipo_anteojo" value="AMBOS" class="option-input radio"
 			id="armazon_radio3">
 		</div>
 	</div><br><br>
@@ -1093,18 +1096,18 @@
 	<div class="col-xs-12" id="tratamiento_div" style="border: solid; border-color: grey;background-color: white; padding: 10px; display: none; ">
 	    <div class="row">
             <div class="col-sm-4">
-                <input type="checkbox" class="squaredTwo" name="antirreflejante" id="antirreflejante" 
-                       >
+            	<input type="hidden" name="antirreflejante" value="NO">
+                <input type="checkbox" class="squaredTwo" name="antirreflejante" id="antirreflejante" data-on="SI" data-off="NO" value="SI">
                 <label class="col-xs-6 label-text">Antirreflejante</label>
             </div>
             <div class="col-sm-4">
-                <input type="checkbox" class="squaredTwo" name="fotocromatico" id="fotocromatico" 
-                       >
+            	<input type="hidden" name="fotocromatico" value="NO">
+                <input type="checkbox" class="squaredTwo" name="fotocromatico" id="fotocromatico" data-on="SI" data-off="NO" value="SI">
                 <label class="col-xs-6 label-text">Fotocromático</label>
             </div>
             <div class="col-sm-4">
-                <input type="checkbox" class="squaredTwo" name="polarizado" id="polarizado"
-                       >
+            	<input type="hidden" name="polarizado" value="NO">
+                <input type="checkbox" class="squaredTwo" name="polarizado" id="polarizado" data-on="SI" data-off="NO" value="SI">
                 <label class="col-xs-6 label-text">Polarizado</label>
             </div>
         </div><br><br>
@@ -1196,7 +1199,7 @@
                     						<label class="col-xs-6 label-text">Imprimir</label>
                     					</div>
                     					<div class="col-sm-3">
-                    						<input type="checkbox" class="squaredTwo" name="opciones[2]" checked value="Guardar">
+                    						<input type="checkbox" class="squaredTwo" name="opciones[2]" checked value="Guardar" required>
                     						<label class="col-xs-6 label-text"> Guardar</label>
                     					</div>
        <div class="col-sm-3">

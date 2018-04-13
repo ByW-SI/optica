@@ -71,9 +71,9 @@
 							<li role="presentation"><a data-toggle="tab" href="#hmedico">Historial Medico:</a></li> 
 
 							<li role="presentation"><a data-toggle="tab" href="#ocular">Historial Ocular:</a></li>
-							<!--<li role="presentation"><a data-toggle="tab" href="#" class="ui-tabs-anchor">Ortopedico:(En desarrollo)</a></li>
+							<li role="presentation"><a data-toggle="tab" href="#" class="ui-tabs-anchor">Ortopedico:(En desarrollo)</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#cita" class="ui-tabs-anchor">Citas:</a></li>
-							<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li> -->
+							<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li> 
 						</ul>
 		{{-- PESTAÑAS --}}
 
@@ -309,15 +309,16 @@
 							<br><br>
 
 							<br>
-	<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
+	<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px;font-size: 11px;">
 		<thead>
 		<tr class="info">
-			<th>Fecha de la Cita</th>
+			<th>Información General</th>
 			<th>Ciruigías/Padecimientos</th>
-			<th>Problemas Visuales</th>
-			<th>Revisión Visual/Pantalleo/Queratometría</th>
+			<th>Problemas Visuales/Antecedentes</th>
+			<th>Revisión Visual/Pantalleo<br>Queratometría</th>
 			<th>VisiónEstereoscópica/Oftalmoscopía</th>
-			
+			<th>Tonometría/Graduación<br>Diagnóstico</th>
+			<th>Tipo de Anteojos</th>
 		</thead>
 		<tbody>
 			@foreach($paciente->ocular as $ocular)
@@ -326,7 +327,9 @@
 				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}2"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
 				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}3"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
 				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}4"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
-				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}4"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}5"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}6"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}7"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
 			</tr>
 											@endforeach
 		</tbody>
@@ -414,10 +417,10 @@
 						 
 						 	@foreach($paciente->medico as $medico)
 								{{-- Modal Historial Médico--}} 
-								<div class="modal fade" draggable="true" id="medico_modal{{$medico->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								<div class="modal fade"  id="medico_modal{{$medico->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
-								      <div class="modal-header">
+								      <div class="modal-header jumbotron">
 								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Datos Médicos</strong>&nbsp;&nbsp;&nbsp;&nbsp;{{$medico->created_at}} </h5>
 								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
@@ -481,10 +484,10 @@
 
 								@foreach($paciente->ocular as $ocular)
 								{{-- Modal Historial Ocular 1 --}} 
-								<div class="modal fade" draggable="true" id="ocular_modal{{$ocular->id}}1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								<div class="modal fade"  id="ocular_modal{{$ocular->id}}1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
-								      <div class="modal-header">
+								      <div class="modal-header jumbotron">
 								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Fecha de Cita</strong>&nbsp;&nbsp;&nbsp;&nbsp;{{$ocular->created_at}} </h5>
 								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
@@ -494,47 +497,25 @@
 								        <div class="panel-default">
 								          <div class="panel-body">
 								        	<div class="row">
-								        	 
-								        	  <!-- 	@if($ocular->alergia=='SI')
+								        	 <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Óperaciones de Documentación:</label>
+												<dd>{{$ocular->operacion_documento}}</dd>
+								        	  </div>
+								        	   <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Optometrísta:</label>
+												<dd>{{$ocular->optometrista}}</dd>
+								        	  </div>
 								        	  <div class="col-sm-3">
-								        	  	<label class="control-label" for="apmaterno">Alergia:</label>
-												<dd>{{$ocular->cual_alergia}}</dd>
+								        	  	<label class="control-label" for="apmaterno">Tipo de Anteojos:</label>
+												<dd>{{$ocular->tipo_anteojo}}</dd>
 								        	  </div>
-								        	  	@endif
-								        	  	@if($ocular->tratamiento_alergia!=null)
-								        	  <div class="col-sm-3">
-								        	  	<label class="control-label" for="apmaterno">Tratamiento a Alergia:</label>
-												<dd>{{$ocular->tratamiento_alergia}}</dd>
-								        	  </div>
-								        	  	@endif
-								        	  		@if($paciente->sexo=='Femenino' && $ocular->embarazo=='SI')
-								        	  <div class="col-sm-3">
-								        	  	<label class="control-label" for="apmaterno">Embarazo/Tiempo:</label>
-												<dd>{{$ocular->tiempo_embarazo}}</dd>
-								        	  </div>
-								        	  	@endif
-								        	</div><br>
-								        	<div class="row">
-								        		@if($ocular->enfermedad=='SI')
-								        	  <div class="col-sm-6">
-								        	  	<label class="control-label" for="apmaterno">Enfermedades Crónicas:</label>
-												<dd>{{$ocular->enfermedades_array}},{{$ocular->enfermedad_cronica}}</dd>
-								        	  </div>
-								        	  	@endif
-								        	  	@if($ocular->tratamiento=='SI')
-								        	  <div class="col-sm-4">
-								        	  	<label class="control-label" for="apmaterno">Tratamiento Enfermedad Crónica:</label>
-												<dd>{{$ocular->tratamiento_actual}}</dd>
-								        	  </div>
-								        	  	@endif -->
-								        	  
 								        	</div>
 										  </div>
 								        </div>
 								      </div>
 								      <div class="modal-footer">
-								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-								        <button type="button" class="btn btn-primary">Agregar</button>
+								        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+								       
 								      </div>
 								    </div>
 								  </div>
@@ -545,8 +526,8 @@
 								<div class="modal fade" id="ocular_modal{{$ocular->id}}2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
-								      <div class="modal-header">
-								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Cirugías/Padecimientos</strong>&nbsp;&nbsp;&nbsp;&nbsp;{{$ocular->cirugias}} </h5>
+								      <div class="modal-header jumbotron">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Cirugías y Padecimientos</strong></h5>
 								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
 								        </button>
@@ -556,58 +537,118 @@
 								          <div class="panel-body">
 								        	<div class="row">
 								        	 
-								        	  <!-- 	@if($ocular->alergia=='SI')
-								        	  <div class="col-sm-3">
-								        	  	<label class="control-label" for="apmaterno">Alergia:</label>
-												<dd>{{$ocular->cual_alergia}}</dd>
-								        	  </div>
-								        	  	@endif
-								        	  	@if($ocular->tratamiento_alergia!=null)
-								        	  <div class="col-sm-3">
-								        	  	<label class="control-label" for="apmaterno">Tratamiento a Alergia:</label>
-												<dd>{{$ocular->tratamiento_alergia}}</dd>
-								        	  </div>
-								        	  	@endif
-								        	  		@if($paciente->sexo=='Femenino' && $ocular->embarazo=='SI')
-								        	  <div class="col-sm-3">
-								        	  	<label class="control-label" for="apmaterno">Embarazo/Tiempo:</label>
-												<dd>{{$ocular->tiempo_embarazo}}</dd>
-								        	  </div>
-								        	  	@endif
-								        	</div><br>
-								        	<div class="row">
-								        		@if($ocular->enfermedad=='SI')
+								        	  	
 								        	  <div class="col-sm-6">
-								        	  	<label class="control-label" for="apmaterno">Enfermedades Crónicas:</label>
-												<dd>{{$ocular->enfermedades_array}},{{$ocular->enfermedad_cronica}}</dd>
+								        	  	<label class="control-label" for="apmaterno">Cirugias en Ojos:</label>
+								        	  	@if($ocular->cirugias=='SI')
+												<dd><strong>Cual:</strong>{{$ocular->cirug_1}}</dd><br>
+												<dd><strong>Hace Cuanto:</strong>{{$ocular->cirug_2}}</dd><br>
+												<dd><strong>Tratamiento Actual:</strong>{{$ocular->cirug_3}}</dd>
+												 @else
+												 <dd>{{$ocular->cirugias}}</dd>
+												 @endif
 								        	  </div>
-								        	  	@endif
-								        	  	@if($ocular->tratamiento=='SI')
-								        	  <div class="col-sm-4">
-								        	  	<label class="control-label" for="apmaterno">Tratamiento Enfermedad Crónica:</label>
-												<dd>{{$ocular->tratamiento_actual}}</dd>
+
+								        	   <div class="col-sm-6">
+								        	  	<label class="control-label" for="apmaterno">Padecimientos Oculares:</label>
+								        	  	@if($ocular->padecimientos=='SI')
+												<dd><strong>Cuales:</strong>{{$ocular->padecimientos_array}}</dd>
+												@else
+												 <dd>{{$ocular->padecimientos}}</dd>
+												 @endif
 								        	  </div>
-								        	  	@endif -->
-								        	  
+								        	 
 								        	</div>
 										  </div>
 								        </div>
 								      </div>
 								      <div class="modal-footer">
-								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-								        <button type="button" class="btn btn-primary">Agregar</button>
+								        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+								        
 								      </div>
 								    </div>
 								  </div>
 								</div>
 
 								{{-- Modal Historial Ocular 2 --}}
+
+								{{-- Modal Historial Ocular 3 --}} 
+								<div class="modal fade" id="ocular_modal{{$ocular->id}}3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header jumbotron">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Problema Visual</strong></h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								        <div class="panel-default">
+								          <div class="panel-body">
+								        	<div class="row">
+								        	 <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Problema Visual:</label>
+								        	  	<dd>{{$ocular->problema_visual}}</dd><br>
+											 </div>
+											   <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Usuario de Lentes:</label>
+								        	  	<dd>{{$ocular->usuario_lentes}}</dd>
+											   </div>
+								        	   @if($ocular->usuario_lentes=='SI')
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Edad a la que inició uso de Lentes:</label>
+												<dd>{{$ocular->edad_lentes}}&nbsp;&nbsp;Años</dd>
+								        	  </div>
+								        	  	@endif
+								        	  	 <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Molestias a la luz Solar:</label>
+								        	  	<dd>{{$ocular->molestia_luz}}</dd>
+											   </div>
+											</div>
+											<div class="row">
+												<div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Usuario de Computadora:</label>
+								        	  	<dd>{{$ocular->usuario_computadora}}</dd>
+											   </div>
+											</div>
+										  </div>
+								        </div>
+								      </div>
+								      <div class="modal-header jumbotron">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Antecedentes Oculares Familiares</strong></h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+								       <div class="modal-body">
+								        <div class="panel-default">
+								          <div class="panel-body">
+								        	<div class="row">
+								        	 <div class="col-sm-6">
+								        	  	<label class="control-label" for="apmaterno">Cirugias en Ojos:</label>
+								        	  	@if($ocular->cirugias=='SI')
+												<dd><strong>Cual:</strong>{{$ocular->cirug_1}}</dd><br>
+												<dd><strong>Hace Cuanto:</strong>{{$ocular->cirug_2}}</dd><br>
+												<dd><strong>Tratamiento Actual:</strong>{{$ocular->cirug_3}}</dd>
+												 @else
+												 <dd>{{$ocular->cirugias}}</dd>
+												 @endif
+								        	  </div>
+											</div>
+										 </div>
+								        </div>
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+								        
+								      </div>
+								    </div>
+								  </div>
+								</div>
+
+								{{-- Modal Historial Ocular 3 --}}
 								@endforeach
-								<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-								<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-								<script>
-									$(".modal").draggable({handle: ".modal-header"});
-								</script>
+								
 
 
 @endsection

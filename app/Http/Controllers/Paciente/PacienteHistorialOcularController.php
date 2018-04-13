@@ -54,7 +54,10 @@ class PacienteHistorialOcularController extends Controller
         $padecimientos='';
         if($request->padecimientos_array!=null){
             foreach($request->padecimientos_array as $p){
-            $padecimientos.=$p.",";
+            if($p=='Otra'){}else{
+                $padecimientos.=$p.",";
+            }
+            
           }
         }
         

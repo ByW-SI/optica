@@ -62,7 +62,8 @@ class PacientesDatosGeneralesController extends Controller
       
        Alert::success('Datos Generales Guardados', 'Continuar');
 
-       return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);//
+       return redirect()->route('pacientes.show',
+                               ['paciente'=>$paciente->id]);//
     }
 
     /**

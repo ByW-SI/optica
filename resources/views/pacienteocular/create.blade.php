@@ -264,31 +264,28 @@
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">SI</span>
-				<input type="radio" class="option-input radio" name="usuario_lentes" value="SI" required>
+				<input type="radio" class="option-input radio" name="usuario_lentes" id="usuario_lentes1" value="SI" required>
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">NO</span>
-				<input type="radio" class="option-input radio" name="usuario_lentes" value="NO">
+				<input type="radio" class="option-input radio" name="usuario_lentes" id="usuario_lentes2" value="NO">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">OCASIONALMENTE</span>
-				<input type="radio" class="option-input radio" name="usuario_lentes" value="OCASIONALMENTE">
+				<input type="radio" class="option-input radio" name="usuario_lentes" id="usuario_lentes3" value="OCASIONALMENTE">
 			</div>
 		    
 		</div><br><br>
-		<div class="row">
+		<div class="row" id="edad_lentes" style="display: none;">
 			<div class="col-sm-3">
 			<label class="control-label">Edad a la que inició uso de Lentes</label>
 			</div>
-			<div class="form-group col-xs-2">
-										
-										<select class="form-control" name="edad_lentes">
-											<?php for($i=1;$i<71;$i++){ ?>
-											
-											<?php echo "<option value='".$i."'><h3>".$i." Años</h3></option>";} ?>
-										</select>
-									</div>
-			
+			  <div class="form-group col-xs-2">
+						<select class="form-control" name="edad_lentes">
+							<?php for($i=1;$i<71;$i++){ ?>
+							<?php echo "<option value='".$i."'><h3>".$i." Años</h3></option>";} ?>
+						</select>
+			  </div>
 		</div><br><br>
 		<div class="row">
 			
@@ -1225,6 +1222,7 @@
 
 $(document).ready(function(){
 
+
 	
  $("#cirugias").change(function(){
 
@@ -1305,11 +1303,13 @@ $(document).ready(function(){
       document.getElementById('armazon').style.display = 'block';
       document.getElementById('contacto').style.display = 'none';
      });
+
      $("#armazon_radio2").change(function(){
      document.getElementById('contacto').style.display = 'block';
       document.getElementById('armazon').style.display = 'none';
       
      });
+
     $("#armazon_radio3").change(function(){
       document.getElementById('armazon').style.display = 'block';
       document.getElementById('contacto').style.display = 'block';
@@ -1387,17 +1387,35 @@ $("#tipo_antirreflejante").change(function(){
        }
     });
 
+
  $("#tratamiento1").change(function(){
       document.getElementById('tratamiento_div').style.display = 'block';
       
      });
+
   $("#tratamiento2").change(function(){
       document.getElementById('tratamiento_div').style.display = 'none';
       
      });
 
 	
+$("input[name=usuario_lentes]").change(function(){
 
+if($("#usuario_lentes1").prop('checked')==true){
+
+	$("#edad_lentes").show();
+	$("#edad_lentes").prop('required')=true;
+
+}else{
+	$("#edad_lentes").hide();
+	$("#edad_lentes").prop('required')=false;
+}
+
+		
+	
+	
+});
+//****************************************************************************
 });
 	
 </script>

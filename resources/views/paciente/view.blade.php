@@ -188,9 +188,30 @@
 												<th>Ver/Modificar</th>
 											</tr>
 										</thead>
+										<tbody>
+										@foreach($paciente->tutores as $tutor)
+										<tr class="active">
+										<td>{{count($paciente->tutores)}}</td>
+										<td>{{$tutor->appaterno}}</td>
+										<td>{{$tutor->apmaterno}}</td>
+										<td>{{$tutor->relacion}}</td>
+										<td>{{$tutor->tel_casa}}</td>
+										<td>{{$tutor->tel_cel}}</td>
+										<td><div class="row">
+											<div class="col-sm-3">
+												<button class="btn btn-warning" data-toggle="modal" 
+												data-target="#tutor_{{$tutor->id}}"><strong>Editar</strong></button>
+											</div>
+											<div class="col-sm-3">
+												<button class="btn btn-danger"><strong>Eliminar</strong></button>
+											</div>
+										</div></td>
+										</tr>
+										@endforeach
+										</tbody>
 										
-											<tr class="active"{{--  onclick="vistarapida({{$personal->id}})" --}}>
-											</tr>
+										
+											
 									</table>
 								</div>
 								@endif
@@ -348,6 +369,8 @@
 
 
                      {{-- Modal Tutores --}} 
+                     <form role="form" method="POST" action="{{ route('pacientes.tutor.store',['paciente'=>$paciente]) }}">
+				{{ csrf_field() }}
 								<div class="modal fade" id="formularioTutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
@@ -361,56 +384,67 @@
 								        <div class="panel-default">
 								        	<div class="panel-heading"><h5>Tutor:</h5></div>
 								        	<div class="panel-body">
+
+			<input type="hidden" name="paciente_id" value="{{$paciente->id}}">
 								        		<div class="form-group col-xs-4">
 													<label class="control-label">Nombre:</label>
-													<input class="form-control" type="text">
+													<input class="form-control" type="text" name="nombre">
 												</div>
 												<div class="form-group col-xs-4">
 													<label class="control-label">Apellido Paterno:</label>
-													<input class="form-control" type="text">
+													<input class="form-control" type="text" name="appaterno">
 												</div>
 												<div class="form-group col-xs-4">
 													<label class="control-label">Apellido Materno:</label>
-													<input class="form-control" type="text">
+													<input class="form-control" type="text" name="apmaterno">
 												</div>
 												<div class="form-group col-xs-4">
 													<label class="control-label">Edad:</label>
-													<input class="form-control" type="text">
+													<input class="form-control" type="text" name="edad">
 												</div>
 												<div class="form-group col-xs-4">
 													<label class="control-label">Fecha de nacimiento:</label>
-													<input class="form-control" type="date">
+													<input class="form-control" type="date" name="fecha_nacimiento">
 												</div>
 												<div class="form-group col-xs-4">
 													<label class="control-label">Sexo:</label>
-													<select class="form-control">
-														<option>Masculino</option>
-														<option>Femenino</option>
-														<option>Otro</option>
+													<select class="form-control" name="sexo">
+														<option value="Masculino">Masculino</option>
+														<option value="Femenino">Femenino</option>
+														<option value="Otro">Otro</option>
 													</select>
 												</div>
-												<div class="col-xs-offset-4 form-group col-xs-4">
+												<div class="form-group col-xs-4">
 													<label class="control-label">Relación con el paciente:</label>
-													<select class="form-control">
-														<option>Padre</option>
-														<option>Madre</option>
-														<option>Tio/Tia</option>
-														<option>Abuelo/Abuela</option>
-														<option>Hermano/Hermana</option>
-														<option>Primos</option>
-														<option>Otros</option>
+													<select class="form-control" name="relacion" id="relacion">
+														<option value="Padre">Padre</option>
+														<option value="Madre">Madre</option>
+														<option value="Tio/Tia">Tio/Tia</option>
+														<option value="Abuelo/Abuela">Abuelo/Abuela</option>
+														<option value="Hermano/Hermana">Hermano/Hermana</option>
+														<option value="Primos">Primos</option>
+														<option value="Otros">Otros</option>
 													</select>
 												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Teléfono de Casa:</label>
+													<input class="form-control" type="text" name="tel_casa">
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Teléfono Celular:</label>
+													<input class="form-control" type="text" name="tel_cel">
+												</div>
+											
 								        	</div>
 								        </div>
 								      </div>
 								      <div class="modal-footer">
-								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-								        <button type="button" class="btn btn-primary">Agregar</button>
+								        <button type="button" class="btn btn-danger" data-dismiss="modal"><strong>Cerrar</strong></button>
+								        <button type="submit" class="btn btn-primary"><strong>Agregar</strong></button>
 								      </div>
 								    </div>
 								  </div>
-								</div>
+								</div></form>
 								{{-- Modal Tutores--}} 
 
 
@@ -469,8 +503,8 @@
 								        </div>
 								      </div>
 								      <div class="modal-footer">
-								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-								        <button type="button" class="btn btn-primary">Agregar</button>
+								        <button type="button" class="btn btn-secondary" data-dismiss="modal"><strong>Cerrar</strong></button>
+								        <button type="button" class="btn btn-primary"><strong>Agregar</strong></button>
 								      </div>
 								    </div>
 								  </div>
@@ -514,7 +548,7 @@
 								        </div>
 								      </div>
 								      <div class="modal-footer">
-								        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+								        <button type="button" class="btn btn-danger" data-dismiss="modal"><strong>Cerrar</strong></button>
 								       
 								      </div>
 								    </div>
@@ -639,7 +673,7 @@
 								        </div>
 								      </div>
 								      <div class="modal-footer">
-								        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+								        <button type="button" class="btn btn-danger" data-dismiss="modal"><strong>Cerrar</strong></button>
 								        
 								      </div>
 								    </div>
@@ -648,7 +682,89 @@
 
 								{{-- Modal Historial Ocular 3 --}}
 								@endforeach
-								
 
+							{{-- Modal Edit Tutor --}}	
+         @foreach($paciente->tutores as $tutor)
+        <form role="form" method="POST" action="{{ route('pacientes.tutor.update',['paciente'=>$paciente,'tutor'=>$tutor]) }}">
+
+				{{ csrf_field() }}
+				<input type="hidden" name="_method" value="PUT">
+				
+								<div class="modal fade" id="tutor_{{$tutor->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="exampleModalLongTitle">Editarar Tutor</h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								        <div class="panel-default">
+								        	<div class="panel-heading"><h5>Tutor:</h5></div>
+								        	<div class="panel-body">
+
+			<input type="hidden" name="id" value="{{$tutor->id}}">
+								        		<div class="form-group col-xs-4">
+													<label class="control-label">Nombre:</label>
+													<input class="form-control" type="text" name="nombre" value="{{$tutor->nombre}}">
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Apellido Paterno:</label>
+													<input class="form-control" type="text" name="appaterno" value="{{$tutor->appaterno}}">
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Apellido Materno:</label>
+													<input class="form-control" type="text" name="apmaterno" value="{{$tutor->apmaterno}}">
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Edad:</label>
+													<input class="form-control" type="text" name="edad" value="{{$tutor->edad}}">
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Fecha de nacimiento:</label>
+													<input class="form-control" type="date" name="fecha_nacimiento" value="{{$tutor->fecha_nacimiento}}">
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Sexo:</label>
+													<select class="form-control" name="sexo">
+														<option value="Masculino">Masculino</option>
+														<option value="Femenino">Femenino</option>
+														<option value="Otro">Otro</option>
+													</select>
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Relación con el paciente:</label>
+													<select class="form-control" name="relacion" id="relacion">
+														<option value="Padre">Padre</option>
+														<option value="Madre">Madre</option>
+														<option value="Tio/Tia">Tio/Tia</option>
+														<option value="Abuelo/Abuela">Abuelo/Abuela</option>
+														<option value="Hermano/Hermana">Hermano/Hermana</option>
+														<option value="Primos">Primos</option>
+														<option value="Otros">Otros</option>
+													</select>
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Teléfono de Casa:</label>
+													<input class="form-control" type="text" name="tel_casa" value="{{$tutor->tel_casa}}">
+												</div>
+												<div class="form-group col-xs-4">
+													<label class="control-label">Teléfono Celular:</label>
+													<input class="form-control" type="text" name="tel_cel" value="{{$tutor->tel_cel}}">
+												</div>
+											
+								        	</div>
+								        </div>
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-danger" data-dismiss="modal"><strong>Cerrar</strong></button>
+								        <button type="submit" class="btn btn-primary"><strong>Guardar</strong></button>
+								      </div>
+								    </div>
+								  </div>
+								</div></form>
+         @endforeach
+         					{{-- Modal Edit Tutor --}}
 
 @endsection

@@ -59,10 +59,12 @@ class PacienteController extends Controller
             Alert::success('Paciente Creado', 'Siga agregando información del Paciente');
             if($paciente->generales==null){
 
-              return redirect()->route('pacientes.datosgenerales.create',['paciente'=>$paciente]);
+              return redirect()->route('pacientes.datosgenerales.create',
+                                      ['paciente'=>$paciente]);
               
             }else{
-                    return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);
+                    return redirect()->route('pacientes.show',
+                                            ['paciente'=>$paciente->id]);
                 }
             
         }
@@ -77,7 +79,8 @@ class PacienteController extends Controller
     public function show($id)
     {
         $paciente=Paciente::where('id',$id)->first();
-       return view('paciente.view',['paciente'=>$paciente]);
+       return view('paciente.view',
+                  ['paciente'=>$paciente]);
     }
 
     /**

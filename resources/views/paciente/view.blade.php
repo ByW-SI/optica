@@ -191,7 +191,7 @@
 										<tbody>
 										@foreach($paciente->tutores as $tutor)
 										<tr class="active">
-										<td>{{count($paciente->tutores)}}</td>
+										<td>{{$tutor->nombre}}</td>
 										<td>{{$tutor->appaterno}}</td>
 										<td>{{$tutor->apmaterno}}</td>
 										<td>{{$tutor->relacion}}</td>
@@ -399,12 +399,12 @@
 													<input class="form-control" type="text" name="apmaterno">
 												</div>
 												<div class="form-group col-xs-4">
-													<label class="control-label">Edad:</label>
-													<input class="form-control" type="text" name="edad">
+													<label class="control-label">Edad:(Automático)</label>
+													<input class="form-control" type="text" name="edad" id="edad" readonly>
 												</div>
 												<div class="form-group col-xs-4">
 													<label class="control-label">Fecha de nacimiento:</label>
-													<input class="form-control" type="date" name="fecha_nacimiento">
+													<input class="form-control" type="date" name="fecha_nacimiento" id="fecha_nacimiento">
 												</div>
 												<div class="form-group col-xs-4">
 													<label class="control-label">Sexo:</label>
@@ -718,31 +718,61 @@
 													<input class="form-control" type="text" name="apmaterno" value="{{$tutor->apmaterno}}">
 												</div>
 												<div class="form-group col-xs-4">
-													<label class="control-label">Edad:</label>
-													<input class="form-control" type="text" name="edad" value="{{$tutor->edad}}">
+													<label class="control-label">Edad:(Automàtico)</label>
+													<input class="form-control" type="text" name="edad" value="{{$tutor->edad}}" readonly id="edad_2">
 												</div>
 												<div class="form-group col-xs-4">
 													<label class="control-label">Fecha de nacimiento:</label>
-													<input class="form-control" type="date" name="fecha_nacimiento" value="{{$tutor->fecha_nacimiento}}">
+													<input class="form-control" type="date" name="fecha_nacimiento" value="{{$tutor->fecha_nacimiento}}" id="fecha_2">
 												</div>
 												<div class="form-group col-xs-4">
 													<label class="control-label">Sexo:</label>
 													<select class="form-control" name="sexo">
-														<option value="Masculino">Masculino</option>
-														<option value="Femenino">Femenino</option>
-														<option value="Otro">Otro</option>
+														<option value="Masculino"
+														@if($tutor->sexo=='Masculino')
+														selected='selected'
+														@endif>Masculino</option>
+														<option value="Femenino"
+														@if($tutor->sexo=='Femenino')
+														selected='selected'
+														@endif>Femenino</option>
+														<option value="Otro"
+														@if($tutor->sexo=='Otro')
+														selected='selected'
+														@endif>Otro</option>
 													</select>
 												</div>
 												<div class="form-group col-xs-4">
 													<label class="control-label">Relación con el paciente:</label>
 													<select class="form-control" name="relacion" id="relacion">
-														<option value="Padre">Padre</option>
-														<option value="Madre">Madre</option>
-														<option value="Tio/Tia">Tio/Tia</option>
-														<option value="Abuelo/Abuela">Abuelo/Abuela</option>
-														<option value="Hermano/Hermana">Hermano/Hermana</option>
-														<option value="Primos">Primos</option>
-														<option value="Otros">Otros</option>
+														<option value="Padre"
+														@if($tutor->relacion=='Padre')
+														selected='selected'
+														@endif>Padre</option>
+														<option value="Madre"
+														@if($tutor->relacion=='Madre')
+														selected='selected'
+														@endif>Madre</option>
+														<option value="Tio/Tia"
+														@if($tutor->relacion=='Tio/Tia')
+														selected='selected'
+														@endif>Tio/Tia</option>
+														<option value="Abuelo/Abuela"
+														@if($tutor->relacion=='Abuelo/Abuela')
+														selected='selected'
+														@endif>Abuelo/Abuela</option>
+														<option value="Hermano/Hermana"
+														@if($tutor->relacion=='Hermano/Hermana')
+														selected='selected'
+														@endif>Hermano/Hermana</option>
+														<option value="Primos"
+														@if($tutor->relacion=='Primos')
+														selected='selected'
+														@endif>Primos</option>
+														<option value="Otros"
+														@if($tutor->relacion=='Otros')
+														selected='selected'
+														@endif>Otros</option>
 													</select>
 												</div>
 												<div class="form-group col-xs-4">
@@ -767,4 +797,33 @@
          @endforeach
          					{{-- Modal Edit Tutor --}}
 
+<script>
+
+$(document).ready(function(){
+
+	$("#fecha_2").change(function(){
+		
+        var año1=$("#fecha_2").val();
+        var año2= Date();
+        var nacimiento=año1.substring(0,4);
+        var actual=año2.substring(11,15);
+        var edad=actual-nacimiento;
+       $("#edad_2").val(edad);
+
+     
+    });
+
+    $("#fecha_nacimiento").change(function(){
+
+        var año1=$("#fecha_nacimiento").val();
+        var año2= Date();
+        var nacimiento=año1.substring(0,4);
+        var actual=año2.substring(11,15);
+        var edad=actual-nacimiento;
+       $("#edad").val(edad);
+
+     
+    });
+});
+</script>
 @endsection

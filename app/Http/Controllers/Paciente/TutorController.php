@@ -45,8 +45,7 @@ class TutorController extends Controller
 
 
        return redirect()->route('pacientes.show',
-                               ['paciente'=>$paciente->id,
-                                'origin'=>'gen']);
+                               ['paciente'=>$paciente->id]);
     }
 
     /**
@@ -80,7 +79,21 @@ class TutorController extends Controller
      */
     public function update(Request $request, Paciente $paciente)
     {
-        dd($paciente,$request);
+        $tutor=Tutor::where('id',$request->id)->first();
+        $tutor->nombre=$request->nombre;
+        $tutor->appaterno=$request->appaterno;
+        $tutor->apmaterno=$request->apmaterno;
+        $tutor->edad=$request->edad;
+        $tutor->fecha_nacimiento=$request->fecha_nacimiento;
+        $tutor->sexo=$request->sexo;
+        $tutor->relacion=$request->relacion;
+        $tutor->tel_casa=$request->tel_casa;
+        $tutor->tel_cel=$request->tel_cel;
+        $tutor->save();
+        Alert::success('Información Editada', 'Continuar');
+        return redirect()->route('pacientes.show',
+                               ['paciente'=>$paciente->id]);
+
     }
 
     /**

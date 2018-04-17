@@ -379,17 +379,17 @@
 
 
  <div class=" col-xs-6" align="left" style="border: solid; border-color: grey; padding: 10px;">
-
- 	<div class="col-xs-6" align="center">
-	<strong><h4>Revisión Visual</h4></strong>	
-	</div><br><br><br><br>
+<legend><strong><h3>Revisión Visual</h3></strong></legend>
+ 	<!-- <div class="col-xs-6" align="center">
+	<header><strong><h4>Revisión Visual</h4></strong></header>	
+	</div><br><br><br><br> -->
 
  	
 									<div class="row">
-										<div class="col-sm-6">
-										<label class="col-xs-8 label-text ">A.V. sin Rx. de Lejos(Snellen)</label>
-									</div>
-                    					<div class="col-sm-3">
+									  <div class="col-sm-4">
+										<label class=" label-text ">A.V. sin Rx. de Lejos(Snellen)</label>
+									  </div>
+                    				  <div class="col-sm-3">
                     						<h1><span class="badge badge-secondary">O.D.</span></h1>
                     						<select class="form-control" name="snellen_1">
 											<option value="20/400">20/400</option>
@@ -411,8 +411,7 @@
 											<option value="N.P.L">N.P.L</option>
 											<option value="Protésis">Protésis</option>
 											</select>
-                    						
-                    					</div>
+                    				  </div>
 
                     					<div class="col-sm-3">
                     						<h1><span class="badge badge-secondary">O.I.</span></h1>
@@ -1403,18 +1402,29 @@ $("input[name=usuario_lentes]").change(function(){
 
 if($("#usuario_lentes1").prop('checked')==true){
 
+
 	$("#edad_lentes").show();
 	$("#edad_lentes").prop('required')=true;
 
-}else{
+}
+else if($("#usuario_lentes3").prop('checked')==true){
+	$("#edad_lentes").show();
+	$("#edad_lentes").prop('required')=true;
+}
+else{
 	$("#edad_lentes").hide();
 	$("#edad_lentes").prop('required')=false;
 }
 
-		
-	
-	
 });
+
+
+
+
+$(":text").keyup(function(){
+	var lowe=$(this).val();
+	$(this).val(lowe.toUpperCase());
+   });	
 //****************************************************************************
 });
 	

@@ -84,16 +84,16 @@ class CreatePacienteOcularsTable extends Migration
             $table->string('tonometria_od');
             $table->string('tonometria_oi');
             //-----------------------------------------------
-            $table->string('esf_od');
-            $table->string('esf_oi');
-            $table->string('cil_od');
-            $table->string('cil_oi');
-            $table->string('eje_od');
-            $table->string('eje_oi');
-            $table->string('add_od');
-            $table->string('add_oi');
-            $table->string('av_od');
-            $table->string('av_oi');
+            $table->string('esf_od')->nullable();
+            $table->string('esf_oi')->nullable();
+            $table->string('cil_od')->nullable();
+            $table->string('cil_oi')->nullable();
+            $table->string('eje_od')->nullable();
+            $table->string('eje_oi')->nullable();
+            $table->string('add_od')->nullable();
+            $table->string('add_oi')->nullable();
+            $table->string('av_od')->nullable();
+            $table->string('av_oi')->nullable();
             //------------------------------------------------
             $table->string('refractivo')->nullable();
             $table->string('patologico')->nullable();

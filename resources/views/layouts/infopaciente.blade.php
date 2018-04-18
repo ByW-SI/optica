@@ -6,8 +6,21 @@
 <div class="container">
 	<div role="application" class="panel panel-group">
 		<div class="panel-default">
-			<div class="panel-heading"><h4><strong>Datos del Paciente:</strong></h4>
-				<a class="btn btn-info" href="{{ route('pacientes.create') }}"><strong>Nuevo Paciente</strong></a>
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-sm-3">
+						<h4><strong>Datos del Paciente:</strong></h4>
+					</div>
+					<div class="col-sm-2">
+						<a class="btn btn-info" href="{{ route('pacientes.create') }}"><strong>Nuevo Paciente</strong></a>
+					</div>
+					<div class="col-sm-2">
+						<a class="btn btn-primary" href="{{ route('pacientes.edit',['id'=>$paciente->id]) }}"><strong>Editar Paciente</strong></a>
+					</div>
+					<div class="col-sm-2">
+						<a class="btn btn-primary" href="{{ route('pacientes.index') }}"><strong>Ver Pacientes</strong></a>
+					</div>
+				</div>
 			</div>
 			<div class="panel-body">
 				<div class="col-xs-12 offset-md-2 mt-3">

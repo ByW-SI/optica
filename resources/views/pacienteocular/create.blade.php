@@ -16,6 +16,9 @@
 						<a class="btn btn-info" href="{{ route('pacientes.create') }}"><strong>Nuevo Paciente</strong></a>
 					</div>
 					<div class="col-sm-2">
+						<a class="btn btn-primary" href="{{ route('pacientes.edit',['id'=>$paciente->id]) }}"><strong>Editar Paciente</strong></a>
+					</div>
+					<div class="col-sm-2">
 						<a class="btn btn-primary" href="{{ route('pacientes.index') }}"><strong>Ver Pacientes</strong></a>
 					</div>
 				</div>
@@ -281,7 +284,8 @@
 			<label class="control-label">Edad a la que inició uso de Lentes</label>
 			</div>
 			  <div class="form-group col-xs-2">
-						<select class="form-control" name="edad_lentes">
+						<select class="form-control" name="edad_lentes" id="edad_lentes_select">
+							<option value="">Seleccione uno</option>
 							<?php for($i=1;$i<71;$i++){ ?>
 							<?php echo "<option value='".$i."'><h3>".$i." Años</h3></option>";} ?>
 						</select>
@@ -378,18 +382,18 @@
 
 
 
- <div class=" col-xs-6" align="left" style="border: solid; border-color: grey; padding: 10px;">
+ <div class=" col-xs-10" align="left" style="border: solid; border-color: grey; padding: 15px;">
 <legend><strong><h3>Revisión Visual</h3></strong></legend>
- 	<!-- <div class="col-xs-6" align="center">
-	<header><strong><h4>Revisión Visual</h4></strong></header>	
-	</div><br><br><br><br> -->
+ 	<!-- <div class="col-sm-4">
+										<label class=" label-text ">A.V. sin Rx. de Lejos(Snellen)</label>
+									  </div> -->
 
  	
-									<div class="row">
-									  <div class="col-sm-4">
-										<label class=" label-text ">A.V. sin Rx. de Lejos(Snellen)</label>
-									  </div>
-                    				  <div class="col-sm-3">
+									<div class="row" style="background-color: lightgray; padding: 15px;">
+									   <div class="col-xs-4" align="left">
+	<strong><h4>A.V. sin Rx. de Lejos(Snellen)</h4></strong>	
+	</div>
+                    				  <div class="col-sm-2">
                     						<h1><span class="badge badge-secondary">O.D.</span></h1>
                     						<select class="form-control" name="snellen_1">
 											<option value="20/400">20/400</option>
@@ -413,7 +417,7 @@
 											</select>
                     				  </div>
 
-                    					<div class="col-sm-3">
+                    					<div class="col-sm-2">
                     						<h1><span class="badge badge-secondary">O.I.</span></h1>
                     						<select class="form-control" name="snellen_2">
 											<option value="20/400">20/400</option>
@@ -439,77 +443,12 @@
                     					
 
                     					
-                    				</div><br><br>
-
-
-                    				<div class="row">
-										<div class="col-sm-6">
-										<label class="col-xs-5 label-text ">D.N.P. Ojo Derecho</label>
-									</div>
-									
-                    					<div class="col-sm-3">
-
-                    						<h1><span class="badge badge-secondary">Lejos</span></h1>
-                    						<select class="form-control" name="dnp_od_lejos">
-                    							<?php for($i=20;$i<=50;$i+=0.5){
-											
-											   echo"<option value='".$i."'>".$i." mm</option>";
-											}?>
-											</select>
-                    						
-                    					</div>
-
-                    					<div class="col-sm-3">
-                    						<h1><span class="badge badge-secondary">Cerca</span></h1>
-                    						<select class="form-control" name="dnp_od_cerca">
-											<?php for($i=20;$i<=50;$i+=0.5){
-											
-											   echo"<option value='".$i."'>".$i." mm</option>";
-											}?>
-										</select>
-                    					</div>
-
-                    					
-
-                    				</div>
-                    				<div class="row">
-                    					<div class="col-sm-6">
-										<label class="col-xs-5 label-text ">D.N.P. Ojo Izquierdo</label>
-									</div>
-                    					<div class="col-sm-3">
-                    						<h1><span class="badge badge-secondary">Lejos</span></h1>
-                    						<select class="form-control" name="dnp_oi_lejos">
-											<?php for($i=20;$i<=50;$i+=0.5){
-											
-											   echo"<option value='".$i."'>".$i." mm</option>";
-											}?>
-										</select>
-                    					</div>
-
-                    					<div class="col-sm-3">
-                    						<h1><span class="badge badge-secondary">Cerca</span></h1>
-                    						<select class="form-control" name="dnp_oi_cerca">
-											<?php for($i=20;$i<=50;$i+=0.5){
-											
-											   echo"<option value='".$i."'>".$i." mm</option>";
-											}?>
-										</select>
-                    					</div>
-                    				</div>
-
-                    				
-
-                    				
-
-                    			
-												
-	
- </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-<div class="col-xs-6" align="center">
+                    				</div><hr>
+<div class="row" style="background-color: lightgray; padding: 15px;">
+    <div class="col-sm-3" align="left">
 	<strong><h4>Pantalleo</h4></strong>	
 	</div>
-<div class="jumbotron col-xs-6">
+<div class="col-xs-8">
 	
 	<div class="row">
 		<div class="col-sm-4">
@@ -561,79 +500,82 @@
 				</select>
 		</div>
 	</div>
-</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+</div>
+<hr>
 
-
-<div  align="left" class="col-xs-12">
+<div class="row" style="background-color: lightgray; padding: 15px;">
+<div class="col-sm-3" align="left">
 	<strong><h4>Queratometría</h4></strong>	
 	</div>
-<div class="jumbotron col-xs-12" align="left">
+<div class=" col-xs-8" align="left">
 	 
 	<div class="row">
-		<div class="col-sm-2">
-			<label class="control-label"><h4>O.D.</h4></label>
+		<div class="col-sm-3">
+			<label class="control-label"><h4><strong>O.D.</strong></h4></label>
 		   </div>
-		<div class="col-sm-2">
+		<div class="col-sm-3">
             <span class="badge badge-secondary">Plana</span>
                 <select class="form-control" name="queratometria_od_plana">
-					<?php for($i=32;$i<=55;$i+=0.25){
-				echo"<option value='+".$i."'>+".$i."</option>";
+					<?php for( $i=32;$i<=55;$i+=0.25){
+				echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)."</option>";
 						}?>
 				</select>
 		</div>
-		<div class="col-sm-2">
+		<div class="col-sm-3">
             <span class="badge badge-secondary">Curva</span>
                 <select class="form-control" name="queratometria_od_curva">
 				<?php for($i=32;$i<=55;$i+=0.25){
-				echo"<option value='+".$i."'>+".$i."</option>";
+				echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)."</option>";
 						}?>
 				</select>
 		</div>
-		<div class="col-sm-2">
+		<div class="col-sm-3">
             <span class="badge badge-secondary">Eje</span>
                 <select class="form-control" name="queratometria_od_eje">
 					<?php for($i=0;$i<=180;$i+=5){
-				echo"<option value='".$i."'>".$i."°</option>";
+				echo"<option value='".$i."°'>".$i."°</option>";
 						}?>
 				</select>
 		</div>
 	</div><br><br>
 	<div class="row">
-		<div class="col-sm-2">
-			<label class="control-label"><h4>O.I.</h4></label>
+		<div class="col-sm-3">
+			<label class="control-label"><h4><strong>O.I.</strong></h4></label>
 		   </div>
-		<div class="col-sm-2">
+		<div class="col-sm-3">
             <span class="badge badge-secondary">Plana</span>
                 <select class="form-control" name="queratometria_oi_plana">
 					<?php for($i=32;$i<=55;$i+=0.25){
-				echo"<option value='+".$i."'>+".$i."</option>";
+				echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)."</option>";
 						}?>
 				</select>
 		</div>
-		<div class="col-sm-2">
+		<div class="col-sm-3">
             <span class="badge badge-secondary">Curva</span>
                 <select class="form-control" name="queratometria_oi_curva">
 					<?php for($i=32;$i<=55;$i+=0.25){
-				echo"<option value='+".$i."'>+".$i." </option>";
+				echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)." </option>";
 						}?>
 				</select>
 		</div>
-		<div class="col-sm-2">
+		<div class="col-sm-3">
             <span class="badge badge-secondary">Eje</span>
                 <select class="form-control" name="queratometria_oi_eje">
 					<?php for($i=0;$i<=180;$i+=5){
-				echo"<option value='".$i."'>".$i."°</option>";
+				echo"<option value='".$i."°'>".$i."°</option>";
 						}?>
 				</select>
 		</div>
 	</div>
-</div><br><br><br><br>
+</div>
+</div><hr>
 
-<div class="form-group col-xs-12" align="center" style="border: solid; border-color: grey; padding: 20px;">
-	 <div  align="left">
+
+	<div class="row" style="background-color: lightgray; padding: 15px;">
+		<div class="col-sm-5" align="left">
 	<strong><h4>Visión Estereoscópica</h4></strong>	
 	</div>
-	<div class="row">
 		<div class="col-sm-2">
             <span class="badge badge-secondary">seg/arco</span>
                 <select class="form-control" name="vision_estereo">
@@ -649,11 +591,13 @@
 				</select>
 		</div>
 		
-	</div><br><br>
-	<div  align="left">
+	</div><hr>
+
+<div class="row" style="background-color: lightgray; padding: 15px;">
+		<div class="col-sm-3" align="left">
 	<strong><h4>Oftalmoscopía</h4></strong>	
-	</div><br><br>
-	<div class="row">
+	</div><br><br><br>
+		<div class="row">
 		<div class="col-sm-3">
 			<span class="badge badge-secondary">PARÁMETROS</span>
 		</div>
@@ -664,6 +608,7 @@
 			<span class="badge badge-secondary">OJO IZQUIERDO</span>
 		</div>
 	</div><br>
+
 	<div class="row">
 		<div class="col-sm-3">
 			<label class="control-label">Papila</label>
@@ -762,24 +707,28 @@
         <div class="col-sm-3">
         	<input class="form-control" type="text" name="retina_oi" id="retina_oi">
         </div>
-    </div><br><br>
-	<div class="row">
-		<div class="col-sm-6">
-        	<div class="form-group col-xs-8" align="left">
-<input type="file" name="archivo_foto" ><br>
-<input type="button" value="Enviar" class="btn btn-primary">
+		</div>
+</div><hr>
+
+<div class="row" style="background-color: lightgray; padding: 15px;">
+		<div class="col-sm-5" align="left">
+	<strong><h4>Anexos y Biomicroscopía</h4></strong>	
+	</div>
+		<div class="col-sm-12">
+           <textarea class="form-control" name="anexos"></textarea>
+		</div><br>
+		<div class="form-group col-xs-12" align="left">
+<input type="file" name="archivo_foto" class="btn btn-primary" ><br>
+
 			</div>
-        </div>
-	</div>
-	<div class="form-group col-xs-12" align="left">
-										<label class="control-label">Anexos y Biomicroscopía</label>
-										<textarea class="form-control" name="anexos"></textarea>
-	</div>
-	<br><br><br><br><br><br>
-	<div  align="left">
+		
+	</div><hr>
+
+<div class="row" style="background-color: lightgray; padding: 15px;">
+		<div class="col-sm-12" align="left">
 	<strong><h4>Tonometría</h4></strong>	
 	</div><br><br>
-      <div class="row">
+		<div class="row">
       	<div class="col-sm-3">
       		<label class="control-label">Fecha</label>
             <input class="form-control" type="date" name="fecha_tono" id="fecha_tono" value="{{date('Y-m-d')}}">
@@ -788,7 +737,7 @@
       		<label class="control-label">Hora</label>
             <input class="form-control" type="time" name="hora_tono" id="hora_tono" value="{{date('H:i')}}">
       	</div>
-      </div>
+      </div><br>
       <div class="row">
       	<div class="col-sm-3">
       		<span class="badge badge-secondary">O.D.</span>
@@ -807,42 +756,67 @@
 				</select>
       	</div>
       </div>
-
-</div><br><br><br>
-
-
-
- 	<div class="col-xs-offset-1 col-xs-12" style="margin-top: 20px;">
-	<strong><h3>Graduación:</h3></strong>	
+		
 	</div>
+</div>
 
- 	<div class="jumbotron col-xs-12" >
-		<div class="row">
-			<div class="col-sm-2">
-			<label class="control-label"><h4>O.D.</h4></label>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+	
+
+	
+	
+      
+
+</div>
+
+
+
+ 	
+
+ 	<div class="jumbotron col-xs-16" >
+ 		<div class="row" style="margin-top: 20px;">
+	<strong><h3>Graduación:</h3></strong>	
+	</div><br>
+	
+ 		<div class="row">
+ 			<div class="col-sm-2">
+			<label class="control-label"><h4><strong>Ojo Derecho.</strong></h4></label>
 		   </div>
+ 		</div>
+		<div class="row">
+			
 			<div class="col-sm-2">
       		<span class="badge badge-secondary">ESF.</span>
-			<select class="form-control" name="esf_od" id="esf_od">
+			<select class="form-control" name="esf_od" id="esf_od" required>
+				<option value="Sin Valor">Seleccione uno</option>
 				<?php for($i=25;$i>=(-25);$i-=0.25){
-					if($i>0){echo"<option value='+".$i."'>+".$i."</option>";}
-					    else{echo"<option value='".$i."'>".$i."</option>";}
+					if($i>0){echo"<option value='+".sprintf("%.2f", $i)."'>+".sprintf("%.2f", $i)."</option>";}
+					    else{echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)."</option>";}
 				}?>
 				</select>
       	</div>
       	<div class="col-sm-2">
       		<span class="badge badge-secondary">CIL.</span>
 			<select class="form-control" name="cil_od" id="cil_od">
+				<option value="">Seleccione uno</option>
 				<?php for($i=(-0.25);$i>=(-15);$i-=0.25){
-					if($i>0){echo"<option value='+".$i."'>+".$i."</option>";}
-						else{echo"<option value='".$i."'>".$i."</option>";}
+					if($i>0){echo"<option value='+".sprintf("%.2f", $i)."'>+".sprintf("%.2f", $i)."</option>";}
+						else{echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)."</option>";}
 				
 						}?>
 				</select>
       	</div>
-      	<div class="col-sm-2">
+      	<div class="col-sm-2" id="eje_od_div" style="display: none;">
       		<span class="badge badge-secondary">EJE.</span>
 			<select class="form-control" name="eje_od" id="eje_od">
+				<option value="">Seleccione uno</option>
 				<?php for($i=0;$i<=180;$i+=5){
 				echo"<option value='".$i."'>".$i."°</option>";
 						}?>
@@ -850,16 +824,18 @@
       	</div>
       	<div class="col-sm-2">
       		<span class="badge badge-secondary">ADD.</span>
-			<select class="form-control" name="add_od" id="add_od">
+			<select class="form-control" name="add_od" id="add_od" required>
+				<option value="">Seleccione uno</option>
 				<?php for($i=1;$i<=3.50;$i+=0.25){
-				echo"<option value='".$i."'>+".$i."</option>";
+				echo"<option value='".sprintf("%.2f", $i)."'>+".sprintf("%.2f", $i)."</option>";
 						}?>
 				</select>
       	</div>
       	<div class="col-sm-2">
       		<span class="badge badge-secondary">AV.</span>
-			<select class="form-control" name="av_od" id="av_od">
-				<option value="20/400">20/400</option>
+			<select class="form-control" name="av_od" id="av_od" required>
+											<option value="">Seleccione uno</option>
+				                            <option value="20/400">20/400</option>
 											<option value="20/300">20/300</option>
 											<option value="20/200">20/200</option>
 											<option value="20/150">20/150</option>
@@ -879,33 +855,62 @@
 											<option value="Protésis">Protésis</option>
 				</select>
       	</div>
-	</div>	
+      
+	</div>	<br>
 	<div class="row">
 			<div class="col-sm-2">
-			<label class="control-label"><h4>O.I.</h4></label>
+      		<span class="badge badge-secondary">D.N.P. Lejos</span>
+                    						<select class="form-control" name="dnp_od_lejos" required>
+                    							<option value="">Seleccione uno</option>
+                    							<?php for($i=20;$i<=50;$i+=0.50){
+											
+											   echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)." mm</option>";
+											}?>
+											</select>
+      	</div>
+      	<div class="col-sm-2">
+      		<span class="badge badge-secondary">D.N.P. Cerca</span>
+                    						<select class="form-control" name="dnp_od_cerca" required>
+                    							<option value="">Seleccione uno</option>
+											<?php for($i=20;$i<=50;$i+=0.5){
+											
+											   echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)." mm</option>";
+											}?>
+										</select>
+      	</div>
+	</div><br><hr>
+    <div class="row">
+    	<div class="col-sm-3">
+			<label class="control-label"><h4><strong>Ojo Izquierdo</strong></h4></label>
 		   </div>
+    </div>
+	<div class="row">
+			
 			<div class="col-sm-2">
       		<span class="badge badge-secondary">ESF.</span>
-			<select class="form-control" name="esf_oi" id="esf_oi">
+			<select class="form-control" name="esf_oi" id="esf_oi" required>
+				<option value="">Seleccione uno</option>
 				<?php for($i=25;$i>=(-25);$i-=0.25){
-					if($i>0){echo"<option value='+".$i."'>+".$i."</option>";}
-					    else{echo"<option value='".$i."'>".$i."</option>";}
+					if($i>0){echo"<option value='+".sprintf("%.2f", $i)."'>+".sprintf("%.2f", $i)."</option>";}
+					    else{echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)."</option>";}
 				}?>
 				</select>
       	</div>
       	<div class="col-sm-2">
       		<span class="badge badge-secondary">CIL.</span>
 			<select class="form-control" name="cil_oi" id="cil_oi">
+				<option value="Sin Valor">Seleccione uno</option>
 				<?php for($i=(-0.25);$i>=(-15);$i-=0.25){
-					if($i>0){echo"<option value='+".$i."'>+".$i."</option>";}
-						else{echo"<option value='".$i."'>".$i."</option>";}
+					if($i>0){echo"<option value='+".sprintf("%.2f", $i)."'>+".sprintf("%.2f", $i)."</option>";}
+						else{echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)."</option>";}
 				
 						}?>
 				</select>
       	</div>
-      	<div class="col-sm-2">
+      	<div class="col-sm-2" id="eje_oi_div" style="display: none;">
       		<span class="badge badge-secondary">EJE.</span>
 			<select class="form-control" name="eje_oi" id="eje_oi">
+				<option value="">Seleccione uno</option>
 				<?php for($i=0;$i<=180;$i+=5){
 				echo"<option value='".$i."'>".$i."°</option>";
 						}?>
@@ -913,16 +918,18 @@
       	</div>
       	<div class="col-sm-2">
       		<span class="badge badge-secondary">ADD.</span>
-			<select class="form-control" name="add_oi" id="add_oi">
+			<select class="form-control" name="add_oi" id="add_oi" required>
+				<option value="">Seleccione uno</option>
 				<?php for($i=1;$i<=3.50;$i+=0.25){
-				echo"<option value='".$i."'>+".$i."</option>";
+				echo"<option value='".sprintf("%.2f", $i)."'>+".sprintf("%.2f", $i)."</option>";
 						}?>
 				</select>
       	</div>
       	<div class="col-sm-2">
       		<span class="badge badge-secondary">AV.</span>
-			<select class="form-control" name="av_oi" id="av_oi">
-				<option value="20/400">20/400</option>
+			<select class="form-control" name="av_oi" id="av_oi" required>
+											<option value="">Seleccione uno</option>
+				                            <option value="20/400">20/400</option>
 											<option value="20/300">20/300</option>
 											<option value="20/200">20/200</option>
 											<option value="20/150">20/150</option>
@@ -942,7 +949,31 @@
 											<option value="Protésis">Protésis</option>
 				</select>
       	</div>
-	</div>	
+      	
+	</div>	<br>
+	<div class="row">
+		<div class="col-sm-2">
+      		<span class="badge badge-secondary">D.N.P. Lejos</span>
+                    						<select class="form-control" name="dnp_oi_lejos" required>
+                    							<option value="">Seleccione uno</option>
+                    							<?php for($i=20;$i<=50;$i+=0.50){
+											
+											   echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)." mm</option>";
+											}?>
+											</select>
+      	</div>
+      	<div class="col-sm-2">
+      		<span class="badge badge-secondary">D.N.P. Cerca</span>
+                    						<select class="form-control" name="dnp_oi_cerca" required>
+                    							<option value="">Seleccione uno</option>
+											<?php for($i=20;$i<=50;$i+=0.5){
+											
+											   echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)." mm</option>";
+											}?>
+										</select>
+      	</div>
+	</div>
+
 
 <br><br><br>
 	<div  align="left">
@@ -963,7 +994,8 @@
       	</div>
       	<div class="col-sm-3">
       		<label class="control-label">Nombre del Lic. Optometrísta</label>
-            <select class="form-control" name="optometrista" id="optometrista">
+            <select class="form-control" name="optometrista" id="optometrista" required>
+            	<option value="">Seleccione uno</option>
 				<option value="Lic.Almendares">Lic.Almendares</option>
 				<option value="Lic.Barrera">Lic.Barrera</option>
 				<option value="Lic.Carmona">Lic.Carmona</option>
@@ -1000,25 +1032,26 @@
 	 	<div class="col-sm-3">
       		<label class="control-label">Tipo de Lente</label>
             <select class="form-control" name="tipo_lente" id="tipo_lente">
-				<option value="Monofocal" selected>Monofocal</option>
+            	<option value="">Seleccione uno</option>
+				<option value="Monofocal">Monofocal</option>
 				<option value="Bifocal">Bifocal</option>
 				<option value="Progresivo">Progresivo</option>
 			</select>
       	</div>
-      	<div class="col-sm-8" id="monofocal_div" style="display: block;">
-      		<div class="col-sm-2">
+      	<div class="col-sm-8" id="monofocal_div" style="display:none;">
+      		<div class="col-sm-3">
       			<span class="badge badge-secondary">LEJOS</span>
 				<input type="radio" class="option-input radio"  name="monofocal" value="LEJOS">
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<span class="badge badge-secondary">CERCA</span>
 				<input type="radio" class="option-input radio"  name="monofocal" value="CERCA">
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<span class="badge badge-secondary">AMBAS</span>
 				<input type="radio" class="option-input radio"  name="monofocal" value="AMBAS">
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<span class="badge badge-secondary">SUB-CORRECCIÓN</span>
 				<input type="radio" class="option-input radio"  name="monofocal" value="SUB-CORRECCIÓN">
 			</div>
@@ -1028,27 +1061,106 @@
       			<span class="badge badge-secondary">FLAT-TOP</span>
 				<input type="radio" class="option-input radio"  name="bifocal" value="FLAT-TOP">
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<span class="badge badge-secondary">BLEND</span>
 				<input type="radio" class="option-input radio"  name="bifocal" value="BLEND">
 			</div>
 		</div>
 		<div class="col-sm-8" id="progresivo_div" style="display: none;">
-      		<div class="col-sm-2">
+      		<div class="col-sm-3">
       			<span class="badge badge-secondary">BÁSICO</span>
 				<input type="radio" class="option-input radio"  name="progresivo" value="BÁSICO">
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<span class="badge badge-secondary">KODAK</span>
 				<input type="radio" class="option-input radio"  name="progresivo" value="KODAK">
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<span class="badge badge-secondary">VARILUX</span>
 				<input type="radio" class="option-input radio"  name="progresivo" value="VARILUX">
 			</div>
 			
       	</div>
-	 </div> <br><br><br><br>
+	 </div><br><br>
+	 <div class="row" id="monofocal_material_div" style="display: none;">
+	 	<div class="col-sm-3">
+      		<label class="control-label">Material</label>
+            <select class="form-control" name="monofocal_material" id="monofocal_material">
+            	<option value="">Seleccione uno</option>
+				<option value="Básico">Básico</option>
+				<option value="Premium">Premium</option>
+			</select>
+      	</div>
+      	<div class="col-sm-8" id="monofocal_basico_div" style="display: none;">
+      		<div class="col-sm-3">
+      			<span class="badge badge-secondary">CR-39 W</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="CR-39 W">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">HIGH-INDEX W</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="HIGH-INDEX W">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">POLICARBONATO</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="POLICARBONATO">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">CRISTAL W</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="CRISTAL W">
+			</div>
+      	</div>
+      	<div class="col-sm-8" id="monofocal_premium_div" style="display: none;">
+      		<div class="col-sm-2">
+      			<span class="badge badge-secondary">ORMA</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="ORMA">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">AIRWEAR</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="AIRWEAR">
+			</div>
+		</div>
+	 </div><br>
+	 <div class="row" id="monofocal_tratamiento_div" style="display:block;">
+	 	<div class="col-sm-8" id="monofocal_tratamiento_si_div" style="display: block;">
+      		<div class="col-sm-2">
+      			<span class="badge badge-secondary">SI</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="ORMA">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">AIRWEAR</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="AIRWEAR">
+			</div>
+		</div>
+      	<div class="col-sm-8" id="monofocal_basico_div" style="display: none;">
+      		<div class="col-sm-3">
+      			<span class="badge badge-secondary">CR-39 W</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="CR-39 W">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">HIGH-INDEX W</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="HIGH-INDEX W">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">POLICARBONATO</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="POLICARBONATO">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">CRISTAL W</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="CRISTAL W">
+			</div>
+      	</div>
+      	<div class="col-sm-8" id="monofocal_premium_div" style="display: none;">
+      		<div class="col-sm-2">
+      			<span class="badge badge-secondary">ORMA</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="ORMA">
+			</div>
+			<div class="col-sm-2">
+				<span class="badge badge-secondary">AIRWEAR</span>
+				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="AIRWEAR">
+			</div>
+		</div>
+	 </div>
+	 <br><br><br>
 	  <div class="row">
 	 	<div class="col-sm-2" align="left">
       		<label class="control-label">Material</label>
@@ -1200,7 +1312,8 @@
                     					</div>
        <div class="col-sm-3">
           <button id="submit" type="submit" class="btn btn-primary">
-									<strong>Agregar</strong>	</button>
+				<strong>Agregar</strong>	
+		</button>
            </form>
       </div><br>
 	 </div><br><br>
@@ -1282,36 +1395,76 @@ $(document).ready(function(){
        	document.getElementById('monofocal_div').style.display = 'block';
        	document.getElementById('bifocal_div').style.display = 'none';
        	document.getElementById('progresivo_div').style.display = 'none';
+       	document.getElementById('monofocal_material_div').style.display = 'block';	
        
        }else if(option  == 'Bifocal'){
        		
        	document.getElementById('monofocal_div').style.display = 'none';
        	document.getElementById('bifocal_div').style.display = 'block';
        	document.getElementById('progresivo_div').style.display = 'none';
-       
-       }else{
+        document.getElementById('monofocal_material_div').style.display = 'none';
+       }else if(option  == 'Progresivo'){
        	
        	document.getElementById('monofocal_div').style.display = 'none';
        	document.getElementById('bifocal_div').style.display = 'none';
-       	document.getElementById('progresivo_div').style.display = 'block';		
+       	document.getElementById('progresivo_div').style.display = 'block';
+       	document.getElementById('monofocal_material_div').style.display = 'none';
+
+       }else{
+       	document.getElementById('monofocal_div').style.display = 'none';
+       	document.getElementById('bifocal_div').style.display = 'none';
+       	document.getElementById('progresivo_div').style.display = 'none';
+       	document.getElementById('monofocal_material_div').style.display = 'none';
        }
     });
+
+      $("#monofocal_material").change(function(){
+
+      	var option=document.getElementById("monofocal_material").value;
+
+      	if(option == 'Básico'){
+       	
+       	document.getElementById('monofocal_basico_div').style.display = 'block';
+       	document.getElementById('monofocal_premium_div').style.display = 'none';
+       	$("#monofocal_material_basico").prop('required')=true;
+       	$("#monofocal_material_premium").prop('required')=false;
+       
+       }else if(option  == 'Premium'){
+
+       	document.getElementById('monofocal_basico_div').style.display = 'none';
+       	document.getElementById('monofocal_premium_div').style.display = 'block';
+       	$("#monofocal_material_basico").prop('required')=false;
+       	$("#monofocal_material_premium").prop('required')=true;
+
+       }else{
+
+       	document.getElementById('monofocal_basico_div').style.display = 'none';
+       	document.getElementById('monofocal_premium_div').style.display = 'none';
+       	$("#monofocal_material_basico").prop('required')=false;
+       	$("#monofocal_material_premium").prop('required')=false;
+
+       }
+
+      });
 
 
     $("#armazon_radio1").change(function(){
       document.getElementById('armazon').style.display = 'block';
       document.getElementById('contacto').style.display = 'none';
+      $("#tipo_lente").prop('required')=true;
      });
 
      $("#armazon_radio2").change(function(){
-     document.getElementById('contacto').style.display = 'block';
+      document.getElementById('contacto').style.display = 'block';
       document.getElementById('armazon').style.display = 'none';
+      $("#tipo_lente").prop('required')=false;
       
      });
 
     $("#armazon_radio3").change(function(){
       document.getElementById('armazon').style.display = 'block';
       document.getElementById('contacto').style.display = 'block';
+      $("#tipo_lente").prop('required')=true;
      });
 
 
@@ -1404,16 +1557,16 @@ if($("#usuario_lentes1").prop('checked')==true){
 
 
 	$("#edad_lentes").show();
-	$("#edad_lentes").prop('required')=true;
+	$("#edad_lentes_select").prop('required')=true;
 
 }
 else if($("#usuario_lentes3").prop('checked')==true){
 	$("#edad_lentes").show();
-	$("#edad_lentes").prop('required')=true;
+	$("#edad_lentes_select").prop('required')=true;
 }
 else{
 	$("#edad_lentes").hide();
-	$("#edad_lentes").prop('required')=false;
+	$("#edad_lentes_select").prop('required')=false;
 }
 
 });
@@ -1425,6 +1578,36 @@ $(":text").keyup(function(){
 	var lowe=$(this).val();
 	$(this).val(lowe.toUpperCase());
    });	
+
+
+
+$("#cil_od").change(function(){
+	
+	var option=document.getElementById("cil_od").value;
+	if(option!='Sin Valor'){
+		document.getElementById('eje_od_div').style.display = 'block';
+		$("#eje_od").prop('required')=true;
+	}else{
+		document.getElementById('eje_od_div').style.display = 'none';
+		$("#eje_od").prop('required')=false;
+	}
+
+      });
+
+$("#cil_oi").change(function(){
+	
+	var option=document.getElementById("cil_oi").value;
+	if(option!='Sin Valor'){
+		document.getElementById('eje_oi_div').style.display = 'block';
+		$("#eje_oi").prop('required')=true;
+	}else{
+		document.getElementById('eje_oi_div').style.display = 'none';
+		$("#eje_oi").prop('required')=false;
+	}
+
+      });
+
+
 //****************************************************************************
 });
 	

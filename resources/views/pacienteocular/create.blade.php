@@ -1110,98 +1110,32 @@
 			</div>
       	</div>
       	<div class="col-sm-8" id="monofocal_premium_div" style="display: none;">
-      		<div class="col-sm-2">
-      			<span class="badge badge-secondary">ORMA</span>
-				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="ORMA">
-			</div>
-			<div class="col-sm-2">
-				<span class="badge badge-secondary">AIRWEAR</span>
-				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="AIRWEAR">
-			</div>
-		</div>
-	 </div><br>
-	 <div class="row" id="monofocal_tratamiento_div" style="display:block;">
-	 	<div class="col-sm-8" id="monofocal_tratamiento_si_div" style="display: block;">
-      		<div class="col-sm-2">
-      			<span class="badge badge-secondary">SI</span>
-				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="ORMA">
-			</div>
-			<div class="col-sm-2">
-				<span class="badge badge-secondary">AIRWEAR</span>
-				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="AIRWEAR">
-			</div>
-		</div>
-      	<div class="col-sm-8" id="monofocal_basico_div" style="display: none;">
       		<div class="col-sm-3">
-      			<span class="badge badge-secondary">CR-39 W</span>
-				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="CR-39 W">
-			</div>
-			<div class="col-sm-3">
-				<span class="badge badge-secondary">HIGH-INDEX W</span>
-				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="HIGH-INDEX W">
-			</div>
-			<div class="col-sm-3">
-				<span class="badge badge-secondary">POLICARBONATO</span>
-				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="POLICARBONATO">
-			</div>
-			<div class="col-sm-3">
-				<span class="badge badge-secondary">CRISTAL W</span>
-				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="CRISTAL W">
-			</div>
-      	</div>
-      	<div class="col-sm-8" id="monofocal_premium_div" style="display: none;">
-      		<div class="col-sm-2">
       			<span class="badge badge-secondary">ORMA</span>
 				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="ORMA">
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<span class="badge badge-secondary">AIRWEAR</span>
 				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="AIRWEAR">
 			</div>
 		</div>
-	 </div>
-	 <br><br><br>
-	  <div class="row">
-	 	<div class="col-sm-2" align="left">
-      		<label class="control-label">Material</label>
-        </div>
-        	<div class="col-sm-10">
-      		<div class="col-sm-2">
-      			<span class="badge badge-secondary">CR-39 W</span>
-				<input type="radio" class="option-input radio"  name="material" value="CR-39 W">
-			</div>
-			<div class="col-sm-2">
-				<span class="badge badge-secondary">HIGH-INDEX W</span>
-				<input type="radio" class="option-input radio"  name="material" value="HIGH-INDEX W">
-			</div>
-			<div class="col-sm-2">
-				<span class="badge badge-secondary">POLICARBONATO</span>
-				<input type="radio" class="option-input radio"  name="material" value="POLICARBONATO">
-			</div>
-			<div class="col-sm-2">
-				<span class="badge badge-secondary">CRISTAL W</span>
-				<input type="radio" class="option-input radio"  name="material" value="CRISTAL W">
-			</div>
-      	</div>
-	 </div>
-	 <br><br><br><br>
-	  <div class="row">
-	 	<div class="col-sm-2" align="left">
+	 </div><br><br>
+	<div class="row" id="monofocal_tratamiento_div" style="display: none;">
+	 	<div class="col-sm-3">
       		<label class="control-label">Tratamiento</label>
         </div>
-        	<div class="col-sm-10">
-      		<div class="col-sm-2">
+        	<div class="col-sm-8">
+      		<div class="col-sm-3">
       			<span class="badge badge-secondary">SI</span>
 				<input type="radio" class="option-input radio"  name="tratamiento" id="tratamiento1" value="SI">
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<span class="badge badge-secondary">NO</span>
 				<input type="radio" class="option-input radio"  name="tratamiento" id="tratamiento2" value="NO">
 			</div>
-	      	</div>
-	 </div>
-	 <br><br>
-	<div class="col-xs-12" id="tratamiento_div" style="border: solid; border-color: grey;background-color: white; padding: 10px; display: none; ">
+	      	</div><br><br><hr><br>
+
+<div class=" row col-xs-12" id="tratamiento_si_div" style="border: solid; border-color: grey;background-color: white; padding: 10px; display: none; ">
 	    <div class="row">
             <div class="col-sm-4">
             	<input type="hidden" name="antirreflejante" value="NO">
@@ -1279,6 +1213,12 @@
 			</div>
 		</div><br><br>
 	</div>
+
+	 </div>
+	 <br><br>
+
+
+	
 
 	
 
@@ -1396,6 +1336,8 @@ $(document).ready(function(){
        	document.getElementById('bifocal_div').style.display = 'none';
        	document.getElementById('progresivo_div').style.display = 'none';
        	document.getElementById('monofocal_material_div').style.display = 'block';	
+       	document.getElementById('monofocal_tratamiento_div').style.display = 'block';
+       	 
        
        }else if(option  == 'Bifocal'){
        		
@@ -1403,20 +1345,39 @@ $(document).ready(function(){
        	document.getElementById('bifocal_div').style.display = 'block';
        	document.getElementById('progresivo_div').style.display = 'none';
         document.getElementById('monofocal_material_div').style.display = 'none';
+        document.getElementById('monofocal_tratamiento_div').style.display = 'none';
+         
+
        }else if(option  == 'Progresivo'){
        	
        	document.getElementById('monofocal_div').style.display = 'none';
        	document.getElementById('bifocal_div').style.display = 'none';
        	document.getElementById('progresivo_div').style.display = 'block';
        	document.getElementById('monofocal_material_div').style.display = 'none';
+       	document.getElementById('monofocal_tratamiento_div').style.display = 'none';
+       	 
 
        }else{
        	document.getElementById('monofocal_div').style.display = 'none';
        	document.getElementById('bifocal_div').style.display = 'none';
        	document.getElementById('progresivo_div').style.display = 'none';
        	document.getElementById('monofocal_material_div').style.display = 'none';
+       	document.getElementById('monofocal_tratamiento_div').style.display = 'none';
+       	
+       	 
        }
+
     });
+
+ $("#tratamientoSi").change(function(){
+ 	alert('Tratamiento SI');
+ });
+//  document.getElementById('monofocal_tratamiento_si_div').style.display =
+// document.getElementById('monofocal_tratamiento_si_div').style.display =
+// document.getElementById('monofocal_tratamiento_si_div').style.display =
+// document.getElementById('monofocal_tratamiento_si_div').style.display =
+
+
 
       $("#monofocal_material").change(function(){
 
@@ -1541,12 +1502,12 @@ $("#tipo_antirreflejante").change(function(){
 
 
  $("#tratamiento1").change(function(){
-      document.getElementById('tratamiento_div').style.display = 'block';
+      document.getElementById('tratamiento_si_div').style.display = 'block';
       
      });
 
   $("#tratamiento2").change(function(){
-      document.getElementById('tratamiento_div').style.display = 'none';
+      document.getElementById('tratamiento_si_div').style.display = 'none';
       
      });
 

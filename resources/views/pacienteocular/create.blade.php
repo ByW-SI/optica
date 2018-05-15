@@ -1059,11 +1059,11 @@
       	<div class="col-sm-8" id="bifocal_div" style="display: none;">
       		<div class="col-sm-2">
       			<span class="badge badge-secondary">FLAT-TOP</span>
-				<input type="radio" class="option-input radio"  name="bifocal" value="FLAT-TOP">
+				<input type="radio" class="option-input radio"  name="bifocal" value="FLAT-TOP" id="flat-top">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">BLEND</span>
-				<input type="radio" class="option-input radio"  name="bifocal" value="BLEND">
+				<input type="radio" class="option-input radio"  name="bifocal" value="BLEND" id="blend">
 			</div>
 		</div>
 		<div class="col-sm-8" id="progresivo_div" style="display: none;">
@@ -1072,15 +1072,10 @@
 				<input type="radio" class="option-input radio"  name="progresivo" value="BÁSICO">
 			</div>
 			<div class="col-sm-3">
-				<span class="badge badge-secondary">KODAK</span>
-				<input type="radio" class="option-input radio"  name="progresivo" value="KODAK">
+				<span class="badge badge-secondary">PREMIUM</span>
+				<input type="radio" class="option-input radio"  name="progresivo" value="PREMIUM">
 			</div>
-			<div class="col-sm-3">
-				<span class="badge badge-secondary">VARILUX</span>
-				<input type="radio" class="option-input radio"  name="progresivo" value="VARILUX">
-			</div>
-			
-      	</div>
+		</div>
 	 </div><br><br>
 	 <div class="row" id="monofocal_material_div" style="display: none;">
 	 	<div class="col-sm-3">
@@ -1112,11 +1107,11 @@
       	<div class="col-sm-8" id="monofocal_premium_div" style="display: none;">
       		<div class="col-sm-3">
       			<span class="badge badge-secondary">ORMA</span>
-				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="ORMA">
+				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="ORMA" id="orma">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">AIRWEAR</span>
-				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="AIRWEAR">
+				<input type="radio" class="option-input radio"  name="monofocal_material_premium" value="AIRWEAR" id="airwear">
 			</div>
 		</div>
 	 </div><br><br>
@@ -1162,24 +1157,28 @@
 			 </select>
 			</div>
 			<div class="col-sm-9" id="anti_premium_div" style="display: none;">
-      		<div class="col-sm-3">
+				<div class="col-sm-2" id="trio_div">
+      			<span class="badge badge-secondary">TRIO</span>
+				<input type="radio" class="option-input radio"  name="anti_premium" value="TRIO" id="trio">
+			</div>
+      		<div class="col-sm-2">
       			<span class="badge badge-secondary">CRIZAL EASY</span>
 				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL EASY">
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-2">
 				<span class="badge badge-secondary">CRIZAL ALIZE</span>
 				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL ALIZE">
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-2">
 				<span class="badge badge-secondary">CRIZAL FORTE</span>
 				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL FORTE">
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-2">
 				<span class="badge badge-secondary">CRIZAL PREVENCIA</span>
 				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL PREVENCIA">
 			</div>
       	</div>
-	    </div><br><br>
+	    </div><br>
 	    <div class="row" id="fotocromatico_div" style="display: none;">
         	<div class="col-sm-3">
         	 <label class="control-label">Tipo de Fotocromático</label>
@@ -1201,8 +1200,12 @@
 				<span class="badge badge-secondary">TRANSITIONS VERDE</span>
 				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS VERDE">
 			</div>
+			<div class="col-sm-3" id="xtrac_div">
+				<span class="badge badge-secondary">TRANSITIONS XTRACTIVE</span>
+				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS XTRACTIVE" id="xtrac">
+			</div>
       	    </div>
-	    </div><br><br>
+	    </div>
 	    <div class="row" id="polarizado_div" style="display: none;">
         	<div class="col-sm-3">
         	 <label class="control-label">Tipo de Polarizado</label>
@@ -1211,9 +1214,71 @@
 				<option value="Premium">Premium (Xperio)</option>
 			 </select>
 			</div>
-		</div><br><br>
+		</div>
 	</div>
 
+	 </div>
+
+	 <div class="row" id="bifocal_flat_div" style="display: block;">
+	 	<div class="col-sm-3">
+      		<label class="control-label">Material</label>
+            <select class="form-control" name="bifocal_flat" id="bifocal_flat">
+            	<option value="">Seleccione uno</option>
+				<option value="Básico">Básico</option>
+			</select>
+      	</div>
+      	<div class="col-sm-3">
+				<span class="badge badge-secondary">CR-39 W</span>
+				<input type="radio" class="option-input radio"  name="bifocal_flat_material" value="CR-39 W">
+			</div>
+			<div class="col-sm-3" id="xtrac_div">
+				<span class="badge badge-secondary">POLICARBONATO</span>
+				<input type="radio" class="option-input radio"  name="bifocal_flat_material" value="POLICARBONATO" >
+			</div>
+	 </div><br>
+	 <div class="row" id="bifocal_flat_tratamiento_div" style="display:block;">
+	 	<div class="col-sm-3">
+      		<label class="control-label">Tratamiento</label>
+        </div>
+        	<div class="row">
+      		<div class="col-sm-3">
+      			<span class="badge badge-secondary">SI</span>
+				<input type="radio" class="option-input radio"  name="tratamiento_flat" id="tratamiento1_flat" value="SI">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">NO</span>
+				<input type="radio" class="option-input radio"  name="tratamiento_flat" id="tratamiento2_flat" value="NO">
+			</div>
+	      	</div><br><br><hr><br>
+	 </div>
+
+	 <div class="row" id="bifocal_blend_div" style="display: block;">
+	 	<div class="col-sm-3">
+      		<label class="control-label">Material</label>
+            <select class="form-control" name="bifocal_blend_material" id="bifocal_blend_material">
+            	<option value="">Seleccione uno</option>
+				<option value="CR-39 W">CR-39 W</option>
+			</select>
+      	</div>
+      	<div class="col-sm-3">
+				<span class="badge badge-secondary">CR-39 W</span>
+				<input type="radio" class="option-input radio"  name="bifocal_blend_material" value="CR-39 W">
+			</div>
+	 </div><br>
+	 <div class="row" id="bifocal_blend_tratamiento_div" style="display: block;">
+	 	<div class="col-sm-3">
+      		<label class="control-label">Tratamiento</label>
+        </div>
+        	<div class="row">
+      		<div class="col-sm-3">
+      			<span class="badge badge-secondary">SI</span>
+				<input type="radio" class="option-input radio"  name="tratamiento_blend" id="tratamiento1_blend" value="SI">
+			</div>
+			<div class="col-sm-3">
+				<span class="badge badge-secondary">NO</span>
+				<input type="radio" class="option-input radio"  name="tratamiento_blend" id="tratamiento2_blend" value="NO">
+			</div>
+	      	</div><br><br><hr>
 	 </div>
 	 <br><br>
 
@@ -1434,7 +1499,8 @@ $(document).ready(function(){
        
        if($(this).prop('checked') == true){
        	document.getElementById('fotocromatico_div').style.display = 'block';
-       
+       	document.getElementById('polarizado_div').style.display = 'none';
+        $("#polarizado").prop( "checked", false );
        }else{
        	document.getElementById('fotocromatico_div').style.display = 'none';
        
@@ -1446,7 +1512,8 @@ $(document).ready(function(){
        
        if($(this).prop('checked') == true){
        	document.getElementById('antirreflejante_div').style.display = 'block';
-       
+       	document.getElementById('polarizado_div').style.display = 'none';
+       $("#polarizado").prop( "checked", false );
        }else{
        	document.getElementById('antirreflejante_div').style.display = 'none';
        
@@ -1459,10 +1526,13 @@ $(document).ready(function(){
        
        if($(this).prop('checked') == true){
        	document.getElementById('polarizado_div').style.display = 'block';
-       
+        document.getElementById('antirreflejante_div').style.display = 'none';
+        document.getElementById('fotocromatico_div').style.display = 'none';
+        $("#antirreflejante").prop( "checked", false );
+        $("#fotocromatico").prop( "checked", false );
        }else{
        	document.getElementById('polarizado_div').style.display = 'none';
-       
+        
        }
     });
 
@@ -1567,7 +1637,26 @@ $("#cil_oi").change(function(){
 	}
 
       });
+//--------------------------------------------------------------xtrac_div
+$("#airwear").change(function(){
 
+	 if($(this).prop('checked') == true){
+	 	
+       	document.getElementById('trio_div').style.display = 'none';
+       	document.getElementById('xtrac_div').style.display = 'block';
+       $("#trio").prop( "checked", false );
+       }
+
+});
+
+$("#orma").change(function(){
+
+   if($(this).prop('checked') == true){
+	document.getElementById('trio_div').style.display = 'block';
+	document.getElementById('xtrac_div').style.display = 'none';
+	$("#xtrac").prop( "checked", false );
+	}
+});
 
 //****************************************************************************
 });

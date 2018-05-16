@@ -1059,11 +1059,13 @@
       	<div class="col-sm-8" id="bifocal_div" style="display: none;">
       		<div class="col-sm-2">
       			<span class="badge badge-secondary">FLAT-TOP</span>
-				<input type="radio" class="option-input radio"  name="bifocal" value="FLAT-TOP" id="flat-top">
+				<input type="radio" class="option-input radio"  name="bifocal" value="FLAT-TOP" 
+				id="flattop">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">BLEND</span>
-				<input type="radio" class="option-input radio"  name="bifocal" value="BLEND" id="blend">
+				<input type="radio" class="option-input radio"  name="bifocal" value="BLEND" 
+				id="blend">
 			</div>
 		</div>
 		<div class="col-sm-8" id="progresivo_div" style="display: none;">
@@ -1205,7 +1207,7 @@
 				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS XTRACTIVE" id="xtrac">
 			</div>
       	    </div>
-	    </div>
+	    </div><br>
 	    <div class="row" id="polarizado_div" style="display: none;">
         	<div class="col-sm-3">
         	 <label class="control-label">Tipo de Polarizado</label>
@@ -1214,20 +1216,17 @@
 				<option value="Premium">Premium (Xperio)</option>
 			 </select>
 			</div>
-		</div>
+		</div><br>
 	</div>
 
 	 </div>
 
-	 <div class="row" id="bifocal_flat_div" style="display: block;">
+<div class="container" id="modulo_bifocal">
+	<div class="row" id="bifocal_flat_div" style="display: none;padding-bottom: 30px;">
 	 	<div class="col-sm-3">
       		<label class="control-label">Material</label>
-            <select class="form-control" name="bifocal_flat" id="bifocal_flat">
-            	<option value="">Seleccione uno</option>
-				<option value="Básico">Básico</option>
-			</select>
-      	</div>
-      	<div class="col-sm-3">
+         </div>
+          <div class="col-sm-3">
 				<span class="badge badge-secondary">CR-39 W</span>
 				<input type="radio" class="option-input radio"  name="bifocal_flat_material" value="CR-39 W">
 			</div>
@@ -1235,52 +1234,70 @@
 				<span class="badge badge-secondary">POLICARBONATO</span>
 				<input type="radio" class="option-input radio"  name="bifocal_flat_material" value="POLICARBONATO" >
 			</div>
-	 </div><br>
-	 <div class="row" id="bifocal_flat_tratamiento_div" style="display:block;">
+     </div>
+
+	 <div class="row" id="bifocal_flat_tratamiento_div" style="display:none;padding-bottom: 30px;">
 	 	<div class="col-sm-3">
       		<label class="control-label">Tratamiento</label>
         </div>
-        	<div class="row">
-      		<div class="col-sm-3">
-      			<span class="badge badge-secondary">SI</span>
-				<input type="radio" class="option-input radio"  name="tratamiento_flat" id="tratamiento1_flat" value="SI">
-			</div>
-			<div class="col-sm-3">
-				<span class="badge badge-secondary">NO</span>
-				<input type="radio" class="option-input radio"  name="tratamiento_flat" id="tratamiento2_flat" value="NO">
-			</div>
-	      	</div><br><br><hr><br>
+        	<div class="row" style="padding-bottom: 30px;">
+	      		<div class="col-sm-3">
+	      			<span class="badge badge-secondary">SI</span>
+					<input type="radio" class="option-input radio"  name="tratamiento_flat" id="tratamiento1_flat" value="SI">
+				</div>
+				<div class="col-sm-3">
+					<span class="badge badge-secondary">NO</span>
+					<input type="radio" class="option-input radio"  name="tratamiento_flat" id="tratamiento2_flat" value="NO">
+				</div>
+	      	</div>
+	      	<div class="row" id="tratamiento_flat_si" style="background-color: white; padding-bottom: 30px; display: none;">
+	      		<div class="col-sm-offset-3 col-sm-3">
+	      			<span class="badge badge-secondary">ANTIRREFLEJANTE-BÁSICO</span>
+					<input type="radio" class="option-input radio"  name="tratamiento_flat_basico" id="antirreflejante-basico" value="antirreflejante-basico">
+				</div>
+				<div class="col-sm-3">
+					<span class="badge badge-secondary">FOTOCROMÁTICO-BÁSICO</span>
+					<input type="radio" class="option-input radio"  name="tratamiento_flat_basico" id="tratamiento_flat_basico" value="fotocromatico-basico">
+				</div>
+	      	</div>
 	 </div>
 
-	 <div class="row" id="bifocal_blend_div" style="display: block;">
+	 <div class="row" id="bifocal_blend_div" style="display: none;">
 	 	<div class="col-sm-3">
       		<label class="control-label">Material</label>
-            <select class="form-control" name="bifocal_blend_material" id="bifocal_blend_material">
-            	<option value="">Seleccione uno</option>
-				<option value="CR-39 W">CR-39 W</option>
-			</select>
-      	</div>
+        </div>
       	<div class="col-sm-3">
-				<span class="badge badge-secondary">CR-39 W</span>
-				<input type="radio" class="option-input radio"  name="bifocal_blend_material" value="CR-39 W">
-			</div>
-	 </div><br>
-	 <div class="row" id="bifocal_blend_tratamiento_div" style="display: block;">
+      		<span class="badge badge-secondary">CR-39 W</span><br>
+      		<input type="hidden" name="bifocal_blend_material" value="NO">
+                <input type="checkbox" class="squaredTwo" name="bifocal_blend_material" id="bifocal_blend_material" data-on="SI" data-off="NO" value="SI">
+      	</div>
+      </div><br><br>
+	 <div class="row" id="bifocal_blend_tratamiento_div" style="display:none;padding-bottom: 30px;">
 	 	<div class="col-sm-3">
       		<label class="control-label">Tratamiento</label>
         </div>
         	<div class="row">
-      		<div class="col-sm-3">
-      			<span class="badge badge-secondary">SI</span>
-				<input type="radio" class="option-input radio"  name="tratamiento_blend" id="tratamiento1_blend" value="SI">
+	      		<div class="col-sm-3">
+	      			<span class="badge badge-secondary">SI</span>
+					<input type="radio" class="option-input radio"  name="tratamiento_blend" id="tratamiento1_blend" value="SI">
+				</div>
+				<div class="col-sm-3">
+					<span class="badge badge-secondary">NO</span>
+					<input type="radio" class="option-input radio"  name="tratamiento_blend" id="tratamiento2_blend" value="NO">
+				</div>
+	      	</div>
+	      	<div class="row" id="tratamiento_blend_si" style="background-color: white; padding: 30px; display: none;">
+	      		<div class="col-sm-offset-3 col-sm-3">
+	      			<span class="badge badge-secondary">ANTIRREFLEJANTE-BÁSICO</span><br>
+					<input type="hidden" name="tratamiento_blend_basico" value="NO">
+                <input type="checkbox" class="squaredTwo" name="tratamiento_blend_basico" id="tratamiento_blend_basico" data-on="SI" data-off="NO" value="SI">
+				</div>
 			</div>
-			<div class="col-sm-3">
-				<span class="badge badge-secondary">NO</span>
-				<input type="radio" class="option-input radio"  name="tratamiento_blend" id="tratamiento2_blend" value="NO">
-			</div>
-	      	</div><br><br><hr>
 	 </div>
-	 <br><br>
+</div>
+
+	 
+	 
 
 
 	
@@ -1402,7 +1419,7 @@ $(document).ready(function(){
        	document.getElementById('progresivo_div').style.display = 'none';
        	document.getElementById('monofocal_material_div').style.display = 'block';	
        	document.getElementById('monofocal_tratamiento_div').style.display = 'block';
-       	 
+       	document.getElementById('modulo_bifocal').style.display = 'none'; 
        
        }else if(option  == 'Bifocal'){
        		
@@ -1411,7 +1428,7 @@ $(document).ready(function(){
        	document.getElementById('progresivo_div').style.display = 'none';
         document.getElementById('monofocal_material_div').style.display = 'none';
         document.getElementById('monofocal_tratamiento_div').style.display = 'none';
-         
+         document.getElementById('modulo_bifocal').style.display = 'block';
 
        }else if(option  == 'Progresivo'){
        	
@@ -1420,7 +1437,7 @@ $(document).ready(function(){
        	document.getElementById('progresivo_div').style.display = 'block';
        	document.getElementById('monofocal_material_div').style.display = 'none';
        	document.getElementById('monofocal_tratamiento_div').style.display = 'none';
-       	 
+       	document.getElementById('modulo_bifocal').style.display = 'none'; 
 
        }else{
        	document.getElementById('monofocal_div').style.display = 'none';
@@ -1428,7 +1445,7 @@ $(document).ready(function(){
        	document.getElementById('progresivo_div').style.display = 'none';
        	document.getElementById('monofocal_material_div').style.display = 'none';
        	document.getElementById('monofocal_tratamiento_div').style.display = 'none';
-       	
+       	document.getElementById('modulo_bifocal').style.display = 'none';
        	 
        }
 
@@ -1437,10 +1454,7 @@ $(document).ready(function(){
  $("#tratamientoSi").change(function(){
  	alert('Tratamiento SI');
  });
-//  document.getElementById('monofocal_tratamiento_si_div').style.display =
-// document.getElementById('monofocal_tratamiento_si_div').style.display =
-// document.getElementById('monofocal_tratamiento_si_div').style.display =
-// document.getElementById('monofocal_tratamiento_si_div').style.display =
+
 
 
 
@@ -1658,9 +1672,80 @@ $("#orma").change(function(){
 	}
 });
 
+	//----------------------------------------------------
+
+
+$("#flattop").change(function(){
+
+   if($(this).prop("checked") == true){
+
+   	document.getElementById('bifocal_flat_div').style.display = "block";
+	document.getElementById('bifocal_flat_tratamiento_div').style.display = "block";
+	document.getElementById('bifocal_blend_div').style.display = "none";
+	document.getElementById('bifocal_blend_tratamiento_div').style.display = "none";
+	$("#tratamiento_flat").prop('required')=true;
+	$("#bifocal_flat_material").prop('required')=true;
+	$("#tratamiento_blend").prop('required')=false;
+	$("#bifocal_blend_material").prop('required')=false;
+	    }else{
+	document.getElementById('bifocal_flat_div').style.display = "none";
+	document.getElementById('bifocal_flat_tratamiento_div').style.display = "none";    	
+	    }
+	});
+
+$("#blend").change(function(){
+
+   if($(this).prop("checked") == true){
+	document.getElementById('bifocal_blend_div').style.display = "block";
+	document.getElementById('bifocal_blend_tratamiento_div').style.display = "block";
+	document.getElementById('bifocal_flat_div').style.display = "none";
+	document.getElementById('bifocal_flat_tratamiento_div').style.display = "none";
+	$("#tratamiento_flat").prop('required')=false;
+	$("#bifocal_flat_material").prop('required')=false;
+	$("#tratamiento_blend").prop('required')=true;
+	$("#bifocal_blend_material").prop('required')=true;
+	    }else{
+	document.getElementById('bifocal_blend_div').style.display = "none";
+	document.getElementById('bifocal_blend_tratamiento_div').style.display = "none";
+	    }
+	});
+//--------------------------------------------------------------------
+$("#tratamiento1_flat").change(function(){
+	if($(this).prop("checked") == true){
+		document.getElementById('tratamiento_flat_si').style.display = "block";
+		$("#tratamiento_flat_basico").prop('required')=true;
+	}
+});
+
+$("#tratamiento2_flat").change(function(){
+	if($(this).prop("checked") == true){
+		document.getElementById('tratamiento_flat_si').style.display = "none";
+		$("#tratamiento_flat_basico").prop('required')=false;
+		
+		
+	}
+});
+//------------------------------------------------------------------------
+$("#tratamiento1_blend").change(function(){
+	if($(this).prop("checked") == true){
+		document.getElementById('tratamiento_blend_si').style.display = "block";
+		
+	}
+});
+
+$("#tratamiento2_blend").change(function(){
+	if($(this).prop("checked") == true){
+		document.getElementById('tratamiento_blend_si').style.display = "none";
+		$("#tratamiento_blend_basico").prop( "checked", false );
+	}
+});
+
 //****************************************************************************
 });
 	
+
+
+//----------------------------------------------------------
 </script>
 
 @endsection

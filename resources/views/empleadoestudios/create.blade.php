@@ -32,7 +32,9 @@
 				<div class="col-md-12 offset-md-2 mt-3">
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="escolaridad1" id="lbl_escolaridad1">Escolaridad 1:</label>
-						<select type="select" name="escolaridad1" class="form-control" id="escolaridad1">
+						<select type="select" name="escolaridad1" class="form-control" id="escolaridad1"
+						 required>
+							<option value="">Seleccionar</option>
 							<option id="1" value="Primaria" @if ($estudios->escolaridad1 == "Primaria")
 								{{-- expr --}}
 								selected="selected" 
@@ -69,13 +71,14 @@
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="cedula1" id="lbl_cedula">Número de Cédula:</label>
-						<input type="text" class="form-control" id="cedula1" name="cedula1" value="{{ $estudios->cedula1 }}">
+						<input type="text" class="form-control" id="cedula1" name="cedula1" value="{{ $estudios->cedula1 }}" required>
 					</div>
 				</div>
 				<div class="col-md-12 offset-md-2 mt-3">
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="escolaridad2" id="lbl_escolaridad2">Escolaridad 2:</label>
-						<select type="select" name="escolaridad2" class="form-control" id="escolaridad2">
+						<select type="select" name="escolaridad2" class="form-control" id="escolaridad2" >
+							<option value="">Seleccionar</option>
 							<option id="1" value="Primaria" @if ($estudios->escolaridad1 == "Primaria")
 								{{-- expr --}}
 								selected="selected" 

@@ -62,4 +62,7 @@
 				@yield('cliente')
 			</div>
 		</div>
+		<script src="{{ asset('js/sweetalert.js') }}"></script>
+    <!-- Include this after the sweet alert js file -->
+    @include('sweet::alert')
 	@endsection

@@ -63,4 +63,6 @@
 </div>
  <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
     <script src="{{ asset('js/sweetalert.js') }}"></script>
+    <!-- Include this after the sweet alert js file -->
+    @include('sweet::alert')
 @endsection

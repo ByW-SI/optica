@@ -41,7 +41,7 @@
 				</div>
 				<div class="col-xs-12 offset-md-2 mt-3">
 							<div class="form-group col-xs-4">
-	    					<label class="control-label" for="diasrestantes">Días vacaiones restantes:</label>
+	    					<label class="control-label" for="diasrestantes">Días de vacaiones restantes:</label>
 	    					<input type="text" class="form-control" id="dias_vac_rest" name="diasrestantes">
 	  			</div>
 				</div>

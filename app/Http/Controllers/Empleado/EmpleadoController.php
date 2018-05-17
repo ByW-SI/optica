@@ -45,7 +45,7 @@ class EmpleadoController extends Controller
         //
         $empleado = new Empleado;
         $edit = false;
-        Alert::success('Empleado Creado', 'Siga agregando información al empleado');
+
         return view('empleado.create',['empleado'=>$empleado,'edit'=>$edit]);
     }
 
@@ -61,17 +61,16 @@ class EmpleadoController extends Controller
         $rfc = Empleado::where('rfc',$request->rfc)->get();
         if (count($rfc)!=0) {
             # code...
-            alert('RFC!!!')->autoclose(2000);
-            return redirect()->back()->with('errors','El RFC ya existe');
+           Alert::error('Favor de verificar la Información', ' El RFC ya existe');
+            return redirect()->back();
         }
         else {
             $empleado = Empleado::create($request->all());
             Alert::success('Empleado Creado', 'Siga agregando información al empleado');
-            alert()->success('Empleado Creado', 'Siga agregando información al empleado');
+            
             return redirect()->route('empleados.show',['empleado'=>$empleado])->with('success','Empleado Creado');
         }
-        Alert::success('Empleado Creado', 'Siga agregando información al empleado');
-            alert()->success('Empleado Creado', 'Siga agregando información al empleado');
+       
     }
 
     /**

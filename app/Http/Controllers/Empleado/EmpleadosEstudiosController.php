@@ -39,6 +39,7 @@ class EmpleadosEstudiosController extends Controller
         //
         $estudios = new EmpleadosEstudios;
         $edit = false;
+        
         return view('empleadoestudios.create',['empleado'=>$empleado,'estudios'=>$estudios,'edit'=>$edit]);
     }
 

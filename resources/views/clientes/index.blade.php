@@ -132,7 +132,7 @@
 					<div class="panel-default pestana" id="tab2{{$personal->id}}">
 						<div class="panel-heading">Dirección Fisica:</div>
 						<div class="panel-body">
-							@if (count($personal->direccionFisica) == 0 )
+							@if ($personal->direccionFisica->count() == 0 )
 								{{-- true expr --}}
 								<h3>Aun no tiene direccion Fisica</h3>
 							@else
@@ -194,12 +194,12 @@
 							Contactos:
 						</div>
 						
-						@if (count($personal->contactos) == 0)
+						@if ($personal->contactos->count() == 0)
 						<div class="panel-body">
 							<h3>Aún no tienes contactos</h3>
 						</div>
 						@endif
-						@if (count($personal->contactos) !=0)
+						@if ($personal->contactos->count() !=0)
 						<div class="panel-body">
 							<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 								<thead>
@@ -226,12 +226,12 @@
 					</div>
 					<div class="panel-default pestana" id="tab4{{$personal->id}}">
 				 	<div class="panel-heading">Datos Generales:</div>
-				 	@if (count($personal->datosGenerales) == 0)
+				 	@if ($personal->datosGenerales->count() == 0)
 						<div class="panel-body">
 							<h3>Aún no tienes datos generales</h3>
 						</div>
 						@endif
-						@if (count($personal->datosGenerales) !=0)
+						@if ($personal->datosGenerales->count() !=0)
 				 	<div class="panel-body">
 				 		<div class="col-md-12 offset-md-2 mt-3">
 				 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

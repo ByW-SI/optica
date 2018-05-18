@@ -18,7 +18,7 @@
 			</a>
 		</div>
 	</div>
-	@if (count($areas) == 0)
+	@if ($areas->count() == 0)
 		{{-- true expr --}}
 		<label>No hay areas añadidos</label>
 	@else

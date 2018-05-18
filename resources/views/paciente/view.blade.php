@@ -226,7 +226,7 @@
 						 <div class="tab-pane fade" id="hmedico">
 						 	<div class="panel-default">
 						 		<div class="panel-heading"><h4><strong>Historial Médico:</strong> </h4></div>
-						 		 @if(count($paciente->medico)==0)
+						 		 @if($paciente->medico->count() ==0)
 						    <div class="panel-body">
 						      <div class="row">
 						      	<div class="col-sm-9">
@@ -302,7 +302,7 @@
 					<div class="tab-pane fade" id="ocular">
 					 <div class="panel-default">
 					 	<div class="panel-heading"><h4><strong>Historial Ocular:</strong></h4></div>
-					 	 @if(count($paciente->ocular)==0)
+					 	 @if($paciente->ocular->count() ==0)
 						    <div class="panel-body">
 						      <div class="row">
 						      	<div class="col-sm-9">

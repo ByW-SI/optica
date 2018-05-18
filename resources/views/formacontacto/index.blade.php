@@ -16,7 +16,7 @@
 			<a class="btn btn-success" href="{{ route('formacontactos.create') }}">Nueva Forma de Contacto</a>
 		</div>
 	</div>
-	@if (count($formaContactos) == 0)
+	@if ($formaContactos->count() == 0)
 		{{-- true expr --}}
 		<label>No hay forma de contactos añadidos</label>
 	@else

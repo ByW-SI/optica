@@ -18,7 +18,7 @@
 			</a>
 		</div>
 	</div>
-	@if (count($puestos) == 0)
+	@if ($puestos->count() == 0)
 		{{-- true expr --}}
 		<label>No hay puestos añadidos</label>
 	@else

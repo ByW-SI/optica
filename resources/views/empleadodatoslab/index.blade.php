@@ -18,10 +18,10 @@
 	</div>
 
 
-	@if (count($datoslab) == 0)
+	@if ($datoslab->count() == 0)
 			<h3>Aún no tienes historial laboral</h3>
 		@endif
-		@if (count($datoslab) !=0)
+		@if ($datoslab->count() !=0)
             
 			
 <div class="panel panel-default">

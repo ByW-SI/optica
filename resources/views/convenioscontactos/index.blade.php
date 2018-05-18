@@ -16,10 +16,10 @@
 				<a type="button" class="btn btn-success" href="{{ route('convenios.contactos.create',['convenio'=>$convenio]) }}">
 			<strong>Agregar</strong>	</a>
 			</div>
-		@if (count($contactos) == 0)
+		@if ($contactos->count() == 0)
 			<h3>Aún no tienes contactos</h3>
 		@endif
-		@if (count($contactos) !=0)
+		@if ($contactos->count() !=0)
 			
 		<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 				<thead>

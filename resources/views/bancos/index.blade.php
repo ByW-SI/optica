@@ -18,7 +18,7 @@
 			</a>
 		</div>
 	</div>
-	@if (count($bancos) == 0)
+	@if ($bancos->count() == 0)
 		{{-- true expr --}}
 		<label>No hay Bancos añadidos</label>
 	@else

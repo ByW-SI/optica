@@ -86,11 +86,11 @@
 					</form>
 				</div>
 				<div class="panel-body">
-					@if (count($crms)==0)
+					@if ($crms->count() ==0)
 						<p>Aun no tienes C.R.M.'s</p>
 					@endif
 					{{-- {{dd($crms)}} --}}
-					@if (count($crms)!=0)
+					@if ($crms->count() !=0)
 						<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse;margin-bottom: 0px">
 							<thead>
 								<tr class="info">

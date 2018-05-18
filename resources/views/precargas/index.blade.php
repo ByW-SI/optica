@@ -18,7 +18,7 @@
 				<a class="btn btn-success" href="{{ route($agregar) }}">Nuevo {{$titulo}}</a>
 			</div>
 		</div>
-		@if (count($precargas) == 0)
+		@if ($precargas->count() == 0)
 			{{-- expr --}}
 			<label>No hay {{$titulo}} añadidos</label>
 		@else

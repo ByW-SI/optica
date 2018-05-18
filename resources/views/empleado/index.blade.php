@@ -277,12 +277,12 @@
 						Estudios:
 					</div>
 					
-					@if ($empleado->estudios->count() == 0)
+					@if ($empleado->estudios == null)
 					<div class="panel-body">
 						<h3>Aún no tienes Estudios Agregados</h3>
 					</div>
 					@endif
-					@if ($empleado->estudios->count() !=0)
+					@if ($empleado->estudios != null)
 					<div class="panel-body">
 						<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 							<thead>
@@ -323,12 +323,12 @@
 							
 				<div class="panel-default pestana" id="tab4{{$empleado->id}}">
 				 	<div class="panel-heading">Datos Emergencias:</div>
-				 	@if ($empleado->emergencias->count() == 0)
+				 	@if ($empleado->emergencias == null)
 						<div class="panel-body">
 							<h3>Aún no tienes datos de Emergencias</h3>
 						</div>
 						@endif
-						@if ($empleado->emergencias->count() !=0)
+						@if ($empleado->emergencias != null)
 				 	<div class="panel-body">
 				 		<div class="col-md-12 offset-md-2 mt-3">
 				 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

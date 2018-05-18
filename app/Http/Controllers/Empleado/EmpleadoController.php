@@ -82,7 +82,7 @@ class EmpleadoController extends Controller
     public function show(Empleado $empleado)
     {
         //
-        Alert::success('Empleado Creado', 'Siga agregando información al empleado');
+        
         return view('empleado.view',['empleado'=>$empleado]);
     }
 
@@ -96,7 +96,7 @@ class EmpleadoController extends Controller
     {
         //
         $edit= true;
-        Alert::success('Empleado Creado', 'Siga agregando información al empleado');
+        
         return view('empleado.create',['empleado'=>$empleado,'edit'=>$edit]);
     }
 

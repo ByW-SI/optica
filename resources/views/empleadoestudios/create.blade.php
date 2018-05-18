@@ -122,6 +122,7 @@
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="idioma1" id="lbl_idioma">Idioma:</label>
 						<select type="select" name="idioma1" class="form-control" id="idioma1">
+							<option value="">Seleccionar</option>
 							<option id="1" value="Inglés" @if ($estudios->idioma1 == "Inglés")
 								{{-- expr --}}
 								selected="selected" 
@@ -159,6 +160,7 @@
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="nivel1" id="lbl_nivel">Nivel:</label>
 						<select type="select" name="nivel1" class="form-control" id="nivel1">
+							<option value="">Seleccionar</option>
 							<option id="1" value="Básico" @if ($estudios->nivel1 == "Básico")
 								{{-- expr --}}
 								selected="selected" 
@@ -178,6 +180,7 @@
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="idioma2" id="lbl_idioma">Idioma:</label>
 						<select type="select" name="idioma2" class="form-control" id="idioma2">
+							<option value="">Seleccionar</option>
 							<option id="1" value="Inglés" @if ($estudios->idioma2 == "Inglés")
 								{{-- expr --}}
 								selected="selected" 
@@ -215,6 +218,7 @@
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="nivel2" id="lbl_nivel">Nivel:</label>
 						<select type="select" name="nivel2" class="form-control" id="nivel2">
+							<option value="">Seleccionar</option>
 							<option id="1" value="Básico" @if ($estudios->nivel2 == "Básico")
 								{{-- expr --}}
 								selected="selected" 
@@ -234,6 +238,7 @@
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="idioma3" id="lbl_idioma">Idioma:</label>
 						<select type="select" name="idioma3" class="form-control" id="idioma3">
+							<option value="">Seleccionar</option>
 							<option id="1" value="Inglés" @if ($estudios->idioma3 == "Inglés")
 								{{-- expr --}}
 								selected="selected" 
@@ -271,6 +276,7 @@
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="nivel3" id="lbl_nivel">Nivel:</label>
 						<select type="select" name="nivel3" class="form-control" id="nivel3">
+							<option value="">Seleccionar</option>
 							<option id="1" value="Básico" @if ($estudios->nivel3 == "Básico")
 								{{-- expr --}}
 								selected="selected" 

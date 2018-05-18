@@ -147,7 +147,7 @@
 					</div>
 
 <div   role="tabpanel" id="fiscal" class="tab-pane fade in">
-	
+	<form>
 			{{-- DATOS FISCALES --}}
 			<div class="panel panel-default" id="datosfiscales">
 			 <input type="hidden" name="convenio_id" value="{{-- {{$convenio->id}} --}}">
@@ -220,7 +220,7 @@
 					</div>
 				</div>
 			</div>
-			</div>
+			</div></form>
 </div>
 
 <div   role="tabpanel" id="contactos" class="tab-pane fade in">

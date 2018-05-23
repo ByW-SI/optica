@@ -25,7 +25,7 @@
 
 
 			 	<div class="col-sm-4">
-	    			<h5><strong>Peiodicidad</strong>
+	    			<h5><strong>Periodicidad</strong>
 	    				<i class="fa fa-calendar" aria-hidden="true"></i>
 	    			</h5> <select name="region">
  							 <option value="region1"> Resultado 1  </option>

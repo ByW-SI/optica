@@ -34,7 +34,11 @@ class SucursalController extends Controller{
     {
         //
         $sucursal=new Sucursal;
-        return view('sucursales.create',['edit'=>false,'sucursal'=>$sucursal]);
+        $integer=Sucursal::get()->count();
+
+        return view('sucursales.create',['edit'    =>false,
+                                         'sucursal'=>$sucursal,
+                                         'integer' =>$integer]);
     }
 
     /**
@@ -67,7 +71,7 @@ return view('sucursales.view',['sucursal'=>$sucursal]);
     {
         
         $suc= Sucursal::find($sucursal);
-       // dd($suc);
+       
         return view('sucursales.view',['sucursal'=>$suc]);
     }
 
@@ -80,7 +84,10 @@ return view('sucursales.view',['sucursal'=>$sucursal]);
     public function edit( $sucursal)
     {
         $suc= Sucursal::find($sucursal);
-        return view('sucursales.create',['edit'=>true,'sucursal'=>$suc]);
+        $integer=Sucursal::get()->count();
+        return view('sucursales.create',['edit'=>true,
+                                         'sucursal'=>$suc,
+                                         'integer' =>$integer]);
     }
 
     /**
@@ -96,7 +103,7 @@ return view('sucursales.view',['sucursal'=>$sucursal]);
          $suc= Sucursal::find($sucursal);
 
         $suc->update($request->all());
-        Alert::success('Proveedor actualizado')->persistent("Cerrar");
+        Alert::success('Sucursal actualizado')->persistent("Cerrar");
         return redirect()->route('sucursales.show',['sucursal'=>$sucursal]);
     }
 

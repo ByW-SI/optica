@@ -6,6 +6,7 @@ use App\Empleado;
 use App\EmpleadosFaltasAdministrativas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class EmpleadosFaltasAdministrativasController extends Controller
 {
@@ -41,6 +42,7 @@ class EmpleadosFaltasAdministrativasController extends Controller
     {
         //
         $falta = EmpleadosFaltasAdministrativas::create($request->all());
+        Alert::success('Información Agregada', 'Se ha registrado correctamente la información');
         return redirect()->route('empleados.faltas.index',['empleado'=>$empleado]);
     }
 

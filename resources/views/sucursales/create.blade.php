@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
 {{-- scripts --}}
 	<div class="container">
 		@if ($edit == true)
@@ -39,8 +40,8 @@
 						</div>
 
 						<div class="form-group col-xs-4">
-							<label class="control-label" for="claveid"><i class="fa fa-asterisk" aria-hidden="true"></i> Clave ID :</label>
-							<input type="text" class="form-control" id="claveid" name="claveid" required="required" value="{{ $sucursal->claveid }}" placeholder="ID de Sucursal">
+							<label class="control-label" for="claveid"><i class="fa fa-asterisk" aria-hidden="true"></i> Clave ID :(Automático)</label>
+							<input type="text" class="form-control" id="claveid" name="claveid" required="required" value="{{ $sucursal->claveid }}" placeholder="ID de Sucursal" readonly>
 						</div>
 
 
@@ -250,4 +251,19 @@
 
 	  </form>
 	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+
+	$("#calle").keyup(function(){
+
+		var calle=$("#calle").val();
+		var sub=calle.substring(0,3);
+
+		$("#claveid").val(sub+{{$integer}});
+	});
+
+});
+	</script>
 @endsection

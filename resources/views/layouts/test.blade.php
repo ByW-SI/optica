@@ -15,6 +15,7 @@
     
     <!-- Styles -->
     <script href="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    
    
     <link rel="stylesheet" href="{{ asset('bootstrap-toggle/css/bootstrap-toggle.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

@@ -117,6 +117,7 @@ Route::get('getsucursal','Sucursal\SucursalController@getSucursal');
 Route::get('getalmacen','Almacen\AlmacenController@getAlmacen');
 Route::get('getbancos','Banco\BancoController@getBancos');
 Route::get('getgiros','Giro\GiroController@getGiros');
+Route::get('getcontacto','FormaContacto\FormaContactoController@getContactos');
 //---------------------------------------------------------
 // *********** PACIENTES *********************************//
 Route::resource('pacientes','Paciente\PacienteController');

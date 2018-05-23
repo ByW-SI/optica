@@ -24,13 +24,16 @@
 							
 						</div>
 						
-						<div class="boton checkbox-disabled">
-                            <label>
-
-                                <input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="datosFiscal();">
-                                ¿Usar datos de dirección fisica?.
+						<div class="form-group col-xs-6">
+						
+                            
+							<label>
+                                <input id="dirfiscal" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No"  onchange="datosFiscal()">
+                            
+                                ¿Usar datos de Dirección Física? .
                             </label>
-                        </div>
+                       
+                    </div>
 
 					<div class="col-md-12 offset-md-2 mt-3">
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -88,10 +91,11 @@
 	</form>
 </div>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-<script>
+<script type="text/javascript">
+
 
 	function datosFiscal(){
-                if($(':checkbox').prop('checked') == true){
+                if($('#dirfiscal').prop('checked') == true){
                 	document.domicilio.calle.defaultValue = "{{$provedore->calle}}";
                		document.domicilio.numext.defaultValue = "{{$provedore->numext}}";
                 	document.domicilio.numint.defaultValue = "{{$provedore->numinter}}";
@@ -103,7 +107,7 @@
                 	document.domicilio.calle2.defaultValue = "{{$provedore->calle2}}";
                 	document.domicilio.referencia.defaultValue = "{{$provedore->referencia}}";
 				}
-				else if($(':checkbox').prop('checked') == false){
+				else{
                     document.domicilio.calle.defaultValue = "";
                     document.domicilio.numext.defaultValue = "";
                     document.domicilio.numint.defaultValue = "";

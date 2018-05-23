@@ -42,11 +42,12 @@
 										<input class="form-control" type="text" name="ocupacion" 
 										@if ($edit == true)
 										value="{{$paciente->generales->ocupacion}}"
-										@endif>
+										@endif required>
 									</div>
 									<div class="form-group col-xs-4">
 										<label class="control-label">Convenio:</label>
-										<select class="form-control" name="convenio">
+										<select class="form-control" name="convenio" required>
+											<option value="">Seleccionar</option>
 											<option>Convenio 1</option>
 											<option>Convenio 2</option>
 											<option>Convenio ...</option>
@@ -60,7 +61,7 @@
 									<input class="form-control" type="text" name="calle" 
 									@if ($edit == true)
 										value="{{$paciente->generales->calle}}"
-										@endif>
+										@endif required>
 								</div>
 								<div class="form-group col-xs-3">
 									<label class="control-label">Número Interior:</label>
@@ -71,7 +72,9 @@
 								</div>
 								<div class="form-group col-xs-3">
 									<label class="control-label">Número Exterior:</label>
-									<input class="form-control" type="text" name="numext"
+									<input required class="form-control" type="text" 
+									name="numext"
+
 									@if ($edit == true)
 										value="{{$paciente->generales->numext}}"
 										@endif>
@@ -88,14 +91,14 @@
 									<input class="form-control" type="text" name="municipio"
 									@if ($edit == true)
 										value="{{$paciente->generales->municipio}}"
-										@endif>
+										@endif required>
 								</div>
 								<div class="form-group col-xs-3">
 									<label class="control-label">Estado:</label>
 									<input class="form-control" type="text" name="estado"
 									@if ($edit == true)
 										value="{{$paciente->generales->estado}}"
-										@endif>
+										@endif required>
 								</div>
 								</div>
 								<div class="panel-heading jumbotron"><h5><strong>Contacto:</strong>&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5></div>
@@ -105,28 +108,28 @@
 									<input class="form-control" type="text" name="telcasa"
 									@if ($edit == true)
 										value="{{$paciente->generales->telcasa}}"
-										@endif>
+										@endif required>
 								</div>
 								<div class="form-group col-xs-4">
 									<label class="control-label">Telefono Oficina:</label>
 									<input class="form-control" type="text" name="teloficina"
 									@if ($edit == true)
 										value="{{$paciente->generales->teloficina}}"
-										@endif>
+										@endif required>
 								</div>
 								<div class="form-group col-xs-4">
 									<label class="control-label">Telefono celular:</label>
 									<input class="form-control" type="text" name="telcelular"
 									@if ($edit == true)
 										value="{{$paciente->generales->telcelular}}"
-										@endif>
+										@endif required>
 								</div>
 								<div class="form-group col-xs-4">
 									<label class="control-label">Email:</label>
 									<input class="form-control" type="mail" name="email"
 									@if ($edit == true)
 										value="{{$paciente->generales->email}}"
-										@endif>
+										@endif required>
 								</div>
 								<div class="col-xs-4 col-xs-offset-5">
 										

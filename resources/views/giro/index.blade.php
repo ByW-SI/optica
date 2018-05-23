@@ -18,7 +18,7 @@
 			</a>
 		</div>
 	</div>
-	@if ($giros->count == 0)
+	@if ($giros->count() == 0)
 		{{-- true expr --}}
 		<label>No hay giros añadidos</label>
 	@else

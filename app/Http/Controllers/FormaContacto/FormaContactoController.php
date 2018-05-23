@@ -106,4 +106,9 @@ class FormaContactoController extends Controller
         })->paginate(10);
         return view('formacontacto.index',['formaContactos'=>$formaContactos ]);
     }
+
+    public function getContactos(){
+         $contactos=FormaContacto::get();
+         return view('precargas.select',['precargas'=>$contactos]);
+    }
 }

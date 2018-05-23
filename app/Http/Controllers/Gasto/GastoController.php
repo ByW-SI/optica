@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Gasto;
 use App\Gasto;
 use App\Sucursal;
 use App\Almacen;
+use App\Empleado;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use UxWeb\SweetAlert\SweetAlert as Alert;
@@ -38,6 +39,8 @@ class GastoController extends Controller
         $gasto= new Gasto; 
 
         $tipo;
+        $salarios=0;
+
 if( $sucursal==null){
  $tipo=true;
  $gastos=Gasto::where('almacen_id',$request->almacen)->get();
@@ -45,6 +48,12 @@ if( $sucursal==null){
 }else{
     $tipo=false;
     $gastos=Gasto::where('sucursal_id',$request->sucursal)->get();
+
+    foreach ($sucursal->datosLab as $datos ){
+        
+            $salarios+=$datos->salarionom;
+    }
+    
 }
         
 
@@ -54,12 +63,15 @@ if( $sucursal==null){
             $total+=$suma->monto;
         }
 
+        $total+=$salarios;
+
         return view('gastos.create',[
         'gasto'=>$gasto,
         'sucursal'=>$sucursal,
         'almacen'=>$almacen,
         'gastos'=>$gastos,
         'tipo'=>$tipo,
+        'salarios'=>$salarios,
         'total'=>$total]);//
     }
 
@@ -82,6 +94,8 @@ if( $sucursal==null){
        // $gastos=Gasto::where('sucursal_id',$request->sucursal_id)->get();
 
          $tipo;
+         $salarios=0;
+
 if( $sucursal==null){
  $tipo=true;
  $gastos=Gasto::where('almacen_id',$request->almacen_id)->get();
@@ -89,6 +103,11 @@ if( $sucursal==null){
 }else{
     $tipo=false;
     $gastos=Gasto::where('sucursal_id',$request->sucursal_id)->get();
+
+    foreach ($sucursal->datosLab as $datos ){
+        
+            $salarios+=$datos->salarionom;
+    }
 }
           
          
@@ -97,12 +116,16 @@ if( $sucursal==null){
         foreach ($gastos as $suma ) {
             $total+=$suma->monto;
         }
+
+        $total+=$salarios;
+        
         return view('gastos.create',
             ['gastos'=>$gastos, 
             'sucursal'=>$sucursal,
             'almacen'=>$almacen,
             'gasto'=>$gasto,
             'tipo'=>$tipo,
+            'salarios'=>$salarios,
             'total'=>$total]);
     }
 
@@ -140,6 +163,8 @@ if( $sucursal==null){
         $gasto= new Gasto; 
 
         $tipo;
+        $salarios=0;
+
 if( $sucursal==null){
  $tipo=true;
  $gastos=Gasto::where('almacen_id',$almacen->id)->get();
@@ -147,6 +172,11 @@ if( $sucursal==null){
 }else{
     $tipo=false;
     $gastos=Gasto::where('sucursal_id',$sucursal->id)->get();
+
+    foreach ($sucursal->datosLab as $datos ){
+        
+            $salarios+=$datos->salarionom;
+    }
 }
         
 
@@ -155,6 +185,7 @@ if( $sucursal==null){
         foreach ($gastos as $suma ) {
             $total+=$suma->monto;
         }
+            $total+=$salarios;
 
         return view('gastos.create',[
         'gasto'=>$gasto,
@@ -162,6 +193,7 @@ if( $sucursal==null){
         'almacen'=>$almacen,
         'gastos'=>$gastos,
         'tipo'=>$tipo,
+        'salarios'=>$salarios,
         'total'=>$total]);//
         
 

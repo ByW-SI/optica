@@ -88,7 +88,7 @@
     
       <tr class="warning">
         <td>Salarios</td>
-        <td>$--</td>
+        <td>${{$salarios}}</td>
         <td>
           <div class="btn-group">
 
@@ -157,7 +157,7 @@
 
  
  
-  <div class="col-sm-4">
+  <div class="col-sm-2">
           <h5><strong>Total</strong></h5>
 @if(isset($total))
           <input type="text" name="total" class="form-control" value="${{$total}}" readonly>

@@ -43,6 +43,8 @@
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="forma_contacto_id"> <i class="fa fa-asterisk" aria-hidden="true"></i>Forma de contacto:</label>
+	 				<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick='getContacto()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
 					<select type="select" name="forma_contacto_id" class="form-control" id="forma_contacto_id">
 						<option id="sin_definir" value="sin_definir">Sin Definir</option>
 						@foreach ($formaContactos as $formaContacto)
@@ -50,6 +52,7 @@
 							<option id="{{$formaContacto->id}}" value="{{ $formaContacto->id }}" selected="selected">{{ $formaContacto->nombre }}</option>
 						@endforeach
 					</select>
+					</div>
 	 			</div>
 	 		</div>
 	 		<div class="col-md-12 offset-md-2 mt-3">
@@ -131,6 +134,21 @@
 			    dataType: "html",
 			}).done(function(resultado){
 			    $("#giro_id").html(resultado);
+			});
+		}
+
+		function getContacto(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getcontacto') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#forma_contacto_id").html(resultado);
 			});
 		}
 

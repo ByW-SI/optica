@@ -6,6 +6,7 @@ use App\Empleado;
 use App\EmpleadosVacaciones;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class EmpleadosVacacionesController extends Controller
 {
@@ -44,6 +45,7 @@ class EmpleadosVacacionesController extends Controller
     {
         //
         $vacacion = EmpleadosVacaciones::create($request->all());
+        Alert::success('Información Agregada', 'Se ha registrado correctamente la información');
         return redirect()->route('empleados.vacaciones.index',['empleado'=>$empleado]);
 
     }

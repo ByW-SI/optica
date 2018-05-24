@@ -71,6 +71,7 @@
 							<li role="presentation"><a data-toggle="tab" href="#hmedico">Historial Medico:</a></li> 
 
 							<li role="presentation"><a data-toggle="tab" href="#ocular">Historial Ocular:</a></li>
+							<li role="presentation"><a data-toggle="tab" href="#anteojos">Anteojos:</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#" class="ui-tabs-anchor">Ortopedico:(En desarrollo)</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#cita" class="ui-tabs-anchor">Citas:</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li> 
@@ -362,6 +363,32 @@
 					 </div>	
 					</div>
 					{{--  HISTORIAL OCULAR --}}
+
+					{{--  ANTEOJOS --}}
+					<div class="tab-pane fade" id="anteojos">
+					 <div class="panel-default">
+					 	<div class="panel-heading"><h4><strong>Anteojos:</strong></h4></div>
+					 	
+						    <div class="panel-body">
+						      <div class="row">
+						      	<div class="col-sm-9">
+						      		<h2><strong>Aun no se ha agregado Historial de Anteojos:</strong></h2>
+						      	</div>
+						      	<div class="col-sm-3">
+						      		<br>
+<a class="btn btn-primary" href="{{ route('pacientes.anteojos.create',['paciente'=>$paciente]) }}">
+									<strong>Agregar</strong>	</a>
+						      	</div>
+						      </div><br>
+						    </div>
+						 
+						  
+						  
+					 </div>	
+					</div>
+					{{-- ANTEOJOS --}}
+
+
 				</div>
 					{{-- TAB-CONTENT --}}
 	</div>

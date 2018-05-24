@@ -85,7 +85,7 @@
 		</form><br>
 		{{-- FORM DATOS PERSONALES --}}
 
-					{{-- PESTAÑAS --}}
+					{{-- 
 				
 						<ul class="nav nav-justified">
 							<li role="presentation" ><a data-toggle="tab" href="#generales"  class="ui-tabs-anchor">Generales:</a></li>
@@ -100,7 +100,7 @@
 
 							<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li>
 						</ul>
-					{{-- PESTAÑAS --}}
+					 --}}
 
 				</div>
 			</div>

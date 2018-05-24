@@ -13,6 +13,10 @@
 						
 					</div>
 					<div class="col-sm-3">
+						<a class="btn btn-warning" href="{{ route('empleados.create') }}"><strong>Editar Empleado</strong></a>
+						
+					</div>
+					<div class="col-sm-3">
 						<a class="btn btn-primary" href="{{ route('empleados.index') }}"><strong>Lista de Empleados</strong></a>
 						
 					</div>

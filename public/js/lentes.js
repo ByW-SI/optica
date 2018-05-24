@@ -61,22 +61,50 @@ $("#tipo_lente").change(function(){
        	
        	document.getElementById('monofocal_basico_div').style.display = 'block';
        	document.getElementById('monofocal_premium_div').style.display = 'none';
+        document.getElementById('anti_basico_div').style.display = 'block';
+        document.getElementById('anti_premium_div').style.display = 'none';
+        document.getElementById('foto_premium_div').style.display = 'none';
+        document.getElementById('foto_basico_div').style.display = 'block';
+        document.getElementById('polarizado_premium_div').style.display = 'none';
+        document.getElementById('polarizado_basico_div').style.display = 'block';
+
        	$("#monofocal_material_basico").prop('required')=true;
        	$("#monofocal_material_premium").prop('required')=false;
+        
+        
+
+        
        
        }else if(option  == 'Premium'){
 
        	document.getElementById('monofocal_basico_div').style.display = 'none';
        	document.getElementById('monofocal_premium_div').style.display = 'block';
+        document.getElementById('anti_basico_div').style.display = 'none';
+        document.getElementById('anti_premium_div').style.display = 'block';
+        document.getElementById('foto_premium_div').style.display = 'block';
+        document.getElementById('foto_basico_div').style.display = 'none';
+        document.getElementById('polarizado_premium_div').style.display = 'block';
+        document.getElementById('polarizado_basico_div').style.display = 'none';
+
        	$("#monofocal_material_basico").prop('required')=false;
        	$("#monofocal_material_premium").prop('required')=true;
+        
+       
 
        }else{
 
        	document.getElementById('monofocal_basico_div').style.display = 'none';
        	document.getElementById('monofocal_premium_div').style.display = 'none';
+        document.getElementById('anti_basico_div').style.display = 'none';
+        document.getElementById('anti_premium_div').style.display = 'none';
+        document.getElementById('foto_basico_div').style.display = 'none';
+        document.getElementById('foto_premium_div').style.display = 'none';
+        document.getElementById('polarizado_premium_div').style.display = 'none';
+        document.getElementById('polarizado_basico_div').style.display = 'none';
+
        	$("#monofocal_material_basico").prop('required')=false;
        	$("#monofocal_material_premium").prop('required')=false;
+        
 
        }
 
@@ -145,42 +173,8 @@ $("#tipo_lente").change(function(){
        }
     });
 
-$("#tipo_fotocromatico").change(function(){
 
-      	var option=document.getElementById("tipo_fotocromatico").value;
-       
-
-       if(option == 'Premium'){
-       	
-       	document.getElementById('foto_premium_div').style.display = 'block';
-       	
-       
-       }else{
-       	
-       	document.getElementById('foto_premium_div').style.display = 'none';
-       		
-       }
-    });
-
-$("#tipo_antirreflejante").change(function(){
-
-      	var option=document.getElementById("tipo_antirreflejante").value;
-       
-
-       if(option == 'Premium'){
-       	
-       	document.getElementById('anti_premium_div').style.display = 'block';
-       	
-       
-       }else{
-       	
-       	document.getElementById('anti_premium_div').style.display = 'none';
-       		
-       }
-    });
-
-
- $("#tratamiento1").change(function(){
+$("#tratamiento1").change(function(){
       document.getElementById('tratamiento_si_div').style.display = 'block';
       
      });
@@ -332,5 +326,8 @@ document.getElementById('tratamiento_progresivo_premium_fotocromatico_div').styl
 document.getElementById('tratamiento_progresivo_premium_fotocromatico_div').style.display = "none";		
 	}
 		});
+//---------------------------------------------------------
 
+
+//*************************************************************
 });

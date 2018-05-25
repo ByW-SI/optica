@@ -91,13 +91,13 @@
 				{{-- true expr --}}
 
 		
-			<form role="form" method="POST" action="{{ route('pacientes.historialocular.update',['paciente'=>$paciente,'datosgenerale'=>$paciente->generales]) }}">
+			<form role="form" method="POST" action="{{ route('pacientes.historialocular.update',['paciente'=>$paciente,'datosgenerale'=>$paciente->generales]) }}" enctype="multipart/form-data">
 
 				{{ csrf_field() }}
 				<input type="hidden" name="_method" value="PUT">
 			@else
 				{{-- false expr --}}
-			<form role="form" method="POST" action="{{ route('pacientes.historialocular.store',['paciente'=>$paciente]) }}">
+			<form role="form" method="POST" action="{{ route('pacientes.historialocular.store',['paciente'=>$paciente]) }}" enctype="multipart/form-data">
 				{{ csrf_field() }}
 			@endif
 						  	<div class="panel-default">
@@ -183,18 +183,18 @@
 										 		<div class="row">
 									<div class="form-group col-xs-5">
 									<label class="control-label">¿Cuál?</label>
-									<input class="form-control" type="text" name="cirug_1">
+									<input class="form-control" type="text" name="cirug_1" id="cirug_1">
 									</div>
 
 									<div class="form-group col-xs-5">
 									<label class="control-label">¿Hace Cuánto?</label>
-									<input class="form-control" type="text" name="cirug_2">
+									<input class="form-control" type="text" name="cirug_2" id="cirug_2">
 									</div>
 												</div>
 												<div class="row">
 									<div class="form-group col-xs-5">
 									<label class="control-label">¿Tiene Tratamiento Actualmente?</label>
-									<input class="form-control" type="text" name="cirug_3">
+									<input class="form-control" type="text" name="cirug_3" id="cirug_3">
 									</div>
 												</div>
 								</div>
@@ -203,7 +203,7 @@
 							<div class=" form-group col-xs-6">
 								<div class="jumbotron"  id="padec" style="display: none;padding: 10px;">
 									<div class="row">
-                    					<div class="col-sm-4">
+										<div class="col-sm-4">
                     						<label class="col-xs-4 label-text"><input type="checkbox" class="squaredTwo" name="padecimientos_array[0]" value="Catarata">Catarata</label>
                     					</div>
                     					
@@ -231,7 +231,7 @@
                     				<div class="row" id="padec_text" style="display: none;">
                     					<div class="col-sm-6">
                     					<label class="control-label">Especifíque:</label>
-									    <input class="form-control" type="text" name="padec_text">
+									    <input class="form-control" type="text" name="padec_text" id="padec_textc">
 										</div>
                     				</div>
 												
@@ -347,8 +347,7 @@
 	</div>
 
  	<div class="jumbotron"  id="antecedentes" >
- 		                                    <input type="hidden" name="antecedentes_array[0]" value="Ninguno">
-									<div class="row">
+ 		                            <div class="row">
                     					<div class="col-sm-4">
                     						<input type="checkbox" class="squaredTwo" name="antecedentes_array[0]" value="Usuarios de Lentes">
                     						<label class="col-xs-6 label-text">Usuarios de Lentes</label>
@@ -378,7 +377,7 @@
                     				<div class="row" id="ante_text" style="display: none">
                     					<div class="col-sm-6">
                     					<label class="control-label">Especifíque:</label>
-									<input class="form-control" type="text" name="antecedente_text" >
+									<input class="form-control" type="text" name="antecedente_text" id="antecedente_text">
 										</div>
                     				</div>
 												
@@ -473,7 +472,7 @@
             <span class="badge badge-secondary">Cerca</span>
                 <select class="form-control" name="unilateral_cerca">
 					<option value='ORTO'>ORTO</option>
-					<option value='Endo'>Endo</option>
+					<option value='ENDO'>ENDO</option>
 					<option value='EXO'>EXO</option>
 					<option value='HIPER'>HIPER</option>
 					<option value='HIPO'>HIPO</option>
@@ -723,7 +722,7 @@
            <textarea class="form-control" name="anexos"></textarea>
 		</div><br>
 		<div class="form-group col-xs-12" align="left">
-<input type="file" name="archivo_foto" class="btn btn-primary" ><br>
+<input type="file" name="archivo_imagen" class="form-control" ><br>
 
 			</div>
 		
@@ -800,7 +799,7 @@
 			<div class="col-sm-2">
       		<span class="badge badge-secondary">ESF.</span>
 			<select class="form-control" name="esf_od" id="esf_od" required>
-				<option value="Sin Valor">Seleccione uno</option>
+				<option value="">Seleccione uno</option>
 				<?php for($i=25;$i>=(-25);$i-=0.25){
 					if($i>0){echo"<option value='+".sprintf("%.2f", $i)."'>+".sprintf("%.2f", $i)."</option>";}
 					    else{echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)."</option>";}
@@ -904,7 +903,7 @@
       	<div class="col-sm-2">
       		<span class="badge badge-secondary">CIL.</span>
 			<select class="form-control" name="cil_oi" id="cil_oi">
-				<option value="Sin Valor">Seleccione uno</option>
+				<option value="">Seleccione uno</option>
 				<?php for($i=(-0.25);$i>=(-15);$i-=0.25){
 					if($i>0){echo"<option value='+".sprintf("%.2f", $i)."'>+".sprintf("%.2f", $i)."</option>";}
 						else{echo"<option value='".sprintf("%.2f", $i)."'>".sprintf("%.2f", $i)."</option>";}
@@ -1016,21 +1015,18 @@
 	<div class="jumbotron col-xs-12">
 	 <div class="row">
                     					<div class="col-sm-4">
-                    						<input type="checkbox" class="squaredTwo" name="opciones[0]" value="Enviar">
+                    						<input type="checkbox" class="squaredTwo" name="opciones[0]" value="Enviar" required>
                     						<label class="col-xs-6 label-text">Enviar al Área de Ventas</label>
                     					</div>
                     					<div class="col-sm-3">
                     						<input type="checkbox" class="squaredTwo" name="opciones[1]" value="Imprimir">
                     						<label class="col-xs-6 label-text">Imprimir</label>
                     					</div>
-                    					<div class="col-sm-3">
-                    						<input type="checkbox" class="squaredTwo" name="opciones[2]" checked value="Guardar" required>
-                    						<label class="col-xs-6 label-text"> Guardar</label>
-                    					</div>
+                    					
 
 								       <div class="col-sm-2">
 								          <button id="submit" type="submit" class="btn btn-primary">
-												<strong>Agregar</strong>	
+												<strong>Guardarar</strong>	
 										</button>
 									</div>
      </div>

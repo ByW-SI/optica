@@ -36,4 +36,8 @@ class Paciente extends Model
      public function tutores(){
         return $this->hasMany('App\Tutor');
     }
+
+    public function anteojo(){
+        return $this->hasMany('App\Anteojo');
+    }
 }

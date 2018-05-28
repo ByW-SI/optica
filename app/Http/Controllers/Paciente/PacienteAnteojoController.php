@@ -36,9 +36,18 @@ class PacienteAnteojoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Paciente $paciente)
     {
-        //
+        $anteojo=Anteojo::create($request->except('opciones'));
+        $opciones='';
+        foreach ($request->opciones as $opcion) {
+            $opciones.=$opcion."|";
+        }
+        $anteojo->opciones=$opcion;
+        $anteojo->save();
+        
+        Alert::success('Historial Creado', 'Se ha Agregado Inforación sobre Anteojos');
+        return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);
     }
 
     /**

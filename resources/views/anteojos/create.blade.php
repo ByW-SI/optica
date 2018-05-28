@@ -87,6 +87,7 @@
 <form role="form" 
 method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]) }}">
 				{{ csrf_field() }}
+<input type="hidden" name="paciente_id" value="{{$paciente->id}}">
 {{-- ANTEOJOS --}}
 <div class="form-group col-xs-12" align="center" style="border: solid; border-color: grey; margin-top:20px;margin-right:45px;padding: 20px;">
 	 <div  align="left">
@@ -96,7 +97,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 		<div class="col-sm-3">
 			<label class="control-label">Armazón</label>
 			<input type="radio" name="tipo_anteojo" value="ARMAZÓN" class="option-input radio" 
-			id="armazon_radio1">
+			id="armazon_radio1" required>
 		</div>
 		<div class="col-sm-3">
 			<label class="control-label">Lentes de Contacto</label>
@@ -116,9 +117,9 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
       		<label class="control-label">Tipo de Lente</label>
             <select class="form-control" name="tipo_lente" id="tipo_lente">
             	<option value="">Seleccione uno</option>
-				<option value="Monofocal">Monofocal</option>
-				<option value="Bifocal">Bifocal</option>
-				<option value="Progresivo">Progresivo</option>
+				<option value="MONOFOCAL">MONOFOCAL</option>
+				<option value="BIFOCAL">BIFOCAL</option>
+				<option value="PROGRESIVO">PROGRESIVO</option>
 			</select>
       	</div>
       	<div class="col-sm-8" id="monofocal_div" style="display:none;">
@@ -132,7 +133,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">AMBAS</span>
-				<input type="radio" class="option-input radio"  name="monofocal" value="AMBAS">
+				<input type="radio" class="option-input radio"  name="monofocal" value="AMBAS" id="monofocal_ambas">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">SUB-CORRECCIÓN</span>
@@ -169,14 +170,14 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
       		<label class="control-label">Material</label>
             <select class="form-control" name="monofocal_material" id="monofocal_material">
             	<option value="">Seleccione uno</option>
-				<option value="Básico">Básico</option>
-				<option value="Premium">Premium</option>
+				<option value="BÁSICO">BÁSICO</option>
+				<option value="PREMIUM">PREMIUM</option>
 			</select>
       	</div>
       	<div class="col-sm-8" id="monofocal_basico_div" style="display: none;">
       		<div class="col-sm-3">
       			<span class="badge badge-secondary">CR-39 W</span>
-				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="CR-39 W">
+				<input type="radio" class="option-input radio"  name="monofocal_material_basico" value="CR-39 W" id="mono_bas">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">HIGH-INDEX W</span>
@@ -239,8 +240,8 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
         	<div class="col-sm-2"><label class="control-label">Tipo de Antirreflejante</label></div>
         	
         	<div class="col-sm-2" id="anti_basico_div" style="display: none;">
-        	 <dd>Básico</dd>
-             <input type="hidden" name="anti_basico" value="Básico">
+        	 <dd>BÁSICO</dd>
+             <input type="hidden" name="anti_basico" value="BÁSICO">
 			</div>
 			<div class="col-sm-10" id="anti_premium_div" style="display: none;">
 				<div class="col-sm-2" id="trio_div">
@@ -270,8 +271,8 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
         	 <label class="control-label">Tipo de Fotocromático</label>
             </div>
             <div class="col-sm-2" id="foto_basico_div" style="display: none;">
-        	 <dd>Básico</dd>
-             <input type="hidden" name="foto_basico" value="Básico">
+        	 <dd>BÁSICO</dd>
+             <input type="hidden" name="foto_basico" value="BÁSICO">
 			</div>
 			<div  id="foto_premium_div" style="display: none;">
       		<div class="col-sm-2">
@@ -297,12 +298,12 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
         	 <label class="control-label">Tipo de Polarizado</label>
             </div>
 			<div class="col-sm-3" id="polarizado_basico_div" style="display: none;">
-				<dd>Básico</dd>
-				<input type="hidden" name="polarizado_basico" value="Básico">
+				<dd>BÁSICO</dd>
+				<input type="hidden" name="polarizado_basico" value="BÁSICO">
 			</div>
 			<div class="col-sm-3" id="polarizado_premium_div" style="display: none;">
-				<dd>Premium (Xperio)</dd>
-				<input type="hidden" name="polarizado_premium" value="Básico">
+				<dd>PREMIUM (XPERIO)</dd>
+				<input type="hidden" name="polarizado_premium" value="PREMIUM (XPERIO)">
 			</div>
 		</div>
 	</div>
@@ -316,7 +317,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
          </div>
           <div class="col-sm-3">
 				<span class="badge badge-secondary">CR-39 W</span>
-				<input type="radio" class="option-input radio"  name="bifocal_flat_material" value="CR-39 W">
+				<input type="radio" class="option-input radio"  name="bifocal_flat_material" value="CR-39 W" id="cr39">
 			</div>
 			<div class="col-sm-3" id="xtrac_div">
 				<span class="badge badge-secondary">POLICARBONATO</span>
@@ -393,7 +394,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 		</div>
 		<div class="col-sm-3">
       			<span class="badge badge-secondary">CR-39 W</span>
-				<input type="radio" class="option-input radio"  name="progresivo_basico_material" value="CR-39 W">
+				<input type="radio" class="option-input radio"  name="progresivo_basico_material" value="CR-39 W" id="prog_cr">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">POLICARBONATO</span>
@@ -447,7 +448,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">PRECISE</span>
-				<input type="radio" class="option-input radio"  name="progresivo_premium_kodak" value="PRECISE">
+				<input type="radio" class="option-input radio"  name="progresivo_premium_kodak" value="PRECISE" id="precise">
 			</div>
 	</div><br>
 	<div class="row">
@@ -460,7 +461,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">AIRWEAR</span>
-				<input type="radio" class="option-input radio"  name="progresivo_premium_material" value="AIRWEAR">
+				<input type="radio" class="option-input radio"  name="progresivo_premium_material" value="AIRWEAR" id="air">
 			</div>
 	</div>
 	<div class="row" id="progresivo_premium_tratamiento_div" style="margin-top: 30px;">
@@ -527,15 +528,15 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 			
       		<div class="col-sm-3">
       			<span class="badge badge-secondary">TRANSITIONS GRIS</span>
-				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS GRIS">
+				<input type="radio" class="option-input radio"  name="foto_premium_progresivo" value="TRANSITIONS GRIS">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">TRANSITIONS CAFÉ</span>
-				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS CAFÉ">
+				<input type="radio" class="option-input radio"  name="foto_premium_progresivo" value="TRANSITIONS CAFÉ">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">TRANSITIONS VERDE</span>
-				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS VERDE">
+				<input type="radio" class="option-input radio"  name="foto_premium_progresivo" value="TRANSITIONS VERDE">
 			</div>
 		</div>
 	</div>
@@ -554,19 +555,14 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 	<div class="jumbotron col-xs-12">
 	 <div class="row">
                     					<div class="col-sm-4">
-                    						<input type="checkbox" class="squaredTwo" name="opciones[0]" value="Enviar">
+                    						<input type="checkbox" class="squaredTwo" name="opciones[0]" value="Enviar" required>
                     						<label class="col-xs-6 label-text">Enviar al Área de Ventas</label>
                     					</div>
                     					<div class="col-sm-3">
                     						<input type="checkbox" class="squaredTwo" name="opciones[1]" value="Imprimir">
                     						<label class="col-xs-6 label-text">Imprimir</label>
                     					</div>
-                    					<div class="col-sm-3">
-                    						<input type="checkbox" class="squaredTwo" name="opciones[2]" checked value="Guardar" required>
-                    						<label class="col-xs-6 label-text"> Guardar</label>
-                    					</div>
-
-								       <div class="col-sm-2">
+                    					<div class="col-sm-2">
 								          <button id="submit" type="submit" class="btn btn-primary">
 												<strong>Agregar</strong>	
 										</button>

@@ -3,9 +3,9 @@ $(document).ready(function(){
 $("#tipo_lente").change(function(){
 
       	var option=document.getElementById("tipo_lente").value;
-       
+      
 
-       if(option == 'Monofocal'){
+       if(option == 'MONOFOCAL'){
        	
        	document.getElementById('monofocal_div').style.display = 'block';
        	document.getElementById('bifocal_div').style.display = 'none';
@@ -14,18 +14,28 @@ $("#tipo_lente").change(function(){
        	document.getElementById('monofocal_tratamiento_div').style.display = 'block';
        	document.getElementById('modulo_bifocal').style.display = 'none'; 
        	document.getElementById('modulo_progresivo').style.display = 'none'; 
+        $("#monofocal_ambas").prop('required',true);
+        $("#monofocal_material").prop('required',true);
+        $("#tratamiento1").prop('required',true);
+        $("#blend").prop('required',false);
+        $("#progresivo_basico").prop('required',false);
        
-       }else if(option  == 'Bifocal'){
+       }else if(option  == 'BIFOCAL'){
        		
        	document.getElementById('monofocal_div').style.display = 'none';
        	document.getElementById('bifocal_div').style.display = 'block';
        	document.getElementById('progresivo_div').style.display = 'none';
         document.getElementById('monofocal_material_div').style.display = 'none';
         document.getElementById('monofocal_tratamiento_div').style.display = 'none';
-         document.getElementById('modulo_bifocal').style.display = 'block';
-         document.getElementById('modulo_progresivo').style.display = 'none'; 
+        document.getElementById('modulo_bifocal').style.display = 'block';
+        document.getElementById('modulo_progresivo').style.display = 'none'; 
+        $("#monofocal_ambas").prop('required',false);
+        $("#monofocal_material").prop('required',false);
+        $("#tratamiento1").prop('required',false);
+        $("#blend").prop('required',true);
+        $("#progresivo_basico").prop('required',false);
 
-       }else if(option  == 'Progresivo'){
+       }else if(option  == 'PROGRESIVO'){
        	
        	document.getElementById('monofocal_div').style.display = 'none';
        	document.getElementById('bifocal_div').style.display = 'none';
@@ -33,7 +43,12 @@ $("#tipo_lente").change(function(){
        	document.getElementById('monofocal_material_div').style.display = 'none';
        	document.getElementById('monofocal_tratamiento_div').style.display = 'none';
        	document.getElementById('modulo_bifocal').style.display = 'none'; 
-       	document.getElementById('modulo_progresivo').style.display = 'block'; 
+       	document.getElementById('modulo_progresivo').style.display = 'block';
+        $("#monofocal_ambas").prop('required',false); 
+        $("#monofocal_material").prop('required',false);
+        $("#tratamiento1").prop('required',false);
+        $("#blend").prop('required',false);
+        $("#progresivo_basico").prop('required',true);
 
        }else{
        	document.getElementById('monofocal_div').style.display = 'none';
@@ -43,6 +58,11 @@ $("#tipo_lente").change(function(){
        	document.getElementById('monofocal_tratamiento_div').style.display = 'none';
        	document.getElementById('modulo_bifocal').style.display = 'none';
        	document.getElementById('modulo_progresivo').style.display = 'none'; 
+        $("#monofocal_ambas").prop('required',false);
+        $("#monofocal_material").prop('required',false);
+        $("#tratamiento1").prop('required',false);
+        $("#blend").prop('required',false);
+        $("#progresivo_basico").prop('required',false);
        	 
        }
 
@@ -57,7 +77,7 @@ $("#tipo_lente").change(function(){
 
       	var option=document.getElementById("monofocal_material").value;
 
-      	if(option == 'Básico'){
+      	if(option == 'BÁSICO'){
        	
        	document.getElementById('monofocal_basico_div').style.display = 'block';
        	document.getElementById('monofocal_premium_div').style.display = 'none';
@@ -68,14 +88,15 @@ $("#tipo_lente").change(function(){
         document.getElementById('polarizado_premium_div').style.display = 'none';
         document.getElementById('polarizado_basico_div').style.display = 'block';
 
-       	$("#monofocal_material_basico").prop('required')=true;
-       	$("#monofocal_material_premium").prop('required')=false;
+        $("#mono_bas").prop('required',true);
+       	$("#orma").prop('required',false);
+       	
         
         
 
         
        
-       }else if(option  == 'Premium'){
+       }else if(option  == 'PREMIUM'){
 
        	document.getElementById('monofocal_basico_div').style.display = 'none';
        	document.getElementById('monofocal_premium_div').style.display = 'block';
@@ -86,8 +107,8 @@ $("#tipo_lente").change(function(){
         document.getElementById('polarizado_premium_div').style.display = 'block';
         document.getElementById('polarizado_basico_div').style.display = 'none';
 
-       	$("#monofocal_material_basico").prop('required')=false;
-       	$("#monofocal_material_premium").prop('required')=true;
+       	$("#mono_bas").prop('required',false);
+        $("#orma").prop('required',true);
         
        
 
@@ -102,8 +123,8 @@ $("#tipo_lente").change(function(){
         document.getElementById('polarizado_premium_div').style.display = 'none';
         document.getElementById('polarizado_basico_div').style.display = 'none';
 
-       	$("#monofocal_material_basico").prop('required')=false;
-       	$("#monofocal_material_premium").prop('required')=false;
+       	$("#mono_bas").prop('required',false);
+        $("#orma").prop('required',false);
         
 
        }
@@ -114,20 +135,20 @@ $("#tipo_lente").change(function(){
     $("#armazon_radio1").change(function(){
       document.getElementById('armazon').style.display = 'block';
       document.getElementById('contacto').style.display = 'none';
-      $("#tipo_lente").prop('required')=true;
+      $("#tipo_lente").prop('required',true);
      });
 
      $("#armazon_radio2").change(function(){
       document.getElementById('contacto').style.display = 'block';
       document.getElementById('armazon').style.display = 'none';
-      $("#tipo_lente").prop('required')=false;
+      $("#tipo_lente").prop('required',false);
       
      });
 
     $("#armazon_radio3").change(function(){
       document.getElementById('armazon').style.display = 'block';
       document.getElementById('contacto').style.display = 'block';
-      $("#tipo_lente").prop('required')=true;
+      $("#tipo_lente").prop('required',true);
      });
 
 
@@ -214,17 +235,20 @@ $("#flattop").change(function(){
 
    if($(this).prop("checked") == true){
 
-   	document.getElementById('bifocal_flat_div').style.display = "block";
+  document.getElementById('bifocal_flat_div').style.display = "block";
 	document.getElementById('bifocal_flat_tratamiento_div').style.display = "block";
 	document.getElementById('bifocal_blend_div').style.display = "none";
 	document.getElementById('bifocal_blend_tratamiento_div').style.display = "none";
-	$("#tratamiento_flat").prop('required')=true;
-	$("#bifocal_flat_material").prop('required')=true;
-	$("#tratamiento_blend").prop('required')=false;
-	$("#bifocal_blend_material").prop('required')=false;
+	
+  $("#tratamiento1_flat").prop('required',true);
+  $("#cr39").prop('required',true);
+  $("#tratamiento1_blend").prop('required',false);
+	
 	    }else{
 	document.getElementById('bifocal_flat_div').style.display = "none";
-	document.getElementById('bifocal_flat_tratamiento_div').style.display = "none";    	
+	document.getElementById('bifocal_flat_tratamiento_div').style.display = "none"; 
+  $("#tratamiento1_flat").prop('required',false);
+  $("#cr39").prop('required',false);   	
 	    }
 	});
 
@@ -235,13 +259,13 @@ $("#blend").change(function(){
 	document.getElementById('bifocal_blend_tratamiento_div').style.display = "block";
 	document.getElementById('bifocal_flat_div').style.display = "none";
 	document.getElementById('bifocal_flat_tratamiento_div').style.display = "none";
-	$("#tratamiento_flat").prop('required')=false;
-	$("#bifocal_flat_material").prop('required')=false;
-	$("#tratamiento_blend").prop('required')=true;
-	$("#bifocal_blend_material").prop('required')=true;
+	$("#tratamiento1_flat").prop('required',false);
+  $("#cr39").prop('required',false); 
+  $("#tratamiento1_blend").prop('required',true);
 	    }else{
 	document.getElementById('bifocal_blend_div').style.display = "none";
 	document.getElementById('bifocal_blend_tratamiento_div').style.display = "none";
+  $("#tratamiento1_blend").prop('required',false);
 	    }
 	});
 //--------------------------------------------------------------------
@@ -279,11 +303,23 @@ $("#tratamiento2_blend").change(function(){
 $("#progresivo_basico").change(function(){
    document.getElementById('progresivo_basico_div').style.display = "block";
    document.getElementById('progresivo_premium_div').style.display = "none";
+   $("#prog_cr").prop('required',true);
+   $("#tratamiento2_progresivo_basico").prop('required',true);
+   
+   $("#precise").prop('required',false);
+   $("#air").prop('required',false);
+   $("#tratamiento_progresivo_premium2").prop('required',false);
 });
 
 $("#progresivo_premium").change(function(){
    document.getElementById('progresivo_basico_div').style.display = "none";
    document.getElementById('progresivo_premium_div').style.display = "block";
+   $("#prog_cr").prop('required',false);
+   $("#tratamiento2_progresivo_basico").prop('required',false);
+   
+   $("#precise").prop('required',true);
+   $("#air").prop('required',true);
+   $("#tratamiento_progresivo_premium2").prop('required',true);
 });
 //-------------------------------------------------------------
 $("#tratamiento1_progresivo_basico").change(function(){

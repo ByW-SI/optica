@@ -1015,11 +1015,11 @@
 	<div class="jumbotron col-xs-12">
 	 <div class="row">
                     					<div class="col-sm-4">
-                    						<input type="checkbox" class="squaredTwo" name="opciones[0]" value="Enviar" required>
+                    						<input type="checkbox" class="squaredTwo" name="opciones[0]" value="ENVIADO A VENTAS" required>
                     						<label class="col-xs-6 label-text">Enviar al Área de Ventas</label>
                     					</div>
                     					<div class="col-sm-3">
-                    						<input type="checkbox" class="squaredTwo" name="opciones[1]" value="Imprimir">
+                    						<input type="checkbox" class="squaredTwo" name="opciones[1]" value="IMPRESO">
                     						<label class="col-xs-6 label-text">Imprimir</label>
                     					</div>
                     					

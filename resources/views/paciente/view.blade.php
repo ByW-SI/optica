@@ -330,25 +330,24 @@
 	<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px;font-size: 11px;">
 		<thead>
 		<tr class="info">
-			<th><i class="fa fa-eye" style="font-size:20px"></i>Información General</th>
-			<th>Ciruigías/Padecimientos</th>
-			<th>Problemas Visuales/Antecedentes</th>
-			<th>Revisión Visual/Pantalleo<br>Queratometría</th>
-			<th>VisiónEstereoscópica/Oftalmoscopía</th>
-			<th>Tonometría/Graduación<br>Diagnóstico</th>
-			<th>Imagen</th>
+			<th>Información General</th>
+			<th>Problemas Visuales y <br>Antecedentes Oculares<br> Familiares</th>
+			<th>Revisión Visual</th>
+			<th>Anexos/Biomicroscopía e<br>Archivo de Imagen</th>
+			<th>Graduación</th>
+			<th>Opciones</th>
+			
 		</thead>
 		<tbody>
 			@foreach($paciente->ocular as $ocular)
 			<tr class="active">
-				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}1">{{$ocular->created_at}}<br>&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}1"><strong>{{$ocular->created_at}}</strong><br>&nbsp;&nbsp;Click para Ver</td>
 				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}2">&nbsp;&nbsp;Click para Ver</td>
 				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}3">&nbsp;&nbsp;Click para Ver</td>
 				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}4">&nbsp;&nbsp;Click para Ver</td>
 				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}5">&nbsp;&nbsp;Click para Ver</td>
-				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}6">&nbsp;&nbsp;Click para Ver</td>
-				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}7">&nbsp;&nbsp;Click para Ver</td>
-			</tr>
+				<td ><button class="btn btn-warning">Imprimir</button></td>
+				
 											@endforeach
 		</tbody>
 	</table>
@@ -581,7 +580,7 @@
 								</div>
 
 
-								{{-- Modal Historial Ocular --}} 
+								{{-- Modal Historial Médico --}} 
 								@endforeach
 
 
@@ -603,16 +602,55 @@
 								        	<div class="row">
 								        	 <div class="col-sm-3">
 								        	  	<label class="control-label" for="apmaterno">Óperaciones de Documentación:</label>
-												<dd>{{$ocular->operacion_documento}}</dd>
+												<dd>{{$ocular->opciones}}</dd>
 								        	  </div>
 								        	   <div class="col-sm-3">
 								        	  	<label class="control-label" for="apmaterno">Optometrísta:</label>
 												<dd>{{$ocular->optometrista}}</dd>
 								        	  </div>
-								        	  <div class="col-sm-3">
-								        	  	<label class="control-label" for="apmaterno">Tipo de Anteojos:</label>
-												<dd>{{$ocular->tipo_anteojo}}</dd>
-								        	  </div>
+								        	</div><br>
+								        </div>
+								        </div>
+								      </div>
+								       <div class="modal-header jumbotron">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Cirugías y Padecimientos</strong></h5>
+								       </div>
+								      <div class="modal-body">
+								        <div class="panel-default">
+								          <div class="panel-body">
+								        	<div class="row">
+								        		@if($ocular->cirugias=='SI')
+								        		<div class="col-sm-3">
+								        		<label class="control-label" for="apmaterno">Cirugía:</label>
+												<dd>{{$ocular->cirug_1}}</dd>
+								        		</div>
+								        		<div class="col-sm-3">
+								        		<label class="control-label" for="apmaterno">Tiempo de la Cirugía:</label>
+												<dd>{{$ocular->cirug_2}}</dd>	
+								        		</div>
+								        		<div class="col-sm-3">
+								        		<label class="control-label" for="apmaterno">Tratamiento:</label>
+												<dd>{{$ocular->cirug_3}}</dd>	
+								        		</div>
+								        		@else
+								        		<div class="col-sm-3">
+								        		<label class="control-label" for="apmaterno">Cirugía:</label>
+												<dd>NINGUNA</dd>	
+								        		</div>
+								        		@endif
+								        	</div><br>
+								        	<div class="row">
+								        		@if($ocular->padecimientos=='SI')
+								        		<div class="col-sm-9">
+								        		<label class="control-label" for="apmaterno">Padecimientos:</label>
+												<dd>{{$ocular->padecimientos_array}}</dd>
+								        		</div>
+								        		@else
+								        		<div class="col-sm-3">
+								        		<label class="control-label" for="apmaterno">Padecimientos:</label>
+												<dd><dd>NINGUNO</dd></dd>	
+								        		</div>
+								        		@endif
 								        	</div>
 										  </div>
 								        </div>
@@ -631,7 +669,7 @@
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
 								      <div class="modal-header jumbotron">
-								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Cirugías y Padecimientos</strong></h5>
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Problemas Visuales</strong></h5>
 								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
 								        </button>
@@ -640,30 +678,52 @@
 								        <div class="panel-default">
 								          <div class="panel-body">
 								        	<div class="row">
-								        	 
-								        	  	
-								        	  <div class="col-sm-6">
-								        	  	<label class="control-label" for="apmaterno">Cirugias en Ojos:</label>
-								        	  	@if($ocular->cirugias=='SI')
-												<dd><strong>Cual:</strong>{{$ocular->cirug_1}}</dd><br>
-												<dd><strong>Hace Cuanto:</strong>{{$ocular->cirug_2}}</dd><br>
-												<dd><strong>Tratamiento Actual:</strong>{{$ocular->cirug_3}}</dd>
-												 @else
-												 <dd>{{$ocular->cirugias}}</dd>
-												 @endif
-								        	  </div>
-
-								        	   <div class="col-sm-6">
-								        	  	<label class="control-label" for="apmaterno">Padecimientos Oculares:</label>
-								        	  	@if($ocular->padecimientos=='SI')
-												<dd><strong>Cuales:</strong>{{$ocular->padecimientos_array}}</dd>
-												@else
-												 <dd>{{$ocular->padecimientos}}</dd>
-												 @endif
-								        	  </div>
-								        	 
+								        	 <div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">Problema Visual:</label>
+								        	  	<dd>{{$ocular->problema_visual}}</dd><br>
+											</div>
+											<div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">Uso de Lentes:</label>
+								        	  	<dd>{{$ocular->usuario_lentes}}</dd>
+											</div>
+											@if($ocular->usuario_lentes=='SI')
+											<div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Edad a la que usó Lentes:</label>
+								        	  	<dd>{{$ocular->edad_lentes}}</dd>
+											</div>
+											@endif
+								        	 <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Molestia a la Luz Solar:</label>
+								        	  	<dd>{{$ocular->molestia_luz}}</dd>
+											 </div>
+											</div><br>
+								        	<div class="row">
+								        		<div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Usuario de Computadora:</label>
+								        	  	<dd>{{$ocular->usuario_computadora}}</dd>
+											</div>
 								        	</div>
 										  </div>
+								        </div>
+								      </div>
+								      <div class="modal-header jumbotron">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong> Antecedentes Oculares Familiares</strong></h5>
+								      </div>
+								       <div class="modal-body">
+								        <div class="panel-default">
+								          <div class="panel-body">
+								        	<div class="row">
+								        		@if($ocular->antecedente_array==null)
+								        		<div class="col-sm-8">
+								        			<dd>NINGUNO</dd>
+								        		</div>
+								        		@else
+								        		 <div class="col-sm-8">
+								        	  <dd>{{$ocular->antecedente_array}}</dd><br>
+											</div>
+								        		@endif
+								        	</div><br>
+								        	</div>
 								        </div>
 								      </div>
 								      <div class="modal-footer">
@@ -681,7 +741,7 @@
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
 								      <div class="modal-header jumbotron">
-								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Problema Visual</strong></h5>
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Revisión Visual</strong></h5>
 								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
 								        </button>
@@ -690,36 +750,98 @@
 								        <div class="panel-default">
 								          <div class="panel-body">
 								        	<div class="row">
-								        	 <div class="col-sm-3">
-								        	  	<label class="control-label" for="apmaterno">Problema Visual:</label>
-								        	  	<dd>{{$ocular->problema_visual}}</dd><br>
-											 </div>
+								        	 <div class="col-sm-6">
+								        	  	<label class="control-label" for="apmaterno">A.V. sin Rx. de Lejos (Snellen):</label>
+								        	 </div>
 											   <div class="col-sm-3">
-								        	  	<label class="control-label" for="apmaterno">Usuario de Lentes:</label>
-								        	  	<dd>{{$ocular->usuario_lentes}}</dd>
+								        	  	<label class="control-label" for="apmaterno">Ojo Derecho:</label>
+								        	  	<dd>{{$ocular->snellen_1}}</dd>
 											   </div>
-								        	   @if($ocular->usuario_lentes=='SI')
 								        	  <div class="col-sm-3">
-								        	  	<label class="control-label" for="apmaterno">Edad a la que inició uso de Lentes:</label>
-												<dd>{{$ocular->edad_lentes}}&nbsp;&nbsp;Años</dd>
+								        	  	<label class="control-label" for="apmaterno">Ojo Izquierdo:</label>
+												<dd>{{$ocular->snellen_2}}</dd>
 								        	  </div>
-								        	  	@endif
-								        	  	 <div class="col-sm-3">
-								        	  	<label class="control-label" for="apmaterno">Molestias a la luz Solar:</label>
-								        	  	<dd>{{$ocular->molestia_luz}}</dd>
-											   </div>
-											</div>
+								        	 </div><hr>
 											<div class="row">
-												<div class="col-sm-3">
-								        	  	<label class="control-label" for="apmaterno">Usuario de Computadora:</label>
-								        	  	<dd>{{$ocular->usuario_computadora}}</dd>
+								        	 <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Pantalleo:</label>
+								        	 </div>
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Unilateral</label>
+								        	  </div>
+											   <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Lejos:</label>
+								        	  	<dd>{{$ocular->unilateral_lejos}}</dd>
 											   </div>
-											</div>
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Cerca:</label>
+												<dd>{{$ocular->unilateral_cerca}}</dd>
+								        	  </div>
+								        	 </div><br>
+								        	 <div class="row">
+								        	 <div class="col-sm-3 col-sm-offset-3">
+								        	  	<label class="control-label" for="apmaterno">Alternante</label>
+								        	  </div>
+											   <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Lejos:</label>
+								        	  	<dd>{{$ocular->alternamente_lejos}}</dd>
+											   </div>
+								        	  <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Cerca:</label>
+												<dd>{{$ocular->alternamente_cerca}}</dd>
+								        	  </div>
+								        	 </div><hr>
+								        	 <div class="row">
+								        	 <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Queratometría</label>
+								        	 </div>
+								        	   <div class="col-sm-2">
+								        	   	<label class="control-label" for="apmaterno">Ojo Derecho:</label>
+								        	   </div>
+											   <div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">Plana</label>
+								        	  	<dd>{{$ocular->queratometria_od_plana}}</dd>
+											   </div>
+								        	  <div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">Curva</label>
+												<dd>{{$ocular->queratometria_od_curva}}</dd>
+								        	  </div>
+								        	  <div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">Eje</label>
+												<dd>{{$ocular->queratometria_od_eje}}</dd>
+								        	  </div>
+								        	 </div>
+								        	 <div class="row">
+								        	 <div class="col-sm-2 col-sm-offset-3">
+								        	  	<label class="control-label" for="apmaterno">Ojo Izquierdo:</label>
+								        	  </div>
+											   <div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">Plana</label>
+								        	  	<dd>{{$ocular->queratometria_oi_plana}}</dd>
+											   </div>
+								        	  <div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">Curva</label>
+												<dd>{{$ocular->queratometria_oi_curva}}</dd>
+								        	  </div>
+								        	  <div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">Eje</label>
+												<dd>{{$ocular->queratometria_oi_eje}}</dd>
+								        	  </div>
+								        	 </div><hr>
+								        	 <div class="row">
+								        	 <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Visión Estereoscópica</label>
+								        	 </div>
+								        	   <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Seg / Arco </label>
+								        	   	<dd>{{$ocular->vision_estereo}}</dd>
+								        	   </div>
+											 </div>
 										  </div>
 								        </div>
 								      </div>
 								      <div class="modal-header jumbotron">
-								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Antecedentes Oculares Familiares</strong></h5>
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Oftalmoscopía</strong></h5>
 								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
 								        </button>
@@ -727,23 +849,117 @@
 								       <div class="modal-body">
 								        <div class="panel-default">
 								          <div class="panel-body">
+								          	 <div class="row">
+								        	 <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Parámetros</label>
+								        	 </div>
+								        	   <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Ojo Derecho</label>
+								        	   </div>
+											   <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Ojo Izquierdo</label>
+								        	  	</div>
+								        	</div><br>
 								        	<div class="row">
-								        	 <div class="col-sm-6">
-								        	  	<label class="control-label" for="apmaterno">Cirugias en Ojos:</label>
-								        	  	@if($ocular->cirugias=='SI')
-												<dd><strong>Cual:</strong>{{$ocular->cirug_1}}</dd><br>
-												<dd><strong>Hace Cuanto:</strong>{{$ocular->cirug_2}}</dd><br>
-												<dd><strong>Tratamiento Actual:</strong>{{$ocular->cirug_3}}</dd>
-												 @else
-												 <dd>{{$ocular->cirugias}}</dd>
-												 @endif
+								        	  <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Papila:</label>
+								        	   </div>
+											   <div class="col-sm-3">
+								        	  	<dd>{{$ocular->papila_od}}</dd>
+											   </div>
+								        	  <div class="col-sm-2">
+								        	  	<dd>{{$ocular->papila_oi}}</dd>
 								        	  </div>
-								        	  <div class="col-sm-6">
-								        	  	<dd>{{$ocular->archivo_imagen}}</dd>
-								        	  	<img src="{{Storage::url($ocular->archivo_imagen)}}" width="100px" height="137.6px"> 
+								        	  </div><br>
+								        	<div class="row">
+								        	  <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Excavación:</label>
+								        	   </div>
+											   <div class="col-sm-3">
+								        	  	<dd>{{$ocular->excavacion_od}}</dd>
+											   </div>
+								        	  <div class="col-sm-2">
+								        	  	<dd>{{$ocular->excavacion_oi}}</dd>
 								        	  </div>
-											</div>
-										 </div>
+								        	  </div><br>
+								        	  <div class="row">
+								        	  <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Radio:</label>
+								        	   </div>
+											   <div class="col-sm-3">
+								        	  	<dd>{{$ocular->radio_od}}</dd>
+											   </div>
+								        	  <div class="col-sm-2">
+								        	  	<dd>{{$ocular->radio_oi}}</dd>
+								        	  </div>
+								        	  </div><br>
+								        	  <div class="row">
+								        	  <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Profundidad:</label>
+								        	   </div>
+											   <div class="col-sm-3">
+								        	  	<dd>{{$ocular->profundidad_od}}</dd>
+											   </div>
+								        	  <div class="col-sm-2">
+								        	  	<dd>{{$ocular->profundidad_oi}}</dd>
+								        	  </div>
+								        	  </div><br>
+								        	  <div class="row">
+								        	  <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Vasos:</label>
+								        	   </div>
+											   <div class="col-sm-3">
+								        	  	<dd>{{$ocular->vasos_od}}</dd>
+											   </div>
+								        	  <div class="col-sm-2">
+								        	  	<dd>{{$ocular->vasos_oi}}</dd>
+								        	  </div>
+								        	  </div><br>
+								        	  <div class="row">
+								        	  <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Rel. A/V:</label>
+								        	   </div>
+											   <div class="col-sm-3">
+								        	  	<dd>{{$ocular->rel_od}}</dd>
+											   </div>
+								        	  <div class="col-sm-2">
+								        	  	<dd>{{$ocular->rel_oi}}</dd>
+								        	  </div>
+								        	  </div><br>
+								        	   <div class="row">
+								        	  <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Macula:</label>
+								        	   </div>
+											   <div class="col-sm-3">
+								        	  	<dd>{{$ocular->macula_od}}</dd>
+											   </div>
+								        	  <div class="col-sm-2">
+								        	  	<dd>{{$ocular->macula_oi}}</dd>
+								        	  </div>
+								        	  </div><br>
+								        	   <div class="row">
+								        	 <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Reflejo:</label>
+								        	   </div>
+											   <div class="col-sm-3">
+								        	  	<dd>{{$ocular->reflejo_od}}</dd>
+											   </div>
+								        	  <div class="col-sm-2">
+								        	  	<dd>{{$ocular->reflejo_oi}}</dd>
+								        	  </div>
+								        	  </div><br>
+								        	   <div class="row">
+								        	 <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Retina:</label>
+								        	   </div>
+											   <div class="col-sm-3">
+								        	  	<dd>{{$ocular->retina_od}}</dd>
+											   </div>
+								        	  <div class="col-sm-2">
+								        	  	<dd>{{$ocular->retina_oi}}</dd>
+								        	  </div>
+								        	  </div><br>
+								        </div>
 								        </div>
 								      </div>
 								      <div class="modal-footer">
@@ -755,6 +971,195 @@
 								</div>
 
 								{{-- Modal Historial Ocular 3 --}}
+
+								{{-- Modal Historial Ocular 4 --}} 
+								<div class="modal fade" id="ocular_modal{{$ocular->id}}4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header jumbotron">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Anexos y Biomicroscopía</strong></h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								        <div class="panel-default">
+								          <div class="panel-body">
+								        	<div class="row">
+								        	 <div class="col-sm-12">
+								        	  	<dd>{{$ocular->anexos}}</dd>
+								        	 </div>
+											 </div>
+											</div>
+								        </div>
+								      </div>
+								      <div class="modal-header jumbotron">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Archivo de Imagen</strong></h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+								       <div class="modal-body">
+								        <div class="panel-default">
+								          <div class="panel-body">
+								          	 <div class="row">
+								        	 <div class="col-sm-12">
+								        	  	<img src="{{Storage::url($ocular->archivo_imagen)}}" width="500px" height="500px">
+								        	 </div>
+								        	</div>
+								        	</div>
+								        </div>
+								      </div>
+								       <div class="modal-header jumbotron">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Tonometría</strong></h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+								       <div class="modal-body">
+								        <div class="panel-default">
+								          <div class="panel-body">
+								        	 <div class="row">
+								        	 <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Fecha:</label>
+								        	   	<dd>{{$ocular->fecha_tono}}</dd>
+								        	   </div>
+											   <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Hora</label>
+								        	  	<dd>{{$ocular->hora_tono}}</dd>
+								        	  	</div>
+								        	</div><br>
+								        	<div class="row">
+								        	 <div class="col-sm-3">
+								        	   	<label class="control-label" for="apmaterno">Ojo derecho:</label>
+								        	   	<dd>{{$ocular->tonometria_od}}</dd>
+								        	   </div>
+											   <div class="col-sm-3">
+								        	  	<label class="control-label" for="apmaterno">Ojo Izquierdo</label>
+								        	  	<dd>{{$ocular->tonometria_oi}}</dd>
+								        	  	</div>
+								        	</div>
+											</div>
+								        </div>
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-danger" data-dismiss="modal"><strong>Cerrar</strong></button>
+								        
+								      </div>
+								    </div>
+								  </div>
+								</div>
+
+								{{-- Modal Historial Ocular 4 --}}
+
+								{{-- Modal Historial Ocular 5 --}} 
+								<div class="modal fade" id="ocular_modal{{$ocular->id}}5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header jumbotron">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Graduación</strong></h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								        <div class="panel-default">
+								          <div class="panel-body">
+								        	<div class="row">
+								        	 <div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">Ojo Derecho:</label>
+								        	 </div>
+											<div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">ESF</label>
+								        	  	<dd>{{$ocular->esf_od}}</dd>
+											</div>
+											@if($ocular->cil_od!=null)
+											<div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">CIL</label>
+								        	  	<dd>{{$ocular->cil_od}}</dd>
+											</div>
+											
+											<div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">EJE</label>
+								        	  	<dd>{{$ocular->eje_od}}</dd>
+											</div>
+											@endif
+								        	<div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">ADD</label>
+								        	  	<dd>{{$ocular->add_od}}</dd>
+											</div>
+											<div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">AV</label>
+								        	  	<dd>{{$ocular->av_od}}</dd>
+											</div>
+											</div><br>
+										<div class="row">
+								        	 <div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">Ojo Izquierdo:</label>
+								        	 </div>
+											<div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">ESF</label>
+								        	  	<dd>{{$ocular->esf_oi}}</dd>
+											</div>
+											@if($ocular->cil_oi!=null)
+											<div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">CIL</label>
+								        	  	<dd>{{$ocular->cil_oi}}</dd>
+											</div>
+											
+											<div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">EJE</label>
+								        	  	<dd>{{$ocular->eje_oi}}</dd>
+											</div>
+											@endif
+								        	<div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">ADD</label>
+								        	  	<dd>{{$ocular->add_oi}}</dd>
+											</div>
+											<div class="col-sm-2">
+								        	  	<label class="control-label" for="apmaterno">AV</label>
+								        	  	<dd>{{$ocular->av_oi}}</dd>
+											</div>
+											</div><br>
+								        	</div>
+								        </div>
+								      </div>
+								      <div class="modal-header jumbotron">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Diagnóstico</strong></h5>
+								      </div>
+								       <div class="modal-body">
+								        <div class="panel-default">
+								          <div class="panel-body">
+								        	<div class="row">
+								        		<div class="col-sm-8">
+								        			<label class="control-label" for="apmaterno">Refractivo</label>
+								        			<dd>{{$ocular->refractivo}}</dd>
+								        		</div>
+								        	</div><br>
+								        	<div class="row">
+								        		<div class="col-sm-8">
+								        			<label class="control-label" for="apmaterno">Patológico</label>
+								        			<dd>{{$ocular->patologico}}</dd>
+								        		</div>
+								        	</div><br>
+								        <div class="row">
+								        		<div class="col-sm-8">
+								        			<label class="control-label" for="apmaterno">Binocularidad</label>
+								        			<dd>{{$ocular->binocularidad}}</dd>
+								        		</div>
+								        	</div><br>
+								        	</div>
+								        </div>
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+								        
+								      </div>
+								    </div>
+								  </div>
+								</div>
+
+								{{-- Modal Historial Ocular 5 --}}
 								@endforeach
 
 							{{-- Modal Edit Tutor --}}	

@@ -1004,7 +1004,7 @@
 								          <div class="panel-body">
 								          	 <div class="row">
 								        	 <div class="col-sm-12">
-								        	  	<img src="{{Storage::url($ocular->archivo_imagen)}}" width="500px" height="500px">
+								        	  	<img src="{{asset('storage/'.$ocular->archivo_imagen)}}" width="500px" height="500px">
 								        	 </div>
 								        	</div>
 								        	</div>

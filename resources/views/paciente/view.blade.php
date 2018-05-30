@@ -842,9 +842,6 @@
 								      </div>
 								      <div class="modal-header jumbotron">
 								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Oftalmoscopía</strong></h5>
-								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-								        </button>
 								      </div>
 								       <div class="modal-body">
 								        <div class="panel-default">
@@ -973,7 +970,7 @@
 								{{-- Modal Historial Ocular 3 --}}
 
 								{{-- Modal Historial Ocular 4 --}} 
-								<div class="modal fade" id="ocular_modal{{$ocular->id}}4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								<div class="modal fade" id="ocular_modal{{$ocular->id}}4" tabindex="-10" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px; top: -20px;">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
 								      <div class="modal-header jumbotron">
@@ -995,16 +992,13 @@
 								      </div>
 								      <div class="modal-header jumbotron">
 								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Archivo de Imagen</strong></h5>
-								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-								        </button>
 								      </div>
 								       <div class="modal-body">
 								        <div class="panel-default">
 								          <div class="panel-body">
 								          	 <div class="row">
 								        	 <div class="col-sm-12">
-								        	  	<img src="{{Storage::url($ocular->archivo_imagen)}}" width="500px" height="500px">
+								        	  	<img src="{{asset('storage/'.$ocular->archivo_imagen)}}" width="250px" height="250px">
 								        	 </div>
 								        	</div>
 								        	</div>
@@ -1012,9 +1006,6 @@
 								      </div>
 								       <div class="modal-header jumbotron">
 								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Tonometría</strong></h5>
-								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-								        </button>
 								      </div>
 								       <div class="modal-body">
 								        <div class="panel-default">

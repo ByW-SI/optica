@@ -27,6 +27,7 @@ class PacienteHistorialOcularController extends Controller
      */
     public function create(Paciente $paciente)
     {
+        
         return view('pacienteocular.create',
                     ['paciente'=>$paciente,
                      'edit'=>false]);
@@ -40,7 +41,6 @@ class PacienteHistorialOcularController extends Controller
      */
     public function store(Request $request,Paciente $paciente)
     {
-        
         
         $oculars=PacienteOcular::create($request->except('padecimientos_array',
                                                          'padec_text',
@@ -103,7 +103,16 @@ class PacienteHistorialOcularController extends Controller
             $oculars->opciones='NINGUNO';
         }
         
-         $path='public/Comic/'.$publicador->nombre;
+
+        $path='ImagenOcular/'.$paciente->identificador;
+
+        if($request->file('archivo_imagen')!= null){
+            $oculars->archivo_imagen =$request->archivo_imagen->storeAs('ImagenOcular/'.$paciente->identificador, $oculars->id.'.jpg');
+            // dd($request->file('archivo_imagen'));
+            // $oculars->archivo_imagen=$request->file('archivo_imagen')->store($path);
+        }
+        
+
         
 
         $oculars->save();

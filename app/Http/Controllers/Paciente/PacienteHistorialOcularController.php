@@ -104,7 +104,8 @@ class PacienteHistorialOcularController extends Controller
         }
         
         
-        
+        $path='ImagenOcular/'.$paciente->identificador;
+        $oculars->archivo_imagen=$request->file('archivo_imagen')->store($path);
 
         $oculars->save();
     //***************************************************************/

@@ -330,24 +330,24 @@
 	<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px;font-size: 11px;">
 		<thead>
 		<tr class="info">
-			<th>Información General</th>
+			<th><i class="fa fa-eye" style="font-size:20px"></i>Información General</th>
 			<th>Ciruigías/Padecimientos</th>
 			<th>Problemas Visuales/Antecedentes</th>
 			<th>Revisión Visual/Pantalleo<br>Queratometría</th>
 			<th>VisiónEstereoscópica/Oftalmoscopía</th>
 			<th>Tonometría/Graduación<br>Diagnóstico</th>
-			<th>Tipo de Anteojos</th>
+			<th>Imagen</th>
 		</thead>
 		<tbody>
 			@foreach($paciente->ocular as $ocular)
 			<tr class="active">
-				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}1">{{$ocular->created_at}}<br><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
-				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}2"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
-				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}3"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
-				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}4"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
-				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}5"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
-				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}6"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
-				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}7"><i class="fa fa-eye" style="font-size:20px"></i>&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}1">{{$ocular->created_at}}<br>&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}2">&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}3">&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}4">&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}5">&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}6">&nbsp;&nbsp;Click para Ver</td>
+				<td title="Has Click Aquì para Ver" class="oc" data-toggle="modal" data-target="#ocular_modal{{$ocular->id}}7">&nbsp;&nbsp;Click para Ver</td>
 			</tr>
 											@endforeach
 		</tbody>
@@ -737,6 +737,10 @@
 												 @else
 												 <dd>{{$ocular->cirugias}}</dd>
 												 @endif
+								        	  </div>
+								        	  <div class="col-sm-6">
+								        	  	<dd>{{$ocular->archivo_imagen}}</dd>
+								        	  	<img src="{{Storage::url($ocular->archivo_imagen)}}" width="100px" height="137.6px"> 
 								        	  </div>
 											</div>
 										 </div>

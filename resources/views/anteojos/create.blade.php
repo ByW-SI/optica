@@ -83,7 +83,7 @@
 		</ul>
 	
 {{-- PESTAÑAS --}}
-
+<div style="padding: 20px;">
 <form role="form" 
 method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]) }}">
 				{{ csrf_field() }}
@@ -547,7 +547,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 	 </div>
 <br><br>
 
-	<div class="jumbotron col-xs-12" id="contacto" style="display: none;">
+	<div class="jumbotron col-xs-12" id="contacto" style="display: none;content: center;">
 	 <div class="row">
 	 	<h2>PENDIENTE SECCIÓN DE LENTES DE CONTACTO</h2>
 	 </div>
@@ -555,11 +555,11 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 	<div class="jumbotron col-xs-12">
 	 <div class="row">
                     					<div class="col-sm-4">
-                    						<input type="checkbox" class="squaredTwo" name="opciones[0]" value="Enviar" required>
+                    						<input type="checkbox" class="squaredTwo" name="opciones[0]" value="ENVIADO A VENTAS" required>
                     						<label class="col-xs-6 label-text">Enviar al Área de Ventas</label>
                     					</div>
                     					<div class="col-sm-3">
-                    						<input type="checkbox" class="squaredTwo" name="opciones[1]" value="Imprimir">
+                    						<input type="checkbox" class="squaredTwo" name="opciones[1]" value="IMPRESO">
                     						<label class="col-xs-6 label-text">Imprimir</label>
                     					</div>
                     					<div class="col-sm-2">
@@ -571,5 +571,5 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
  </div>
 {{-- ANTEOJOS --}}
 </form>
-
+</div>
 @endsection

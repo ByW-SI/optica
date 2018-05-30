@@ -21,7 +21,7 @@ class CreateAnteojosTable extends Migration
 
             $table->enum('tipo_anteojo', ['ARMAZÓN', 'LENTES DE CONTACTO','AMBOS'])->nullable();
             $table->enum('tipo_lente', ['MONOFOCAL', 'BIFOCAL','PROGRESIVO'])->nullable();
-            $table->enum('monofocal', ['LEJOS', 'CERCA','AMBAS','SUB-CORRECION'])->nullable();
+            $table->enum('monofocal', ['LEJOS', 'CERCA','AMBAS','SUB-CORRECCIÓN'])->nullable();
             $table->enum('bifocal', ['FLAT-TOP', 'BLEND'])->nullable();
             $table->enum('progresivo', ['BÁSICO', 'PREMIUM'])->nullable();
             //---------------------------------------------------------------

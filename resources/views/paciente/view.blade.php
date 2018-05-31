@@ -397,7 +397,7 @@
 		</thead>
 		<tbody>
 			@foreach($paciente->anteojo as $anteojo)
-			<tr>
+			<tr class="oc" data-toggle="modal" data-target="#anteojo_modal{{$anteojo->id}}">
 				<td>{{$anteojo->created_at}}</td>
 				<td>{{$anteojo->tipo_anteojo}}</td>
 				<td>{{$anteojo->tipo_lente}}</td>
@@ -587,7 +587,8 @@
 
 								@foreach($paciente->ocular as $ocular)
 								{{-- Modal Historial Ocular 1 --}} 
-								<div class="modal fade"  id="ocular_modal{{$ocular->id}}1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								<div class="modal fade"  id="ocular_modal{{$ocular->id}}1"  role="dialog"  style="overflow-y: scroll;">
+									 
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
 								      <div class="modal-header jumbotron">
@@ -665,7 +666,8 @@
 								{{-- Modal Historial Ocular 1 --}} 
 
 								{{-- Modal Historial Ocular 2 --}} 
-								<div class="modal fade" id="ocular_modal{{$ocular->id}}2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								<div class="modal fade"  id="ocular_modal{{$ocular->id}}2"  role="dialog"  style="overflow-y: scroll;">
+								
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
 								      <div class="modal-header jumbotron">
@@ -737,7 +739,7 @@
 								{{-- Modal Historial Ocular 2 --}}
 
 								{{-- Modal Historial Ocular 3 --}} 
-								<div class="modal fade" id="ocular_modal{{$ocular->id}}3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								<div class="modal fade"  id="ocular_modal{{$ocular->id}}3"  role="dialog"  style="overflow-y: scroll;">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
 								      <div class="modal-header jumbotron">
@@ -970,7 +972,7 @@
 								{{-- Modal Historial Ocular 3 --}}
 
 								{{-- Modal Historial Ocular 4 --}} 
-								<div id="ocular_modal{{$ocular->id}}4" class="modal fade" role="dialog" style="overflow-y: scroll;" >
+								<div class="modal fade"  id="ocular_modal{{$ocular->id}}4"  role="dialog"  style="overflow-y: scroll;">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content" >
 								      <div class="modal-header jumbotron">
@@ -998,7 +1000,7 @@
 								          <div class="panel-body">
 								          	 <div class="row">
 								        	 <div class="col-sm-12">
-								        	  	<img src="{{asset('storage/'.$ocular->archivo_imagen)}}" width="250px" height="250px">
+								        	  	<img src="{{asset('storage/'.$ocular->archivo_imagen)}}" width="500px" height="500px">
 								        	 </div>
 								        	</div>
 								        	</div>
@@ -1044,7 +1046,7 @@
 								{{-- Modal Historial Ocular 4 --}}
 
 								{{-- Modal Historial Ocular 5 --}} 
-								<div class="modal fade" id="ocular_modal{{$ocular->id}}5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+								<div class="modal fade"  id="ocular_modal{{$ocular->id}}5"  role="dialog"  style="overflow-y: scroll;">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
 								      <div class="modal-header jumbotron">
@@ -1152,166 +1154,138 @@
 
 								{{-- Modal Historial Ocular 5 --}}
 
-								{{-- Modal Historial Ocular 6 --}} 
-								<div  class="modal fade" role="dialog" style="overflow-y: scroll;" id="ocular_modal{{$ocular->id}}6">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-tittle">Crear</h4>
-      </div>
-      <form class="form-horizontal" role="form" id="form-crear">
-        <div class="modal-body">
-          <div class="row form-group col-md-12">
-            <label for="crear_codigo" class="control-label col-sm-2 col-xs-12">Código: </label>
-            <div class="col-sm-4 col-xs-6">
-              <input type="number" class="form-control" id="crear_codigo" name="crear_codigo">
-            </div>
-          </div>
-          <div class="row form-group col-md-12">
-            <label for="crear_nombre" class="control-label col-sm-2 col-xs-12">Nombre: </label>
-            <div class="col-sm-6 col-xs-10 selectContainer">
-              <select id="crear_nombre" name="crear_nombre" class="form-control" style="width: 100%;">
-                                            <option value="0">Seleccione...</option>
-                                            <option value="1">Clorace</option>
-                                            <option value="2">Miovit</option>
-        							</select>
-            </div>
-            <div class="col-sm-2 col-xs-2">
-              <button type="button" class="btn btn-primary" id="agregar_nombres">
-        								<span class="fa fa-plus"></span>
-                            			<span class="hidden-xs"> Agregar Items</span> 
-        							</button>
-            </div>
-          </div>
-          <div class="row form-group col-md-12">
-            <label for="crear_formas_farmaceuticas" class="control-label col-sm-2 col-xs-12">Forma Farmacéutica: </label>
-            <div class="col-sm-6 col-xs-10 selectContainer">
-              <select id="crear_formas_farmaceuticas" class="form-control" name="crear_formas_farmaceuticas" style="width: 100%;">
-                                            <option value="0">Seleccione...</option>
-                                            <option value="1">Inyección</option>
-                                            <option value="2">Jarabe</option>
-        							</select>
-            </div>
-            <div class="col-sm-1 col-xs-2">
-              <button type="button" class="btn btn-primary" id="agregar_formas">
-        								<span class="fa fa-plus"></span>
-                            			<span class="hidden-xs"> Agregar Items</span> 
-        							</button>
-            </div>
-          </div>
-          <div class="row form-group col-md-12">
-            <label for="crear_presentacion" class="control-label col-sm-2 col-xs-12">Presentación: </label>
-            <div class="col-sm-3 col-xs-5">
-              <input type="number" class="form-control" id="crear_presentacion" name="crear_presentacion">
-            </div>
-            <div class="col-sm-4 col-xs-7 selectContainer">
-              <select id="crear_unidad_de_medicion_p" class="form-control" name="crear_unidad_de_medicion_p" style="width: 100%;">
-                                            <option value="0">Seleccione...</option>
-                                            <option value="1">(und) Unidad</option>
-                                            <option value="2">(ml) Mililitro</option>
-                                            <option value="2">(mg) Miligramo</option>
-        							</select>
-            </div>
-          </div>
-          <div class="row form-group col-md-12">
-            <label for="crear_unidad_teorica" class="control-label col-sm-2 col-xs-12">Unidad Teórica: </label>
-            <div class="col-sm-5 col-xs-5">
-              <input type="number" class="form-control" id="crear_unidad_teorica" name="crear_unidad_teorica">
-            </div>
-            <div class="col-sm-4 col-xs-7 selectContainer">
-              <select id="crear_unidad_de_medicion_u" class="form-control" name="crear_unidad_de_medicion_u" style="width: 100%;">
-                                            <option value="0">Seleccione...</option>
-                                            <option value="1">(und) Unidad</option>
-                                            <option value="2">(ml) Mililitro</option>
-                                            <option value="2">(mg) Miligramo</option>
-        							</select>
-            </div>
-          </div>
-          <div class="row form-group col-md-12">
-            <label for="crear_velocidad" class="control-label col-sm-2 col-xs-12">Velocidad del Producto: </label>
-            <div class="col-sm-3 col-xs-5">
-              <input type="number" class="form-control" id="crear_velocidad" name="crear_velocidad">
-            </div>
-            <label class="col-sm-5 col-xs-7">
-        							<h4>
-        								<sup id="crear_unidad_de_medicion_v_u" name="crear_unidad_de_medicion_v_u">
-        									
-        								</sup>
-        								/
-        								<sub id="crear_unidad_de_medicion_v_t" name="crear_unidad_de_medicion_v_t">
-        									min
-        								</sub>
-        							</h4>
-        						</label>
-          </div>
-          <div class="row form-group col-md-12">
-            <label class="control-label col-sm-2 col-xs-12">Tiempo Teórico: </label>
-            <label class="col-sm-7 col-xs-7">
-        							<h4>
-        								<sub id="crear_tiempo_teorico" name="crear_tiempo_teorico">
-        									
-        								</sub>
-        							</h4>
-        						</label>
-          </div>
-          <div class="row form-group col-md-12">
-            <label for="crear_linea_de_produccion" class="control-label col-sm-2">Linea de Producción:</label>
-            <div class="col-sm-8 selectContainer">
-              <select id="crear_linea_de_produccion" class="form-control" name="crear_linea_de_produccion" style="width: 100%;">
-                                            <option value="0">Seleccione...</option>
-                                            <option value="1">Liquidos Esteriles</option>
-                                            <option value="2">Liquidos No Esteriles</option>
-                                            <option value="2">Solidos</option>
-        							</select>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">
-        						<span class="glyphicon glyphicon-remove"></span>
-                            	<span class="hidden-xs"> Cerrar</span> 
-        					</button>
-          <button type="button" id="Guardar" name="Guardar" class="btn btn-primary">
-        						<span class="fa fa-save"></span>
-                            	<span class="hidden-xs"> Guardar</span> 
-        					</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<div id="ModalAgregarNombre" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-tittle">Agregar</h4>
-      </div>
-      <form class="form-horizontal" role="form" id="form-agregar">
-        <div class="modal-body">
-          <div class="form-group col-md-12">
-            <label for="agregar_nombre" class="control-label col-sm-4">Nombre: </label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" id="agregar_nombre" name="agregar_nombre">
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">
-        						<span class="glyphicon glyphicon-remove"></span><span class="hidden-xs"> Cerrar</span>
-        					</button>
-          <button type="button" id="GuardarNombre" name="GuardarNombre" class="btn btn-primary">
-        						<span class="fa fa-save"></span><span class="hidden-xs"> Guardar</span>
-                              
-        					</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-								{{-- Modal Historial Ocular 6 --}}
 								@endforeach
+
+		@foreach($paciente->anteojo as $anteojo)
+		{{-- Modal Anteojos --}} 
+								<div class="modal fade"  id="anteojo_modal{{$anteojo->id}}"  role="dialog"  style="overflow-y: scroll;">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content" >
+								      
+@switch($anteojo->tipo_anteojo)
+	@case('ARMAZÓN')
+
+								<div class="modal-header jumbotron">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Lentes de Armazón</strong></h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+								        </button>
+								      </div>
+
+							        <div class="modal-body" >
+								        <div class="panel-default">
+								          <div class="panel-body">
+	@switch($anteojo->tipo_lente)
+	    @case('MONOFOCAL')
+	       <div class="row">
+				 <div class="col-sm-3">
+				 	<label class="control-label" for="apmaterno">Tipo de Lentes</label>
+					<dd>{{$anteojo->tipo_lente}}</dd>
+				 </div>
+				 <div class="col-sm-3">
+				 	<label class="control-label" for="apmaterno">Tipo de Monofocal</label>
+					<dd>{{$anteojo->monofocal}}</dd>
+				 </div>
+				 <div class="col-sm-3">
+				 	<label class="control-label" for="apmaterno">Material</label>
+					<dd>{{$anteojo->monofocal_material}}</dd>
+				 </div>
+				 @if($anteojo->monofocal_material=='BÁSICO')
+				 <div class="col-sm-3">
+				 	<label class="control-label" for="apmaterno">Material Báscio</label>
+					<dd>{{$anteojo->monofocal_material_basico}}</dd>
+				 </div>
+				 @else
+				 <div class="col-sm-3">
+				 	<label class="control-label" for="apmaterno">Material Premium</label>
+					<dd>{{$anteojo->monofocal_material_premium}}</dd>
+				 </div>
+				 @endif
+			</div><br>
+			<div class="row">
+				<div class="col-sm-3">
+				 	<label class="control-label" for="apmaterno">Tratamiento</label>
+				</div>
+				 @if($anteojo->tratamiento=='SI')
+				 	@if($anteojo->antirreflejante=='SI' )
+				 	<div class="col-sm-3">
+				 	<label class="control-label" for="apmaterno">Antirreflejante</label>	
+				 	<dd>BÁSICO</dd>
+				 </div>
+				 	@elseif($anteojo->antirreflejante=='SI' )
+				 	<div class="col-sm-3">
+				 		<label class="control-label" for="apmaterno">AntirreflejantePremuim</label>
+				 	<dd>{{$anteojo->anti_premium}}</dd>
+				 </div>
+				 	@elseif($anteojo->antirreflejante=='NO')
+				 	@endif
+
+				 @else
+				 <div class="col-sm-3">
+				 	<dd>NINGUNO</dd>
+				 </div>
+				 @endif
+			</div>
+	        @break
+
+	    @case('BIFOCAL')
+	        Second case...
+	        @break
+
+	    @case('PROGRESIVO')
+	        Second case...
+	        @break
+
+	    @default
+	        Default case...
+	@endswitch
+								        	<div class="row">
+								        	 <div class="col-sm-12">
+								        	  	<dd></dd>
+								        	 </div>
+											 </div>
+
+											</div>
+								        </div>
+								      </div>
+							        @break
+
+@case('LENTES DE CONTACTO')
+		 Second case...
+		@break
+	@case('AMBOS')
+		@break
+	@default
+	  @break
+@endswitch
+								      <div class="modal-body" >
+								        <div class="panel-default">
+								          <div class="panel-body">
+								        	<div class="row">
+								        	 <div class="col-sm-12">
+								        	  	<dd></dd>
+								        	 </div>
+											 </div>
+											</div>
+								        </div>
+								      </div>
+
+								      <div class="modal-header jumbotron">
+								        <h5 class="modal-title" id="exampleModalLongTitle"><strong>Archivo de Imagen</strong></h5>
+								      </div>
+								      
+								      
+								      
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-danger" data-dismiss="modal"><strong>Cerrar</strong></button>
+								        
+								      </div>
+								    </div>
+								  </div>
+								</div>
+
+								{{-- Modal Anteojos --}}
+		@endforeach
 
 							{{-- Modal Edit Tutor --}}	
          @foreach($paciente->tutores as $tutor)

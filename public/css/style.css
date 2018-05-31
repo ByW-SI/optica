@@ -161,7 +161,7 @@ iframe {
 .option-input.radio::after {
   border-radius: 50%;
 }
-td.oc{cursor: pointer;}
+.oc{cursor: pointer;}
   .oc:hover{background-color: white!important;}
 
 .squaredTwo {

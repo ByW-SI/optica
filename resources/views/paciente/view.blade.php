@@ -1175,61 +1175,98 @@
 							        <div class="modal-body" >
 								        <div class="panel-default">
 								          <div class="panel-body">
+
+
 	@switch($anteojo->tipo_lente)
 	    @case('MONOFOCAL')
-	       <div class="row">
+	    <div class="row">
 				 <div class="col-sm-3">
-				 	<label class="control-label" for="apmaterno">Tipo de Lentes</label>
+				 	<label class="control-label">Tipo de Lentes</label>
 					<dd>{{$anteojo->tipo_lente}}</dd>
 				 </div>
+	      
 				 <div class="col-sm-3">
-				 	<label class="control-label" for="apmaterno">Tipo de Monofocal</label>
+				 	<label class="control-label">Tipo de Monofocal</label>
 					<dd>{{$anteojo->monofocal}}</dd>
 				 </div>
 				 <div class="col-sm-3">
-				 	<label class="control-label" for="apmaterno">Material</label>
+				 	<label class="control-label">Material</label>
 					<dd>{{$anteojo->monofocal_material}}</dd>
 				 </div>
 				 @if($anteojo->monofocal_material=='BÁSICO')
 				 <div class="col-sm-3">
-				 	<label class="control-label" for="apmaterno">Material Báscio</label>
+				 	<label class="control-label">Material Báscio</label>
 					<dd>{{$anteojo->monofocal_material_basico}}</dd>
 				 </div>
 				 @else
 				 <div class="col-sm-3">
-				 	<label class="control-label" for="apmaterno">Material Premium</label>
+				 	<label class="control-label">Material Premium</label>
 					<dd>{{$anteojo->monofocal_material_premium}}</dd>
 				 </div>
 				 @endif
 			</div><br>
 			<div class="row">
 				<div class="col-sm-3">
-				 	<label class="control-label" for="apmaterno">Tratamiento</label>
+				 	<label class="control-label">Tratamiento</label>
+				 	<dd>{{$anteojo->tratamiento}}</dd>
 				</div>
 				 @if($anteojo->tratamiento=='SI')
-				 	@if($anteojo->antirreflejante=='SI' )
+				 	
 				 	<div class="col-sm-3">
-				 	<label class="control-label" for="apmaterno">Antirreflejante</label>	
-				 	<dd>BÁSICO</dd>
+				 	<label class="control-label">Antirreflejante</label>	
+				 	<dd>{{$anteojo->anti_basico}}{{$anteojo->anti_premium}}</dd>
 				 </div>
-				 	@elseif($anteojo->antirreflejante=='SI' )
+				 	
 				 	<div class="col-sm-3">
-				 		<label class="control-label" for="apmaterno">AntirreflejantePremuim</label>
-				 	<dd>{{$anteojo->anti_premium}}</dd>
+				 		<label class="control-label">Fotocromático</label>
+				 	<dd>{{$anteojo->foto_basico}}{{$anteojo->foto_premium}}</dd>
 				 </div>
-				 	@elseif($anteojo->antirreflejante=='NO')
-				 	@endif
+				 	
+				 <div class="col-sm-3">
+				 		<label class="control-label">Polarizado</label>
+				 	<dd>{{$anteojo->polarizado_basico}}{{$anteojo->polarizado_premium}}</dd>
+				 </div>	
 
 				 @else
-				 <div class="col-sm-3">
-				 	<dd>NINGUNO</dd>
-				 </div>
+				 
 				 @endif
 			</div>
 	        @break
 
 	    @case('BIFOCAL')
-	        Second case...
+	      <div class="row">
+				 <div class="col-sm-3">
+				 	<label class="control-label">Tipo de Lentes</label>
+					<dd>{{$anteojo->tipo_lente}}</dd>
+				 </div>
+	      
+				 <div class="col-sm-3">
+				 	<label class="control-label">Tipo de Bifocal</label>
+					<dd>{{$anteojo->bifocal}}</dd>
+				 </div>
+				 <div class="col-sm-3">
+				 	<label class="control-label">Material</label>
+					<dd>{{$anteojo->bifocal_flat_material}} 
+						@if($anteojo->bifocal_blend_material!='NO')
+						
+						@else
+						CR-39 W
+						@endif
+						
+					</dd>
+				 </div>
+				 @if($anteojo->monofocal_material=='BÁSICO')
+				 <div class="col-sm-3">
+				 	<label class="control-label">Material Báscio</label>
+					<dd>{{$anteojo->monofocal_material_basico}}</dd>
+				 </div>
+				 @else
+				 <div class="col-sm-3">
+				 	<label class="control-label">Material Premium</label>
+					<dd>{{$anteojo->monofocal_material_premium}}</dd>
+				 </div>
+				 @endif
+			</div><br>
 	        @break
 
 	    @case('PROGRESIVO')
@@ -1401,33 +1438,5 @@
          @endforeach
          					{{-- Modal Edit Tutor --}}
 
-<script>
 
-$(document).ready(function(){
-
-	$("#fecha_2").change(function(){
-		
-        var año1=$("#fecha_2").val();
-        var año2= Date();
-        var nacimiento=año1.substring(0,4);
-        var actual=año2.substring(11,15);
-        var edad=actual-nacimiento;
-       $("#edad_2").val(edad);
-
-     
-    });
-
-    $("#fecha_nacimiento").change(function(){
-
-        var año1=$("#fecha_nacimiento").val();
-        var año2= Date();
-        var nacimiento=año1.substring(0,4);
-        var actual=año2.substring(11,15);
-        var edad=actual-nacimiento;
-       $("#edad").val(edad);
-
-     
-    });
-});
-</script>
 @endsection

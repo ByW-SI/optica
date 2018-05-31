@@ -90,7 +90,9 @@ $("#tipo_lente").change(function(){
 
         $("#mono_bas").prop('required',true);
        	$("#orma").prop('required',false);
-       	
+       	$("#anti_basico").prop('value','BÁSICO');
+        $("#foto_basico").prop('value','BÁSICO');
+        $("#polarizado_basico").prop('value','BÁSICO');
         
         
 
@@ -109,8 +111,9 @@ $("#tipo_lente").change(function(){
 
        	$("#mono_bas").prop('required',false);
         $("#orma").prop('required',true);
-        
-       
+        $("#anti_basico").prop('value',''); 
+        $("#foto_basico").prop('value','');
+        $("#polarizado_basico").prop('value','');
 
        }else{
 
@@ -125,7 +128,9 @@ $("#tipo_lente").change(function(){
 
        	$("#mono_bas").prop('required',false);
         $("#orma").prop('required',false);
-        
+        $("#anti_basico").prop('value','');
+        $("#foto_basico").prop('value','');
+        $("#polarizado_basico").prop('value','');
 
        }
 

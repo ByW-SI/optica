@@ -34,14 +34,14 @@ class CreateAnteojosTable extends Migration
             $table->enum('fotocromatico', ['SI', 'NO'])->nullable();
             $table->enum('polarizado', ['SI', 'NO'])->nullable();
             //----------------------------------------------------------
-            $table->string('anti_basico');
-            $table->enum('anti_premium', ['CRIZAL EASY', 'CRIZAL ALIZE','CRIZAL FORTE','CRIZAL PREVENCIA'])->nullable();
-            $table->string('foto_basico');
+            $table->string('anti_basico')->nullable();
+            $table->enum('anti_premium', ['TRIO','CRIZAL EASY', 'CRIZAL ALIZE','CRIZAL FORTE','CRIZAL PREVENCIA'])->nullable();
+            $table->string('foto_basico')->nullable();
             $table->enum('foto_premium', ['TRANSITIONS GRIS', 'TRANSITIONS CAFÉ','TRANSITIONS VERDE','TRANSITIONS XTRACTIVE'])->nullable();
             $table->string('polarizado_basico')->nullable();
             $table->string('polarizado_premium')->nullable();
             //------------------------------------------------------------
-            $table->enum('bifocal_flat_material',['POLICARBONATO','CR-39'])->nullable();
+            $table->enum('bifocal_flat_material',['POLICARBONATO','CR-39 W'])->nullable();
             $table->enum('tratamiento_flat',['SI','NO'])->nullable();
             $table->enum('tratamiento_flat_antirreflejante_basico',['SI','NO'])->nullable();
             $table->enum('tratamiento_flat_fotocromatico_basico',['SI','NO'])->nullable();
@@ -49,7 +49,7 @@ class CreateAnteojosTable extends Migration
             $table->enum('tratamiento_blend',['SI','NO'])->nullable();
             $table->enum('tratamiento_blend_basico',['SI','NO'])->nullable();
             //---------------------------------------------------------------
-            $table->enum('progresivo_basico_material',['POLICARBONATO','CR-39'])->nullable();
+            $table->enum('progresivo_basico_material',['POLICARBONATO','CR-39 W'])->nullable();
             $table->enum('tratamiento_progresivo_basico',['SI','NO'])->nullable();
             $table->enum('tratamiento_progresivo_basico_antirreflejante',['SI','NO'])->nullable();
             $table->enum('tratamiento_progresivo_basico_fotocromatico',['SI','NO'])->nullable();

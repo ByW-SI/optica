@@ -241,7 +241,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
         	
         	<div class="col-sm-2" id="anti_basico_div" style="display: none;">
         	 <dd>BÁSICO</dd>
-             <input type="hidden" name="anti_basico" value="BÁSICO">
+             <input type="hidden" name="anti_basico" value="BÁSICO" id="anti_basico">
 			</div>
 			<div class="col-sm-10" id="anti_premium_div" style="display: none;">
 				<div class="col-sm-2" id="trio_div">
@@ -272,7 +272,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
             </div>
             <div class="col-sm-2" id="foto_basico_div" style="display: none;">
         	 <dd>BÁSICO</dd>
-             <input type="hidden" name="foto_basico" value="BÁSICO">
+             <input type="hidden" name="foto_basico" value="BÁSICO" id="foto_basico">
 			</div>
 			<div  id="foto_premium_div" style="display: none;">
       		<div class="col-sm-2">
@@ -299,7 +299,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
             </div>
 			<div class="col-sm-3" id="polarizado_basico_div" style="display: none;">
 				<dd>BÁSICO</dd>
-				<input type="hidden" name="polarizado_basico" value="BÁSICO">
+				<input type="hidden" name="polarizado_basico" value="BÁSICO" id="polarizado_basico">
 			</div>
 			<div class="col-sm-3" id="polarizado_premium_div" style="display: none;">
 				<dd>PREMIUM (XPERIO)</dd>
@@ -317,11 +317,13 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
          </div>
           <div class="col-sm-3">
 				<span class="badge badge-secondary">CR-39 W</span>
-				<input type="radio" class="option-input radio"  name="bifocal_flat_material" value="CR-39 W" id="cr39">
+				<input type="radio" class="option-input radio"  name="bifocal_flat_material" 
+				value="CR-39 W" id="cr39">
 			</div>
 			<div class="col-sm-3" id="xtrac_div">
 				<span class="badge badge-secondary">POLICARBONATO</span>
-				<input type="radio" class="option-input radio"  name="bifocal_flat_material" value="POLICARBONATO" >
+				<input type="radio" class="option-input radio"  name="bifocal_flat_material" 
+				value="POLICARBONATO" >
 			</div>
      </div>
 

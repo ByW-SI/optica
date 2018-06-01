@@ -1247,7 +1247,7 @@
 				 <div class="col-sm-3">
 				 	<label class="control-label">Material</label>
 					<dd>{{$anteojo->bifocal_flat_material}} 
-						@if($anteojo->bifocal_blend_material!='NO')
+						@if($anteojo->bifocal_blend_material=='NO')
 						
 						@else
 						CR-39 W
@@ -1255,16 +1255,31 @@
 						
 					</dd>
 				 </div>
-				 @if($anteojo->monofocal_material=='BÁSICO')
+			</div><br>
+				 <div class="row">
+				 @if($anteojo->tratamiento_flat=='SI')
 				 <div class="col-sm-3">
-				 	<label class="control-label">Material Báscio</label>
+				 	<label class="control-label">Tratamientos:</label>
 					<dd>{{$anteojo->monofocal_material_basico}}</dd>
 				 </div>
-				 @else
-				 <div class="col-sm-3">
-				 	<label class="control-label">Material Premium</label>
-					<dd>{{$anteojo->monofocal_material_premium}}</dd>
+				  <div class="col-sm-3">
+				 	<label class="control-label">Antirreflejante Básico</label>
+					<dd>{{$anteojo->tratamiento_flat_antirreflejante_basico}}</dd>
 				 </div>
+				  <div class="col-sm-3">
+				 	<label class="control-label">Fotocromático Básico</label>
+					<dd>{{$anteojo->tratamiento_flat_fotocromatico_basico}}</dd>
+				 </div>
+				 @elseif($anteojo->tratamiento_blend=='SI')
+				 <div class="col-sm-3">
+				 	<label class="control-label">Tratamientos:</label>
+					<dd>{{$anteojo->monofocal_material_basico}}</dd>
+				 </div>
+				  <div class="col-sm-3">
+				 	<label class="control-label">Antirreflejante Básico</label>
+					<dd>{{$anteojo->tratamiento_blend_basico}}</dd>
+				 </div>
+				  
 				 @endif
 			</div><br>
 	        @break

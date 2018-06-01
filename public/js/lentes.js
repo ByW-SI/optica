@@ -248,6 +248,10 @@ $("#flattop").change(function(){
   $("#tratamiento1_flat").prop('required',true);
   $("#cr39").prop('required',true);
   $("#tratamiento1_blend").prop('required',false);
+  $("#bifocal_blend_material").prop("checked",false);
+  $("#tratamiento1_blend").prop("checked",false);
+  $("#tratamiento2_blend").prop("checked",false);
+  $("#tratamiento_blend_basico").prop("checked",false);
 	
 	    }else{
 	document.getElementById('bifocal_flat_div').style.display = "none";
@@ -267,6 +271,12 @@ $("#blend").change(function(){
 	$("#tratamiento1_flat").prop('required',false);
   $("#cr39").prop('required',false); 
   $("#tratamiento1_blend").prop('required',true);
+  $("#cr39").prop("checked",false);
+  $("#policarbonato").prop("checked",false);
+  $("#tratamiento1_flat").prop("checked",false);
+  $("#tratamiento2_flat").prop("checked",false);
+  $("#tratamiento_flat_antirreflejante_basico").prop("checked",false);
+  $("#tratamiento_flat_fotocromatico_basico").prop("checked",false);
 	    }else{
 	document.getElementById('bifocal_blend_div').style.display = "none";
 	document.getElementById('bifocal_blend_tratamiento_div').style.display = "none";
@@ -314,6 +324,24 @@ $("#progresivo_basico").change(function(){
    $("#precise").prop('required',false);
    $("#air").prop('required',false);
    $("#tratamiento_progresivo_premium2").prop('required',false);
+   $("#unique").prop("checked",false);
+   $("#easy").prop("checked",false);
+   $("#precise").prop("checked",false);
+   $("#prog_orma").prop("checked",false);
+   $("#air").prop("checked",false);
+   $("#tratamiento_progresivo_premium1").prop("checked",false);
+   $("#tratamiento_progresivo_premium2").prop("checked",false);
+   $("#tratamiento_progresivo_premium_antirreflejante").prop("checked",false);
+   $("#tratamiento_progresivo_premium_fotocromatico").prop("checked",false);
+   $("#c_easy").prop("checked",false);
+   $("#c_alize").prop("checked",false);
+   $("#c_forte").prop("checked",false);
+   $("#c_prev").prop("checked",false);
+   $("#f_tran").prop("checked",false);
+   $("#f_caf").prop("checked",false);
+   $("#f_ver").prop("checked",false);
+   document.getElementById('tratamiento_progresivo_premium_antirreflejante_div').style.display="none";
+   document.getElementById('tratamiento_progresivo_premium_fotocromatico_div').style.display = "none";  
 });
 
 $("#progresivo_premium").change(function(){
@@ -325,6 +353,12 @@ $("#progresivo_premium").change(function(){
    $("#precise").prop('required',true);
    $("#air").prop('required',true);
    $("#tratamiento_progresivo_premium2").prop('required',true);
+   $("#prog_cr").prop("checked",false);
+   $("#prog_poli").prop("checked",false);
+   $("#tratamiento1_progresivo_basico").prop("checked",false);
+   $("#tratamiento2_progresivo_basico").prop("checked",false);
+   $("#tratamiento_progresivo_basico_antirreflejante").prop("checked",false);
+   $("#tratamiento_progresivo_basico_fotocromatico").prop("checked",false);
 });
 //-------------------------------------------------------------
 $("#tratamiento1_progresivo_basico").change(function(){

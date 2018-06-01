@@ -323,7 +323,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 			<div class="col-sm-3" id="xtrac_div">
 				<span class="badge badge-secondary">POLICARBONATO</span>
 				<input type="radio" class="option-input radio"  name="bifocal_flat_material" 
-				value="POLICARBONATO" >
+				value="POLICARBONATO" id="policarbonato">
 			</div>
      </div>
 
@@ -400,7 +400,8 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">POLICARBONATO</span>
-				<input type="radio" class="option-input radio"  name="progresivo_basico_material" value="POLICARBONATO">
+				<input type="radio" class="option-input radio"  name="progresivo_basico_material" value="POLICARBONATO" 
+				id="prog_poli">
 			</div>
 	</div>
 	 <div class="row" id="progresivo_basico_tratamiento_div" style="padding-bottom: 30px;margin-top: 30px;">
@@ -442,11 +443,11 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 		</div>
 		<div class="col-sm-3">
       			<span class="badge badge-secondary">UNIQUE</span>
-				<input type="radio" class="option-input radio"  name="progresivo_premium_kodak" value="UNIQUE">
+				<input type="radio" class="option-input radio"  name="progresivo_premium_kodak" value="UNIQUE" id="unique">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">EASY</span>
-				<input type="radio" class="option-input radio"  name="progresivo_premium_kodak" value="EASY">
+				<input type="radio" class="option-input radio"  name="progresivo_premium_kodak" value="EASY" id="easy">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">PRECISE</span>
@@ -459,7 +460,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 		</div>
 		<div class="col-sm-3">
       			<span class="badge badge-secondary">ORMA</span>
-				<input type="radio" class="option-input radio"  name="progresivo_premium_material" value="ORMA">
+				<input type="radio" class="option-input radio"  name="progresivo_premium_material" value="ORMA" id="prog_orma">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">AIRWEAR</span>
@@ -507,19 +508,23 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 			
       		<div class="col-sm-2">
       			<span class="badge badge-secondary">CRIZAL EASY</span>
-				<input type="radio" class="option-input radio"  name="anti_premium_progresivo" value="CRIZAL EASY">
+				<input type="radio" class="option-input radio"  name="anti_premium_progresivo" value="CRIZAL EASY" 
+				id="c_easy">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">CRIZAL ALIZE</span>
-				<input type="radio" class="option-input radio"  name="anti_premium_progresivo" value="CRIZAL ALIZE">
+				<input type="radio" class="option-input radio"  name="anti_premium_progresivo" value="CRIZAL ALIZE"
+				id="c_alize">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">CRIZAL FORTE</span>
-				<input type="radio" class="option-input radio"  name="anti_premium_progresivo" value="CRIZAL FORTE">
+				<input type="radio" class="option-input radio"  name="anti_premium_progresivo" value="CRIZAL FORTE"
+				id="c_forte">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">CRIZAL PREVENCIA</span>
-				<input type="radio" class="option-input radio"  name="anti_premium_progresivo" value="CRIZAL PREVENCIA">
+				<input type="radio" class="option-input radio"  name="anti_premium_progresivo" value="CRIZAL PREVENCIA"
+				id="c_prev">
 			</div>
       	
 	    </div>
@@ -530,15 +535,18 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 			
       		<div class="col-sm-3">
       			<span class="badge badge-secondary">TRANSITIONS GRIS</span>
-				<input type="radio" class="option-input radio"  name="foto_premium_progresivo" value="TRANSITIONS GRIS">
+				<input type="radio" class="option-input radio"  name="foto_premium_progresivo" value="TRANSITIONS GRIS"
+				id="f_tran">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">TRANSITIONS CAFÉ</span>
-				<input type="radio" class="option-input radio"  name="foto_premium_progresivo" value="TRANSITIONS CAFÉ">
+				<input type="radio" class="option-input radio"  name="foto_premium_progresivo" value="TRANSITIONS CAFÉ"
+				id="f_caf">
 			</div>
 			<div class="col-sm-3">
 				<span class="badge badge-secondary">TRANSITIONS VERDE</span>
-				<input type="radio" class="option-input radio"  name="foto_premium_progresivo" value="TRANSITIONS VERDE">
+				<input type="radio" class="option-input radio"  name="foto_premium_progresivo" value="TRANSITIONS VERDE"
+				id="f_ver">
 			</div>
 		</div>
 	</div>

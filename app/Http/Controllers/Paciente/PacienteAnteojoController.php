@@ -40,10 +40,12 @@ class PacienteAnteojoController extends Controller
     {
         $anteojo=Anteojo::create($request->except('opciones'));
         $opciones='';
+
         foreach ($request->opciones as $opcion) {
             $opciones.=$opcion."|";
         }
-        $anteojo->opciones=$opcion;
+
+        $anteojo->opciones=$opciones;
         $anteojo->save();
         
         Alert::success('Historial Creado', 'Se ha Agregado Inforación sobre Anteojos');

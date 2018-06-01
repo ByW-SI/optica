@@ -374,12 +374,21 @@ $("#tratamiento2_progresivo_basico").change(function(){
 //------------------------------------------------------------------------
 $("#tratamiento_progresivo_premium1").change(function(){
 	document.getElementById('tratamiento_progresivo_premium_si_div').style.display = "block";
+  $("#c_easy").prop("checked",false);
+   $("#c_alize").prop("checked",false);
+   $("#c_forte").prop("checked",false);
+   $("#c_prev").prop("checked",false);
+   $("#f_tran").prop("checked",false);
+   $("#f_caf").prop("checked",false);
+   $("#f_ver").prop("checked",false);
+
 });
 
 $("#tratamiento_progresivo_premium2").change(function(){
 	document.getElementById('tratamiento_progresivo_premium_si_div').style.display = "none";
 	$("#tratamiento_progresivo_premium_antirreflejante").prop( "checked", false );
 	$("#tratamiento_progresivo_premium_fotocromatico").prop( "checked", false );
+
 
 });
 //-----------------------------------------------------
@@ -388,7 +397,11 @@ $("#tratamiento_progresivo_premium_antirreflejante").change(function(){
 document.getElementById('tratamiento_progresivo_premium_antirreflejante_div').style.display="block";
 		
 	}else{
-document.getElementById('tratamiento_progresivo_premium_antirreflejante_div').style.display="none";		
+document.getElementById('tratamiento_progresivo_premium_antirreflejante_div').style.display="none";
+$("#c_easy").prop("checked",false);
+   $("#c_alize").prop("checked",false);
+   $("#c_forte").prop("checked",false);
+   $("#c_prev").prop("checked",false);		
 	}
 });
 
@@ -398,7 +411,10 @@ document.getElementById('tratamiento_progresivo_premium_fotocromatico_div').styl
 
 		
 	}else{
-document.getElementById('tratamiento_progresivo_premium_fotocromatico_div').style.display = "none";		
+document.getElementById('tratamiento_progresivo_premium_fotocromatico_div').style.display = "none";	
+$("#f_tran").prop("checked",false);	
+$("#f_caf").prop("checked",false);  
+$("#f_ver").prop("checked",false);  
 	}
 		});
 //---------------------------------------------------------

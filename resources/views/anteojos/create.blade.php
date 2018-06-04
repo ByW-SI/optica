@@ -250,19 +250,20 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 			</div>
       		<div class="col-sm-2">
       			<span class="badge badge-secondary">CRIZAL EASY</span>
-				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL EASY">
+				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL EASY"
+				id="criz_m">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">CRIZAL ALIZE</span>
-				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL ALIZE">
+				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL ALIZE" id="aliz_m">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">CRIZAL FORTE</span>
-				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL FORTE">
+				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL FORTE" id="fort_m">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">CRIZAL PREVENCIA</span>
-				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL PREVENCIA">
+				<input type="radio" class="option-input radio"  name="anti_premium" value="CRIZAL PREVENCIA" id="prev_m">
 			</div>
       	</div>
 	    </div>
@@ -277,15 +278,15 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 			<div  id="foto_premium_div" style="display: none;">
       		<div class="col-sm-2">
       			<span class="badge badge-secondary">TRANSITIONS GRIS</span>
-				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS GRIS">
+				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS GRIS" id="t_gris">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">TRANSITIONS CAFÉ</span>
-				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS CAFÉ">
+				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS CAFÉ" id="t_cafe">
 			</div>
 			<div class="col-sm-2">
 				<span class="badge badge-secondary">TRANSITIONS VERDE</span>
-				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS VERDE">
+				<input type="radio" class="option-input radio"  name="foto_premium" value="TRANSITIONS VERDE" id="t_verde">
 			</div>
 			<div class="col-sm-2" id="xtrac_div">
 				<span class="badge badge-secondary">TRANSITIONS XTRACTIVE</span>
@@ -303,7 +304,7 @@ method="POST" action="{{route('pacientes.anteojos.store',['paciente'=>$paciente]
 			</div>
 			<div class="col-sm-3" id="polarizado_premium_div" style="display: none;">
 				<dd>PREMIUM (XPERIO)</dd>
-				<input type="hidden" name="polarizado_premium" value="PREMIUM (XPERIO)">
+				<input type="hidden" name="polarizado_premium" value="PREMIUM (XPERIO)" id="xperio">
 			</div>
 		</div>
 	</div>

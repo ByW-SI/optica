@@ -93,7 +93,7 @@ $("#tipo_lente").change(function(){
        	$("#anti_basico").prop('value','BÁSICO');
         $("#foto_basico").prop('value','BÁSICO');
         $("#polarizado_basico").prop('value','BÁSICO');
-        
+        $("#xperio").prop('value','');
         
 
         
@@ -114,6 +114,7 @@ $("#tipo_lente").change(function(){
         $("#anti_basico").prop('value',''); 
         $("#foto_basico").prop('value','');
         $("#polarizado_basico").prop('value','');
+        $("#xperio").prop('value','PREMIUM (XPERIO)');
 
        }else{
 
@@ -164,9 +165,17 @@ $("#tipo_lente").change(function(){
        	document.getElementById('fotocromatico_div').style.display = 'block';
        	document.getElementById('polarizado_div').style.display = 'none';
         $("#polarizado").prop( "checked", false );
+        $("#polarizado_basico").prop('value','');
+        $("#xperio").prop('value','');
+        $("#foto_basico").prop('value','BÁSICO');
        }else{
        	document.getElementById('fotocromatico_div').style.display = 'none';
-       
+        $("#foto_basico").prop('value','');
+
+        $("#t_gris").prop( "checked", false );
+        $("#t_cafe").prop( "checked", false );
+        $("#t_verde").prop( "checked", false );
+        $("#xtrac").prop( "checked", false );
        }
     });
 
@@ -177,9 +186,18 @@ $("#tipo_lente").change(function(){
        	document.getElementById('antirreflejante_div').style.display = 'block';
        	document.getElementById('polarizado_div').style.display = 'none';
        $("#polarizado").prop( "checked", false );
+       $("#anti_basico").prop('value','BÁSICO'); 
        }else{
        	document.getElementById('antirreflejante_div').style.display = 'none';
-       
+        $("#polarizado_basico").prop('value','');
+        $("#xperio").prop('value','');
+        $("#anti_basico").prop('value',''); 
+
+        $("#trio").prop( "checked", false );
+        $("#criz_m").prop( "checked", false );
+        $("#aliz_m").prop( "checked", false );
+        $("#fort_m").prop( "checked", false );
+        $("#prev_m").prop( "checked", false );
        }
     });
 
@@ -193,9 +211,24 @@ $("#tipo_lente").change(function(){
         document.getElementById('fotocromatico_div').style.display = 'none';
         $("#antirreflejante").prop( "checked", false );
         $("#fotocromatico").prop( "checked", false );
+        $("#anti_basico").prop('value',''); 
+        $("#foto_basico").prop('value','');
+        $("#polarizado_basico").prop('value','BÁSICO');
+
+        $("#trio").prop( "checked", false );
+        $("#criz_m").prop( "checked", false );
+        $("#aliz_m").prop( "checked", false );
+        $("#fort_m").prop( "checked", false );
+        $("#prev_m").prop( "checked", false );
+
+        $("#t_gris").prop( "checked", false );
+        $("#t_cafe").prop( "checked", false );
+        $("#t_verde").prop( "checked", false );
+        $("#xtrac").prop( "checked", false );
        }else{
        	document.getElementById('polarizado_div').style.display = 'none';
-        
+        $("#polarizado_basico").prop('value','');
+        $("#xperio").prop('value','');
        }
     });
 
@@ -207,6 +240,20 @@ $("#tratamiento1").change(function(){
 
   $("#tratamiento2").change(function(){
       document.getElementById('tratamiento_si_div').style.display = 'none';
+        $("#trio").prop( "checked", false );
+        $("#criz_m").prop( "checked", false );
+        $("#aliz_m").prop( "checked", false );
+        $("#fort_m").prop( "checked", false );
+        $("#prev_m").prop( "checked", false );
+
+        $("#t_gris").prop( "checked", false );
+        $("#t_cafe").prop( "checked", false );
+        $("#t_verde").prop( "checked", false );
+        $("#xtrac").prop( "checked", false );
+
+        $("#antirreflejante").prop( "checked", false );
+        $("#fotocromatico").prop( "checked", false );
+        $("#polarizado").prop( "checked", false );
       
      });
 

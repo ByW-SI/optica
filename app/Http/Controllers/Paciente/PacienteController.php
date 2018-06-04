@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Paciente;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Paciente;
+use App\Sucursal;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class PacienteController extends Controller
@@ -73,8 +74,10 @@ class PacienteController extends Controller
     public function show($id)
     {
         $paciente=Paciente::where('id',$id)->first();
+        $sucursales=Sucursal::orderBy('nombre')->get();
        return view('paciente.view',
-                  ['paciente'=>$paciente]);
+                  ['paciente'  =>$paciente,
+                   'sucursales'=>$sucursales]);
     }
 
     /**

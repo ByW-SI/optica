@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+      <script src="{{asset('js/citas.js')}}"></script>
 <div class="container">
 	<div role="application" class="panel panel-group">
 		<div class="panel-default">
@@ -432,65 +432,49 @@
 
  {{-- CITAS --}}
 
-						 <div class="tab-pane" id="cita">
-						 	<div class="panel-default"  >
-							<div class="panel-heading"><h5>Citas&nbsp;&nbsp;&nbsp;&nbsp;</h5>{{--  <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos --}}</div>
-							<div class="panel-body" >
-									<form role="form" 
-									      method="POST" 
-									      action="">
-										{{ csrf_field() }}
-										
-										
+<div class="tab-pane" id="cita">
+	<div class="panel-default"  >
+		<div class="panel-heading" style="background-color: grey;"><h5>Citas&nbsp;&nbsp;&nbsp;&nbsp;</h5>{{--  <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos --}}</div>
+			<div class="panel-body" >
+				
+										{{ csrf_field() }} 
+					<input type="hidden" name="paciente_id" value="{{$paciente->id}}" 
+					id="paciente_id">
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="control-label" for="proxima_cita">Fecha Pròxima Cita:</label>
+						<input type="date" class="form-control" id="proxima_cita" name="proxima_cita"  required>
+					</div>
 
-
-									<div class="row">
-										<div class="col-sm-3">
-											<label class="control-label" for="fecha_act">Fecha Pròxima Cita:</label>
-											<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="" >
-										</div>
-
-									
-
-										<div class="col-sm-3">
-											<label class="control-label" for="tipo_cont">Hora:</label>
-											<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" >
-												<?php
-												for($i=0;$i<24;$i++){
-
-													if($i<=11){
+					<div class="col-sm-3">
+						<label class="control-label" for="hora">Hora:</label>
+						<select class="form-control" type="select" name="hora" id="hora" required>
+							<?php for($i=0;$i<24;$i++){
+								if($i<=11){
 
 									echo"<option id='' value='".$i.":00 am'>".$i.":00 am </option>";
 
 													}else{
 									echo"<option id='' value='".$i.":00 pm'>".$i.":00 pm </option>";
-													}										
-
-
-												}
-												?>
-												
-												
-											</select>
-										</div>
-
-										<div class="col-sm-3">
-											<label class="control-label" for="tipo_cont">Minutos:</label>
-											<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" >
-												<?php
-												for($i=0;$i<=60;$i+=15){
+													}}?>
+						</select>
+					</div>
+					<div class="col-sm-3">
+						<label class="control-label" for="minutos">Minutos:</label>
+						<select class="form-control" type="select" name="minutos" id="minutos" required>
+							<?php
+								for($i=0;$i<60;$i+=15){
 							echo"<option id='' value='".$i." mins'>".$i." mins </option>";
 											}?>
-												
-												
-											</select>
-										</div>
+						</select>
+					</div>
 
 
 			<div class="col-sm-3">
+				<label class="control-label" for="sucursal_clave">Sucursal:</label>
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon3" onclick='getSucursal();'><i class="fa fa-refresh" aria-hidden="true"></i></span>
-				<select type="select" name="sucursal" class="form-control" id="sucursal">
+				<select type="select" name="sucursal_clave" class="form-control" id="sucursal_clave" required>
 							<option id="sin_definir" value="sin_definir">Sin Definir</option>
 						@foreach ($sucursales as $sucursal)
 							<option  value="{{$sucursal->claveid}}">{{$sucursal->nombre}}</option>
@@ -507,68 +491,85 @@
 						<textarea class="form-control" rows="5" id="comentarios" name="comentarios" maxlength="500"></textarea>
 					</div> 
 				</div>
-				<div class="col-sm-3 col-sm-offset-2"><button id="submit" type="submit" class="btn btn-primary">
+				<div class="col-sm-3 col-sm-offset-2"><button id="submit" type="submit" class="btn btn-primary" onclick="cita()">
 					<strong>Agregar</strong></button>
 				</div>
 			</div>
-									
-										
-									
-								</div>
-								<div class="panel-body">
-									<div class="col-md-6 offset-md-1 mt-1">
-										<div style="
-										height: 450px;
-										overflow: scroll;">
-											<table class="table table-striped table-bordered table-hover" 
+		  
+		</div>
+				<div class="panel-body" id="todas">
+					<div class="row">
+						<div class="col-sm-6" >
+							<label class="control-label"><strong>Todas las Citas</strong></label>
+							<div style="height: 450px;overflow: scroll;">
+							<table class="table table-striped table-bordered table-hover" 
 										       style="color:rgb(51,51,51); 
 										              border-collapse: collapse;
 										              margin-bottom: 0px;
-										              overflow: scroll;"
-										       >
+										              overflow: scroll;">
 											<thead>
 												<tr class="info">
+													<th>Fecha Próxima Cita</th>
 													<th>Hora</th>
-													<th>Estado</th>
-													<th>No. de Citas</th>
+													<th>Paciente</th>
+													<th>Sucursal</th>
+												</tr>
+											</thead>
+											<tbody >
+											@foreach($citas as $cita)
+												<tr>
+													<td>{{$cita->proxima_cita}}</td>
+													<td>{{$cita->hora}}:{{$cita->minutos}}</td>
+													<td>{{$cita->paciente->nombre}}&nbsp;&nbsp;
+														{{$cita->paciente->appaterno}}&nbsp;&nbsp;
+														{{$cita->paciente->apmaterno}}
+													</td>
+													<td>{{$cita->sucursal_clave}}</td>
+													
+													
+												</tr>
+											@endforeach
+											</tbody>
+										</table>
+										</div>
+
+						</div>
+						<div class="col-sm-6">
+							<label class="control-label"><strong>Citas del Paciente</strong></label>
+							<div style="height: 450px;overflow: scroll;">
+							<table class="table table-striped table-bordered table-hover" 
+								   style="color:rgb(51,51,51); 
+										  border-collapse: collapse;
+										   margin-bottom: 0px;
+										   overflow: scroll;"
+									id="c_paciente">
+											<thead>
+												<tr class="info">
+													<th>Fecha Próxima Cita</th>
+													<th>Hora</th>
+													<th>Sucursal</th>
 													
 													
 												</tr>
 											</thead>
 											<tbody >
-											
-												<tr onclick='' 
-												title='Has Click Aquì para ver o Modificar'
-												style='cursor: pointer'>
-													<td>12:45 pm</td>
-													<td>Ocupado</td>
-													<td>3</td>
-													
-													
+											@foreach($paciente->citas as $cita)
+												<tr>
+													<td>{{$cita->proxima_cita}}</td>
+													<td>{{$cita->hora}}</td>
+													<td>{{$cita->sucursal_clave}}</td>
 												</tr>
-
-												<?php
-													for ($i=0; $i <45 ; $i++) { 
-														echo"<tr onclick='' 
-												title='Has Click Aquì para ver o Modificar'
-												style='cursor: pointer'>
-													<td>1:00 pm</td>
-													<td>Libre</td>
-													<td>0</td>
-													
-													
-												</tr>";
-													}
-												?>
+											@endforeach
 											</tbody>
 										</table>
 										</div>
-										
-										
-								</div>
+
+						</div>
+					</div>
+
 							  </div>
 							</div>
-						</div>
+</div>
 
 						{{-- CITAS --}}
 

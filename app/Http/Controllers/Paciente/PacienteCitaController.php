@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Paciente;
 
 use App\Paciente;
+use App\Cita;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +16,7 @@ class PacienteCitaController extends Controller
      */
     public function index()
     {
-        //
+       dd('<p>$request->all()</p>');
     }
 
     /**
@@ -25,7 +26,7 @@ class PacienteCitaController extends Controller
      */
     public function create()
     {
-        //
+         dd('create');
     }
 
     /**
@@ -34,9 +35,13 @@ class PacienteCitaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Paciente $paciente)
     {
-        //
+        $cita=Cita::create($request->all());
+        $citas=Cita::orderBy('proxima_cita','asc')->get();
+        $paciente=Paciente::where('id',$request->paciente_id)->first();
+        return view('paciente.citas',["citas"=>$citas,
+                                      'paciente'=>$paciente]);
     }
 
     /**
@@ -82,5 +87,9 @@ class PacienteCitaController extends Controller
     public function destroy(Paciente $paciente)
     {
         //
+    }
+
+    public function citas(Request $request){
+        return view('paciente.ajax.info',["request"=>$request]);
     }
 }

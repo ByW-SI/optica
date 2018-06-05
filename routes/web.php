@@ -84,10 +84,7 @@ Route::get('ocul',function(){
 Route::resource('formacontactos','FormaContacto\FormaContactoController');
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
 //-----------------------------------
-Route::get('citas',function(){
 
-	return View::make('citas.create');
-});
 //--------------------------------------------------------------------
 Route::resource('gastos','Gasto\GastoController', ['except'=>'show']);
 // Route::get('gastos.create','Gasto\GastoController@create');
@@ -126,7 +123,10 @@ Route::resource('pacientes.historialmedico','Paciente\PacienteHistorialMedicoCon
 Route::resource('pacientes.historialocular','Paciente\PacienteHistorialOcularController');
 Route::resource('pacientes.anteojos','Paciente\PacienteAnteojoController');
 Route::resource('pacientes.tutor','Paciente\TutorController');
+Route::resource('pacientes.citas','Paciente\PacienteCitaController');
+Route::post('cita','Paciente\PacienteCitaController@store');
 Route::get('buscarpaciente','Paciente\PacienteController@buscar');
+//Route::post('citas','Paciente\PacienteCitaController@citas');
 //------------------------------------------------------------
 
 

@@ -72,7 +72,7 @@
 
 							<li role="presentation"><a data-toggle="tab" href="#ocular">Historial Ocular:</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#anteojos">Anteojos:</a></li>
-							<li role="presentation"><a data-toggle="tab" href="#" class="ui-tabs-anchor">Ortopedico:(En desarrollo)</a></li>
+							<li role="presentation"><a data-toggle="tab" href="#ortopedico" class="ui-tabs-anchor">Ortopedico:(En desarrollo)</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#cita" class="ui-tabs-anchor">Citas:</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li> 
 						</ul>
@@ -429,6 +429,50 @@
 					 </div>	
 					</div>
 					{{-- ANTEOJOS --}}
+					{{--ORTOPÉDICO--}}
+
+						<div class="tab-pane" id="ortopedico">
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="form-group">
+										<label for="fecha" class="col-sm-2 control-label">Fecha Actual</label>
+										<div class="col-sm-10">
+											<input type="date" class="form-control" id="fecha">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-5">
+									<table class="table table-bordered">
+										<tr><th>Fecha</th><th>Cita</th><th>Nombre</th></tr>
+										<tr>
+											<td>fecha1</td>
+											<td>cita1</td>
+											<td>nombre1</td>
+										</tr>
+									</table>
+								</div>
+								<div class="col-sm">
+									<h4>Viene a cita:</h4>
+									<div class="radio">
+										<label>
+											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											Sí
+										</label>
+									</div>
+									<div class="radio">
+										<label>
+											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+											No
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					{{--ORTOPÉDICO--}}
+
 
  {{-- CITAS --}}
 

@@ -45,7 +45,7 @@
 	 			<label class="control-label" for="forma_contacto_id"> <i class="fa fa-asterisk" aria-hidden="true"></i>Forma de contacto:</label>
 	 				<div class="input-group">
   						<span class="input-group-addon" id="basic-addon3" onclick='getContacto()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
-					<select type="select" name="forma_contacto_id" class="form-control" id="forma_contacto_id">
+					<select type="select" name="forma_contacto_id" class="form-control" id="forma_contacto_id" required>
 						<option id="sin_definir" value="sin_definir">Sin Definir</option>
 						@foreach ($formaContactos as $formaContacto)
 							{{-- expr --}}
@@ -67,7 +67,7 @@
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="fechacontacto"> <i class="fa fa-asterisk" aria-hidden="true"></i>Fecha de contacto:</label>
-	 				<input type="date" class="form-control" id="fechacontacto" name="fechacontacto" value="">
+	 				<input type="date" class="form-control" id="fechacontacto" name="fechacontacto" required>
 	 			</div>
 	 		</div>
 	 	</div>

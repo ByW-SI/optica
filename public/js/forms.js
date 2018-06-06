@@ -17,6 +17,9 @@ function persona(elemento){
         document.getElementById('varrfc').pattern="^[A-Za-z]{4}[0-9]{6}[A-Za-z0-9]{3}";
         document.getElementById('varrfc').placeholder="Ingrese 13 caracteres";
         document.getElementById('varrfc').title="Siga el formato 4 letras seguidas por 6 digitos y 3 caracteres";
+        $("#apellidopaterno").prop('required',true);
+        $("#nombre").prop('required',true);
+        $("#razonsocial").prop('required',false);
     }
     if(elemento.value =="Moral"){
         document.getElementById('perfisica').style.display='none';
@@ -24,6 +27,9 @@ function persona(elemento){
         document.getElementById('varrfc').pattern="^[A-Za-z]{3}[0-9]{6}[A-Za-z0-9]{3}";
         document.getElementById('varrfc').placeholder="Ingrese 12 caracteres";
         document.getElementById('varrfc').title="Siga el formato 3 letras seguidas por 6 digitos y 3 caracteres";
+        $("#apellidopaterno").prop('required',false);
+        $("#nombre").prop('required',false);
+        $("#razonsocial").prop('required',true);
     }
 }
 // $('div#tab').remove();
@@ -59,7 +65,8 @@ $(function(){
       document.getElementById('varrfc').pattern="^[A-Za-z]{3}[0-9]{6}[A-Za-z0-9]{3}";
       document.getElementById('varrfc').placeholder="Ingrese 12 caracteres";
       document.getElementById('varrfc').title="Siga el formato 3 letras seguidas por 6 digitos y 3 caracteres";
-  }
+       
+  } 
 });
 
 // $(function(){

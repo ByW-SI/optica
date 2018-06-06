@@ -48,7 +48,7 @@ class ProvedorController extends Controller{
         if (count($provedore) != 0) {
             # code...
             // alert()->error('Error Message', 'Optional Title');
-            // return redirect()->route('clientes.create');
+           Alert::error("El RFC ya está Registrado")->persistent("Cerrar");
             return redirect()->back()->with('errors', 'El RFC ya existe');
         } else {
             # code...

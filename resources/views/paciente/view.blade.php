@@ -430,86 +430,120 @@
 					 </div>	
 					</div>
 					{{-- ANTEOJOS --}}
-					{{--ORTOPÉDICO--}}
 
-						<div class="tab-pane" id="ortopedico">
-
-									<div class="form-group">
-										<label for="fecha" class="col-sm-2 control-label">Fecha Actual</label>
-										<div class="col-sm-10">
-											<input type="date" class="form-control" id="fecha">
-										</div>
-									</div>
-
-									<table class="table table-bordered">
-										<tr><th>Fecha</th><th>Cita</th><th>Nombre</th></tr>
-										<tr>
-											<td>fecha1</td>
-											<td>cita1</td>
-											<td>nombre1</td>
-										</tr>
-									</table>
-
-									<h4>Viene a cita:</h4>
-									<div class="radio">
-										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-											Sí
-										</label>
-									</div>
-									<div class="radio">
-										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-											No
-										</label>
-									</div>
-
-								
-									<div class="no-cita">
-
-										<div class="form-group">
-											<label for="inputPassword" class="col-sm-4 control-label">¿De dónde viene?</label>
-											<div class="col-sm-8">
-												<input type="text" class="form-control" id="donde">
-											</div>
-										</div>
-
-										<img id="imagenpre"alt="Previa...">
-
-										<div class="form-group">
-											<label for="receta" class="col-sm-2 control-label">Subir receta</label>
-											<div class="col-sm-10">
-											<input type="file" class="imagen" id="receta" onchange="previewFile(this)">
-											</div>
-										</div>
-
-
-
-
-										{{--<div class="form-group">
-											<label for="pie" class="col-sm-2 control-label">Subir foto pie</label>
-											<div class="col-sm-10">
-											<input type="file" class="imagen" id="pie" onchange="previewFile(this)">
-											</div>
-										</div>--
-}}
-
-
-										
-
-
-									</div>
-
-
-
-									</div>
-									</div>
-								</div>	
-						</div>
 
 					{{--ORTOPÉDICO--}}
 
+<div class="tab-pane" id="ortopedico">
 
+			<div class="form-group">
+				<label for="fecha" class="col-sm-2 control-label">Fecha Actual</label>
+				<div class="col-sm-10">
+					<input type="date" class="form-control" id="fecha">
+				</div>
+			</div>
+
+			<table class="table table-bordered">
+				<tr><th>Fecha</th><th>Cita</th><th>Nombre</th></tr>
+				<tr>
+					<td>fecha1</td>
+					<td>cita1</td>
+					<td>nombre1</td>
+				</tr>
+			</table>
+
+			<h4>Viene a cita:</h4>
+			<div class="radio">
+				<label>
+					<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+					Sí
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+					No
+				</label>
+			</div>
+
+		
+			<div class="no-cita">
+
+				<div class="form-group">
+					<label for="inputPassword" class="col-sm-4 control-label">¿De dónde viene?</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="donde">
+					</div>
+				</div>
+	-----------------------------------------------------------
+<br>
+				<img id="imagenpre"alt="Previa...">
+
+				<div class="form-group row">
+					<label for="receta" class="col-sm-2 control-label">Subir receta</label>
+					<div class="col-sm-10">
+					<input type="file" class="imagen" id="receta" onchange="previewFile(this)">
+					</div>
+				</div>
+
+-------------------------------------------------------
+
+
+			</div>
+			<div class="si-cita">
+
+				<img id="imagenpie"alt="Previa...">
+
+				<div class="form-group row">
+					<label for="pie" class="col-sm-2 control-label">Subir foto pie</label>
+					<div class="col-sm-10">
+						<input type="file" class="imagen" id="pie" onchange="previewFile2(this)">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-4">
+						<h4>Diagnóstico</h4>
+						<textarea class="form-control" rows="3"></textarea>
+					</div>
+					<div class="col-sm-4">
+						<h4>Recomendación</h4>
+						<textarea class="form-control" rows="3"></textarea>
+					</div>
+					<div class="col-sm-4">
+						<h4>Tipo de tratamiento</h4>
+						<textarea class="form-control" rows="3"></textarea>
+					</div>
+				</div>
+
+			</div>
+			-----------------------------------------------------------
+		<br>
+		<div class="row">
+			<div class="col-sm-12">
+				<h3>Tipo de tratamiento</h3>
+			</div>
+
+			<div class="col-sm-12"><h6>Calzado</h6></div>
+			<div class="col-sm-6">una</div>
+			<div class="col-sm-6">dos</div>
+
+			<div class="col-sm-12"><h6>Plantilla</h6></div>
+			<div class="col-sm-6">trs</div>
+			<div class="col-sm-6">c</div>
+
+			<div class="col-sm-12">
+				<button class="btn btn-info">Guardar</button>
+			</div>
+		</div>
+		
+
+</div>
+
+
+
+
+{{--ORTOPÉDICO--}}
  {{-- CITAS --}}
 
 <div class="tab-pane" id="cita">
@@ -2059,6 +2093,16 @@
 			var filered = new FileReader();
 			filered.onload = function(e){
 				$('#imagenpre').attr('src', e.target.result);
+			}
+			filered.readAsDataURL(input.files[0]);
+		}
+	}
+
+	function previewFile2(input){
+		if(input.files && input.files[0]){
+			var filered = new FileReader();
+			filered.onload = function(e){
+				$('#imagenpie').attr('src', e.target.result);
 			}
 			filered.readAsDataURL(input.files[0]);
 		}

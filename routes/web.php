@@ -124,7 +124,9 @@ Route::resource('pacientes.historialocular','Paciente\PacienteHistorialOcularCon
 Route::resource('pacientes.anteojos','Paciente\PacienteAnteojoController');
 Route::resource('pacientes.tutor','Paciente\TutorController');
 Route::resource('pacientes.citas','Paciente\PacienteCitaController');
+Route::resource('pacientes.crm','Paciente\PacienteCrmController');
 Route::post('cita','Paciente\PacienteCitaController@store');
+Route::post('crm','Paciente\PacienteCrmController@store');
 Route::get('buscarpaciente','Paciente\PacienteController@buscar');
 //Route::post('citas','Paciente\PacienteCitaController@citas');
 //------------------------------------------------------------

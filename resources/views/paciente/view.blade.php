@@ -432,18 +432,14 @@
 					{{--ORTOPÉDICO--}}
 
 						<div class="tab-pane" id="ortopedico">
-							<div class="row">
-								<div class="col-sm-4">
+
 									<div class="form-group">
 										<label for="fecha" class="col-sm-2 control-label">Fecha Actual</label>
 										<div class="col-sm-10">
 											<input type="date" class="form-control" id="fecha">
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-5">
+
 									<table class="table table-bordered">
 										<tr><th>Fecha</th><th>Cita</th><th>Nombre</th></tr>
 										<tr>
@@ -452,8 +448,7 @@
 											<td>nombre1</td>
 										</tr>
 									</table>
-								</div>
-								<div class="col-sm">
+
 									<h4>Viene a cita:</h4>
 									<div class="radio">
 										<label>
@@ -467,8 +462,48 @@
 											No
 										</label>
 									</div>
-								</div>
-							</div>
+
+								
+									<div class="no-cita">
+
+										<div class="form-group">
+											<label for="inputPassword" class="col-sm-4 control-label">¿De dónde viene?</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" id="donde">
+											</div>
+										</div>
+
+										<img id="imagenpre"alt="Previa...">
+
+										<div class="form-group">
+											<label for="receta" class="col-sm-2 control-label">Subir receta</label>
+											<div class="col-sm-10">
+											<input type="file" class="imagen" id="receta" onchange="previewFile(this)">
+											</div>
+										</div>
+
+
+
+
+										{{--<div class="form-group">
+											<label for="pie" class="col-sm-2 control-label">Subir foto pie</label>
+											<div class="col-sm-10">
+											<input type="file" class="imagen" id="pie" onchange="previewFile(this)">
+											</div>
+										</div>--
+}}
+
+
+										
+
+
+									</div>
+
+
+
+									</div>
+									</div>
+								</div>	
 						</div>
 
 					{{--ORTOPÉDICO--}}
@@ -1892,7 +1927,15 @@
 			    $("#sucursal").html(resultado);
 			});
 		}
-
 		
+	function previewFile(input){
+		if(input.files && input.files[0]){
+			var filered = new FileReader();
+			filered.onload = function(e){
+				$('#imagenpre').attr('src', e.target.result);
+			}
+			filered.readAsDataURL(input.files[0]);
+		}
+	}
 	</script>
 @endsection

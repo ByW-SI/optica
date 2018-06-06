@@ -40,4 +40,11 @@ class Paciente extends Model
     public function anteojo(){
         return $this->hasMany('App\Anteojo');
     }
+    public function citas(){
+        return $this->hasMany('App\Cita');
+    }
+
+    public function crms(){
+        return $this->hasMany('App\PacienteCRM');
+    }
 }

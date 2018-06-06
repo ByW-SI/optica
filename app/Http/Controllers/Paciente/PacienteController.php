@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Paciente;
 use App\Sucursal;
+use App\Cita;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class PacienteController extends Controller
@@ -75,9 +76,11 @@ class PacienteController extends Controller
     {
         $paciente=Paciente::where('id',$id)->first();
         $sucursales=Sucursal::orderBy('nombre')->get();
+        $citas=Cita::orderBy('proxima_cita')->get();
        return view('paciente.view',
                   ['paciente'  =>$paciente,
-                   'sucursales'=>$sucursales]);
+                   'sucursales'=>$sucursales,
+                   'citas'     =>$citas]);
     }
 
     /**

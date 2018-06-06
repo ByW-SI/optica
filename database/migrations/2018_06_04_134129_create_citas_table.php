@@ -15,10 +15,17 @@ class CreateCitasTable extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->increments('id');
+            //---------------------------------------------------------------
+            $table->integer('paciente_id')->unsigned();
+            $table->foreign('paciente_id')->references('id')->on('pacientes');
+            //----------------------------------------------------------------
             $table->date('proxima_cita');
             $table->string('hora');
             $table->string('minutos');
             $table->string('sucursal_clave');
+            $table->text('comentarios');
+            //----------------------------------------------------------------
+            $table->softDeletes();
             $table->timestamps();
         });
     }

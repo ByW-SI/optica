@@ -99,7 +99,6 @@
   						<span class="input-group-addon" id="basic-addon3" onclick='getPuestos()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
 						<select type="select" name="puesto_id" id="puesto_id" class="form-control" >
 							<option  value="">Sin Definir</option>
-
 							@foreach ($puestos as $puesto)
 								{{-- expr --}}
 								<option id="{{$puesto->id}}" 

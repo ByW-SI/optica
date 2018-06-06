@@ -91,6 +91,7 @@ class PacienteController extends Controller
      */
     public function edit($id)
     {  
+
         $paciente=Paciente::where('id',$id)->first();
 
        return view('paciente.create',
@@ -110,7 +111,7 @@ class PacienteController extends Controller
         $paciente=Paciente::where('id',$id)->first();
         $paciente->update($request->all());
         Alert::success('Datos de Paciente Actualizados');
-        return view('paciente.view',['paciente'=>$paciente]);
+        return redirect()->route('pacientes.show',['id'=>$id]);
     }
 
     /**

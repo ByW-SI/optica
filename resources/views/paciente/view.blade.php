@@ -477,7 +477,7 @@
 				</div>
 	-----------------------------------------------------------
 <br>
-				<img id="imagenpre"alt="Previa...">
+				<img id="imagenpre" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa...">
 
 				<div class="form-group row">
 					<label for="receta" class="col-sm-2 control-label">Subir receta</label>
@@ -492,7 +492,7 @@
 			</div>
 			<div class="si-cita">
 
-				<img id="imagenpie"alt="Previa...">
+				<img id="imagenpie" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa...">
 
 				<div class="form-group row">
 					<label for="pie" class="col-sm-2 control-label">Subir foto pie</label>
@@ -524,16 +524,86 @@
 				<h3>Tipo de tratamiento</h3>
 			</div>
 
-			<div class="col-sm-12"><h6>Calzado</h6></div>
-			<div class="col-sm-6">una</div>
-			<div class="col-sm-6">dos</div>
-
-			<div class="col-sm-12"><h6>Plantilla</h6></div>
-			<div class="col-sm-6">trs</div>
-			<div class="col-sm-6">c</div>
+			<div class="col-sm-12">
+				<h4>Calzado</h4>
+			</div>
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="radio">
+							<label>
+								<input type="radio" name="calzado" id="calzado1" value="zapato">
+									Zapato
+							</label>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="radio">
+							<label>
+								<input type="radio" name="calzado" id="calzado2" value="tenis">
+									Tenis
+							</label>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="radio">
+							<label>
+								<input type="radio" name="calzado" id="calzado3" value="ambos">
+									Ambos
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-offset-4 col-sm-4">
+					<h4>Tipo</h4>
+				</div>
+				<div class="col-sm-offset-4 col-sm-4">
+					<input type="text" class="form-control">
+				</div>
+				<div class="col-sm-offset-4 col-sm-4">
+					<input type="text" class="form-control">
+				</div>
+			</div>
+			</div>
 
 			<div class="col-sm-12">
-				<button class="btn btn-info">Guardar</button>
+				<h4>Plantilla</h4>
+			</div>
+			<div class="col-sm-6">
+			<div class="row">
+					<div class="col-sm-12">
+						<div class="radio">
+							<label>
+								<input type="radio" name="plantilla" id="planilla1" value="piel">
+									Piel
+							</label>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="radio">
+							<label>
+								<input type="radio" name="plantilla" id="plantilla2" value="pelite">
+									Pelite
+							</label>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="radio">
+							<label>
+								<input type="radio" name="plantilla" id="plantilla3" value="otro">
+									otro
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">c</div>
+
+			<div class="col-sm-offset-4 col-sm-4">
+				<button class="btn btn-primary btn-lg btn-block">Guardar</button>
 			</div>
 		</div>
 		

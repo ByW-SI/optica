@@ -651,22 +651,23 @@
 							<input type="date" class="form-control" id="fecha_aviso" name="fecha_aviso" required="required" value="">
 						</div>
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="hora">Hora:</label>
-							<input type="text" class="form-control" id="hora" name="hora" name="hora" value="">
+							<label class="control-label" for="hora"><i class="fa fa-asterisk" aria-hidden="true"></i>Hora:</label>
+							<input type="text" class="form-control" id="hora_crm" name="hora"  value="">
 						</div>
 						<div class="form-group col-lg-6 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="tipo_cont">Forma de contacto:</label>
-							<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" >
+							<label class="control-label" for="tipo_cont"><i class="fa fa-asterisk" aria-hidden="true"></i>Forma de contacto:</label>
+							<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" >  <option value="">Seleccione una Opción</option>
 								<option id="Mail" value="Mail">Email/Correo Electronico</option>
 								<option id="Telefono" value="Telefono">Telefono</option>
 								<option id="Cita" value="Cita">Cita</option>
 								<option id="Whatsapp" value="Whatsapp">Whatsapp</option>
-								<option id="Otro" value="Otro" selected="selected">Otro</option>
+								<option id="Otro" value="Otro">Otro</option>
 							</select>
 						</div>
 						<div class="form-group col-lg-6 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="status">Estado:</label>
+							<label class="control-label" for="status"><i class="fa fa-asterisk" aria-hidden="true"></i>Estado:</label>
 							<select class="form-control" type="select" name="status" id="status" >
+								<option value="">Seleccione una Opción</option>
 								<option id="Pendiente" value="Pendiente">Pendiente</option>
 								<option id="Cotizando" value="Cotizando">En Cotización</option>
 								<option id="Cancelado" value="Cancelado">Cancelado</option>
@@ -675,7 +676,7 @@
 								<option id="Revisa_doc" value="Revisa_doc">Revisando documento</option>
 								<option id="Proceso_aceptar" value="Proceso_aceptar">Proceso de Aceptación</option>
 								<option id="Entrega" value="Entrega">Para entrega</option>
-								<option id="Otro" value="Otro" selected="selected">Otro</option>
+								<option id="Otro" value="Otro">Otro</option>
 							</select>
 						</div>
 					</div>
@@ -687,7 +688,7 @@
 
 						<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 							<label class="control-label" for="comentarios">Comentarios: </label>
-							<textarea class="form-control" rows="5" id="comentarios" name="comentarios" maxlength="500"></textarea>
+							<textarea class="form-control" rows="5" id="comentarios_crm" name="comentarios" maxlength="500"></textarea>
 						</div>
 
 						<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
@@ -699,7 +700,8 @@
 						
 					<!-- </form> -->
 				</div>
-				<div class="panel-body">
+
+				<div class="panel-body" id="crm_body">
 					@if ($paciente->crms->count() ==0)
 						<p>Aun no tienes C.R.M.'s</p>
 					@endif
@@ -720,7 +722,7 @@
 							</thead>
 
 							@foreach($paciente->crms as $crm)
-								{{-- expr --}}
+								
 								<tr onclick="crm({{$crm}})" 
 								title="Has Click Aquì para ver o modificar"
 								style="cursor: pointer">

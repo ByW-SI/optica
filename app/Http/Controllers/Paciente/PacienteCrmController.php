@@ -6,6 +6,7 @@ use App\Paciente;
 use App\PacienteCRM;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class PacienteCrmController extends Controller
 {
@@ -37,7 +38,13 @@ class PacienteCrmController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+
+
+        $crm=PacienteCRM::create($request->all());
+        $paciente=Paciente::where('id',$request->paciente_id)->first();
+       
+        return view('paciente.crm',['paciente'=>$paciente]);
+            
     }
 
     /**

@@ -2210,8 +2210,8 @@
 			$("#no-cita").hide();
 			$("#si-cita").show();
 		}else if(e.value=="no"){
-			$("#si-cita").show();
-			$("#no-cita").hide();
+			$("#si-cita").hide();
+			$("#no-cita").show();
 		}
 	}
 	</script>

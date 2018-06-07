@@ -435,14 +435,33 @@
 					{{--ORTOPÉDICO--}}
 
 <div class="tab-pane" id="ortopedico">
-
+	<div class="row">
+		<div class="col-sm-5">
 			<div class="form-group">
 				<label for="fecha" class="col-sm-2 control-label">Fecha Actual</label>
 				<div class="col-sm-10">
 					<input type="date" class="form-control" id="fecha">
 				</div>
 			</div>
-
+		</div>
+		<div class="col-sm-offset-2 col-sm-5">
+			<h4>Viene a cita:</h4>
+			<div class="radio">
+				<label>
+					<input type="radio" name="optionsRadios" id="optionsRadios1" value="si" checked>
+					Sí
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" name="optionsRadios" id="optionsRadios2" value="no">
+					No
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-5">
 			<table class="table table-bordered">
 				<tr><th>Fecha</th><th>Cita</th><th>Nombre</th></tr>
 				<tr>
@@ -451,74 +470,77 @@
 					<td>nombre1</td>
 				</tr>
 			</table>
+		</div>
+	</div>
+	<div class="row">
 
-			<h4>Viene a cita:</h4>
-			<div class="radio">
-				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-					Sí
-				</label>
+		<div id="si-cita" class="col-sm-12">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group row">
+						<label for="pie" class="col-sm-2 control-label">Subir foto pie</label>
+						<div class="col-sm-10">
+							<input type="file" class="imagen" id="pie" onchange="previewFile2(this)">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<img id="imagenpie" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa...">
+				</div>
 			</div>
-			<div class="radio">
-				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-					No
-				</label>
+			<div class="row">
+				<div class="col-sm-4">
+					<h4>Diagnóstico</h4>
+						<textarea class="form-control" rows="3"></textarea>
+				</div>
+				<div class="col-sm-4">
+					<h4>Recomendación</h4>
+						<textarea class="form-control" rows="3"></textarea>
+				</div>
+				<div class="col-sm-4">
+					<h4>Tipo de tratamiento</h4>
+					<textarea class="form-control" rows="3"></textarea>
+				</div>
 			</div>
+		</div>
+
+		<div id="no-cita" class="col-sm-12">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="donde" class="col-sm-4 control-label">¿De dónde viene?</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="donde">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group row">
+						<label for="receta" class="col-sm-2 control-label">Subir receta</label>
+						<div class="col-sm-10">
+							<input type="file" class="imagen" id="receta" onchange="previewFile(this)">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<img id="imagenpre" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa...">
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+			
+
+			
+			
+
 
 		
-			<div class="no-cita">
+				
 
-				<div class="form-group">
-					<label for="inputPassword" class="col-sm-4 control-label">¿De dónde viene?</label>
-					<div class="col-sm-8">
-						<input type="text" class="form-control" id="donde">
-					</div>
-				</div>
-	-----------------------------------------------------------
-<br>
-				<img id="imagenpre" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa...">
-
-				<div class="form-group row">
-					<label for="receta" class="col-sm-2 control-label">Subir receta</label>
-					<div class="col-sm-10">
-					<input type="file" class="imagen" id="receta" onchange="previewFile(this)">
-					</div>
-				</div>
-
--------------------------------------------------------
-
-
-			</div>
-			<div class="si-cita">
-
-				<img id="imagenpie" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa...">
-
-				<div class="form-group row">
-					<label for="pie" class="col-sm-2 control-label">Subir foto pie</label>
-					<div class="col-sm-10">
-						<input type="file" class="imagen" id="pie" onchange="previewFile2(this)">
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-sm-4">
-						<h4>Diagnóstico</h4>
-						<textarea class="form-control" rows="3"></textarea>
-					</div>
-					<div class="col-sm-4">
-						<h4>Recomendación</h4>
-						<textarea class="form-control" rows="3"></textarea>
-					</div>
-					<div class="col-sm-4">
-						<h4>Tipo de tratamiento</h4>
-						<textarea class="form-control" rows="3"></textarea>
-					</div>
-				</div>
-
-			</div>
-			-----------------------------------------------------------
-		<br>
 		<div class="row">
 			<div class="col-sm-12">
 				<h3>Tipo de tratamiento</h3>

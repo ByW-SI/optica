@@ -448,13 +448,13 @@
 			<h4>Viene a cita:</h4>
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios1" value="si" checked>
+					<input class="radiocita" type="radio" name="citaradio" id="optionsRadios1" onchange="cocultar(this)" value="si">
 					Sí
 				</label>
 			</div>
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadios" id="optionsRadios2" value="no">
+					<input class="radiocita" type="radio" name="citaradio" id="optionsRadios2" onchange="cocultar(this)" value="no">
 					No
 				</label>
 			</div>
@@ -467,7 +467,7 @@
 				<tr>
 					<td>fecha1</td>
 					<td>cita1</td>
-					<td>nombre1</td>
+					<td id="citaradio">nombre1</td>
 				</tr>
 			</table>
 		</div>
@@ -2166,7 +2166,10 @@
 
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 	<script type="text/javascript">
-		
+	
+		$("#si-cita").hide();
+		$("#no-cita").hide();
+
 	function getSucursal(){
 			$.ajaxSetup({
 		    headers: {
@@ -2199,6 +2202,16 @@
 				$('#imagenpie').attr('src', e.target.result);
 			}
 			filered.readAsDataURL(input.files[0]);
+		}
+	}
+
+	function cocultar(e){
+		if(e.value=="si"){
+			$("#no-cita").hide();
+			$("#si-cita").show();
+		}else if(e.value=="no"){
+			$("#si-cita").show();
+			$("#no-cita").hide();
 		}
 	}
 	</script>

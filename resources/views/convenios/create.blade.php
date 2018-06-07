@@ -147,7 +147,7 @@
 					</div>
 
 <div   role="tabpanel" id="fiscal" class="tab-pane fade in">
-	{{--<form>--}}
+	<form>
 			{{-- DATOS FISCALES --}}
 			<div class="panel panel-default" id="datosfiscales">
 			 <input type="hidden" name="convenio_id" value="{{-- {{$convenio->id}} --}}">
@@ -312,7 +312,7 @@
 				<div class="panel-heading"> Tipo de Convenio:
 				&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 				<div class="panel-body">
-					<!--<form> {{-- por agregar información --}}
+					<form> {{-- por agregar información --}}
 						{{ csrf_field() }}
 						<input type="hidden" name="convenio_id" value="{{-- {{$convenio->id}} --}}" {{-- required --}}>
 						<div class="col-xs-offset-10">
@@ -366,7 +366,7 @@
 		    					<label class="control-label" for="aplican"> ¿A quién aplica?:</label>
 		    					<input type="text" class="form-control" id="aplican" name="aplican" value="">
 		  					</div>
-					</form>-->
+					</form>
 				</div>
 		  					<div class="jumbotron">
 		  						<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">

@@ -627,7 +627,7 @@
 				<div class="row">
 					<div class="col-sm-3">
 						<label class="control-label" for="proxima_cita">Fecha Pròxima Cita:</label>
-						<input type="date" class="form-control" id="proxima_cita" name="proxima_cita"  required>
+						<input type="date" class="form-control" id="proxima_cita" name="proxima_cita"  required min="{{date('Y-m-d')}}" max="2030-12-31">
 					</div>
 
 					<div class="col-sm-3">

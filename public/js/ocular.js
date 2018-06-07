@@ -82,7 +82,7 @@ else{
 $("#cil_od").change(function(){
 	
 	var option=document.getElementById("cil_od").value;
-	if(option!='Sin Valor'){
+	if(option!=''){
 		document.getElementById('eje_od_div').style.display = 'block';
 		$("#eje_od").prop('required',true);
 	}else{
@@ -95,7 +95,7 @@ $("#cil_od").change(function(){
 $("#cil_oi").change(function(){
 	
 	var option=document.getElementById("cil_oi").value;
-	if(option!='Sin Valor'){
+	if(option!=''){
 		document.getElementById('eje_oi_div').style.display = 'block';
 		$("#eje_oi").prop('required',true);
 	}else{

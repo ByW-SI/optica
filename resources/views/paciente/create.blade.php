@@ -24,14 +24,14 @@
 			@endif
 					<div class="form-group col-xs-3">
 						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Nombre:</label>
-						<input class="form-control" type="text" name="nombre" id="nombre" 
+						<input class="form-control" type="text" name="nombre" id="nombre" required
 						@if($edit==true)
 						value="{{$paciente->nombre}}"
 						@endif>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Apellido Paterno:</label>
-						<input class="form-control" type="text" name="appaterno" id="appaterno"
+						<input class="form-control" type="text" name="appaterno" id="appaterno" required
 						@if($edit==true)
 						value="{{$paciente->appaterno}}"
 						@endif>
@@ -59,14 +59,15 @@
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Fecha de nacimiento:</label>
-						<input class="form-control" type="date" id="fechanacimiento" name="fecha_nacimiento" required
+						<input class="form-control" type="date" id="fechanacimiento" name="fecha_nacimiento" required min="1979-12-31" max="{{date('Y-m-d')}}"
 						@if($edit==true)
 						value="{{$paciente->fecha_nacimiento}}"
 						@endif>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label">Sexo:</label>
-						<select class="form-control" name="sexo" id="sexo">
+						<select class="form-control" name="sexo" id="sexo" required>
+							<option value="">Seleccione uno</option>
 							<option @if($edit==true && $paciente->sexo=='Masculino')
 							selected="selected"
 							@endif>Masculino</option>

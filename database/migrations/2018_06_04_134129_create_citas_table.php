@@ -23,7 +23,7 @@ class CreateCitasTable extends Migration
             $table->string('hora');
             $table->string('minutos');
             $table->string('sucursal_clave');
-            $table->text('comentarios');
+            $table->text('comentarios')->nullable();
             //----------------------------------------------------------------
             $table->softDeletes();
             $table->timestamps();

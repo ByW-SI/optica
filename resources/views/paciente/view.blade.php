@@ -640,7 +640,17 @@
 
 <div class="tab-pane" id="cita">
 	<div class="panel-default"  >
-		<div class="panel-heading" style="background-color: grey;"><h5>Citas&nbsp;&nbsp;&nbsp;&nbsp;</h5>{{--  <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos --}}</div>
+		<div class="panel-heading" >
+			<div class="row">
+				<div class="col-sm-1">
+					<h5>Citas</h5>
+				</div>
+				<div class="col-sm-3">
+					<i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos
+				</div>
+			</div>
+			   
+		</div>
 			<div class="panel-body" >
 				
 										{{ csrf_field() }} 
@@ -648,13 +658,14 @@
 					id="paciente_id">
 				<div class="row">
 					<div class="col-sm-3">
-						<label class="control-label" for="proxima_cita">Fecha Pròxima Cita:</label>
+						<label class="control-label" for="proxima_cita"><i class="fa fa-asterisk" aria-hidden="true"></i>Fecha Pròxima Cita:</label>
 						<input type="date" class="form-control" id="proxima_cita" name="proxima_cita"  required min="{{date('Y-m-d')}}" max="2030-12-31">
 					</div>
 
 					<div class="col-sm-3">
-						<label class="control-label" for="hora">Hora:</label>
+						<label class="control-label" for="hora"><i class="fa fa-asterisk" aria-hidden="true"></i>Hora:</label>
 						<select class="form-control" type="select" name="hora" id="hora" required>
+							<option value="">Seleccione una Hora</option>
 							<?php for($i=0;$i<24;$i++){
 								if($i<=11){
 
@@ -666,8 +677,9 @@
 						</select>
 					</div>
 					<div class="col-sm-3">
-						<label class="control-label" for="minutos">Minutos:</label>
+						<label class="control-label" for="minutos"><i class="fa fa-asterisk" aria-hidden="true"></i>Minutos:</label>
 						<select class="form-control" type="select" name="minutos" id="minutos" required>
+							<option value="">Seleccione el Minuto</option>
 							<?php
 								for($i=0;$i<60;$i+=15){
 							echo"<option id='' value='".$i." mins'>".$i." mins </option>";
@@ -677,7 +689,7 @@
 
 
 			<div class="col-sm-3">
-				<label class="control-label" for="sucursal_clave">Sucursal:</label>
+				<label class="control-label" for="sucursal_clave"><i class="fa fa-asterisk" aria-hidden="true"></i>Sucursal:</label>
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon3" onclick='getSucursal();'><i class="fa fa-refresh" aria-hidden="true"></i></span>
 				<select type="select" name="sucursal_clave" class="form-control" id="sucursal_clave" required>
@@ -803,13 +815,14 @@
 							<label class="control-label" for="fecha_act">Fecha Actual:</label>
 							<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
 						</div>
-						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="fecha_cont"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha siguiente contacto:</label>
-							<input type="date" class="form-control" id="fecha_cont" name="fecha_cont" required="required" value="">
-						</div>
+						
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 							<label class="control-label" for="fecha_aviso"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha Aviso:</label>
-							<input type="date" class="form-control" id="fecha_aviso" name="fecha_aviso" required="required" value="">
+							<input type="date" class="form-control" id="fecha_aviso" name="fecha_aviso" required="required" required min="{{date('Y-m-d')}}" max="2030-12-31">
+						</div>
+						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+							<label class="control-label" for="fecha_cont"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha siguiente contacto:</label>
+							<input type="date" class="form-control" id="fecha_cont" name="fecha_cont" required="required" required min="{{date('Y-m-d')}}" max="2030-12-31">
 						</div>
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 							<label class="control-label" for="hora"><i class="fa fa-asterisk" aria-hidden="true"></i>Hora:</label>

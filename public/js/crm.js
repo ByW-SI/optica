@@ -70,7 +70,7 @@ function crm(elemento){
     var tipo_cont=document.getElementById('tipo_cont').value;
 
      if(fecha_cont==null||fecha_cont==''||fecha_aviso==null||fecha_aviso==''||hora==''||hora==null||tipo_cont==null||tipo_cont==''||status==null||status==''){
- alert('Por favor llene todos los campos obligatorios');
+ alert('Por favor llene todos los campos obligatorios (*)');
 
 
      }else{

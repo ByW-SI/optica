@@ -17,6 +17,10 @@ function cita()
     var minutos=document.getElementById('minutos').value;
     var comentarios=document.getElementById('comentarios').value;
 
+if(sucursal==null||sucursal=='sin_definir'||cita==null||cita==''||hora==null||hora==''||minutos==null||minutos==''){
+	
+	alert('Por favor llene todos los campos obligatorios (*)');
+}else{
 		  $.ajaxSetup({
 		    headers: {
 		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -35,4 +39,7 @@ function cita()
 		  }).done(function(resultado){
 		    $("#todas").html(resultado);
 		  });
+
+		  alert('-- Se ha cargado un Nuevo Registro de Cita--');
 		}
+	}

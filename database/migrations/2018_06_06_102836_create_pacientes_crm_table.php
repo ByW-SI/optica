@@ -15,7 +15,7 @@ class CreatePacientesCrmTable extends Migration
     {
         Schema::create('pacientes_crm', function (Blueprint $table) {
             $table->increments('id');
-             $table->integer('paciente_id')->unsigned();
+            $table->integer('paciente_id')->unsigned();
             $table->foreign('paciente_id')->references('id')->on('pacientes');
             $table->date('fecha_act');
             $table->date('fecha_cont');

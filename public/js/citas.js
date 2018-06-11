@@ -9,7 +9,7 @@ $(document).ready(function(){
 function cita()
 		{
 
-			//alert('alert');
+			
 	var sucursal=document.getElementById('sucursal_clave').value;
     var paciente=document.getElementById('paciente_id').value;
     var cita=document.getElementById('proxima_cita').value;
@@ -43,3 +43,5 @@ if(sucursal==null||sucursal=='sin_definir'||cita==null||cita==''||hora==null||ho
 		  alert('-- Se ha cargado un Nuevo Registro de Cita--');
 		}
 	}
+
+

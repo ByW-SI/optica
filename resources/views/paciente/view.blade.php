@@ -690,8 +690,9 @@
 			<div class="col-sm-3">
 				<label class="control-label" for="sucursal_clave"><i class="fa fa-asterisk" aria-hidden="true"></i>Sucursal:</label>
 				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon3" onclick='getSucursal();'><i class="fa fa-refresh" aria-hidden="true"></i></span>
-				<select type="select" name="sucursal_clave" class="form-control" id="sucursal_clave" required>
+					<span class="input-group-addon" id="basic-addon3" onclick="getSucursal()"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+				<select type="select" name="sucursal_clave" class="form-control" 
+				id="sucursal" required>
 							<option id="sin_definir" value="sin_definir">Sin Definir</option>
 						@foreach ($sucursales as $sucursal)
 							<option  value="{{$sucursal->claveid}}">{{$sucursal->nombre}}</option>
@@ -2175,6 +2176,26 @@
          					{{-- Modal Edit Tutor --}}
 
 
+<script type="text/javascript">
+		
 
+		function getSucursal(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getsucursal') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#sucursal").html(resultado);
+			});
+		}
+
+		
+
+	</script>
 
 @endsection

@@ -94,7 +94,7 @@ function crm(elemento){
 		    	   comentarios:comentarios,
 		    	   acuerdos:acuerdos,
 		    	   observaciones:observaciones,
-		    	   tipo_cont:tipo_cont,},
+		    	   tipo_cont:tipo_cont},
 		  }).done(function(resultado){
 		    $("#crm_body").html(resultado);
 		});

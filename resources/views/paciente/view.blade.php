@@ -709,7 +709,7 @@
 						<textarea class="form-control" rows="5" id="comentarios" name="comentarios" maxlength="500"></textarea>
 					</div> 
 				</div>
-				<div class="col-sm-3 col-sm-offset-2"><button id="submit" type="submit" class="btn btn-primary" onclick="cita()">
+				<div class="col-sm-3 col-sm-offset-2"><button  type="submit" class="btn btn-primary" onclick="cita()">
 					<strong>Agregar</strong></button>
 				</div>
 			</div>
@@ -803,7 +803,8 @@
 
 						<div class="col-xs-4 col-xs-offset-10">
 							<a class="btn btn-warning" id="limpiar" onclick="limpiar()"><strong>Limpiar</strong> </a>
-							<button id="submit" type="submit" class="btn btn-success" onclick="crm()">
+							<button  type="submit" class="btn btn-success" 
+							onclick='crm()'>
 						<strong>Guardar</strong>	</button>
 							<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
 						<strong>Modificar</strong>	</a>
@@ -832,10 +833,10 @@
 							<label class="control-label" for="tipo_cont"><i class="fa fa-asterisk" aria-hidden="true"></i>Forma de contacto:</label>
 							<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" >  <option value="">Seleccione una Opción</option>
 								<option id="Mail" value="Mail">Email/Correo Electronico</option>
-								<option id="Telefono" value="Telefono">Telefono</option>
-								<option id="Cita" value="Cita">Cita</option>
-								<option id="Whatsapp" value="Whatsapp">Whatsapp</option>
-								<option id="Otro" value="Otro">Otro</option>
+								<option  value="Telefono">Telefono</option>
+								<option  value="Cita">Cita</option>
+								<option  value="Whatsapp">Whatsapp</option>
+								<option  value="Otro">Otro</option>
 							</select>
 						</div>
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

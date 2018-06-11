@@ -10,7 +10,7 @@ function cita()
 		{
 
 			
-	var sucursal=document.getElementById('sucursal_clave').value;
+	var sucursal=document.getElementById('sucursal').value;
     var paciente=document.getElementById('paciente_id').value;
     var cita=document.getElementById('proxima_cita').value;
     var hora=document.getElementById('hora').value;

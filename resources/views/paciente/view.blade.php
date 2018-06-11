@@ -4,8 +4,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script src="{{asset('js/citas.js')}}"></script>
-      <script src="{{asset('js/crm.js')}}"></script>
+      
 <div class="container">
 	<div role="application" class="panel panel-group">
 		<div class="panel-default">
@@ -2177,55 +2176,5 @@
 
 
 
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-	<script type="text/javascript">
-	
-		$("#si-cita").hide();
-		$("#no-cita").hide();
 
-	function getSucursal(){
-			$.ajaxSetup({
-		    headers: {
-		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		    }
-			});
-			$.ajax({
-				url: "{{ url('/getsucursal') }}",
-			    type: "GET",
-			    dataType: "html",
-			}).done(function(resultado){
-			    $("#sucursal").html(resultado);
-			});
-		}
-		
-	function previewFile(input){
-		if(input.files && input.files[0]){
-			var filered = new FileReader();
-			filered.onload = function(e){
-				$('#imagenpre').attr('src', e.target.result);
-			}
-			filered.readAsDataURL(input.files[0]);
-		}
-	}
-
-	function previewFile2(input){
-		if(input.files && input.files[0]){
-			var filered = new FileReader();
-			filered.onload = function(e){
-				$('#imagenpie').attr('src', e.target.result);
-			}
-			filered.readAsDataURL(input.files[0]);
-		}
-	}
-
-	function cocultar(e){
-		if(e.value=="si"){
-			$("#no-cita").hide();
-			$("#si-cita").show();
-		}else if(e.value=="no"){
-			$("#si-cita").hide();
-			$("#no-cita").show();
-		}
-	}
-	</script>
 @endsection

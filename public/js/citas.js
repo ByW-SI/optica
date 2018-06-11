@@ -27,7 +27,7 @@ if(sucursal==null||sucursal=='sin_definir'||cita==null||cita==''||hora==null||ho
 		    }
 		  });
 		  $.ajax({
-		    url: "/cita",
+		    url: 'http://byw.from-tn.com/optica/cita',//esta ruta espra el servidor, cambiará para localhost
 		    type: "POST",
 		    dataType: "html",
 		    data :{sucursal_clave:sucursal,

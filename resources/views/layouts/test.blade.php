@@ -72,6 +72,60 @@
     <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
     <script src="{{ asset('js/sweetalert.js') }}"></script>
     <!-- Include this after the sweet alert js file -->
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+        <script src="{{asset('js/citas.js')}}"></script>
+      <script src="{{asset('js/crm.js')}}"></script>
+	<script type="text/javascript">
+	
+		$("#si-cita").hide();
+		$("#no-cita").hide();
+
+	function getSucursal(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getsucursal') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#sucursal").html(resultado);
+			});
+		}
+		
+	function previewFile(input){
+		if(input.files && input.files[0]){
+			var filered = new FileReader();
+			filered.onload = function(e){
+				$('#imagenpre').attr('src', e.target.result);
+			}
+			filered.readAsDataURL(input.files[0]);
+		}
+	}
+
+	function previewFile2(input){
+		if(input.files && input.files[0]){
+			var filered = new FileReader();
+			filered.onload = function(e){
+				$('#imagenpie').attr('src', e.target.result);
+			}
+			filered.readAsDataURL(input.files[0]);
+		}
+	}
+
+	function cocultar(e){
+		if(e.value=="si"){
+			$("#no-cita").hide();
+			$("#si-cita").show();
+		}else if(e.value=="no"){
+			$("#si-cita").hide();
+			$("#no-cita").show();
+		}
+	}
+	</script>
     @include('sweet::alert')
    
 </body>

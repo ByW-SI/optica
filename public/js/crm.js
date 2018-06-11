@@ -82,7 +82,7 @@ function crm(elemento){
 		    }
 		  });
 		  $.ajax({
-		    url: "/crm",
+		    url: "http://byw.from-tn.com/optica/crm",//esta ruta espra el servidor, cambiará para localhost
 		    type: "POST",
 		    dataType: "html",
 		    data :{paciente_id:id,

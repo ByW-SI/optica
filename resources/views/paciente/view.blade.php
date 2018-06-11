@@ -828,7 +828,7 @@
 							<label class="control-label" for="hora"><i class="fa fa-asterisk" aria-hidden="true"></i>Hora:</label>
 							<input type="text" class="form-control" id="hora_crm" name="hora"  value="">
 						</div>
-						<div class="form-group col-lg-6 col-md-3 col-sm-6 col-xs-12">
+						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 							<label class="control-label" for="tipo_cont"><i class="fa fa-asterisk" aria-hidden="true"></i>Forma de contacto:</label>
 							<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" >  <option value="">Seleccione una Opción</option>
 								<option id="Mail" value="Mail">Email/Correo Electronico</option>
@@ -838,7 +838,7 @@
 								<option id="Otro" value="Otro">Otro</option>
 							</select>
 						</div>
-						<div class="form-group col-lg-6 col-md-3 col-sm-6 col-xs-12">
+						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 							<label class="control-label" for="status"><i class="fa fa-asterisk" aria-hidden="true"></i>Estado:</label>
 							<select class="form-control" type="select" name="status" id="status" >
 								<option value="">Seleccione una Opción</option>

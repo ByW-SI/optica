@@ -1,6 +1,11 @@
 	@extends('layouts.test')
 @section('content1')
 
+<div class="row">
+	<div class="col-sm-3 col-sm-offset-6">
+		<button class="btn btn-warning" onclick="location.reload();"><strong>Actualizar</strong> </button>
+	</div>
+</div>
 	
 				<div role="application" class="panel panel-group">
 				<div class="panel-default">

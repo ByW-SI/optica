@@ -44,6 +44,7 @@
 									        class="btn btn-success">
 									 <strong>Agregar</strong>
 								</button>
+                <button class="btn btn-warning" onclick="location.reload();event.preventDefault();"><strong>Actualizar</strong> </button>
 						</div>
 						
 						</div>

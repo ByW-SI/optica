@@ -61,7 +61,7 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       // dd($request->all());
         $rfc = Empleado::where('rfc',$request->rfc)->get();
         if (count($rfc)!=0) {
             # code...

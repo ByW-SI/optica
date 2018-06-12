@@ -45,8 +45,12 @@ class EmpleadoController extends Controller
         //
         $empleado = new Empleado;
         $edit = false;
-
-        return view('empleado.create',['empleado'=>$empleado,'edit'=>$edit]);
+        $sucursales=Sucursal::get();
+        $numero=Empleado::orderBy('created_at', 'desc')->pluck('id')->first();
+        return view('empleado.create',['empleado'   =>$empleado,
+                                       'edit'       =>$edit,
+                                        'sucursales'=>$sucursales,
+                                        'numero'    =>$numero]);
     }
 
     /**

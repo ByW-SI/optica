@@ -11,18 +11,33 @@
 		<form role="form" id="form-empleado" method="POST" action="{{ route('empleados.store') }}" name="form">
 			{{ csrf_field()}}
 	@endif
+	<input type="hidden" id="consecutivo" name="" value="{{$numero}}">
 		<div role="application" class="panel panel-group">
 			<div class="panel-default">
-				<div class="panel-heading"><h4>Datos del Empleado:
+				<div class="panel-heading">
+					<div class="row">
+					<div class="col-sm-6">
+						<h4>Datos del Empleado:{{$empleado->id}}
 					&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
 					Campos Requeridos&nbsp;&nbsp;
-					<a class="btn btn-info" href="{{ route('empleados.create') }}"><strong>Nuevo Empleado</strong></a>
-				</h4></div>
+					
+				</h4>
+					</div>
+					<div class="col-sm-3">
+						<a class="btn btn-info" href="{{ route('empleados.create') }}"><strong>Nuevo Empleado</strong></a>
+						
+					</div>
+					
+					<div class="col-sm-3">
+						<a class="btn btn-primary" href="{{ route('empleados.index') }}"><strong>Lista de Empleados</strong></a>
+						
+					</div>
+				</div></div>
 				
 				<div class="panel-body">
 					<div class="col-xs-12 offset-md-2 mt-3">
 						<div class="form-group col-xs-3">
-							<label class="control-label" for="identificador"><i class="fa fa-asterisk" aria-hidden="true"></i> ID de empleado:</label>
+							<label class="control-label" for="identificador"><i class="fa fa-asterisk" aria-hidden="true"></i> ID de empleado:(Automático)</label>
 							@if ($edit == true)
 								{{-- true expr --}}
 								<dd>{{$empleado->identificador}}</dd>
@@ -32,9 +47,22 @@
 							       id="identificador" 
 							       type="text" 
 							       name="identificador" 
-							       required="required"
+							       readonly 
 							       autofocus>
 							@endif
+						</div>
+						<div class="form-group col-xs-3">
+							<label class="control-label" for="contrato">Sucursal:</label>
+						<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick='getSucursal()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
+						<select type="select" class="form-control" name="sucursal_id" id="sucursal_id" required>
+							<option  value="">Sin Definir</option>
+							@foreach ($sucursales as $sucursal)
+								{{-- expr --}}
+							<option value="{{$sucursal->claveid}}">{{$sucursal->nombre}}</option>
+							@endforeach
+						</select>
+					  </div>
 						</div>
 					</div>
 					<div class="col-xs-12 offset-md-2 mt-3">
@@ -185,4 +213,25 @@
 		</div>
 	</form>
 </div>
+
+<script type="text/javascript">
+		
+function getSucursal(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getsucursal') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#sucursal_id").html(resultado);
+			});
+		}
+
+	
+
+	</script>
 @endsection

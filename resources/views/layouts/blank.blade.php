@@ -48,6 +48,7 @@
     <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
          <script src="{{ asset('js/peticion.js') }}"></script>
+         <script src="{{ asset('js/empleado.js') }}"></script>
          
 <script href="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
 

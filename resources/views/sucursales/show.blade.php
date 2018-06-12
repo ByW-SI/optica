@@ -28,16 +28,16 @@
 
 
 					@foreach($empleados as $empleado)
-					 @foreach($empleado as $emplead)
+					 
 					
                    <tr>
-						<td>{{$emplead->identificador}}</td>
-						<td>{{$emplead->nombre}}</td>
-						<td>{{$emplead->appaterno}}</td>
-						<td>{{$emplead->apmaterno}}</td>
+						<td>{{$empleado->identificador}}</td>
+						<td>{{$empleado->nombre}}</td>
+						<td>{{$empleado->appaterno}}</td>
+						<td>{{$empleado->apmaterno}}</td>
 
                        	<?php $act;?>
-							@foreach($emplead->datosLab as $datos)
+							@foreach($empleado->datosLab as $datos)
 							<?php $act=$datos;?>
 							@endforeach
 
@@ -67,7 +67,7 @@
 							@endif
 
 					</tr>	
-					 @endforeach
+					
 					@endforeach
 
 

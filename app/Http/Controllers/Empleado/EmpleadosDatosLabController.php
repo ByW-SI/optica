@@ -25,7 +25,7 @@ class EmpleadosDatosLabController extends Controller
     public function index(Empleado $empleado)
     {
         //
-        $datoslab = $empleado->datosLab;
+        $datoslab = $empleado->datosLab()->orderBy('created_at', 'desc')->get();
 
         $areas =   Area::get();
         $puestos = Puesto::get();

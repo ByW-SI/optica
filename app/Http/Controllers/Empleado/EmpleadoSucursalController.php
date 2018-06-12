@@ -23,20 +23,26 @@ class EmpleadoSucursalController extends Controller
          
     $empleados=array();
    
-    $datos=EmpleadosDatosLab::where('sucursal_id',$request->sucursal)->get()->unique('empleado_id')->pluck('empleado_id');
+    $datos=EmpleadosDatosLab::orderBy('updated_at','desc')->get()
+                            ->where('sucursal_id',$request->sucursal)
+                            //->where('tipobaja_id',null)
+                            ->unique('empleado_id');
     $areas=Area::get();
     $puestos=Puesto::get();
    
 foreach ($datos as $dato ): 
 
- $empleado=Empleado::where('id',$dato)->get();
+if($dato->tipobaja_id!=null||$dato->sucursal_id!=null){
+$empleado=$dato->empleado;
  
  array_push($empleados, $empleado);
+}
+ 
 
 endforeach;
 
   
-
+//dd($empleados);
     return view('sucursales.show',[
         'empleados'=>$empleados,
         'areas'=>$areas,

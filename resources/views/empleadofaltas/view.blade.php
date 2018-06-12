@@ -23,23 +23,24 @@
 				{{ csrf_field() }}
 				<input type="hidden" name="empleado_id" value="{{$empleado->id}}">
 				<div class="col-xs-12 offset-md-2 mt-3">
-					<div class="form-group col-xs-4">
+					<div class="form-group col-sm-3">
 						<label class="control-label" for="fecha" id="lbl_fecha">Fecha:</label>
-						<input type="date" class="form-control" id="id_fecha" name="fecha">
-					</div>
-					<div class="form-group col-xs-3">
-						<label class="control-label" for="comentarios" id="lbl_comen">Comentarios:</label>
-						<textarea class="form-control" id="id_coment" name="comentarios" maxlength="500"></textarea>
+						<input type="date" class="form-control" id="id_fecha" name="fecha" required>
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="problema" id="lbl_problema">Problema:</label>
 						<textarea class="form-control" id="id_problema" name="problema" maxlength="500"></textarea>
 					</div>
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="comentarios" id="lbl_comen">Comentarios:</label>
+						<textarea class="form-control" id="id_coment" name="comentarios" maxlength="500"></textarea>
+					</div>
 				</div>
 				<div class="col-xs-12 offset-md-2 mt-3">
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="tipofalta" id="lbl_falta">Tipo de falta:</label>
-						<select type="select" name="tipofalta" class="form-control" id="id_falta">
+						<select type="select" name="tipofalta" class="form-control" id="id_falta" required>
+							<option value="">Seleccione Una</option>
 							<option id="1" value="Falta 1">falta 1</option>
 							<option id="2" value="Falta 2">falta 2</option>
 	    					<option id="3" value="Falta 3">falta 3</option>
@@ -55,7 +56,7 @@
 				<div class="col-xs-12 offset-md-2 mt-3">
 					<div class="form-group col-xs-4">
 	    					<label class="control-label" for="reporto">Quién lo reportó:</label>
-	    					<input type="text" class="form-control" id="reporto" name="reporto">
+	    					<input type="text" class="form-control" id="reporto" name="reporto" required>
 	  				</div>
 	  			</div>
 	  			<button type="submit" class="btn btn-success"><strong>Guardar</strong></button>
@@ -69,6 +70,7 @@
 								<th>@sortablelink('tipofalta','Tipo:')</th>
 								<th>@sortablelink('reporto','Quién Reporto:')</th>
 								<th>@sortablelink('problema','Problema:')</th>
+								<th>@sortablelink('comentarios','Comentarios')</th>
 							</tr>
 						</thead>
 						@foreach ($faltas as $falta)
@@ -78,6 +80,7 @@
 								<td>{{$falta->tipofalta}}</td>
 								<td>{{$falta->reporto}}</td>
 								<td>{{$falta->problema}}</td>
+								<td>{{$falta->comentarios}}</td>
 							</tr>
 						@endforeach
 			</table>

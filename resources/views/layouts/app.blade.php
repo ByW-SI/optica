@@ -242,32 +242,7 @@
                      
 
 
-                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-industry" aria-hidden="true"></i> Almacenes<span class="caret"></span> </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                 <a href="#"
-                                   onclick="AgregarNuevoTab('{{ url('almacens.index')}}','Ver Almacenes')">
-                            <i class="fa fa-bars" aria-hidden="true"></i> Lista de Almacenes
-                                </a>
-
-                            </li>
-
-                            <li>
-                                 <a href="#"
-                                   onclick="AgregarNuevoTab('{{ url('almacens.create')}}','Nuevo Almacen')">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Agregar Almacen
-                                </a>
-                            </li>
-                            <li>
-                                 <a href="#"
-                                   onclick="AgregarNuevoTab('','Inventarios')">
-                           <i class="fa fa-database" aria-hidden="true"></i> Inventarios<span class="caret"></span>
-                                </a>
-                            </li>
-
-                                </ul>
-                            </li>     
+                   
 
                   
 

@@ -112,7 +112,7 @@ class EmpleadosDatosLabController extends Controller
      */
     public function store(Request $request, Empleado $empleado)
     {
-        //
+        
         $datoslab = new EmpleadosDatosLab;
         $datoslab->empleado_id = $request->empleado_id;
 
@@ -150,10 +150,18 @@ class EmpleadosDatosLabController extends Controller
             # code...
             $datoslab->bonopuntualidad = false;
         }
-        $datoslab->save();
-        Alert::success('Datos laborales creado', 'Siga agregando información al empleado');
-        
+    //--------- BAJA --------------------------------
+        if($request->fechabaja!=null){
+            $empleado->delete();
+            Alert::success('Baja de Empleado', 'Se redireccionará a la Lista de Empleados');
+            return redirect()->route('empleados.index');
+        }else{
+             $datoslab->save();
+        Alert::info('Datos laborales creado', 'Siga agregando información al empleado');
         return redirect()->route('empleados.datoslaborales.index',['empleado'=>$empleado,'datoslab'=>$datoslab]);
+        
+        }
+       
     }
 
     /**

@@ -99,7 +99,7 @@ return view('sucursales.view',['sucursal'=>$sucursal]);
      */
     public function update(Request $request,$sucursal)
     {
-        //dd($sucursal);
+        
          $suc= Sucursal::find($sucursal);
 
         $suc->update($request->all());

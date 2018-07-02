@@ -17,7 +17,7 @@ class CreateEmpleadosdatoslabTable extends Migration
 
             $table->increments('id');
             $table->integer('empleado_id')->unsigned();
-            $table->foreign('empleado_id')->references('id')->on('empleados');
+            $table->foreign('empleado_id')->references('id')->on('empleados')->onDelete('cascade');;
 
             $table->date('fechacontratacion')->nullable();
             $table->date('fechaactualizacion');

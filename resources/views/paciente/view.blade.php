@@ -437,68 +437,97 @@
 	<div class="row">
 		<div class="col-sm-5">
 			<div class="form-group">
-				<label for="fecha" class="col-sm-2 control-label">Fecha Actual</label>
+				<label for="fecha" class="col-sm-4 control-label">Fecha Actual</label>
 				<div class="col-sm-10">
-					<input type="date" class="form-control" id="fecha">
+					<input type="date" class="form-control" readonly="" id="fecha" value="{{ date('Y-m-d') }}">
 				</div>
-			</div>
-		</div>
-		<div class="col-sm-offset-2 col-sm-5">
-			<h4>Viene a cita:</h4>
-			<div class="radio">
-				<label>
-					<input class="radiocita" type="radio" name="citaradio" id="optionsRadios1" onchange="cocultar(this)" value="si">
-					Sí
-				</label>
-			</div>
-			<div class="radio">
-				<label>
-					<input class="radiocita" type="radio" name="citaradio" id="optionsRadios2" onchange="cocultar(this)" value="no">
-					No
-				</label>
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-5">
-			<table class="table table-bordered">
-				<tr><th>Fecha</th><th>Cita</th><th>Nombre</th></tr>
-				<tr>
-					<td>fecha1</td>
-					<td>cita1</td>
-					<td id="citaradio">nombre1</td>
-				</tr>
-			</table>
+			<div class="col-sm-10">
+				<div class="form-group">
+					<table class="table table-bordered align-middle" style="margin-top: 20px;">
+						<tr>
+							<th>Fecha</th>
+							<th>Cita</th>
+							<th>Nombre</th>
+						</tr>
+						<tr>
+							<td>fecha1</td>
+							<td>cita1</td>
+							<td id="citaradio">nombre1</td>
+						</tr>
+						<tr>
+							<td>fecha1</td>
+							<td>cita1</td>
+							<td id="citaradio">nombre1</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="row">
-
-		<div id="si-cita" class="col-sm-12">
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="form-group row">
-						<label for="pie" class="col-sm-2 control-label">Subir foto pie</label>
-						<div class="col-sm-10">
-							<input type="file" class="imagen" id="pie" onchange="previewFile2(this)">
+		<div class="col-sm-5">
+			<div class="form-group">
+				<label for="vienecita" class="col-sm-4 control-label">Viene a cita:</label>
+				<div class="col-sm-10">
+					<div class="radio">
+						<div class="col-sm-3">
+							<label>
+								<input class="radiocita" type="radio" name="citaradio" id="optionsRadios1" onchange="cocultar(this)" value="si">
+								Sí
+						</div>
+						<div class="col-sm-3">
+							<label>
+								<input class="radiocita" type="radio" name="citaradio" id="optionsRadios2" onchange="cocultar(this)" value="no">
+								No
+							</label>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6">
-					<img id="imagenpie" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa...">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div id="si-cita">
+			<div class="col-sm-10">
+				<div class="form-group">
+					<div class="col-sm-5">
+						<div class="thumbnail" style="margin-top: 10px;">
+							<img id="imagenpie" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa..." style="width: 100%; height: auto;">
+					      	<div class="caption">
+								<label for="pie" class="col-sm control-label" style="margin-top: 10px;">Subir foto pie</label>
+					        	<p><input type="file" class="imagen" id="pie" onchange="previewFile2(this)" style="display: none;">
+								<input type="button" value="Examinar" class="btn btn-primary" onclick="document.getElementById('pie').click();" />
+								<input type="file" class="imagen" id="pie" onchange="previewFile2(this)" style="display: none;">
+								<input type="button" value="Subir" class="btn btn-success" onclick="document.getElementById('pie').click();" /></p>
+					      </div>
+					    </div>
+					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-4">
-					<h4>Diagnóstico</h4>
-						<textarea class="form-control" rows="3"></textarea>
-				</div>
-				<div class="col-sm-4">
-					<h4>Recomendación</h4>
-						<textarea class="form-control" rows="3"></textarea>
-				</div>
-				<div class="col-sm-4">
-					<h4>Tipo de tratamiento</h4>
-					<textarea class="form-control" rows="3"></textarea>
+				<div class="col-sm-12">
+					<div class="col-sm-12">
+						<div class="form-group">
+							<div class="col-sm-4">
+								<h4>Diagnóstico</h4>
+									<textarea class="form-control" maxlength="1000" rows="3"></textarea>
+							</div>
+							<div class="col-sm-4">
+								<h4>Recomendación</h4>
+									<textarea class="form-control" maxlength="1000" rows="3"></textarea>
+							</div>
+							<div class="col-sm-4">
+								<h4>Tipo de tratamiento</h4>
+								<textarea class="form-control" maxlength="1000" rows="3"></textarea>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -528,7 +557,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 
 			
@@ -797,8 +825,8 @@
 			<div class="panel-heading">C.R.M.&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 			<div class="panel-body">
 				<div class="panel-body">
-					<!-- <form role="form" method="POST" action="{{ route('pacientes.crm.store',['paciente'=>$paciente]) }}">
-						{{ csrf_field() }} -->
+					<form role="form" method="POST" action="{{ route('pacientes.crm.store',['paciente'=>$paciente]) }}">
+						{{ csrf_field() }}
 						<input type="hidden" name="paciente_id" value="{{ $paciente->id }}" id="paciente_id_crm">
 
 						<div class="col-xs-4 col-xs-offset-10">
@@ -873,11 +901,11 @@
 						
 					</div>
 						
-					<!-- </form> -->
+					</form>
 				</div>
 
 				<div class="panel-body" id="crm_body">
-					@if ($paciente->crms->count() ==0)
+					@if ($paciente->crms->count() !=0)
 						<p>Aun no tienes C.R.M.'s</p>
 					@endif
 					

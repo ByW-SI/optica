@@ -58,6 +58,7 @@ class PacienteController extends Controller
         }
         else {
             $paciente = Paciente::create($request->all());
+            
             Alert::success('Siga agregando información del Paciente', 'Paciente Registrado');
            
             return redirect()->route('pacientes.show',

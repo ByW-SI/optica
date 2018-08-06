@@ -7,6 +7,7 @@ use App\PacienteOcular;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use UxWeb\SweetAlert\SweetAlert as Alert;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class PacienteHistorialOcularController extends Controller
 {
@@ -99,6 +100,7 @@ class PacienteHistorialOcularController extends Controller
         if($operaciones!=null || $operaciones!=''){
 
             $oculars->opciones=$operaciones;
+
         }else{
             $oculars->opciones='NINGUNO';
         }
@@ -116,13 +118,18 @@ class PacienteHistorialOcularController extends Controller
         
 
         $oculars->save();
+         Alert::success('Nuevo Historial Guardado', 'Continuar');
     //***************************************************************/
-       
-        //
-        Alert::success('Nuevo Historial Guardado', 'Continuar');
+        if(isset($request->opciones[1])){
+            
+            $info=$request->all();
+            $pdf = PDF::loadView('pacienteocular.pdf', ['info'=>$info,'paciente'=>$paciente]);
+            return $pdf->download('Reporte_ocular.pdf');
 
+                }
+      
 
-       return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);//
+       return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);
            
     }
 

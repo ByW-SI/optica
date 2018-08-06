@@ -1,26 +1,26 @@
 @extends('layouts.test')
 @section('content1')
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
       
 <div class="container">
 	<div role="application" class="panel panel-group">
 		<div class="panel-default">
-			<div class="panel-heading jumbotron">
+			<div class="panel-heading">
 				<div class="row">
 					<div class="col-sm-3">
-						<h4><strong>Datos del Paciente:</strong></h4>
+						<h4>Datos del Paciente:</h4>
 					</div>
-					<div class="col-sm-2">
+					<div class="col-sm-3">
 						<a class="btn btn-info" href="{{ route('pacientes.create') }}"><strong>Nuevo Paciente</strong></a>
 					</div>
-					<div class="col-sm-2">
-						<a class="btn btn-primary" href="{{ route('pacientes.edit',['id'=>$paciente->id]) }}"><strong>Editar Paciente</strong></a>
+					<div class="col-sm-3">
+						<a class="btn btn-warning" href="{{ route('pacientes.edit',['id'=>$paciente->id]) }}"><strong>Editar Paciente</strong></a>
 					</div>
-					<div class="col-sm-2">
-						<a class="btn btn-info" href="{{ route('pacientes.index') }}"><strong>Lista de Pacientes</strong></a>
+					<div class="col-sm-3">
+						<a class="btn btn-primary" href="{{ route('pacientes.index') }}"><strong>Lista de Pacientes</strong></a>
 					</div>
 				</div>
 			</div>
@@ -68,11 +68,11 @@
 
 							<li  role="presentation" class="active"><a data-toggle="tab" href="#generales" >Generales:</a></li>
 
-							<li role="presentation"><a data-toggle="tab" href="#hmedico">Historial Medico:</a></li> 
+							<li role="presentation"><a data-toggle="tab" href="#hmedico">Historial Médico:</a></li> 
 
 							<li role="presentation"><a data-toggle="tab" href="#ocular">Historial Ocular:</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#anteojos">Anteojos:</a></li>
-							<li role="presentation"><a data-toggle="tab" href="#ortopedico" class="ui-tabs-anchor">Ortopedico:(En desarrollo)</a></li>
+							<li role="presentation"><a data-toggle="tab" href="#ortopedico" class="ui-tabs-anchor">Ortopdico:(En desarrollo)</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#cita" class="ui-tabs-anchor">Citas:</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li> 
 						</ul>
@@ -436,78 +436,88 @@
 <div class="tab-pane" id="ortopedico">
 	<div class="row">
 		<div class="col-sm-5">
-			<div class="form-group">
-				<label for="fecha" class="col-sm-4 control-label">Fecha Actual</label>
-				<div class="col-sm-10">
-					<input type="date" class="form-control" readonly="" id="fecha" value="{{ date('Y-m-d') }}">
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-5">
-			<div class="col-sm-10">
-				<div class="form-group">
-					<table class="table table-bordered align-middle" style="margin-top: 20px;">
-						<tr>
-							<th>Fecha</th>
-							<th>Cita</th>
-							<th>Nombre</th>
-						</tr>
-						<tr>
-							<td>fecha1</td>
-							<td>cita1</td>
-							<td id="citaradio">nombre1</td>
-						</tr>
-						<tr>
-							<td>fecha1</td>
-							<td>cita1</td>
-							<td id="citaradio">nombre1</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-5">
-			<div class="form-group">
-				<label for="vienecita" class="col-sm-4 control-label">Viene a cita:</label>
-				<div class="col-sm-10">
-					<div class="radio">
-						<div class="col-sm-3">
-							<label>
-								<input class="radiocita" type="radio" name="citaradio" id="optionsRadios1" onchange="cocultar(this)" value="si">
-								Sí
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="fecha" class="col-sm-4 control-label">Fecha Actual</label>
+						<div class="col-sm-10">
+							<input type="date" class="form-control" readonly="" id="fecha" value="{{ date('Y-m-d') }}">
 						</div>
-						<div class="col-sm-3">
-							<label>
-								<input class="radiocita" type="radio" name="citaradio" id="optionsRadios2" onchange="cocultar(this)" value="no">
-								No
-							</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="col-sm-10">
+						<div class="form-group">
+							<table class="table table-striped table-bordered table-hover" style="margin-top: 20px;">
+								<tr class="info">
+									<th>Fecha</th>
+									<th>Cita</th>
+									<th>Nombre</th>
+								</tr>
+								<tr>
+									<td>fecha1</td>
+									<td>cita1</td>
+									<td id="citaradio">nombre1</td>
+								</tr>
+								<tr>
+									<td>fecha1</td>
+									<td>cita1</td>
+									<td id="citaradio">nombre1</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>								
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="vienecita" class="col-sm-4 control-label">Viene a cita:</label>
+						<div class="col-sm-10">
+							<div class="radio">
+								<div class="col-sm-3">
+									<label>
+										<input class="radiocita" type="radio" name="citaradio" id="optionsRadios1" onchange="cocultar(this)" value="si">
+										Sí
+								</div>
+								<div class="col-sm-3">
+									<label>
+										<input class="radiocita" type="radio" name="citaradio" id="optionsRadios2" onchange="cocultar(this)" value="no">
+										No
+									</label>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="row">
 		<div id="si-cita">
-			<div class="col-sm-10">
-				<div class="form-group">
-					<div class="col-sm-5">
-						<div class="thumbnail" style="margin-top: 10px;">
-							<img id="imagenpie" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa..." style="width: 100%; height: auto;">
-					      	<div class="caption">
-								<label for="pie" class="col-sm control-label" style="margin-top: 10px;">Subir foto pie</label>
-					        	<p><input type="file" class="imagen" id="pie" onchange="previewFile2(this)" style="display: none;">
-								<input type="button" value="Examinar" class="btn btn-primary" onclick="document.getElementById('pie').click();" />
-								<input type="file" class="imagen" id="pie" onchange="previewFile2(this)" style="display: none;">
-								<input type="button" value="Subir" class="btn btn-success" onclick="document.getElementById('pie').click();" /></p>
-					      </div>
-					    </div>
+			<div class="col-sm-7">
+				<div class="row">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="col-sm-8">
+								<div class="form-group">
+									<div class="col-sm-10 text-center">
+										<div class="thumbnail" style="display: inline; float: none; margin-top: 10px; margin-bottom: 0px;">
+											<img id="imagenpie" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa..." style="width: 100%; height: auto;">
+									      	<div class="caption">
+												<label for="pie" class="col-sm control-label" style="margin-top: 10px;">Subir foto del pie</label>
+									        	<p><input type="file" class="imagen" id="pie" onchange="previewFile2(this)" style="display: none;">
+												<input type="button" value="Examinar" class="btn btn-primary" onclick="document.getElementById('pie').click();" />
+												<input type="file" class="imagen" id="pie" onchange="previewFile2(this)" style="display: none;">
+												<input type="button" value="Subir" class="btn btn-success" onclick="document.getElementById('pie').click();" /></p>
+									      </div>
+									    </div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
+						
 				</div>
 			</div>
 			<div class="row">
@@ -515,49 +525,78 @@
 					<div class="col-sm-12">
 						<div class="form-group">
 							<div class="col-sm-4">
-								<h4>Diagnóstico</h4>
-									<textarea class="form-control" maxlength="1000" rows="3"></textarea>
+								<label for="diag" class="col-sm control-label" style="margin-top: 10px;">Diagnóstico:</label>
+								<textarea class="form-control" maxlength="1000" rows="4"></textarea>
 							</div>
 							<div class="col-sm-4">
-								<h4>Recomendación</h4>
-									<textarea class="form-control" maxlength="1000" rows="3"></textarea>
+								<label for="reco" class="col-sm control-label" style="margin-top: 10px;">Recomendación:</label>
+								<textarea class="form-control" maxlength="1000" rows="4"></textarea>
 							</div>
 							<div class="col-sm-4">
-								<h4>Tipo de tratamiento</h4>
-								<textarea class="form-control" maxlength="1000" rows="3"></textarea>
+								<label for="trat" class="col-sm control-label" style="margin-top: 10px;">Tipo de tratamiento:</label>
+								<textarea class="form-control" maxlength="1000" rows="4"></textarea>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<div id="no-cita" class="col-sm-12">
+		<div class="col-sm-7">
 			<div class="row">
-				<div class="col-sm-12">
-					<div class="form-group">
-						<label for="donde" class="col-sm-4 control-label">¿De dónde viene?</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" id="donde">
+				<div id="no-cita">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="col-sm-5">
+								<div class="form-group">
+									<label for="donde" class="col-sm-4 control-label" style="margin-top: 10px;">¿De dónde viene?</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="donde">
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="form-group row">
-						<label for="receta" class="col-sm-2 control-label">Subir receta</label>
-						<div class="col-sm-10">
-							<input type="file" class="imagen" id="receta" onchange="previewFile(this)">
+		<!--
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group row">
+								<label for="receta" class="col-sm-2 control-label">Subir receta</label>
+								<div class="col-sm-10">
+									<input type="file" class="imagen" id="receta" onchange="previewFile(this)">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<img id="imagenpre" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa...">
 						</div>
 					</div>
-				</div>
-				<div class="col-sm-6">
-					<img id="imagenpre" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa...">
+		-->
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="col-sm-5">
+								<div class="form-group">
+									<div class="col-sm-10">
+										<div class="thumbnail" style="margin-top: 10px; margin-bottom: 0px;">
+											<img id="imagenpre" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa..." style="width: 100%; height: auto;">
+									      	<div class="caption">
+												<label for="pie" class="col-sm control-label" style="margin-top: 10px;">Subir receta</label>
+									        	<p><input type="file" class="imagen" id="receta" onchange="previewFile(this)" style="display: none;">
+												<input type="button" value="Examinar" class="btn btn-primary" onclick="document.getElementById('receta').click();" />
+												<input type="file" class="imagen" id="pie" onchange="previewFile(this)" style="display: none;">
+												<input type="button" value="Subir" class="btn btn-success" onclick="document.getElementById('receta').click();" /></p>
+									      </div>
+									    </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	
 
 			
 
@@ -905,7 +944,7 @@
 				</div>
 
 				<div class="panel-body" id="crm_body">
-					@if ($paciente->crms->count() !=0)
+					@if ($paciente->crms->count() ==0)
 						<p>Aun no tienes C.R.M.'s</p>
 					@endif
 					

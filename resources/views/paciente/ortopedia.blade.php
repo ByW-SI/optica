@@ -123,7 +123,7 @@
 				
 				<div class="form-group">
 					<div class="input-group-prepend">
-    					<label class="input-group-text">Número :</label>
+    					<label class="input-group-text">Número:</label>
   					</div>
 					<div class="col-sm-3">
 						<input type="number" class="form-control" step="0.5" value="">
@@ -147,7 +147,7 @@
 				
 				<div class="form-group">
 					<div class="input-group-prepend">
-    					<label class="input-group-text">Número :</label>
+    					<label class="input-group-text">Número:</label>
   					</div>
 					<div class="col-sm-3">
 						<input type="number" class="form-control" step="0.5" value="">

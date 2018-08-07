@@ -109,10 +109,10 @@
 		</div>
 	</div>
 	<div class="col-sm-6">
-		<div class="container">
+		<div class="col">
 			<label>Tipo de Tratamiento:</label>
 
-			<div class="col-sm form-group">
+			<div class="col form-group">
 				<label><input type="radio" name="tratamiento" value="zapatos"> Zapatos</label>
 				<br>
 				<label><input type="radio" name="tratamiento" value="tenis"> Tenis</label>
@@ -132,16 +132,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="row col-sm-6">
-		<div class="container">
+	<div class="col-sm-6">
+		<div class="col">
 			<label>Plantilla:</label>
 
-			<div class="col-sm form-group">
+			<div class="col form-group">
 				<label><input type="radio" name="plantilla" value="piel"> Piel</label>
 				<br>
 				<label><input type="radio" name="plantilla" value="pelite"> Pelite</label>
 				<br>
-				<label><input type="radio" name="plantilla" value="otro"> Otro</label>
+				<label><input type="radio" name="plantilla" value="otro"> Ambos</label>
 			</div>
 			<div class="col">
 				

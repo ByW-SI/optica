@@ -72,7 +72,7 @@
 
 							<li role="presentation"><a data-toggle="tab" href="#ocular">Historial Ocular:</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#anteojos">Anteojos:</a></li>
-							<li role="presentation"><a data-toggle="tab" href="#ortopedico" class="ui-tabs-anchor">Ortopdico:(En desarrollo)</a></li>
+							<li role="presentation"><a data-toggle="tab" href="#ortopedico" class="ui-tabs-anchor">Ortopédico: (En desarrollo)</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#cita" class="ui-tabs-anchor">Citas:</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li> 
 						</ul>
@@ -438,6 +438,7 @@
 	{{-- Extiende de la vista ortopedia.blade.php, para mejor orden --}}
 	@include('paciente.ortopedia')
 		
+
 </div>
 
 

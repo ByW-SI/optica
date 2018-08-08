@@ -78,8 +78,8 @@
       <script src="{{asset('js/crm.js')}}"></script>
 	<script type="text/javascript">
 	
-		$("#si-cita").hide();
-		$("#no-cita").hide();
+		// $("#si-cita").hide();
+		// $("#no-cita").hide();
 
 	function getSucursal(){
 			$.ajaxSetup({

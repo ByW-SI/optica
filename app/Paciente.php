@@ -47,4 +47,8 @@ class Paciente extends Model
     public function crms(){
         return $this->hasMany('App\PacienteCRM');
     }
+
+    public function ortopedias(){
+        return $this->hasMany('App\PacienteOrtopedia');
+    }
 }

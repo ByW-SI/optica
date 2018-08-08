@@ -14,6 +14,7 @@ class PacienteOrtopedia extends Model
     	'paciente_id',
     	'cita',
     	'path_image',
+        'clinica',
     	'diagnostico',
     	'recomendacion',
     	'tratamiento',

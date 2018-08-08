@@ -20,6 +20,7 @@ class CreatePacienteCitaOrtopediaTable extends Migration
             $table->foreign('paciente_id')->references('id')->on('pacientes');
             $table->boolean('cita');
             $table->string('path_image');
+            $table->string('clinica')->nullable();
             $table->text('diagnostico')->nullable();
             $table->text('recomendacion')->nullable();
             $table->text('tratamiento')->nullable();

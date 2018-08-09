@@ -17,14 +17,16 @@
 				<tr class="info">
 					<th>Fecha</th>
 					<th>Cita</th>
-					<th>Nombre</th>
+					<th>Diagnostico/Clinica</th>
 				</tr>
 				<tbody>
 					@foreach ($paciente->ortopedias as $cita)
 						{{-- expr --}}
-						<th>{{$cita->fecha}}</th>
-						<th>{{$cita->cita}}</th>
-						<th>{{$cita->diagnostico}}</th>
+						<tr>
+							<th>{{$cita->fecha}}</th>
+							<th>{{$cita->cita ? 'Si' : 'No'}}</th>
+							<th>{{$cita->cita ? $cita->diagnostico : $cita->clinica}}</th>
+						</tr>
 					@endforeach
 				</tbody>
 			</table>

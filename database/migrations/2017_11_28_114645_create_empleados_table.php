@@ -15,6 +15,8 @@ class CreateEmpleadosTable extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('sucursal_id')->unsigned()->nullable();
+            $table->foreign('sucursal_id')->references('id')->on('sucursals');
             $table->string('nombre');
             $table->string('appaterno');
             $table->string('apmaterno');

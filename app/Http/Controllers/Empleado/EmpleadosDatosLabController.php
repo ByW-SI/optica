@@ -140,7 +140,13 @@ class EmpleadosDatosLabController extends Controller
         $datoslab->comentariobaja = $request->comentariobaja ;
 
         $datoslab->contrato_id = $request->contrato_id ;
-        $datoslab->sucursal_id = $request->sucursal_id ;
+        if ($empleado->datosLab->count() == 0) {
+            $datoslab->sucursal_id = $empleado->sucursal->id;
+            // dd($datoslab->sucursal_id);
+        }
+        else{
+            $datoslab->sucursal_id = $request->sucursal_id ;
+        }
         $datoslab->almacen_id = $request->almacen_id ;
         if ($request->bonopuntualidad == 'on') {
             # code...
@@ -172,7 +178,7 @@ class EmpleadosDatosLabController extends Controller
      */
     public function show(Request $request)
     {
-        dd($request->sucursal_id);
+        // dd($request->sucursal_id);
     $empleados=EmpleadoDatosLab::where('sucursal_id',$request->sucursal_id);
     
     $area='';
@@ -208,7 +214,7 @@ class EmpleadosDatosLabController extends Controller
      */
     public function edit(Empleado $empleado, $actual)
     {
-$actual1=EmpleadosDatosLab::where('id', $actual)->first();
+    $actual1=EmpleadosDatosLab::where('id', $actual)->first();
 
        
         $datoslab = new EmpleadosDatosLab;

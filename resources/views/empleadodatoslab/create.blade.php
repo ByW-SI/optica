@@ -114,23 +114,34 @@
 					</div>
 
 
-	<div class="form-group col-xs-3">
-						<label class="control-label" for="contrato">Sucursal:</label>
-						<div class="input-group">
-  						<span class="input-group-addon" id="basic-addon3" onclick='getSucursal()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
-						<select type="select" class="form-control" name="sucursal_id" id="sucursal_id">
-							<option  value="">Sin Definir</option>
-							@foreach ($sucursales as $sucursal)
-								{{-- expr --}}
-								<option id="{{$sucursal->id}}" value="{{$sucursal->id}}" @if ($datoslab->sucursal_id == $sucursal->id)
-									{{-- expr --}}
-									selected="selected" 
-								@endif>{{$sucursal->nombre}}</option>
-							@endforeach
-						</select>
-					  </div>
-					</div>
-
+					@if ($empleado->datosLab->count() == 0)
+						{{-- true expr --}}
+						<div class="form-group col-xs-3">
+							<label class="control-label" for="contrato">Sucursal:</label>
+							<br>
+							<div class="input-group">
+		  						<dd>{{$empleado->sucursal->nombre}}</dd>
+							</div>
+						</div>
+					@else
+						{{-- false expr --}}
+						<div class="form-group col-xs-3">
+							<label class="control-label" for="contrato">Sucursal:</label>
+							<div class="input-group">
+		  						<span class="input-group-addon" id="basic-addon3" onclick='getSucursal()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
+								<select type="select" class="form-control" name="sucursal_id" id="sucursal_id" required>
+									<option  value="">Sin Definir</option>
+									@foreach ($sucursales as $sucursal)
+										
+										<option id="{{$sucursal->id}}" value="{{$sucursal->id}}" @if ($datoslab->sucursal_id == $sucursal->id)
+											
+											selected="selected" 
+										@endif>{{$sucursal->nombre}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+					@endif
 						<div class="form-group col-xs-3">
 						<label class="control-label" for="contrato">Almacen:</label>
 						<div class="input-group">

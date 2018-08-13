@@ -64,10 +64,10 @@
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="sucursal">Sucursal:</label>
-					@if($sucursal==null)
+					@if($empleado->sucursal==null)
 					<dd>NO DEFINIDO</dd>
 					@else
-					<dd>{{ $sucursal->nombre }}</dd>
+					<dd>{{ $empleado->sucursal->nombre }}</dd>
 					@endif
 				</div>
 				<div class="form-group col-xs-3">

@@ -24,7 +24,7 @@
         <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
         <!-- <link rel="stylesheet" href="{{ asset('bootstrap-toggle/css/bootstrap-toggle.css') }}"> -->
-        <link rel="stylesheet" href="{{ asset('bootstrap-toggle/css/bootstrap-toggle.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bootstrap-toggle/css/bootstrap-toggle.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 
@@ -44,8 +44,6 @@
 
     <!-- Scripts -->
    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
-    <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
          <script src="{{ asset('js/peticion.js') }}"></script>
          <script src="{{ asset('js/empleado.js') }}"></script>
@@ -57,6 +55,8 @@
     <script src="{{ asset('js/sweetalert.js') }}"></script>
     @include('sweet::alert')
     <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
+    <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
+
 
 
     

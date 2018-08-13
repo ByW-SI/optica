@@ -17,23 +17,21 @@
 				<div class="panel-heading">Dirección Fiscal:
 				&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 				<div class="panel-body">
-						<div class="col-lg-offset-10">
+					<div class="row">
+						<div class="col-lg-3">
 							<button type="submit" class="btn btn-success">
 								<strong> Guardar
 							</strong></button>
-							
+						</div>
+						<br>
+						<div class="toogle-group">
+							<label>
+							<input id="dirfiscal" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No"  onchange="datosFiscal()">¿Usar datos de Dirección Física? .
+		                    </label>
 						</div>
 						
-						<div class="form-group col-xs-6">
+					</div>
 						
-                            
-							<label>
-                                <input id="dirfiscal" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No"  onchange="datosFiscal()">
-                            
-                                ¿Usar datos de Dirección Física? .
-                            </label>
-                       
-                    </div>
 
 					<div class="col-md-12 offset-md-2 mt-3">
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

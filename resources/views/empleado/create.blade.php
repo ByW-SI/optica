@@ -53,16 +53,15 @@
 						</div>
 						<div class="form-group col-xs-3">
 							<label class="control-label" for="contrato">Sucursal:</label>
-						<div class="input-group">
-  						<span class="input-group-addon" id="basic-addon3" onclick='getSucursal()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
-						<select type="select" class="form-control" name="sucursal_id" id="sucursal_id" required>
-							<option  value="">Sin Definir</option>
-							@foreach ($sucursales as $sucursal)
-								{{-- expr --}}
-							<option value="{{$sucursal->claveid}}">{{$sucursal->nombre}}</option>
-							@endforeach
-						</select>
-					  </div>
+							<div class="input-group">
+	  							<span class="input-group-addon" id="basic-addon3" onclick='getSucursal()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
+								<select type="select" class="form-control" name="sucursal_id" id="sucursal_id" required>
+									<option  value="">Sin Definir</option>
+									@foreach ($sucursales as $sucursal)
+									<option value="{{$sucursal->id}}">{{$sucursal->nombre}}</option>
+									@endforeach
+								</select>
+						  	</div>
 						</div>
 					</div>
 					<div class="col-xs-12 offset-md-2 mt-3">

@@ -106,7 +106,7 @@ class TipoContratoController extends Controller
     public function buscar(Request $request){
         $query = $request->input('query');
         $wordsquery = explode(' ',$query);
-        $tipoBaja = TipoBaja::where(function ($q) use($wordsquery){
+        $tipoBaja = TipoContrato::where(function ($q) use($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
                 $q->orWhere('nombre','LIKE',"%$word%")

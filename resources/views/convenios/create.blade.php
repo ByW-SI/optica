@@ -1,5 +1,5 @@
-@extends('layouts.test')
-	@section('content1')
+@extends('layouts.blank')
+	@section('content')
 		<div class="container" id="tab">
 				<div role="application" class="panel panel-group" >
 			<form role="form" id="form-cliente" method="POST" action="{{ route('convenios.store') }}" name="form">
@@ -74,9 +74,9 @@
 						
 					<ul class="nav nav-tabs" id="mytab" role="tab-list">
 						<li  role="presentation" class="active"><a role="tab"  aria-controls="fisica" data-toggle="tab" href="#fisica">Dirección Fisica:</a></li>
-						<li  role="presentation"><a role="tab"  aria-controls="fiscal" data-toggle="tab" href="#fiscal">Dirección Fiscal:</a></li>
-						<li  role="presentation"><a role="tab"  aria-controls="contactos" data-toggle="tab" href="#contactos">Contacto:</a></li>
-						<li  role="presentation"><a role="tab"  aria-controls="tipo" data-toggle="tab" href="#tipo">Tipo de Convenio:</a></li>
+						<li  role="presentation" class="disabled"><a disabled role="tab"  aria-controls="fiscal" data-toggle="tab" href="#fiscal">Dirección Fiscal:</a></li>
+						<li  role="presentation" class="disabled"><a disabled role="tab"  aria-controls="contactos" data-toggle="tab" href="#contactos">Contacto:</a></li>
+						<li  role="presentation" class="disabled"><a disabledss role="tab"  aria-controls="tipo" data-toggle="tab" href="#tipo">Tipo de Convenio:</a></li>
 						
 					</ul>
 
@@ -142,29 +142,29 @@
 			  					</div>
 							</div>
 						</div>
-						</form>
+			</form>
 					</div>
 					</div>
 
-<div   role="tabpanel" id="fiscal" class="tab-pane fade in">
+{{-- <div   role="tabpanel" id="fiscal" class="tab-pane fade in">
 	<form>
-			{{-- DATOS FISCALES --}}
+			
 			<div class="panel panel-default" id="datosfiscales">
-			 <input type="hidden" name="convenio_id" value="{{-- {{$convenio->id}} --}}">
+			 <input type="hidden" name="convenio_id" value="">
 			 <div class="panel-default">
 				<div class="panel-heading">Dirección Fiscal:
 				&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 				<div class="panel-body">
 						<div class="col-lg-offset-10">
-							{{-- <button type="submit" class="btn btn-success">
+							<button type="submit" class="btn btn-success">
 								<strong> Guardar
-							</strong></button> --}}
+							</strong></button> 
 							
 						</div>
 						<div class="boton checkbox-disabled">
 							<label>
 
-								<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" {{-- onchange="datosFiscal();" --}}>
+								<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="datosFiscal();" >
 								¿Usar datos de dirección fisica?.
 							</label>
 						</div>
@@ -201,10 +201,10 @@
 	  					</div>
 					</div>
 					<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
-						{{-- <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="cp">Código postal:</label>
 			    					<input type="text" class="form-control" id="cp" name="cp"  minlength="5" maxlength="5">
-			  					</div> --}}		
+			  					</div> 		
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 	  						<label class="control-label" for="calle1">Entre calle:</label>
 	  						<input type="text" class="form-control" id="calle1" name="calle1" value="">
@@ -222,19 +222,19 @@
 			</div>
 			</div></form>
 </div>
-
-<div   role="tabpanel" id="contactos" class="tab-pane fade in">
+ --}}
+{{-- <div   role="tabpanel" id="contactos" class="tab-pane fade in">
 	
-			{{-- CONTACTOS --}}
+			
 			<div class="panel panel-default" id="contactos">
 				<div class="panel-heading">Contacto:
 				&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 					<div class="panel-body">
 							{{ csrf_field() }}
-							<input type="hidden" name="convenio_id" value="{{-- {{$convenio->id}} --}}" required>
+							<input type="hidden" name="convenio_id" value=" {{$convenio->id}}" required>
 							<div class="col-xs-offset-10">
-								{{-- <button type="submit" class="btn btn-success">
-							<strong>Guardar</strong>	</button> --}}
+								 <button type="submit" class="btn btn-success">
+							<strong>Guardar</strong>	</button>
 								
 							</div>	
 							<div class="col-md-12 offset-md-2 mt-3">
@@ -304,20 +304,20 @@
 						
 					</div>
 			</div>
-</div>
+</div> --}}
 
-<div   role="tabpanel" id="tipo" class="tab-pane fade in">
-			{{-- TIPO DE CONVENIO --}}
+{{-- <div   role="tabpanel" id="tipo" class="tab-pane fade in">
+			
 			<div class="panel panel-default" id="convenio">
 				<div class="panel-heading"> Tipo de Convenio:
 				&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 				<div class="panel-body">
-					<form> {{-- por agregar información --}}
+					<form> 
 						{{ csrf_field() }}
-						<input type="hidden" name="convenio_id" value="{{-- {{$convenio->id}} --}}" {{-- required --}}>
+						<input type="hidden" name="convenio_id" value="{{$convenio->id}}" required>
 						<div class="col-xs-offset-10">
-								{{-- <button type="submit" class="btn btn-success">
-							<strong>Guardar</strong>	</button> --}}
+								<button type="submit" class="btn btn-success">
+							<strong>Guardar</strong>	</button>
 								
 						</div>
 							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -411,7 +411,7 @@
 		  					</div>
 			</div>
 	
-</div>
+</div> --}}
 					</div>
 					</div>
 						

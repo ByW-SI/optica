@@ -35,29 +35,32 @@ class GastoController extends Controller
 
         $sucursal = Sucursal::find($request->sucursal);
         $almacen = Almacen::find($request->almacen);
-       
+        $empleados= $sucursal->empleados;
         $gasto= new Gasto; 
 
         $tipo;
         $salarios=0;
 
-if( $sucursal==null){
- $tipo=true;
- $gastos=Gasto::where('almacen_id',$request->almacen)->get();
+        if( $sucursal==null){
+         $tipo=true;
+         $gastos=Gasto::where('almacen_id',$request->almacen)->get();
 
-}else{
-    $tipo=false;
-    $gastos=Gasto::where('sucursal_id',$request->sucursal)->get();
+        }else{
+            $tipo=false;
+            $gastos=Gasto::where('sucursal_id',$request->sucursal)->get();
+            foreach ($empleados as $empleado) {
 
-    foreach ($sucursal->datosLab as $datos ){
+                // $salario += ->
+                $datosLab =$empleado->datosLab->last(); 
+                $salarios += $datosLab->salarionom;
+            }
+            // foreach ($sucursal->datosLab as $datos ){
+            //     $salarios+=$datos->salarionom;
+            // }
+        }
         
-            $salarios+=$datos->salarionom;
-    }
-    
-}
-        
 
-         $total=0;
+        $total=0;
 
         foreach ($gastos as $suma ) {
             $total+=$suma->monto;
@@ -89,44 +92,44 @@ if( $sucursal==null){
       
         Gasto::create($request->all());
         Alert::success("Gasto registrado con exito")->persistent("Cerrar");
+        return redirect()->route('gastos.create',['sucursal'=>$sucursal->id]);
         
+//        // $gastos=Gasto::where('sucursal_id',$request->sucursal_id)->get();
+
+//          $tipo;
+//          $salarios=0;
+
+// if( $sucursal==null){
+//  $tipo=true;
+//  $gastos=Gasto::where('almacen_id',$request->almacen_id)->get();
+
+// }else{
+//     $tipo=false;
+//     $gastos=Gasto::where('sucursal_id',$request->sucursal_id)->get();
+
+//     foreach ($sucursal->datosLab as $datos ){
         
-       // $gastos=Gasto::where('sucursal_id',$request->sucursal_id)->get();
-
-         $tipo;
-         $salarios=0;
-
-if( $sucursal==null){
- $tipo=true;
- $gastos=Gasto::where('almacen_id',$request->almacen_id)->get();
-
-}else{
-    $tipo=false;
-    $gastos=Gasto::where('sucursal_id',$request->sucursal_id)->get();
-
-    foreach ($sucursal->datosLab as $datos ){
-        
-            $salarios+=$datos->salarionom;
-    }
-}
+//             $salarios+=$datos->salarionom;
+//     }
+// }
           
          
-        $gasto= new Gasto;
-        $total=0;
-        foreach ($gastos as $suma ) {
-            $total+=$suma->monto;
-        }
+//         $gasto= new Gasto;
+//         $total=0;
+//         foreach ($gastos as $suma ) {
+//             $total+=$suma->monto;
+//         }
 
-        $total+=$salarios;
+//         $total+=$salarios;
         
-        return view('gastos.create',
-            ['gastos'=>$gastos, 
-            'sucursal'=>$sucursal,
-            'almacen'=>$almacen,
-            'gasto'=>$gasto,
-            'tipo'=>$tipo,
-            'salarios'=>$salarios,
-            'total'=>$total]);
+//         return view('gastos.create',
+//             ['gastos'=>$gastos, 
+//             'sucursal'=>$sucursal,
+//             'almacen'=>$almacen,
+//             'gasto'=>$gasto,
+//             'tipo'=>$tipo,
+//             'salarios'=>$salarios,
+//             'total'=>$total]);
     }
 
     /**

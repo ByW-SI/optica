@@ -24,17 +24,18 @@
 	 			<label class="control-label" for="nombre">Giro:</label>
 	 			<div class="input-group">
   						<span class="input-group-addon" id="basic-addon3" onclick='getGiros()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
-				<select type="select" name="giro_id" class="form-control" id="giro_id">
-							<option id="sin_definir" value="sin_definir">Sin Definir</option>
+				<select type="select" name="giro_id" class="form-control" id="giro_id" required>
+							<option id="sin_definir" value="">Sin Definir</option>
 						@foreach ($giros as $giro)
-							<option id="'{{$giro->id}}'" value="{{$giro->id}}" selected="selected">{{$giro->nombre}}</option>
+							<option id="'{{$giro->id}}'" value="{{$giro->id}}">{{$giro->nombre}}</option>
 						@endforeach
 				</select>
 				 </div>
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="nombre">Tamaño de la empresa:</label>
-					<select type="select" name="tamano" class="form-control" id="tamano">
+					<select type="select" name="tamano" class="form-control" id="tamano" required>
+						<option value="">Elija el tamaño de la empresa</option>
 						<option id="micro" value="micro">Micro</option>
 						<option id="pequeña" value="pequeña">Pequeña</option>
 						<option id="mediana" value="mediana">Mediana</option>
@@ -46,10 +47,10 @@
 	 				<div class="input-group">
   						<span class="input-group-addon" id="basic-addon3" onclick='getContacto()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
 					<select type="select" name="forma_contacto_id" class="form-control" id="forma_contacto_id" required>
-						<option id="sin_definir" value="sin_definir">Sin Definir</option>
+						<option id="sin_definir" value="">Sin Definir</option>
 						@foreach ($formaContactos as $formaContacto)
 							{{-- expr --}}
-							<option id="{{$formaContacto->id}}" value="{{ $formaContacto->id }}" selected="selected">{{ $formaContacto->nombre }}</option>
+							<option id="{{$formaContacto->id}}" value="{{ $formaContacto->id }}">{{ $formaContacto->nombre }}</option>
 						@endforeach
 					</select>
 					</div>
@@ -67,11 +68,11 @@
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="fechacontacto"> <i class="fa fa-asterisk" aria-hidden="true"></i>Fecha de contacto:</label>
-	 				<input type="date" class="form-control" id="fechacontacto" name="fechacontacto" required>
+	 				<input type="date" class="form-control" id="fechacontacto" name="fechacontacto">
 	 			</div>
 	 		</div>
 	 	</div>
-	 	<div class="panel-heading jumbotron" style="color: black;">Datos Bancarios: &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
+	 	{{-- <div class="panel-heading jumbotron" style="color: black;">Datos Bancarios: &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 	 	<div class="panel-body">
 	 	  <div class="row">
 	 	  	<div class="col-sm-3">
@@ -99,7 +100,7 @@
 	 	  		<input type="text" name="beneficiario" id="beneficiario" class="form-control">
 	 	  	</div>
 	 	  </div>	
-	 	</div>
+	 	</div> --}}
 	 	</form>
 	 	</div>
 	</div>

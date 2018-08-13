@@ -28,6 +28,10 @@
 						<label class="control-label" for="identificador">ID de empleado:</label>
 						<dd>{{$empleado->identificador}}</dd>
 					</div>
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="sucursal">Sucursal:</label>
+						<dd>{{$empleado->sucursal->nombre}}</dd>
+					</div>
 				</div>
 				<div class="col-xs-12 offset-md-2 mt-3">
 					<div class="form-group col-xs-3">

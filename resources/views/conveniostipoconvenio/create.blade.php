@@ -44,9 +44,9 @@
     					</div>
   					</div>
     				<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-    					<label class="control-label" for="num_prod"> Número de cita(s) por año:</label>
+    					<label class="control-label" for="num_cita"> Número de cita(s) por año:</label>
     					<div class="input-group">
-    					<span class="input-group-addon">#</span><input type="number" class="form-control" id="num_prod" name="num_prod" value=""></div>
+    					<span class="input-group-addon">#</span><input type="number" class="form-control" id="num_prod" name="num_cita" value=""></div>
     				</div>
     				<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
     					<label class="control-label" for="descripcion"><i class="fa fa-asterisk" aria-hidden="true"></i> Descripción del convenio:</label>

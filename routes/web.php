@@ -51,6 +51,14 @@ Route::resource('bajas','Precargas\TipoBajaController');
 /* RUTAS DE BUSQUEDAS*/
 Route::get('buscarempleado','Empleado\EmpleadoController@buscar');
 Route::get('buscarproveedor','Provedor\ProvedorController@buscar');
+Route::get('buscarcontrato','Precargas\TipoContratoController@buscar');
+Route::get('buscarbaja','Precargas\TipoBajaController@buscar');
+Route::get('buscararea','Area\AreaController@buscar');
+Route::get('buscarpuesto','Puesto\PuestoController@buscar');
+Route::get('buscarbanco','Banco\BancoController@buscar');
+Route::get('buscargiro','Giro\GiroController@buscar');
+Route::get('buscarformacontacto','FormaContacto\FormaContactoController@buscar');
+
 
 
 

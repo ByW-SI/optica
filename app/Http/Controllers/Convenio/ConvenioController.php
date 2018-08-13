@@ -49,6 +49,7 @@ class ConvenioController extends Controller
             # code...
             // alert()->error('Error Message', 'Optional Title');
             // return redirect()->route('clientes.create');
+            Alert::error("Error, El RFC ya existe")->persistent("Cerrar");
             return redirect()->back()->with('errors', 'El RFC ya existe');
         } else {
             # code...

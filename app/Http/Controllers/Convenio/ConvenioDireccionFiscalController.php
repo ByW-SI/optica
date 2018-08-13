@@ -22,7 +22,7 @@ class ConvenioDireccionFiscalController extends Controller
         $direccion = $convenio->direccionFiscalConvenio;
         if ($direccion ==null) {
             # code...
-            return redirect()->route('conveniosdireccionfiscal.create',['convenio'=>$convenio]);
+            return redirect()->route('convenios.direccionfiscal.create',['convenio'=>$convenio]);
         }
         else{
             return view('conveniosdireccionfiscal.view',['direccion'=>$direccion,'convenio'=>$convenio]);

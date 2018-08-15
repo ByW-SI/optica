@@ -48,7 +48,7 @@ class Convenio extends Model
         return $this->hasMany('App\ConvenioContacto');
     }
 
-    public function tipo()
+    public function tipos()
     {
         return $this->hasMany('App\TipoConvenio');
     }

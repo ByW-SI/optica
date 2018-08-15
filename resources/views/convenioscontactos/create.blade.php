@@ -11,7 +11,7 @@
 		<div class="panel-heading">Contacto:
 		&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 			<div class="panel-body">
-				<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('convenios.contactos.store', ['convenio'=>$convenio]) }}" name="form">
+				<form role="form" id="form-cliente" method="POST" action="{{ route('convenios.contactos.store', ['convenio'=>$convenio]) }}" name="form">
 					{{ csrf_field() }}
 					<input type="hidden" name="convenio_id" value="{{$convenio->id}}" required>
 					<div class="col-xs-offset-10">

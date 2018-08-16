@@ -72,7 +72,7 @@
 
 							<li role="presentation"><a data-toggle="tab" href="#ocular">Historial Ocular:</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#anteojos">Anteojos:</a></li>
-							<li role="presentation"><a data-toggle="tab" href="#ortopedico" class="ui-tabs-anchor">Ortopédico: (En desarrollo)</a></li>
+							<li role="presentation"><a data-toggle="tab" href="#ortopedico" class="ui-tabs-anchor">Ortopédico:</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#cita" class="ui-tabs-anchor">Citas:</a></li>
 							<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li> 
 						</ul>
@@ -467,7 +467,7 @@
 					id="paciente_id">
 				<div class="row">
 					<div class="col-sm-3">
-						<label class="control-label" for="proxima_cita"><i class="fa fa-asterisk" aria-hidden="true"></i>Fecha Pròxima Cita:</label>
+						<label class="control-label" for="proxima_cita"><i class="fa fa-asterisk" aria-hidden="true"></i>Fecha Próxima Cita:</label>
 						<input type="date" class="form-control" id="proxima_cita" name="proxima_cita"  required min="{{date('Y-m-d')}}" max="2030-12-31">
 					</div>
 
@@ -612,11 +612,10 @@
 						<input type="hidden" name="paciente_id" value="{{ $paciente->id }}" id="paciente_id_crm">
 
 						<div class="col-xs-4 col-xs-offset-10">
-							<a class="btn btn-warning" id="limpiar" onclick="limpiar()"><strong>Limpiar</strong> </a>
-							<button  type="submit" class="btn btn-success" 
-							onclick='crm()'>
+							<a class="btn btn-warning" id="limpiarp" onclick="limpiarP()"><strong>Limpiar</strong> </a>
+							<button  type="submit" id="submitcrm" class="btn btn-success">
 						<strong>Guardar</strong>	</button>
-							<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
+							<a id="modificarp" class="btn btn-primary" onclick="modificarP()" style="display: none;">
 						<strong>Modificar</strong>	</a>
 							
 
@@ -637,7 +636,7 @@
 						</div>
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 							<label class="control-label" for="hora"><i class="fa fa-asterisk" aria-hidden="true"></i>Hora:</label>
-							<input type="text" class="form-control" id="hora_crm" name="hora"  value="">
+							<input type="time" min="9:00" max="18:00" class="form-control" id="hora_crm" name="hora"  value="">
 						</div>
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 							<label class="control-label" for="tipo_cont"><i class="fa fa-asterisk" aria-hidden="true"></i>Forma de contacto:</label>
@@ -708,7 +707,7 @@
 
 							@foreach($paciente->crms as $crm)
 								
-								<tr onclick="crm({{$crm}})" 
+								<tr onclick="crmP({{$crm}})" 
 								title="Has Click Aquì para ver o modificar"
 								style="cursor: pointer">
 									<td>{{$crm->fecha_cont}}</td>

@@ -44,14 +44,14 @@
 						@endif>
 					</div>
 					<div class="form-group col-xs-3">
-						<label class="control-label">ID:(Automàtico)</label>
+						<label class="control-label">ID:(Automático)</label>
 						<input class="form-control" type="text" readonly style="width:150px" name="identificador" id="identificador"
 						@if($edit==true)
 						value="{{$paciente->identificador}}"
 						@endif>
 					</div>
 					<div class="form-group col-xs-3">
-						<label class="control-label">Edad:(Automàtico)</label>
+						<label class="control-label">Edad:(Automático)</label>
 						<input class="form-control" type="text" readonly="" placeholder="Edad" id="edad" name="edad" style="width: 91px" name="edad" id="edad"
 						@if($edit==true)
 						value="{{$paciente->edad}}"
@@ -160,11 +160,12 @@ $(document).ready(function(){
 
     $("#fechanacimiento").change(function(){
 
-        var año1=$("#fechanacimiento").val();
-        var año2= Date();
-        var nacimiento=año1.substring(0,4);
-        var actual=año2.substring(11,15);
-        var edad=actual-nacimiento;
+        var fecha_nac=new Date($("#fechanacimiento").val());
+
+        var hoy= new Date();
+        // var nacimiento=año1.substring(0,4);
+        // var actual=año2.substring(11,15);
+        var edad=Math.floor((hoy-fecha_nac) / (365.25 * 24 * 60 * 60 * 1000));
        $("#edad").val(edad);
 
       var nombre=$("#nombre").val();
@@ -173,7 +174,7 @@ $(document).ready(function(){
       var seg=appaterno.substring(0,1);
       var apmaterno=$("#apmaterno").val();
       var ter=apmaterno.substring(0,1);
-      var id=prim+seg+ter+año1;
+      var id=prim+seg+ter+$("#fechanacimiento").val();
       var bid=id.toUpperCase(id);
        $("#identificador").val(bid);
     });

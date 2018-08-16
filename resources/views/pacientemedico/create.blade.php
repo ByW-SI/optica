@@ -96,7 +96,7 @@
 						<div class="boton checkbox-disabled">
                             <label>
                               <input id="chkalerg" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="alergias();" name="alergia">
-                                ¿Alèrgico a algùn medicamento ò alguna alèrgia en especial? .
+                                ¿Alérgico a algùn medicamento ò alguna alèrgia en especial? .
                             </label>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
 						<input class="form-control" type="text" name="cual_alergia" id="cual_alergia">
 							</div>
 							<div class="form-group col-xs-3"  id="alergias2" style="display: none;">
-						<label class="control-label">¿Tiene algùn Tratamiento?</label>
+						<label class="control-label">¿Tiene algún Tratamiento?</label>
 						<input class="form-control" type="text" name="tratamiento_alergia" id="tratamiento_alergia">
 							</div>
 						 		</div>
@@ -116,11 +116,7 @@
 
 					<div class="form-group col-xs-6">
 						<div class="boton checkbox-disabled">
-                            <label>
-
-                                <input id="cronica" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="enfermedad">
-                                ¿Padece alguna Enfermedad Crònica? .
-                            </label>
+                            <label><input id="cronica" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="enfermedad">¿Padece alguna Enfermedad Crónica? .</label>
                         </div>
                     </div></div>
 

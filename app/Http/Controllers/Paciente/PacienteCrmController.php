@@ -36,14 +36,16 @@ class PacienteCrmController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Paciente $paciente)
     {
 
 
         $crm=PacienteCRM::create($request->all());
-        $paciente=Paciente::where('id',$request->paciente_id)->first();
-       
-        return view('paciente.crm',['paciente'=>$paciente]);
+        // $paciente=Paciente::where('id',$request->paciente_id)->first();
+        Alert::success('CRM del día '.$crm->fecha_cont.' creado', 'Continuar');
+
+       return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);
+        // return view('paciente.crm',['paciente'=>$paciente]);
             
     }
 

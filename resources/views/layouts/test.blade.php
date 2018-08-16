@@ -17,8 +17,8 @@
     <script href="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     
    
-    <link rel="stylesheet" href="{{ asset('bootstrap-toggle/css/bootstrap-toggle.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('bootstrap-toggle/css/bootstrap-toggle.css') }}">
     <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sweetalert.css') }}">
@@ -71,8 +71,6 @@
     </script> --}}
     <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
     <script src="{{ asset('js/sweetalert.js') }}"></script>
-    <!-- Include this after the sweet alert js file -->
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
         <script src="{{asset('js/citas.js')}}"></script>
       <script src="{{asset('js/crm.js')}}"></script>

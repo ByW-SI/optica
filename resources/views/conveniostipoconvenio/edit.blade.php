@@ -5,7 +5,7 @@
 		<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.show',['convenio'=>$convenio]) }}">Dirección Fisica:</a></li>
 		<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.direccionfiscal.index',['convenio'=>$convenio]) }}">Dirección Fiscal:</a></li>
 		<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.contactos.index',['convenio'=>$convenio]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-		<li role="presentation" tabindex="-1" class="active" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('convenios.tipoconvenios.create', ['convenio'=>$convenio]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Tipo de Convenio:</a></li>
+		<li role="presentation" tabindex="-1" class="active" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('convenios.tipoconvenios.index', ['convenio'=>$convenio]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Tipo de Convenio:</a></li>
 		
 	</ul>
 	<div class="panel panel-default">
@@ -95,9 +95,9 @@
                     <td>{{$tipo_convenio->valido_inicio}}</td>
                     <td>{{$tipo_convenio->valido_fin}}</td>
                     <td>
-                      <a class="btn btn-success btn-sm" href="#"><i class="fa fa-eye" aria-hidden="true"></i><strong>Ver</strong></a>
+                      <a class="btn btn-success btn-sm" href="{{ route('convenios.tipoconvenios.show',['convenio'=>$convenio,'tipoconvenio'=>$tipo_convenio]) }}"><i class="fa fa-eye" aria-hidden="true"></i><strong>Ver</strong></a>
 
-                    <a class="btn btn-info btn-sm" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><strong>Editar</strong></a>
+                    <a class="btn btn-info btn-sm" href="{{ route('convenios.tipoconvenios.edit',['convenio'=>$convenio,'tipoconvenio'=>$tipo_convenio]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><strong>Editar</strong></a>
                     </td>
                   </tr>
                   @endforeach							

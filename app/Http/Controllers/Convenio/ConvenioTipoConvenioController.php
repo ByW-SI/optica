@@ -19,6 +19,7 @@ class ConvenioTipoConvenioController extends Controller
     {
         //
         // dd($convenio);
+        return view('conveniostipoconvenio.create',['convenio'=>$convenio]);
         
     }
 
@@ -30,7 +31,7 @@ class ConvenioTipoConvenioController extends Controller
     public function create(Convenio $convenio)
     {
         //
-        return view('conveniostipoconvenio.create',['convenio'=>$convenio]);
+       
     }
 
     /**
@@ -59,7 +60,7 @@ class ConvenioTipoConvenioController extends Controller
             $this->validate($request,$rules);
             $tipoconvenio=TipoConvenio::create($request->all());
             Alert::success("Convenio ".$tipoconvenio->nombre." fue creado con éxito")->persistent("Cerrar");
-            return redirect()->route('convenios.tipoconvenios.create',['convenio'=>$convenio]);
+            return redirect()->route('convenios.tipoconvenios.index',['convenio'=>$convenio]);
         }
     }
 
@@ -69,10 +70,10 @@ class ConvenioTipoConvenioController extends Controller
      * @param  \App\Convenio  $convenio
      * @return \Illuminate\Http\Response
      */
-    public function show(Convenio $convenio, TipoConvenio $tipoConvenio)
+    public function show(Convenio $convenio, TipoConvenio $tipoconvenio)
     {
         //
-
+        return view('conveniostipoconvenio.show',['convenio'=>$convenio,'tipoconvenio'=>$tipoconvenio]);
     }
 
     /**
@@ -113,7 +114,7 @@ class ConvenioTipoConvenioController extends Controller
         $this->validate($request,$rules);
         $tipoconvenio->update($request->all());
         Alert::success("Convenio ".$tipoconvenio->nombre." fue actualizado con éxito")->persistent("Cerrar");
-        return redirect()->route('convenios.tipoconvenios.create',['convenio'=>$convenio]);
+        return redirect()->route('convenios.tipoconvenios.index',['convenio'=>$convenio]);
     }
 
     /**

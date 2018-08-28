@@ -59,9 +59,6 @@ Route::get('buscarbanco','Banco\BancoController@buscar');
 Route::get('buscargiro','Giro\GiroController@buscar');
 Route::get('buscarformacontacto','FormaContacto\FormaContactoController@buscar');
 
-
-
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -141,6 +138,6 @@ Route::resource('pacientes.ortopedias','Paciente\PacienteHistorialOrtopedicoCont
 //Route::post('citas','Paciente\PacienteCitaController@citas');
 //------------------------------------------------------------
 
-
-
-
+Route::get('/lentillas', function () {
+    return view('lentillas.create');
+});

@@ -82,7 +82,7 @@
 										@endif>
 								</div>
 								<div class="form-group col-xs-3">
-									<label class="control-label">Codigo Postal:</label>
+									<label class="control-label">Código Postal:</label>
 									<input class="form-control" type="text" name="cp"
 									@if ($edit == true)s
 										value="{{$paciente->generales->cp}}"
@@ -113,21 +113,21 @@
 										@endif required>
 								</div>
 								<div class="form-group col-xs-4">
-									<label class="control-label">Telefono Oficina:</label>
+									<label class="control-label">Teléfono Oficina:</label>
 									<input class="form-control" type="text" name="teloficina"
 									@if ($edit == true)
 										value="{{$paciente->generales->teloficina}}"
 										@endif required>
 								</div>
 								<div class="form-group col-xs-4">
-									<label class="control-label">Telefono celular:</label>
+									<label class="control-label">Teléfono Celular:</label>
 									<input class="form-control" type="text" name="telcelular"
 									@if ($edit == true)
 										value="{{$paciente->generales->telcelular}}"
 										@endif required>
 								</div>
 								<div class="form-group col-xs-4">
-									<label class="control-label">Email:</label>
+									<label class="control-label">E-mail:</label>
 									<input class="form-control" type="mail" name="email"
 									@if ($edit == true)
 										value="{{$paciente->generales->email}}"

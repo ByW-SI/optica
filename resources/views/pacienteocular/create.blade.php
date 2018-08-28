@@ -151,7 +151,7 @@
 										
 									<div class="col-xs-offset-1 form-group col-xs-4">
 
-										<label class="control-label" for="fecha_act">Fecha de Último Exámen:</label>
+										<label class="control-label" for="fecha_act">Fecha de Último Examen:</label>
 										<input type="date" class="form-control" id="fecha_act"  value="{{ date('Y-m-d') }}" readonly>
 
 										
@@ -417,7 +417,7 @@
 											<option value="20/10">20/10</option>
 											<option value="S.P.L">S.P.L</option>
 											<option value="N.P.L">N.P.L</option>
-											<option value="Protésis">Protésis</option>
+											<option value="Protésis">Prótesis</option>
 											</select>
                     				  </div>
 
@@ -441,7 +441,7 @@
 											<option value="20/10">20/10</option>
 											<option value="S.P.L">S.P.L</option>
 											<option value="N.P.L">N.P.L</option>
-											<option value="Protésis">Protésis</option>
+											<option value="Protésis">Prótesis</option>
 										</select>
                     					</div>
                     					

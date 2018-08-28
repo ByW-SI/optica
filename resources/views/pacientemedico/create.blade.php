@@ -96,13 +96,13 @@
 						<div class="boton checkbox-disabled">
                             <label>
                               <input id="chkalerg" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="alergias();" name="alergia">
-                                ¿Alérgico a algùn medicamento ò alguna alèrgia en especial? .
+                                ¿Alérgico a algún medicamento o alguna alergia en especial? .
                             </label>
                         </div>
                     </div>
 
 						 	<div class="form-group col-xs-3" style="display: none;" id="alergias1" name="alergias1">
-						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>¿Cuàl?:</label>
+						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>¿Cuál?:</label>
 						<input class="form-control" type="text" name="cual_alergia" id="cual_alergia">
 							</div>
 							<div class="form-group col-xs-3"  id="alergias2" style="display: none;">
@@ -143,7 +143,7 @@
                     					<div class="col-sm-3">
                     						<div class="boton checkbox-disabled">
                             <label>
-                            	 ¿Tiene Tratamiento/Control ?
+                            	 ¿Tiene Tratamiento/Control?
                             </label>
                                 <input id="control" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="chkalerg()" name="tratamiento">
                                
@@ -197,7 +197,7 @@
                                 </div>
                                 @endif
                                 <div class="col-sm-5" style="display: none" id="emb_tiempo">
-						 	     <label class="control-label">¿Cuanto Tiempo?:</label>
+						 	     <label class="control-label">¿Cuánto Tiempo?:</label>
                                  <input id="tiempo_embarazo" type="text" class="form-control" name="tiempo_embarazo">	
                                 </div>
                                 

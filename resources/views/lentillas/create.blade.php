@@ -103,15 +103,13 @@
 							      			<div class="col-sm-4">
 												<span class="badge badge-secondary">Diario</span>
 												<div class="row">
-													<input type="radio" name="tipo_desechable" value="DIARIO" class="option-input radio" style="top: 0;" 
-													id="desechable_radio1">
+													<input type="radio" name="tipo_desechable" value="DIARIO" class="option-input radio" style="top: 0;" id="desechable_radio1">
 												</div>
 							      			</div>
 							      			<div class="col-sm-4">
 												<span class="badge badge-secondary">Mensual</span>
 												<div class="row">
-													<input type="radio" name="tipo_desechable" value="MENSUAL" class="option-input radio" style="top: 0;" 
-													id="desechable_radio2">
+													<input type="radio" name="tipo_desechable" value="MENSUAL" class="option-input radio" style="top: 0;" id="desechable_radio2">
 												</div>
 							      			</div>
 										</div>
@@ -123,7 +121,7 @@
 							      			<div class="col-sm-4">
 												<span class="badge badge-secondary">Optima 38</span>
 												<div class="row">
-													<input type="radio" name="anual" value="OPTIMA 38" class="option-input radio" style="top: 0;">
+													<input type="radio" name="anual" value="OPTIMA 38" class="option-input radio" style="top: 0;" id="anual_radio">
 												</div>
 							      			</div>
 										</div>
@@ -234,7 +232,7 @@
 
 <script type="text/javascript">
 	
-	var flag1 = false, flag2 = false, flag3 = false;
+	var flag1 = false, flag2 = false, flag3 = false, flag4 = false;
 	function cargar() {
 
 		if(flag1) {
@@ -250,11 +248,18 @@
       		flag2 = false;
 	    }
 	    if(flag3) {
-     		$("#tipo_desechable").prop('value', '');
+     		$("#tipo_esferico").prop('value', '');
+	      	document.getElementById('desechable').style.display = 'none';
+	      	document.getElementById('torico').style.display = 'none';
+	      	flag3 = false;
+	    }
+	    if(flag4) {
      		$("#desechable_radio1").prop('checked', false);
      		$("#desechable_radio2").prop('checked', false);
-	      	document.getElementById('desechable').style.display = 'none';
-	      	flag3 = false;
+     		$("#anual_radio").prop('checked', false);
+      		document.getElementById('diario').style.display = 'none';
+      		document.getElementById('mensual').style.display = 'none';
+	      	flag4 = false;
 	    }
 
 		// TIPO DE ANTEOJOS 1
@@ -262,6 +267,7 @@
 			flag1 = true;
 			flag2 = true;
 			flag3 = true;
+	      	flag4 = true;
 		});
 		$('#anteojo_radio1').change(function() {
       		document.getElementById('armazon').style.display = 'block';
@@ -286,12 +292,14 @@
       		}
 	      	flag2 = true;
 	      	flag3 = true;
+	      	flag4 = true;
 		});
 
 		// TIPO DE COSMÉTICO 3
 		$('[name="tipo_cosmetico"]').change(function() {
 	      	document.getElementById('esferico').style.display = 'block';
 	      	flag3 = true;
+	      	flag4 = true;
      	});
 
      	// TIPO DE ESFÉRICO 4
@@ -308,6 +316,7 @@
 	      		document.getElementById('desechable').style.display = 'none';
 	      		document.getElementById('anual').style.display = 'none';
       		}
+	      	flag4 = true;
 		});
 
 		// TIPO DESECHABLE

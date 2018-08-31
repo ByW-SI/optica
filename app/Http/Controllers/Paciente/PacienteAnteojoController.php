@@ -27,7 +27,7 @@ class PacienteAnteojoController extends Controller
      */
     public function create(Paciente $paciente)
     {
-        return view('anteojos.create',['paciente'=>$paciente]);
+        return view('lentillas.create', ['paciente'=>$paciente]);
     }
 
     /**

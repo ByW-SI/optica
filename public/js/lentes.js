@@ -138,26 +138,6 @@ $("#tipo_lente").change(function(){
       });
 
 
-    $("#armazon_radio1").change(function(){
-      document.getElementById('armazon').style.display = 'block';
-      document.getElementById('contacto').style.display = 'none';
-      $("#tipo_lente").prop('required',true);
-     });
-
-     $("#armazon_radio2").change(function(){
-      document.getElementById('contacto').style.display = 'block';
-      document.getElementById('armazon').style.display = 'none';
-      $("#tipo_lente").prop('required',false);
-      
-     });
-
-    $("#armazon_radio3").change(function(){
-      document.getElementById('armazon').style.display = 'block';
-      document.getElementById('contacto').style.display = 'block';
-      $("#tipo_lente").prop('required',true);
-     });
-
-
     $("#fotocromatico").change(function(){
 
        

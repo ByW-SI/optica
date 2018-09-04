@@ -71,7 +71,6 @@
 					<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">C.R.M:</a></li> 
 				</ul>
 			</div>
-
 			<form role="form" method="POST" action="{{ route('pacientes.anteojos.store',['paciente'=>$paciente]) }}">
 				{{ csrf_field() }}
 				<input type="hidden" name="paciente_id" value="{{$paciente->id}}">
@@ -97,7 +96,6 @@
 							</div>
 						</div>
 					</div>
-
 					<div id="armazon" style="display: none;">
 						<div class="row">
 							<div class="col-sm-12">
@@ -707,7 +705,7 @@
 							<div class="row">
 								<div class="col-sm-4 text-center">
 									<label class="control-label">Tipo de Lente:</label>
-									<select class="form-control" name="tipo_lentec" id="tipo_lentec">
+									<select class="form-control" name="tipo_lentilla" id="tipo_lentilla">
 										<option value="">Seleccione uno</option>
 										<option value="HIDROFÍLICOS">Hidrofílicos</option>
 										<option value="RÍGIDO">Rígido</option>
@@ -1021,6 +1019,5 @@
 		</div>
 	</div>
 </div>
-
 
 @endsection

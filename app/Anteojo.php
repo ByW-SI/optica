@@ -50,6 +50,15 @@ class Anteojo extends Model
     					 'tratamiento_progresivo_premium_fotocromatico',
     					 'anti_premium_progresivo',
     					 'foto_premium_progresivo',
+                         'tipo_lentilla',
+                         'categoria',
+                         'tipo_cosmetico',
+                         'tipo_esferico',
+                         'tipo_torico',
+                         'duracion',
+                         'diario',
+                         'mensual',
+                         'anual',
     					 'opciones'];
 
     protected $hidden=[ 'deleted_at'];

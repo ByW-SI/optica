@@ -18,7 +18,6 @@ class CreateAnteojosTable extends Migration
             $table->integer('paciente_id')->unsigned();
             $table->foreign('paciente_id')->references('id')->on('pacientes');
             //------------------------------------
-
             $table->enum('tipo_anteojo', ['ARMAZÓN', 'LENTES DE CONTACTO','AMBOS'])->nullable();
             $table->enum('tipo_lente', ['MONOFOCAL', 'BIFOCAL','PROGRESIVO'])->nullable();
             $table->enum('monofocal', ['LEJOS', 'CERCA','AMBAS','SUB-CORRECCIÓN'])->nullable();
@@ -62,6 +61,34 @@ class CreateAnteojosTable extends Migration
             $table->enum('anti_premium_progresivo', ['CRIZAL EASY', 'CRIZAL ALIZE','CRIZAL FORTE','CRIZAL PREVENCIA'])->nullable();
             $table->enum('foto_premium_progresivo', ['TRANSITIONS GRIS', 'TRANSITIONS CAFÉ','TRANSITIONS VERDE'])->nullable();
             //---------------------------------------------------------------------
+            /*
+             * LENTES DE CONTACTO
+             */
+            $table->enum('tipo_lentilla', ['HIDROFÍLICOS', 'RÍGIDO', 'HÍBRIDO'])->nullable();
+            $table->enum('categoria', ['COSMÉTICO', 'ESFÉRICO', 'TÓRICO', 'MULTIFOCALES', 'PUPILA NEGRA'])->nullable();
+            $table->enum('tipo_cosmetico', ['AIR OPTIX COLORS', 'FRESH COLORBLENDS', 'FRESHLOOK DAILIES'])->nullable();
+            $table->enum('tipo_esferico', ['DESECHABLES', 'ANUALES'])->nullable();
+            $table->enum('tipo_torico', ['NACIONAL', 'IMPORTADO'])->nullable();
+            $table->enum('duracion', ['DIARIO', 'MENSUAL'])->nullable();
+            $table->enum('diario', ['CLARITI 1 DAY MULTIFOCAL', 'CLARITI 1 DAY', 'DAILIES AQUA', 'CLARITI 1 DAY TORIC'])->nullable();
+            $table->enum('mensual', [
+                'BIOFINITY MULTIFOCAL',
+                'AIR OPTIX MULTIFOCAL',
+                'BIOFINITY',
+                'BIOFINITY XR',
+                'BIOMEDICS NOW',
+                'O2 OPTIX',
+                'AIR OPTIX AQUA',
+                'NIGHT & DAY AQUA',
+                'PURE VISION 2',
+                'ACUVUE OASYS',
+                'BIOFINITY TORIC',
+                'BIOFINITY TORIC XR',
+                'AIR OPTICS FOR ASTIGMATISM',
+                'ACUVUE OASYS TORIC'
+            ])->nullable();
+            $table->enum('anual', ['OPTIMA 38'])->nullable();
+
             $table->string('opciones')->nullable();
             //------------------------------------
             $table->softDeletes();

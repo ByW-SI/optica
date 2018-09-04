@@ -20,6 +20,33 @@ class PacienteAnteojoController extends Controller
         //
     }
 
+
+    private function reassign(Request $request) {
+        $aux = $aux2 = $aux3 = null;
+        if($request->input('tipo_desechable') != null)
+            $aux = $request->input('tipo_desechable');
+        else if($request->input('tipo_importado') != null)
+            $aux = $request->input('tipo_importado');
+        else if($request->input('tipo_multifocal') != null)
+            $aux = $request->input('tipo_multifocal');
+        $newVal[0] = $aux;
+        if($request->input('diario') != null)
+            $aux2 = $request->input('diario');
+        else if($request->input('diario_torico') != null)
+            $aux2 = $request->input('diario_torico');
+        else if($request->input('diario_multifocal') != null)
+            $aux2 = $request->input('diario_multifocal');
+        $newVal[1] = $aux2;
+        if($request->input('mensual') != null)
+            $aux3 = $request->input('mensual');
+        else if($request->input('mensual_torico') != null)
+            $aux3 = $request->input('mensual_torico');
+        else if($request->input('mensual_multifocal') != null)
+            $aux3 = $request->input('mensual_multifocal');
+        $newVal[2] = $aux3;
+        return $newVal;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -38,7 +65,11 @@ class PacienteAnteojoController extends Controller
      */
     public function store(Request $request,Paciente $paciente)
     {
-        $anteojo=Anteojo::create($request->except('opciones'));
+        $aux = $this->reassign($request);
+        $request['duracion'] = $aux[0];
+        $request['diario'] = $aux[1];
+        $request['mensual'] = $aux[2];
+        $anteojo = Anteojo::create($request->except('opciones'));
         $opciones='';
 
         foreach ($request->opciones as $opcion) {

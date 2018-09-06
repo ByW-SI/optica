@@ -66,17 +66,23 @@ Route::get('consulta',function(){
 	return View::make('empleadoconsulta.consulta');
 });
 Route::get('bonos',function(){
-
-	return View::make('Empleadobonos.bonos');
+	foreach (Auth::user()->perfil->modulos as $modulo)
+		if($modulo->nombre == 'rh')
+			return View::make('Empleadobonos.bonos');
+	return redirect()->route('denegado');
 });
 Route::get('comision',function(){
-
-	return View::make('Empleadobonos.comision');
+	foreach (Auth::user()->perfil->modulos as $modulo)
+		if($modulo->nombre == 'rh')
+			return View::make('Empleadobonos.comision');
+	return redirect()->route('denegado');
 });
 
 Route::get('productos',function(){
-
-	return View::make('Productos.create');
+	foreach (Auth::user()->perfil->modulos as $modulo)
+		if($modulo->nombre == 'proveedores')
+			return View::make('Productos.create');
+	return redirect()->route('denegado');
 });
 Route::get('ocul',function(){
 
@@ -136,10 +142,6 @@ Route::resource('pacientes.ortopedias','Paciente\PacienteHistorialOrtopedicoCont
 //Route::post('citas','Paciente\PacienteCitaController@citas');
 //------------------------------------------------------------
 
-Route::get('/lentillas', function () {
-    return view('lentillas.create');
-});
-
 Route::get('/home', function () {
 	if(Auth::check()){
     	return view('welcome');
@@ -158,3 +160,10 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+Route::get('/denegado',function(){
+	return view('errors.denegado');
+})->name('denegado');
+
+Route::resource('perfil', 'Perfil\PerfilController');
+Route::resource('usuario', 'Usuario\UsuarioController');

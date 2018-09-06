@@ -3,20 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Kyslik\ColumnSortable\Sortable;
-use Laravel\Scout\Searchable;
 
-class Puesto extends Model  
+class Perfil extends Model  
 {
-    //
-    use Sortable, SoftDeletes;
-    protected $table = 'puestos';
-    protected $fillable=['id','nombre','etiqueta'];
-    protected $hidden=[ 'created_at', 'updated_at','deleted_at'];
-    public $sortable=['id','nombre', 'etiqueta'];
+    protected $table = 'perfils';
+    protected $fillable=['id','nombre'];
+    protected $hidden=[ 'created_at', 'updated_at'];
     
-    public function usuarios() {
-        return $this->hasMany('App\Usuario');
+    public function modulos() {
+        return $this->belongsToMany('App\Modulo');
+    }
+
+    public function users() {
+    	return $this->hasMany('App\User');
     }
 }

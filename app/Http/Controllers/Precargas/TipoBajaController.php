@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Precargas;
 use App\TipoBaja;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TipoBajaController extends Controller
 {
-    public function __construct(){
+    public function __construct() {
         $this->titulo = 'Tipo de Baja';
         $this->agregar = 'bajas.create';
         $this->guardar = 'bajas.store';

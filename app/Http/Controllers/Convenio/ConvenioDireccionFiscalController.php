@@ -6,11 +6,26 @@ use App\Convenio;
 use App\ConvenioDireccionFiscal;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 
 
 class ConvenioDireccionFiscalController extends Controller
 {
+    public function __construct() {
+        $this->middleware(function ($request, $next) {
+            if(Auth::check()) {
+                $user = Auth::user();
+                $modulos = $user->perfil->modulos;
+                foreach ($modulos as $modulo) {
+                    if($modulo->nombre == "sucursales")
+                        return $next($request);
+                }
+                return redirect()->route('denegado');
+            } else
+                return redirect()->route('login');
+        });
+    }
     /**
      * Display a listing of the resource.
      *

@@ -127,6 +127,12 @@ function cargar() {
     $("#tipo_lentilla").prop('checked', true);
     $("#tipo_categoria").prop('checked', true);
   });
+  $('#anteojo_radio3').change(function() {
+    document.getElementById('armazon').style.display = 'block';
+    document.getElementById('contacto').style.display = 'block';
+    $("#tipo_lentilla").prop('checked', true);
+    $("#tipo_categoria").prop('checked', true);
+  });
 
   // TIPO DE LENTES DE CONTACTO
   $("#tipo_lentilla").change(function() {

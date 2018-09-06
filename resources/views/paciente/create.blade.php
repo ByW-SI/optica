@@ -59,7 +59,7 @@
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Fecha de nacimiento:</label>
-						<input class="form-control" type="date" id="fechanacimiento" name="fecha_nacimiento" required min="1979-12-31" max="{{date('Y-m-d')}}"
+						<input class="form-control" type="date" id="fechanacimiento" name="fecha_nacimiento" required min="1950-12-31" max="{{date('Y-m-d')}}"
 						@if($edit==true)
 						value="{{$paciente->fecha_nacimiento}}"
 						@endif>

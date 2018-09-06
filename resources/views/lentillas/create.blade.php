@@ -95,6 +95,13 @@
 								id="anteojo_radio2">
 							</div>
 						</div>
+						<div class="col-sm-4">
+							<label class="control-label">Ambos</label>
+							<div class="row">
+								<input type="radio" name="tipo_anteojo" value="AMBOS" class="option-input radio" style="top: 0;" 
+								id="anteojo_radio3">
+							</div>
+						</div>
 					</div>
 					<div id="armazon" style="display: none;">
 						<div class="row">

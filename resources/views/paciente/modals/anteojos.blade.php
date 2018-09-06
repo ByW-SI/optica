@@ -10,7 +10,8 @@
 			@include('paciente.modals.sub.contacto')
 			@break
 			@case('AMBOS')
-			
+			@include('paciente.modals.sub.armazon')
+			@include('paciente.modals.sub.contacto')
 			@break
 			@default
 			@break

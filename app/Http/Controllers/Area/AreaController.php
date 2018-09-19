@@ -9,18 +9,20 @@ use Illuminate\Support\Facades\Auth;
 
 class AreaController extends Controller
 {
-    $this->middleware(function ($request, $next) {
-        if(Auth::check()) {
-            $user = Auth::user();
-            $modulos = $user->perfil->modulos;
-            foreach ($modulos as $modulo) {
-                if($modulo->nombre == "rh")
-                    return $next($request);
-            }
-            return redirect()->route('denegado');
-        } else
-            return redirect()->route('login');
-    });
+    public function __construct() {
+        $this->middleware(function ($request, $next) {
+            if(Auth::check()) {
+                $user = Auth::user();
+                $modulos = $user->perfil->modulos;
+                foreach ($modulos as $modulo) {
+                    if($modulo->nombre == "rh")
+                        return $next($request);
+                }
+                return redirect()->route('denegado');
+            } else
+                return redirect()->route('login');
+        });
+    }
     /**
      * Display a listing of the resource.
      *

@@ -20,7 +20,7 @@ Route::get('provedores.datosgenerales.show', 'Provedor\ProvedorDatosGeneralesCon
 Route::resource('provedores.direccionfisica','Provedor\ProvedorDireccionFisicaController');
 Route::resource('provedores.datosgenerales','Provedor\ProvedorDatosGeneralesController');
 Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
-Route::resource('provedores.crm','Provedor\ProvedorCRMController');
+Route::resource('provedores.datosbancarios','Provedor\ProveedorDatosBancariosController');
 
 
 // CONVENIOS

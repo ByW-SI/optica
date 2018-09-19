@@ -58,4 +58,8 @@ class Provedor extends Model
     public function crm(){
         return $this->hasMany('App\ProvedorCRM');
     }
+
+    public function datosBancarios(){
+        return $this->hasMany('App\DatosBancariosProveedor');
+    }
 }

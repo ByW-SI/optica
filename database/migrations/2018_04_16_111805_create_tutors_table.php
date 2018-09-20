@@ -20,12 +20,12 @@ class CreateTutorsTable extends Migration
             //--------------------------------------------
             $table->string('nombre');
             $table->string('appaterno');
-            $table->string('apmaterno');
-            $table->string('edad');
+            $table->string('apmaterno')->nullable();
+            $table->string('edad')->nullable();
             $table->date('fecha_nacimiento')->nullable();
             $table->enum('sexo', ['Masculino', 'Femenino','Otro']);
             $table->string('relacion');
-            $table->string('tel_casa');
+            $table->string('tel_casa')->nullable();
             $table->string('tel_cel');
              //------------------------------------------------
             $table->timestamps();

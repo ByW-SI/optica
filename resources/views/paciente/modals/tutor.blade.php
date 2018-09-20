@@ -16,11 +16,11 @@
 							<input type="hidden" name="paciente_id" value="{{$paciente->id}}">
 							<div class="form-group col-xs-4">
 								<label class="control-label">Nombre:</label>
-								<input class="form-control" type="text" name="nombre">
+								<input class="form-control" type="text" name="nombre" required="">
 							</div>
 							<div class="form-group col-xs-4">
 								<label class="control-label">Apellido Paterno:</label>
-								<input class="form-control" type="text" name="appaterno">
+								<input class="form-control" type="text" name="appaterno" required="">
 							</div>
 							<div class="form-group col-xs-4">
 								<label class="control-label">Apellido Materno:</label>
@@ -36,7 +36,7 @@
 							</div>
 							<div class="form-group col-xs-4">
 								<label class="control-label">Sexo:</label>
-								<select class="form-control" name="sexo">
+								<select class="form-control" name="sexo" required="">
 									<option value="Masculino">Masculino</option>
 									<option value="Femenino">Femenino</option>
 									<option value="Otro">Otro</option>
@@ -44,7 +44,7 @@
 							</div>
 							<div class="form-group col-xs-4">
 								<label class="control-label">Relación:</label>
-								<select class="form-control" name="relacion" id="relacion">
+								<select class="form-control" name="relacion" id="relacion" required="">
 									<option value="Padre">Padre</option>
 									<option value="Madre">Madre</option>
 									<option value="Tio/Tia">Tio/Tia</option>

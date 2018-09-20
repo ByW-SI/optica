@@ -81,36 +81,36 @@
 		<div class="panel-heading">
 			<div class="row">
 				<div class="col-sm-4">
-					<h5>Datos Bancarios:&nbsp;<small><small><i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</small></small></h5>
+					<h5>Datos Bancarios:</h5>
 				</div>
 			</div>
 		</div>
 		<div class="panel-body">
 			<div class="row">
 				<div class="form-group col-sm-3">
-					<label class="control-label" for="banco"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Banco:</label>
+					<label class="control-label" for="banco">Banco:</label>
 					<dd>{{ $bancario->banco->nombre }}</dd>
 				</div>
 				<div class="form-group col-sm-3">
-						<label class="control-label" for="cuenta"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Número de Cuenta:</label>
+						<label class="control-label" for="cuenta">Número de Cuenta:</label>
 					<dd>{{ $bancario->cuenta }}</dd>
 					</div>
 				<div class="form-group col-sm-3">
-						<label class="control-label" for="clabe"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> CLABE:</label>
+						<label class="control-label" for="clabe">CLABE:</label>
 					<dd>{{ $bancario->clabe }}</dd>
 					</div>
 				<div class="form-group col-sm-3">
-						<label class="control-label" for="beneficiario"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Beneficiario:</label>
+						<label class="control-label" for="beneficiario">Beneficiario:</label>
 					<dd>{{ $bancario->beneficiario }}</dd>
 					</div>
 			</div>
-			<!-- <div class="row">
+			<div class="row">
 				<div class="col-sm-12 text-center">
-					<button type="submit" class="btn btn-success">
-				        <strong>Guardar</strong>
-					</button>
+					<a class="btn btn-warning" href="{{ route('provedores.datosbancarios.edit', ['provedore' => $provedore, 'bancario' => $provedore->datosBancarios->first()]) }}">
+				       <strong>Editar</strong>
+					</a>
 				</div>
-			</div> -->
+			</div>
 		</div>
 	</div>
 </div>

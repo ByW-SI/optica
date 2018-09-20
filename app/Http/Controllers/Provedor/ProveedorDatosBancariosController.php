@@ -10,14 +10,10 @@ use App\Http\Controllers\Controller;
 
 class ProveedorDatosBancariosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Provedor $provedore)
     {
-        $bancario = DatosBancariosProveedor::get()->first();
+        $bancario = $provedore->datosBancarios->first();
         if(!$bancario) {
             $bancos = Banco::get();
             return view('datosbancariosproveedores.create', ['provedore' => $provedore, 'bancos' => $bancos]);
@@ -25,23 +21,12 @@ class ProveedorDatosBancariosController extends Controller
         return view('datosbancariosproveedores.view', ['provedore' => $provedore, 'bancario' => $bancario]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Provedor $provedore)
     {
         $bancos = Banco::get();
         return view('datosbancariosproveedores.create', ['provedore' => $provedore, 'bancos' => $bancos]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request, Provedor $provedore)
     {
         $bancario = new DatosBancariosProveedor();
@@ -54,48 +39,26 @@ class ProveedorDatosBancariosController extends Controller
         return view('datosbancariosproveedores.view', ['provedore' => $provedore, 'bancario' => $bancario]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Provedor $provedore)
-    {
-        //
+    public function view() {
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Provedor $provedore)
     {
-        //
+        $bancario = DatosBancariosProveedor::get()->first();
+        $bancos = Banco::get();
+        return view('datosbancariosproveedores.edit', ['provedore' => $provedore, 'bancario' => $bancario, 'bancos' => $bancos]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Provedor $provedore, $id)
+    public function update(Request $request, Provedor $provedore)
     {
-        //
+        $bancario = $provedore->datosBancarios->first();
+        $bancario->update($request->all());
+        return $this->index($provedore);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function destroy() {
+
     }
+
 }

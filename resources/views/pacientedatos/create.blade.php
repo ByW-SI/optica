@@ -1,162 +1,136 @@
 @extends('layouts.infopaciente')
 @section('infopaciente')
-<div>
-		<ul class="nav nav-pills nav-justified">
-			<li role="presentation" class="active"><a href=""  class="ui-tabs-anchor">Generales:</a></li> 
-			{{--  {{ route('empleados.show',['empleado'=>$empleado]) }}--}}
+						
 
-			<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor" >Historial Médico:</a></li>
+@if ($edit)
+<form role="form" method="POST" action="{{ route('pacientes.datosgenerales.update',['paciente'=>$paciente,'datosgenerale'=>$paciente->generales]) }}">
+	{{ csrf_field() }}
+	<input type="hidden" name="_method" value="PUT">
+@else
+<form role="form" method="POST" action="{{ route('pacientes.datosgenerales.store',['paciente'=>$paciente]) }}">
+	{{ csrf_field() }}
+@endif
+	<div class="panel-default">
+		<div class="panel-heading">
+			<h5>Datos Generales: <small><i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</small></h5>
+		</div>
+		<div class="panel-body">
+			<input type="hidden" name="paciente_id" value="{{$paciente->id}}" id="paciente_id">	
+			<div class="row">
+				<div class="col-sm-3">
+					<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Ocupación:</label>
+					<input class="form-control" type="text" name="ocupacion" 
+					@if ($edit == true)
+					value="{{$paciente->generales->ocupacion}}"
+					@endif required>
+				</div>
+				<div class="col-sm-3">
+					<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Convenio:</label>
+					<select class="form-control" name="convenio" required>
+						<option value="">Seleccionar</option>
+						<option>Convenio 1</option>
+						<option>Convenio 2</option>
+						<option>Convenio ...</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="panel-heading">
+			<h5>Dirección: <small><i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</small></h5>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="form-group col-sm-3">
+					<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Calle:</label>
+					<input class="form-control" type="text" name="calle" 
+					@if ($edit == true)
+						value="{{$paciente->generales->calle}}"
+						@endif required>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label">Número Interior:</label>
+					<input class="form-control" type="text" name="numint" 
+					@if ($edit == true)
+						value="{{$paciente->generales->numint}}"
+						@endif>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Número Exterior:</label>
+					<input required class="form-control" type="text" 
+					name="numext"
 
-			<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">Historial Ocular:</a></li>
-
-			<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">Anteojos:</a></li>
-
-			<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">Ortopédico:</a></li>
-
-			<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">Citas:</a></li>
-
-		 <li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">C.R.M:</a></li>	
-		</ul>
+					@if ($edit == true)
+						value="{{$paciente->generales->numext}}"
+						@endif>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label">Código Postal:</label>
+					<input class="form-control" type="text" name="cp"
+					@if ($edit == true)s
+						value="{{$paciente->generales->cp}}"
+						@endif>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-sm-3">
+					<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Delegación/Municipio:</label>
+					<input class="form-control" type="text" name="municipio"
+					@if ($edit == true)
+						value="{{$paciente->generales->municipio}}"
+						@endif required>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Estado:</label>
+					<input class="form-control" type="text" name="estado"
+					@if ($edit == true)
+						value="{{$paciente->generales->estado}}"
+						@endif required>
+				</div>
+			</div>
+		</div>
+		<div class="panel-heading">
+			<h5>Contacto: <small><i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</small></h5>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="form-group col-sm-3">
+					<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Telefono Casa:</label>
+					<input class="form-control" type="text" name="telcasa"
+					@if ($edit == true)
+						value="{{$paciente->generales->telcasa}}"
+						@endif required>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Teléfono Oficina:</label>
+					<input class="form-control" type="text" name="teloficina"
+					@if ($edit == true)
+						value="{{$paciente->generales->teloficina}}"
+						@endif required>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Teléfono Celular:</label>
+					<input class="form-control" type="text" name="telcelular"
+					@if ($edit == true)
+						value="{{$paciente->generales->telcelular}}"
+						@endif required>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> E-mail:</label>
+					<input class="form-control" type="mail" name="email"
+					@if ($edit == true)
+						value="{{$paciente->generales->email}}"
+						@endif required>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<button id="submit" type="submit" class="btn btn-success">
+								<strong>Guardar</strong>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	{{-- DATOS GENERALES --}}
-						
-							
-							<div class="panel-default">
-								@if ($edit == true)
-				{{-- true expr --}}
-
-		
-				<form role="form" method="POST" action="{{ route('pacientes.datosgenerales.update',['paciente'=>$paciente,'datosgenerale'=>$paciente->generales]) }}">
-
-				{{ csrf_field() }}
-				<input type="hidden" name="_method" value="PUT">
-			@else
-				{{-- false expr --}}
-			<form role="form" method="POST" action="{{ route('pacientes.datosgenerales.store',['paciente'=>$paciente]) }}">
-				{{ csrf_field() }}
-			@endif
-						
-								<div class="panel-heading jumbotron"><h5><strong>Datos Generales:</strong>&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5></div>
-								<div class="panel-body">
-									<input type="hidden" name="paciente_id" value="{{$paciente->id}}" id="paciente_id">	
-									<div class="col-xs-offset-2 form-group col-xs-4">
-										<label class="control-label">Ocupación:</label>
-										<input class="form-control" type="text" name="ocupacion" 
-										@if ($edit == true)
-										value="{{$paciente->generales->ocupacion}}"
-										@endif required>
-									</div>
-									<div class="form-group col-xs-4">
-										<label class="control-label">Convenio:</label>
-										<select class="form-control" name="convenio" required>
-											<option value="">Seleccionar</option>
-											<option>Convenio 1</option>
-											<option>Convenio 2</option>
-											<option>Convenio ...</option>
-										</select>
-									</div>
-								</div>
-								<div class="panel-heading jumbotron"><h5><strong>Dirección:<strong>&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5></div>
-								<div class="panel-body">
-								<div class="form-group col-xs-3">
-									<label class="control-label">Calle:</label>
-									<input class="form-control" type="text" name="calle" 
-									@if ($edit == true)
-										value="{{$paciente->generales->calle}}"
-										@endif required>
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Número Interior:</label>
-									<input class="form-control" type="text" name="numint" 
-									@if ($edit == true)
-										value="{{$paciente->generales->numint}}"
-										@endif>
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Número Exterior:</label>
-									<input required class="form-control" type="text" 
-									name="numext"
-
-									@if ($edit == true)
-										value="{{$paciente->generales->numext}}"
-										@endif>
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Código Postal:</label>
-									<input class="form-control" type="text" name="cp"
-									@if ($edit == true)s
-										value="{{$paciente->generales->cp}}"
-										@endif>
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Delegación/Municipio:</label>
-									<input class="form-control" type="text" name="municipio"
-									@if ($edit == true)
-										value="{{$paciente->generales->municipio}}"
-										@endif required>
-								</div>
-								<div class="form-group col-xs-3">
-									<label class="control-label">Estado:</label>
-									<input class="form-control" type="text" name="estado"
-									@if ($edit == true)
-										value="{{$paciente->generales->estado}}"
-										@endif required>
-								</div>
-								</div>
-								<div class="panel-heading jumbotron"><h5><strong>Contacto:</strong>&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h5></div>
-								<div class="panel-body">
-								<div class="form-group col-xs-4">
-									<label class="control-label">Telefono Casa:</label>
-									<input class="form-control" type="text" name="telcasa"
-									@if ($edit == true)
-										value="{{$paciente->generales->telcasa}}"
-										@endif required>
-								</div>
-								<div class="form-group col-xs-4">
-									<label class="control-label">Teléfono Oficina:</label>
-									<input class="form-control" type="text" name="teloficina"
-									@if ($edit == true)
-										value="{{$paciente->generales->teloficina}}"
-										@endif required>
-								</div>
-								<div class="form-group col-xs-4">
-									<label class="control-label">Teléfono Celular:</label>
-									<input class="form-control" type="text" name="telcelular"
-									@if ($edit == true)
-										value="{{$paciente->generales->telcelular}}"
-										@endif required>
-								</div>
-								<div class="form-group col-xs-4">
-									<label class="control-label">E-mail:</label>
-									<input class="form-control" type="mail" name="email"
-									@if ($edit == true)
-										value="{{$paciente->generales->email}}"
-										@endif required>
-								</div>
-								<div class="col-xs-4 col-xs-offset-5">
-										
-								<button id="submit" type="submit" class="btn btn-success">
-										<strong>Guardar</strong>
-								</button>
-										
-										
-
-									</div>
-								</div>
-
-								
-								
-								</form>
-								</div>
-
-							
-						
-						
-						
-				{{-- DATOS GENERALES --}}
-
-
-
-
+</form>
 
 @endsection

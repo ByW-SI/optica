@@ -2,8 +2,6 @@
 	<thead>
 		<tr class="info">
 			<th>Nombre</th>
-			<th>Apellido Paterno</th>
-			<th>Apellido Materno</th>
 			<th>Relación</th>
 			<th>Telefono Casa</th>
 			<th>Celular</th>
@@ -13,9 +11,7 @@
 	<tbody>
 		@foreach($paciente->tutores as $tutor)
 		<tr class="active">
-			<td>{{$tutor->nombre}}</td>
-			<td>{{$tutor->appaterno}}</td>
-			<td>{{$tutor->apmaterno}}</td>
+			<td>{{$tutor->nombre . ' ' . $tutor->appaterno . ' ' . $tutor->apmaterno}}</td>
 			<td>{{$tutor->relacion}}</td>
 			<td>{{$tutor->tel_casa}}</td>
 			<td>{{$tutor->tel_cel}}</td>

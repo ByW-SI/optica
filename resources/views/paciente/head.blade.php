@@ -21,8 +21,6 @@
 				<label class="control-label" for="identificador">ID de Paciente:</label>
 				<dd>{{ $paciente->identificador }}</dd>
 			</div>
-		</div>
-		<div class="row">
 			<div class="form-group col-sm-3">
 				<label class="control-label" for="appaterno">Apellido Paterno:</label>
 				<dd>{{$paciente->appaterno}}</dd>
@@ -35,15 +33,15 @@
 				<label class="control-label" for="nombre">Nombre(s):</label>
 				<dd>{{$paciente->nombre}}</dd>
 			</div>
-			<div class="form-group col-sm-3">
-				<label class="control-label" for="edad">Edad:</label>
-				<dd>{{$paciente->edad}}</dd>
-			</div>
 		</div>
 		<div class="row">
 			<div class="form-group col-sm-3">
 				<label class="control-label" for="fecha_nacimiento">Fecha de Nacimiento:</label>
 				<dd>{{$paciente->fecha_nacimiento}}</dd>
+			</div>
+			<div class="form-group col-sm-3">
+				<label class="control-label" for="edad">Edad:</label>
+				<dd>{{$paciente->edad}}</dd>
 			</div>
 			<div class="form-group col-sm-3">
 				<label class="control-label" for="sexo">Sexo:</label>

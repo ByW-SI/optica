@@ -9,22 +9,21 @@
 				<div class="modal-header">
 					<div class="row">
 						<div class="col-sm-12">
-							<h5 class="modal-title" id="exampleModalLongTitle"><strong>Editar Tutor</strong></h5>
+							<h5 class="modal-title" id="exampleModalLongTitle"><strong>Editar Tutor</strong> <small><i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</small></h5>
 						</div>
 					</div>
 				</div>
 				<div class="modal-body">
 					<div class="panel-default">
 						<div class="panel-body">
-
 							<input type="hidden" name="id" value="{{$tutor->id}}">
 							<div class="form-group col-xs-4">
-								<label class="control-label">Nombre:</label>
-								<input class="form-control" type="text" name="nombre" value="{{$tutor->nombre}}">
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Nombre:</label>
+								<input class="form-control" type="text" name="nombre" value="{{$tutor->nombre}}" required="">
 							</div>
 							<div class="form-group col-xs-4">
-								<label class="control-label">Apellido Paterno:</label>
-								<input class="form-control" type="text" name="appaterno" value="{{$tutor->appaterno}}">
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Apellido Paterno:</label>
+								<input class="form-control" type="text" name="appaterno" value="{{$tutor->appaterno}}" required="">
 							</div>
 							<div class="form-group col-xs-4">
 								<label class="control-label">Apellido Materno:</label>
@@ -35,12 +34,12 @@
 								<input class="form-control" type="text" name="edad" value="{{$tutor->edad}}" readonly id="edad_editar_{{ $j }}">
 							</div>
 							<div class="form-group col-xs-4">
-								<label class="control-label">Fecha de nacimiento:</label>
+								<label class="control-label" style="font-size: 13px;"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Fecha de nacimiento:</label>
 								<input class="form-control" type="date" name="fecha_nacimiento" min='1928-01-01' max="{{ date('Y-m-d') }}" value="{{$tutor->fecha_nacimiento}}" id="fecha_editar_{{ $j }}" style="font-size: 11px">
 							</div>
 							<div class="form-group col-xs-4">
-								<label class="control-label">Sexo:</label>
-								<select class="form-control" name="sexo">
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Sexo:</label>
+								<select class="form-control" name="sexo" required="">
 									<option value="Masculino"
 									<?php if($tutor->sexo == 'Masculino') echo " selected='selected'" ?>
 									>Masculino</option>
@@ -53,8 +52,8 @@
 								</select>
 							</div>
 							<div class="form-group col-xs-4">
-								<label class="control-label">Relación:</label>
-								<select class="form-control" name="relacion" id="relacion">
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Relación:</label>
+								<select class="form-control" name="relacion" id="relacion" required="">
 									<option value="Padre"
 									<?php if($tutor->relacion == 'Padre') echo " selected='selected'" ?>
 									>Padre</option>
@@ -79,12 +78,12 @@
 								</select>
 							</div>
 							<div class="form-group col-xs-4">
-								<label class="control-label">Teléfono de Casa:</label>
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Teléfono de Casa:</label>
 								<input class="form-control" type="text" name="tel_casa" value="{{$tutor->tel_casa}}">
 							</div>
 							<div class="form-group col-xs-4">
-								<label class="control-label">Teléfono Celular:</label>
-								<input class="form-control" type="text" name="tel_cel" value="{{$tutor->tel_cel}}">
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Teléfono Celular:</label>
+								<input class="form-control" type="text" name="tel_cel" value="{{$tutor->tel_cel}}" required="">
 							</div>
 						</div>
 					</div>

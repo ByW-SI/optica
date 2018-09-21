@@ -82,7 +82,7 @@
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-sm-4">
-							<h5>Datos Bancarios:&nbsp;<small><small><i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</small></small></h5>
+							<h5>Datos Bancarios: <small><small><i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</small></small></h5>
 						</div>
 					</div>
 				</div>

@@ -6,7 +6,7 @@
 				<div class="modal-header">
 					<div class="row">
 						<div class="col-sm-12">
-							<h5 class="modal-title" id="exampleModalLongTitle"><strong>Agregar Tutor</strong></h5>
+							<h5 class="modal-title" id="exampleModalLongTitle"><strong>Agregar Tutor</strong> <small><i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</small></h5>
 						</div>
 					</div>
 				</div>
@@ -15,11 +15,11 @@
 						<div class="panel-body">
 							<input type="hidden" name="paciente_id" value="{{$paciente->id}}">
 							<div class="form-group col-xs-4">
-								<label class="control-label">Nombre:</label>
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Nombre:</label>
 								<input class="form-control" type="text" name="nombre" required="">
 							</div>
 							<div class="form-group col-xs-4">
-								<label class="control-label">Apellido Paterno:</label>
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Apellido Paterno:</label>
 								<input class="form-control" type="text" name="appaterno" required="">
 							</div>
 							<div class="form-group col-xs-4">
@@ -31,11 +31,11 @@
 								<input class="form-control" type="text" name="edad" id="edad" readonly>
 							</div>
 							<div class="form-group col-xs-4">
-								<label class="control-label">Fecha de nacimiento:</label>
-								<input class="form-control" type="date" min='1928-01-01' max="{{ date('Y-m-d') }}" name="fecha_nacimiento" id="fecha_nacimiento" style="font-size: 11px">
+								<label class="control-label" style="font-size: 13px;"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Fecha de nacimiento:</label>
+								<input class="form-control" type="date" min='1928-01-01' max="{{ date('Y-m-d') }}" name="fecha_nacimiento" id="fecha_nacimiento" style="font-size: 11px" required="">
 							</div>
 							<div class="form-group col-xs-4">
-								<label class="control-label">Sexo:</label>
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Sexo:</label>
 								<select class="form-control" name="sexo" required="">
 									<option value="Masculino">Masculino</option>
 									<option value="Femenino">Femenino</option>
@@ -43,7 +43,7 @@
 								</select>
 							</div>
 							<div class="form-group col-xs-4">
-								<label class="control-label">Relación:</label>
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Relación:</label>
 								<select class="form-control" name="relacion" id="relacion" required="">
 									<option value="Padre">Padre</option>
 									<option value="Madre">Madre</option>
@@ -55,12 +55,12 @@
 								</select>
 							</div>
 							<div class="form-group col-xs-4">
-								<label class="control-label">Teléfono de Casa:</label>
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Teléfono de Casa:</label>
 								<input class="form-control" type="text" name="tel_casa">
 							</div>
 							<div class="form-group col-xs-4">
-								<label class="control-label">Teléfono Celular:</label>
-								<input class="form-control" type="text" name="tel_cel">
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Teléfono Celular:</label>
+								<input class="form-control" type="text" name="tel_cel" required="">
 							</div>
 						</div>
 					</div>

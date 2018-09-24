@@ -96,35 +96,31 @@
 			</div>
 	</form>
 </div>
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <script type="text/javascript">
-
-
-	function datosFiscal(){
-                if($('#dirfiscal').prop('checked') == true){
-                	document.domicilio.calle.defaultValue = "{{$provedore->calle}}";
-               		document.domicilio.numext.defaultValue = "{{$provedore->numext}}";
-                	document.domicilio.numint.defaultValue = "{{$provedore->numinter}}";
-                	document.domicilio.colonia.defaultValue = "{{$provedore->colonia}}";
-                	document.domicilio.municipio.defaultValue = "{{$provedore->municipio}}";
-                	document.domicilio.ciudad.defaultValue = "{{$provedore->ciudad}}";
-                	document.domicilio.estado.defaultValue = "{{$provedore->estado}}";
-                	document.domicilio.calle1.defaultValue = "{{$provedore->calle1}}";
-                	document.domicilio.calle2.defaultValue = "{{$provedore->calle2}}";
-                	document.domicilio.referencia.defaultValue = "{{$provedore->referencia}}";
-				}
-				else{
-                    document.domicilio.calle.defaultValue = "";
-                    document.domicilio.numext.defaultValue = "";
-                    document.domicilio.numint.defaultValue = "";
-                    document.domicilio.colonia.defaultValue = "";
-                    document.domicilio.municipio.defaultValue = "";
-                    document.domicilio.ciudad.defaultValue = "";
-                    document.domicilio.estado.defaultValue = "";
-                    document.domicilio.calle1.defaultValue = "";
-                    document.domicilio.calle2.defaultValue = "";
-                    document.domicilio.referencia.defaultValue = "";
-				}
-            }
+	function datosFiscal() {
+        if($('#dirfiscal').prop('checked') == true){
+        	document.domicilio.calle.defaultValue = "{{$provedore->calle}}";
+       		document.domicilio.numext.defaultValue = "{{$provedore->numext}}";
+        	document.domicilio.numint.defaultValue = "{{$provedore->numinter}}";
+        	document.domicilio.colonia.defaultValue = "{{$provedore->colonia}}";
+        	document.domicilio.municipio.defaultValue = "{{$provedore->municipio}}";
+        	document.domicilio.ciudad.defaultValue = "{{$provedore->ciudad}}";
+        	document.domicilio.estado.defaultValue = "{{$provedore->estado}}";
+        	document.domicilio.calle1.defaultValue = "{{$provedore->calle1}}";
+        	document.domicilio.calle2.defaultValue = "{{$provedore->calle2}}";
+        	document.domicilio.referencia.defaultValue = "{{$provedore->referencia}}";
+		} else {
+            document.domicilio.calle.defaultValue = "";
+            document.domicilio.numext.defaultValue = "";
+            document.domicilio.numint.defaultValue = "";
+            document.domicilio.colonia.defaultValue = "";
+            document.domicilio.municipio.defaultValue = "";
+            document.domicilio.ciudad.defaultValue = "";
+            document.domicilio.estado.defaultValue = "";
+            document.domicilio.calle1.defaultValue = "";
+            document.domicilio.calle2.defaultValue = "";
+            document.domicilio.referencia.defaultValue = "";
+		}
+    }
 </script>
 @endsection

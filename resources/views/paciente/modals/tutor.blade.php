@@ -14,37 +14,39 @@
 					<div class="panel-default">
 						<div class="panel-body">
 							<input type="hidden" name="paciente_id" value="{{$paciente->id}}">
-							<div class="form-group col-xs-4">
+							<div class="form-group col-sm-4">
 								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Nombre:</label>
 								<input class="form-control" type="text" name="nombre" required="">
 							</div>
-							<div class="form-group col-xs-4">
+							<div class="form-group col-sm-4">
 								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Apellido Paterno:</label>
 								<input class="form-control" type="text" name="appaterno" required="">
 							</div>
-							<div class="form-group col-xs-4">
+							<div class="form-group col-sm-4">
 								<label class="control-label">Apellido Materno:</label>
 								<input class="form-control" type="text" name="apmaterno">
 							</div>
-							<div class="form-group col-xs-4">
+							<div class="form-group col-sm-4">
 								<label class="control-label">Edad (Automático):</label>
 								<input class="form-control" type="text" name="edad" id="edad" readonly>
 							</div>
-							<div class="form-group col-xs-4">
-								<label class="control-label" style="font-size: 13px;"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Fecha de nacimiento:</label>
-								<input class="form-control" type="date" min='1928-01-01' max="{{ date('Y-m-d') }}" name="fecha_nacimiento" id="fecha_nacimiento" style="font-size: 11px" required="">
+							<div class="form-group col-sm-4">
+								<label class="control-label" style="font-size: 13px;">Fecha de nacimiento:</label>
+								<input class="form-control" type="date" min='1928-01-01' max="{{ date('Y-m-d') }}" name="fecha_nacimiento" id="fecha_nacimiento" style="font-size: 11px">
 							</div>
-							<div class="form-group col-xs-4">
-								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Sexo:</label>
-								<select class="form-control" name="sexo" required="">
+							<div class="form-group col-sm-4">
+								<label class="control-label">Sexo:</label>
+								<select class="form-control" name="sexo">
+									<option value="" selected="">Seleccionar</option>
 									<option value="Masculino">Masculino</option>
 									<option value="Femenino">Femenino</option>
 									<option value="Otro">Otro</option>
 								</select>
 							</div>
-							<div class="form-group col-xs-4">
-								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Relación:</label>
+							<div class="form-group col-sm-4">
+								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Parentesco:</label>
 								<select class="form-control" name="relacion" id="relacion" required="">
+									<option value="" selected="">Seleccionar</option>
 									<option value="Padre">Padre</option>
 									<option value="Madre">Madre</option>
 									<option value="Tio/Tia">Tio/Tia</option>
@@ -54,13 +56,13 @@
 									<option value="Otros">Otros</option>
 								</select>
 							</div>
-							<div class="form-group col-xs-4">
-								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Teléfono de Casa:</label>
+							<div class="form-group col-sm-4">
+								<label class="control-label">Teléfono de Casa:</label>
 								<input class="form-control" type="text" name="tel_casa">
 							</div>
-							<div class="form-group col-xs-4">
-								<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Teléfono Celular:</label>
-								<input class="form-control" type="text" name="tel_cel" required="">
+							<div class="form-group col-sm-4">
+								<label class="control-label">Teléfono Celular:</label>
+								<input class="form-control" type="text" name="tel_cel">
 							</div>
 						</div>
 					</div>

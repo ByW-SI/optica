@@ -33,6 +33,15 @@
 						<option>Convenio ...</option>
 					</select>
 				</div>
+				<div class="col-sm-3">
+					<label class="control-label">Número de Trabajo:</label>
+					<input class="form-control" type="text" name="num_trabajo" disabled="" placeholder="blueprint">
+					</select>
+				</div>
+				<div class="col-sm-3">
+					<label class="control-label">Número de Servicio:</label>
+					<input class="form-control" type="text" name="num_servicio" disabled="" placeholder="blueprint">
+				</div>
 			</div>
 		</div>
 		<div class="panel-heading">

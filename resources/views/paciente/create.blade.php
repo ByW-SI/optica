@@ -19,49 +19,49 @@
 					{{ csrf_field()}}
 					<input type="hidden" name="_method" value="PUT">
 				@endif
-					<div class="form-group col-xs-3">
+					<div class="form-group col-sm-3">
 						<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Nombre:</label>
 						<input class="form-control" type="text" name="nombre" id="nombre" required
 						@if($edit==true)
 						value="{{$paciente->nombre}}"
 						@endif>
 					</div>
-					<div class="form-group col-xs-3">
+					<div class="form-group col-sm-3">
 						<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Apellido Paterno:</label>
 						<input class="form-control" type="text" name="appaterno" id="appaterno" required
 						@if($edit==true)
 						value="{{$paciente->appaterno}}"
 						@endif>
 					</div>
-					<div class="form-group col-xs-3">
+					<div class="form-group col-sm-3">
 						<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Apellido Materno:</label>
 						<input class="form-control" type="text" name="apmaterno" id="apmaterno" required  
 						@if($edit==true)
 						value="{{$paciente->apmaterno}}"
 						@endif>
 					</div>
-					<div class="form-group col-xs-3">
+					<div class="form-group col-sm-3">
 						<label class="control-label">ID:(Automático)</label>
 						<input class="form-control" type="text" readonly style="width:150px" name="identificador" id="identificador"
 						@if($edit==true)
 						value="{{$paciente->identificador}}"
 						@endif>
 					</div>
-					<div class="form-group col-xs-3">
+					<div class="form-group col-sm-3">
 						<label class="control-label">Edad:(Automático)</label>
 						<input class="form-control" type="text" readonly="" placeholder="Edad" id="edad" name="edad" style="width: 91px" name="edad" id="edad"
 						@if($edit==true)
 						value="{{$paciente->edad}}"
 						@endif>
 					</div>
-					<div class="form-group col-xs-3">
+					<div class="form-group col-sm-3">
 						<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Fecha de nacimiento:</label>
 						<input class="form-control" type="date" id="fechanacimiento" name="fecha_nacimiento" required min="1950-12-31" max="{{date('Y-m-d')}}"
 						@if($edit==true)
 						value="{{$paciente->fecha_nacimiento}}"
 						@endif>
 					</div>
-					<div class="form-group col-xs-3">
+					<div class="form-group col-sm-3">
 						<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Sexo:</label>
 						<select class="form-control" name="sexo" id="sexo" required>
 							<option value="">Seleccione uno</option>

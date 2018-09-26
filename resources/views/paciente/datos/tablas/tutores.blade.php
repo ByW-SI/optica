@@ -11,10 +11,10 @@
 	<tbody>
 		@foreach($paciente->tutores as $tutor)
 		<tr class="active">
-			<td>{{$tutor->nombre . ' ' . $tutor->appaterno . ' ' . $tutor->apmaterno}}</td>
-			<td>{{$tutor->relacion}}</td>
-			<td>{{$tutor->tel_casa}}</td>
-			<td>{{$tutor->tel_cel}}</td>
+			<td>{{ $tutor->nombre . ' ' . $tutor->appaterno . ' ' . $tutor->apmaterno }}</td>
+			<td>{{ $tutor->relacion }}</td>
+			<td>{{ $tutor->tel_casa ? $tutor->tel_casa : 'N/A' }}</td>
+			<td>{{ $tutor->tel_cel ? $tutor->tel_cel : 'N/A' }}</td>
 			<td class="text-center">
 				<button class="btn btn-warning" data-toggle="modal" data-target="#tutor_{{$tutor->id}}">
 					<strong>Editar</strong>

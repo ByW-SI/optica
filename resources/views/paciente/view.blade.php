@@ -25,7 +25,7 @@
 			</div>
 			<!-- ORTOPÉDICO -->
 			<div class="tab-pane" id="ortopedico">
-				@include('paciente.ortopedia')
+				@include('paciente.datos.ortopedia')
 			</div>
 			<!-- CITAS -->
 			<div class="tab-pane" id="cita">

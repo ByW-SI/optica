@@ -93,36 +93,6 @@
 			    $("#sucursal").html(resultado);
 			});
 		}
-		
-	function previewFile(input){
-		if(input.files && input.files[0]){
-			var filered = new FileReader();
-			filered.onload = function(e){
-				$('#imagenpre').attr('src', e.target.result);
-			}
-			filered.readAsDataURL(input.files[0]);
-		}
-	}
-
-	function previewFile2(input){
-		if(input.files && input.files[0]){
-			var filered = new FileReader();
-			filered.onload = function(e){
-				$('#imagenpie').attr('src', e.target.result);
-			}
-			filered.readAsDataURL(input.files[0]);
-		}
-	}
-
-	function cocultar(e){
-		if(e.value=="si"){
-			$("#no-cita").hide();
-			$("#si-cita").show();
-		}else if(e.value=="no"){
-			$("#si-cita").hide();
-			$("#no-cita").show();
-		}
-	}
 	</script>
     @include('sweet::alert')
    

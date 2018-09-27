@@ -129,6 +129,11 @@ class PacienteHistorialOcularController extends Controller
             // dd($request->file('archivo_imagen'));
             // $oculars->archivo_imagen=$request->file('archivo_imagen')->store($path);
         }
+        if($request->eje_oi == 'Otro')
+            $oculars->eje_oi = $request->val_eje_oi;
+
+        if($request->eje_od == 'Otro')
+            $oculars->eje_od = $request->val_eje_od;
         
 
         

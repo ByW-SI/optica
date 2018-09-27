@@ -138,7 +138,7 @@ Route::resource('pacientes.citas','Paciente\PacienteCitaController');
 Route::resource('pacientes.crm','Paciente\PacienteCrmController');
 Route::get('buscarpaciente','Paciente\PacienteController@buscar');
 
-Route::resource('pacientes.ortopedias','Paciente\PacienteHistorialOrtopedicoController', ['only'=>['store','destroy']]);
+Route::resource('pacientes.ortopedias','Paciente\PacienteHistorialOrtopedicoController', ['only' => ['create', 'store', 'show', 'destroy']]);
 //Route::post('citas','Paciente\PacienteCitaController@citas');
 //------------------------------------------------------------
 

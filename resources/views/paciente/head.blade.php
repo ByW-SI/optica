@@ -49,14 +49,16 @@
 			</div>
 		</div>
 	</div>
+	<!-- PESTAÑAS -->
+	<div class="panel-body" style="padding: 0">
+		<ul class="nav nav-pills nav-justified">
+			<li  role="presentation" class="active"><a data-toggle="tab" href="#generales" >Generales:</a></li>
+			<li role="presentation"><a data-toggle="tab" href="#hmedico">Historial Médico:</a></li>
+			<li role="presentation"><a data-toggle="tab" href="#ocular">Historial Ocular:</a></li>
+			<li role="presentation"><a data-toggle="tab" href="#anteojos">Anteojos:</a></li>
+			<li role="presentation"><a data-toggle="tab" href="#ortopedico" class="ui-tabs-anchor">Ortopédico:</a></li>
+			<li role="presentation"><a data-toggle="tab" href="#cita" class="ui-tabs-anchor">Citas:</a></li>
+			<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li> 
+		</ul>
+	</div>
 </div>
-<!-- PESTAÑAS -->
-<ul class="nav nav-pills nav-justified">
-	<li  role="presentation" class="active"><a data-toggle="tab" href="#generales" >Generales:</a></li>
-	<li role="presentation"><a data-toggle="tab" href="#hmedico">Historial Médico:</a></li>
-	<li role="presentation"><a data-toggle="tab" href="#ocular">Historial Ocular:</a></li>
-	<li role="presentation"><a data-toggle="tab" href="#anteojos">Anteojos:</a></li>
-	<li role="presentation"><a data-toggle="tab" href="#ortopedico" class="ui-tabs-anchor">Ortopédico:</a></li>
-	<li role="presentation"><a data-toggle="tab" href="#cita" class="ui-tabs-anchor">Citas:</a></li>
-	<li role="presentation"><a data-toggle="tab" href="#crm" class="ui-tabs-anchor">C.R.M:</a></li> 
-</ul>

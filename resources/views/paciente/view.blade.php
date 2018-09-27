@@ -10,9 +10,9 @@
   			<!-- DATOS GENERALES -->
   			<div  class="tab-pane fade in active" id="generales">
   				@include('paciente.datos.generales')
-				</div>
-				<!-- HISTORIAL MEDICO -->
-				<div class="tab-pane fade" id="hmedico">
+			</div>
+			<!-- HISTORIAL MEDICO -->
+			<div class="tab-pane fade" id="hmedico">
   				@include('paciente.datos.medicos')
 			</div>
 			<!-- HISTORIAL OCULAR -->

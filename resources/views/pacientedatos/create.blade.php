@@ -28,19 +28,19 @@
 					<label class="control-label"><small><small><i class="fa fa-asterisk" aria-hidden="true"></i></small></small> Convenio:</label>
 					<select class="form-control" name="convenio" required>
 						<option value="">Seleccionar</option>
-						<option>Convenio 1</option>
-						<option>Convenio 2</option>
-						<option>Convenio ...</option>
+						@foreach($convenios as $convenio)
+						<option value="{{ $convenio->nombre }}"<?php echo $paciente->generales->convenio == $convenio->nombre ? ' selected' : '' ?>>{{ $convenio->nombre }}</option>
+						@endforeach
+						<option value="Particular"<?php echo $paciente->generales->convenio == 'Particular' ? ' selected' : '' ?>>Particular</option>
 					</select>
 				</div>
 				<div class="col-sm-3">
 					<label class="control-label">Número de Trabajo:</label>
-					<input class="form-control" type="text" name="num_trabajo" disabled="" placeholder="blueprint">
-					</select>
+					<input class="form-control" type="text" name="trabajo" value="{{ $paciente->generales->trabajo }}">
 				</div>
 				<div class="col-sm-3">
 					<label class="control-label">Número de Servicio:</label>
-					<input class="form-control" type="text" name="num_servicio" disabled="" placeholder="blueprint">
+					<input class="form-control" type="text" name="servicio" value="{{ $paciente->generales->servicio }}">
 				</div>
 			</div>
 		</div>

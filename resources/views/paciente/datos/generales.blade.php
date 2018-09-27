@@ -38,11 +38,11 @@
 			</div>
 			<div class="col-sm-3">
 				<label class="control-label">Número de Trabajo:</label>
-				<dd>blueprint</dd>
+				<dd>{{$paciente->generales->trabajo ? $paciente->generales->trabajo : 'N/A' }}</dd>
 			</div>
 			<div class="col-sm-3">
 				<label class="control-label">Número de Servicio:</label>
-				<dd>blueprint</dd>
+				<dd>{{$paciente->generales->servicio ? $paciente->generales->servicio : 'N/A' }}</dd>
 			</div>
 		</div>		
 	</div>

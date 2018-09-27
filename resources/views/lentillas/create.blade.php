@@ -60,9 +60,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="panel-heading">
+			<div class="panel-heading" style="padding: 0;">
 				<ul class="nav nav-pills nav-justified">
-					<li role="presentation"><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}"  class="ui-tabs-anchor">Generales:</a></li>
+					<li role="presentation"><a href="{{ route('pacientes.show',['paciente'=>$paciente]) . '/#generales' }}"  class="ui-tabs-anchor">Generales:</a></li>
 					<li role="presentation" ><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}#hmedico" class="ui-tabs-anchor">Historial Médico:</a></li>
 					<li role="presentation" class=""><a href="{{ route('pacientes.show',['paciente'=>$paciente]) }}" class="ui-tabs-anchor">Historial Ocular:</a></li>
 					<li role="presentation" class="active"><a href="" class="ui-tabs-anchor">Anteojos:</a></li>

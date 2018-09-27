@@ -26,7 +26,9 @@ class PacientesDatosGenerales extends Model
                       'telcasa',
                       'teloficina',
                       'telcelular',
-                      'email'];
+                      'email',
+                      'trabajo',
+                      'servicio'];
 
     protected $hidden=[ 'created_at', 'updated_at','deleted_at'];
     public $sortable=['id','paciente_id', 'convenio'];

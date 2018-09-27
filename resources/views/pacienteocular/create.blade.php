@@ -824,8 +824,14 @@
 				<?php for($i=0;$i<=180;$i+=5){
 				echo"<option value='".$i."'>".$i."°</option>";
 						}?>
+					<option value="Otro">Otro</option>
 				</select>
       	</div>
+      	<div class="col-sm-2" id="val_od" style="display: none;">
+      		<span class="badge badge-secondary">VALOR EJE.</span>
+      		<input class="form-control" type="text" name="val_eje_od">
+      	</div>
+
       	<div class="col-sm-2">
       		<span class="badge badge-secondary">ADD.</span>
 			<select class="form-control" name="add_od" id="add_od" required>
@@ -918,7 +924,12 @@
 				<?php for($i=0;$i<=180;$i+=5){
 				echo"<option value='".$i."'>".$i."°</option>";
 						}?>
+					<option value="Otro">Otro</option>
 				</select>
+      	</div>
+      	<div class="col-sm-2" id="val_oi" style="display: none;">
+      		<span class="badge badge-secondary">VALOR EJE.</span>
+      		<input class="form-control" type="text" name="val_eje_oi">
       	</div>
       	<div class="col-sm-2">
       		<span class="badge badge-secondary">ADD.</span>
@@ -1040,5 +1051,28 @@
 {{-- HISTORIAL OCULAR --}}
 
 
+
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+  		$('#eje_od').change(function() {
+    		var sel = document.getElementById("eje_od").value;
+    		if(sel == 'Otro')
+      			document.getElementById('val_od').style.display = 'block';
+      		else
+      			document.getElementById('val_od').style.display = 'none';
+  		});
+
+  		$('#eje_oi').change(function() {
+    		var sel = document.getElementById("eje_oi").value;
+    		if(sel == 'Otro')
+      			document.getElementById('val_oi').style.display = 'block';
+      		else
+      			document.getElementById('val_oi').style.display = 'none';
+  		});
+	});
+
+
+</script>
 
 @endsection

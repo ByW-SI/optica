@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Paciente;
 
 use App\Paciente;
+use App\Convenio;
 use App\PacientesDatosGenerales;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -43,10 +44,10 @@ class PacientesDatosGeneralesController extends Controller
      */
     public function create(Paciente $paciente)
     {
-
+        $convenios = Convenio::get();
         return view('pacientedatos.create',
                     ['paciente'=>$paciente,
-                     'edit'=>false]);
+                     'edit'=>false, 'convenios' => $convenios]);
     }
 
     /**
@@ -73,6 +74,8 @@ class PacientesDatosGeneralesController extends Controller
        $datosGenerales->teloficina=$request->teloficina;
        $datosGenerales->telcelular=$request->telcelular;
        $datosGenerales->email=$request->email;
+       $datosGenerales->trabajo = $request->trabajo;
+       $datosGenerales->servicio = $request->servicio;
        $datosGenerales->save();
 
       
@@ -102,9 +105,10 @@ class PacientesDatosGeneralesController extends Controller
     public function edit(Paciente $paciente)
     {
         
+        $convenios = Convenio::get();
         return view('pacientedatos.create',
                     ['paciente'=>$paciente,
-                     'edit'=>true]);
+                     'edit'=>true, 'convenios' => $convenios]);
     }
 
     /**
@@ -130,6 +134,8 @@ class PacientesDatosGeneralesController extends Controller
        $datosGenerales->teloficina=$request->teloficina;
        $datosGenerales->telcelular=$request->telcelular;
        $datosGenerales->email=$request->email;
+       $datosGenerales->trabajo = $request->trabajo;
+       $datosGenerales->servicio = $request->servicio;
        $datosGenerales->save();
 
         Alert::success('Datos Generales Guardados', 'Continuar');

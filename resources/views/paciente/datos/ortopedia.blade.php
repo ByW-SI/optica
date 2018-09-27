@@ -1,220 +1,46 @@
-<div class="panel-body">
-	<div class="row">
-		<div class="col-sm-4 form-group">
-			<label for="fecha" class="control-label">Fecha Actual</label>
-			<input type="date" class="form-control" readonly="" id="fecha" value="{{ date('Y-m-d') }}">
+<div class="panel-default">
+	<div class="panel-heading">
+		<h4>Historial Ortopédico:</h4>
+	</div>
+	<div class="panel-body">
+		@if($paciente->ortopedias->count() == 0)
+		<div class="row">
+			<div class="col-sm-9">
+				<h2><strong>Aún no se ha agregado Historial Ortopédico:</strong></h2>
+			</div>
+			<div class="col-sm-3">
+				<br>
+				<a class="btn btn-primary" href="{{ route('pacientes.ortopedias.create', ['paciente'=>$paciente]) }}">
+					<strong>Agregar</strong>
+				</a>
+			</div>
 		</div>
-		<div class="col-sm-8 form-group">
-			<label for="fecha" class="control-label">Fecha Actual</label>
-			<table class="table table-striped table-bordered table-hover">
-				<tr class="info">
-					<th>Fecha</th>
-					<th>Cita</th>
-					<th>Diagnostico/Clinica</th>
-				</tr>
-				<tbody>
+		<br>
+		@else
+		<div class="row">
+			<div class="col-sm-12">
+				<table class="table table-striped table-bordered table-hover">
+					<tr class="info">
+						<th>Fecha</th>
+						<th>Cita</th>
+						<th>Diagnostico/Clinica</th>
+						<th class="text-center">Acciones</th>
+					</tr>
 					@foreach($paciente->ortopedias as $cita)
 					<tr>
-						<th>{{ $cita->fecha }}</th>
-						<th>{{ $cita->cita ? 'Si' : 'No' }}</th>
-						<th>{{ $cita->cita ? $cita->diagnostico : $cita->clinica }}</th>
+						<td>{{ $cita->fecha }}</td>
+						<td>{{ $cita->cita ? 'Si' : 'No' }}</td>
+						<td>{{ $cita->cita ? $cita->diagnostico : $cita->clinica }}</td>
+						<td class="text-center">
+							<a href="{{ route('pacientes.ortopedias.show', ['paciente' => $paciente->id, 'cita' => $cita->id]) }}">
+								<button class="btn btn-info"><strong>Ver</strong></button>
+							</a>
+						</td>
 					</tr>
 					@endforeach
-				</tbody>
-			</table>
+				</table>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<form role="form" name="ortopedia" id="form-ortopedia" method="POST" action="{{ route('pacientes.ortopedias.store', ['paciente' => $paciente]) }}" enctype="multipart/form-data">
-			{{ csrf_field()}}
-			<div class="col-sm-4 form-group">
-				<label class="control-label">Viene a cita:</label>
-				<div class="row text-center">
-					<div class="col-sm-6">
-						Sí
-						<div class="row">
-							<input class="radiocita option-input radio" type="radio" name="citaradio" id=optionsRadios1"" value="si" onchange="cocultar(this)" style="top: 0;"<?php ($paciente->ortopedias->last() && $paciente->ortopedias->last()->fecha == date('Y-m-d') && $paciente->ortopedias->last()->cita) ? ' checked' : '' ?>>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						No
-						<div class="row">
-							<input class="radiocita option-input radio" type="radio" name="citaradio" id=optionsRadios2"" value="no" onchange="cocultar(this)" style="top: 0;"<?php ($paciente->ortopedias->last() && $paciente->ortopedias->last()->fecha == date('Y-m-d') && !$paciente->ortopedias->last()->cita) ? ' checked' : '' ?>>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-12 text-center">
-						<button type="submit" class="btn btn-success">Guardar</button>
-					</div>
-				</div>
-			</div>
-			<div id="si-cita" @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d') && $paciente->ortopedias->last()->cita == true)
-											{{-- true expr --}}
-											style="display: inline !important;" 
-											{{-- false expr --}}
-										@else
-										style="display: none;" 
-										@endif>
-				<div class="col-sm-3">
-					<div class="container" style="display: inline; float: none; margin-top: 10px; margin-bottom: 0px;">
-						<img id="imagen"  @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d'))
-								{{-- true expr --}}
-								src="{{ url('/storage/'.$paciente->ortopedias->last()->path_image) }}" 
-								{{-- false expr --}}
-							@else
-							src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg"
-							@endif alt="Previa..." style="width: 250px; height: auto;">
-				      	<div class="caption text-center">
-							<label for="pie" class="col-sm control-label" style="margin-top: 10px;">Subir foto del pie</label>
-				        	<p><input type="file" class="imagen" id="pie" onchange="previewFile2(this)" style="display: none;" name="image">
-							<input type="button" value="Examinar" class="btn btn-primary" onclick="document.getElementById('pie').click();" />
-							<input type="file" class="imagen" id="pie" onchange="previewFile2(this)" style="display: none;"></p>
-				      	</div>
-				    </div>
-				</div>
-				<div class="col-sm-8">
-					<div class="form-group">
-						<div class="row col">
-							<label for="diag" class="col-sm control-label" style="margin-top: 10px;">Diagnóstico:</label>
-							<textarea class="form-control" name="diagnostico" maxlength="1000" rows="4">@if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d') && $paciente->ortopedias->last()->cita == true){{$paciente->ortopedias->last()->diagnostico}}@endif</textarea>
-						</div>
-						<div class="row col">
-							<label for="reco" class="col-sm control-label" style="margin-top: 10px;">Recomendación:</label>
-							<textarea class="form-control" maxlength="1000" name="recomendacion" rows="4">@if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d') && $paciente->ortopedias->last()->cita == true){{$paciente->ortopedias->last()->recomendacion}}@endif</textarea>
-						</div>
-						<div class="row col">
-							<label for="trat" class="col-sm control-label" style="margin-top: 10px;">Tipo de tratamiento:</label>
-							<textarea class="form-control" maxlength="1000" name="tipo_tratamiento" rows="4">@if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d') && $paciente->ortopedias->last()->cita == true){{$paciente->ortopedias->last()->tratamiento}}@endif</textarea>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div id="no-cita" @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d') && $paciente->ortopedias->last()->cita == false)
-											{{-- true expr --}}
-											style="display: inline !important;" 
-											{{-- false expr --}}
-										@else
-										style="display: none;" 
-										@endif>
-				<div class="col-sm-3">
-					<div class="container" style="display: inline; float: none; margin-top: 10px; margin-bottom: 0px;">
-						<img id="imagen" @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d'))
-								{{-- true expr --}}
-								src="{{ url('/storage/'.$paciente->ortopedias->last()->path_image) }}" 
-								{{-- false expr --}}
-							@else
-							src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg"
-							@endif alt="Previa..." style="width: 250px; height: auto;">
-				      	<div class="caption text-center">
-							<label for="pie" class="col-sm control-label" style="margin-top: 10px;">Subir foto de la receta</label>
-				        	<p><input type="file" class="imagen" id="pie" onchange="previewFile2(this)" style="display: none;">
-							<input type="button" value="Examinar" class="btn btn-primary" onclick="document.getElementById('pie').click();" />
-							<input type="file" class="imagen" id="pie" onchange="previewFile2(this)" style="display: none;"></p>
-				      	</div>
-				    </div>
-				</div>
-				<div class="col-sm-6">
-					<div class="form-group">
-						<label for="donde" class="col-sm-4 control-label" style="margin-top: 10px;">¿De dónde viene?</label>
-						<div class="col-sm-10">
-							<input type="text" name="clinica" class="form-control" id="donde"  @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d') && $paciente->ortopedias->last()->cita == false && $paciente->ortopedias->last()->clinica != null)
-											{{-- true expr --}}
-											value="{{$paciente->ortopedias->last()->clinica}}" 
-											{{-- false expr --}} 
-										@endif>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="col">
-					<label>Tipo de Tratamiento:</label>
-
-					<div class="col form-group">
-						<label><input type="radio" name="tratamiento" value="zapatos" @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d') && $paciente->ortopedias->last()->tipo == "zapatos")
-											{{-- true expr --}}
-											checked
-											{{-- false expr --}}
-
-										@endif> Zapatos</label>
-						<br>
-						<label><input type="radio" name="tratamiento" value="tenis" @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d') && $paciente->ortopedias->last()->tipo == "tenis")
-											{{-- true expr --}}
-											checked
-											{{-- false expr --}}
-
-										@endif> Tenis</label>
-						<br>
-						<label><input type="radio" name="tratamiento" value="ambos" @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d') && $paciente->ortopedias->last()->tipo == "ambos")
-											{{-- true expr --}}
-											checked
-											{{-- false expr --}}
-
-										@endif> Ambos</label>
-					</div>
-					<div class="col">
-						
-						<div class="form-group">
-							<div class="input-group-prepend">
-		    					<label class="input-group-text">Número:</label>
-		  					</div>
-							<div class="col-sm-3">
-								<input type="number" class="form-control" step="0.5" name="medida" @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d'))
-											value="{{$paciente->ortopedias->last()->medida}}"@endif>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="col">
-					<label>Plantilla:</label>
-
-					<div class="col form-group">
-						<label><input type="radio" name="plantilla" value="piel" @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d') && $paciente->ortopedias->last()->plantilla == "piel")
-											{{-- true expr --}}
-											checked
-											{{-- false expr --}}
-
-										@endif> Piel</label>
-						<br>
-						<label><input type="radio" name="plantilla" value="pelite" @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d') && $paciente->ortopedias->last()->plantilla == "pelite")
-											{{-- true expr --}}
-											checked
-											{{-- false expr --}}
-
-										@endif> Pelite</label>
-						<br>
-						<label><input type="radio" name="plantilla" value="otro" @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d') && $paciente->ortopedias->last()->plantilla == "otro")
-											{{-- true expr --}}
-											checked
-											{{-- false expr --}}
-
-										@endif> Otro</label>
-					</div>
-					<div class="col">
-						
-						<div class="form-group">
-							<div class="input-group-prepend">
-		    					<label class="input-group-text">Número:</label>
-		  					</div>
-							<div class="col-sm-3">
-								<input type="number" class="form-control" step="0.5" name="medida_plant" @if ($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d'))
-											{{-- true expr --}}
-											value="{{$paciente->ortopedias->last()->medida_plant}}" 
-											{{-- false expr --}}
-
-										@endif>
-							</div>
-						</div>
-
-					</div>
-				
-				</div>
-			</div>
-		</form>
+		@endif
 	</div>
 </div>

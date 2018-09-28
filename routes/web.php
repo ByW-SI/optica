@@ -66,21 +66,21 @@ Route::get('consulta',function(){
 	return View::make('empleadoconsulta.consulta');
 });
 Route::get('bonos',function(){
-	foreach (Auth::user()->perfil->modulos as $modulo)
-		if($modulo->nombre == 'rh')
+	foreach (Auth::user()->perfil->componentes as $componente)
+		if($componente->modulo->nombre == 'rh')
 			return View::make('Empleadobonos.bonos');
 	return redirect()->route('denegado');
 });
 Route::get('comision',function(){
-	foreach (Auth::user()->perfil->modulos as $modulo)
-		if($modulo->nombre == 'rh')
+	foreach (Auth::user()->perfil->componentes as $componente)
+		if($componente->modulo->nombre == 'rh')
 			return View::make('Empleadobonos.comision');
 	return redirect()->route('denegado');
 });
 
 Route::get('productos',function(){
-	foreach (Auth::user()->perfil->modulos as $modulo)
-		if($modulo->nombre == 'proveedores')
+	foreach (Auth::user()->perfil->componentes as $componente)
+		if($componente->modulo->nombre == 'proveedores')
 			return View::make('Productos.create');
 	return redirect()->route('denegado');
 });
@@ -138,7 +138,7 @@ Route::resource('pacientes.citas','Paciente\PacienteCitaController');
 Route::resource('pacientes.crm','Paciente\PacienteCrmController');
 Route::get('buscarpaciente','Paciente\PacienteController@buscar');
 
-Route::resource('pacientes.ortopedias','Paciente\PacienteHistorialOrtopedicoController', ['only' => ['create', 'store', 'show', 'destroy']]);
+Route::resource('pacientes.ortopedias','Paciente\PacienteHistorialOrtopedicoController');
 //Route::post('citas','Paciente\PacienteCitaController@citas');
 //------------------------------------------------------------
 

@@ -75,17 +75,14 @@
 				<div class="row">
 					<div class="col-sm-4 form-group">
 						<label for="fecha" class="control-label">Fecha:</label>
-						<input type="date" class="form-control" readonly="" name="fecha" id="fecha" value="{{ $paciente->ortopedias->last()->fecha }}">
+						<input type="date" class="form-control" readonly="" name="fecha" id="fecha" value="{{ $cita->fecha }}">
 					</div>
 				</div>
 				<div class="row">
-					<div id="si-cita"<?php echo $paciente->ortopedias->last() && $paciente->ortopedias->last()->fecha == date('Y-m-d') && !$paciente->ortopedias->last()->cita ? ' style="display: block"' : '' ?>>
+					<div id="si-cita"<?php echo $cita->clinica == null ? ' style="display: block"' : ' style="display: none"' ?>>
 						<div class="col-sm-4 text-center">
 							<label for="pie" class="control-label">Foto del pie</label>
-							@php($src = 'https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg')
-							@if($paciente->ortopedias->last() != null && $paciente->ortopedias->last()->fecha ==  date('Y-m-d'))
-							@php($src = url('/storage/' . $paciente->ortopedias->last()->path_image))
-							@endif
+							@php($src = url('/storage/' . $cita->path_image))
 							<div class="row form-group">
 								<img id="imagenpie" src="{{ $src }}" alt="Previa..." style="width: 250px; height: auto;">
 					      	</div>
@@ -95,51 +92,49 @@
 								<div class="row">
 									<div class="col-sm-12">
 										<label for="diag" class="control-label">Diagnóstico:</label>
-										<textarea class="form-control" name="diagnostico" maxlength="1000" rows="4" readonly="">{{ $paciente->ortopedias->last() && $paciente->ortopedias->last()->fecha == date('Y-m-d') && $paciente->ortopedias->last()->cita ? $paciente->ortopedias->last()->diagnostico : '' }}</textarea>
+										<textarea class="form-control" name="diagnostico" maxlength="1000" rows="4" readonly="">{{ 
+											$cita->diagnostico }}</textarea>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-sm-12">
 										<label for="reco" class="control-label">Recomendación:</label>
-										<textarea class="form-control" maxlength="1000" name="recomendacion" rows="4" readonly="">{{ $paciente->ortopedias->last() && $paciente->ortopedias->last()->fecha == date('Y-m-d') && $paciente->ortopedias->last()->cita ? $paciente->ortopedias->last()->recomendacion : '' }}</textarea>
+										<textarea class="form-control" maxlength="1000" name="recomendacion" rows="4" readonly="">{{ $cita->recomendacion }}</textarea>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-sm-12">
 										<label for="trat" class="control-label">Tipo de tratamiento:</label>
-										<textarea class="form-control" maxlength="1000" name="tipo_tratamiento" rows="4" readonly="">{{ $paciente->ortopedias->last() && $paciente->ortopedias->last()->fecha == date('Y-m-d') && $paciente->ortopedias->last()->cita ? $paciente->ortopedias->last()->tratamiento : '' }}</textarea>
+										<textarea class="form-control" maxlength="1000" name="tipo_tratamiento" rows="4" readonly="">{{ $cita->tratamiento }}</textarea>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div id="no-cita" style="display: none">
+					<div id="no-cita"<?php echo $cita->clinica != null ? ' style="display: block"' : ' style="display: none"' ?>>
 						<div class="col-sm-4 form-group text-center">
 							<label for="pie2" class="control-label" style=";">Foto de la receta</label>
 							<div class="row form-group">
-								<img id="imagenpre" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa..." style="width: 250px; height: auto;">
+								@php($src = url('/storage/' . $cita->path_image))
+								<img id="imagenpre" src="{{ $src }}" alt="Previa..." style="width: 250px; height: auto;">
 							</div>
-					      	<div class="row">
-					        	<input type="file" class="imagen" id="pie2" onchange="previewFile(this)" style="display: none;">
-								<input type="button" value="Examinar" class="btn btn-primary" onclick="document.getElementById('pie2').click();">
-					      	</div>
 						</div>
 						<div class="col-sm-4 form-group">
 							<label for="donde" class="control-label">¿De dónde viene?</label>
-							<input type="text" name="clinica" class="form-control" id="donde">
+							<input type="text" name="clinica" class="form-control" id="donde" readonly="" value="{{ $cita->clinica }}">
 						</div>
 					</div>
 				</div>
 				<div class="row" id="tratamiento">
 					<div class="col-sm-4 form-group">
 						<label class="control-label">Tipo de Tratamiento:</label>
-						<dd>{{ $paciente->ortopedias->last()->tipo ? $paciente->ortopedias->last()->tipo : 'N/A' }}</dd>
+						<dd>{{ $cita->tipo }}</dd>
     					<label class="control-label">Número:</label>
 						<input type="number" class="form-control" step="0.5" name="medida" readonly="" value="{{ $paciente->ortopedias->last()->medida }}">
 					</div>
 					<div class="col-sm-4 col-sm-offset-4 form-group">
 						<label class="control-label">Plantillas:</label>
-						<dd>{{ $paciente->ortopedias->last()->plantilla ? $paciente->ortopedias->last()->plantilla : 'N/A' }}</dd>
+						<dd>{{ $cita->plantilla }}</dd>
     					<label class="control-label">Número:</label>
 						<input type="number" class="form-control" step="0.5" name="medida_plant" readonly="" value="{{ $paciente->ortopedias->last()->medida_plant }}">
 					</div>

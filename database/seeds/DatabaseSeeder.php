@@ -14,7 +14,13 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PerfilsTableSeeder::class,
             ModulosTableSeeder::class,
-            ModuloPerfilTableSeeder::class,
+            ComponentesTableSeeder::class,
+            ComponentePerfilTableSeeder::class,
+            AreasTableSeeder::class,
+            PuestosTableSeeder::class,
+            ContratosTableSeeder::class,
+            EmpleadosTableSeeder::class,
+            DatosLaboralesTableSeeder::class,
             UsersTableSeeder::class
         ]);
     }

@@ -17,12 +17,10 @@ class User extends Authenticatable
     protected $fillable = [
         'id',
         'perfil_id',
+        'empleado_id',
         'name',
         'email',
         'password',
-        'nombre',
-        'appaterno',
-        'apmaterno'
     ];
 
     /**
@@ -36,5 +34,9 @@ class User extends Authenticatable
 
     public function perfil() {
         return $this->belongsTo('App\Perfil');
+    }
+
+    public function empleado() {
+        return $this->belongsTo('App\Empleado');
     }
 }

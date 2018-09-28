@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="{{ asset('bootstrap-toggle/css/bootstrap-toggle.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
       <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     
@@ -43,12 +44,9 @@
     </div>
 
     <!-- Scripts -->
-   <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-         <script src="{{ asset('js/peticion.js') }}"></script>
-         <script src="{{ asset('js/empleado.js') }}"></script>
-         
-<script href="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/peticion.js') }}"></script>
+    <script src="{{ asset('js/empleado.js') }}"></script>
 
     {{-- JQUERY 3.3.7 NECESARIO PARA VISTA RAPIDA, NO ELIMINES PORFA  --}}
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

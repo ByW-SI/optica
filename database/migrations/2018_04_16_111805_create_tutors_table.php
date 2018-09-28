@@ -23,10 +23,10 @@ class CreateTutorsTable extends Migration
             $table->string('apmaterno')->nullable();
             $table->string('edad')->nullable();
             $table->date('fecha_nacimiento')->nullable();
-            $table->enum('sexo', ['Masculino', 'Femenino','Otro']);
+            $table->enum('sexo', ['Masculino', 'Femenino','Otro'])->nullable();
             $table->string('relacion');
             $table->string('tel_casa')->nullable();
-            $table->string('tel_cel');
+            $table->string('tel_cel')->nullable();
              //------------------------------------------------
             $table->timestamps();
             $table->softDeletes();

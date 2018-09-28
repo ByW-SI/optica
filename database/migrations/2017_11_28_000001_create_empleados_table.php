@@ -15,15 +15,14 @@ class CreateEmpleadosTable extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('sucursal_id')->unsigned()->nullable();
-            $table->foreign('sucursal_id')->references('id')->on('sucursals');
+            $table->string('identificador');
             $table->string('nombre');
             $table->string('appaterno');
             $table->string('apmaterno');
+            $table->string('email');
             $table->string('rfc')->nullable();
             $table->string('telefono')->nullable();
             $table->string('movil')->nullable();
-            $table->string('email')->nullable();
             $table->string('nss')->nullable();
             $table->string('curp')->nullable();
             $table->string('infonavit')->nullable();
@@ -37,9 +36,8 @@ class CreateEmpleadosTable extends Migration
             $table->string('estado')->nullable();
             $table->string('calles')->nullable();
             $table->string('referencia')->nullable();
-
-            
-            
+            $table->integer('sucursal_id')->unsigned()->nullable();
+            $table->foreign('sucursal_id')->references('id')->on('sucursals');            
             $table->timestampsTz();
         });
     }

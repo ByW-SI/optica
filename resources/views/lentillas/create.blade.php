@@ -1,7 +1,6 @@
 @extends('layouts.test')
 @section('content1')
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{{ asset('js/lentillas.js') }}"></script>
 <script src="{{ asset('js/lentes.js') }}"></script>
 

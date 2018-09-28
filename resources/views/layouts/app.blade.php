@@ -63,8 +63,8 @@
                                 </ul>
                             </li>
                             {{-- SEGURIDAD --}}
-                            @foreach(Auth::user()->perfil->modulos as $modulo)
-                            @if($modulo->nombre == "seguridad")
+                            @foreach(Auth::user()->perfil->componentes as $componente)
+                            @if($componente->modulo->nombre == "seguridad")
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <i class="fa fa-lock" aria-hidden="true"></i> Seguridad<span class="caret"></span>
@@ -82,11 +82,12 @@
                                     </li>            
                                 </ul>
                             </li>
+                            @break
                             @endif
                             @endforeach
                             {{-- RECURSOS HUMANOS --}}
-                            @foreach(Auth::user()->perfil->modulos as $modulo)
-                            @if($modulo->nombre == "rh")
+                            @foreach(Auth::user()->perfil->componentes as $componente)
+                            @if($componente->modulo->nombre == "rh")
                             <li class="dropdown">
                                 <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><i class="fa fa-briefcase" aria-hidden="true"></i> Recursos Humanos <span class="caret"></span> </a>
                                 <ul class="dropdown-menu" role="menu">
@@ -119,11 +120,12 @@
                                     </li>                     
                                 </ul>
                             </li>
+                            @break
                             @endif
                             @endforeach
                             {{-- PROVEEDORES --}}
-                            @foreach(Auth::user()->perfil->modulos as $modulo)
-                            @if($modulo->nombre == "proveedores")
+                            @foreach(Auth::user()->perfil->componentes as $componente)
+                            @if($componente->modulo->nombre == "proveedores")
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-truck" aria-hidden="true"></i> Proveedores<span class="caret"></span> </a>
                                 <ul class="dropdown-menu" role="menu">
@@ -159,11 +161,12 @@
                                    </li>                     
                                 </ul>
                             </li>
+                            @break
                             @endif
                             @endforeach
                             {{-- SUCURSALES --}}
-                            @foreach(Auth::user()->perfil->modulos as $modulo)
-                            @if($modulo->nombre == "sucursales")
+                            @foreach(Auth::user()->perfil->componentes as $componente)
+                            @if($componente->modulo->nombre == "sucursales")
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-university" aria-hidden="true">
                                     </i> Sucursales<span class="caret"></span>
@@ -198,11 +201,12 @@
                                     </li>
                                 </ul>
                             </li>
+                            @break
                             @endif
                             @endforeach
                             {{-- PACIENTES --}}
-                            @foreach(Auth::user()->perfil->modulos as $modulo)
-                            @if($modulo->nombre == "pacientes")
+                            @foreach(Auth::user()->perfil->componentes as $componente)
+                            @if($componente->modulo->nombre == "pacientes")
                             <li class="dropdown">
                                 <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-md" aria-hidden="true"></i> Pacientes<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
@@ -223,6 +227,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            @break
                             @endif
                             @endforeach
                             @endauth

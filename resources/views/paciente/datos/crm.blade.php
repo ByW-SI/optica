@@ -92,8 +92,8 @@
 <th>Fecha contacto</th>
 <th>Fecha aviso</th>
 <th>Hora</th>
-<th>Estado</th>
 <th>Forma de contacto</th>
+<th>Estado</th>
 <th>Acuerdos</th>
 <th>Observaciones</th>
 

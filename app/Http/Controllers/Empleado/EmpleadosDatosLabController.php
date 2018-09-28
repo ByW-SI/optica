@@ -22,12 +22,9 @@ class EmpleadosDatosLabController extends Controller
     public function __construct() {
         $this->middleware(function ($request, $next) {
             if(Auth::check()) {
-                $user = Auth::user();
-                $modulos = $user->perfil->modulos;
-                foreach ($modulos as $modulo) {
-                    if($modulo->nombre == "rh")
+                foreach (Auth::user()->perfil->componentes as $componente)
+                    if($componente->modulo->nombre == "rh")
                         return $next($request);
-                }
                 return redirect()->route('denegado');
             } else
                 return redirect()->route('login');
@@ -156,13 +153,6 @@ class EmpleadosDatosLabController extends Controller
         $datoslab->comentariobaja = $request->comentariobaja ;
 
         $datoslab->contrato_id = $request->contrato_id ;
-        if ($empleado->datosLab->count() == 0) {
-            $datoslab->sucursal_id = $empleado->sucursal->id;
-            // dd($datoslab->sucursal_id);
-        }
-        else{
-            $datoslab->sucursal_id = $request->sucursal_id ;
-        }
         $datoslab->almacen_id = $request->almacen_id ;
         if ($request->bonopuntualidad == 'on') {
             # code...

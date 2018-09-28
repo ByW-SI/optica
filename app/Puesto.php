@@ -17,6 +17,6 @@ class Puesto extends Model
     public $sortable=['id','nombre', 'etiqueta'];
 
     public function datosLab(){
-    	return $this->belongsTo('App\EmpleadosDatosLab');
+    	return $this->hasMany('App\EmpleadosDatosLab');
     }
 }

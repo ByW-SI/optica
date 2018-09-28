@@ -1009,13 +1009,7 @@
       	</div>
       	<div class="col-sm-3">
       		<label class="control-label">Nombre del Lic. Optometrísta</label>
-            <select class="form-control" name="optometrista" id="optometrista" required>
-            	<option value="">Seleccione uno</option>
-				<option value="Lic.Almendares">Lic.Almendares</option>
-				<option value="Lic.Barrera">Lic.Barrera</option>
-				<option value="Lic.Carmona">Lic.Carmona</option>
-											
-				</select>
+            <input class="form-control" type="text" name="optometrista" id="optometrista" readonly="" value="{{ Auth::user()->empleado->nombre . ' ' . Auth::user()->empleado->appaterno }}">
       	</div>
 	</div>	
 	</div>

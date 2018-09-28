@@ -1,18 +1,28 @@
 <div class="panel-default">
 	<div class="panel-heading">
-		<h4>Historial Ortopédico:</h4>
+		<div class="row">
+			<div class="col-sm-4">
+				<h4>Historial Ortopédico:</h4>
+			</div>
+			<div class="col-sm-4 text-center">
+				{{ $paciente->ortopedias->last()->id }}
+				@if($paciente->ortopedias->last()->fecha == date('Y-m-d'))
+				<a class="btn btn-warning" href="{{ route('pacientes.ortopedias.edit', ['paciente'=>$paciente, 'id' => $paciente->ortopedias->last()->id]) }}">
+					<strong>Editar</strong>
+				</a>
+				@else
+				<a class="btn btn-success" href="{{ route('pacientes.ortopedias.create', ['paciente'=>$paciente]) }}">
+					<strong>Agregar</strong>
+				</a>
+				@endif
+			</div>
+		</div>
 	</div>
 	<div class="panel-body">
 		@if($paciente->ortopedias->count() == 0)
 		<div class="row">
 			<div class="col-sm-9">
 				<h2><strong>Aún no se ha agregado Historial Ortopédico:</strong></h2>
-			</div>
-			<div class="col-sm-3">
-				<br>
-				<a class="btn btn-primary" href="{{ route('pacientes.ortopedias.create', ['paciente'=>$paciente]) }}">
-					<strong>Agregar</strong>
-				</a>
 			</div>
 		</div>
 		<br>

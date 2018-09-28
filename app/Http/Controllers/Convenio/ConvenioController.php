@@ -14,12 +14,9 @@ class ConvenioController extends Controller
     public function __construct() {
         $this->middleware(function ($request, $next) {
             if(Auth::check()) {
-                $user = Auth::user();
-                $modulos = $user->perfil->modulos;
-                foreach ($modulos as $modulo) {
-                    if($modulo->nombre == "sucursales")
+                foreach (Auth::user()->perfil->componentes as $componente)
+                    if($componente->modulo->nombre == "sucursales")
                         return $next($request);
-                }
                 return redirect()->route('denegado');
             } else
                 return redirect()->route('login');
@@ -70,7 +67,7 @@ class ConvenioController extends Controller
             # code...
             $convenio = Convenio::create($request->all());
             Alert::success("Convenio creado con exito, sigue agregando información")->persistent("Cerrar");
-            return redirect()->route('convenios.direccionfisica.create',['convenio'=>$convenio]);
+            return redirect()->route('convenios.show',['convenio'=>$convenio]);
         }
     }
 

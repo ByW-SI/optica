@@ -18,12 +18,9 @@ class PacienteHistorialOrtopedicoController extends Controller
     public function __construct() {
         $this->middleware(function ($request, $next) {
             if(Auth::check()) {
-                $user = Auth::user();
-                $modulos = $user->perfil->modulos;
-                foreach ($modulos as $modulo) {
-                    if($modulo->nombre == "pacientes")
+                foreach (Auth::user()->perfil->componentes as $componente)
+                    if($componente->modulo->nombre == "pacientes")
                         return $next($request);
-                }
                 return redirect()->route('denegado');
             } else
                 return redirect()->route('login');
@@ -72,7 +69,7 @@ class PacienteHistorialOrtopedicoController extends Controller
 
                     ];
                     $this->validate($request, $rules);
-                    $path_image = $request->image->storeAs('/ortopedia/cita/' . $paciente->id . '/' . Carbon::now()->toDateString() . '.jpg');
+                    $path_image = $request->image->storeAs('/ortopedia/cita/' . $paciente->id . '/' . Carbon::now()->toDateString() . '.jpg', null);
                     $ult_Cita->update([
                         'fecha' => Carbon::now()->toDateString(),
                         'cita' => true,
@@ -213,7 +210,7 @@ class PacienteHistorialOrtopedicoController extends Controller
 
                     ];
                 $this->validate($request,$rules);
-                $path_image = $request->image->storeAs('/ortopedia/receta/'.$paciente->id.'/'.Carbon::now()->toDateString().'.jpg','public');
+                $path_image = $request->image->storeAs('/ortopedia/receta/'.$paciente->id.'/'.Carbon::now()->toDateString().'.jpg', null);
                 PacienteOrtopedia::create([
                     'fecha'=>Carbon::now()->toDateString(),
                     'paciente_id'=> $paciente->id,
@@ -242,9 +239,10 @@ class PacienteHistorialOrtopedicoController extends Controller
      * @param  \App\PacienteOrtopedia  $pacienteOrtopedia
      * @return \Illuminate\Http\Response
      */
-    public function show(Paciente $paciente)
+    public function show(Paciente $paciente, $id)
     {
-        return view('pacienteortopedia.view', ['paciente' => $paciente]);
+        $cita = PacienteOrtopedia::find($id);
+        return view('pacienteortopedia.view', ['paciente' => $paciente, 'cita' => $cita]);
     }
 
     /**
@@ -253,9 +251,10 @@ class PacienteHistorialOrtopedicoController extends Controller
      * @param  \App\PacienteOrtopedia  $pacienteOrtopedia
      * @return \Illuminate\Http\Response
      */
-    public function edit(PacienteOrtopedia $pacienteOrtopedia)
+    public function edit(Paciente $paciente, $id)
     {
-        //
+        $cita = PacienteOrtopedia::find($id);
+        return view('pacienteortopedia.edit', ['paciente' => $paciente, 'cita' => $cita]);
     }
 
     /**
@@ -265,9 +264,11 @@ class PacienteHistorialOrtopedicoController extends Controller
      * @param  \App\PacienteOrtopedia  $pacienteOrtopedia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PacienteOrtopedia $pacienteOrtopedia)
+    public function update(Request $request, Paciente $paciente, $id)
     {
-        //
+        $cita = PacienteOrtopedia::find($id);
+        $cita->update($request->all());
+        return view('pacienteortopedia.view', ['paciente' => $paciente, 'cita' => $cita]);
     }
 
     /**

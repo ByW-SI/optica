@@ -25,10 +25,12 @@ class CreatePacientesDatosGeneralesTable extends Migration
             $table->string('cp')->nullable();
             $table->string('municipio');
             $table->string('estado');
-            $table->string('telcasa');
-            $table->string('teloficina');
-            $table->string('telcelular');
-            $table->string('email');
+            $table->string('telcasa')->nullable();
+            $table->string('teloficina')->nullable();
+            $table->string('telcelular')->nullable();
+            $table->string('email')->nullable();
+            $table->string('trabajo')->nullable();
+            $table->string('servicio')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

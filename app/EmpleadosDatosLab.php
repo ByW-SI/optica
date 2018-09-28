@@ -34,32 +34,35 @@ class EmpleadosDatosLab extends Model
                          'fechabaja',
                          'tipobaja_id',
                          'comentariobaja',
-                         'sucursal_id',
-                         'almacen_id'];
+                         'almacen_id',
+                         'bonopuntualidad',
+                     ];
         
     protected $hidden=['created_at','updated_at'];
     public $sortable=['id'];
 
     public function empleado(){
-    	return $this->belongsTo('App\Empleado', 'empleado_id');
+    	return $this->belongsTo('App\Empleado');
     }
+
     public function tipocontrato(){
-    	return $this->hasOne('App\TipoContrato', 'contrato_id');
+    	return $this->belongsTo('App\TipoContrato');
     }
+
     public function tipobaja(){
-    	return $this->hasOne('App\TipoBaja','tipobaja_id');
+    	return $this->belongsTo('App\TipoBaja');
     }
-     public function sucursal(){
-        return $this->belongsTo('App\Sucursal', 'sucursal_id');
-    }
+
     public function areas(){
-        return $this->hasOne('App\Area','area_id');
+        return $this->belongsTo('App\Area');
     }
+
     public function puestos(){ 
-        return $this->hasOne('App\Puesto','puesto_id');
+        return $this->belongsTo('App\Puesto');
     }
+
      public function almacen(){
-        return $this->belongsTo('App\Almacen', 'almacen_id');
+        return $this->belongsTo('App\Almacen');
     }
 
 

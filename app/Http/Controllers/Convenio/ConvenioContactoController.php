@@ -32,12 +32,12 @@ class ConvenioContactoController extends Controller
         //
         $contactos = $convenio->contactosConvenio;
         // dd($contactos);
-        return view('convenioscontactos.index', ['convenio'=>$convenio, 'contactos'=>$contactos]);
+        return view('convenios.contactos.index', ['convenio'=>$convenio, 'contactos'=>$contactos]);
     }
     public function busqueda(){
         $contactos = $convenio->contactosConvenio;
         // dd($contactos);
-        return view('convenioscontactos.busqueda', ['convenio'=>$convenio, 'contactos'=>$contactos]);
+        return view('convenios.contactos.busqueda', ['convenio'=>$convenio, 'contactos'=>$contactos]);
     }
 
     /**
@@ -48,7 +48,7 @@ class ConvenioContactoController extends Controller
     public function create(Convenio $convenio)
     {
         //
-        return view('convenioscontactos.create',['convenio'=>$convenio]);
+        return view('convenios.contactos.create',['convenio'=>$convenio]);
     }
 
     /**
@@ -76,7 +76,7 @@ class ConvenioContactoController extends Controller
     {
         //
          $contacto = ConvenioContacto::findOrFail($contacto);
-        return view('convenioscontactos.view',['convenio'=>$convenio, 'contacto'=>$contacto]);
+        return view('convenios.contactos.view',['convenio'=>$convenio, 'contacto'=>$contacto]);
     }
 
     /**
@@ -89,7 +89,7 @@ class ConvenioContactoController extends Controller
     {
         //
         $contacto = ConvenioContacto::findOrFail($contacto);
-        return view('convenioscontactos.edit',['convenio'=>$convenio, 'contacto'=>$contacto]);
+        return view('convenios.contactos.edit',['convenio'=>$convenio, 'contacto'=>$contacto]);
     }
 
     /**

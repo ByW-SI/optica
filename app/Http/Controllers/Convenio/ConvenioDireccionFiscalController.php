@@ -37,7 +37,7 @@ class ConvenioDireccionFiscalController extends Controller
             return redirect()->route('convenios.direccionfiscal.create',['convenio'=>$convenio]);
         }
         else{
-            return view('conveniosdireccionfiscal.view',['direccion'=>$direccion,'convenio'=>$convenio]);
+            return view('convenios.direccionfiscal.view',['direccion'=>$direccion,'convenio'=>$convenio]);
         }
     }
 
@@ -49,7 +49,7 @@ class ConvenioDireccionFiscalController extends Controller
     public function create(Convenio $convenio)
     {
         //
-         return view('conveniosdireccionfiscal.create',['convenio'=>$convenio]);
+         return view('convenios.direccionfiscal.create',['convenio'=>$convenio]);
     }
 
     /**
@@ -77,7 +77,7 @@ class ConvenioDireccionFiscalController extends Controller
     {
         //
         $direccion = $convenio->direccionFiscalConvenio;
-        return view('conveniosdireccionfiscal.view',['direccion'=>$direccion,'convenio'=>$convenio]);
+        return view('convenios.direccionfiscal.view',['direccion'=>$direccion,'convenio'=>$convenio]);
     }
 
     /**
@@ -90,7 +90,7 @@ class ConvenioDireccionFiscalController extends Controller
     {
         //
         $direccion = $convenio->direccionFiscalConvenio;
-        return view('conveniosdireccionfiscal.edit',['convenio'=>$convenio, 'direccion'=>$direccion]);
+        return view('convenios.direccionfiscal.edit',['convenio'=>$convenio, 'direccion'=>$direccion]);
     }
 
     /**

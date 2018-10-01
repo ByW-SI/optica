@@ -98,7 +98,7 @@
 </div>
 <script type="text/javascript">
 	function datosFiscal() {
-        if($('#dirfiscal').prop('checked') == true){
+        if($('#dirfiscal').prop('checked') == true) {
         	document.domicilio.calle.defaultValue = "{{$provedore->calle}}";
        		document.domicilio.numext.defaultValue = "{{$provedore->numext}}";
         	document.domicilio.numint.defaultValue = "{{$provedore->numinter}}";

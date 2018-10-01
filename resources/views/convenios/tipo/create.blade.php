@@ -35,7 +35,7 @@
     				<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
     					<label class="control-label" for="nombre"><i class="fa fa-asterisk" aria-hidden="true"></i> Nombre del convenio:</label>
     					
-    					<textarea class="form-control" name="nombre" id="nombre"></textarea>
+    					<textarea class="form-control" name="nombre" id="nombre" required=""></textarea>
     				</div>
     				<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
     					<label class="control-label" for="desc_cita"> Descuento por cita:</label>

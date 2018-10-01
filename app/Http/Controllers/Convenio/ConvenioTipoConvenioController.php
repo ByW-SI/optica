@@ -31,7 +31,7 @@ class ConvenioTipoConvenioController extends Controller
     {
         //
         // dd($convenio);
-        return view('conveniostipoconvenio.create',['convenio'=>$convenio]);
+        return view('convenios.tipo.create',['convenio'=>$convenio]);
         
     }
 
@@ -54,9 +54,8 @@ class ConvenioTipoConvenioController extends Controller
      */
     public function store(Convenio $convenio, Request $request)
     {
-        //
         if($request->convenio_id == $convenio->id){
-            $rules=[
+            $rules = [
                 'nombre'=>'required',
                 'descripcion'=>'required',
                 'desc_prod'=>'nullable|numeric|min:0',
@@ -69,10 +68,10 @@ class ConvenioTipoConvenioController extends Controller
                 'convenio_id'=>'required|numeric'
 
             ];
-            $this->validate($request,$rules);
-            $tipoconvenio=TipoConvenio::create($request->all());
+            $this->validate($request, $rules);
+            $tipoconvenio = TipoConvenio::create($request->all());
             Alert::success("Convenio ".$tipoconvenio->nombre." fue creado con éxito")->persistent("Cerrar");
-            return redirect()->route('convenios.tipoconvenios.index',['convenio'=>$convenio]);
+            return redirect()->route('convenios.tipoconvenios.index', ['convenio' => $convenio]);
         }
     }
 
@@ -85,7 +84,7 @@ class ConvenioTipoConvenioController extends Controller
     public function show(Convenio $convenio, TipoConvenio $tipoconvenio)
     {
         //
-        return view('conveniostipoconvenio.show',['convenio'=>$convenio,'tipoconvenio'=>$tipoconvenio]);
+        return view('convenios.tipo.show',['convenio'=>$convenio,'tipoconvenio'=>$tipoconvenio]);
     }
 
     /**
@@ -98,7 +97,7 @@ class ConvenioTipoConvenioController extends Controller
     {
         //
         // dd($tipoconvenio);
-        return view('conveniostipoconvenio.edit', ['convenio'=>$convenio,'tipoconvenio'=>$tipoconvenio]);
+        return view('convenios.tipo.edit', ['convenio'=>$convenio,'tipoconvenio'=>$tipoconvenio]);
     }
 
     /**

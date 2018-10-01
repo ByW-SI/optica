@@ -5,7 +5,7 @@
 				<h4>Historial Ortopédico:</h4>
 			</div>
 			<div class="col-sm-4 text-center">
-				{{ $paciente->ortopedias->last()->id }}
+				@if(count($paciente->ortopedias) != 0)
 				@if($paciente->ortopedias->last()->fecha == date('Y-m-d'))
 				<a class="btn btn-warning" href="{{ route('pacientes.ortopedias.edit', ['paciente'=>$paciente, 'id' => $paciente->ortopedias->last()->id]) }}">
 					<strong>Editar</strong>
@@ -14,6 +14,7 @@
 				<a class="btn btn-success" href="{{ route('pacientes.ortopedias.create', ['paciente'=>$paciente]) }}">
 					<strong>Agregar</strong>
 				</a>
+				@endif
 				@endif
 			</div>
 		</div>

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Provedor;
 
 use App\Provedor;
+use Illuminate\Support\Facades\Auth;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
 
 class ProvedorController extends Controller{
@@ -32,7 +32,7 @@ class ProvedorController extends Controller{
     {
         //
         $provedores = Provedor::sortable()->paginate(5);
-        
+        // Alert::message('Robots are working!');
         return view('provedores.index', ['provedores'=>$provedores]);
     }
 
@@ -61,7 +61,7 @@ class ProvedorController extends Controller{
         if (count($provedore) != 0) {
             # code...
             // alert()->error('Error Message', 'Optional Title');
-           Alert::error("El RFC ya está Registrado")->persistent("Cerrar");
+            // return redirect()->route('clientes.create');
             return redirect()->back()->with('errors', 'El RFC ya existe');
         } else {
             # code...
@@ -81,7 +81,7 @@ class ProvedorController extends Controller{
     public function show(Provedor $provedore)
     {
         
-        return view('provedores.view',['provedore'=>$provedore]);
+        return view('provedores.view', ['provedore'=>$provedore]);
     }
 
     /**
@@ -128,13 +128,13 @@ class ProvedorController extends Controller{
     $provedores = Provedor::where(function($q) use($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
-            $q->orWhere('nombre','LIKE',"%$word%")
+            $q->orWhere('nombre','LIKE',           "%$word%")
                 ->orWhere('apellidopaterno','LIKE',"%$word%")
                 ->orWhere('apellidomaterno','LIKE',"%$word%")
-                ->orWhere('razonsocial','LIKE',"%$word%")
-                ->orWhere('rfc','LIKE',"%$word%")
-                ->orWhere('alias','LIKE',"%$word%")
-                ->orWhere('tipopersona','LIKE',"%$word%");
+                ->orWhere('razonsocial','LIKE',    "%$word%")
+                ->orWhere('rfc','LIKE',            "%$word%")
+                ->orWhere('alias','LIKE',          "%$word%")
+                ->orWhere('tipopersona','LIKE',    "%$word%");
             }
         })->get();
     return view('provedores.busqueda', ['provedores'=>$provedores]);

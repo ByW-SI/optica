@@ -269,7 +269,7 @@
 				 	<div class="panel-heading">
 					 	Datos Bancarios:
 					 </div>
-			 		@if($provedore->datosBancarios == null)
+			 		@if ($provedore->datosBancarios == null)
 					<div class="panel-body">
 						<h3>Aún no tienes datos bancario</h3>
 					</div>

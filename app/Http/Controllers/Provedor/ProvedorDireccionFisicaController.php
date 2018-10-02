@@ -5,22 +5,10 @@ use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\DireccionFisicaProvedor;
 use App\Http\Controllers\Controller;
 use App\Provedor;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ProvedorDireccionFisicaController extends Controller
 {
-    public function __construct() {
-        $this->middleware(function ($request, $next) {
-            if(Auth::check()) {
-                foreach (Auth::user()->perfil->componentes as $componente)
-                    if($componente->modulo->nombre == "proveedores")
-                        return $next($request);
-                return redirect()->route('denegado');
-            } else
-                return redirect()->route('login');
-        });
-    }
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +23,7 @@ class ProvedorDireccionFisicaController extends Controller
             return redirect()->route('provedores.direccionfisica.create',['provedore'=>$provedore]);
         }
         else{
-            return view('direccionprovedores.view',['direccion'=>$direccion,'provedore'=>$provedore]);
+            return view('provedores.direccion.view',['direccion'=>$direccion,'provedore'=>$provedore]);
         }
 
 
@@ -49,7 +37,7 @@ class ProvedorDireccionFisicaController extends Controller
     public function create(Provedor $provedore)
     {
         //
-        return view('direccionprovedores.create',['provedore'=>$provedore]);
+        return view('provedores.direccion.create',['provedore'=>$provedore]);
     }
 
     /**
@@ -80,7 +68,7 @@ class ProvedorDireccionFisicaController extends Controller
     {
         //
         $direccion = $provedore->direccionFisicaProvedor;
-        return view('direccionprovedores.view',['direccion'=>$direccion,'provedore'=>$provedore]);
+        return view('provedores.direccion.view',['direccion'=>$direccion,'provedore'=>$provedore]);
 
     }
 
@@ -94,7 +82,7 @@ class ProvedorDireccionFisicaController extends Controller
     {
         //
         $direccion = $provedore->direccionFisicaProvedor;
-        return view('direccionprovedores.edit',['provedore'=>$provedore, 'direccion'=>$direccion]);
+        return view('provedores.direccion.edit',['provedore'=>$provedore, 'direccion'=>$direccion]);
     }
 
     /**
@@ -124,6 +112,6 @@ class ProvedorDireccionFisicaController extends Controller
         //
     }
     public function prueba(){
-        return view('direccionprovedores.view');
+        return view('provedores.direccion.view');
     }
 }

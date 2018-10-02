@@ -8,21 +8,9 @@ use App\Http\Controllers\Controller;
 use App\Provedor;
 use Illuminate\Http\Request;
 use UxWeb\SweetAlert\SweetAlert as Alert;
-use Illuminate\Support\Facades\Auth;
 
 class ProvedorContactoController extends Controller
 {
-    public function __construct() {
-        $this->middleware(function ($request, $next) {
-            if(Auth::check()) {
-                foreach (Auth::user()->perfil->componentes as $componente)
-                    if($componente->modulo->nombre == "proveedores")
-                        return $next($request);
-                return redirect()->route('denegado');
-            } else
-                return redirect()->route('login');
-        });
-    }
     /**
      * Display a listing of the resource.
      *
@@ -33,14 +21,14 @@ class ProvedorContactoController extends Controller
         //
         $contactos = $provedore->contactosProvedor;
         // dd($contactos);
-        return view('contactoprovedores.index', ['provedore'=>$provedore, 'contactos'=>$contactos]);
+        return view('provedores.contacto.index', ['provedore'=>$provedore, 'contactos'=>$contactos]);
 
     }
 
     public function busqueda(){
         $contactos = $provedore->contactosProvedor;
         // dd($contactos);
-        return view('contactoprovedores.busqueda', ['provedore'=>$provedore, 'contactos'=>$contactos]);
+        return view('provedores.contacto.busqueda', ['provedore'=>$provedore, 'contactos'=>$contactos]);
     }
 
     /**
@@ -51,7 +39,7 @@ class ProvedorContactoController extends Controller
     public function create(Provedor $provedore)
     {
         //
-        return view('contactoprovedores.create',['provedore'=>$provedore]);
+        return view('provedores.contacto.create',['provedore'=>$provedore]);
     }
 
     /**
@@ -79,7 +67,7 @@ class ProvedorContactoController extends Controller
     {
         //
         $contacto = ContactoProvedor::findOrFail($contacto);
-        return view('contactoprovedores.view',['provedore'=>$provedore, 'contacto'=>$contacto]);
+        return view('provedores.contacto.view',['provedore'=>$provedore, 'contacto'=>$contacto]);
     }
 
     /**
@@ -92,7 +80,7 @@ class ProvedorContactoController extends Controller
     {
         //
         $contacto = ContactoProvedor::findOrFail($contacto);
-        return view('contactoprovedores.edit',['provedore'=>$provedore, 'contacto'=>$contacto]);
+        return view('provedores.contacto.edit',['provedore'=>$provedore, 'contacto'=>$contacto]);
     }
 
     /**

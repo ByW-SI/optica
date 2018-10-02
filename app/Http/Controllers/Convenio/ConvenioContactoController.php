@@ -29,14 +29,12 @@ class ConvenioContactoController extends Controller
      */
     public function index(Convenio $convenio)
     {
-        //
-        $contactos = $convenio->contactosConvenio;
-        // dd($contactos);
+        $contactos = $convenio->contactos;
         return view('convenios.contactos.index', ['convenio'=>$convenio, 'contactos'=>$contactos]);
     }
+
     public function busqueda(){
-        $contactos = $convenio->contactosConvenio;
-        // dd($contactos);
+        $contactos = $convenio->contactos;
         return view('convenios.contactos.busqueda', ['convenio'=>$convenio, 'contactos'=>$contactos]);
     }
 
@@ -47,7 +45,6 @@ class ConvenioContactoController extends Controller
      */
     public function create(Convenio $convenio)
     {
-        //
         return view('convenios.contactos.create',['convenio'=>$convenio]);
     }
 

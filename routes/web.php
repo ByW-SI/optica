@@ -10,52 +10,52 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('cita','Paciente\PacienteCitaController@store');
-Route::post('crm','Paciente\PacienteCrmController@store');
-Route::resource('giros','Giro\GiroController', ['except'=>'show']);
-Route::resource('formacontactos','FormaContacto\FormaContactoController');
-Route::resource('provedores','Provedor\ProvedorController');
-Route::get('provedores.create','Provedor\ProvedorController@create');
+Route::post('cita', 'Paciente\PacienteCitaController@store');
+Route::post('crm', 'Paciente\PacienteCrmController@store');
+Route::resource('giros', 'Giro\GiroController', ['except' => 'show']);
+Route::resource('formacontactos', 'FormaContacto\FormaContactoController');
+Route::resource('provedores', 'Provedor\ProvedorController');
+Route::get('provedores.create', 'Provedor\ProvedorController@create');
 Route::get('provedores.datosgenerales.show', 'Provedor\ProvedorDatosGeneralesController@show');
-Route::resource('provedores.direccionfisica','Provedor\ProvedorDireccionFisicaController');
-Route::resource('provedores.datosgenerales','Provedor\ProvedorDatosGeneralesController');
-Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
-Route::resource('provedores.datosbancarios','Provedor\ProveedorDatosBancariosController');
+Route::resource('provedores.direccionfisica', 'Provedor\ProvedorDireccionFisicaController');
+Route::resource('provedores.datosgenerales', 'Provedor\ProvedorDatosGeneralesController');
+Route::resource('provedores.contacto', 'Provedor\ProvedorContactoController');
+Route::resource('provedores.datosbancarios', 'Provedor\ProveedorDatosBancariosController');
 
 
 // CONVENIOS
-Route::resource('convenios','Convenio\ConvenioController');
-Route::resource('convenios.direccionfiscal','Convenio\ConvenioDireccionFiscalController');
-Route::resource('convenios.contactos','Convenio\ConvenioContactoController');
-Route::resource('convenios.tipoconvenios','Convenio\ConvenioTipoConvenioController');
-// Route::resource('convenios.tipoconvenios','Convenio\ConvenioTipoConvenioController');
+Route::resource('convenios', 'Convenio\ConvenioController', ['except' => 'destroy']);
+Route::resource('convenios.direccionfiscal', 'Convenio\ConvenioDireccionFiscalController', ['except' => 'show', 'destroy']);
+Route::resource('convenios.contactos', 'Convenio\ConvenioContactoController');
+Route::resource('convenios.tipoconvenios', 'Convenio\ConvenioTipoConvenioController');
+// Route::resource('convenios.tipoconvenios', 'Convenio\ConvenioTipoConvenioController');
 
 //----------------------------------------------------------
 
 
 
-Route::resource('empleados','Empleado\EmpleadoController');
-Route::resource('empleados.datoslaborales','Empleado\EmpleadosDatosLabController');
-Route::resource('empleados.estudios','Empleado\EmpleadosEstudiosController');
-Route::resource('empleados.emergencias','Empleado\EmpleadosEmergenciasController');
-Route::resource('empleados.vacaciones','Empleado\EmpleadosVacacionesController');
-Route::resource('empleados.faltas','Empleado\EmpleadosFaltasAdministrativasController');
+Route::resource('empleados', 'Empleado\EmpleadoController');
+Route::resource('empleados.datoslaborales', 'Empleado\EmpleadosDatosLabController');
+Route::resource('empleados.estudios', 'Empleado\EmpleadosEstudiosController');
+Route::resource('empleados.emergencias', 'Empleado\EmpleadosEmergenciasController');
+Route::resource('empleados.vacaciones', 'Empleado\EmpleadosVacacionesController');
+Route::resource('empleados.faltas', 'Empleado\EmpleadosFaltasAdministrativasController');
 
 
 
-Route::resource('contratos','Precargas\TipoContratoController');
-Route::resource('bajas','Precargas\TipoBajaController');
+Route::resource('contratos', 'Precargas\TipoContratoController');
+Route::resource('bajas', 'Precargas\TipoBajaController');
 
 /* RUTAS DE BUSQUEDAS*/
-Route::get('buscarempleado','Empleado\EmpleadoController@buscar');
-Route::get('buscarproveedor','Provedor\ProvedorController@buscar');
-Route::get('buscarcontrato','Precargas\TipoContratoController@buscar');
-Route::get('buscarbaja','Precargas\TipoBajaController@buscar');
-Route::get('buscararea','Area\AreaController@buscar');
-Route::get('buscarpuesto','Puesto\PuestoController@buscar');
-Route::get('buscarbanco','Banco\BancoController@buscar');
-Route::get('buscargiro','Giro\GiroController@buscar');
-Route::get('buscarformacontacto','FormaContacto\FormaContactoController@buscar');
+Route::get('buscarempleado', 'Empleado\EmpleadoController@buscar');
+Route::get('buscarproveedor', 'Provedor\ProvedorController@buscar');
+Route::get('buscarcontrato', 'Precargas\TipoContratoController@buscar');
+Route::get('buscarbaja', 'Precargas\TipoBajaController@buscar');
+Route::get('buscararea', 'Area\AreaController@buscar');
+Route::get('buscarpuesto', 'Puesto\PuestoController@buscar');
+Route::get('buscarbanco', 'Banco\BancoController@buscar');
+Route::get('buscargiro', 'Giro\GiroController@buscar');
+Route::get('buscarformacontacto', 'FormaContacto\FormaContactoController@buscar');
 
 Route::get('/', function () {
 	return redirect()->route('login');
@@ -92,54 +92,53 @@ Route::get('ocul',function(){
 //-----------------------------------------------------
 
 
-Route::resource('formacontactos','FormaContacto\FormaContactoController');
-Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
+Route::resource('formacontactos', 'FormaContacto\FormaContactoController');
+Route::get('prueba', 'Provedor\ProvedorDireccionFisicaController@prueba');
 //-----------------------------------
 
 //--------------------------------------------------------------------
-Route::resource('gastos','Gasto\GastoController', ['except'=>'show']);
-// Route::get('gastos.create','Gasto\GastoController@create');
+Route::resource('gastos', 'Gasto\GastoController', ['except' => 'show']);
+// Route::get('gastos.create', 'Gasto\GastoController@create');
 
-Route::resource('sucursales','Sucursal\SucursalController');
-Route::get('sucursales.create','Sucursal\SucursalController@create');
-Route::get('sucursales.index','Sucursal\SucursalController@index');
+Route::resource('sucursales', 'Sucursal\SucursalController');
+Route::get('sucursales.create', 'Sucursal\SucursalController@create');
+Route::get('sucursales.index', 'Sucursal\SucursalController@index');
 
-Route::resource('sucursal','Empleado\EmpleadoSucursalController');
+Route::resource('sucursal', 'Empleado\EmpleadoSucursalController');
 //---------------------------------------------------------------------------
-Route::resource('areas','Area\AreaController', ['except'=>'show']);
-Route::resource('puestos','Puesto\PuestoController', ['except'=>'show']);
-Route::resource('bancos','Banco\BancoController', ['except'=>'show']);
+Route::resource('areas', 'Area\AreaController', ['except' => 'show']);
+Route::resource('puestos', 'Puesto\PuestoController', ['except' => 'show']);
+Route::resource('bancos', 'Banco\BancoController', ['except' => 'show']);
 //---------------------------------------------------------------------------
-Route::resource('almacens','Almacen\AlmacenController');
-Route::get('almacens.create','Almacen\AlmacenController@create');
-Route::get('almacens.index','Almacen\AlmacenController@index');
+Route::resource('almacens', 'Almacen\AlmacenController');
+Route::get('almacens.create', 'Almacen\AlmacenController@create');
+Route::get('almacens.index', 'Almacen\AlmacenController@index');
 
-Route::resource('almacen','Empleado\EmpleadoAlmacenController');
+Route::resource('almacen', 'Empleado\EmpleadoAlmacenController');
 //----------------------------------------------------
 // ruta de funcion ajax para obtener las precargas
-Route::get('getareas','Area\AreaController@getAreas');
-Route::get('getcontratos','Precargas\TipoContratoController@getContratos');
-Route::get('getbajas','Precargas\TipoBajaController@getBajas');
-Route::get('getpuestos','Puesto\PuestoController@getPuestos');
-Route::get('getsucursal','Sucursal\SucursalController@getSucursal');
-Route::get('getalmacen','Almacen\AlmacenController@getAlmacen');
-Route::get('getbancos','Banco\BancoController@getBancos');
-Route::get('getgiros','Giro\GiroController@getGiros');
-Route::get('getcontacto','FormaContacto\FormaContactoController@getContactos');
+Route::get('getareas', 'Area\AreaController@getAreas');
+Route::get('getcontratos', 'Precargas\TipoContratoController@getContratos');
+Route::get('getbajas', 'Precargas\TipoBajaController@getBajas');
+Route::get('getpuestos', 'Puesto\PuestoController@getPuestos');
+Route::get('getsucursal', 'Sucursal\SucursalController@getSucursal');
+Route::get('getalmacen', 'Almacen\AlmacenController@getAlmacen');
+Route::get('getbancos', 'Banco\BancoController@getBancos');
+Route::get('getgiros', 'Giro\GiroController@getGiros');
+Route::get('getcontacto', 'FormaContacto\FormaContactoController@getContactos');
 //---------------------------------------------------------
 // *********** PACIENTES *********************************//
-Route::resource('pacientes','Paciente\PacienteController');
-Route::resource('pacientes.datosgenerales','Paciente\PacientesDatosGeneralesController');
-Route::resource('pacientes.historialmedico','Paciente\PacienteHistorialMedicoController');
-Route::resource('pacientes.historialocular','Paciente\PacienteHistorialOcularController');
-Route::resource('pacientes.anteojos','Paciente\PacienteAnteojoController');
-Route::resource('pacientes.tutor','Paciente\TutorController');
-Route::resource('pacientes.citas','Paciente\PacienteCitaController');
-Route::resource('pacientes.crm','Paciente\PacienteCrmController');
-Route::get('buscarpaciente','Paciente\PacienteController@buscar');
-
-Route::resource('pacientes.ortopedias','Paciente\PacienteHistorialOrtopedicoController');
-//Route::post('citas','Paciente\PacienteCitaController@citas');
+Route::resource('pacientes', 'Paciente\PacienteController');
+Route::resource('pacientes.datosgenerales', 'Paciente\PacientesDatosGeneralesController');
+Route::resource('pacientes.historialmedico', 'Paciente\PacienteHistorialMedicoController');
+Route::resource('pacientes.historialocular', 'Paciente\PacienteHistorialOcularController');
+Route::resource('pacientes.anteojos', 'Paciente\PacienteAnteojoController');
+Route::resource('pacientes.tutor', 'Paciente\TutorController');
+Route::resource('pacientes.citas', 'Paciente\PacienteCitaController');
+Route::resource('pacientes.crm', 'Paciente\PacienteCrmController');
+Route::get('buscarpaciente', 'Paciente\PacienteController@buscar');
+Route::resource('pacientes.ortopedias', 'Paciente\PacienteHistorialOrtopedicoController');
+//Route::post('citas', 'Paciente\PacienteCitaController@citas');
 //------------------------------------------------------------
 
 Route::get('/home', function () {

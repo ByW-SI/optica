@@ -12,12 +12,17 @@ class ModulosTableSeeder extends Seeder
      */
     public function run()
     {
-    	$modulos = array(
-    		array('nombre' => 'seguridad'),
-    		array('nombre' => 'rh'),
-    		array('nombre' => 'proveedores'),
-    		array('nombre' => 'sucursales'),
-    		array('nombre' => 'pacientes'),
+    	$modulos = array(                               // id
+    		array('nombre' => 'seguridad'),             // 1
+    		array('nombre' => 'rh'),                    // 2
+    		array('nombre' => 'proveedores'),           // 3
+    		array('nombre' => 'sucursales'),            // 4
+    		array('nombre' => 'pacientes'),             // 5
+            array('nombre' => 'precargas'),             // 6
+            array('nombre' => 'convenios'),             // 7
+            array('nombre' => 'productos'),             // 8
+            array('nombre' => 'bonos'),                 // 9
+            array('nombre' => 'comisiones'),            // 10
     	);
 
     	Modulo::insert($modulos);

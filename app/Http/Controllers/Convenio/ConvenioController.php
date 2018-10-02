@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ConvenioController extends Controller
 {
+    
     public function __construct() {
         $this->middleware(function ($request, $next) {
             if(Auth::check()) {
@@ -30,9 +31,8 @@ class ConvenioController extends Controller
      */
     public function index()
     {
-        //
         $convenios = Convenio::sortable()->paginate(5);
-        return view('convenios.index',['convenios'=>$convenios]);
+        return view('convenios.index', ['convenios' => $convenios]);
     }
 
     /**
@@ -42,7 +42,6 @@ class ConvenioController extends Controller
      */
     public function create()
     {
-        //
         return view('convenios.create');
     }
 
@@ -54,20 +53,14 @@ class ConvenioController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $convenio = Convenio::where('rfc',$request->rfc)->get();
-        // dd(count($convenio));
+        $convenio = Convenio::where('rfc', $request->rfc)->get();
         if (count($convenio) != 0) {
-            # code...
-            // alert()->error('Error Message', 'Optional Title');
-            // return redirect()->route('clientes.create');
             Alert::error("Error, El RFC ya existe")->persistent("Cerrar");
             return redirect()->back()->with('errors', 'El RFC ya existe');
         } else {
-            # code...
             $convenio = Convenio::create($request->all());
             Alert::success("Convenio creado con exito, sigue agregando información")->persistent("Cerrar");
-            return redirect()->route('convenios.show',['convenio'=>$convenio]);
+            return redirect()->route('convenios.show', ['convenio' => $convenio]);
         }
     }
 
@@ -79,8 +72,7 @@ class ConvenioController extends Controller
      */
     public function show(Convenio $convenio)
     {
-        //
-        return view('convenios.view',['convenio'=>$convenio]);
+        return view('convenios.view', ['convenio' => $convenio]);
     }
 
     /**
@@ -91,8 +83,7 @@ class ConvenioController extends Controller
      */
     public function edit(Convenio $convenio)
     {
-        //
-         return view('convenios.edit',['convenio'=>$convenio]);
+        return view('convenios.edit', ['convenio' => $convenio]);
     }
 
     /**
@@ -104,41 +95,26 @@ class ConvenioController extends Controller
      */
     public function update(Request $request, Convenio $convenio)
     {
-        //
-
         $convenio->update($request->all());
         Alert::success('Convenio actualizado')->persistent("Cerrar");
-        return redirect()->route('convenios.show',['convenio'=>$convenio]);
+        return redirect()->route('convenios.show', ['convenio'=>$convenio]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Convenio  $convenio
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Convenio $convenio)
-    {
-        //
-    }
-    public function buscar(Request $request){
-    // dd($request);
-    $query = $request->input('busqueda');
-    $wordsquery = explode(' ',$query);
-    $convenios = Convenio::where(function($q) use($wordsquery){
-            foreach ($wordsquery as $word) {
-                # code...
-            $q->orWhere('nombre','LIKE',"%$word%")
-                ->orWhere('apellidopaterno','LIKE',"%$word%")
-                ->orWhere('apellidomaterno','LIKE',"%$word%")
-                ->orWhere('razonsocial','LIKE',"%$word%")
-                ->orWhere('rfc','LIKE',"%$word%")
-                ->orWhere('alias','LIKE',"%$word%")
-                ->orWhere('tipopersona','LIKE',"%$word%");
+    public function buscar(Request $request) {
+        $query = $request->input('busqueda');
+        $wordsquery = explode(' ', $query);
+        $convenios = Convenio::where(function($q) use($wordsquery) {
+            foreach($wordsquery as $word) {
+                $q->orWhere('nombre', 'LIKE', "%$word%")
+                    ->orWhere('apellidopaterno', 'LIKE', "%$word%")
+                    ->orWhere('apellidomaterno', 'LIKE', "%$word%")
+                    ->orWhere('razonsocial', 'LIKE', "%$word%")
+                    ->orWhere('rfc', 'LIKE', "%$word%")
+                    ->orWhere('alias', 'LIKE', "%$word%")
+                    ->orWhere('tipopersona', 'LIKE', "%$word%");
             }
         })->get();
-    return view('convenios.busqueda', ['convenios'=>$convenios]);
-        
-
+        return view('convenios.busqueda', ['convenios'=>$convenios]);
     }
+
 }

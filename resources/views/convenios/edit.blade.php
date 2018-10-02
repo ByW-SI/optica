@@ -9,16 +9,13 @@
 			<div class="panel-default">
 				<div class="panel-heading">
 					<div class="row">
-						<div class="col-sm-3">
+						<div class="col-sm-4">
 							<h4>Datos del Convenio: <small><i class="fa fa-asterisk" aria-hidden="true"></i>Requerido</small></h4>
 						</div>
-						<div class="col-sm-3 text-center">
+						<div class="col-sm-4 text-center">
 							<a class="btn btn-success" href="{{ route('convenios.create')}}"><strong>Agregar Convenio</strong></a>
 						</div>
-						<div class="col-sm-3 text-center">
-							<a class="btn btn-warning" href="{{ route('convenios.edit', ['id' => $convenio->id]) }}"><strong>Editar Convenio</strong></a>
-						</div>
-						<div class="col-sm-3 text-center">
+						<div class="col-sm-4 text-center">
 							<a class="btn btn-info" href="{{ route('convenios.index') }}"><strong>Lista de Convenios</strong></a>
 						</div>
 					</div>
@@ -28,13 +25,8 @@
 	  					<div class="form-group col-sm-3">
 	    					<label class="control-label" for="tipopersona"><i class="fa fa-asterisk" aria-hidden="true"></i>Tipo de Persona:</label>
 	    					<select type="select" name="tipopersona" class="form-control" id="tipopersona" onchange="persona(this)">
-	    						<option id="Fisica" value="Fisica" @if ($convenio->tipopersona == "Fisica")
-	    							{{-- expr --}}
-	    							selected="selected" 
-	    						@endif>Fisica</option>
-	    						<option id="Moral" value="Moral" @if ($convenio->tipopersona == "Moral")
-	    							selected="selected" 
-	    						@endif>Moral</option>
+	    						<option id="Fisica" value="Fisica"<?php echo $convenio->tipopersona == 'Fisica' ? 'selected=""' : '' ?>>Fisica</option>
+	    						<option id="Moral" value="Moral"<?php echo $convenio->tipopersona == 'Moral' ? 'selected=""' : '' ?>>Moral</option>
 	    					</select>
 	  					</div>
 	  					<div class="form-group col-sm-3">
@@ -51,24 +43,21 @@
 	  					</div>
 					</div>
 					<div class="row" id="perfisica">
-						<div class="form-group col-sm-3">
+						<div class="col-sm-3">
 	  						<label class="control-label" for="nombre"><i class="fa fa-asterisk" aria-hidden="true"></i> Nombre(s):</label>
 	  						<input type="text" class="form-control" id="nombre" name="nombre" value="{{ $convenio->nombre }}">
 	  					</div>
-	  					<div class="form-group col-sm-3">
+	  					<div class="col-sm-3">
 	  						<label class="control-label" for="apellidopaterno"><i class="fa fa-asterisk" aria-hidden="true"></i> Apellido Paterno:</label>
 	  						<input type="text" class="form-control" id="apellidopaterno" name="apellidopaterno" value="{{ $convenio->apellidomaterno }}">
 	  					</div>
-	  					<div class="form-group col-sm-3">
+	  					<div class="col-sm-3">
 	  						<label class="control-label" for="apellidomaterno">Apellido Materno:</label>
 	  						<input type="text" class="form-control" id="apellidomaterno" name="apellidomaterno" value="{{ $convenio->apellidomaterno }}">
 	  					</div>
-	
 					</div>
-
-					<div class="row" id="permoral" style="display:none;">
-						<div class="form-group col-sm-3">
-
+					<div class="row" id="permoral" style="display: none;">
+						<div class="col-sm-3">
 	  						<label class="control-label" for="razonsocial"><i class="fa fa-asterisk" aria-hidden="true"></i> Razon Social:</label>
 	  						<input type="text" class="form-control" id="razonsocial" name="razonsocial" value="{{ $convenio->razonsocial }}">
 	  					</div>
@@ -79,11 +68,15 @@
 				<li class="active"><a href="#tab1">Dirección Fisica:</a></li>
 				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.direccionfiscal.index', ['convenio' => $convenio]) }}" class="ui-tabs-anchor" id="ui-id-2">Dirección Fiscal:</a></li>
 				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.contactos.index', ['convenio' => $convenio]) }}" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.tipoconvenios.index', ['convenio' => $convenio]) }}" class="ui-tabs-anchor" id="ui-id-4">Tipo de Convenio:</a></li>
+				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.tipoconvenios.index', ['convenio' => $convenio]) }}" class="ui-tabs-anchor" id="ui-id-4">Tipos de Convenios:</a></li>
 			</ul>
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h5>Dirección Fisica: <small><i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</small></h5>
+					<div class="row">
+						<div class="col-sm-4">
+							<h5>Dirección Fisica: <small><i class="fa fa-asterisk" aria-hidden="true"></i>Requerido</small></h5>
+						</div>
+					</div>
 				</div>
 				<div class="panel-body">
 					<div class="row">

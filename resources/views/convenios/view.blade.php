@@ -8,7 +8,7 @@
 			<li class="active"><a href="#tab1">Dirección Fisica:</a></li>
 			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.direccionfiscal.index', ['convenio' => $convenio]) }}" class="ui-tabs-anchor" id="ui-id-2">Dirección Fiscal:</a></li>
 			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.contactos.index', ['convenio' => $convenio]) }}" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.tipoconvenios.index', ['convenio' => $convenio]) }}" class="ui-tabs-anchor" id="ui-id-3">Tipo de Convenios:</a></li>
+			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.tipoconvenios.index', ['convenio' => $convenio]) }}" class="ui-tabs-anchor" id="ui-id-3">Tipos de Convenios:</a></li>
 		</ul>
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -61,6 +61,13 @@
   						<dd>{{ $convenio->referencia }}</dd>
   					</div>
 				</div>
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <a class="btn btn-warning" href="{{ route('convenios.edit', ['id' => $convenio->id]) }}">
+                            <strong>Editar</strong>
+                        </a>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>

@@ -6,6 +6,7 @@ use App\DatosBancariosProveedor;
 use App\Provedor;
 use App\Banco;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class ProveedorDatosBancariosController extends Controller
@@ -24,7 +25,7 @@ class ProveedorDatosBancariosController extends Controller
 
     public function index(Provedor $provedore)
     {
-        $bancario = $provedore->datosBancarios->first();
+        $bancario = $provedore->datosBancarios;
         if(!$bancario) {
             $bancos = Banco::get();
             return view('datosbancariosproveedores.create', ['provedore' => $provedore, 'bancos' => $bancos]);
@@ -56,9 +57,8 @@ class ProveedorDatosBancariosController extends Controller
 
     public function edit(Provedor $provedore)
     {
-        $bancario = DatosBancariosProveedor::get()->first();
         $bancos = Banco::get();
-        return view('datosbancariosproveedores.edit', ['provedore' => $provedore, 'bancario' => $bancario, 'bancos' => $bancos]);
+        return view('datosbancariosproveedores.edit', ['provedore' => $provedore, 'bancario' => $provedore->datosBancarios, 'bancos' => $bancos]);
     }
 
     public function update(Request $request, Provedor $provedore)

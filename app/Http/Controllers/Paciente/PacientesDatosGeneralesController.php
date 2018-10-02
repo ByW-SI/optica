@@ -42,6 +42,7 @@ class PacientesDatosGeneralesController extends Controller
     public function create(Paciente $paciente)
     {
         $convenios = Convenio::get();
+        // dd($paciente->generales);
         return view('pacientedatos.create',
                     ['paciente'=>$paciente,
                      'edit'=>false, 'convenios' => $convenios]);

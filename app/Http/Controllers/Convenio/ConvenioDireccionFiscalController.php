@@ -12,6 +12,7 @@ use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class ConvenioDireccionFiscalController extends Controller
 {
+
     public function __construct() {
         $this->middleware(function ($request, $next) {
             if(Auth::check()) {
@@ -23,6 +24,7 @@ class ConvenioDireccionFiscalController extends Controller
                 return redirect()->route('login');
         });
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,15 +32,11 @@ class ConvenioDireccionFiscalController extends Controller
      */
     public function index(Convenio $convenio)
     {
-        //
-        $direccion = $convenio->direccionFiscalConvenio;
-        if ($direccion ==null) {
-            # code...
-            return redirect()->route('convenios.direccionfiscal.create',['convenio'=>$convenio]);
-        }
-        else{
-            return view('convenios.direccionfiscal.view',['direccion'=>$direccion,'convenio'=>$convenio]);
-        }
+        $direccion = $convenio->direccionFiscal;
+        if($direccion == null)
+            return redirect()->route('convenios.direccionfiscal.create', ['convenio' => $convenio]);
+        else
+            return view('convenios.direccionfiscal.view', ['direccion' => $direccion, 'convenio' => $convenio]);
     }
 
     /**
@@ -48,8 +46,7 @@ class ConvenioDireccionFiscalController extends Controller
      */
     public function create(Convenio $convenio)
     {
-        //
-         return view('convenios.direccionfiscal.create',['convenio'=>$convenio]);
+         return view('convenios.direccionfiscal.create', ['convenio' => $convenio]);
     }
 
     /**
@@ -60,24 +57,9 @@ class ConvenioDireccionFiscalController extends Controller
      */
     public function store(Request $request, Convenio $convenio)
     {
-        //
         $direccion = ConvenioDireccionFiscal::create($request->all());
-
         Alert::success('Dirección Fiscal del Convenio Actualizada')->persistent("Cerrar");
-        return redirect()->route('convenios.contactos.index',['convenio'=>$convenio]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Convenio  $convenio
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Convenio $convenio)
-    {
-        //
-        $direccion = $convenio->direccionFiscalConvenio;
-        return view('convenios.direccionfiscal.view',['direccion'=>$direccion,'convenio'=>$convenio]);
+        return redirect()->route('convenios.contactos.index', ['convenio' => $convenio]);
     }
 
     /**
@@ -89,7 +71,7 @@ class ConvenioDireccionFiscalController extends Controller
     public function edit(Convenio $convenio)
     {
         //
-        $direccion = $convenio->direccionFiscalConvenio;
+        $direccion = $convenio->direccionFiscal;
         return view('convenios.direccionfiscal.edit',['convenio'=>$convenio, 'direccion'=>$direccion]);
     }
 
@@ -102,20 +84,9 @@ class ConvenioDireccionFiscalController extends Controller
      */
     public function update(Request $request, Convenio $convenio)
     {
-        //
         $convenio->direccionFiscalConvenio->update($request->all());
         Alert::success('Dirección Fiscal del Convenio Actualizada')->persistent("Cerrar");
         return redirect()->route('convenios.direccionfiscal.index',['convenio'=>$convenio]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Convenio  $convenio
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Convenio $convenio)
-    {
-        //
-    }
 }

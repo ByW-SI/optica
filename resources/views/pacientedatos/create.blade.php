@@ -30,7 +30,7 @@
 						<option value="">Seleccionar</option>
 						@if(count($convenios) != 0)
 						@foreach($convenios as $convenio)
-						<option value="{{ $convenio->nombre }}"<?php echo $paciente->generales != null && $paciente->generales->convenio == $convenio->nombre ? ' selected' : '' ?>>{{ $convenio->nombre }}</option>
+						<option value="{{ $convenio->nombre }}{{ $convenio->razonsocial }}"<?php echo $paciente->generales != null && ($paciente->generales->convenio == $convenio->nombre || $paciente->generales->convenio == $convenio->razonsocial)? ' selected' : '' ?>>{{ $convenio->razonsocial }}{{ $convenio->nombre }}</option>
 						@endforeach
 						<option value="Particular"<?php echo $paciente->generales != null && $paciente->generales->convenio == 'Particular' ? ' selected' : '' ?>>Particular</option>
 						@endif

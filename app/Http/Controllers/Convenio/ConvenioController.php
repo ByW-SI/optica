@@ -16,12 +16,19 @@ class ConvenioController extends Controller
         $this->middleware(function ($request, $next) {
             if(Auth::check()) {
                 foreach (Auth::user()->perfil->componentes as $componente)
-                    if($componente->modulo->nombre == "sucursales")
+                    if($componente->modulo->nombre == "convenios")
                         return $next($request);
                 return redirect()->route('denegado');
             } else
                 return redirect()->route('login');
         });
+    }
+
+    private function hasComponent($nombre) {
+        foreach (Auth::user()->perfil->componentes as $componente)
+            if($componente->nombre == $nombre)
+                return true;
+        return false;
     }
 
     /**
@@ -31,8 +38,11 @@ class ConvenioController extends Controller
      */
     public function index()
     {
-        $convenios = Convenio::sortable()->paginate(5);
-        return view('convenios.index', ['convenios' => $convenios]);
+        if($this->hasComponent('indice convenios')) {
+            $convenios = Convenio::sortable()->paginate(5);
+            return view('convenios.index', ['convenios' => $convenios]);
+        }
+        return redirect()->route('denegado');
     }
 
     /**
@@ -42,7 +52,10 @@ class ConvenioController extends Controller
      */
     public function create()
     {
-        return view('convenios.create');
+        if($this->hasComponent('crear convenio')) {
+            return view('convenios.create');
+        }
+        return redirect()->route('denegado');
     }
 
     /**
@@ -53,15 +66,18 @@ class ConvenioController extends Controller
      */
     public function store(Request $request)
     {
-        $convenio = Convenio::where('rfc', $request->rfc)->get();
-        if (count($convenio) != 0) {
-            Alert::error("Error, El RFC ya existe")->persistent("Cerrar");
-            return redirect()->back()->with('errors', 'El RFC ya existe');
-        } else {
-            $convenio = Convenio::create($request->all());
-            Alert::success("Convenio creado con exito, sigue agregando información")->persistent("Cerrar");
-            return redirect()->route('convenios.show', ['convenio' => $convenio]);
+        if($this->hasComponent('crear convenio')) {
+            $convenio = Convenio::where('rfc', $request->rfc)->get();
+            if (count($convenio) != 0) {
+                Alert::error("Error, El RFC ya existe")->persistent("Cerrar");
+                return redirect()->back()->with('errors', 'El RFC ya existe');
+            } else {
+                $convenio = Convenio::create($request->all());
+                Alert::success("Convenio creado con exito, sigue agregando información")->persistent("Cerrar");
+                return redirect()->route('convenios.show', ['convenio' => $convenio]);
+            }
         }
+        return redirect()->route('denegado');
     }
 
     /**
@@ -72,7 +88,10 @@ class ConvenioController extends Controller
      */
     public function show(Convenio $convenio)
     {
-        return view('convenios.view', ['convenio' => $convenio]);
+        if($this->hasComponent('ver convenio')) {
+            return view('convenios.view', ['convenio' => $convenio]);
+        }
+        return redirect()->route('denegado');
     }
 
     /**
@@ -83,7 +102,10 @@ class ConvenioController extends Controller
      */
     public function edit(Convenio $convenio)
     {
-        return view('convenios.edit', ['convenio' => $convenio]);
+        if($this->hasComponent('editar convenio')) {
+            return view('convenios.edit', ['convenio' => $convenio]);
+        }
+        return redirect()->route('denegado');
     }
 
     /**
@@ -95,26 +117,32 @@ class ConvenioController extends Controller
      */
     public function update(Request $request, Convenio $convenio)
     {
-        $convenio->update($request->all());
-        Alert::success('Convenio actualizado')->persistent("Cerrar");
-        return redirect()->route('convenios.show', ['convenio'=>$convenio]);
+        if($this->hasComponent('editar convenio')) {
+            $convenio->update($request->all());
+            Alert::success('Convenio actualizado')->persistent("Cerrar");
+            return redirect()->route('convenios.show', ['convenio'=>$convenio]);
+        }
+        return redirect()->route('denegado');
     }
 
     public function buscar(Request $request) {
-        $query = $request->input('busqueda');
-        $wordsquery = explode(' ', $query);
-        $convenios = Convenio::where(function($q) use($wordsquery) {
-            foreach($wordsquery as $word) {
-                $q->orWhere('nombre', 'LIKE', "%$word%")
-                    ->orWhere('apellidopaterno', 'LIKE', "%$word%")
-                    ->orWhere('apellidomaterno', 'LIKE', "%$word%")
-                    ->orWhere('razonsocial', 'LIKE', "%$word%")
-                    ->orWhere('rfc', 'LIKE', "%$word%")
-                    ->orWhere('alias', 'LIKE', "%$word%")
-                    ->orWhere('tipopersona', 'LIKE', "%$word%");
-            }
-        })->get();
-        return view('convenios.busqueda', ['convenios'=>$convenios]);
+        if($this->hasComponent('indice convenios')) {
+            $query = $request->input('busqueda');
+            $wordsquery = explode(' ', $query);
+            $convenios = Convenio::where(function($q) use($wordsquery) {
+                foreach($wordsquery as $word) {
+                    $q->orWhere('nombre', 'LIKE', "%$word%")
+                        ->orWhere('apellidopaterno', 'LIKE', "%$word%")
+                        ->orWhere('apellidomaterno', 'LIKE', "%$word%")
+                        ->orWhere('razonsocial', 'LIKE', "%$word%")
+                        ->orWhere('rfc', 'LIKE', "%$word%")
+                        ->orWhere('alias', 'LIKE', "%$word%")
+                        ->orWhere('tipopersona', 'LIKE', "%$word%");
+                }
+            })->get();
+            return view('convenios.busqueda', ['convenios'=>$convenios]);
+        }
+        return redirect()->route('denegado');
     }
 
 }

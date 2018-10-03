@@ -6,10 +6,22 @@ use App\DatosBancariosProveedor;
 use App\Provedor;
 use App\Banco;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class ProveedorDatosBancariosController extends Controller
 {
+    public function __construct() {
+        $this->middleware(function ($request, $next) {
+            if(Auth::check()) {
+                foreach (Auth::user()->perfil->componentes as $componente)
+                    if($componente->modulo->nombre == "proveedores")
+                        return $next($request);
+                return redirect()->route('denegado');
+            } else
+                return redirect()->route('login');
+        });
+    }
 
     public function index(Provedor $provedore)
     {

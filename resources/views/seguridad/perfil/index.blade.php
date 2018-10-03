@@ -21,6 +21,9 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-sm-12">
+                        @if($perfiles->last()->nombre == 'Admin')
+                        <h4>Aún no se han agregado perfiles.</h4>
+                        @else
                         <table class="table table-hover table-striped table-bordered" style="margin-bottom: 0;">
                             @foreach($perfiles as $perfil)
                             @if($perfil->id == 1)
@@ -57,6 +60,7 @@
                             @endif
                             @endforeach
                         </table>
+                        @endif
                     </div>
                 </div>
             </div>

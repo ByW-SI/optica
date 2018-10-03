@@ -15,7 +15,7 @@ class ConvenioContactoController extends Controller
         $this->middleware(function ($request, $next) {
             if(Auth::check()) {
                 foreach (Auth::user()->perfil->componentes as $componente)
-                    if($componente->modulo->nombre == "sucursales")
+                    if($componente->modulo->nombre == "convenios")
                         return $next($request);
                 return redirect()->route('denegado');
             } else

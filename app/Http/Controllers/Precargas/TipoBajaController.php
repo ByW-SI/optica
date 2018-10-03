@@ -17,6 +17,15 @@ class TipoBajaController extends Controller
         $this->actualizar = 'bajas.update';
         $this->borrar ='bajas.destroy';
         $this->buscar = 'buscarbaja';
+        $this->middleware(function ($request, $next) {
+            if(Auth::check()) {
+                foreach (Auth::user()->perfil->componentes as $componente)
+                    if($componente->modulo->nombre == "precargas")
+                        return $next($request);
+                return redirect()->route('denegado');
+            } else
+                return redirect()->route('login');
+        });
     }
     /**
      * Display a listing of the resource.

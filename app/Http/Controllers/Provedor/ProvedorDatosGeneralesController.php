@@ -9,10 +9,22 @@ use App\Giro;
 use App\Http\Controllers\Controller;
 use App\Provedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class ProvedorDatosGeneralesController extends Controller
 {
+    public function __construct() {
+        $this->middleware(function ($request, $next) {
+            if(Auth::check()) {
+                foreach (Auth::user()->perfil->componentes as $componente)
+                    if($componente->modulo->nombre == "proveedores")
+                        return $next($request);
+                return redirect()->route('denegado');
+            } else
+                return redirect()->route('login');
+        });
+    }
     /**
      * Display a listing of the resource.
      *

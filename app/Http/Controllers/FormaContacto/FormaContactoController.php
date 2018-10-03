@@ -13,7 +13,7 @@ class FormaContactoController extends Controller
         $this->middleware(function ($request, $next) {
             if(Auth::check()) {
                 foreach (Auth::user()->perfil->componentes as $componente)
-                    if($componente->modulo->nombre == "proveedores")
+                    if($componente->modulo->nombre == "precargas")
                         return $next($request);
                 return redirect()->route('denegado');
             } else

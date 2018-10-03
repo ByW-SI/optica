@@ -17,6 +17,15 @@ class TipoContratoController extends Controller
         $this->actualizar = 'contratos.update';
         $this->borrar ='contratos.destroy';
         $this->buscar = 'buscarcontrato';
+        $this->middleware(function ($request, $next) {
+            if(Auth::check()) {
+                foreach (Auth::user()->perfil->componentes as $componente)
+                    if($componente->modulo->nombre == "precargas")
+                        return $next($request);
+                return redirect()->route('denegado');
+            } else
+                return redirect()->route('login');
+        });
     }
     /**
      * Display a listing of the resource.

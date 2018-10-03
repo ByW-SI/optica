@@ -193,7 +193,7 @@ class PerfilController extends Controller
             if($perfil->id == self::PERFIL_ID_ADMIN || (Auth::user()->perfil->id != self::PERFIL_ID_ADMIN && $seguridad))
                 return redirect()->route('denegado');
             else {
-                $perfil->modulos()->detach();
+                $perfil->componentes()->detach();
                 $perfil->delete();
                 $perfiles = Perfil::get();
                 return view('seguridad.perfil.index', ['perfiles' => $perfiles]);

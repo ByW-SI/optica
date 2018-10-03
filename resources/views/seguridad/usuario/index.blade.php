@@ -21,6 +21,9 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-sm-12">
+                        @if($usuarios->last()->perfil->nombre == 'Admin')
+                        <h4>Aún no se han agregado usuarios.</h4>
+                        @else
                         <table class="table table-hover table-striped table-bordered" style="margin-bottom: 0;">
                             <tr class="info">
                                 <th class="col-sm-1" >Perfil</th>
@@ -69,6 +72,7 @@
                             <p>Nada</p>
                             @endforelse
                         </table>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -128,10 +128,9 @@ class PacienteHistorialOrtopedicoController extends Controller
         } else if($request->image2 != null) {
             $orto->path_image = Storage::putFileAs('ortopedia/cita/' . $paciente->id, $request->file('image2'), Carbon::now()->toDateString() . '.jpg');
         } else {
-            $orto->path_image = 'https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg';
         }
         $orto->save();
-        
+
         return view('pacienteortopedia.view', ['paciente' => $paciente, 'cita' => $orto]);
     }
 

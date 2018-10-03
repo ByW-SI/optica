@@ -86,7 +86,7 @@
 								<div class="col-sm-6 col-xs-6">
 									Sí
 									<div class="row">
-										<input class="radiocita option-input radio" type="radio" name="citaradio" id="optionsRadios1" value="si" onchange="cocultar(this)" style="top: 0;">
+										<input class="radiocita option-input radio" type="radio" name="citaradio" id="optionsRadios1" value="si" onchange="cocultar(this)" style="top: 0;" required="">
 									</div>
 								</div>
 								<div class="col-sm-6 col-xs-5">
@@ -157,7 +157,7 @@
 								<div class="col-sm-4 col-xs-4">
 									Zapatos
 									<div class="row">
-										<input class="option-input radio" type="radio" name="tratamiento" value="zapatos" style="top: 0">
+										<input class="option-input radio" type="radio" name="tratamiento" value="zapatos" style="top: 0" required="">
 									</div>
 								</div>
 								<div class="col-sm-4 col-xs-4">
@@ -174,7 +174,7 @@
 								</div>
 							</div>
 	    					<label class="control-label">Número:</label>
-    						<input type="number" class="form-control" step="0.5" name="medida">
+    						<input type="number" class="form-control" step="0.5" name="medida" required="">
 						</div>
 						<div class="col-sm-4 col-sm-offset-4 form-group">
 							<label class="control-label">Plantillas:</label>
@@ -182,7 +182,7 @@
 								<div class="col-sm-4 col-xs-4">
 									Piel
 									<div class="row">
-										<input class="option-input radio" type="radio" name="plantilla" value="piel" style="top: 0">
+										<input class="option-input radio" type="radio" name="plantilla" value="piel" style="top: 0" required="">
 									</div>
 								</div>
 								<div class="col-sm-4 col-xs-4">
@@ -199,7 +199,7 @@
 								</div>
 							</div>
 	    					<label class="control-label">Número:</label>
-    						<input type="number" class="form-control" step="0.5" name="medida_plant">
+    						<input type="number" class="form-control" step="0.5" name="medida_plant" required="">
 						</div>
 					</div>
 					<div class="row">

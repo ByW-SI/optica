@@ -87,7 +87,7 @@
 								<div class="col-sm-6 col-xs-6">
 									Sí
 									<div class="row">
-										<input class="radiocita option-input radio" type="radio" name="citaradio" id="optionsRadios1" value="si" onchange="cocultar(this)" style="top: 0;"<?php echo $cita->cita ? ' checked' : '' ?>>
+										<input class="radiocita option-input radio" type="radio" name="citaradio" id="optionsRadios1" value="si" onchange="cocultar(this)" style="top: 0;"<?php echo $cita->cita ? ' checked' : '' ?> required="">
 									</div>
 								</div>
 								<div class="col-sm-6 col-xs-5">
@@ -158,7 +158,7 @@
 								<div class="col-sm-4 col-xs-4">
 									Zapatos
 									<div class="row">
-										<input class="option-input radio" type="radio" name="tratamiento" value="zapatos" style="top: 0"<?php echo $cita->tipo == 'zapatos' ? ' checked' : '' ?>>
+										<input class="option-input radio" type="radio" name="tratamiento" value="zapatos" style="top: 0"<?php echo $cita->tipo == 'zapatos' ? ' checked' : '' ?> required="">
 									</div>
 								</div>
 								<div class="col-sm-4 col-xs-4">
@@ -175,7 +175,7 @@
 								</div>
 							</div>
 	    					<label class="control-label">Número:</label>
-    						<input type="number" class="form-control" step="0.5" name="medida" value="{{ $cita->medida }}">
+    						<input type="number" class="form-control" step="0.5" name="medida" value="{{ $cita->medida }}" required="">
 						</div>
 						<div class="col-sm-4 col-sm-offset-4 form-group">
 							<label class="control-label">Plantillas:</label>
@@ -183,7 +183,7 @@
 								<div class="col-sm-4 col-xs-4">
 									Piel
 									<div class="row">
-										<input class="option-input radio" type="radio" name="plantilla" value="piel" style="top: 0"<?php echo $cita->plantilla == 'piel' ? ' checked' : '' ?>>
+										<input class="option-input radio" type="radio" name="plantilla" value="piel" style="top: 0"<?php echo $cita->plantilla == 'piel' ? ' checked' : '' ?> required="">
 									</div>
 								</div>
 								<div class="col-sm-4 col-xs-4">
@@ -200,7 +200,7 @@
 								</div>
 							</div>
 	    					<label class="control-label">Número:</label>
-    						<input type="number" class="form-control" step="0.5" name="medida_plant" value="{{ $cita->medida_plant }}">
+    						<input type="number" class="form-control" step="0.5" name="medida_plant" value="{{ $cita->medida_plant }}" required="">
 						</div>
 					</div>
 					<div class="row">

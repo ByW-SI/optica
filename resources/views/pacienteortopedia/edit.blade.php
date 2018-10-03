@@ -1,6 +1,7 @@
 @extends('layouts.test')
 @section('content1')
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <div class="container">
 	<div role="application" class="panel panel-group">
 		<div class="panel-default">
@@ -86,27 +87,27 @@
 								<div class="col-sm-6 col-xs-6">
 									Sí
 									<div class="row">
-										<input class="radiocita option-input radio" type="radio" name="citaradio" id=optionsRadios1"" value="si" onchange="cocultar(this)" style="top: 0;"<?php echo $cita->clinica == null ? ' checked' : '' ?>>
+										<input class="radiocita option-input radio" type="radio" name="citaradio" id="optionsRadios1" value="si" onchange="cocultar(this)" style="top: 0;"<?php echo $cita->cita ? ' checked' : '' ?>>
 									</div>
 								</div>
 								<div class="col-sm-6 col-xs-5">
 									No
 									<div class="row">
-										<input class="radiocita option-input radio" type="radio" name="citaradio" id=optionsRadios2"" value="no" onchange="cocultar(this)" style="top: 0;"<?php echo $cita->clinica != null ? ' checked' : '' ?>>
+										<input class="radiocita option-input radio" type="radio" name="citaradio" id="optionsRadios2" value="no" onchange="cocultar(this)" style="top: 0;"<?php echo !$cita->cita ? ' checked' : '' ?>>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="row">
-						<div id="si-cita"<?php echo $cita->clinica == null ? ' style="display: block"' : ' style="display: none"' ?>>
+						<div id="si-cita"<?php echo $cita->cita ? ' style="display: block"' : ' style="display: none"' ?>>
 							<div class="col-sm-4 text-center">
 								<label for="pie" class="control-label">Foto del pie</label>
 								<div class="row form-group">
 									<img id="imagenpie" src="{{ url('/storage/'.$cita->path_image) }}" alt="Previa..." style="width: 250px; height: auto;">
 						      	</div>
 						      	<div class="row">
-						        	<input type="file" class="imagen" id="pie" onchange="previewFile2(this)" name="image" style="display: none" value="{{ url('/storage/'.$cita->path_image) }}">
+						        	<input type="file" class="imagen" id="pie" onchange="previewFile2(this)" name="image2" style="display: none" value="{{ url('/storage/'.$cita->path_image) }}">
 									<input type="button" value="Examinar" class="btn btn-primary" onclick="document.getElementById('pie').click();" />
 								</div>
 							</div>
@@ -133,14 +134,14 @@
 								</div>
 							</div>
 						</div>
-						<div id="no-cita"<?php echo $cita->clinica != null ? ' style="display: block"' : ' style="display: none"' ?>>
+						<div id="no-cita"<?php echo !$cita->cita ? ' style="display: block"' : ' style="display: none"' ?>>
 							<div class="col-sm-4 form-group text-center">
 								<label for="pie2" class="control-label" style=";">Foto de la receta</label>
 								<div class="row form-group">
 									<img id="imagenpre" src="{{ url('/storage/'.$cita->path_image) }}" alt="Previa..." style="width: 250px; height: auto;">
 								</div>
 						      	<div class="row">
-						        	<input type="file" class="imagen" id="pie2" onchange="previewFile(this)" style="display: none;" value="{{ url('/storage/'.$cita->path_image) }}" name="image">
+						        	<input type="file" class="imagen" id="pie2" onchange="previewFile(this)" style="display: none;" value="{{ url('/storage/' . $cita->path_image) }}" name="image">
 									<input type="button" value="Examinar" class="btn btn-primary" onclick="document.getElementById('pie2').click();">
 						      	</div>
 							</div>
@@ -215,6 +216,22 @@
 
 <script type="text/javascript">
 		
+	$(document).ready(function() {
+		$('#optionsRadios1').change(function() {
+			$("#imagenpre").prop('src', 'https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg');
+			$("#pie2").val('');
+			$("#donde").val('');
+		});
+
+		$('#optionsRadios2').change(function() {
+			$("#imagenpie").prop('src', 'https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg');
+			$("#pie").val('');
+			$("#diag").val('');
+			$("#reco").val('');
+			$("#trat").val('');
+		});
+	});
+
 	function previewFile(input){
 		if(input.files && input.files[0]){
 			var filered = new FileReader();

@@ -1,6 +1,7 @@
 @extends('layouts.test')
 @section('content1')
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <div class="container">
 	<div role="application" class="panel panel-group">
 		<div class="panel-default">
@@ -85,13 +86,13 @@
 								<div class="col-sm-6 col-xs-6">
 									Sí
 									<div class="row">
-										<input class="radiocita option-input radio" type="radio" name="citaradio" id=optionsRadios1"" value="si" onchange="cocultar(this)" style="top: 0;">
+										<input class="radiocita option-input radio" type="radio" name="citaradio" id="optionsRadios1" value="si" onchange="cocultar(this)" style="top: 0;">
 									</div>
 								</div>
 								<div class="col-sm-6 col-xs-5">
 									No
 									<div class="row">
-										<input class="radiocita option-input radio" type="radio" name="citaradio" id=optionsRadios2"" value="no" onchange="cocultar(this)" style="top: 0;">
+										<input class="radiocita option-input radio" type="radio" name="citaradio" id="optionsRadios2" value="no" onchange="cocultar(this)" style="top: 0;">
 									</div>
 								</div>
 							</div>
@@ -105,7 +106,7 @@
 									<img id="imagenpie" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa..." style="width: 250px; height: auto;">
 						      	</div>
 						      	<div class="row">
-						        	<input type="file" class="imagen" id="pie" onchange="previewFile2(this)" name="image" style="display: none">
+						        	<input type="file" class="imagen" id="pie" onchange="previewFile2(this)" name="image2" style="display: none">
 									<input type="button" value="Examinar" class="btn btn-primary" onclick="document.getElementById('pie').click();" />
 								</div>
 							</div>
@@ -114,19 +115,19 @@
 									<div class="row">
 										<div class="col-sm-12">
 											<label for="diag" class="control-label">Diagnóstico:</label>
-											<textarea class="form-control" name="diagnostico" maxlength="1000" rows="4"></textarea>
+											<textarea class="form-control" name="diagnostico" id="diag" maxlength="1000" rows="4"></textarea>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-12">
 											<label for="reco" class="control-label">Recomendación:</label>
-											<textarea class="form-control" maxlength="1000" name="recomendacion" rows="4"></textarea>
+											<textarea class="form-control" maxlength="1000" id="reco" name="recomendacion" rows="4"></textarea>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-12">
 											<label for="trat" class="control-label">Tipo de tratamiento:</label>
-											<textarea class="form-control" maxlength="1000" name="tipo_tratamiento" rows="4"></textarea>
+											<textarea class="form-control" maxlength="1000" id="trat" name="tipo_tratamiento" rows="4"></textarea>
 										</div>
 									</div>
 								</div>
@@ -134,7 +135,7 @@
 						</div>
 						<div id="no-cita" style="display: none">
 							<div class="col-sm-4 form-group text-center">
-								<label for="pie2" class="control-label" style=";">Foto de la receta</label>
+								<label for="pie2" class="control-label">Foto de la receta</label>
 								<div class="row form-group">
 									<img id="imagenpre" src="https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg" alt="Previa..." style="width: 250px; height: auto;">
 								</div>
@@ -213,7 +214,23 @@
 </div>
 
 <script type="text/javascript">
-		
+
+	$(document).ready(function() {
+		$('#optionsRadios1').change(function() {
+			$("#imagenpre").prop('src', 'https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg');
+			$("#pie2").val('');
+			$("#donde").val('');
+		});
+
+		$('#optionsRadios2').change(function() {
+			$("#imagenpie").prop('src', 'https://upmaa-pennmuseum.netdna-ssl.com/collections/images/image_not_available_300.jpg');
+			$("#pie").val('');
+			$("#diag").val('');
+			$("#reco").val('');
+			$("#trat").val('');
+		});
+	});
+
 	function previewFile(input){
 		if(input.files && input.files[0]){
 			var filered = new FileReader();

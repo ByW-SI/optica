@@ -6,11 +6,15 @@
 			</div>
 			<div class="col-sm-4 text-center">
 				@if(count($paciente->ortopedias) != 0)
-				@if($paciente->ortopedias->last()->fecha == date('Y-m-d'))
+					@if($paciente->ortopedias->last()->fecha == date('Y-m-d'))
 				<a class="btn btn-warning" href="{{ route('pacientes.ortopedias.edit', ['paciente'=>$paciente, 'id' => $paciente->ortopedias->last()->id]) }}">
 					<strong>Editar</strong>
 				</a>
-				@endif
+					@else
+				<a class="btn btn-success" href="{{ route('pacientes.ortopedias.create', ['paciente'=>$paciente]) }}">
+					<strong>Agregar</strong>
+				</a>
+					@endif
 				@else
 				<a class="btn btn-success" href="{{ route('pacientes.ortopedias.create', ['paciente'=>$paciente]) }}">
 					<strong>Agregar</strong>

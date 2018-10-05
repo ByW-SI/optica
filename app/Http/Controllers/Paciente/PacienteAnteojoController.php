@@ -92,7 +92,7 @@ class PacienteAnteojoController extends Controller
         $anteojo->opciones=$opciones;
         $anteojo->save();
         
-        Alert::success('Historial Creado', 'Se ha Agregado Inforación sobre Anteojos');
+        Alert::success('Historial Creado', 'Se ha agregado la información al historial de anteojos.');
         return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);
     }
 

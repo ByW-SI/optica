@@ -57,28 +57,17 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->identificador);
-        $ident=Paciente::where('identificador',$request->identificador)->get();
-
-         if (count($ident)!=0) {
-            # code...
+        $ident = Paciente::where('identificador',$request->identificador)->get();
+         if (count($ident) != 0) {
             Alert::error('Error', 'Ya se ha Registrado un paciente con le mismo ID')->persistent("Cerrar");
-           
             return redirect()->back();
-
-             
-        }
-        else {
+        } else {
             $paciente = Paciente::create($request->all());
-            
             Alert::success('Siga agregando información del Paciente', 'Paciente Registrado');
-           
-            return redirect()->route('pacientes.show',
-                                            ['paciente'=>$paciente->id]);
-            
+            return redirect()->route('pacientes.show', ['paciente' => $paciente->id]);
         }
     }
-
+    
     /**
      * Display the specified resource.
      *

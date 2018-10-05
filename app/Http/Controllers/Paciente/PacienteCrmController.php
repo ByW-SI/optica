@@ -53,9 +53,9 @@ class PacienteCrmController extends Controller
     {
 
 
-        $crm=PacienteCRM::create($request->all());
+        $crm = PacienteCRM::create($request->all());
         // $paciente=Paciente::where('id',$request->paciente_id)->first();
-        Alert::success('CRM del día '.$crm->fecha_cont.' creado', 'Continuar');
+        Alert::success('CRM del día ' . $crm->fecha_cont . ' creado', 'Continuar');
 
        return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);
         // return view('paciente.crm',['paciente'=>$paciente]);

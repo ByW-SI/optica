@@ -59,6 +59,10 @@ class ComponentesTableSeeder extends Seeder
             array('nombre' => 'algo', 'modulo_id' => 9),
             // comisiones
             array('nombre' => 'algo', 'modulo_id' => 10),
+            //CRM
+            array('nombre' => 'indice crms', 'modulo_id' => 11 ),
+            array('nombre' => 'ver crm', 'modulo_id' => 11 ),
+            array('nombre' => 'crear crm', 'modulo_id' => 11 ),
     	);
 
     	Componente::insert($componentes);

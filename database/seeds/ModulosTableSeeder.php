@@ -22,7 +22,8 @@ class ModulosTableSeeder extends Seeder
             array('nombre' => 'convenios'),             // 7
             array('nombre' => 'productos'),             // 8
             array('nombre' => 'bonos'),                 // 9
-            array('nombre' => 'comisiones'),            // 10
+            array('nombre' => 'comisiones'),  
+            array('nombre' => 'crms'),          // 10
     	);
 
     	Modulo::insert($modulos);

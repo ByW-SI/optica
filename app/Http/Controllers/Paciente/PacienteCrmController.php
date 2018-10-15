@@ -30,7 +30,10 @@ class PacienteCrmController extends Controller
      */
     public function index()
     {
-        //
+        $crms = PacienteCRM::select('paciente_id','fecha_cont','fecha_aviso', 'fecha_act', 'hora', 'status', 'comentarios', 'acuerdos', 'observaciones','tipo_cont')->groupBy('paciente_id')->get();
+        $pacientes=Paciente::orderBy('nombre','desc')->get();
+        return view('crm.index', ['crms'    =>$crms,
+                                  'pacientes'=>$pacientes]);
     }
 
     /**

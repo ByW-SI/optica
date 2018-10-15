@@ -166,3 +166,4 @@ Route::get('/denegado',function(){
 
 Route::resource('perfil', 'Perfil\PerfilController');
 Route::resource('usuario', 'Usuario\UsuarioController');
+Route::resource('crm2', 'Paciente\PacienteCrmController');

@@ -27,4 +27,8 @@ class PacienteCRM extends Model
     public function paciente(){
     	return $this->belongsTo(Paciente::class,'paciente_id');
     }
+
+    public function pacientes(){
+    	return $this->belongsTo(Cliente::class,'paciente_id');
+    }
 }

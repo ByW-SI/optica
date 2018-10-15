@@ -16,4 +16,7 @@ class Cliente extends Personal
     public function beneficiarios(){
         return $this->hasMany(Beneficiarios::class);
     }
+    public function crm() {
+        return $this->hasMany('App\ClienteCRM');
+    }
 }

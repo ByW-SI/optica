@@ -138,6 +138,19 @@
                             @break
                             @endif
                             @endforeach
+
+                            {{-- CRMS --}}
+                            @foreach(Auth::user()->perfil->componentes as $componente)
+                            @if($componente->modulo->nombre == "crms")
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" onclick="AgregarNuevoTab('{{url ('crm2')}}','CRMs')">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i> CRM
+                                </a>
+                            </li>
+                            @break
+                            @endif
+                            @endforeach
+
                             {{-- PROVEEDORES --}}
                             @foreach(Auth::user()->perfil->componentes as $componente)
                             @if($componente->modulo->nombre == "proveedores")
@@ -298,9 +311,7 @@
             <div id="contenedortab" class="tab-content"></div>
         </div>
 
-        <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/pestanas.js') }}"></script>
-        <script src="{{ asset('js/forms.js') }}"></script>
         <script>
             $(document).ready(function(){
                 $('.dropdown-submenu a.test').on("click", function(e){

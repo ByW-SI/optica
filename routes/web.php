@@ -32,6 +32,7 @@ Route::resource('convenios.tipoconvenios', 'Convenio\ConvenioTipoConvenioControl
 
 //----------------------------------------------------------
 
+Route::get('fecha','Paciente\PacienteCrmController@porFecha')->name('fecha');
 
 
 Route::resource('empleados', 'Empleado\EmpleadoController');

@@ -30,10 +30,14 @@ class PacienteCrmController extends Controller
      */
     public function index()
     {
-        $crms = PacienteCRM::select('paciente_id','fecha_cont','fecha_aviso', 'fecha_act', 'hora', 'status', 'comentarios', 'acuerdos', 'observaciones','tipo_cont')->groupBy('paciente_id')->get();
-        $pacientes=Paciente::orderBy('nombre','desc')->get();
-        return view('crm.index', ['crms'    =>$crms,
-                                  'pacientes'=>$pacientes]);
+        $crms = [];
+        foreach (Paciente::get() as $paciente) {
+            if(count($paciente->crm) != 0)
+                $crms[] = $paciente->crm->last();
+        }
+        // dd($crms);
+        $pacientes = Paciente::orderBy('nombre','desc')->get();
+        return view('crm.index', ['crms' => $crms, 'pacientes' => $pacientes]);
     }
 
     /**
@@ -54,17 +58,24 @@ class PacienteCrmController extends Controller
      */
     public function store(Request $request, Paciente $paciente)
     {
-
-
         $crm = PacienteCRM::create($request->all());
-        // $paciente=Paciente::where('id',$request->paciente_id)->first();
-        Alert::success('CRM del día ' . $crm->fecha_cont . ' creado', 'Continuar');
-
-       return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);
-        // return view('paciente.crm',['paciente'=>$paciente]);
-            
+        return redirect()->route('crm2.index');
     }
 
+    public function porFecha(Request $request) {
+        $crms = [];
+        foreach (Paciente::get() as $paciente) {
+            if(count($paciente->crm) != 0) {
+                $tmp = $paciente->crm()->whereBetween('fecha_cont', [$request->fechaD, $request->fechaH])->orderBy('fecha_cont', 'asc')->get()->first();
+                if($tmp != null)
+                    $crms[] = $tmp;
+            }
+        }
+        $todos = PacienteCRM::get();
+        $pacientes = Paciente::orderBy('nombre','desc')->get();
+        return view('crm.index',['crms' => $crms, 'todos' => $todos, 'pacientes' => $pacientes]);
+
+    }
     /**
      * Display the specified resource.
      *

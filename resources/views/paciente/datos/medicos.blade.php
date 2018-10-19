@@ -1,6 +1,6 @@
 <div class="panel-default">
     <div class="panel-heading">
-        <h4><strong>Historial Médico:</strong></h4>
+        <h4>Historial Médico:</h4>
     </div>
     @if($paciente->medico->count() == 0)
     <div class="panel-body">

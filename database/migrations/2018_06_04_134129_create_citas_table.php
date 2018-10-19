@@ -21,7 +21,6 @@ class CreateCitasTable extends Migration
             //----------------------------------------------------------------
             $table->date('proxima_cita');
             $table->string('hora');
-            $table->string('minutos');
             $table->string('sucursal_clave');
             $table->text('comentarios')->nullable();
             //----------------------------------------------------------------

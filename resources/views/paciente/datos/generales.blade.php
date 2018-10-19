@@ -2,7 +2,7 @@
 	<div class="panel-heading">
 		<div class="row">
 			<div class="col-sm-4">
-				<h5>Datos Generales:</h5>
+				<h4>Datos Generales:</h4>
 			</div>
 			@if($paciente->generales)
 			<div class="col-sm-4 text-center">

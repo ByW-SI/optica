@@ -1,8 +1,6 @@
 @extends('layouts.blank')
 @section('content')
 
-<script src="{{ asset('js/crm.js') }}"></script>
-
 <div class="container">
     <div class="panel panel-group">
         <div class="panel-default">
@@ -55,7 +53,7 @@
                                 <th>Detalle de Paciente</th>
                             </tr>
                             @foreach($crms as $crm)
-                            <tr title="Has Click Aquì para ver o modificar" style="cursor: pointer" data-toggle="modal" data-target="#myModal" class="active tupla">
+                            <tr title="Has Click Aquì para ver o modificar" style="cursor: pointer" data-toggle="modal" data-target="#modal{{ $crm->id }}" class="active tupla">
                                 <td>{{ $crm->paciente->nombre }} {{ $crm->paciente->appaterno }}</td>
                                 <td>{{ $crm->fecha_cont }}</td>
                                 <td>{{ $crm->hora }}</td>
@@ -73,27 +71,6 @@
                                         <i class="fa fa-eye" aria-hidden="true"></i> <strong>Ver Paciente</strong>
                                     </a>
                                 </td>
-                                <input type="hidden" name="id_paciente" value="{{ $crm->paciente->id }}">
-                                <input type="hidden" name="nombre" value="{{ $crm->paciente->nombre }}">
-                                <input type="hidden" name="ap" value="{{ $crm->paciente->appaterno }}">
-                                <input type="hidden" name="am" value="{{ $crm->paciente->apmaterno }}">
-                                @if($crm->paciente->generales != null)
-                                <input type="hidden" name="correo" value="{{ $crm->paciente->generales->email }}">
-                                <input type="hidden" name="telefono" value="{{ $crm->paciente->generales->telcasa }}">
-                                <input type="hidden" name="celular" value="{{ $crm->paciente->generales->telcelular }}">
-                                @else
-                                <input type="hidden" name="correo" value="No hay datos generales.">
-                                <input type="hidden" name="telefono" value="No hay datos generales.">
-                                <input type="hidden" name="celular" value="No hay datos generales.">
-                                @endif
-                                <input type="hidden" name="fecha_cont" value="{{ $crm->fecha_cont }}">
-                                <input type="hidden" name="fecha_aviso" value="{{ $crm->fecha_aviso }}">
-                                <input type="hidden" name="hora" value="{{ $crm->hora }}">
-                                <input type="hidden" name="status" value="{{ $crm->status }}">
-                                <input type="hidden" name="tipo_cont" value="{{ $crm->tipo_cont }}">
-                                <input type="hidden" name="comentarios" value="{{ $crm->comentarios }}...">
-                                <input type="hidden" name="acuerdos" value="{{ $crm->acuerdos }}...">
-                                <input type="hidden" name="observaciones" value="{{ $crm->observaciones }}...">
                             </tr>
                             @endforeach
                         </table>
@@ -104,7 +81,121 @@
     </div>
 </div>
 
-<div class="modal fade" id="myModal" role="dialog">
+@foreach($crms as $crm)
+<div class="modal fade" id="new{{ $crm->id }}" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="modal-title"><strong>Detalles del CRM</strong></h4>
+                    </div>
+                </div>
+            </div>
+            <form method="POST" action="{{ route('crm2.store') }}">
+                <input type="hidden" name="paciente_id" value="{{ $crm->paciente->id }}">
+                {{ csrf_field() }}
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label class="control-label">Nombre:</label>
+                            <input type="text" class="form-control" disabled value="{{ $crm->paciente->nombre }}">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label class="control-label">Apellido paterno:</label>
+                            <input type="text" class="form-control" disabled value="{{ $crm->paciente->appaterno }}">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label class="control-label">Apellido materno:</label>
+                            <input type="text" class="form-control" disabled value="{{ $crm->paciente->apmaterno }}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label class="control-label">Forma de contacto:</label>
+                            <select type="select" name="tipo_cont" class="form-control" required="">
+                                <option value="">Seleccionar</option>
+                                <option value="Mail">Email/Correo Electronico</option>
+                                <option value="Telefono">Telefono</option>
+                                <option value="Cita">Cita</option>
+                                <option value="Whatsapp">Whatsapp</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="status" class="control-label">Estado:</label>
+                            <select type="select" name="status" class="form-control" required="">
+                                <option value="">Seleccionar</option>
+                                <option value="Pendiente">Pendiente</option>
+                                <option value="Cotizando">En Cotización</option>
+                                <option value="Cancelado">Cancelado</option>
+                                <option value="Toma_decision">Tomando decisión</option>
+                                <option value="Espera">En espera</option>
+                                <option value="Revisa_doc">Revisando documento</option>
+                                <option value="Proceso_aceptar">Proceso de Aceptación</option>
+                                <option value="Entrega">Para entrega</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="correo" class="control-label">Correo:</label>
+                            <input type="email" name="correo" class="form-control" disabled value="{{ $crm->paciente->generales != null  ? $crm->paciente->generales->email : 'N/A' }}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="telefono" class="control-label">Teléfono:</label>
+                            <input type="number" name="telefono" class="form-control" disabled value="{{ $crm->paciente->generales != null  ? $crm->paciente->generales->telcasa : 'N/A' }}">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="celular" class="control-label">Celular:</label>
+                            <input type="number" name="celular" class="form-control" disabled value="{{ $crm->paciente->generales != null  ? $crm->paciente->generales->telcelular : 'N/A' }}">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="fecha_cont" class="control-label">Fecha Contacto:</label>
+                            <input type="date" name="fecha_cont" class="form-control" required="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="fecha_aviso" class="control-label">Fecha aviso:</label>
+                            <input type="date" name="fecha_aviso" class="form-control" required="">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="hora" class="control-label">Hora:</label>
+                            <input type="time" name="hora" class="form-control" required="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="acuerdos" class="control-label">Acuerdos:</label>
+                            <textarea rows="5" name="acuerdos" maxlength="500" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="comentarios" class="control-label">Comentarios:</label>
+                            <textarea rows="5" name="comentarios" maxlength="500" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="observaciones" class="control-label">Observaciones:</label>
+                            <textarea rows="5" name="observaciones" maxlength="500" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-sm-2 col-sm-offset-5 text-center">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                        <div class="col-sm-2 col-sm-offset-3 text-center">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal{{ $crm->id }}" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -115,109 +206,87 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form role="form" id="enviadordecrm" method="POST" action="{{ route('crm2.store') }}">
-                    {{ csrf_field() }}
-                </form>
                 <div class="row">
-                    <input type="hidden" name="paciente_id" id="id_paciente" form="enviadordecrm" class="form-control">
-                    <input type="hidden" name="fecha_act" id="fecha_act" form="enviadordecrm" value="{{ date('Y-m-d') }}">
                     <div class="form-group col-sm-4">
-                        <label for="nombre" class="control-label">Nombre:</label>
-                        <input type="text" name="nombre" id="nombre" form="enviadordecrm" class="form-control" disabled>
+                        <label class="control-label">Nombre:</label>
+                        <input type="text" class="form-control" disabled value="{{ $crm->paciente->nombre }}">
                     </div>
                     <div class="form-group col-sm-4">
-                        <label for="ap" class="control-label">Apellido paterno:</label>
-                        <input type="text" name="ap" id="ap" form="enviadordecrm" class="form-control" disabled>
+                        <label class="control-label">Apellido paterno:</label>
+                        <input type="text" class="form-control" disabled value="{{ $crm->paciente->appaterno }}">
                     </div>
                     <div class="form-group col-sm-4">
-                        <label for="am" class="control-label">Apellido materno:</label>
-                        <input type="text" name="am" id="am" form="enviadordecrm" class="form-control" disabled>
+                        <label class="control-label">Apellido materno:</label>
+                        <input type="text" class="form-control" disabled value="{{ $crm->paciente->apmaterno }}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-4">
-                        <label for="tipo_cont" class="control-label">Forma de contacto:</label><br>
-                        <select type="select" name="tipo_cont" form="enviadordecrm" id="tipo_cont" class="form-control" disabled>
-                            <option id="Mail" value="Mail">Email/Correo Electronico</option>
-                            <option id="Telefono" value="Telefono">Telefono</option>
-                            <option id="Cita" value="Cita">Cita</option>
-                            <option id="Whatsapp" value="Whatsapp">Whatsapp</option>
-                            <option id="Otro" value="Otro" selected="selected">Otro</option>
-                        </select>
+                        <label class="control-label">Forma de contacto:</label>
+                        <input type="text" class="form-control" disabled value="{{ $crm->tipo_cont }}">
                     </div>
                     <div class="form-group col-sm-4">
-                        <label for="status" class="control-label">Estado:</label><br>
-                        <select type="select" name="status" form="enviadordecrm" id="status" class="form-control" disabled>
-                            <option id="Pendiente" value="Pendiente">Pendiente</option>
-                            <option id="Cotizando" value="Cotizando">En Cotización</option>
-                            <option id="Cancelado" value="Cancelado">Cancelado</option>
-                            <option id="Toma_decision" value="Toma_decision">Tomando decisión</option>
-                            <option id="Espera" value="Espera">En espera</option>
-                            <option id="Revisa_doc" value="Revisa_doc">Revisando documento</option>
-                            <option id="Proceso_aceptar" value="Proceso_aceptar">Proceso de Aceptación</option>
-                            <option id="Entrega" value="Entrega">Para entrega</option>
-                            <option id="Otro" value="Otro" selected="selected">Otro</option>
-                        </select>
+                        <label class="control-label">Estado:</label>
+                        <input type="text" class="form-control" disabled value="{{ $crm->status }}">
                     </div>
                     <div class="form-group col-sm-4">
-                        <label for="correo" class="control-label">Correo:</label>
-                        <input type="email" name="correo" id="correo" form="enviadordecrm" class="form-control" disabled>
+                        <label class="control-label">Correo:</label>
+                        <input type="email" class="form-control" disabled value="{{ $crm->paciente->generales != null  ? $crm->paciente->generales->email : 'N/A' }}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-4">
-                        <label for="telefono" class="control-label">Teléfono:</label>
-                        <input type="number" name="telefono" id="telefono" form="enviadordecrm" class="form-control" disabled>
+                        <label class="control-label">Teléfono:</label>
+                        <input type="number" class="form-control" disabled value="{{ $crm->paciente->generales != null  ? $crm->paciente->generales->telcasa : 'N/A' }}">
                     </div>
                     <div class="form-group col-sm-4">
-                        <label for="celular" class="control-label">Celular:</label>
-                        <input type="number" name="celular" id="celular" form="enviadordecrm" class="form-control" disabled>
+                        <label class="control-label">Celular:</label>
+                        <input type="number" class="form-control" disabled value="{{ $crm->paciente->generales != null  ? $crm->paciente->generales->telcelular : 'N/A' }}">
                     </div>
                     <div class="form-group col-sm-4">
-                        <label for="fecha_cont" class="control-label">Fecha Contacto:</label>
-                        <input type="date" name="fecha_cont" id="fecha_cont" form="enviadordecrm" class="form-control" disabled>
+                        <label class="control-label">Fecha Contacto:</label>
+                        <input type="date" class="form-control" disabled value="{{ $crm->fecha_cont }}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-4">
-                        <label for="fecha_aviso" class="control-label">Fecha aviso:</label>
-                        <input type="date" name="fecha_aviso" id="fecha_aviso" form="enviadordecrm" class="form-control" disabled>
+                        <label class="control-label">Fecha aviso:</label>
+                        <input type="date" class="form-control" disabled value="{{ $crm->fecha_aviso }}">
                     </div>
                     <div class="form-group col-sm-4">
-                        <label for="hora" class="control-label">Hora:</label><br>
-                        <input type="text" name="hora" id="hora" form="enviadordecrm" class="form-control" disabled>
+                        <label class="control-label">Hora:</label><br>
+                        <input type="text" class="form-control" disabled value="{{ $crm->hora }}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-4">
-                        <label for="acuerdos" class="control-label">Acuerdos: </label>
-                        <textarea rows="5" id="acuerdos" name="acuerdos" maxlength="500" class="form-control" form="enviadordecrm" disabled></textarea>
+                        <label class="control-label">Acuerdos: </label>
+                        <textarea rows="5" maxlength="500" class="form-control" disabled>{{ $crm->acuerdos }}</textarea>
                     </div>
                     <div class="form-group col-sm-4">
-                        <label for="comentarios" class="control-label">Comentarios: </label>
-                        <textarea rows="5" id="comentarios" name="comentarios" maxlength="500" class="form-control" form="enviadordecrm" disabled></textarea>
+                        <label class="control-label">Comentarios: </label>
+                        <textarea rows="5" maxlength="500" class="form-control" disabled>{{ $crm->comentarios }}</textarea>
                     </div>
                     <div class="form-group col-sm-4">
-                        <label for="observaciones" class="control-label">Observaciones:</label>
-                        <textarea rows="5" id="observaciones" name="observaciones" maxlength="500" class="form-control" form="enviadordecrm" disabled></textarea>
+                        <label class="control-label">Observaciones:</label>
+                        <textarea rows="5" maxlength="500" class="form-control" disabled>{{ $crm->observaciones }}</textarea>
                     </div>
-                    <input type="hidden" id="paciente_id" name="paciente_id">
                 </div>
             </div>
             <div class="modal-footer">
                 <div class="row">
                     <div class="col-sm-2 col-sm-offset-5 text-center">
-                        <button name="vinculo" id="vinculo" class="btn btn-block btn-success">Crear Nuevo</button>
-                        <button type="submit" form="enviadordecrm" name="enviador" id="enviador" style="display: none;" class="btn btn-block btn-success">Crear Nuevo</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#new{{ $crm->id }}">Crear Nuevo</button>
                     </div>
                     <div class="col-sm-2 col-sm-offset-3 text-center">
-                        <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endforeach
 
 <div class="modal fade" id="Modal-crm" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -318,7 +387,7 @@
                             <input type="submit" name="submit" class="btn btn-success" value="Guardar">
                         </div>
                         <div class="col-sm-2 col-sm-offset-2 text-center">
-                            <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>
@@ -327,51 +396,5 @@
     </div>
 </div>
 
-@foreach($pacientes as $pacientes)
-<input type="hidden" id="{{$paciente->id}}" value="{{$paciente->identificador}}">
-@endforeach
-
-<script type="text/javascript">
-
-    $(document).ready(function() {
-        $("#paciente_id_sel").change(function() {
-            var id = $("#paciente_id_sel").val();
-            var x = document.getElementById("paciente_id_sel");
-            for (i = 1; i < x.length; i++) {
-                var j = x.options[i].value;
-                if(j != null || j != '') {
-                    name = "info" + j;
-                    document.getElementById(name).style.display = 'none';
-                }
-            }
-            nombre = "info" + id;
-            document.getElementById(nombre).style.display='block';
-        });
-        $('#vinculo').click(function() {
-            $('#tipo_cont').removeAttr('disabled');
-            $('#status').removeAttr('disabled');
-            $('#fecha_cont').removeAttr('disabled');
-            $('#fecha_aviso').removeAttr('disabled');
-            $('#comentarios').removeAttr('disabled');
-            $('#observaciones').removeAttr('disabled');
-            $('#acuerdos').removeAttr('disabled');
-            $('#hora').removeAttr('disabled');
-            $('#tipo_cont').attr('required', true);
-            $('#status').attr('required', true);
-            $('#fecha_cont').attr('required', true);
-            $('#fecha_aviso').attr('required', true);
-            $('#comentarios').attr('required', true);
-            $('#observaciones').attr('required', true);
-            $('#acuerdos').attr('required', true);
-            $('#hora').attr('required', true);
-            $('#vinculo').hide(function(){
-                $('#enviador').show();
-                $('#enviadordecrm').trigger('reset');
-            });
-        });
-
-    });
-
-</script>
 
 @endsection

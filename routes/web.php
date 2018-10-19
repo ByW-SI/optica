@@ -22,7 +22,6 @@ Route::resource('provedores.datosgenerales', 'Provedor\ProvedorDatosGeneralesCon
 Route::resource('provedores.contacto', 'Provedor\ProvedorContactoController');
 Route::resource('provedores.datosbancarios', 'Provedor\ProveedorDatosBancariosController');
 
-
 // CONVENIOS
 Route::resource('convenios', 'Convenio\ConvenioController', ['except' => 'destroy']);
 Route::resource('convenios.direccionfiscal', 'Convenio\ConvenioDireccionFiscalController', ['except' => 'show', 'destroy']);

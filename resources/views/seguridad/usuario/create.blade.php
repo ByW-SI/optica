@@ -25,19 +25,25 @@
                             <select class="form-control" name="empleado_id" required="">
                                 <option selected="">Seleccionar</option>
                                 @foreach($empleados as $empleado)
-                                @if($empleado->user == null)
-                                <option value="{{ $empleado->id }}">{{ $empleado->nombre . " " . $empleado->appaterno . " - " . $empleado->rfc }}</option>
-                                @endif
+                                    @if($empleado->user == null)
+                                        <option value="{{ $empleado->id }}">{{ $empleado->nombre . " " . $empleado->appaterno . " - " . $empleado->rfc }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-sm-4">
+                        <div class="col-sm-4{{ $errors->has('name') ? ' has-error' : ' form-group' }}">
                             <label class="control-label">*Nombre de Usuario:</label>
                             <input type="text" name="name" class="form-control" required="">
+                            @if ($errors->has('name'))
+                                <label class="control-label"><strong>{{ $errors->first('name') }}</strong></label>
+                            @endif
                         </div>
-                        <div class="form-group col-sm-4">
+                        <div class="col-sm-4{{ $errors->has('password') ? ' has-error' : ' form-group' }}">
                             <label class="control-label">*Contraseña:</label>
                             <input type="text" name="password" class="form-control" required="">
+                            @if ($errors->has('password'))
+                                <label class="control-label"><strong>{{ $errors->first('password') }}</strong></label>
+                            @endif
                         </div>
                     </div>
                     <div class="row">
@@ -46,19 +52,19 @@
                             <select class="form-control" name="perfil_id" required="">
                                 <option selected="">Seleccionar</option>
                                 @foreach($perfiles as $perfil)
-                                @if($perfil->id == 1)
-                                @else
-                                <?php $seguridad = false; ?>
-                                @foreach($perfil->componentes as $componente)
-                                @if($componente->modulo->nombre == "seguridad")
-                                <?php $seguridad = true; ?>
-                                @endif
-                                @endforeach
-                                @if(Auth::user()->perfil->id != 1 && $seguridad)
-                                @else
-                                <option value="{{ $perfil->id }}">{{ $perfil->nombre }}</option>
-                                @endif
-                                @endif
+                                    @if($perfil->id == 1)
+                                    @else
+                                        <?php $seguridad = false; ?>
+                                        @foreach($perfil->componentes as $componente)
+                                            @if($componente->modulo->nombre == "seguridad")
+                                                <?php $seguridad = true; ?>
+                                            @endif
+                                        @endforeach
+                                        @if(Auth::user()->perfil->id != 1 && $seguridad)
+                                        @else
+                                            <option value="{{ $perfil->id }}">{{ $perfil->nombre }}</option>
+                                        @endif
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

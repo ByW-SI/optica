@@ -1,6 +1,6 @@
 <div class="panel-default">
 	<div class="panel-heading">
-		<h4><strong>Historial Ocular:</strong></h4>
+		<h4>Historial Ocular:</h4>
 	</div>
 	@if($paciente->ocular->count() == 0)
 	<div class="panel-body">

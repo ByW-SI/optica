@@ -58,6 +58,7 @@ class PacienteCrmController extends Controller
      */
     public function store(Request $request, Paciente $paciente)
     {
+        // dd($request->all());
         $crm = PacienteCRM::create($request->all());
         return redirect()->route('crm2.index');
     }

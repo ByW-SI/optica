@@ -6,6 +6,7 @@ use App\Paciente;
 use App\Cita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Http\Controllers\Controller;
 
 class PacienteCitaController extends Controller
@@ -22,6 +23,7 @@ class PacienteCitaController extends Controller
                 return redirect()->route('login');
         });
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +31,7 @@ class PacienteCitaController extends Controller
      */
     public function index()
     {
-       dd('<p>$request->all()</p>');
+        //
     }
 
     /**
@@ -39,7 +41,7 @@ class PacienteCitaController extends Controller
      */
     public function create()
     {
-         dd('create');
+        //
     }
 
     /**
@@ -50,11 +52,10 @@ class PacienteCitaController extends Controller
      */
     public function store(Request $request,Paciente $paciente)
     {
-        $cita=Cita::create($request->all());
-        $citas=Cita::orderBy('proxima_cita','asc')->get();
-        $paciente=Paciente::where('id',$request->paciente_id)->first();
-        return view('paciente.citas',["citas"=>$citas,
-                                      'paciente'=>$paciente]);
+        $cita = Cita::create($request->all());
+        $citas = Cita::orderBy('proxima_cita','asc')->get();
+        Alert::success('Cita registrada.');
+        return redirect()->route('pacientes.show', ['paciente' => $paciente]);
     }
 
     /**
@@ -103,6 +104,6 @@ class PacienteCitaController extends Controller
     }
 
     public function citas(Request $request){
-        return view('paciente.ajax.info',["request"=>$request]);
+        return view('paciente.ajax.info', ['request' => $request]);
     }
 }

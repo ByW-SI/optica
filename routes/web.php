@@ -29,7 +29,9 @@ Route::resource('convenios.contactos', 'Convenio\ConvenioContactoController');
 Route::resource('convenios.tipoconvenios', 'Convenio\ConvenioTipoConvenioController');
 // Route::resource('convenios.tipoconvenios', 'Convenio\ConvenioTipoConvenioController');
 
-//----------------------------------------------------------
+
+Route::get('excel/pacientes', 'Excel\PacienteExcel@index')->name('excel.pacientes.index');
+Route::post('excel/pacientes/upload', 'Excel\PacienteExcel@upload')->name('excel.pacientes.upload');
 
 Route::get('fecha','Paciente\PacienteCrmController@porFecha')->name('fecha');
 

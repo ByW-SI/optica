@@ -7,8 +7,12 @@
 			<div class="row">
 				<form id="buscarpaciente" action="busqueda" onKeypress="if(event.keyCode == 13) event.returnValue = false;">
 					<div class="col-sm-4">
-						<!-- {{ csrf_field() }} -->
-						<input type="text" list='browsers' id="paciente" name="query" class="form-control" placeholder="Buscar..." autofocus>
+						<div class="input-group">
+							<input type="text" list='browsers' id="pacienteBusqueda" name="query" class="form-control" placeholder="Buscar..." autofocus>
+					        <span class="input-group-btn">
+								<a class="btn btn-default" id="trigger" onclick="buscar()"><i class="fa fa-search" aria-hidden="true"></i></a>
+							</span>
+						</div>
 					</div>
 					<div class="col-sm-4 text-center">
 						<a class="btn btn-success" href="{{ route('pacientes.create')}}">
@@ -20,7 +24,7 @@
 		</div>
 		<div id="datos" name="datos" class="panel-body">
 			<div class="col-sm-12">
-				<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px;">
+				<table class="table table-striped table-bordered table-hover" style="margin-bottom: 0px;">
 					<tr class="info">
 						<th>@sortablelink('identificador','Identificador')</th>
 						<th>@sortablelink('nombre','Nombre')</th>
@@ -51,5 +55,23 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+	function buscar() {
+		var val2 = $('#pacienteBusqueda').val();
+		$.ajax({
+			url : "buscarpaciente",
+			type : "GET",
+			dataType : "html",
+			data : {
+				busqueda : val2
+			},
+		}).done(function(resultado){
+			$("#datos").html(resultado);
+		});
+	}
+
+</script>
 
 @endsection

@@ -31,7 +31,7 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        $pacientes=Paciente::sortable()->paginate(10);
+        $pacientes = Paciente::sortable()->paginate(10);
         return view('paciente.index',['pacientes'=>$pacientes]);
     }
 
@@ -127,23 +127,19 @@ class PacienteController extends Controller
         //
     }
 
-     public function buscar(Request $request){
-    
-    $query = $request->input('busqueda');
-    $wordsquery = explode(' ',$query);
-    $pacientes= Paciente::where(function($q) use($wordsquery){
+    public function buscar(Request $request) {
+        $query = $request->input('busqueda');
+        $wordsquery = explode(' ', $query);
+        $pacientes= Paciente::where(function($q) use($wordsquery) {
             foreach ($wordsquery as $word) {
-                # code...
               $q->orWhere('nombre','LIKE',"%$word%")
                 ->orWhere('appaterno','LIKE',"%$word%")
                 ->orWhere('apmaterno','LIKE',"%$word%")
                 ->orWhere('identificador','LIKE',"%$word%");
-                //->orWhere('ed','LIKE',"%$word%");
-                
             }
-        })->get();
-    return view('paciente.busqueda', ['pacientes'=>$pacientes]);
-        
-
+        })->sortable()->paginate(10);
+        $pacientes->withPath('buscarpaciente?busqueda=' . $query);
+        return view('paciente.busqueda', ['pacientes' => $pacientes]);
     }
+
 }

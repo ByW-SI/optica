@@ -17,11 +17,11 @@ class CreatePacientesTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('appaterno');
-            $table->string('apmaterno');
-            $table->string('identificador');
-            $table->date('fecha_nacimiento');
-            $table->smallInteger('edad');
-            $table->enum('sexo', ['Femenino', 'Masculino','Otro']);
+            $table->string('apmaterno')->nullable();
+            $table->string('identificador')->nullable();
+            $table->date('fecha_nacimiento')->nullable();
+            $table->smallInteger('edad')->nullable();
+            $table->string('sexo')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

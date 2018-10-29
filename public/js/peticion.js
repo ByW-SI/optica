@@ -56,36 +56,51 @@ function obtener_registros(busqueda, etiqueta)
 
 		});
 	}
-	if (etiqueta == 'paciente') {
-		$.ajax({
-			url : "buscarpaciente",
-			type : "GET",
-			dataType : "html",
-			data :{busqueda:busqueda},
-			}).done(function(resultado){
-			$("#datos").html(resultado);
+	// if (etiqueta == 'paciente') {
+	// 	$.ajax({
+	// 		url : "buscarpaciente",
+	// 		type : "GET",
+	// 		dataType : "html",
+	// 		data :{busqueda:busqueda},
+	// 		}).done(function(resultado){
+	// 		$("#datos").html(resultado);
 
-		});
-	}
+	// 	});
+	// }
 		
 
 }
 
-$(document).on('keyup', ':input', function()
-{
 
-	var valor=$(this).val();
-	var etiqueta = $(this).attr('id');
+// $('#pacienteBusqueda').keyup($.debounce(250, function(e) {
+// 	var val2 = $('#pacienteBusqueda').val();
+// 	$.ajax({
+// 		url : "buscarpaciente",
+// 		type : "GET",
+// 		dataType : "html",
+// 		data : {
+// 			busqueda:val2
+// 		},
+// 	}).done(function(resultado){
+// 		$("#datos").html(resultado);
+// 	});
+// }));
+
+// $(document).on('keyup', ':input', function()
+// {
+
+// 	var valor=$(this).val();
+// 	var etiqueta = $(this).attr('id');
 
 
 	
-	if (valor!="")
-	{
-		obtener_registros(valor,etiqueta);
-	}
-	else
-		{
-			obtener_registros(' ',etiqueta);
-			
-		}
-});
+// 	if (valor!="")
+// 	{
+// 		obtener_registros(valor,etiqueta);
+// 	}
+// 	else
+// 	{
+// 		obtener_registros(' ',etiqueta);
+		
+// 	}
+// });

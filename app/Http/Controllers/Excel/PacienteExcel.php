@@ -20,18 +20,8 @@ class PacienteExcel extends Controller
 			\Excel::filter('chunk')->load($path)->chunk(250, function($data) {
                 set_time_limit(0); 
     			foreach ($data as $key => $value) {
-                    $pacientes[] = [
-                        'nombre' => $value->nom,
-                        'appaterno' => $value->appater,
-                        'apmaterno' => $value->apmater,
-                        'created_at' => date('Y-m-d h:m:s'),
-                        'updated_at' => date('Y-m-d h:m:s'),
-                    ];
+    				Paciente::updateOrCreate(['nombre' => $value->nom, 'appaterno' => $value->appater, 'apmaterno' => $value->apmater], []);
                 }
-    			if (!empty($pacientes))
-    				Paciente::insert($pacientes);
-    			else
-    				return redirect()->back()->with('error', 'Los registros están vacíos.');
 			});
 			return redirect()->back()->with('success', 'Archivo subido correctamente.');
 		} else

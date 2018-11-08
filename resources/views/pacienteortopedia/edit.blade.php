@@ -107,7 +107,7 @@
 									<img id="imagenpie" src="{{ url('/storage/'.$cita->path_image) }}" alt="Previa..." style="width: 250px; height: auto;">
 						      	</div>
 						      	<div class="row">
-						        	<input type="file" class="imagen" id="pie" onchange="previewFile2(this)" name="image2" style="display: none" value="{{ url('/storage/'.$cita->path_image) }}">
+						        	<input type="file" class="imagen" id="pie" onchange="previewFile2(this)" name="image2" style="display: none" value="">
 									<input type="button" value="Examinar" class="btn btn-primary" onclick="document.getElementById('pie').click();" />
 								</div>
 							</div>

@@ -258,11 +258,11 @@
                                     </li>
                                     @endif
                                     @endforeach
-                                    <li>
+                                    {{-- <li>
                                         <a href="#" onclick="AgregarNuevoTab('{{ url('/excel/pacientes') }}','Alta por Excel')">
                                             <i class="fa fa-file-excel-o" aria-hidden="true"></i> Alta por Excel
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </li>
                             @break

@@ -1,15 +1,12 @@
 <table class="table table-striped table-bordered table-hover" style="color:rgb(51, 51, 51); border-collapse: collapse; margin-bottom: 0px">
-	<thead>
-		<tr class="info">
-			<th>Nombre</th>
-			<th>Relación</th>
-			<th>Telefono Casa</th>
-			<th>Celular</th>
-			<th>Ver/Modificar</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach($paciente->tutores as $tutor)
+	<tr class="info">
+		<th>Nombre</th>
+		<th>Relación</th>
+		<th>Telefono Casa</th>
+		<th>Celular</th>
+		<th>Ver/Modificar</th>
+	</tr>
+	@foreach($paciente->tutores as $tutor)
 		<tr class="active">
 			<td>{{ $tutor->nombre . ' ' . $tutor->appaterno . ' ' . $tutor->apmaterno }}</td>
 			<td>{{ $tutor->relacion }}</td>
@@ -24,6 +21,5 @@
 				</button>
 			</td>
 		</tr>
-		@endforeach
-	</tbody>
+	@endforeach
 </table>

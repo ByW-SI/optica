@@ -5,13 +5,13 @@
 				<h4>Datos del Paciente:</h4>
 			</div>
 			<div class="col-sm-3 text-center">
-				<a class="btn btn-success" href="{{ route('pacientes.create') }}"><strong>Nuevo Paciente</strong></a>
+				<a class="btn btn-success" href="{{ route('pacientes.create') }}"><i class="fa fa-plus"></i><strong> Nuevo Paciente</strong></a>
 			</div>
 			<div class="col-sm-3 text-center">
-				<a class="btn btn-warning" href="{{ route('pacientes.edit',['id'=>$paciente->id]) }}"><strong>Editar Paciente</strong></a>
+				<a class="btn btn-warning" href="{{ route('pacientes.edit',['id'=>$paciente->id]) }}"><i class="fa fa-pencil"></i><strong> Editar Paciente</strong></a>
 			</div>
 			<div class="col-sm-3 text-center">
-				<a class="btn btn-info" href="{{ route('pacientes.index') }}"><strong>Lista de Pacientes</strong></a>
+				<a class="btn btn-primary" href="{{ route('pacientes.index') }}"><i class="fa fa-bars"></i><strong> Lista de Pacientes</strong></a>
 			</div>
 		</div>
 	</div>

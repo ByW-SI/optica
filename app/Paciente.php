@@ -9,50 +9,55 @@ use Laravel\Scout\Searchable;
 
 class Paciente extends Model
 {
+    
     use Sortable, SoftDeletes;
 
     protected $table = 'pacientes';
-    protected $fillable=[
-    	              'nombre',
-    	              'appaterno',
-    	              'apmaterno',
-    	              'identificador',
-    	              'fecha_nacimiento',
-    	              'edad',
-    	              'sexo'];
+    
+    protected $fillable = [
+        'nombre',
+        'appaterno',
+        'apmaterno',
+        'identificador',
+        'fecha_nacimiento',
+        'edad',
+        'sexo'
+    ];
 
-    protected $hidden=[ 'created_at', 'updated_at','deleted_at'];
-    public $sortable=['id','nombre', 'identificador','appaterno'];
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
-    public function generales(){
+    public $sortable = ['id', 'nombre', 'identificador', 'appaterno'];
+
+    public function generales() {
         return $this->hasOne('App\PacientesDatosGenerales');
     }
-    public function medico(){
+    
+    public function medico() {
         return $this->hasMany('App\PacienteHistorialMedico');
     }
-    public function ocular(){
+    
+    public function ocular() {
         return $this->hasMany('App\PacienteOcular');
     }
-     public function tutores(){
-        return $this->hasMany('App\Tutor');
+
+    public function tutores() {
+        return $this->belongsToMany('App\Tutor');
     }
 
-    public function anteojo(){
+    public function anteojo() {
         return $this->hasMany('App\Anteojo');
     }
-    public function citas(){
+
+    public function citas() {
         return $this->hasMany('App\Cita');
     }
 
-    public function crm(){
+    public function crms() {
         return $this->hasMany('App\PacienteCRM');
     }
 
-    public function crms(){
-        return $this->hasMany('App\PacienteCRM');
-    }
-
-    public function ortopedias(){
+    public function ortopedias() {
         return $this->hasMany('App\PacienteOrtopedia');
     }
+
 }

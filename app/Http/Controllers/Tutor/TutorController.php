@@ -1,17 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Paciente;
+namespace App\Http\Controllers\Tutor;
 
-use App\Paciente;
 use App\Tutor;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use UxWeb\SweetAlert\SweetAlert as Alert;
+use App\Http\Controllers\Controller;
 
 class TutorController extends Controller
 {
-
+    
     public function __construct() {
         $this->middleware(function ($request, $next) {
             if(Auth::check()) {
@@ -23,6 +21,7 @@ class TutorController extends Controller
                 return redirect()->route('login');
         });
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -59,7 +58,7 @@ class TutorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Paciente  $paciente
+     * @param  \App\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
     public function show(Tutor $tutor)
@@ -70,10 +69,10 @@ class TutorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Paciente  $paciente
+     * @param  \App\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Paciente $paciente)
+    public function edit(Tutor $tutor)
     {
         //
     }
@@ -82,35 +81,21 @@ class TutorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Paciente  $paciente
+     * @param  \App\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paciente $paciente)
+    public function update(Request $request, Tutor $tutor)
     {
-        $tutor=Tutor::where('id',$request->id)->first();
-        $tutor->nombre=$request->nombre;
-        $tutor->appaterno=$request->appaterno;
-        $tutor->apmaterno=$request->apmaterno;
-        $tutor->edad=$request->edad;
-        $tutor->fecha_nacimiento=$request->fecha_nacimiento;
-        $tutor->sexo=$request->sexo;
-        $tutor->relacion=$request->relacion;
-        $tutor->tel_casa=$request->tel_casa;
-        $tutor->tel_cel=$request->tel_cel;
-        $tutor->save();
-        Alert::success('Información Editada', 'Continuar');
-        return redirect()->route('pacientes.show',
-                               ['paciente'=>$paciente->id]);
-
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Paciente  $paciente
+     * @param  \App\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Paciente $paciente)
+    public function destroy(Tutor $tutor)
     {
         //
     }

@@ -32,8 +32,8 @@ class PacienteCrmController extends Controller
     {
         $crms = [];
         foreach (Paciente::get() as $paciente) {
-            if(count($paciente->crm) != 0)
-                $crms[] = $paciente->crm->last();
+            if(count($paciente->crms) != 0)
+                $crms[] = $paciente->crms->last();
         }
         // dd($crms);
         $pacientes = Paciente::orderBy('nombre','desc')->get();
@@ -66,8 +66,8 @@ class PacienteCrmController extends Controller
     public function porFecha(Request $request) {
         $crms = [];
         foreach (Paciente::get() as $paciente) {
-            if(count($paciente->crm) != 0) {
-                $tmp = $paciente->crm()->whereBetween('fecha_cont', [$request->fechaD, $request->fechaH])->orderBy('fecha_cont', 'asc')->get()->first();
+            if(count($paciente->crms) != 0) {
+                $tmp = $paciente->crms()->whereBetween('fecha_cont', [$request->fechaD, $request->fechaH])->orderBy('fecha_cont', 'asc')->get()->first();
                 if($tmp != null)
                     $crms[] = $tmp;
             }

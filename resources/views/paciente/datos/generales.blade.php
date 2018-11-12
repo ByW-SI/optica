@@ -6,8 +6,9 @@
 			</div>
 			@if($paciente->generales)
 			<div class="col-sm-4 text-center">
-				<a id="modificar" class="btn btn-warning" href="{{ route('pacientes.datosgenerales.edit',['paciente'=>$paciente,'datosgenerale'=>$paciente->generales]) }}">
-				<strong>Modificar</strong></a>
+				<a id="modificar" class="btn btn-warning" href="{{ route('pacientes.datosgenerales.edit', ['paciente' => $paciente, 'datosgenerale' => $paciente->generales]) }}">
+					<i class="fa fa-pencil"></i><strong> Editar</strong>
+				</a>
 			</div>
 			@endif
 		</div>
@@ -20,7 +21,7 @@
 			</div>
 			<div class="col-sm-3">
 				<br>
-				<a class="btn btn-primary" href="{{ route('pacientes.datosgenerales.create', ['paciente'=>$paciente]) }}"><strong>Agregar</strong></a>
+				<a class="btn btn-primary" href="{{ route('pacientes.datosgenerales.create', ['paciente' => $paciente]) }}"><strong>Agregar</strong></a>
 			</div>
 		</div>
 		<br>
@@ -119,7 +120,7 @@
 			</div>
 			<div class="col-sm-4 text-center">
 				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#formularioTutor">
-					<strong>Agregar Tutores</strong>
+					<i class="fa fa-plus"></i><strong> Agregar Tutor</strong>
 				</button>
 			</div>
 		</div>
@@ -127,7 +128,11 @@
 	<div class="panel-body">
 		<div class="row">
 			<div class="col-sm-12">
-        		@include('paciente.datos.tablas.tutores')
+				@if(count($paciente->tutores) > 0)
+        			@include('paciente.datos.tablas.tutores')
+        		@else
+        			<h4>Aún no tiene tutores registrados.</h4>
+        		@endif
 			</div>
 		</div>
 	</div>

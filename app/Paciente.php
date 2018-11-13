@@ -41,7 +41,7 @@ class Paciente extends Model
     }
 
     public function tutores() {
-        return $this->belongsToMany('App\Tutor');
+        return $this->belongsToMany('App\Tutor')->as('parentesco');
     }
 
     public function anteojo() {

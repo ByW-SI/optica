@@ -41,11 +41,11 @@
 					<div class="row">
 						<div class="col-sm-4 form-group">
 							<label class="control-label">Fecha de Nacimiento:</label>
-							<input type="date" name="fecha_nacimiento" class="form-control">
+							<input type="date" name="fecha_nacimiento" id="fecha" class="form-control">
 						</div>
 						<div class="col-sm-4 form-group">
 							<label class="control-label">Edad:</label>
-							<input type="number" name="edad" class="form-control">
+							<input type="number" name="edad" id="edad" class="form-control" readonly="">
 						</div>
 						<div class="col-sm-4 form-group">
 							<label class="control-label">Sexo:</label>
@@ -58,15 +58,6 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-4 form-group">
-							<label class="control-label">✱Parentesco:</label>
-							<select name="parentesco" class="form-control" required="">
-								<option value="" selected="">Seleccionar</option>
-								<option value="Padre">Padre</option>
-								<option value="Madre">Madre</option>
-								<option value="Otro">Otro</option>
-							</select>
-						</div>
 						<div class="col-sm-4 form-group">
 							<label class="control-label">Teléfono de Casa:</label>
 							<input type="number" name="tel_casa" class="form-control">
@@ -93,5 +84,27 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	
+	function calculateAge(birthday) {
+	   	var ageDifMs = Date.now() - new Date(birthday).getTime();
+	   	var ageDate = new Date(ageDifMs);
+	   	var res = Math.abs(ageDate.getFullYear() - 1970);
+	   	if(res <= 90)
+	   		return res;
+ 	}
+
+    $(document).ready(function() {
+
+    	$('#fecha').change(function() {
+    		var val = document.getElementById('fecha').value;
+    		var edad = calculateAge(val);
+    		$('#edad').val(edad);
+    	});
+
+    });
+
+</script>
 
 @endsection

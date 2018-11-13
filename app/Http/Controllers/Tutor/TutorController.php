@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Tutor;
 
 use App\Tutor;
+use App\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
@@ -61,9 +62,10 @@ class TutorController extends Controller
      * @param  \App\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function show(Tutor $tutor)
+    public function show($tutor)
     {
-        //
+        $tutor = Tutor::find($tutor);
+        return view('tutores.view', ['tutor' => $tutor]);
     }
 
     /**
@@ -99,4 +101,5 @@ class TutorController extends Controller
     {
         //
     }
+
 }

@@ -135,7 +135,9 @@ Route::resource('pacientes.datosgenerales', 'Paciente\PacientesDatosGeneralesCon
 Route::resource('pacientes.historialmedico', 'Paciente\PacienteHistorialMedicoController');
 Route::resource('pacientes.historialocular', 'Paciente\PacienteHistorialOcularController');
 Route::resource('pacientes.anteojos', 'Paciente\PacienteAnteojoController');
-Route::resource('pacientes.tutor', 'Paciente\TutorController');
+Route::resource('pacientes.tutores', 'Paciente\TutorController')->except(['create', 'store']);
+Route::get('pacientes/{paciente}/tutores/{tutor}/select', 'Paciente\TutorController@select')->name('pacientes.tutores.select');
+Route::post('pacientes/{paciente}/tutores/{tutor}', 'Paciente\TutorController@bind')->name('pacientes.tutores.bind');
 Route::resource('tutores', 'Tutor\TutorController');
 Route::resource('pacientes.citas', 'Paciente\PacienteCitaController');
 Route::resource('pacientes.crm', 'Paciente\PacienteCrmController');

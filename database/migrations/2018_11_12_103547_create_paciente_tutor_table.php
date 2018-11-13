@@ -19,6 +19,7 @@ class CreatePacienteTutorTable extends Migration
             $table->integer('tutor_id')->unsigned();
             $table->foreign('tutor_id')->references('id')->on('tutors');
             $table->primary(['paciente_id', 'tutor_id']);
+            $table->string('relacion');
         });
     }
 

@@ -28,32 +28,24 @@ class TutorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Paciente $paciente)
     {
         $tutores = Tutor::get();
-        return view('tutores.index', ['tutores' => $tutores]);
+        return view('paciente.tutores.index', ['paciente' => $paciente, 'tutores' => $tutores]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function select(Paciente $paciente, Tutor $tutor)
     {
-        return view('tutores.create');
+        return view('paciente.tutores.select', ['paciente' => $paciente, 'tutor' => $tutor]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function bind(Request $request, Paciente $paciente, Tutor $tutor)
     {
-        $tutor = Tutor::create($request->all());
-        return redirect()->route('tutores.show', ['tutor' => $tutor]);
+        // $paciente->tutores()->attach($tutor, ['relacion' => $request->relacion]);
+        // $paciente->tutores()->detach();
+
+        // dd($paciente->tutores->first()->parentesco);
+        dd($tutor->pacientes->first()->parentesco->tutor_id);
     }
 
     /**

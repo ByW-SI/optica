@@ -31,7 +31,7 @@
 									<tr>
 										<td>{{ $tutor->nombre }}</td>
 										<td>{{ $tutor->appaterno }}</td>
-										<td>{{ $tutor->apmaterno }}</td>
+										<td>{{ $tutor->apmaterno ? $tutor->apmaterno : 'N/A' }}</td>
 										<td class="text-center">
 											<a class="btn btn-primary btn-sm" href="{{ route('tutores.show', ['tutor' => $tutor]) }}">
 												<i class="fa fa-eye"></i> <strong>Ver</strong>

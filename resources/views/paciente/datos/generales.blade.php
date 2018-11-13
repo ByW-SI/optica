@@ -119,9 +119,9 @@
 				<h5>Tutores:</h5>
 			</div>
 			<div class="col-sm-4 text-center">
-				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#formularioTutor">
+				<a href="{{ route('pacientes.tutores.index', ['paciente' => $paciente]) }}" class="btn btn-success">
 					<i class="fa fa-plus"></i><strong> Agregar Tutor</strong>
-				</button>
+				</a>
 			</div>
 		</div>
 	</div>

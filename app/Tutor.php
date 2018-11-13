@@ -20,17 +20,16 @@ class Tutor extends Model
     	'edad',
     	'fecha_nacimiento',
     	'sexo',
-    	'parentesco',
     	'tel_casa',
     	'tel_cel'
     ];
 
     protected $hidden = ['created_at'];
 
-    public $sortable = ['id', 'paciente_id', 'relacion', 'nombre'];
+    public $sortable = ['id', 'nombre', 'appaterno'];
 
     public function pacientes() {
-        return $this->belongsToMany('App\Paciente');
+        return $this->belongsToMany('App\Paciente')->as('parentesco');
     }
 
 }

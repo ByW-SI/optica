@@ -38,16 +38,12 @@
 		</div>
 	</div>
 </div>
-<!-- Modal Tutores -->
-@include('paciente.modals.tutor')
 <!-- Modal Historial Médico -->
 @include('paciente.modals.medico')
 <!-- Modales Historial Ocular -->
 @include('paciente.modals.ocular')
 <!-- Modales Anteojos -->
 @include('paciente.modals.anteojos')
-<!-- Modal Editar Tutor -->
-@include('paciente.modals.editarTutor')
 
 <script type="text/javascript">
 
@@ -65,32 +61,6 @@
 			$("#sucursal").html(resultado);
 		});
 	}
-
-	function calculateAge(birthday) {
-	   	var ageDifMs = Date.now() - new Date(birthday).getTime();
-	   	var ageDate = new Date(ageDifMs);
-	   	var res = Math.abs(ageDate.getFullYear() - 1970);
-	   	if(res <= 90)
-	   		return res;
- 	}
-
-    $(document).ready(function() {
-    	$('#fecha_nacimiento').change(function() {
-    		var val = document.getElementById('fecha_nacimiento').value;
-    		var edad = calculateAge(val);
-    		$('#edad').val(edad);
-    	});
-
-    	@php($j = 1)
-    	@foreach($paciente->tutores as $tutor)
-    	$('#fecha_editar_{{ $j }}').change(function() {
-    		var val = document.getElementById('fecha_editar_{{ $j }}').value;
-    		var edad = calculateAge(val);
-    		$('#edad_editar_{{ $j }}').val(edad);
-    	});
-    	@php($j++)
-    	@endforeach
-    });
 
 </script>
 

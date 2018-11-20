@@ -36,7 +36,8 @@ class ProductoArmazonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ProductoArmazon ::create($request->all());
+        return redirect()->route('productoschidos.create');
     }
 
     /**

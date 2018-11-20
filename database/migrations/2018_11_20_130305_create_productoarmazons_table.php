@@ -20,12 +20,12 @@ class CreateProductoarmazonsTable extends Migration
             $table->string('negocio');
             $table->string('proveedor');
             $table->string('descripcion');
-            $table->string('familia');
-            $table->string('materiales');
-            $table->string('rangos');
+            $table->string('marca');
+            $table->string('modelo');
             $table->string('color');
-            $table->string('tratamientos');
+            $table->string('medidas');
             $table->string('unidad');
+            $table->string('foto');
             $table->timestamps();
         });
     }

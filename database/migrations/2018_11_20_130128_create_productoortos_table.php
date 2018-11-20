@@ -25,6 +25,7 @@ class CreateProductoortosTable extends Migration
             $table->string('modelo');
             $table->double('talla', 15, 8);
             $table->string('color');
+            $table->string('unidad');
             $table->string('foto');
             $table->timestamps();
         });

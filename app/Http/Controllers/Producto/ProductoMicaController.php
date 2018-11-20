@@ -36,7 +36,9 @@ class ProductoMicaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ProductoMica::create($request->all());
+        return redirect()->route('productoschidos.create');
+
     }
 
     /**

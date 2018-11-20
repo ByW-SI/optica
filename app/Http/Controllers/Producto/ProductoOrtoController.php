@@ -36,7 +36,8 @@ class ProductoOrtoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ProductoOrto::create($request->all());
+        return redirect()->route('productoschidos.create');
     }
 
     /**

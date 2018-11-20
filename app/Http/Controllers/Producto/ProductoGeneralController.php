@@ -36,7 +36,8 @@ class ProductoGeneralController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ProductoGeneral::create($request->all());
+        return redirect()->route('productoschidos.create');
     }
 
     /**

@@ -133,6 +133,7 @@
                                     <li><a href="#" onclick="AgregarNuevoTab('{{ url('/bancos') }}','Bancos')"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas Bancos</a></li>
                                     <li><a href="#" onclick="AgregarNuevoTab('{{ url('/giros') }}','Giros')"><i class="fa fa-refresh" aria-hidden="true"></i> Giros</a></li>
                                     <li><a href="#" onclick="AgregarNuevoTab('{{ url('/formacontactos') }}','Forma de Contacto')"><i class="fa fa-refresh" aria-hidden="true"></i> Forma Contactos</a></li>
+                                    <li><a href="#" onclick="AgregarNuevoTab('{{ route('productoschidos.create') }}','Productos')"><i class="fa fa-refresh" aria-hidden="true"></i> Productos</a></li>
                                 </ul>
                             </li>
                             @break

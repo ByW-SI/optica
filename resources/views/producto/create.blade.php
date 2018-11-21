@@ -45,10 +45,6 @@
 	  					<input type="text" class="form-control" id="producto" name="producto" required>
 					</div>
 					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-						<label class="control-label" for="producto">Producto:</label>
-	  					<input type="text" class="form-control" id="producto" name="producto" required>
-					</div>
-					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 						<label class="control-label" for="marca">Marca:</label>
 	  					<input type="text" class="form-control" id="marca" name="marca" required>
 					</div>
@@ -225,9 +221,9 @@
 					<td>{{$mica->unidad}}</td>
 					<td>{{$mica->created_at}}</td>
 					<td>
-						<a class="btn btn-success btn-sm" href="{{ route('promica.show',['mica'=>$mica]) }}"><i class="fa fa-eye" aria-hidden="true"></i> 
+						<a class="btn btn-success btn-sm" href="{{ route('promica.show',['orto'=>$mica]) }}"><i class="fa fa-eye" aria-hidden="true"></i> 
 					<strong>Ver</strong>	</a>
-						<a class="btn btn-info btn-sm" href="{{ route('promica.destroy',['mica'=>$mica]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
+						<a class="btn btn-info btn-sm" href="{{ route('promica.destroy',['orto'=>$mica]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
 					<strong>Borrar</strong>	</a>
 					</td>
 				</tr>
@@ -249,7 +245,7 @@
 					</div>
 					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 						<label class="control-label" for="negocio">Negocio:</label>
-	  					<input type="text" class="form-control" id="negocio" name="descripcion" required>
+	  					<input type="text" class="form-control" id="negocio" name="negocio" required>
 					</div>
 					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 						<label class="control-label" for="proveedor">Proveedor:</label>

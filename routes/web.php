@@ -182,4 +182,9 @@ Route::resource('proarma', 'Producto\ProductoArmazonController');
 Route::resource('progene', 'Producto\ProductoGeneralController');
 Route::resource('inventario', 'Inventario\InventarioController');
 
+Route::put('cambiarprecioorto/{id}', 'Producto\ProductoOrtoController@updateprecio')->name('cambiarprecioorto');
+Route::put('cambiarpreciomica/{id}', 'Producto\ProductoMicaController@updateprecio')->name('cambiarpreciomica');
+Route::put('cambiarprecioarma/{id}', 'Producto\ProductoArmazonController@updateprecio')->name('cambiarprecioarma');
+Route::put('cambiarpreciogene/{id}', 'Producto\ProductoGeneralController@updateprecio')->name('cambiarpreciogene');
+
 Route::put('actualizarproorto', 'Producto\ProductoOrtoController@update')->name('actualizarproorto');

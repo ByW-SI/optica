@@ -22,7 +22,7 @@ class InventarioController extends Controller
         $generales = ProductoGeneral::get();
         $micas = ProductoMica::get();
         $ortos = ProductoOrto::get();
-         return view("inventario2.create", ['armazones'=>$armazones, 'generales'=>$generales, 'micas'=>$micas, 'ortos'=>$ortos]);
+         return view("inventario.create2", ['armazones'=>$armazones, 'generales'=>$generales, 'micas'=>$micas, 'ortos'=>$ortos]);
         
     }
 

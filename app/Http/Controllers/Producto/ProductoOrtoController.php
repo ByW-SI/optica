@@ -50,9 +50,10 @@ class ProductoOrtoController extends Controller
      * @param  \App\ProductoOrto  $productoOrto
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductoOrto $productoOrto)
+    public function show($orto)
     {
-        return "chingue a su el sa";
+        $ortot = ProductoOrto::find($orto);
+        return view("producto.show", ['tipo'=>'orto', 'orto'=>$ortot]);
     }
 
     /**
@@ -85,6 +86,19 @@ class ProductoOrtoController extends Controller
     $ortos = ProductoOrto::get();
      return view("inventario.create", ['armazones'=>$armazones, 'generales'=>$generales, 'micas'=>$micas, 'ortos'=>$ortos]);
     
+    }
+
+    public function updateprecio(Request $request, $orto){
+        $proorto = ProductoOrto::find($orto);
+        $proorto->precio = $request->precio;
+        $proorto->save();
+
+        $armazones = ProductoArmazon::get();
+    $generales = ProductoGeneral::get();
+    $micas = ProductoMica::get();
+    $ortos = ProductoOrto::get();
+     return view("inventario.create2", ['armazones'=>$armazones, 'generales'=>$generales, 'micas'=>$micas, 'ortos'=>$ortos]);
+     
     }
 
     /**

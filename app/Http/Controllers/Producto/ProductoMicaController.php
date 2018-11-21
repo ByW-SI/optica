@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Producto;
 
+use App\ProductoArmazon;
+use App\ProductoGeneral;
 use App\ProductoMica;
+use App\ProductoOrto;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -49,7 +52,7 @@ class ProductoMicaController extends Controller
      */
     public function show(ProductoMica $productoMica)
     {
-        //
+        return "show";
     }
 
     /**
@@ -70,9 +73,18 @@ class ProductoMicaController extends Controller
      * @param  \App\ProductoMica  $productoMica
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductoMica $productoMica)
+    public function update(Request $request, $orto)
     {
-        //
+        $proorto = ProductoMica::find($orto);
+        $proorto->cantidad = $request->cantidad;
+        $proorto->save();
+
+        $armazones = ProductoArmazon::get();
+    $generales = ProductoGeneral::get();
+    $micas = ProductoMica::get();
+    $ortos = ProductoOrto::get();
+     return view("inventario.create", ['armazones'=>$armazones, 'generales'=>$generales, 'micas'=>$micas, 'ortos'=>$ortos]);
+    
     }
 
     /**

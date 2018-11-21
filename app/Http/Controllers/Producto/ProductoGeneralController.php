@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Producto;
 
+use App\ProductoArmazon;
 use App\ProductoGeneral;
+use App\ProductoMica;
+use App\ProductoOrto;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -69,9 +72,18 @@ class ProductoGeneralController extends Controller
      * @param  \App\ProductoGeneral  $productoGeneral
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductoGeneral $productoGeneral)
+    public function update(Request $request, $orto)
     {
-        //
+        $proorto = ProductoGeneral::find($orto);
+        $proorto->cantidad = $request->cantidad;
+        $proorto->save();
+
+        $armazones = ProductoArmazon::get();
+    $generales = ProductoGeneral::get();
+    $micas = ProductoMica::get();
+    $ortos = ProductoOrto::get();
+     return view("inventario.create", ['armazones'=>$armazones, 'generales'=>$generales, 'micas'=>$micas, 'ortos'=>$ortos]);
+    
     }
 
     /**

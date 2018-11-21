@@ -180,3 +180,6 @@ Route::resource('proorto', 'Producto\ProductoOrtoController');
 Route::resource('promica', 'Producto\ProductoMicaController');
 Route::resource('proarma', 'Producto\ProductoArmazonController');
 Route::resource('progene', 'Producto\ProductoGeneralController');
+Route::resource('inventario', 'Inventario\InventarioController');
+
+Route::put('actualizarproorto', 'Producto\ProductoOrtoController@update')->name('actualizarproorto');

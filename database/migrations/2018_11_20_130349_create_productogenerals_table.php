@@ -26,6 +26,8 @@ class CreateProductogeneralsTable extends Migration
             $table->string('color');
             $table->string('unidad');
             $table->string('foto');
+            $table->double('precio', 15, 8);
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }

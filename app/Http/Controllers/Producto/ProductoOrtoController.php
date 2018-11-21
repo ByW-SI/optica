@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Producto;
 
+
+use App\ProductoArmazon;
+use App\ProductoGeneral;
+use App\ProductoMica;
 use App\ProductoOrto;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -48,7 +52,7 @@ class ProductoOrtoController extends Controller
      */
     public function show(ProductoOrto $productoOrto)
     {
-        //
+        return "chingue a su el sa";
     }
 
     /**
@@ -59,7 +63,7 @@ class ProductoOrtoController extends Controller
      */
     public function edit(ProductoOrto $productoOrto)
     {
-        //
+        
     }
 
     /**
@@ -69,9 +73,18 @@ class ProductoOrtoController extends Controller
      * @param  \App\ProductoOrto  $productoOrto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductoOrto $productoOrto)
+    public function update(Request $request, $orto)
     {
-        //
+        $proorto = ProductoOrto::find($orto);
+        $proorto->cantidad = $request->cantidad;
+        $proorto->save();
+
+        $armazones = ProductoArmazon::get();
+    $generales = ProductoGeneral::get();
+    $micas = ProductoMica::get();
+    $ortos = ProductoOrto::get();
+     return view("inventario.create", ['armazones'=>$armazones, 'generales'=>$generales, 'micas'=>$micas, 'ortos'=>$ortos]);
+    
     }
 
     /**
@@ -82,6 +95,6 @@ class ProductoOrtoController extends Controller
      */
     public function destroy(ProductoOrto $productoOrto)
     {
-        //
+        return "chingue a su el sa";
     }
 }

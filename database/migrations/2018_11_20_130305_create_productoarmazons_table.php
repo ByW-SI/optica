@@ -26,6 +26,8 @@ class CreateProductoarmazonsTable extends Migration
             $table->string('medidas');
             $table->string('unidad');
             $table->string('foto');
+            $table->double('precio', 15, 8);
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }

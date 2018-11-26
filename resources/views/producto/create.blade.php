@@ -114,9 +114,16 @@
 					<td>{{$orto->foto}}</td>
 					<td>
 						<a class="btn btn-success btn-sm" href="{{ route('proorto.show',['orto'=>$orto]) }}"><i class="fa fa-eye" aria-hidden="true"></i> 
-					<strong>Ver</strong>	</a>
-						<a class="btn btn-info btn-sm" href="{{ route('proorto.destroy',['orto'=>$orto]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
-					<strong>Borrar</strong>	</a>
+							<strong>Ver</strong>
+						</a>
+						
+						<form role="form" method="POST" action="{{ route('proorto.destroy',['orto'=>$orto]) }}">
+							{{ csrf_field() }}
+							<input type="hidden" name="_method" value="DELETE">
+							<button type="submit" class="btn btn-info btn-sm" >
+								<strong>Borrar</strong>
+							</button>
+                    	</form>
 					</td>
 				</tr>
 			@endforeach
@@ -223,8 +230,13 @@
 					<td>
 						<a class="btn btn-success btn-sm" href="{{ route('promica.show',['orto'=>$mica]) }}"><i class="fa fa-eye" aria-hidden="true"></i> 
 					<strong>Ver</strong>	</a>
-						<a class="btn btn-info btn-sm" href="{{ route('promica.destroy',['orto'=>$mica]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
-					<strong>Borrar</strong>	</a>
+						<form role="form" method="POST" action="{{ route('promica.destroy',['orto'=>$mica]) }}">
+							{{ csrf_field() }}
+							<input type="hidden" name="_method" value="DELETE">
+							<button type="submit" class="btn btn-info btn-sm" >
+								<strong>Borrar</strong>
+							</button>
+                    	</form>
 					</td>
 				</tr>
 			@endforeach
@@ -326,8 +338,13 @@
 					<td>
 						<a class="btn btn-success btn-sm" href="{{ route('proarma.show',['arma'=>$arma]) }}"><i class="fa fa-eye" aria-hidden="true"></i> 
 					<strong>Ver</strong>	</a>
-						<a class="btn btn-info btn-sm" href="{{ route('proarma.destroy',['arma'=>$arma]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
-					<strong>Borrar</strong>	</a>
+					<form role="form" method="POST" action="{{ route('proarma.destroy',['arma'=>$arma]) }}">
+							{{ csrf_field() }}
+							<input type="hidden" name="_method" value="DELETE">
+							<button type="submit" class="btn btn-info btn-sm" >
+								<strong>Borrar</strong>
+							</button>
+                    	</form>
 					</td>
 				</tr>
 			@endforeach
@@ -429,8 +446,13 @@
 					<td>
 						<a class="btn btn-success btn-sm" href="{{ route('progene.show',['gene'=>$gene]) }}"><i class="fa fa-eye" aria-hidden="true"></i> 
 					<strong>Ver</strong>	</a>
-						<a class="btn btn-info btn-sm" href="{{ route('progene.destroy',['gene'=>$gene]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
-					<strong>Borrar</strong>	</a>
+					<form role="form" method="POST" action="{{ route('progene.destroy',['gene'=>$gene]) }}">
+							{{ csrf_field() }}
+							<input type="hidden" name="_method" value="DELETE">
+							<button type="submit" class="btn btn-info btn-sm" >
+								<strong>Borrar</strong>
+							</button>
+                    	</form>
 					</td>
 				</tr>
 			@endforeach

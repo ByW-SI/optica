@@ -106,8 +106,10 @@ class ProductoArmazonController extends Controller
      * @param  \App\ProductoArmazon  $productoArmazon
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductoArmazon $productoArmazon)
+    public function destroy($productoArmazon)
     {
-        //
+        $protemp = ProductoArmazon  ::find($productoArmazon);
+        $protemp->delete();
+        return redirect()->route('productoschidos.create');
     }
 }

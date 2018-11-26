@@ -106,8 +106,10 @@ class ProductoGeneralController extends Controller
      * @param  \App\ProductoGeneral  $productoGeneral
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductoGeneral $productoGeneral)
+    public function destroy($productoGeneral)
     {
-        //
+        $protemp = ProductoGeneral::find($productoGeneral);
+        $protemp->delete();
+        return redirect()->route('productoschidos.create');
     }
 }

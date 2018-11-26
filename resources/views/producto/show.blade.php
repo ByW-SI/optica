@@ -239,5 +239,5 @@
 			</div>
 		</form>
 @endif
-        
+        <a href="{{route('productoschidos.create')}}" class="btn btn-info">Regresar</a>
 @endsection

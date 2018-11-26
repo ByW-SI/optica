@@ -41,7 +41,6 @@
                     </div>
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
                         <ul class="nav navbar-nav">
-                            &nbsp;
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             @auth
@@ -132,10 +131,7 @@
                                     <li><a href="#" onclick="AgregarNuevoTab('{{ url('/puestos') }}','Puestos')"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas Puestos</a></li>
                                     <li><a href="#" onclick="AgregarNuevoTab('{{ url('/bancos') }}','Bancos')"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas Bancos</a></li>
                                     <li><a href="#" onclick="AgregarNuevoTab('{{ url('/giros') }}','Giros')"><i class="fa fa-refresh" aria-hidden="true"></i> Giros</a></li>
-                                    <li><a href="#" onclick="AgregarNuevoTab('{{ url('/formacontactos') }}','Forma de Contacto')"><i class="fa fa-refresh" aria-hidden="true"></i> Forma Contactos</a></li>
-                                    <li><a href="#" onclick="AgregarNuevoTab('{{ route('productoschidos.create') }}','Productos')"><i class="fa fa-refresh" aria-hidden="true"></i> Productos</a></li>
-                                    <li><a href="#" onclick="AgregarNuevoTab('{{ route('inventario.create') }}','Inventario')"><i class="fa fa-refresh" aria-hidden="true"></i> Inventario</a></li>
-                                    <li><a href="#" onclick="AgregarNuevoTab('{{ route('inventario.index') }}','Precios')"><i class="fa fa-refresh" aria-hidden="true"></i> Precios</a></li>
+                                    <li><a href="#" onclick="AgregarNuevoTab('{{ url('/formacontactos') }}','Forma de Contacto')"><i class="fa fa-refresh" aria-hidden="true"></i> Forma Contactos</a></li> 
                                 </ul>
                             </li>
                             @break
@@ -268,10 +264,25 @@
                                     </li> --}}
                                 </ul>
                             </li>
+
+                            
                             @break
                             @endif
                             @endforeach
                             @endauth
+
+                            
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <i class="fa fa-lock" aria-hidden="true"></i> I<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#" onclick="AgregarNuevoTab('{{ route('productoschidos.create') }}','Productos')"><i class="fa fa-refresh" aria-hidden="true"></i> Productos</a></li>
+                                    <li><a href="#" onclick="AgregarNuevoTab('{{ route('inventario.create') }}','Inventario')"><i class="fa fa-refresh" aria-hidden="true"></i> Inventario</a></li>
+                                    <li><a href="#" onclick="AgregarNuevoTab('{{ route('inventario.index') }}','Precios')"><i class="fa fa-refresh" aria-hidden="true"></i> Precios</a></li>
+                                    <li><a href="#" onclick="AgregarNuevoTab('{{ route('productoschidos.index') }}','Precios')"><i class="fa fa-refresh" aria-hidden="true"></i> Historial</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -107,8 +107,11 @@ class ProductoOrtoController extends Controller
      * @param  \App\ProductoOrto  $productoOrto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductoOrto $productoOrto)
+    public function destroy($productoOrto)
     {
-        return "chingue a su el sa";
+
+        $protemp = ProductoOrto::find($productoOrto);
+        $protemp->delete();
+        return redirect()->route('productoschidos.create');
     }
 }

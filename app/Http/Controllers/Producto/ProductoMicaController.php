@@ -108,8 +108,10 @@ class ProductoMicaController extends Controller
      * @param  \App\ProductoMica  $productoMica
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductoMica $productoMica)
+    public function destroy( $productoMica)
     {
-        //
+        $protemp = ProductoMica::find($productoMica);
+        $protemp->delete();
+        return redirect()->route('productoschidos.create');
     }
 }

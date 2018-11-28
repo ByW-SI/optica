@@ -40,9 +40,6 @@
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                        <ul class="nav navbar-nav">
-                            &nbsp;
-                        </ul>
                         <ul class="nav navbar-nav navbar-right">
                             @auth
                                 <li class="dropdown">
@@ -176,6 +173,37 @@
                                         @break
                                     @endif
                                 @endforeach
+                                {{-- PRECARGAS --}}
+                                @foreach(Auth::user()->perfil->componentes as $componente)
+                                @if($componente->modulo->nombre == "precargas")
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        <i class="fa fa-refresh" aria-hidden="true"></i> Precargas<span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#" onclick="AgregarNuevoTab('{{ url('bajas') }}','Bajas')"><i class="fa fa-level-down" aria-hidden="true"></i> Bajas</a></li>
+                                        <li><a href="#" onclick="AgregarNuevoTab('{{ url('contratos') }}','Contratos')"><i class="fa fa-file-text-o" aria-hidden="true"></i> Contratos</a></li>
+                                        <li><a href="#" onclick="AgregarNuevoTab('{{ url('/areas') }}','Areas')"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas Areas</a></li>
+                                        <li><a href="#" onclick="AgregarNuevoTab('{{ url('/puestos') }}','Puestos')"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas Puestos</a></li>
+                                        <li><a href="#" onclick="AgregarNuevoTab('{{ url('/bancos') }}','Bancos')"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas Bancos</a></li>
+                                        <li><a href="#" onclick="AgregarNuevoTab('{{ url('/giros') }}','Giros')"><i class="fa fa-refresh" aria-hidden="true"></i> Giros</a></li>
+                                        <li><a href="#" onclick="AgregarNuevoTab('{{ url('/formacontactos') }}','Forma de Contacto')"><i class="fa fa-refresh" aria-hidden="true"></i> Forma Contactos</a></li> 
+                                    </ul>
+                                </li>
+                                @break
+                                @endif
+                                @endforeach
+                                {{-- CRMS --}}
+                                @foreach(Auth::user()->perfil->componentes as $componente)
+                                @if($componente->modulo->nombre == "crms")
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" onclick="AgregarNuevoTab('{{url ('crm2')}}','CRMs')">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i> CRM
+                                    </a>
+                                </li>
+                                @break
+                                @endif
+                                @endforeach
                                 {{-- SUCURSALES --}}
                                 @foreach(Auth::user()->perfil->componentes as $componente)
                                     @if($componente->modulo->nombre == "sucursales")
@@ -267,6 +295,17 @@
                                     @endif
                                 @endforeach
                             @endauth
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <i class="fa fa-lock" aria-hidden="true"></i> I<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#" onclick="AgregarNuevoTab('{{ route('productoschidos.create') }}','Productos')"><i class="fa fa-refresh" aria-hidden="true"></i> Productos</a></li>
+                                    <li><a href="#" onclick="AgregarNuevoTab('{{ route('inventario.create') }}','Inventario')"><i class="fa fa-refresh" aria-hidden="true"></i> Inventario</a></li>
+                                    <li><a href="#" onclick="AgregarNuevoTab('{{ route('inventario.index') }}','Precios')"><i class="fa fa-refresh" aria-hidden="true"></i> Precios</a></li>
+                                    <li><a href="#" onclick="AgregarNuevoTab('{{ route('productoschidos.index') }}','Precios')"><i class="fa fa-refresh" aria-hidden="true"></i> Historial</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>

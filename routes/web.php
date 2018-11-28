@@ -172,3 +172,19 @@ Route::get('/denegado',function(){
 Route::resource('perfil', 'Perfil\PerfilController');
 Route::resource('usuario', 'Usuario\UsuarioController');
 Route::resource('crm2', 'Paciente\PacienteCrmController');
+
+Route::resource('productoschidos', 'Producto\ProductoController');
+
+
+Route::resource('proorto', 'Producto\ProductoOrtoController');
+Route::resource('promica', 'Producto\ProductoMicaController');
+Route::resource('proarma', 'Producto\ProductoArmazonController');
+Route::resource('progene', 'Producto\ProductoGeneralController');
+Route::resource('inventario', 'Inventario\InventarioController');
+
+Route::put('cambiarprecioorto/{id}', 'Producto\ProductoOrtoController@updateprecio')->name('cambiarprecioorto');
+Route::put('cambiarpreciomica/{id}', 'Producto\ProductoMicaController@updateprecio')->name('cambiarpreciomica');
+Route::put('cambiarprecioarma/{id}', 'Producto\ProductoArmazonController@updateprecio')->name('cambiarprecioarma');
+Route::put('cambiarpreciogene/{id}', 'Producto\ProductoGeneralController@updateprecio')->name('cambiarpreciogene');
+
+Route::put('actualizarproorto', 'Producto\ProductoOrtoController@update')->name('actualizarproorto');

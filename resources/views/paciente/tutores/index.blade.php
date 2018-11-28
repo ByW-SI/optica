@@ -82,7 +82,7 @@
 								@endforeach
 							</table>
 						@else
-							<h4>Aún no hay tutores agregados.</h4>
+							<h4>No hay tutores disponibles.</h4>
 						@endif
 					</div>
 				</div>

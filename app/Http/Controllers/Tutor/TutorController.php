@@ -74,9 +74,10 @@ class TutorController extends Controller
      * @param  \App\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tutor $tutor)
+    public function edit($tutor)
     {
-        //
+        $tutor = Tutor::find($tutor);
+        return view('tutores.edit', ['tutor' => $tutor]);
     }
 
     /**
@@ -86,9 +87,11 @@ class TutorController extends Controller
      * @param  \App\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tutor $tutor)
+    public function update(Request $request, $tutor)
     {
-        //
+        $tutor = Tutor::find($tutor);
+        $tutor->update($request->all());
+        return redirect()->route('tutores.show', ['tutor' => $tutor]);
     }
 
     /**

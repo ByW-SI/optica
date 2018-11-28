@@ -28,8 +28,8 @@ class Tutor extends Model
 
     public $sortable = ['id', 'nombre', 'appaterno'];
 
-    public function pacientes() {
-        return $this->belongsToMany('App\Paciente')->as('parentesco');
+    public function relaciones() {
+        return $this->hasMany('App\PacienteTutor');
     }
 
 }

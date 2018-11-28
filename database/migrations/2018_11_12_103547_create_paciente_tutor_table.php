@@ -14,12 +14,13 @@ class CreatePacienteTutorTable extends Migration
     public function up()
     {
         Schema::create('paciente_tutor', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('paciente_id')->unsigned();
             $table->foreign('paciente_id')->references('id')->on('pacientes');
             $table->integer('tutor_id')->unsigned();
             $table->foreign('tutor_id')->references('id')->on('tutors');
-            $table->primary(['paciente_id', 'tutor_id']);
             $table->string('relacion');
+            $table->timestamps();
         });
     }
 

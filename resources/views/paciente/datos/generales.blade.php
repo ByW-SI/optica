@@ -128,7 +128,7 @@
 	<div class="panel-body">
 		<div class="row">
 			<div class="col-sm-12">
-				@if(count($paciente->tutores) > 0)
+				@if(count($paciente->relaciones) > 0)
         			@include('paciente.datos.tablas.tutores')
         		@else
         			<h4>Aún no tiene tutores registrados.</h4>

@@ -40,8 +40,8 @@ class Paciente extends Model
         return $this->hasMany('App\PacienteOcular');
     }
 
-    public function tutores() {
-        return $this->belongsToMany('App\Tutor')->as('parentesco');
+    public function relaciones() {
+        return $this->hasMany('App\PacienteTutor');
     }
 
     public function anteojo() {

@@ -104,25 +104,26 @@
 					</div>
 				</div>
 			</div>
-			<form action="{{ route('pacientes.tutores.bind', ['paciente' => $paciente, 'tutor' => $tutor]) }}" method="post">
+			<form action="{{ route('pacientes.tutores.update', ['paciente' => $paciente, 'tutor' => $tutor]) }}" method="post">
 				{{ csrf_field() }}
+				<input type="hidden" name="_method" value="PUT">
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-sm-4 col-sm-offset-4">
 							<label class="control-label">✱Relación:</label>
 							<select name="relacion" class="form-control" required="">
-								<option value="" selected="">Seleccionar</option>
-								<option value="Padre/Madre">Padre/Madre</option>
-								<option value="Tío/a">Tío/a</option>
-								<option value="Abuelo/a">Abuelo/a</option>
-								<option value="Hermano/a">Hermano/a</option>
-								<option value="Primo/a">Primo/a</option>
-								<option value="Esposo/a">Esposo/a</option>
-								<option value="Nieto/a">Nieto/a</option>
-								<option value="Sobrino/a">Sobrino/a</option>
-								<option value="Nuero/a">Nuero/a</option>
-								<option value="Cuñado/a">Cuñado/a</option>
-								<option value="Otro">Otro</option>
+								<option value="">Seleccionar</option>
+								<option value="Padre/Madre" {{ $relacion->relacion == 'Padre/Madre' ? 'selected=""' : '' }}>Padre/Madre</option>
+								<option value="Tío/a" {{ $relacion->relacion == 'Tío/a' ? 'selected=""' : '' }}>Tío/a</option>
+								<option value="Abuelo/a" {{ $relacion->relacion == 'Abuelo/a' ? 'selected=""' : '' }}>Abuelo/a</option>
+								<option value="Hermano/a" {{ $relacion->relacion == 'Hermano/a' ? 'selected=""' : '' }}>Hermano/a</option>
+								<option value="Primo/a" {{ $relacion->relacion == 'Primo/a' ? 'selected=""' : '' }}>Primo/a</option>
+								<option value="Esposo/a" {{ $relacion->relacion == 'Esposo/a' ? 'selected=""' : '' }}>Esposo/a</option>
+								<option value="Nieto/a" {{ $relacion->relacion == 'Nieto/a' ? 'selected=""' : '' }}>Nieto/a</option>
+								<option value="Sobrino/a" {{ $relacion->relacion == 'Sobrino/a' ? 'selected=""' : '' }}>Sobrino/a</option>
+								<option value="Nuero/a" {{ $relacion->relacion == 'Nuero/a' ? 'selected=""' : '' }}>Nuero/a</option>
+								<option value="Cuñado/a" {{ $relacion->relacion == 'Cuñado/a' ? 'selected=""' : '' }}>Cuñado/a</option>
+								<option value="Otro" {{ $relacion->relacion == 'Otro' ? 'selected=""' : '' }}>Otro</option>
 							</select>
 						</div>
 					</div>

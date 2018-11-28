@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Paciente;
 
 use App\Paciente;
 use App\Tutor;
+use App\PacienteTutor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,10 @@ class TutorController extends Controller
      */
     public function index(Paciente $paciente)
     {
-        $tutores = Tutor::get();
+        $arr = [];
+        foreach($paciente->relaciones as $relacion)
+            $arr[] = $relacion->tutor->id;
+        $tutores = Tutor::whereNotIn('id', $arr)->get();
         return view('paciente.tutores.index', ['paciente' => $paciente, 'tutores' => $tutores]);
     }
 
@@ -41,22 +45,9 @@ class TutorController extends Controller
 
     public function bind(Request $request, Paciente $paciente, Tutor $tutor)
     {
-        // $paciente->tutores()->attach($tutor, ['relacion' => $request->relacion]);
-        // $paciente->tutores()->detach();
-
-        // dd($paciente->tutores->first()->parentesco);
-        dd($tutor->pacientes->first()->parentesco->tutor_id);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Paciente  $paciente
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tutor $tutor)
-    {
-        //
+        $relacion = new PacienteTutor(['paciente_id' => $paciente->id, 'tutor_id' => $tutor->id, 'relacion' => $request->relacion]);
+        $paciente->relaciones()->save($relacion);
+        return redirect()->route('pacientes.show', ['paciente' => $paciente->id]);
     }
 
     /**
@@ -65,9 +56,11 @@ class TutorController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function edit(Paciente $paciente)
+    public function edit(Paciente $paciente, $tutor)
     {
-        //
+        $tutor = Tutor::find($tutor);
+        $relacion = PacienteTutor::find([$paciente->id, $tutor->id])->first();
+        return view('paciente.tutores.edit', ['paciente' => $paciente, 'tutor' => $tutor, 'relacion' => $relacion]);
     }
 
     /**
@@ -77,23 +70,13 @@ class TutorController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paciente $paciente)
+    public function update(Request $request, Paciente $paciente, $tutor)
     {
-        $tutor=Tutor::where('id',$request->id)->first();
-        $tutor->nombre=$request->nombre;
-        $tutor->appaterno=$request->appaterno;
-        $tutor->apmaterno=$request->apmaterno;
-        $tutor->edad=$request->edad;
-        $tutor->fecha_nacimiento=$request->fecha_nacimiento;
-        $tutor->sexo=$request->sexo;
-        $tutor->relacion=$request->relacion;
-        $tutor->tel_casa=$request->tel_casa;
-        $tutor->tel_cel=$request->tel_cel;
-        $tutor->save();
-        Alert::success('Información Editada', 'Continuar');
-        return redirect()->route('pacientes.show',
-                               ['paciente'=>$paciente->id]);
-
+        $tutor = Tutor::find($tutor);
+        $relacion = PacienteTutor::find([$paciente->id, $tutor->id])->first();
+        $relacion->relacion = $request->relacion;
+        $relacion->save();
+        return redirect()->route('pacientes.show', ['paciente' => $paciente]);
     }
 
     /**
@@ -106,4 +89,5 @@ class TutorController extends Controller
     {
         //
     }
+
 }

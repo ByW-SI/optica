@@ -76,8 +76,8 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-sm-12">
-						@if(count($tutor->pacientes) > 0)
-							<table class="table table-stripped table-hover table-bordered">
+						@if(count($tutor->relaciones) > 0)
+							<table class="table table-stripped table-hover table-bordered" style="margin-bottom: 0px;">
 								<tr class="info">
 									<th>Identificador</th>
 									<th>Nombre</th>
@@ -86,15 +86,15 @@
 									<th>Relacion</th>
 									<th>Acción</th>
 								</tr>
-								@foreach($tutor->pacientes as $paciente)
+								@foreach($tutor->relaciones as $relacion)
 									<tr>
-										<td>{{ $paciente->identificador }}</td>
-										<td>{{ $paciente->nombre }}</td>
-										<td>{{ $paciente->appaterno }}</td>
-										<td>{{ $paciente->apmaterno }}</td>
-										<td>{{ $paciente->parentesco->relacion }}</td>
+										<td>{{ $relacion->paciente->identificador }}</td>
+										<td>{{ $relacion->paciente->nombre }}</td>
+										<td>{{ $relacion->paciente->appaterno }}</td>
+										<td>{{ $relacion->paciente->apmaterno }}</td>
+										<td>{{ $relacion->relacion }}</td>
 										<td>
-											<a href="{{ route('pacientes.show', ['paciente' => $paciente->id]) }}" class="btn btn-primary btn-sm">
+											<a href="{{ route('pacientes.show', ['paciente' => $relacion->paciente->id]) }}" class="btn btn-primary btn-sm">
 												<i class="fa fa-eye"></i><string> Ver</string>
 											</a>
 										</td>

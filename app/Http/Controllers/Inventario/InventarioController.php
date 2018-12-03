@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Inventario;
 
 use Illuminate\Http\Request;
-use App\ProductoArmazon;
-use App\ProductoGeneral;
-use App\ProductoMica;
-use App\ProductoOrto;
+use App\Producto;
+use App\Inventario;
+use App\Historial;
 use App\Http\Controllers\Controller;
 
 class InventarioController extends Controller
@@ -18,12 +17,8 @@ class InventarioController extends Controller
      */
     public function index()
     {
-        $armazones = ProductoArmazon::get();
-        $generales = ProductoGeneral::get();
-        $micas = ProductoMica::get();
-        $ortos = ProductoOrto::get();
-         return view("inventario.create2", ['armazones'=>$armazones, 'generales'=>$generales, 'micas'=>$micas, 'ortos'=>$ortos]);
-        
+        $inventarios = Inventario::get();
+        return view("inventario.index", ['inventarios' => $inventarios]);
     }
 
     /**
@@ -33,12 +28,12 @@ class InventarioController extends Controller
      */
     public function create()
     {
-        $armazones = ProductoArmazon::get();
-        $generales = ProductoGeneral::get();
-        $micas = ProductoMica::get();
-        $ortos = ProductoOrto::get();
-         return view("inventario.create", ['armazones'=>$armazones, 'generales'=>$generales, 'micas'=>$micas, 'ortos'=>$ortos]);
-        }
+        $arr = [];
+        foreach(Inventario::get() as $inventario)
+            $arr[] = $inventario->producto->id;
+        $productos = Producto::whereNotIn('id', $arr)->get();
+        return view('inventario.create', ['productos' => $productos]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -48,51 +43,38 @@ class InventarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = Producto::find($request->producto_id);
+        $inventario = new Inventario(['cantidad' => $request->cantidad]);
+        $producto->inventario()->save($inventario);
+        $historial = new Historial(['tipo' => 'Alta de Inventario', 'descripcion' => $request->cantidad . ' piezas de ' . $producto->sku_interno . ' registradas.']);
+        $producto->historiales()->save($historial);
+        return redirect()->route('inventarios.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function alta(Inventario $inventario) {
+        return view('inventario.alta', ['inventario' => $inventario]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    public function darAlta(Request $request, Inventario $inventario) {
+        $prev = $inventario->cantidad;
+        $inventario->cantidad += $request->cantidad;
+        $inventario->save();
+        $historial = new Historial(['tipo' => 'Modificación de Inventario', 'descripcion' => 'De ' . $prev . ' a ' . $inventario->cantidad . ' piezas de ' . $inventario->producto->sku_interno . ' (' . $request->cantidad . ' nuevas).']);
+        $inventario->producto->historiales()->save($historial);
+        return redirect()->route('inventarios.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function baja(Inventario $inventario) {
+        return view('inventario.baja', ['inventario' => $inventario]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function darBaja(Request $request, Inventario $inventario) {
+        $prev = $inventario->cantidad;
+        $inventario->cantidad -= $request->cantidad;
+        $inventario->save();
+        $historial = new Historial(['tipo' => 'Baja de Inventario', 'descripcion' => 'De ' . $prev . ' a ' . $inventario->cantidad . ' piezas de ' . $inventario->producto->sku_interno . ' (' . $request->cantidad . ' menos). Por ' . $request->causa . '.']);
+        $inventario->producto->historiales()->save($historial);
+        return redirect()->route('inventarios.index');
     }
+
 }

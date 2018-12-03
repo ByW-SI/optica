@@ -1,73 +1,372 @@
 @extends('layouts.blank')
 @section('content')
-<div class="panel-default">
-	<div class="panel-heading"><h4>Registro de Productos:
-					&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
-					Campos Requeridos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a class="btn btn-info" href="{{ route('empleados.create') }}"><strong>Registrar</strong></a>
-				</h4>
-	</div>
-	<div class="panel-body"><br>
-		<div class="row">
-		  <div class="col-sm-2">
-            <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Código:(Automático)</label>
-             <input class="form-control" type="text" name="codigo" id="codigo" readonly="">
-		  </div>
-		  <div class="col-sm-2">
-            <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Negocio:</label>
-              <select class="form-control">
-                <option value='OP'>Óptica</option>
-				<option value='OR'>Ortopedia</option>
-			 </select>
-		  </div>
-		   <div class="col-sm-2">
-            <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Proveedor:</label>
-              <select class="form-control">
-                <option value='17'>Essilor</option>
-				<option value='18'>Nueva Italia</option>
-				<option value='03'>Arquer</option>
-			 </select>
-		  </div>
-		   <div class="col-sm-2">
-            <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Producto:</label>
-              <select class="form-control">
-                <option value='M5'>Monofocales Terminadas</option>
-				<option value='M6'>Monofocales Terminadas Premium</option>
-				<option value='M7'>Monofocales Terminadas Transitions</option>
-				<option value='P8'>Progresivos Línea Clásica Adaptar</option>
-			 </select>
-		  </div>
-		  <div class="col-sm-2">
-            <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Marca:</label>
-              <select class="form-control">
-                <option value='A6'>AIRWEAR</option>
-				<option value='O3'>ORMA</option>
-				<option value='M2'>MATERIALES NACIONALES</option>
-				<option value='S0'>SENSASUAVE</option>
-			 </select>
-		  </div>
-		   <div class="col-sm-2">
-            <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Modelo:</label>
-              <select class="form-control">
-                <option value='A5'>604</option>
-				<option value='A6'>617</option>
-				<option value='B1'>644</option>
-				<option value='B8'>974</option>
-			 </select>
-		  </div>
-		</div><br><br>
-		<div class="row">
-		   <div class="col-sm-2">
-            <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>Tamaño/Tallas:</label>
-              <select class="form-control">
-                <option value='AE'>26-29</option>
-				<option value='AD'>22-25</option>
-				<option value='AA'>14-17</option>
-				<option value='30'>3 PUL</option>
-				<option value='GD'>GDE</option>
-			 </select>
-		  </div>
+
+<div class="container">
+	<div class="panel panel-group">
+		<div class="panel-default">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-sm-4">
+						<h4>Datos del Producto:</h4>
+					</div>
+					<div class="col-sm-4 text-center">
+						<a href="{{ route('productos.index') }}" class="btn btn-primary">
+							<i class="fa fa-bars"></i><strong> Lista de Productos</strong>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-4 col-sm-offset-4">
+						<select class="form-control" id="selector">
+							<option value="">Seleccionar</option>
+							<option value="ortopedia">Ortopedia</option>
+							<option value="micas">Micas</option>
+							<option value="armazones">Armazones</option>
+							<option value="generales">General</option>
+						</select>
+					</div>
+				</div>
+			</div>
 		</div>
+		<form id="orto" class="formu" style="display: none;" role="form" method="POST" action="{{ route('productos.store') }}">
+			{{ csrf_field() }}
+			<input type="hidden" name="seccion" value="ortopedia">
+			<div class="panel-body">
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="sku">✱SKU:</label>
+  					<input type="text" class="form-control" id="sku1" name="sku">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="negocio">✱Negocio:</label>
+  					<input type="text" class="form-control" id="negocio1" name="negocio">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label">✱Proveedor:</label>
+					<select class="form-control" id="proveedor1" name="provedor_id">
+						<option value="">Seleccionar</option>
+						@foreach($proveedores as $proveedor)
+							<option value="{{ $proveedor->id }}">{{ $proveedor->razonsocial }}{{ $proveedor->nombre . ' ' . $proveedor->apellidopaterno }}</option>
+						@endforeach
+					</select>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="producto">✱Producto:</label>
+  					<input type="text" class="form-control" id="producto1" name="producto">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="marca">✱Marca:</label>
+  					<input type="text" class="form-control" id="marca1" name="marca">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="modelo">✱Modelo:</label>
+  					<input type="text" class="form-control" id="modelo1" name="modelo">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="talla">✱Talla:</label>
+  					<input type="text" class="form-control" id="talla" name="talla">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="color">✱Color:</label>
+  					<input type="text" class="form-control" id="color1" name="color">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="unidad">✱Unidad:</label>
+  					<input type="text" class="form-control" id="unidad1" name="unidad">
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-sm-4 col-sm-offset-4 text-center">
+		  				<button type="submit" class="btn btn-success">
+			  				<i class="fa fa-check-circle"></i> Guardar
+			  			</button>
+					</div>
+					<div class="col-sm-4 text-right text-danger">
+						<h5>✱Campos Requeridos</h5>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<form id="mica" class="formu" style="display: none;" role="form" method="POST" action="{{ route('productos.store') }}">
+			{{ csrf_field() }}
+			<input type="hidden" name="seccion" value="micas">
+			<div class="panel-body">
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="sku">✱SKU:</label>
+  					<input type="text" class="form-control" id="sku2" name="sku">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="negocio">✱Negocio:</label>
+  					<input type="text" class="form-control" id="negocio2" name="negocio">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label">✱Proveedor:</label>
+					<select class="form-control" id="proveedor2" name="provedor_id">
+						<option value="">Seleccionar</option>
+						@foreach($proveedores as $proveedor)
+							<option value="{{ $proveedor->id }}">{{ $proveedor->razonsocial }}{{ $proveedor->nombre . ' ' . $proveedor->apellidopaterno }}</option>
+						@endforeach
+					</select>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="familia">✱Familia:</label>
+  					<input type="text" class="form-control" id="familia" name="familia">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="materiales">✱Materiales:</label>
+  					<input type="text" class="form-control" id="materiales" name="materiales">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="rangos">✱Rangos:</label>
+  					<input type="text" class="form-control" id="rangos" name="rangos">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="color">✱Color:</label>
+  					<input type="text" class="form-control" id="color2" name="color">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="tratamientos">✱Tratamiento:</label>
+  					<input type="text" class="form-control" id="tratamiento" name="tratamiento">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="unidad">✱Unidad:</label>
+  					<input type="text" class="form-control" id="unidad2" name="unidad">
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-sm-4 col-sm-offset-4 text-center">
+		  				<button type="submit" class="btn btn-success">
+			  				<i class="fa fa-check-circle"></i> Guardar
+			  			</button>
+					</div>
+					<div class="col-sm-4 text-right text-danger">
+						<h5>✱Campos Requeridos</h5>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<form id="arma" class="formu" style="display: none;" role="form" method="POST" action="{{ route('productos.store') }}">
+			{{ csrf_field() }}
+			<input type="hidden" name="seccion" value="armazones">
+			<div class="panel-body">
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="sku">✱SKU:</label>
+  					<input type="text" class="form-control" id="sku3" name="sku">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="negocio">✱Negocio:</label>
+  					<input type="text" class="form-control" id="negocio3" name="negocio">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label">✱Proveedor:</label>
+					<select class="form-control" id="proveedor3" name="provedor_id">
+						<option value="">Seleccionar</option>
+						@foreach($proveedores as $proveedor)
+							<option value="{{ $proveedor->id }}">{{ $proveedor->razonsocial }}{{ $proveedor->nombre . ' ' . $proveedor->apellidopaterno }}</option>
+						@endforeach
+					</select>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="marca">✱Marca:</label>
+  					<input type="text" class="form-control" id="marca3" name="marca">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="modelo">✱Modelo:</label>
+  					<input type="text" class="form-control" id="modelo3" name="modelo">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="color">✱Color:</label>
+  					<input type="text" class="form-control" id="color3" name="color">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="medidas">✱Medidas:</label>
+  					<input type="text" class="form-control" id="medidas" name="medidas">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="unidad">✱Unidad:</label>
+  					<input type="text" class="form-control" id="unidad3" name="unidad">
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-sm-4 col-sm-offset-4 text-center">
+		  				<button type="submit" class="btn btn-success">
+			  				<i class="fa fa-check-circle"></i> Guardar
+			  			</button>
+					</div>
+					<div class="col-sm-4 text-right text-danger">
+						<h5>✱Campos Requeridos</h5>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<form id="gene" class="formu" style="display: none;" role="form" method="POST" action="{{ route('productos.store') }}">
+			{{ csrf_field() }}
+			<input type="hidden" name="seccion" value="generales">
+			<div class="panel-body">
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="sku">✱SKU:</label>
+  					<input type="text" class="form-control" id="sku4" name="sku">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="negocio">✱Negocio:</label>
+  					<input type="text" class="form-control" id="negocio4" name="negocio">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label">✱Proveedor:</label>
+					<select class="form-control" id="proveedor4" name="provedor_id">
+						<option value="">Seleccionar</option>
+						@foreach($proveedores as $proveedor)
+							<option value="{{ $proveedor->id }}">{{ $proveedor->razonsocial }}{{ $proveedor->nombre . ' ' . $proveedor->apellidopaterno }}</option>
+						@endforeach
+					</select>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="producto">✱Producto:</label>
+  					<input type="text" class="form-control" id="producto4" name="producto">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="marca">✱Marca:</label>
+  					<input type="text" class="form-control" id="marca4" name="marca">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="modelo">✱Modelo:</label>
+  					<input type="text" class="form-control" id="modelo4" name="modelo">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="color">✱Color:</label>
+  					<input type="text" class="form-control" id="color4" name="color">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label" for="unidad">✱Unidad:</label>
+  					<input type="text" class="form-control" id="unidad4" name="unidad">
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-sm-4 col-sm-offset-4 text-center">
+		  				<button type="submit" class="btn btn-success">
+			  				<i class="fa fa-check-circle"></i> Guardar
+			  			</button>
+					</div>
+					<div class="col-sm-4 text-right text-danger">
+						<h5>✱Campos Requeridos</h5>
+					</div>
+				</div>
+			</div>
+		</form>
 	</div>
 </div>
+
+<script>
+
+	function seleccionar(tipo) {
+		for(i = 1; i <= 4; i++) {
+			$('#sku' + i).prop('required', false);
+			$('#negocio' + i).prop('required', false);
+			$('#proveedor' + i).prop('required', false);
+			if(i !== 2 || i !== 3) {
+				$('#producto' + i).prop('required', false);
+			}
+			$('#familia').prop('required', false);
+			$('#materiales').prop('required', false);
+			$('#rangos').prop('required', false);
+			if(i !== 2) {
+				$('#marca' + i).prop('required', false);
+				$('#modelo' + i).prop('required', false);
+			}
+			$('#talla').prop('required', false);
+			$('#color' + i).prop('required', false);
+			$('#tratamiento').prop('required', false);
+			$('#medidas').prop('required', false);
+			$('#unidad' + i).prop('required', false);
+
+			$('#sku' + i).val('');
+			$('#negocio' + i).val('');
+			$('#proveedor' + i).val('');
+			if(i !== 2 || i !== 3) {
+				$('#producto' + i).val('');
+			}
+			$('#familia').val('');
+			$('#materiales').val('');
+			$('#rangos').val('');
+			if(i !== 2) {
+				$('#marca' + i).val('');
+				$('#modelo' + i).val('');
+			}
+			$('#talla').val('');
+			$('#color' + i).val('');
+			$('#tratamiento').val('');
+			$('#medidas').val('');
+			$('#unidad' + i).val('');
+		}
+
+		$('#sku' + tipo).prop('required', true);
+		$('#negocio' + tipo).prop('required', true);
+		$('#proveedor' + tipo).prop('required', true);
+		$('#color' + tipo).prop('required', true);
+		$('#unidad' + tipo).prop('required', true);
+
+		if(tipo === 1) {
+			$('#producto' + tipo).prop('required', true);
+			$('#talla').prop('required', true);
+			$('#marca' + tipo).prop('required', true);
+			$('#modelo' + tipo).prop('required', true);
+		} else if(tipo === 2) {
+			$('#familia').prop('required', true);
+			$('#materiales').prop('required', true);
+			$('#rangos').prop('required', true);
+			$('#tratamiento').prop('required', true);
+		} else if(tipo === 3) {
+			$('#marca' + tipo).prop('required', true);
+			$('#modelo' + tipo).prop('required', true);
+			$('#medidas').prop('required', true);
+		} else if(tipo === 4) {
+			$('#marca' + tipo).prop('required', true);
+			$('#modelo' + tipo).prop('required', true);
+			$('#producto' + tipo).prop('required', true);
+		}
+
+	}
+
+	$(document).ready(function() {
+
+		$('#selector').change(function() {
+			switch($(this).val()) {
+				case 'ortopedia':
+					$('.formu').hide();
+					$('#orto').show();
+					seleccionar(1);
+					break;
+				case 'micas':
+					$('.formu').hide();
+					$('#mica').show();
+					seleccionar(2);
+					break;
+				case 'armazones':
+					$('.formu').hide();
+					$('#arma').show();
+					seleccionar(3);
+					break;
+				case 'generales':
+					$('.formu').hide();
+					$('#gene').show();
+					seleccionar(4);
+					break;
+				default:
+					$('.formu').hide();
+					seleccionar(0);
+					break;
+			}
+		});
+
+	});
+</script>
+
 @endsection

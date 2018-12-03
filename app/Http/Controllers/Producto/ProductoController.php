@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Producto;
 
 use App\Producto;
-use App\ProductoArmazon;
-use App\ProductoGeneral;
-use App\ProductoMica;
-use App\ProductoOrto;
+use App\Historial;
+use App\Provedor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,7 +17,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        return view('producto.index');
+        $productos = Producto::get();
+        return view('productos.index', ['productos' => $productos]);
     }
 
     /**
@@ -29,12 +28,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-
-    $armazones = ProductoArmazon::get();
-    $generales = ProductoGeneral::get();
-    $micas = ProductoMica::get();
-    $ortos = ProductoOrto::get();
-     return view("producto.create", ['armazones'=>$armazones, 'generales'=>$generales, 'micas'=>$micas, 'ortos'=>$ortos]);
+        $proveedores = Provedor::get();
+        return view('productos.create', ['proveedores' => $proveedores]);
     }
 
     /**
@@ -45,7 +40,32 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        switch($request->seccion) {
+            case 'ortopedia':
+                $sku = 'ORTO' . $request->marca . $request->modelo . $request->color;
+                $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->talla . ' ' . $request->color;
+                break;
+            case 'micas':
+                $sku = 'MICA' . $request->materiales . $request->color . $request->tratamiento;
+                $desc = $request->materiales . ' ' . $request->rangos . ' ' . $request->color . ' ' . $request->tratamiento . ' ' . $request->unidad;
+                break;
+            case 'armazones':
+                $sku = 'ARMAZON' . $request->marca . $request->modelo . $request->medidas;
+                $desc = $request->marca . ' ' . $request->modelo . ' ' . $request->medidas . ' ' . $request->color;
+                break;
+            case 'generales':
+                $sku = 'OPTICA' . $request->producto . $request->marca . $request->modelo . $request->color;
+                $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->color;
+                break;
+            default:
+                break;
+        }
+        $request['sku_interno'] = $sku;
+        $request['descripcion'] = $desc;
+        $producto = Producto::create($request->all());
+        $historial = new Historial(['tipo' => 'Alta de Producto', 'descripcion' => 'Producto ' . $producto->sku_interno . ' registrado.']);
+        $producto->historiales()->save($historial);
+        return redirect()->route('productos.show', ['producto' => $producto]);
     }
 
     /**
@@ -56,7 +76,7 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        return view("producto.show");
+        return view('productos.view', ['producto' => $producto]);
     }
 
     /**
@@ -67,7 +87,8 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        $proveedores = Provedor::get();
+        return view('productos.edit', ['producto' => $producto, 'proveedores' => $proveedores]);
     }
 
     /**
@@ -79,7 +100,32 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+        switch($producto->seccion) {
+            case 'ortopedia':
+                $sku = 'ORTO' . $request->marca . $request->modelo . $request->color;
+                $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->talla . ' ' . $request->color;
+                break;
+            case 'micas':
+                $sku = 'MICA' . $request->materiales . $request->color . $request->tratamiento;
+                $desc = $request->materiales . ' ' . $request->rangos . ' ' . $request->color . ' ' . $request->tratamiento . ' ' . $request->unidad;
+                break;
+            case 'armazones':
+                $sku = 'ARMAZON' . $request->marca . $request->modelo . $request->medidas;
+                $desc = $request->marca . ' ' . $request->modelo . ' ' . $request->medidas . ' ' . $request->color;
+                break;
+            case 'generales':
+                $sku = 'OPTICA' . $request->producto . $request->marca . $request->modelo . $request->color;
+                $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->color;
+                break;
+            default:
+                break;
+        }
+        $request['sku_interno'] = $sku;
+        $request['descripcion'] = $desc;
+        $producto->update($request->all());
+        $historial = new Historial(['tipo' => 'Modificación de Producto', 'descripcion' => 'Producto ' . $producto->sku_interno . ' modificado.']);
+        $producto->historiales()->save($historial);
+        return redirect()->route('productos.show', ['producto' => $producto]);
     }
 
     /**

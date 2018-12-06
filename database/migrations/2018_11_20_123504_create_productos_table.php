@@ -33,9 +33,9 @@ class CreateProductosTable extends Migration
             $table->string('tratamiento')->nullable(); // micas
             $table->decimal('medidas')->nullable(); // armazon
             $table->string('unidad')->nullable(); // ambiguo
-            $table->string('foto1'); // gral.
-            $table->string('foto2'); // gral.
-            $table->string('foto3'); // gral.
+            $table->string('foto1')->nullable(); // gral.
+            $table->string('foto2')->nullable(); // gral.
+            $table->string('foto3')->nullable(); // gral.
             $table->timestamps(); // fechas
         });
     }

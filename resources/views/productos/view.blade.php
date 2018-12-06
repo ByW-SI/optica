@@ -95,6 +95,23 @@
 						<dd>{{ $producto->unidad }}</dd>
 					</div>
 				</div>
+				<div class="row">
+					@if($producto->foto1)
+						<div class="form-group col-sm-4">
+							<img src="{{ '/storage/' . $producto->foto1 }}" style="width: 100%;">
+						</div>
+					@endif
+					@if($producto->foto2)
+						<div class="form-group col-sm-4">
+							<img src="{{ '/storage/' . $producto->foto2 }}" style="width: 100%;">
+						</div>
+					@endif
+					@if($producto->foto3)
+						<div class="form-group col-sm-4">
+							<img src="{{ '/storage/' . $producto->foto3 }}" style="width: 100%;">
+						</div>
+					@endif
+				</div>
 			</div>
 			<div class="panel-heading">
 				<div class="row">

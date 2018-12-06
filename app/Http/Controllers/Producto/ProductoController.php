@@ -6,6 +6,7 @@ use App\Producto;
 use App\Historial;
 use App\Provedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
 class ProductoController extends Controller
@@ -60,9 +61,17 @@ class ProductoController extends Controller
             default:
                 break;
         }
+        $sku = str_replace(' ', '', $sku);
+        $aux1 = $request->foto1 ? (Storage::putFileAs('productos/' . $request->seccion . '/' . $sku, $request->file('foto1'), 'foto1.jpg')) : null;
+        $aux2 = $request->foto2 ? (Storage::putFileAs('productos/' . $request->seccion . '/' . $sku, $request->file('foto2'), 'foto2.jpg')) : null;
+        $aux3 = $request->foto3 ? (Storage::putFileAs('productos/' . $request->seccion . '/' . $sku, $request->file('foto3'), 'foto3.jpg')) : null;
         $request['sku_interno'] = $sku;
         $request['descripcion'] = $desc;
         $producto = Producto::create($request->all());
+        $producto->foto1 = $aux1;
+        $producto->foto2 = $aux2;
+        $producto->foto3 = $aux3;
+        $producto->save();
         $historial = new Historial(['tipo' => 'Alta de Producto', 'descripcion' => 'Producto ' . $producto->sku_interno . ' registrado.']);
         $producto->historiales()->save($historial);
         return redirect()->route('productos.show', ['producto' => $producto]);

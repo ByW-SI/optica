@@ -30,50 +30,68 @@
 				</div>
 			</div>
 		</div>
-		<form id="orto" class="formu" style="display: none;" role="form" method="POST" action="{{ route('productos.store') }}">
+		<form id="orto" class="formu" style="display: none;" role="form" method="POST" action="{{ route('productos.store') }}" enctype="multipart/form-data">
 			{{ csrf_field() }}
 			<input type="hidden" name="seccion" value="ortopedia">
 			<div class="panel-body">
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="sku">✱SKU:</label>
-  					<input type="text" class="form-control" id="sku1" name="sku">
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱SKU:</label>
+	  					<input type="text" class="form-control" id="sku1" name="sku">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Negocio:</label>
+	  					<input type="text" class="form-control" id="negocio1" name="negocio">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Proveedor:</label>
+						<select class="form-control" id="proveedor1" name="provedor_id">
+							<option value="">Seleccionar</option>
+							@foreach($proveedores as $proveedor)
+								<option value="{{ $proveedor->id }}">{{ $proveedor->razonsocial }}{{ $proveedor->nombre . ' ' . $proveedor->apellidopaterno }}</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Producto:</label>
+	  					<input type="text" class="form-control" id="producto1" name="producto">
+					</div>
 				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="negocio">✱Negocio:</label>
-  					<input type="text" class="form-control" id="negocio1" name="negocio">
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Marca:</label>
+						<input type="text" class="form-control" id="marca1" name="marca">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Modelo:</label>
+						<input type="text" class="form-control" id="modelo1" name="modelo">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Talla:</label>
+						<input type="text" class="form-control" id="talla" name="talla">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Color:</label>
+						<input type="text" class="form-control" id="color1" name="color">
+					</div>
 				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label">✱Proveedor:</label>
-					<select class="form-control" id="proveedor1" name="provedor_id">
-						<option value="">Seleccionar</option>
-						@foreach($proveedores as $proveedor)
-							<option value="{{ $proveedor->id }}">{{ $proveedor->razonsocial }}{{ $proveedor->nombre . ' ' . $proveedor->apellidopaterno }}</option>
-						@endforeach
-					</select>
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="producto">✱Producto:</label>
-  					<input type="text" class="form-control" id="producto1" name="producto">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="marca">✱Marca:</label>
-  					<input type="text" class="form-control" id="marca1" name="marca">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="modelo">✱Modelo:</label>
-  					<input type="text" class="form-control" id="modelo1" name="modelo">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="talla">✱Talla:</label>
-  					<input type="text" class="form-control" id="talla" name="talla">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="color">✱Color:</label>
-  					<input type="text" class="form-control" id="color1" name="color">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="unidad">✱Unidad:</label>
-  					<input type="text" class="form-control" id="unidad1" name="unidad">
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Unidad:</label>
+	  					<input type="text" class="form-control" id="unidad1" name="unidad">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">Foto 1:</label>
+	  					<input type="file" class="form-control" id="foto11" name="foto1" style="font-size: 9px;">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">Foto 2:</label>
+	  					<input type="file" class="form-control" id="foto21" name="foto2" style="font-size: 9px;">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">Foto 3:</label>
+	  					<input type="file" class="form-control" id="foto31" name="foto3" style="font-size: 9px;">
+					</div>
 				</div>
 			</div>
 			<div class="panel-footer">
@@ -89,51 +107,68 @@
 				</div>
 			</div>
 		</form>
-
-		<form id="mica" class="formu" style="display: none;" role="form" method="POST" action="{{ route('productos.store') }}">
+		<form id="mica" class="formu" style="display: none;" role="form" method="POST" action="{{ route('productos.store') }}" enctype="multipart/form-data">
 			{{ csrf_field() }}
 			<input type="hidden" name="seccion" value="micas">
 			<div class="panel-body">
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="sku">✱SKU:</label>
-  					<input type="text" class="form-control" id="sku2" name="sku">
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱SKU:</label>
+	  					<input type="text" class="form-control" id="sku2" name="sku">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Negocio:</label>
+	  					<input type="text" class="form-control" id="negocio2" name="negocio">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Proveedor:</label>
+						<select class="form-control" id="proveedor2" name="provedor_id">
+							<option value="">Seleccionar</option>
+							@foreach($proveedores as $proveedor)
+								<option value="{{ $proveedor->id }}">{{ $proveedor->razonsocial }}{{ $proveedor->nombre . ' ' . $proveedor->apellidopaterno }}</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Familia:</label>
+	  					<input type="text" class="form-control" id="familia" name="familia">
+					</div>
 				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="negocio">✱Negocio:</label>
-  					<input type="text" class="form-control" id="negocio2" name="negocio">
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Materiales:</label>
+	  					<input type="text" class="form-control" id="materiales" name="materiales">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Rangos:</label>
+	  					<input type="text" class="form-control" id="rangos" name="rangos">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Color:</label>
+	  					<input type="text" class="form-control" id="color2" name="color">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Tratamiento:</label>
+	  					<input type="text" class="form-control" id="tratamiento" name="tratamiento">
+					</div>
 				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label">✱Proveedor:</label>
-					<select class="form-control" id="proveedor2" name="provedor_id">
-						<option value="">Seleccionar</option>
-						@foreach($proveedores as $proveedor)
-							<option value="{{ $proveedor->id }}">{{ $proveedor->razonsocial }}{{ $proveedor->nombre . ' ' . $proveedor->apellidopaterno }}</option>
-						@endforeach
-					</select>
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="familia">✱Familia:</label>
-  					<input type="text" class="form-control" id="familia" name="familia">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="materiales">✱Materiales:</label>
-  					<input type="text" class="form-control" id="materiales" name="materiales">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="rangos">✱Rangos:</label>
-  					<input type="text" class="form-control" id="rangos" name="rangos">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="color">✱Color:</label>
-  					<input type="text" class="form-control" id="color2" name="color">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="tratamientos">✱Tratamiento:</label>
-  					<input type="text" class="form-control" id="tratamiento" name="tratamiento">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="unidad">✱Unidad:</label>
-  					<input type="text" class="form-control" id="unidad2" name="unidad">
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Unidad:</label>
+	  					<input type="text" class="form-control" id="unidad2" name="unidad">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">Foto 1:</label>
+	  					<input type="file" class="form-control" id="foto12" name="foto1" style="font-size: 9px;">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">Foto 2:</label>
+	  					<input type="file" class="form-control" id="foto22" name="foto2" style="font-size: 9px;">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">Foto 3:</label>
+	  					<input type="file" class="form-control" id="foto32" name="foto3" style="font-size: 9px;">
+					</div>
 				</div>
 			</div>
 			<div class="panel-footer">
@@ -149,47 +184,64 @@
 				</div>
 			</div>
 		</form>
-
-		<form id="arma" class="formu" style="display: none;" role="form" method="POST" action="{{ route('productos.store') }}">
+		<form id="arma" class="formu" style="display: none;" role="form" method="POST" action="{{ route('productos.store') }}" enctype="multipart/form-data">
 			{{ csrf_field() }}
 			<input type="hidden" name="seccion" value="armazones">
 			<div class="panel-body">
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="sku">✱SKU:</label>
-  					<input type="text" class="form-control" id="sku3" name="sku">
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱SKU:</label>
+	  					<input type="text" class="form-control" id="sku3" name="sku">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Negocio:</label>
+	  					<input type="text" class="form-control" id="negocio3" name="negocio">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Proveedor:</label>
+						<select class="form-control" id="proveedor3" name="provedor_id">
+							<option value="">Seleccionar</option>
+							@foreach($proveedores as $proveedor)
+								<option value="{{ $proveedor->id }}">{{ $proveedor->razonsocial }}{{ $proveedor->nombre . ' ' . $proveedor->apellidopaterno }}</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Marca:</label>
+	  					<input type="text" class="form-control" id="marca3" name="marca">
+					</div>
 				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="negocio">✱Negocio:</label>
-  					<input type="text" class="form-control" id="negocio3" name="negocio">
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Modelo:</label>
+	  					<input type="text" class="form-control" id="modelo3" name="modelo">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Color:</label>
+	  					<input type="text" class="form-control" id="color3" name="color">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Medidas:</label>
+	  					<input type="text" class="form-control" id="medidas" name="medidas">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Unidad:</label>
+	  					<input type="text" class="form-control" id="unidad3" name="unidad">
+					</div>
 				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label">✱Proveedor:</label>
-					<select class="form-control" id="proveedor3" name="provedor_id">
-						<option value="">Seleccionar</option>
-						@foreach($proveedores as $proveedor)
-							<option value="{{ $proveedor->id }}">{{ $proveedor->razonsocial }}{{ $proveedor->nombre . ' ' . $proveedor->apellidopaterno }}</option>
-						@endforeach
-					</select>
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="marca">✱Marca:</label>
-  					<input type="text" class="form-control" id="marca3" name="marca">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="modelo">✱Modelo:</label>
-  					<input type="text" class="form-control" id="modelo3" name="modelo">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="color">✱Color:</label>
-  					<input type="text" class="form-control" id="color3" name="color">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="medidas">✱Medidas:</label>
-  					<input type="text" class="form-control" id="medidas" name="medidas">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="unidad">✱Unidad:</label>
-  					<input type="text" class="form-control" id="unidad3" name="unidad">
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">Foto 1:</label>
+	  					<input type="file" class="form-control" id="foto13" name="foto1" style="font-size: 9px;">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">Foto 2:</label>
+	  					<input type="file" class="form-control" id="foto23" name="foto2" style="font-size: 9px;">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">Foto 3:</label>
+	  					<input type="file" class="form-control" id="foto33" name="foto3" style="font-size: 9px;">
+					</div>
 				</div>
 			</div>
 			<div class="panel-footer">
@@ -205,47 +257,64 @@
 				</div>
 			</div>
 		</form>
-
-		<form id="gene" class="formu" style="display: none;" role="form" method="POST" action="{{ route('productos.store') }}">
+		<form id="gene" class="formu" style="display: none;" role="form" method="POST" action="{{ route('productos.store') }}" enctype="multipart/form-data">
 			{{ csrf_field() }}
 			<input type="hidden" name="seccion" value="generales">
 			<div class="panel-body">
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="sku">✱SKU:</label>
-  					<input type="text" class="form-control" id="sku4" name="sku">
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱SKU:</label>
+	  					<input type="text" class="form-control" id="sku4" name="sku">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Negocio:</label>
+	  					<input type="text" class="form-control" id="negocio4" name="negocio">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Proveedor:</label>
+						<select class="form-control" id="proveedor4" name="provedor_id">
+							<option value="">Seleccionar</option>
+							@foreach($proveedores as $proveedor)
+								<option value="{{ $proveedor->id }}">{{ $proveedor->razonsocial }}{{ $proveedor->nombre . ' ' . $proveedor->apellidopaterno }}</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Producto:</label>
+	  					<input type="text" class="form-control" id="producto4" name="producto">
+					</div>
 				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="negocio">✱Negocio:</label>
-  					<input type="text" class="form-control" id="negocio4" name="negocio">
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Marca:</label>
+	  					<input type="text" class="form-control" id="marca4" name="marca">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Modelo:</label>
+	  					<input type="text" class="form-control" id="modelo4" name="modelo">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Color:</label>
+	  					<input type="text" class="form-control" id="color4" name="color">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Unidad:</label>
+	  					<input type="text" class="form-control" id="unidad4" name="unidad">
+					</div>
 				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label">✱Proveedor:</label>
-					<select class="form-control" id="proveedor4" name="provedor_id">
-						<option value="">Seleccionar</option>
-						@foreach($proveedores as $proveedor)
-							<option value="{{ $proveedor->id }}">{{ $proveedor->razonsocial }}{{ $proveedor->nombre . ' ' . $proveedor->apellidopaterno }}</option>
-						@endforeach
-					</select>
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="producto">✱Producto:</label>
-  					<input type="text" class="form-control" id="producto4" name="producto">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="marca">✱Marca:</label>
-  					<input type="text" class="form-control" id="marca4" name="marca">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="modelo">✱Modelo:</label>
-  					<input type="text" class="form-control" id="modelo4" name="modelo">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="color">✱Color:</label>
-  					<input type="text" class="form-control" id="color4" name="color">
-				</div>
-				<div class="form-group col-sm-3">
-					<label class="control-label" for="unidad">✱Unidad:</label>
-  					<input type="text" class="form-control" id="unidad4" name="unidad">
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">Foto 1:</label>
+	  					<input type="file" class="form-control" id="foto14" name="foto1" style="font-size: 9px;">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">Foto 2:</label>
+	  					<input type="file" class="form-control" id="foto24" name="foto2" style="font-size: 9px;">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">Foto 3:</label>
+	  					<input type="file" class="form-control" id="foto34" name="foto3" style="font-size: 9px;">
+					</div>
 				</div>
 			</div>
 			<div class="panel-footer">
@@ -267,6 +336,7 @@
 <script>
 
 	function seleccionar(tipo) {
+
 		for(i = 1; i <= 4; i++) {
 			$('#sku' + i).prop('required', false);
 			$('#negocio' + i).prop('required', false);
@@ -305,6 +375,10 @@
 			$('#tratamiento').val('');
 			$('#medidas').val('');
 			$('#unidad' + i).val('');
+
+			$('#foto1' + i).val('');
+			$('#foto2' + i).val('');
+			$('#foto3' + i).val('');
 		}
 
 		$('#sku' + tipo).prop('required', true);

@@ -91,7 +91,7 @@
 			var seg=appaterno.substring(0,1);
 			var apmaterno=$("#apmaterno").val();
 			var ter=apmaterno.substring(0,1);
-			var año1=$("#fechanacimiento").val();
+			var año1=$("#fecha").val();
 			var id=prim+seg+ter+año1;
 			var bid=id.toUpperCase(id);
 			$("#identificador").val(bid);
@@ -104,7 +104,7 @@
 			var seg=appaterno.substring(0,1);
 			var apmaterno=$("#apmaterno").val();
 			var ter=apmaterno.substring(0,1);
-			var año1=$("#fechanacimiento").val();
+			var año1=$("#fecha").val();
 			var id=prim+seg+ter+año1;
 			var bid=id.toUpperCase(id);
 			$("#identificador").val(bid);
@@ -117,14 +117,14 @@
 			var seg=appaterno.substring(0,1);
 			var apmaterno=$("#apmaterno").val();
 			var ter=apmaterno.substring(0,1);
-			var año1=$("#fechanacimiento").val();
+			var año1=$("#fecha").val();
 			var id=prim+seg+ter+año1;
 			var bid=id.toUpperCase(id);
 			$("#identificador").val(bid);
 		});
 
-		$("#fechanacimiento").change(function() {
-			var fecha_nac=new Date($("#fechanacimiento").val());
+		$("#fecha").change(function() {
+			var fecha_nac=new Date($("#fecha").val());
 			var hoy= new Date();
 		    var edad=Math.floor((hoy-fecha_nac) / (365.25 * 24 * 60 * 60 * 1000));
 		    $("#edad").val(edad);
@@ -134,7 +134,7 @@
 		    var seg=appaterno.substring(0,1);
 		    var apmaterno=$("#apmaterno").val();
 		    var ter=apmaterno.substring(0,1);
-		    var id=prim+seg+ter+$("#fechanacimiento").val();
+		    var id=prim+seg+ter+$("#fecha").val();
 		    var bid=id.toUpperCase(id);
 		    $("#identificador").val(bid);
 		});

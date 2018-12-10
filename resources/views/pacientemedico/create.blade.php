@@ -81,33 +81,39 @@
 			<form role="form" method="POST" action="{{ route('pacientes.historialmedico.store',['paciente'=>$paciente]) }}">
 		@endif
 				{{ csrf_field() }}
-					<div class="form-group col-sm-6">
-							<label class="control-label">¿Alérgico/a?</label>
-							<div class="row">
-								<input id="chkalerg" type="checkbox" class="option-input" onchange="alergias();" name="alergia">
-							</div>
+				<div class="row">
+					<div class="col-sm-4 text-center">
+						<label class="control-label">¿Alérgico/a?</label>
+						<div class="row">
+							<input id="chkalerg" type="checkbox" class="option-input checkbox" onchange="alergias();" name="alergia" style="border: solid 1px #c0c0c0; border-radius: 4px; top: 0px;">
+						</div>
 					</div>
-
-								<div class="form-group col-sm-3" style="display: none;" id="alergias1" name="alergias1">
-							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>¿Cuál?:</label>
-							<input class="form-control" type="text" name="cual_alergia" id="cual_alergia">
-								</div>
-								<div class="form-group col-sm-3"  id="alergias2" style="display: none;">
-							<label class="control-label">¿Tiene algún Tratamiento?</label>
-							<input class="form-control" type="text" name="tratamiento_alergia" id="tratamiento_alergia">
-								</div>
-									</div>
-
-									<div class="panel-heading"><h4>Enfermedades</h4></div>
-									<div class="panel-body">
-
-						<div class="form-group col-xs-6">
-							<div class="boton checkbox-disabled">
-															<label><input id="cronica" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="enfermedad">¿Padece alguna Enfermedad Crónica? .</label>
-													</div>
-											</div></div>
-
-											<div class="jumbotron"  id="enfermedades" style="display: none"> 
+					<div class="col-sm-4" style="display: none;" id="alergias1" name="alergias1">
+						<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i>¿Cuál?:</label>
+						<input class="form-control" type="text" name="cual_alergia" id="cual_alergia">
+					</div>
+					<div class="col-sm-4"  id="alergias2" style="display: none;">
+						<label class="control-label">¿Tiene tratamiento?</label>
+						<input class="form-control" type="text" name="tratamiento_alergia" id="tratamiento_alergia">
+					</div>
+				</div>
+			</div>
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-sm-4">
+						<h5>Enfermedades:</h5>
+					</div>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-4 text-center">
+						<label class="control-label">¿Padece alguna enfermedad crónica?</label>
+						<div class="row">
+							<input id="cronica" type="checkbox" class="option-input checkbox" name="enfermedad" style="border: solid 1px #c0c0c0; border-radius: 4px; top: 0px;">
+						</div>
+					</div>
+					<div class="col-sm-8" id="enfermedades" style="display: none"> 
 
 															<div class="row">
 																<div class="col-sm-3">

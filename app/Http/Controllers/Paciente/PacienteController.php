@@ -15,7 +15,7 @@ class PacienteController extends Controller
 
     public function __construct() {
         $this->middleware(function ($request, $next) {
-            if(Auth::check()) {
+            if(Auth::check()) {7
                 foreach (Auth::user()->perfil->componentes as $componente)
                     if($componente->modulo->nombre == "pacientes")
                         return $next($request);

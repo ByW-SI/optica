@@ -95,22 +95,12 @@
 						<dd>{{ $producto->unidad }}</dd>
 					</div>
 				</div>
-				<div class="row">
-					@if($producto->foto1)
-						<div class="form-group col-sm-4">
-							<img src="{{ '/storage/' . $producto->foto1 }}" style="width: 100%;">
-						</div>
-					@endif
-					@if($producto->foto2)
-						<div class="form-group col-sm-4">
-							<img src="{{ '/storage/' . $producto->foto2 }}" style="width: 100%;">
-						</div>
-					@endif
-					@if($producto->foto3)
-						<div class="form-group col-sm-4">
-							<img src="{{ '/storage/' . $producto->foto3 }}" style="width: 100%;">
-						</div>
-					@endif
+				<div class="col-sm-12 text-center">
+					<div class="d-flex justify-content-between">
+						<img src="{{ $producto->foto1 ? '/storage/' . $producto->foto1 : 'https://www.mayline.com/products/images/product/noimage.jpg'}}" width="200px" height="auto">
+						<img src="{{ $producto->foto2 ? '/storage/' . $producto->foto2 : 'https://www.mayline.com/products/images/product/noimage.jpg' }}" width="200px" height="auto">
+						<img src="{{ $producto->foto3 ? '/storage/' . $producto->foto3 : 'https://www.mayline.com/products/images/product/noimage.jpg'}}" width="200px" height="auto">
+					</div>
 				</div>
 			</div>
 			<div class="panel-heading">

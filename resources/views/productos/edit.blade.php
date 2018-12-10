@@ -22,7 +22,7 @@
 				</div>
 			</div>
 		</div>
-		<form role="form" method="POST" action="{{ route('productos.update', ['producto' => $producto]) }}">
+		<form role="form" method="POST" action="{{ route('productos.update', ['producto' => $producto]) }}" enctype="multipart/form-data">
 			{{ csrf_field() }}
 			<input type="hidden" name="_method" value="PUT">
 			<div class="panel-body">
@@ -93,16 +93,31 @@
 					<label class="control-label">✱Unidad:</label>
   					<input type="text" class="form-control" name="unidad" required="" value="{{ $producto->unidad }}">
 				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label">✱✱Foto 1:</label>
+  					<input type="file" class="form-control" id="foto11" name="foto1" style="font-size: 9px;">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label">✱✱Foto 2:</label>
+  					<input type="file" class="form-control" id="foto21" name="foto2" style="font-size: 9px;">
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="control-label">✱✱Foto 3:</label>
+  					<input type="file" class="form-control" id="foto31" name="foto3" style="font-size: 9px;">
+				</div>
 			</div>
 			<div class="panel-footer">
 				<div class="row">
-					<div class="col-sm-4 col-sm-offset-4 text-center">
+					<div class="col-sm-4 text-left text-danger">
+						<h5>✱Campos Requeridos</h5>
+					</div>
+					<div class="col-sm-4 text-center">
 		  				<button type="submit" class="btn btn-success">
 			  				<i class="fa fa-check-circle"></i> Guardar
 			  			</button>
 					</div>
 					<div class="col-sm-4 text-right text-danger">
-						<h5>✱Campos Requeridos</h5>
+						<h5>✱✱No cambiar si no se quiere modificar</h5>
 					</div>
 				</div>
 			</div>

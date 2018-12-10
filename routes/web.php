@@ -104,6 +104,7 @@ Route::get('buscarpuesto', 'Puesto\PuestoController@buscar');
 Route::get('buscarbanco', 'Banco\BancoController@buscar');
 Route::get('buscargiro', 'Giro\GiroController@buscar');
 Route::get('buscarformacontacto', 'FormaContacto\FormaContactoController@buscar');
+Route::get('buscarProducto', 'Producto\ProductoController@buscar');
 
 // AJAX
 Route::get('getareas', 'Area\AreaController@getAreas');

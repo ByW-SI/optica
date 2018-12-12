@@ -43,11 +43,11 @@ class ProductoController extends Controller
     {
         switch($request->seccion) {
             case 'ortopedia':
-                $sku = 'ORTO' . $request->marca . $request->modelo . $request->color;
+                $sku = 'ORTO' . $request->marca . $request->producto . $request->color;
                 $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->talla . ' ' . $request->color;
                 break;
             case 'micas':
-                $sku = 'MICA' . $request->materiales . $request->color . $request->tratamiento;
+                $sku = 'MICA' . $request->materiales . $request->tratamiento . $request->color;
                 $desc = $request->materiales . ' ' . $request->rangos . ' ' . $request->color . ' ' . $request->tratamiento . ' ' . $request->unidad;
                 break;
             case 'armazones':
@@ -55,19 +55,19 @@ class ProductoController extends Controller
                 $desc = $request->marca . ' ' . $request->modelo . ' ' . $request->medidas . ' ' . $request->color;
                 break;
             case 'generales':
-                $sku = 'OPTICA' . $request->producto . $request->marca . $request->modelo . $request->color;
+                $sku = 'OPTICA' . $request->marca . $request->producto . $request->color;
                 $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->color;
                 break;
             default:
                 break;
         }
         $sku = str_replace(' ', '', $sku);
-        $aux1 = $request->foto1 ? (Storage::putFileAs('productos/' . $request->seccion . '/' . $sku, $request->file('foto1'), 'foto1.jpg')) : null;
-        $aux2 = $request->foto2 ? (Storage::putFileAs('productos/' . $request->seccion . '/' . $sku, $request->file('foto2'), 'foto2.jpg')) : null;
-        $aux3 = $request->foto3 ? (Storage::putFileAs('productos/' . $request->seccion . '/' . $sku, $request->file('foto3'), 'foto3.jpg')) : null;
         $request['sku_interno'] = $sku;
         $request['descripcion'] = $desc;
         $producto = Producto::create($request->all());
+        $aux1 = $request->foto1 ? (Storage::putFileAs('productos/' . $request->seccion . '/' . $producto->id, $request->file('foto1'), 'foto1.jpg')) : null;
+        $aux2 = $request->foto2 ? (Storage::putFileAs('productos/' . $request->seccion . '/' . $producto->id, $request->file('foto2'), 'foto2.jpg')) : null;
+        $aux3 = $request->foto3 ? (Storage::putFileAs('productos/' . $request->seccion . '/' . $producto->id, $request->file('foto3'), 'foto3.jpg')) : null;
         $producto->foto1 = $aux1;
         $producto->foto2 = $aux2;
         $producto->foto3 = $aux3;
@@ -111,11 +111,11 @@ class ProductoController extends Controller
     {
         switch($producto->seccion) {
             case 'ortopedia':
-                $sku = 'ORTO' . $request->marca . $request->modelo . $request->color;
+                $sku = 'ORTO' . $request->marca . $request->producto . $request->color;
                 $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->talla . ' ' . $request->color;
                 break;
             case 'micas':
-                $sku = 'MICA' . $request->materiales . $request->color . $request->tratamiento;
+                $sku = 'MICA' . $request->materiales . $request->tratamiento . $request->color;
                 $desc = $request->materiales . ' ' . $request->rangos . ' ' . $request->color . ' ' . $request->tratamiento . ' ' . $request->unidad;
                 break;
             case 'armazones':
@@ -123,16 +123,16 @@ class ProductoController extends Controller
                 $desc = $request->marca . ' ' . $request->modelo . ' ' . $request->medidas . ' ' . $request->color;
                 break;
             case 'generales':
-                $sku = 'OPTICA' . $request->producto . $request->marca . $request->modelo . $request->color;
+                $sku = 'OPTICA' . $request->marca . $request->producto . $request->color;
                 $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->color;
                 break;
             default:
                 break;
         }
         $sku = str_replace(' ', '', $sku);
-        $aux1 = $request->foto1 ? (Storage::putFileAs('productos/' . $request->seccion . '/' . $sku, $request->file('foto1'), 'foto1.jpg')) : null;
-        $aux2 = $request->foto2 ? (Storage::putFileAs('productos/' . $request->seccion . '/' . $sku, $request->file('foto2'), 'foto2.jpg')) : null;
-        $aux3 = $request->foto3 ? (Storage::putFileAs('productos/' . $request->seccion . '/' . $sku, $request->file('foto3'), 'foto3.jpg')) : null;
+        $aux1 = $request->foto1 ? (Storage::putFileAs('productos/' . $producto->seccion . '/' . $producto->id, $request->file('foto1'), 'foto1.jpg')) : null;
+        $aux2 = $request->foto2 ? (Storage::putFileAs('productos/' . $producto->seccion . '/' . $producto->id, $request->file('foto2'), 'foto2.jpg')) : null;
+        $aux3 = $request->foto3 ? (Storage::putFileAs('productos/' . $producto->seccion . '/' . $producto->id, $request->file('foto3'), 'foto3.jpg')) : null;
         $request['sku_interno'] = $sku;
         $request['descripcion'] = $desc;
         $producto->update($request->all());

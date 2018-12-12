@@ -97,9 +97,9 @@
 				</div>
 				<div class="col-sm-12 text-center">
 					<div class="d-flex justify-content-between">
-						<img src="{{ $producto->foto1 ? '../storage/' . $producto->foto1 : 'https://www.mayline.com/products/images/product/noimage.jpg'}}" width="200px" height="auto">
-						<img src="{{ $producto->foto2 ? '../storage/' . $producto->foto2 : 'https://www.mayline.com/products/images/product/noimage.jpg' }}" width="200px" height="auto">
-						<img src="{{ $producto->foto3 ? '../storage/' . $producto->foto3 : 'https://www.mayline.com/products/images/product/noimage.jpg'}}" width="200px" height="auto">
+						<img src="{{ $producto->foto1 ? '../storage/' . $producto->foto1 : 'https://www.mayline.com/products/images/product/noimage.jpg'}}" width="300px" height="auto">
+						<img src="{{ $producto->foto2 ? '../storage/' . $producto->foto2 : 'https://www.mayline.com/products/images/product/noimage.jpg' }}" width="300px" height="auto">
+						<img src="{{ $producto->foto3 ? '../storage/' . $producto->foto3 : 'https://www.mayline.com/products/images/product/noimage.jpg'}}" width="300px" height="auto">
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,8 @@
 @extends('layouts.blank')
 @section('content')
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
+
 <div class="container">
 	<div class="panel panel-group">
 		<div class="panel-default">
@@ -27,7 +29,7 @@
 							<option value="ortopedia">Ortopedia</option>
 							<option value="micas">Micas</option>
 							<option value="armazones">Armazones</option>
-							<option value="general">General</option>
+							<option value="generales">General</option>
 						</select>
 					</div>
 					<div class="col-sm-1 form-group">
@@ -41,14 +43,14 @@
 								<table class="table table-striped table-bordered table-hover" style="margin-bottom: 0px;">
 									<tr class="info">
 										<th>SKU Interno</th>
-										<th>Sección</th>
-										<th>Descripción</th>
-										<th>Foto</th>
-										<th>Acciones</th>
+										<th class="col-sm-1">Sección</th>
+										<th class="col-sm-3">Descripción</th>
+										<th class="col-sm-2">Foto</th>
+										<th class="col-sm-2">Acciones</th>
 									</tr>
 									@foreach ($productos as $producto)
 										<tr>
-											<td>{{ $producto->sku_interno }}</td>
+											<td class="text-center" style="vertical-align: middle;"><svg id="producto{{ $producto->id }}"></svg></td>
 											<td>{{ strtoupper($producto->seccion) }}</td>
 											<td>{{ $producto->descripcion }}</td>
 											<td class="text-center"><img src="{{ $producto->foto1 ? 'storage/' . $producto->foto1 : 'https://www.mayline.com/products/images/product/noimage.jpg' }}" width="150" height="auto"></td>
@@ -80,6 +82,20 @@
 
 <script type="text/javascript">
 
+	$( document ).ready(function() {
+		@foreach($productos as $producto)
+			JsBarcode(
+				"#producto{{ $producto->id }}",
+				"{{ $producto->sku_interno }}",
+				{
+					width: 1,
+					height: 40,
+					fontSize: 12
+				}
+			);
+		@endforeach
+	});
+	
 	function buscar() {
 		var val = $('#buscador').val();
 		var sec = $('#seccion').val();

@@ -72,7 +72,7 @@ class ProductoController extends Controller
         $producto->foto2 = $aux2;
         $producto->foto3 = $aux3;
         $producto->save();
-        $historial = new Historial(['tipo' => 'Alta de Producto', 'descripcion' => 'Producto ' . $producto->sku_interno . ' registrado.']);
+        $historial = new Historial(['tipo' => 'Alta de Producto', 'descripcion' => 'Producto registrado.']);
         $producto->historiales()->save($historial);
         return redirect()->route('productos.show', ['producto' => $producto]);
     }
@@ -140,7 +140,7 @@ class ProductoController extends Controller
         $producto->foto2 = $aux2;
         $producto->foto3 = $aux3;
         $producto->save();
-        $historial = new Historial(['tipo' => 'Modificación de Producto', 'descripcion' => 'Producto ' . $producto->sku_interno . ' modificado.']);
+        $historial = new Historial(['tipo' => 'Modificación de Producto', 'descripcion' => 'Producto modificado.']);
         $producto->historiales()->save($historial);
         return redirect()->route('productos.show', ['producto' => $producto]);
     }

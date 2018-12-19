@@ -145,7 +145,12 @@
 				@endif
 				<div class="form-group col-sm-3">
 					<label class="control-label">✱Unidad:</label>
-  					<input type="text" class="form-control" name="unidad" required="" value="{{ $producto->unidad }}">
+					<select name="unidad" class="form-control" required="">
+						<option value="">Seleccionar</option>
+						<option value="m" {{ $producto->unidad == 'm' ? 'selected' : '' }}>Metros</option>
+						<option value="cm" {{ $producto->unidad == 'cm' ? 'selected' : '' }}>Centímetros</option>
+						<option value="mm" {{ $producto->unidad == 'mm' ? 'selected' : '' }}>Milímetros</option>
+					</select>
 				</div>
 				@isset($producto->renta)
 					<div class="form-group col-sm-3">

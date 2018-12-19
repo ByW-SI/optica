@@ -50,7 +50,7 @@
 										</tr>
 										@foreach ($productos as $producto)
 											<tr>
-												<td>{{ $producto->sku_interno }}"></td>
+												<td>{{ $producto->sku_interno }}</td>
 												<td>{{ strtoupper($producto->seccion) }}</td>
 												<td>{{ $producto->descripcion }}</td>
 												<td class="text-center">

@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 
-class SucursalController extends Controller{
+class SucursalController extends Controller {
+
     public function __construct() {
         $this->middleware(function ($request, $next) {
             if(Auth::check()) {
@@ -23,7 +24,7 @@ class SucursalController extends Controller{
                 return redirect()->route('login');
         });
     }
- // use Alert;
+
     /**
      * Display a listing of the resource.
      *
@@ -31,10 +32,8 @@ class SucursalController extends Controller{
      */
     public function index()
     {
-        //
-        $sucursales = Sucursal::get();
-       
-        return view('sucursales.index', ['sucursales'=>$sucursales]);
+        $sucursales = Sucursal::get(); 
+        return view('sucursales.index', ['sucursales' => $sucursales]);
     }
 
     /**
@@ -44,13 +43,8 @@ class SucursalController extends Controller{
      */
     public function create()
     {
-        //
-        $sucursal=new Sucursal;
-        $integer=Sucursal::get()->count();
-
-        return view('sucursales.create',['edit'    =>false,
-                                         'sucursal'=>$sucursal,
-                                         'integer' =>$integer]);
+        $integer = count(Sucursal::get()) > 0 ? count(Sucursal::get()) : 1;
+        return view('sucursales.create', ['integer' => $integer]);
     }
 
     /**
@@ -61,16 +55,8 @@ class SucursalController extends Controller{
      */
     public function store(Request $request)
     {
-        
-            
         $sucursal = Sucursal::create($request->all());
-
-Alert::success("Sucursal registrada con exito")->persistent("Cerrar");
-
-return view('sucursales.view',['sucursal'=>$sucursal]);
-//return redirect()->route('sucursales.view',['sucursal'=>$sucursal]);
-    //Alert::success("Sucursal registrada con exito")->persistent("Cerrar");    
-        
+        return redirect()->route('sucursales.show', ['sucursal' => $sucursal]);
     }
 
     /**
@@ -79,12 +65,10 @@ return view('sucursales.view',['sucursal'=>$sucursal]);
      * @param  \App\Sucursale  $sucursal
      * @return \Illuminate\Http\Response
      */
-    public function show( $sucursal)
+    public function show($sucursal)
     {
-        
-        $suc= Sucursal::find($sucursal);
-       
-        return view('sucursales.view',['sucursal'=>$suc]);
+        $sucursal = Sucursal::find($sucursal);
+        return view('sucursales.view', ['sucursal' => $sucursal]);
     }
 
     /**
@@ -95,11 +79,9 @@ return view('sucursales.view',['sucursal'=>$sucursal]);
      */
     public function edit( $sucursal)
     {
-        $suc= Sucursal::find($sucursal);
-        $integer=Sucursal::get()->count();
-        return view('sucursales.create',['edit'=>true,
-                                         'sucursal'=>$suc,
-                                         'integer' =>$integer]);
+        $sucursal = Sucursal::find($sucursal);
+        $integer = $sucursal->id;
+        return view('sucursales.edit', ['sucursal' => $sucursal, 'integer' => $integer]);
     }
 
     /**
@@ -109,44 +91,16 @@ return view('sucursales.view',['sucursal'=>$sucursal]);
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$sucursal)
+    public function update(Request $request, $sucursal)
     {
-        
-         $suc= Sucursal::find($sucursal);
-
-        $suc->update($request->all());
-        Alert::success('Sucursal actualizado')->persistent("Cerrar");
-        return redirect()->route('sucursales.show',['sucursal'=>$sucursal]);
+        $sucursal = Sucursal::find($sucursal);
+        $sucursal->update($request->all());
+        return redirect()->route('sucursales.show', ['sucursal' => $sucursal]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Personal  $personal
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($sucursal)
-    {
-        
-
-    }
-
-
-
-
-    public function buscar( $sucursal){
-   
-        
-
-    }
-
-
-
-    public function getSucursal(){
+    public function getSucursal() {
         $sucursales = Sucursal::get();
-        return view('precargas.select',['precargas'=>$sucursales]);
+        return view('precargas.select', ['precargas' => $sucursales]);
     }
-   
-
 
 }

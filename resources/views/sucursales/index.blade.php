@@ -1,68 +1,61 @@
-	@extends('layouts.test')
-@section('content1')
+@extends('layouts.blank')
+@section('content')
 
-	<div class="container">
-		<div class="panel-body">
-			<div class="col-lg-6">
-				
-				<div class="panel-heading">
-					
-					
-					<a class="btn btn-success" href="{{ route('sucursales.create') }}"><strong>Nueva Sucursal</strong></a>
+<div class="container">
+	<div class="panel panel-group">
+		<div class="panel-default">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-sm-4">
+						<h4>Sucursales:</h4>
+					</div>
+					<div class="col-sm-4 text-center">
+						<a class="btn btn-success" href="{{ route('sucursales.create') }}">
+							<i class="fa fa-plus"></i><strong> Agregar Sucursal</strong>
+						</a>
+					</div>
 				</div>
-
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-12">
+						@if(count($sucursales) > 0)
+							<table class="table table-striped table-bordered table-hover" style="margin-bottom: 0px;">
+								<tr class="info">
+									<th>ID</th>
+									<th>Nombre</th>
+									<th>Responsable</th>
+									<th>Región</th>
+									<th>Estado</th>
+									<th>Acciones</th>
+								</tr>
+								@foreach($sucursales as $sucursal)
+				                   	<tr>
+										<td>{{ $sucursal->claveid }}</td>
+										<td>{{ $sucursal->nombre }}</td>
+										<td>{{ $sucursal->responsable }}</td>
+										<td>{{ $sucursal->region }}</td>
+										<td>{{ $sucursal->estado }}</td>
+										<td class="text-center">
+											<a class="btn btn-primary btn-sm" href="{{ route('sucursales.show', ['sucursal' => $sucursal]) }}">
+												<i class="fa fa-eye"></i> Ver
+											</a>
+											<a class="btn btn-warning btn-sm" href="{{ route('sucursales.edit', ['sucursal' => $sucursal->id]) }}">
+												<i class="fa fa-pencil"></i> Editar
+											</a>
+										</td>
+									</tr>
+								@endforeach
+							</table>
+						@else
+							<h4>No hay sucursales disponibles.</h4>
+						@endif
+					</div>
+				</div>
 			</div>
 		</div>
-		<div id="datos" name="datos" class="jumbotron">
-			<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px;">
-				<thead>
-
-					<tr class="info">
-						<th>CLAVE ID</th>
-						<th>Nombre</th>
-						<th>Responsable</th>
-						<th>Regiòn</th>
-						<th>Estado</th>
-						<th>Operaciones</th>
-					</tr>
-
-				</thead>
-				<tbody>
-
-
-					@foreach($sucursales as $sucursal)
-                   <tr>
-						<th>{{$sucursal->claveid}}</th>
-						<th>{{$sucursal->nombre}}</th>
-						<th>{{$sucursal->responsable}}</th>
-						<th>{{$sucursal->region}}</th>
-						<th>{{$sucursal->estado}}</th>
-
-						<th>
-							
-							<a class="btn btn-success btn-sm" 
-							   href="{{ route('sucursales.show',['sucursal'=>$sucursal]) }}">
-
-								<i class="fa fa-eye" aria-hidden="true"></i> 
-								<strong>Ver
-							</strong></a>
-
-							<a class="btn btn-info btn-sm" href="{{ route('sucursales.edit',['sucursal'=>$sucursal->id]) }}">
-								
-								<i class="fa fa-pencil-square-o" aria-hidden="true"></i> <strong>Editar</strong>
-							</a>
-						</th>
-
-					</tr>	
-					@endforeach
-
-
-
-				</tbody>
-
-			</table>
-		</div>
 	</div>
+</div>
 
 @endsection
 

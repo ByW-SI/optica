@@ -46,7 +46,7 @@ class PrecioController extends Controller
         $producto = Producto::find($request->producto_id);
         $precio = new Precio(['precio' => $request->precio]);
         $producto->precio()->save($precio);
-        $historial = new Historial(['tipo' => 'Alta de Precio', 'descripcion' => 'Precio de ' . $producto->sku_interno . ' registrado, $' . $precio->precio]);
+        $historial = new Historial(['tipo' => 'Alta de Precio', 'descripcion' => 'Precio registrado, $' . $precio->precio]);
         $producto->historiales()->save($historial);
         return redirect()->route('precios.index');
     }
@@ -73,7 +73,7 @@ class PrecioController extends Controller
     {
         $precio->precio = $request->precio;
         $precio->save();
-        $historial = new Historial(['tipo' => 'Modificación de Precio', 'descripcion' => 'Precio de ' . $precio->producto->sku_interno . ' cambia a $' . $precio->precio]);
+        $historial = new Historial(['tipo' => 'Modificación de Precio', 'descripcion' => 'Precio cambia a $' . $precio->precio]);
         $precio->producto->historiales()->save($historial);
         return redirect()->route('precios.index');
     }

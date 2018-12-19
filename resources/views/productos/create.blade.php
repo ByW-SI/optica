@@ -89,8 +89,13 @@
 						<input type="text" class="form-control" id="color_abr1" name="color_abr" maxlength="3">
 					</div>
 					<div class="form-group col-sm-3">
-						<label class="control-label">✱Unidad:</label>
-	  					<input type="text" class="form-control" id="unidad1" name="unidad">
+						<label class="control-label">✱Unidad de medida:</label>
+						<select name="unidad" id="unidad1" class="form-control">
+							<option value="">Seleccionar</option>
+							<option value="m">Metros</option>
+							<option value="cm">Centímetros</option>
+							<option value="mm">Milímetros</option>
+						</select>
 					</div>
 				</div>
 				<div class="row">
@@ -191,8 +196,13 @@
 	  					<input type="text" class="form-control" id="tratamiento_abr" name="tratamiento_abr" maxlength="3">
 					</div>
 					<div class="form-group col-sm-3">
-						<label class="control-label">✱Unidad:</label>
-	  					<input type="text" class="form-control" id="unidad2" name="unidad">
+						<label class="control-label">✱Unidad de medida:</label>
+						<select name="unidad" id="unidad2" class="form-control">
+							<option value="">Seleccionar</option>
+							<option value="m">Metros</option>
+							<option value="cm">Centímetros</option>
+							<option value="mm">Milímetros</option>
+						</select>
 					</div>
 				</div>
 				<div class="row">
@@ -278,8 +288,13 @@
 	  					<input type="text" class="form-control" id="medidas_abr" name="medidas_abr" maxlength="3">
 					</div>
 					<div class="form-group col-sm-3">
-						<label class="control-label">✱Unidad:</label>
-	  					<input type="text" class="form-control" id="unidad3" name="unidad">
+						<label class="control-label">✱Unidad de medida:</label>
+						<select name="unidad" id="unidad3" class="form-control">
+							<option value="">Seleccionar</option>
+							<option value="m">Metros</option>
+							<option value="cm">Centímetros</option>
+							<option value="mm">Milímetros</option>
+						</select>
 					</div>
 					<div class="form-group col-sm-3">
 						<label class="control-label">Foto 1:</label>
@@ -365,8 +380,13 @@
 	  					<input type="text" class="form-control" id="color_abr4" name="color_abr" maxlength="3">
 					</div>
 					<div class="form-group col-sm-3">
-						<label class="control-label">✱Unidad:</label>
-	  					<input type="text" class="form-control" id="unidad4" name="unidad">
+						<label class="control-label">✱Unidad de medida:</label>
+						<select name="unidad" id="unidad4" class="form-control">
+							<option value="">Seleccionar</option>
+							<option value="m">Metros</option>
+							<option value="cm">Centímetros</option>
+							<option value="mm">Milímetros</option>
+						</select>
 					</div>
 					<div class="form-group col-sm-3">
 						<label class="control-label">Foto 1:</label>

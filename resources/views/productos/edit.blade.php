@@ -43,37 +43,67 @@
 						@endforeach
 					</select>
 				</div>
-				@if($producto->seccion == 'ortopedia' || $producto->seccion == 'generales')
+				@isset($producto->producto)
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Producto:</label>
 	  					<input type="text" class="form-control" name="producto" required="" value="{{ $producto->producto }}">
 					</div>
 				@endif
-				@if($producto->seccion == 'micas')
+				@isset($producto->producto_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" name="producto_abr" required="" value="{{ $producto->producto_abr }}" maxlength="3">
+					</div>
+				@endif
+				@isset($producto->familia)
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Familia:</label>
 	  					<input type="text" class="form-control" name="familia" required="" value="{{ $producto->familia }}">
 					</div>
+				@endif
+				@isset($producto->materiales)
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Materiales:</label>
 	  					<input type="text" class="form-control" name="materiales" required="" value="{{ $producto->materiales }}">
 					</div>
+				@endif
+				@isset($producto->materiales_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" name="materiales_abr" required="" value="{{ $producto->materiales_abr }}" maxlength="3">
+					</div>
+				@endif
+				@isset($producto->rangos)
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Rangos:</label>
 	  					<input type="text" class="form-control" name="rangos" required="" value="{{ $producto->rangos }}">
 					</div>
 				@endif
-				@if($producto->seccion != 'micas')
+				@isset($producto->marca)
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Marca:</label>
 	  					<input type="text" class="form-control" name="marca" required="" value="{{ $producto->marca }}">
 					</div>
+				@endif
+				@isset($producto->marca_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" name="marca_abr" required="" value="{{ $producto->marca_abr }}" maxlength="3">
+					</div>
+				@endif
+				@isset($producto->modelo)
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Modelo:</label>
 	  					<input type="text" class="form-control" name="modelo" required="" value="{{ $producto->modelo }}">
 					</div>
 				@endif
-				@if($producto->seccion == 'ortopedia')
+				@isset($producto->modelo_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" name="modelo_abr" required="" value="{{ $producto->modelo_abr }}" maxlength="3">
+					</div>
+				@endif
+				@isset($producto->talla)
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Talla:</label>
 	  					<input type="text" class="form-control" name="talla" required="" value="{{ $producto->talla }}">
@@ -83,41 +113,75 @@
 					<label class="control-label">✱Color:</label>
   					<input type="text" class="form-control" name="color" required="" value="{{ $producto->color }}">
 				</div>
-				@if($producto->seccion == 'micas')
+				@isset($producto->color_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" name="color_abr" required="" value="{{ $producto->color_abr }}" maxlength="3">
+					</div>
+				@endif
+				@isset($producto->tratamiento)
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Tratamiento:</label>
-  					<input type="text" class="form-control" name="tratamiento" required="" value="{{ $producto->tratamiento }}">
+  						<input type="text" class="form-control" name="tratamiento" required="" value="{{ $producto->tratamiento }}">
+					</div>
+				@endif
+				@isset($producto->tratamiento_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+  						<input type="text" class="form-control" name="tratamiento_abr" required="" value="{{ $producto->tratamiento_abr }}" maxlength="3">
+					</div>
+				@endif
+				@isset($producto->medidas)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Medidas:</label>
+	  					<input type="text" class="form-control" name="medidas" required="" value="{{ $producto->medidas }}">
+					</div>
+				@endif
+				@isset($producto->medidas_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Medidas:</label>
+	  					<input type="text" class="form-control" name="medidas_abr" required="" value="{{ $producto->medidas_abr }}" maxlength="3">
 					</div>
 				@endif
 				<div class="form-group col-sm-3">
 					<label class="control-label">✱Unidad:</label>
   					<input type="text" class="form-control" name="unidad" required="" value="{{ $producto->unidad }}">
 				</div>
+				@isset($producto->renta)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱¿Para renta?</label>
+						<div class="row text-center">
+							<div class="col-sm-6">
+								Sí <input type="radio" name="renta" value="Sí" {{ $producto->renta == 'Sí' ? 'checked' : '' }} required="" style="top: 0px;">
+							</div>
+							<div class="col-sm-6">
+								No <input type="radio" name="renta" value="No" {{ $producto->renta == 'No' ? 'checked' : '' }}  style="top: 0px;">
+							</div>
+						</div>
+					</div>
+				@endif
 				<div class="form-group col-sm-3">
-					<label class="control-label">✱✱Foto 1:</label>
+					<label class="control-label">Foto 1:</label>
   					<input type="file" class="form-control" id="foto11" name="foto1" style="font-size: 9px;">
 				</div>
 				<div class="form-group col-sm-3">
-					<label class="control-label">✱✱Foto 2:</label>
+					<label class="control-label">Foto 2:</label>
   					<input type="file" class="form-control" id="foto21" name="foto2" style="font-size: 9px;">
 				</div>
 				<div class="form-group col-sm-3">
-					<label class="control-label">✱✱Foto 3:</label>
+					<label class="control-label">Foto 3:</label>
   					<input type="file" class="form-control" id="foto31" name="foto3" style="font-size: 9px;">
 				</div>
 			</div>
 			<div class="panel-footer">
 				<div class="row">
-					<div class="col-sm-4 text-left text-danger">
-						<h5>✱Campos Requeridos</h5>
-					</div>
-					<div class="col-sm-4 text-center">
+					<div class="col-sm-4 col-sm-offset-4 text-center">
 		  				<button type="submit" class="btn btn-success">
 			  				<i class="fa fa-check-circle"></i> Guardar
 			  			</button>
 					</div>
 					<div class="col-sm-4 text-right text-danger">
-						<h5>✱✱No cambiar si no se quiere modificar</h5>
+						<h5>✱Campos Requeridos</h5>
 					</div>
 				</div>
 			</div>

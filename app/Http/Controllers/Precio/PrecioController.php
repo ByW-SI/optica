@@ -78,4 +78,43 @@ class PrecioController extends Controller
         return redirect()->route('precios.index');
     }
 
+    public function buscar(Request $request) {
+        $query = $request->input('query');
+        $min = $request->input('min');
+        $max = $request->input('max');
+        $productos = Producto::where('sku_interno', 'LIKE', "%$query%")->get();
+        $arr = [];
+        foreach ($productos as $producto)
+            $arr[] = $producto->id;
+        $precios = Precio::whereIn('producto_id', $arr);
+        if($min != '' && $max != '')
+            $precios = $precios->whereBetween('precio', [$min, $max]);
+        else if($min != '' && $max == '')
+            $precios = $precios->whereBetween('precio', [$min, 1000000]);
+        else if($min == '' && $max != '')
+            $precios = $precios->whereBetween('precio', [0, $max]);
+        $precios = $precios->get();
+        return view('precios.busqueda', ['precios' => $precios]);
+    }
+
+    public function buscar2(Request $request) {
+        $query = $request->input('query');
+        $seccion = $request->input('seccion');
+        $wordsquery = explode(' ', $query);
+        $productos = Producto::where(function($q) use($wordsquery) {
+            foreach ($wordsquery as $word) {
+                $q->orWhere('sku_interno', 'LIKE', "%$word%")
+                  ->orWhere('descripcion', 'LIKE', "%$word%");
+            }
+        });
+        $arr = [];
+        foreach(Precio::get() as $precio)
+            $arr[] = $precio->producto->id;
+        $productos = $productos->whereNotIn('id', $arr);
+        if($seccion != '')
+            $productos = $productos->where('seccion', $seccion);
+        $productos = $productos->get();
+        return view('inventario.busqueda2', ['productos' => $productos]);
+    }
+
 }

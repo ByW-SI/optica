@@ -44,55 +44,119 @@
 						<label class="control-label">Proveedor:</label>
 						<dd>{{ $producto->provedor->nombre . ' ' . $producto->provedor->apellidopaterno }}{{ $producto->provedor->razonsocial }}</dd>
 					</div>
-					@if($producto->seccion == 'ortopedia' || $producto->seccion == 'generales')
+					@isset($producto->producto)
 						<div class="form-group col-sm-3">
 							<label class="control-label">Producto:</label>
-							<dd>{{ $producto->producto }}</dd>
+		  					<dd>{{ $producto->producto }}</dd>
 						</div>
 					@endif
-					@if($producto->seccion == 'micas')
+					@isset($producto->producto_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Abreviatura:</label>
+		  					<dd>{{ $producto->producto_abr }}</dd>
+						</div>
+					@endif
+					@isset($producto->familia)
 						<div class="form-group col-sm-3">
 							<label class="control-label">Familia:</label>
-							<dd>{{ $producto->familia }}</dd>
+		  					<dd>{{ $producto->familia }}</dd>
 						</div>
+					@endif
+					@isset($producto->materiales)
 						<div class="form-group col-sm-3">
 							<label class="control-label">Materiales:</label>
-							<dd>{{ $producto->materiales }}</dd>
+		  					<dd>{{ $producto->materiales }}</dd>
 						</div>
+					@endif
+					@isset($producto->materiales_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Abreviatura:</label>
+		  					<dd>{{ $producto->materiales_abr }}</dd>
+						</div>
+					@endif
+					@isset($producto->rangos)
 						<div class="form-group col-sm-3">
 							<label class="control-label">Rangos:</label>
-							<dd>{{ $producto->rangos }}</dd>
+		  					<dd>{{ $producto->rangos }}</dd>
 						</div>
 					@endif
-					@if($producto->seccion != 'micas')
+					@isset($producto->marca)
 						<div class="form-group col-sm-3">
 							<label class="control-label">Marca:</label>
-							<dd>{{ $producto->marca }}</dd>
-						</div>
-						<div class="form-group col-sm-3">
-							<label class="control-label">Modelo:</label>
-							<dd>{{ $producto->modelo }}</dd>
+		  					<dd>{{ $producto->marca }}</dd>
 						</div>
 					@endif
-					@if($producto->seccion == 'ortopedia')
+					@isset($producto->marca_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Abreviatura:</label>
+		  					<dd>{{ $producto->marca_abr }}</dd>
+						</div>
+					@endif
+					@isset($producto->modelo)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Modelo:</label>
+		  					<dd>{{ $producto->modelo }}</dd>
+						</div>
+					@endif
+					@isset($producto->modelo_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Abreviatura:</label>
+		  					<dd>{{ $producto->modelo_abr }}</dd>
+						</div>
+					@endif
+					@isset($producto->talla)
 						<div class="form-group col-sm-3">
 							<label class="control-label">Talla:</label>
-							<dd>{{ $producto->talla }}</dd>
+		  					<dd>{{ $producto->talla }}</dd>
 						</div>
 					@endif
 					<div class="form-group col-sm-3">
 						<label class="control-label">Color:</label>
-						<dd>{{ $producto->color }}</dd>
+		  				<dd>{{ $producto->color }}</dd>
 					</div>
-					@if($producto->seccion == 'micas')
+					@isset($producto->color_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Abreviatura:</label>
+		  					<dd>{{ $producto->color_abr }}</dd>
+						</div>
+					@endif
+					@isset($producto->tratamiento)
 						<div class="form-group col-sm-3">
 							<label class="control-label">Tratamiento:</label>
-							<dd>{{ $producto->tratamiento }}</dd>
+		  					<dd>{{ $producto->tratamiento }}</dd>
+						</div>
+					@endif
+					@isset($producto->tratamiento_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Abreviatura:</label>
+		  					<dd>{{ $producto->tratamiento_abr }}</dd>
+						</div>
+					@endif
+					@isset($producto->medidas)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Medidas:</label>
+		  					<dd>{{ $producto->medidas }}</dd>
+						</div>
+					@endif
+					@isset($producto->medidas_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Medidas:</label>
+		  					<dd>{{ $producto->medidas_abr }}</dd>
 						</div>
 					@endif
 					<div class="form-group col-sm-3">
 						<label class="control-label">Unidad:</label>
-						<dd>{{ $producto->unidad }}</dd>
+		  				<dd>{{ $producto->unidad }}</dd>
+					</div>
+					@isset($producto->renta)
+						<div class="form-group col-sm-3">
+							<label class="control-label">¿Para renta?</label>
+							<dd>{{ $producto->renta == 'Sí' ? 'Sí' : 'No' }}</dd>
+						</div>
+					@endif
+					<div class="form-group col-sm-3">
+						<label class="control-label">Precio:</label>
+						<dd>{{ $producto->precio ? '$' . $producto->precio->precio : 'No disponible.' }}</dd>
 					</div>
 				</div>
 				<div class="col-sm-12 text-center">

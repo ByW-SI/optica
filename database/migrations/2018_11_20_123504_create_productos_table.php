@@ -23,16 +23,24 @@ class CreateProductosTable extends Migration
             $table->foreign('provedor_id')->references('id')->on('proveedores');
             $table->string('descripcion'); // gral.
             $table->string('producto')->nullable(); // ortopedia
+            $table->string('producto_abr')->nullable(); // ortopedia
             $table->string('familia')->nullable(); // micas
             $table->string('materiales')->nullable(); // micas
+            $table->string('materiales_abr')->nullable(); // micas
             $table->string('rangos')->nullable(); // micas
             $table->string('marca')->nullable(); // no micas
+            $table->string('marca_abr')->nullable(); // no micas
             $table->string('modelo')->nullable(); // no micas
+            $table->string('modelo_abr')->nullable(); // no micas
             $table->decimal('talla')->nullable(); // ortopedia
             $table->string('color')->nullable(); // gral.
+            $table->string('color_abr')->nullable(); // gral.
             $table->string('tratamiento')->nullable(); // micas
+            $table->string('tratamiento_abr')->nullable(); // micas
             $table->decimal('medidas')->nullable(); // armazon
+            $table->decimal('medidas_abr')->nullable(); // armazon
             $table->string('unidad')->nullable(); // ambiguo
+            $table->string('renta')->nullable(); // ambiguo
             $table->string('foto1')->nullable(); // gral.
             $table->string('foto2')->nullable(); // gral.
             $table->string('foto3')->nullable(); // gral.

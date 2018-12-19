@@ -21,4 +21,14 @@ class HistorialController extends Controller
         return view('historial.index', ['historiales' => $historiales, 'productos' => $productos]);
     }
 
+    public function buscar(Request $request) {
+        $query = $request->input('query');
+        $productos = Producto::where('sku_interno', 'LIKE', "%$query%")->get();
+        $arr = [];
+        foreach($productos as $producto)
+            $arr[] = $producto->id;
+        $historiales = Historial::where('id', $arr)->get();
+        return view('historial.busqueda', ['historiales' => $historiales, 'productos' => $productos]);
+    }
+
 }

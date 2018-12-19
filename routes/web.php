@@ -105,6 +105,11 @@ Route::get('buscarbanco', 'Banco\BancoController@buscar');
 Route::get('buscargiro', 'Giro\GiroController@buscar');
 Route::get('buscarformacontacto', 'FormaContacto\FormaContactoController@buscar');
 Route::get('buscarProducto', 'Producto\ProductoController@buscar');
+Route::get('buscarProducto2', 'Inventario\InventarioController@buscar2');
+Route::get('buscarProducto3', 'Precio\PrecioController@buscar2');
+Route::get('buscarInventario', 'Inventario\InventarioController@buscar');
+Route::get('buscarPrecio', 'Precio\PrecioController@buscar');
+Route::get('buscarHistorial', 'Historial\HistorialController@buscar');
 
 // AJAX
 Route::get('getareas', 'Area\AreaController@getAreas');

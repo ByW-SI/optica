@@ -43,19 +43,19 @@ class ProductoController extends Controller
     {
         switch($request->seccion) {
             case 'ortopedia':
-                $sku = 'ORTO' . $request->marca . $request->producto . $request->color;
+                $sku = 'ORTO' . $request->marca_abr . $request->producto_abr . $request->color_abr;
                 $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->talla . ' ' . $request->color;
                 break;
             case 'micas':
-                $sku = 'MICA' . $request->materiales . $request->tratamiento . $request->color;
+                $sku = 'MICA' . $request->materiales_abr . $request->tratamiento_abr . $request->color_abr;
                 $desc = $request->materiales . ' ' . $request->rangos . ' ' . $request->color . ' ' . $request->tratamiento . ' ' . $request->unidad;
                 break;
             case 'armazones':
-                $sku = 'ARMAZON' . $request->marca . $request->modelo . $request->medidas;
+                $sku = 'ARMAZON' . $request->marca_abr . $request->modelo_abr . $request->medidas_abr;
                 $desc = $request->marca . ' ' . $request->modelo . ' ' . $request->medidas . ' ' . $request->color;
                 break;
             case 'generales':
-                $sku = 'OPTICA' . $request->marca . $request->producto . $request->color;
+                $sku = 'OPTICA' . $request->marca_abr . $request->producto_abr . $request->color_abr;
                 $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->color;
                 break;
             default:
@@ -111,19 +111,19 @@ class ProductoController extends Controller
     {
         switch($producto->seccion) {
             case 'ortopedia':
-                $sku = 'ORTO' . $request->marca . $request->producto . $request->color;
+                $sku = 'ORTO' . $request->marca_abr . $request->producto_abr . $request->color_abr;
                 $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->talla . ' ' . $request->color;
                 break;
             case 'micas':
-                $sku = 'MICA' . $request->materiales . $request->tratamiento . $request->color;
+                $sku = 'MICA' . $request->materiales_abr . $request->tratamiento_abr . $request->color_abr;
                 $desc = $request->materiales . ' ' . $request->rangos . ' ' . $request->color . ' ' . $request->tratamiento . ' ' . $request->unidad;
                 break;
             case 'armazones':
-                $sku = 'ARMAZON' . $request->marca . $request->modelo . $request->medidas;
+                $sku = 'ARMAZON' . $request->marca_abr . $request->modelo_abr . $request->medidas_abr;
                 $desc = $request->marca . ' ' . $request->modelo . ' ' . $request->medidas . ' ' . $request->color;
                 break;
             case 'generales':
-                $sku = 'OPTICA' . $request->marca . $request->producto . $request->color;
+                $sku = 'OPTICA' . $request->marca_abr . $request->producto_abr . $request->color_abr;
                 $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->color;
                 break;
             default:
@@ -143,17 +143,6 @@ class ProductoController extends Controller
         $historial = new Historial(['tipo' => 'Modificación de Producto', 'descripcion' => 'Producto ' . $producto->sku_interno . ' modificado.']);
         $producto->historiales()->save($historial);
         return redirect()->route('productos.show', ['producto' => $producto]);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Producto  $producto
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Producto $producto)
-    {
-        //
     }
 
     public function buscar(Request $request) {

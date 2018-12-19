@@ -39,9 +39,17 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="form-group col-sm-4 col-sm-offset-4">
+						<div class="form-group col-sm-4">
 							<label class="control-label">✱Cantidad a Agregar:</label>
 							<input type="number" class="form-control" step="1" min="0" name="cantidad" required="">
+						</div>
+						<div class="form-group col-sm-4">
+							<label class="control-label">Número de Compra:</label>
+							<input type="text" class="form-control" name="num_compra">
+						</div>
+						<div class="form-group col-sm-4">
+							<label class="control-label">Código:</label>
+							<input type="text" class="form-control" name="codigo">
 						</div>
 					</div>
 				</div>

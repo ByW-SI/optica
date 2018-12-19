@@ -76,12 +76,15 @@
 						</div>
 						<div class="form-group col-sm-3">
 							<label class="control-label">✱Sucursal:</label>
-							<select name="sucursal_id" class="form-control">
-								<option value="">Seleccionar</option>
-								@foreach($sucursales as $sucursal)
-									<option value="{{ $sucursal->id }}">{{ $sucursal->nombre }}</option>
-								@endforeach
-							</select>
+							<div class="input-group">
+	  							<span class="input-group-addon" id="basic-addon3" onclick='getSucursal()'>↻</span>
+								<select name="sucursal_id" class="form-control" id="sucursal" required="">
+									<option value="">Seleccionar</option>
+									@foreach($sucursales as $sucursal)
+										<option value="{{ $sucursal->id }}">{{ $sucursal->nombre }}</option>
+									@endforeach
+								</select>
+						  	</div>
 						</div>
 						<div class="form-group col-sm-3">
 							<label class="control-label">Número de Compra:</label>
@@ -125,6 +128,16 @@
 			},
 		}).done(function(res) {
 			$("#productos").html(res);
+		});
+	}
+
+	function getSucursal() {
+		$.ajax({
+			url: "{{ url('/getsucursal') }}",
+		    type: "GET",
+		    dataType: "html",
+		}).done(function(resultado) {
+		    $("#sucursal").html(resultado);
 		});
 	}
 

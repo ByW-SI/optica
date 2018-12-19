@@ -58,8 +58,7 @@ class ConvenioDireccionFiscalController extends Controller
     public function store(Request $request, Convenio $convenio)
     {
         $direccion = ConvenioDireccionFiscal::create($request->all());
-        Alert::success('Dirección Fiscal del Convenio Actualizada')->persistent("Cerrar");
-        return redirect()->route('convenios.contactos.index', ['convenio' => $convenio]);
+        return redirect()->route('convenios.direccionfiscal.index', ['convenio' => $convenio]);
     }
 
     /**
@@ -70,9 +69,8 @@ class ConvenioDireccionFiscalController extends Controller
      */
     public function edit(Convenio $convenio)
     {
-        //
         $direccion = $convenio->direccionFiscal;
-        return view('convenios.direccionfiscal.edit',['convenio'=>$convenio, 'direccion'=>$direccion]);
+        return view('convenios.direccionfiscal.edit',['convenio' => $convenio, 'direccion' => $direccion]);
     }
 
     /**
@@ -84,9 +82,8 @@ class ConvenioDireccionFiscalController extends Controller
      */
     public function update(Request $request, Convenio $convenio)
     {
-        $convenio->direccionFiscalConvenio->update($request->all());
-        Alert::success('Dirección Fiscal del Convenio Actualizada')->persistent("Cerrar");
-        return redirect()->route('convenios.direccionfiscal.index',['convenio'=>$convenio]);
+        $convenio->direccionFiscal->update($request->all());
+        return redirect()->route('convenios.direccionfiscal.index', ['convenio' => $convenio]);
     }
 
 }

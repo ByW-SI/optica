@@ -59,44 +59,38 @@
     					<label class="control-label" for="calle">Calle:</label>
     					<dd>{{ $sucursal->calle }}</dd>
   					</div>
-
   					<div class="form-group col-sm-3">
     					<label class="control-label" for="numext">Número exterior:</label>
     					<dd>{{ $sucursal->numext }}</dd>
-  					</div>	
-
+  					</div>
   					<div class="form-group col-sm-3">
     					<label class="control-label" for="numint">Número interior:</label>
     					<dd>{{ $sucursal->numint ? $sucursal->numint : 'N/A' }}</dd>
   					</div>
-				</div>
-
-				<div class="row">
 					<div class="form-group col-sm-3">
   						<label class="control-label" for="colonia">Colonia:</label>
   						<dd>{{ $sucursal->colonia }}</dd>
   					</div>
-
+				</div>
+				<div class="row">
   					<div class="form-group col-sm-3">
   						<label class="control-label" for="delegacion">Municipio:</label>
   						<dd>{{ $sucursal->delegacion }}</dd>
   					</div>
-
   					<div class="form-group col-sm-3">
   						<label class="control-label" for="ciudad">Ciudad:</label>
   						<dd>{{ $sucursal->ciudad }}</dd>
   					</div>
-
   					<div class="form-group col-sm-3">
   						<label class="control-label" for="estado">Estado:</label>
   						<dd>{{ $sucursal->estado }}</dd>
   					</div>
-				</div>
-				<div class="row">
 					<div class="form-group col-sm-3">
   						<label class="control-label" for="calle1">Entre calle:</label>
   						<dd>{{ $sucursal->calle1 ? $sucursal->calle1 : 'N/A' }}</dd>
   					</div>
+				</div>
+				<div class="row">
   					<div class="form-group col-sm-3">
   						<label class="control-label" for="calle2">Y calle:</label>
   						<dd>{{ $sucursal->calle2 ? $sucursal->calle2 : 'N/A' }}</dd>

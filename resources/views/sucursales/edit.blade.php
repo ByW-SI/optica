@@ -72,12 +72,12 @@
 								<label class="control-label" for="numint">Número interior:</label>
 								<input type="text" class="form-control" id="numint" name="numint" value="{{ $sucursal->numint }}">
 							</div>
-						</div>
-						<div class="row">
 							<div class="form-group col-sm-3">
 								<label class="control-label" for="colonia">✱Colonia:</label>
 								<input type="text" class="form-control" id="colonia" name="colonia" required="" value="{{ $sucursal->colonia }}">
 							</div>
+						</div>
+						<div class="row">
 							<div class="form-group col-sm-3">
 								<label class="control-label" for="delegacion">✱Municipio:</label>
 								<input type="text" class="form-control" id="delegacion" name="delegacion" required="" value="{{ $sucursal->delegacion }}">
@@ -90,12 +90,12 @@
 								<label class="control-label" for="estado">✱Estado:</label>
 								<input type="text" class="form-control" id="estado" name="estado" required="" value="{{ $sucursal->estado }}">
 							</div>
-						</div>
-						<div class="row">
 							<div class="form-group col-sm-3">
 								<label class="control-label" for="calle1">Entre calle:</label>
 								<input type="text" class="form-control" id="calle1" name="calle1" value="{{ $sucursal->calle1 }}">
 							</div>
+						</div>
+						<div class="row">
 							<div class="form-group col-sm-3">
 								<label class="control-label" for="calle2">Y calle:</label>
 								<input type="text" class="form-control" id="calle2" name="calle2" value="{{ $sucursal->calle2 }}">

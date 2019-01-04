@@ -43,19 +43,23 @@ class ProductoController extends Controller
     {
         switch($request->seccion) {
             case 'ortopedia':
-                $sku = 'ORTO' . $request->marca_abr . $request->producto_abr . $request->color_abr;
-                $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->talla . ' ' . $request->color;
+                $sku = 'ORTO' . $request->categoria_abr . $request->marca_abr . $request->modelo_abr . $request->talla_abr . $request->color_abr;
+                $desc = $request->categoria . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->talla . ' ' . $request->color . ' '. $request->unidad;
                 break;
             case 'micas':
-                $sku = 'MICA' . $request->materiales_abr . $request->tratamiento_abr . $request->color_abr;
-                $desc = $request->materiales . ' ' . $request->rangos . ' ' . $request->color . ' ' . $request->tratamiento . ' ' . $request->unidad;
+                $sku = 'MICA' . $request->familia_abr . $request->materiales_abr . $request->rangos_abr . $request->color_abr . $request->tratamiento_abr;
+                $desc = $request->familia . ' ' . $request->materiales . ' ' . $request->rangos . ' ' . $request->color . ' ' . $request->tratamiento;
                 break;
             case 'armazones':
-                $sku = 'ARMAZON' . $request->marca_abr . $request->modelo_abr . $request->medidas_abr;
-                $desc = $request->marca . ' ' . $request->modelo . ' ' . $request->medidas . ' ' . $request->color;
+                $sku = 'ARMA' . $request->marca_abr . $request->modelo_abr . $request->color_abr . $request->medidas_abr;
+                $desc = $request->marca . ' ' . $request->modelo . ' ' . $request->color . ' ' . $request->medidas . ' '. $request->unidad;
+                break;
+            case 'contacto':
+                $sku = 'CONT' . $request->tipo_abr . $request->categoria_abr . $request->marca_abr . $request->periodo_abr;
+                $desc = $request->tipo . ' ' . $request->categoria . ' ' . $request->marca . ' ' . $request->periodo;
                 break;
             case 'generales':
-                $sku = 'OPTICA' . $request->marca_abr . $request->producto_abr . $request->color_abr;
+                $sku = 'GRAL' . $request->producto_abr . $request->marca_abr . $request->modelo_abr . $request->color_abr;
                 $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->color;
                 break;
             default:
@@ -111,19 +115,23 @@ class ProductoController extends Controller
     {
         switch($producto->seccion) {
             case 'ortopedia':
-                $sku = 'ORTO' . $request->marca_abr . $request->producto_abr . $request->color_abr;
-                $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->talla . ' ' . $request->color;
+                $sku = 'ORTO' . $request->categoria_abr . $request->marca_abr . $request->modelo_abr . $request->talla_abr . $request->color_abr;
+                $desc = $request->categoria . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->talla . ' ' . $request->color . ' '. $request->unidad;
                 break;
             case 'micas':
-                $sku = 'MICA' . $request->materiales_abr . $request->tratamiento_abr . $request->color_abr;
-                $desc = $request->materiales . ' ' . $request->rangos . ' ' . $request->color . ' ' . $request->tratamiento . ' ' . $request->unidad;
+                $sku = 'MICA' . $request->familia_abr . $request->materiales_abr . $request->rangos_abr . $request->color_abr . $request->tratamiento_abr;
+                $desc = $request->familia . ' ' . $request->materiales . ' ' . $request->rangos . ' ' . $request->color . ' ' . $request->tratamiento;
                 break;
             case 'armazones':
-                $sku = 'ARMAZON' . $request->marca_abr . $request->modelo_abr . $request->medidas_abr;
-                $desc = $request->marca . ' ' . $request->modelo . ' ' . $request->medidas . ' ' . $request->color;
+                $sku = 'ARMA' . $request->marca_abr . $request->modelo_abr . $request->color_abr . $request->medidas_abr;
+                $desc = $request->marca . ' ' . $request->modelo . ' ' . $request->color . ' ' . $request->medidas . ' '. $request->unidad;
+                break;
+            case 'contacto':
+                $sku = 'CONT' . $request->tipo_abr . $request->categoria_abr . $request->marca_abr . $request->periodo_abr;
+                $desc = $request->tipo . ' ' . $request->categoria . ' ' . $request->marca . ' ' . $request->periodo;
                 break;
             case 'generales':
-                $sku = 'OPTICA' . $request->marca_abr . $request->producto_abr . $request->color_abr;
+                $sku = 'GRAL' . $request->producto_abr . $request->marca_abr . $request->modelo_abr . $request->color_abr;
                 $desc = $request->producto . ' ' . $request->marca . ' ' . $request->modelo . ' ' . $request->color;
                 break;
             default:

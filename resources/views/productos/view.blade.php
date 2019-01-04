@@ -44,6 +44,30 @@
 						<label class="control-label">Proveedor:</label>
 						<dd>{{ $producto->provedor->nombre . ' ' . $producto->provedor->apellidopaterno }}{{ $producto->provedor->razonsocial }}</dd>
 					</div>
+					@isset($producto->tipo)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Tipo de lente:</label>
+							<dd>{{ $producto->tipo }}</dd>
+						</div>
+					@endif
+					@isset($producto->tipo_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Abreviatura:</label>
+							<dd>{{ $producto->tipo_abr }}</dd>
+						</div>
+					@endif
+					@isset($producto->categoria)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Categoría:</label>
+							<dd>{{ $producto->categoria }}</dd>
+						</div>
+					@endif
+					@isset($producto->categoria_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Abreviatura:</label>
+							<dd>{{ $producto->categoria_abr }}</dd>
+						</div>
+					@endif
 					@isset($producto->producto)
 						<div class="form-group col-sm-3">
 							<label class="control-label">Producto:</label>
@@ -62,6 +86,12 @@
 		  					<dd>{{ $producto->familia }}</dd>
 						</div>
 					@endif
+					@isset($producto->familia_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Abreviatura:</label>
+		  					<dd>{{ $producto->familia_abr }}</dd>
+						</div>
+					@endif
 					@isset($producto->materiales)
 						<div class="form-group col-sm-3">
 							<label class="control-label">Materiales:</label>
@@ -78,6 +108,12 @@
 						<div class="form-group col-sm-3">
 							<label class="control-label">Rangos:</label>
 		  					<dd>{{ $producto->rangos }}</dd>
+						</div>
+					@endif
+					@isset($producto->rangos_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Abreviatura:</label>
+		  					<dd>{{ $producto->rangos_abr }}</dd>
 						</div>
 					@endif
 					@isset($producto->marca)
@@ -110,10 +146,18 @@
 		  					<dd>{{ $producto->talla }}</dd>
 						</div>
 					@endif
-					<div class="form-group col-sm-3">
-						<label class="control-label">Color:</label>
-		  				<dd>{{ $producto->color }}</dd>
-					</div>
+					@isset($producto->talla_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Abreviatura:</label>
+		  					<dd>{{ $producto->talla_abr }}</dd>
+						</div>
+					@endif
+					@isset($producto->color)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Color:</label>
+		  					<dd>{{ $producto->color }}</dd>
+						</div>
+					@endif
 					@isset($producto->color_abr)
 						<div class="form-group col-sm-3">
 							<label class="control-label">Abreviatura:</label>
@@ -123,13 +167,13 @@
 					@isset($producto->tratamiento)
 						<div class="form-group col-sm-3">
 							<label class="control-label">Tratamiento:</label>
-		  					<dd>{{ $producto->tratamiento }}</dd>
+	  						<dd>{{ $producto->tratamiento }}</dd>
 						</div>
 					@endif
 					@isset($producto->tratamiento_abr)
 						<div class="form-group col-sm-3">
 							<label class="control-label">Abreviatura:</label>
-		  					<dd>{{ $producto->tratamiento_abr }}</dd>
+	  						<dd>{{ $producto->tratamiento_abr }}</dd>
 						</div>
 					@endif
 					@isset($producto->medidas)
@@ -140,8 +184,20 @@
 					@endif
 					@isset($producto->medidas_abr)
 						<div class="form-group col-sm-3">
-							<label class="control-label">Medidas:</label>
+							<label class="control-label">Abreviatura:</label>
 		  					<dd>{{ $producto->medidas_abr }}</dd>
+						</div>
+					@endif
+					@isset($producto->periodo)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Periodicidad:</label>
+		  					<dd>{{ $producto->periodo }}</dd>
+						</div>
+					@endif
+					@isset($producto->periodo_abr)
+						<div class="form-group col-sm-3">
+							<label class="control-label">Abreviatura:</label>
+		  					<dd>{{ $producto->periodo_abr }}</dd>
 						</div>
 					@endif
 					<div class="form-group col-sm-3">

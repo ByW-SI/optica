@@ -43,6 +43,30 @@
 						@endforeach
 					</select>
 				</div>
+				@isset($producto->tipo)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Tipo de lente:</label>
+	  					<input type="text" class="form-control" name="tipo" required="" value="{{ $producto->tipo }}">
+					</div>
+				@endif
+				@isset($producto->tipo_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" name="tipo_abr" required="" value="{{ $producto->tipo_abr }}" maxlength="3">
+					</div>
+				@endif
+				@isset($producto->categoria)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Categoría:</label>
+	  					<input type="text" class="form-control" name="categoria" required="" value="{{ $producto->categoria }}">
+					</div>
+				@endif
+				@isset($producto->categoria_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" name="categoria_abr" required="" value="{{ $producto->categoria_abr }}" maxlength="3">
+					</div>
+				@endif
 				@isset($producto->producto)
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Producto:</label>
@@ -61,6 +85,12 @@
 	  					<input type="text" class="form-control" name="familia" required="" value="{{ $producto->familia }}">
 					</div>
 				@endif
+				@isset($producto->familia_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" name="familia_abr" required="" value="{{ $producto->familia_abr }}">
+					</div>
+				@endif
 				@isset($producto->materiales)
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Materiales:</label>
@@ -77,6 +107,12 @@
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Rangos:</label>
 	  					<input type="text" class="form-control" name="rangos" required="" value="{{ $producto->rangos }}">
+					</div>
+				@endif
+				@isset($producto->rangos_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" name="rangos_abr" required="" value="{{ $producto->rangos_abr }}">
 					</div>
 				@endif
 				@isset($producto->marca)
@@ -109,10 +145,18 @@
 	  					<input type="text" class="form-control" name="talla" required="" value="{{ $producto->talla }}">
 					</div>
 				@endif
-				<div class="form-group col-sm-3">
-					<label class="control-label">✱Color:</label>
-  					<input type="text" class="form-control" name="color" required="" value="{{ $producto->color }}">
-				</div>
+				@isset($producto->talla_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" name="talla_abr" required="" value="{{ $producto->talla_abr }}">
+					</div>
+				@endif
+				@isset($producto->color)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Color:</label>
+	  					<input type="text" class="form-control" name="color" required="" value="{{ $producto->color }}">
+					</div>
+				@endif
 				@isset($producto->color_abr)
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Abreviatura:</label>
@@ -139,8 +183,20 @@
 				@endif
 				@isset($producto->medidas_abr)
 					<div class="form-group col-sm-3">
-						<label class="control-label">✱Medidas:</label>
+						<label class="control-label">✱Abreviatura:</label>
 	  					<input type="text" class="form-control" name="medidas_abr" required="" value="{{ $producto->medidas_abr }}" maxlength="3">
+					</div>
+				@endif
+				@isset($producto->periodo)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Periodicidad:</label>
+	  					<input type="text" class="form-control" name="periodo" required="" value="{{ $producto->periodo }}">
+					</div>
+				@endif
+				@isset($producto->periodo_abr)
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" name="periodo_abr" required="" value="{{ $producto->periodo_abr }}" maxlength="3">
 					</div>
 				@endif
 				<div class="form-group col-sm-3">

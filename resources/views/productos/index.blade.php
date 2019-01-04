@@ -29,6 +29,7 @@
 							<option value="ortopedia">Ortopedia</option>
 							<option value="micas">Micas</option>
 							<option value="armazones">Armazones</option>
+							<option value="contacto">Lentes de Contacto</option>
 							<option value="generales">General</option>
 						</select>
 					</div>

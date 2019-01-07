@@ -221,6 +221,54 @@
 						</div>
 					</div>
 				@endif
+				@if($producto->seccion == 'micas')
+					<div style="background: #f5f5f5;" class="col-sm-12 form-group">
+						<div class="row">
+							<div class="col-sm-12 text-center">
+								<h4>Rangos:</h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-3 form-group">
+								<label class="control-label">ESF:</label>
+								<div class="row">
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="esf_min" placeholder="Desde" id="esf_min" value="{{ $producto->esf_min }}">
+									</div>
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="esf_max" placeholder="Hasta" id="esf_max" value="{{ $producto->esf_max }}">
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 form-group">
+								<label class="control-label">CIL:</label>
+								<div class="row">
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="cil_min" placeholder="Desde" id="cil_min" value="{{ $producto->cil_min }}">
+									</div>
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="cil_max" placeholder="Hasta" id="cil_max" value="{{ $producto->cil_max }}">
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 form-group">
+								<label class="control-label">Combinado Máximo:</label>
+								<input class="form-control" type="text" name="com_max" placeholder="Hasta" id="com_max" value="{{ $producto->com_max }}">
+							</div>
+							<div class="col-sm-3 form-group">
+								<label class="control-label">ADD:</label>
+								<div class="row">
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="add_min" placeholder="Desde" id="add_min" value="{{ $producto->add_min }}">
+									</div>
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="add_max" placeholder="Hasta" id="add_max" value="{{ $producto->add_max }}">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				@endif
 				<div class="form-group col-sm-3">
 					<label class="control-label">Foto 1:</label>
   					<input type="file" class="form-control" id="foto11" name="foto1" style="font-size: 9px;">

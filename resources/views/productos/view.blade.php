@@ -214,6 +214,33 @@
 						<label class="control-label">Precio:</label>
 						<dd>{{ $producto->precio ? '$' . $producto->precio->precio : 'No disponible.' }}</dd>
 					</div>
+					@if($producto->seccion == 'micas')
+						<div style="background: #f5f5f5;" class="col-sm-12 form-group">
+							<div class="row">
+								<div class="col-sm-12 text-center">
+									<h4>Rangos:</h4>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-3 form-group">
+									<label class="control-label">ESF:</label>
+									<dd>{{ $producto->esf_min }} - {{ $producto->esf_max }}</dd>
+								</div>
+								<div class="col-sm-3 form-group">
+									<label class="control-label">CIL:</label>
+									<dd>{{ $producto->cil_min }} - {{ $producto->cil_max }}</dd>
+								</div>
+								<div class="col-sm-3 form-group">
+									<label class="control-label">Combinado Máximo:</label>
+									<dd>{{ $producto->com_max }}</dd>
+								</div>
+								<div class="col-sm-3 form-group">
+									<label class="control-label">ADD:</label>
+									<dd>{{ $producto->add_min }} - {{ $producto->add_max }}</dd>
+								</div>
+							</div>
+						</div>
+					@endif
 				</div>
 				<div class="col-sm-12 text-center">
 					<div class="d-flex justify-content-between">

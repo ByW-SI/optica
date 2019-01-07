@@ -86,19 +86,15 @@
 						<input type="text" class="form-control" id="talla" name="talla">
 					</div>
 					<div class="form-group col-sm-3">
-						<label class="control-label">✱Abreviatura:</label>
-						<input type="text" class="form-control" id="talla_abr" name="talla_abr" maxlength="3">
-					</div>
-					<div class="form-group col-sm-3">
 						<label class="control-label">✱Color:</label>
 						<input type="text" class="form-control" id="color1" name="color">
 					</div>
-				</div>
-				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Abreviatura:</label>
 						<input type="text" class="form-control" id="color_abr1" name="color_abr" maxlength="3">
 					</div>
+				</div>
+				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Unidad de medida:</label>
 						<select name="unidad" id="unidad1" class="form-control">
@@ -123,12 +119,12 @@
 						<label class="control-label">Foto 1:</label>
 	  					<input type="file" class="form-control" id="foto11" name="foto1" style="font-size: 9px;">
 					</div>
-				</div>
-				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">Foto 2:</label>
 	  					<input type="file" class="form-control" id="foto21" name="foto2" style="font-size: 9px;">
 					</div>
+				</div>
+				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">Foto 3:</label>
 	  					<input type="file" class="form-control" id="foto31" name="foto3" style="font-size: 9px;">
@@ -189,29 +185,19 @@
 	  					<input type="text" class="form-control" id="materiales_abr" name="materiales_abr" maxlength="3">
 					</div>
 					<div class="form-group col-sm-3">
-						<label class="control-label">✱Rangos:</label>
-	  					<input type="text" class="form-control" id="rangos" name="rangos">
+						<label class="control-label">✱Tipo de lente:</label>
+	  					<input type="text" class="form-control" id="tipo" name="tipo">
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Abreviatura:</label>
-	  					<input type="text" class="form-control" id="rangos_abr" name="rangos_abr" maxlength="3">
-					</div>
-					<div class="form-group col-sm-3">
-						<label class="control-label">✱Color:</label>
-	  					<input type="text" class="form-control" id="color2" name="color">
-					</div>
-					<div class="form-group col-sm-3">
-						<label class="control-label">✱Abreviatura:</label>
-	  					<input type="text" class="form-control" id="color_abr2" name="color_abr" maxlength="3">
+	  					<input type="text" class="form-control" id="tipo_abr" name="tipo_abr" maxlength="3">
 					</div>
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Tratamiento:</label>
 	  					<input type="text" class="form-control" id="tratamiento" name="tratamiento">
 					</div>
-				</div>
-				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Abreviatura:</label>
 	  					<input type="text" class="form-control" id="tratamiento_abr" name="tratamiento_abr" maxlength="3">
@@ -225,6 +211,56 @@
 							<option value="mm">Milímetros</option>
 						</select>
 					</div>
+				</div>
+				<div class="row">
+					<div style="background: #f5f5f5;" class="col-sm-12 form-group">
+						<div class="row">
+							<div class="col-sm-12 text-center">
+								<h4>Rangos:</h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-3 form-group">
+								<label class="control-label">ESF:</label>
+								<div class="row">
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="esf_min" placeholder="Desde" id="esf_min">
+									</div>
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="esf_max" placeholder="Hasta" id="esf_max">
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 form-group">
+								<label class="control-label">CIL:</label>
+								<div class="row">
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="cil_min" placeholder="Desde" id="cil_min">
+									</div>
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="cil_max" placeholder="Hasta" id="cil_max">
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 form-group">
+								<label class="control-label">Combinado Máximo:</label>
+								<input class="form-control" type="text" name="com_max" placeholder="Hasta" id="com_max">
+							</div>
+							<div class="col-sm-3 form-group">
+								<label class="control-label">ADD:</label>
+								<div class="row">
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="add_min" placeholder="Desde" id="add_min">
+									</div>
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="add_max" placeholder="Hasta" id="add_max">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">Foto 1:</label>
 	  					<input type="file" class="form-control" id="foto12" name="foto1" style="font-size: 9px;">
@@ -233,8 +269,6 @@
 						<label class="control-label">Foto 2:</label>
 	  					<input type="file" class="form-control" id="foto22" name="foto2" style="font-size: 9px;">
 					</div>
-				</div>
-				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">Foto 3:</label>
 	  					<input type="file" class="form-control" id="foto32" name="foto3" style="font-size: 9px;">
@@ -309,10 +343,6 @@
 	  					<input type="text" class="form-control" id="medidas" name="medidas">
 					</div>
 					<div class="form-group col-sm-3">
-						<label class="control-label">✱Abreviatura:</label>
-	  					<input type="text" class="form-control" id="medidas_abr" name="medidas_abr" maxlength="3">
-					</div>
-					<div class="form-group col-sm-3">
 						<label class="control-label">✱Unidad de medida:</label>
 						<select name="unidad" id="unidad3" class="form-control">
 							<option value="">Seleccionar</option>
@@ -321,12 +351,12 @@
 							<option value="mm">Milímetros</option>
 						</select>
 					</div>
-				</div>
-				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">Foto 1:</label>
 	  					<input type="file" class="form-control" id="foto13" name="foto1" style="font-size: 9px;">
 					</div>
+				</div>
+				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">Foto 2:</label>
 	  					<input type="file" class="form-control" id="foto23" name="foto2" style="font-size: 9px;">
@@ -373,19 +403,11 @@
 						</select>
 					</div>
 					<div class="form-group col-sm-3">
-						<label class="control-label">✱Tipo de lente:</label>
-	  					<input type="text" class="form-control" id="tipo" name="tipo">
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group col-sm-3">
-						<label class="control-label">✱Abreviatura:</label>
-	  					<input type="text" class="form-control" id="tipo_abr" name="tipo_abr" maxlength="3">
-					</div>
-					<div class="form-group col-sm-3">
 						<label class="control-label">✱Categoría:</label>
 	  					<input type="text" class="form-control" id="categoria4" name="categoria">
 					</div>
+				</div>
+				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Abreviatura:</label>
 	  					<input type="text" class="form-control" id="categoria_abr4" name="categoria_abr" maxlength="3">
@@ -394,8 +416,6 @@
 						<label class="control-label">✱Marca:</label>
 	  					<input type="text" class="form-control" id="marca4" name="marca">
 					</div>
-				</div>
-				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Abreviatura:</label>
 	  					<input type="text" class="form-control" id="marca_abr4" name="marca_abr" maxlength="3">
@@ -404,6 +424,8 @@
 						<label class="control-label">✱Periodicidad:</label>
 	  					<input type="text" class="form-control" id="periodo" name="periodo">
 					</div>
+				</div>
+				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Abreviatura:</label>
 	  					<input type="text" class="form-control" id="periodo_abr" name="periodo_abr" maxlength="3">
@@ -417,8 +439,6 @@
 							<option value="mm">Milímetros</option>
 						</select>
 					</div>
-				</div>
-				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">Foto 1:</label>
 	  					<input type="file" class="form-control" id="foto14" name="foto1" style="font-size: 9px;">
@@ -427,6 +447,8 @@
 						<label class="control-label">Foto 2:</label>
 	  					<input type="file" class="form-control" id="foto24" name="foto2" style="font-size: 9px;">
 					</div>
+				</div>
+				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label">Foto 3:</label>
 	  					<input type="file" class="form-control" id="foto34" name="foto3" style="font-size: 9px;">
@@ -563,7 +585,6 @@
 			$('#materiales').prop('required', false);
 			$('#materiales_abr').prop('required', false);
 			$('#rangos').prop('required', false);
-			$('#rangos_abr').prop('required', false);
 			if(i !== 2) {
 				$('#marca' + i).prop('required', false);
 				$('#marca_abr' + i).prop('required', false);
@@ -573,15 +594,13 @@
 				}
 			}
 			$('#talla').prop('required', false);
-			$('#talla_abr').prop('required', false);
-			if(i != 4) {
+			if(i != 2 || i != 4) {
 				$('#color' + i).prop('required', false);
 				$('#color_abr' + i).prop('required', false);
 			}
 			$('#tratamiento').prop('required', false);
 			$('#tratamiento_abr').prop('required', false);
 			$('#medidas').prop('required', false);
-			$('#medidas_abr').prop('required', false);
 			$('#tipo').prop('required', false);
 			$('#tipo_abr').prop('required', false);
 			$('#periodo').prop('required', false);
@@ -604,7 +623,6 @@
 			$('#materiales').val('');
 			$('#materiales_abr').val('');
 			$('#rangos').val('');
-			$('#rangos_abr').val('');
 			if(i !== 2) {
 				$('#marca' + i).val('');
 				$('#marca_abr' + i).val('');
@@ -614,15 +632,13 @@
 				}
 			}
 			$('#talla').val('');
-			$('#talla_abr').val('');
-			if(i != 4) {
+			if(i != 2 || i != 4) {
 				$('#color' + i).val('');
 				$('#color_abr' + i).val('');
 			}
 			$('#tratamiento').val('');
 			$('#tratamiento_abr').val('');
 			$('#medidas').val('');
-			$('#medidas_abr').val('');
 			$('#tipo').val('');
 			$('#tipo_abr').val('');
 			$('#periodo').val('');
@@ -636,7 +652,7 @@
 		$('#sku' + tipo).prop('required', true);
 		$('#negocio' + tipo).prop('required', true);
 		$('#proveedor' + tipo).prop('required', true);
-		if(tipo != 4) {
+		if(tipo != 2 || tipo != 4) {
 			$('#color' + tipo).prop('required', true);
 			$('#color_abr' + tipo).prop('required', true);
 		}
@@ -650,7 +666,6 @@
 			$('#modelo' + tipo).prop('required', true);
 			$('#modelo_abr' + tipo).prop('required', true);
 			$('#talla').prop('required', true);
-			$('#talla_abr').prop('required', true);
 			$('[name="renta"]').prop('required', true);
 		} else if(tipo === 2) {
 			$('#familia').prop('required', true);
@@ -658,19 +673,17 @@
 			$('#materiales').prop('required', true);
 			$('#materiales_abr').prop('required', true);
 			$('#rangos').prop('required', true);
-			$('#rangos_abr').prop('required', true);
 			$('#tratamiento').prop('required', true);
 			$('#tratamiento_abr').prop('required', true);
+			$('#tipo').prop('required', true);
+			$('#tipo_abr').prop('required', true);
 		} else if(tipo === 3) {
 			$('#marca' + tipo).prop('required', true);
 			$('#marca_abr' + tipo).prop('required', true);
 			$('#modelo' + tipo).prop('required', true);
 			$('#modelo_abr' + tipo).prop('required', true);
 			$('#medidas').prop('required', true);
-			$('#medidas_abr').prop('required', true);
 		}  else if(tipo === 4) {
-			$('#tipo').prop('required', true);
-			$('#tipo_abr').prop('required', true);
 			$('#categoria' + tipo).prop('required', true);
 			$('#categoria_abr' + tipo).prop('required', true);
 			$('#marca' + tipo).prop('required', true);

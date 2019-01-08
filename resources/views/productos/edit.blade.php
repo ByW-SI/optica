@@ -212,10 +212,10 @@
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱¿Para renta?</label>
 						<div class="row text-center">
-							<div class="col-sm-6">
+							<div class="col-sm-6 form-group">
 								Sí <input type="radio" name="renta" value="Sí" {{ $producto->renta == 'Sí' ? 'checked' : '' }} required="" style="top: 0px;">
 							</div>
-							<div class="col-sm-6">
+							<div class="col-sm-6 form-group">
 								No <input type="radio" name="renta" value="No" {{ $producto->renta == 'No' ? 'checked' : '' }}  style="top: 0px;">
 							</div>
 						</div>
@@ -231,25 +231,21 @@
 						<div class="row">
 							<div class="col-sm-3 form-group">
 								<label class="control-label">ESF:</label>
-								<div class="row">
-									<div class="col-sm-6">
-										<input class="form-control" type="text" name="esf_min" placeholder="Desde" id="esf_min" value="{{ $producto->esf_min }}">
-									</div>
-									<div class="col-sm-6">
-										<input class="form-control" type="text" name="esf_max" placeholder="Hasta" id="esf_max" value="{{ $producto->esf_max }}">
-									</div>
-								</div>
+								<select class="form-control" name="esf_max" id="esf_max">
+									<option value="">Seleccionar</option>
+									@for($i = 25; $i >= -25; $i -= 0.25)
+										<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}"{{ $producto->esf_max == $i ? ' selected' : '' }}>{{ number_format($i, 2) > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
+									@endfor
+								</select>
 							</div>
 							<div class="col-sm-3 form-group">
 								<label class="control-label">CIL:</label>
-								<div class="row">
-									<div class="col-sm-6">
-										<input class="form-control" type="text" name="cil_min" placeholder="Desde" id="cil_min" value="{{ $producto->cil_min }}">
-									</div>
-									<div class="col-sm-6">
-										<input class="form-control" type="text" name="cil_max" placeholder="Hasta" id="cil_max" value="{{ $producto->cil_max }}">
-									</div>
-								</div>
+								<select class="form-control" name="cil_max" id="cil_max">
+									<option value="">Seleccionar</option>
+									@for($i = -0.25; $i >= -15; $i -= 0.25)
+										<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}"{{ $producto->cil_max == $i ? ' selected' : '' }}>{{ number_format($i, 2) > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
+									@endfor
+								</select>
 							</div>
 							<div class="col-sm-3 form-group">
 								<label class="control-label">Combinado Máximo:</label>
@@ -257,14 +253,12 @@
 							</div>
 							<div class="col-sm-3 form-group">
 								<label class="control-label">ADD:</label>
-								<div class="row">
-									<div class="col-sm-6">
-										<input class="form-control" type="text" name="add_min" placeholder="Desde" id="add_min" value="{{ $producto->add_min }}">
-									</div>
-									<div class="col-sm-6">
-										<input class="form-control" type="text" name="add_max" placeholder="Hasta" id="add_max" value="{{ $producto->add_max }}">
-									</div>
-								</div>
+								<select class="form-control" name="add_max" id="add_max">
+									<option value="">Seleccionar</option>
+									@for($i = 1; $i <= 3.5; $i += 0.25)
+										<option value="+{{ number_format($i, 2) }}"{{ $producto->add_max == $i ? ' selected' : '' }}>+{{ number_format($i, 2) }}</option>
+									@endfor
+								</select>
 							</div>
 						</div>
 					</div>

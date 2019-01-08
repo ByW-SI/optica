@@ -221,22 +221,22 @@
 									<h4>Rangos:</h4>
 								</div>
 							</div>
-							<div class="row">
+							<div class="row text-center">
 								<div class="col-sm-3 form-group">
 									<label class="control-label">ESF:</label>
-									<dd>{{ $producto->esf_min }} - {{ $producto->esf_max }}</dd>
+									<dd>{{ number_format($producto->esf_max, 2) }}</dd>
 								</div>
 								<div class="col-sm-3 form-group">
 									<label class="control-label">CIL:</label>
-									<dd>{{ $producto->cil_min }} - {{ $producto->cil_max }}</dd>
+									<dd>{{ number_format($producto->cil_max, 2) }}</dd>
 								</div>
 								<div class="col-sm-3 form-group">
 									<label class="control-label">Combinado Máximo:</label>
-									<dd>{{ $producto->com_max }}</dd>
+									<dd>{{ number_format($producto->com_max, 2) }}</dd>
 								</div>
 								<div class="col-sm-3 form-group">
 									<label class="control-label">ADD:</label>
-									<dd>{{ $producto->add_min }} - {{ $producto->add_max }}</dd>
+									<dd>{{ number_format($producto->add_max, 2) }}</dd>
 								</div>
 							</div>
 						</div>

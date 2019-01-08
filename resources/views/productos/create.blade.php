@@ -175,24 +175,6 @@
 						</select>
 					</div>
 					<div class="form-group col-sm-3">
-						<label class="control-label">✱Familia:</label>
-	  					<input type="text" class="form-control" id="familia" name="familia">
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group col-sm-3">
-						<label class="control-label">✱Abreviatura:</label>
-	  					<input type="text" class="form-control" id="familia_abr" name="familia_abr" maxlength="3">
-					</div>
-					<div class="form-group col-sm-3">
-						<label class="control-label">✱Materiales:</label>
-	  					<input type="text" class="form-control" id="materiales" name="materiales">
-					</div>
-					<div class="form-group col-sm-3">
-						<label class="control-label">✱Abreviatura:</label>
-	  					<input type="text" class="form-control" id="materiales_abr" name="materiales_abr" maxlength="3">
-					</div>
-					<div class="form-group col-sm-3">
 						<label class="control-label">✱Tipo de lente:</label>
 	  					<input type="text" class="form-control" id="tipo2" name="tipo">
 					</div>
@@ -201,6 +183,24 @@
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Abreviatura:</label>
 	  					<input type="text" class="form-control" id="tipo_abr2" name="tipo_abr" maxlength="3">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Familia:</label>
+	  					<input type="text" class="form-control" id="familia" name="familia">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" id="familia_abr" name="familia_abr" maxlength="3">
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Materiales:</label>
+	  					<input type="text" class="form-control" id="materiales" name="materiales">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="control-label">✱Abreviatura:</label>
+	  					<input type="text" class="form-control" id="materiales_abr" name="materiales_abr" maxlength="3">
 					</div>
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Tratamiento:</label>

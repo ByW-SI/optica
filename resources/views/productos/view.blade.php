@@ -224,19 +224,40 @@
 							<div class="row text-center">
 								<div class="col-sm-3 form-group">
 									<label class="control-label">ESF:</label>
-									<dd>{{ number_format($producto->esf_max, 2) }}</dd>
+									<div class="row">
+										<div class="col-sm-6">
+											<dd>Desde: {{ number_format($producto->esf_min, 2) }}</dd>
+										</div>
+										<div class="col-sm-6">
+											<dd>Hasta: {{ number_format($producto->esf_max, 2) }}</dd>
+										</div>
+									</div>
 								</div>
 								<div class="col-sm-3 form-group">
 									<label class="control-label">CIL:</label>
-									<dd>{{ number_format($producto->cil_max, 2) }}</dd>
+									<div class="row">
+										<div class="col-sm-6">
+											<dd>Desde: {{ number_format($producto->cil_min, 2) }}</dd>
+										</div>
+										<div class="col-sm-6">
+											<dd>Hasta: {{ number_format($producto->cil_max, 2) }}</dd>
+										</div>
+									</div>
 								</div>
 								<div class="col-sm-3 form-group">
 									<label class="control-label">Combinado Máximo:</label>
-									<dd>{{ number_format($producto->com_max, 2) }}</dd>
+									<dd>Hasta: {{ number_format($producto->com_max, 2) }}</dd>
 								</div>
 								<div class="col-sm-3 form-group">
 									<label class="control-label">ADD:</label>
-									<dd>{{ number_format($producto->add_max, 2) }}</dd>
+									<div class="row">
+										<div class="col-sm-6">
+											<dd>Desde: {{ number_format($producto->add_min, 2) }}</dd>
+										</div>
+										<div class="col-sm-6">
+											<dd>Hasta: {{ number_format($producto->add_max, 2) }}</dd>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -244,9 +265,9 @@
 				</div>
 				<div class="col-sm-12 text-center">
 					<div class="d-flex justify-content-between">
-						<img src="{{ $producto->foto1 ? '../storage/' . $producto->foto1 : 'https://www.mayline.com/products/images/product/noimage.jpg'}}" width="300px" height="auto">
-						<img src="{{ $producto->foto2 ? '../storage/' . $producto->foto2 : 'https://www.mayline.com/products/images/product/noimage.jpg' }}" width="300px" height="auto">
-						<img src="{{ $producto->foto3 ? '../storage/' . $producto->foto3 : 'https://www.mayline.com/products/images/product/noimage.jpg'}}" width="300px" height="auto">
+						<img src="{{ $producto->foto1 ? '../storage/' . $producto->foto1 : 'https://www.unesale.com/ProductImages/Large/notfound.png'}}" width="300px" height="auto">
+						<img src="{{ $producto->foto2 ? '../storage/' . $producto->foto2 : 'https://www.unesale.com/ProductImages/Large/notfound.png' }}" width="300px" height="auto">
+						<img src="{{ $producto->foto3 ? '../storage/' . $producto->foto3 : 'https://www.unesale.com/ProductImages/Large/notfound.png'}}" width="300px" height="auto">
 					</div>
 				</div>
 			</div>

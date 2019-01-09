@@ -54,7 +54,7 @@
 											<td class="text-center" style="vertical-align: middle;"><svg id="producto{{ $producto->id }}"></svg></td>
 											<td>{{ strtoupper($producto->seccion) }}</td>
 											<td>{{ $producto->descripcion }}</td>
-											<td class="text-center"><img src="{{ $producto->foto1 ? 'storage/' . $producto->foto1 : 'https://www.mayline.com/products/images/product/noimage.jpg' }}" width="150" height="auto"></td>
+											<td class="text-center"><img src="{{ $producto->foto1 ? 'storage/' . $producto->foto1 : 'https://www.unesale.com/ProductImages/Large/notfound.png' }}" width="150" height="auto"></td>
 											<td class="text-center">
 												<a class="btn btn-primary btn-sm" href="{{ route('productos.show', ['producto' => $producto]) }}">
 													<i class="fa fa-eye"></i> <strong>Ver</strong>

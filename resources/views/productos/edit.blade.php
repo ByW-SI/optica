@@ -103,18 +103,6 @@
 	  					<input type="text" class="form-control" name="materiales_abr" required="" value="{{ $producto->materiales_abr }}" maxlength="3">
 					</div>
 				@endif
-				@isset($producto->rangos)
-					<div class="form-group col-sm-3">
-						<label class="control-label">✱Rangos:</label>
-	  					<input type="text" class="form-control" name="rangos" required="" value="{{ $producto->rangos }}">
-					</div>
-				@endif
-				@isset($producto->rangos_abr)
-					<div class="form-group col-sm-3">
-						<label class="control-label">✱Abreviatura:</label>
-	  					<input type="text" class="form-control" name="rangos_abr" required="" value="{{ $producto->rangos_abr }}">
-					</div>
-				@endif
 				@isset($producto->marca)
 					<div class="form-group col-sm-3">
 						<label class="control-label">✱Marca:</label>
@@ -231,21 +219,45 @@
 						<div class="row">
 							<div class="col-sm-3 form-group">
 								<label class="control-label">ESF:</label>
-								<select class="form-control" name="esf_max" id="esf_max">
-									<option value="">Seleccionar</option>
-									@for($i = 25; $i >= -25; $i -= 0.25)
-										<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}"{{ $producto->esf_max == $i ? ' selected' : '' }}>{{ number_format($i, 2) > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
-									@endfor
-								</select>
+								<div class="row">
+									<div class="col-sm-6 text-center">
+										<select class="form-control" name="esf_min" id="esf_min">
+											<option value="">Desde</option>
+											@for($i = 25; $i >= -25; $i -= 0.25)
+												<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}"{{ $producto->esf_min == $i ? ' selected' : '' }}>{{ number_format($i, 2) > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
+											@endfor
+										</select>
+									</div>
+									<div class="col-sm-6 text-center">
+										<select class="form-control" name="esf_max" id="esf_max">
+											<option value="">Hasta</option>
+											@for($i = 25; $i >= -25; $i -= 0.25)
+												<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}"{{ $producto->esf_max == $i ? ' selected' : '' }}>{{ number_format($i, 2) > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
+											@endfor
+										</select>
+									</div>
+								</div>
 							</div>
 							<div class="col-sm-3 form-group">
 								<label class="control-label">CIL:</label>
-								<select class="form-control" name="cil_max" id="cil_max">
-									<option value="">Seleccionar</option>
-									@for($i = -0.25; $i >= -15; $i -= 0.25)
-										<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}"{{ $producto->cil_max == $i ? ' selected' : '' }}>{{ number_format($i, 2) > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
-									@endfor
-								</select>
+								<div class="row">
+									<div class="col-sm-6 text-center">
+										<select class="form-control" name="cil_min" id="cil_min">
+											<option value="">Desde</option>
+											@for($i = -0.25; $i >= -15; $i -= 0.25)
+												<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}"{{ $producto->cil_min == $i ? ' selected' : '' }}>{{ number_format($i, 2) > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
+											@endfor
+										</select>
+									</div>
+									<div class="col-sm-6 text-center">
+										<select class="form-control" name="cil_max" id="cil_max">
+											<option value="">Hasta</option>
+											@for($i = -0.25; $i >= -15; $i -= 0.25)
+												<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}"{{ $producto->cil_max == $i ? ' selected' : '' }}>{{ number_format($i, 2) > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
+											@endfor
+										</select>
+									</div>
+								</div>
 							</div>
 							<div class="col-sm-3 form-group">
 								<label class="control-label">Combinado Máximo:</label>
@@ -253,12 +265,24 @@
 							</div>
 							<div class="col-sm-3 form-group">
 								<label class="control-label">ADD:</label>
-								<select class="form-control" name="add_max" id="add_max">
-									<option value="">Seleccionar</option>
-									@for($i = 1; $i <= 3.5; $i += 0.25)
-										<option value="+{{ number_format($i, 2) }}"{{ $producto->add_max == $i ? ' selected' : '' }}>+{{ number_format($i, 2) }}</option>
-									@endfor
-								</select>
+								<div class="row">
+									<div class="col-sm-6 text-center">
+										<select class="form-control" name="add_min" id="add_min">
+											<option value="">Desde</option>
+											@for($i = 1; $i <= 3.5; $i += 0.25)
+												<option value="+{{ number_format($i, 2) }}"{{ $producto->add_min == $i ? ' selected' : '' }}>+{{ number_format($i, 2) }}</option>
+											@endfor
+										</select>
+									</div>
+									<div class="col-sm-6 text-center">
+										<select class="form-control" name="add_max" id="add_max">
+											<option value="">Hasta</option>
+											@for($i = 1; $i <= 3.5; $i += 0.25)
+												<option value="+{{ number_format($i, 2) }}"{{ $producto->add_max == $i ? ' selected' : '' }}>+{{ number_format($i, 2) }}</option>
+											@endfor
+										</select>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

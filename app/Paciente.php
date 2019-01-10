@@ -36,7 +36,7 @@ class Paciente extends Model
         return $this->hasMany('App\PacienteHistorialMedico');
     }
     
-    public function ocular() {
+    public function oculares() {
         return $this->hasMany('App\PacienteOcular');
     }
 

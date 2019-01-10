@@ -11,10 +11,6 @@
   			<div  class="tab-pane fade in active" id="generales">
   				@include('paciente.datos.generales')
 			</div>
-			<!-- HISTORIAL OCULAR -->
-			<div class="tab-pane fade" id="ocular">
-  				@include('paciente.datos.ocular')
-			</div>
 			<!-- ANTEOJOS -->
 			<div class="tab-pane fade" id="anteojos">
 				@include('paciente.datos.anteojos')
@@ -34,8 +30,6 @@
 		</div>
 	</div>
 </div>
-<!-- Modales Historial Ocular -->
-@include('paciente.modals.ocular')
 <!-- Modales Anteojos -->
 @include('paciente.modals.anteojos')
 

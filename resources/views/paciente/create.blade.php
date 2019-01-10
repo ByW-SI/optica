@@ -38,7 +38,7 @@
 						</div>
 						<div class="form-group col-sm-3">
 							<label class="control-label">✱Apellido Materno:</label>
-							<input class="form-control" type="text" name="apmaterno" id="apmaterno" required @if($edit) value="{{ $paciente->apmaterno }}" @endif>
+							<input class="form-control" type="text" name="apmaterno" id="apmaterno" @if($edit) value="{{ $paciente->apmaterno }}" @endif>
 						</div>
 						<div class="form-group col-sm-3">
 							<label class="control-label">Identificador:</label>
@@ -82,61 +82,40 @@
 
 <script type="text/javascript">
 	
+	function reset() {
+		var nombre = $("#nombre").val();
+		var prim = nombre.substring(0, 2);
+		var appaterno = $("#appaterno").val();
+		var seg = appaterno.substring(0, 2);
+		var apmaterno = $("#apmaterno").val();
+		var ter = apmaterno.substring(0, 2);
+	    var aux = $("#fecha").val().split('-');
+		var año1 = aux.length > 1 ? aux[0].substring(2, 4) + aux[1] + aux[2] : '';
+		var id = prim + seg + ter + año1;
+		var bid = id.toUpperCase(id);
+		$("#identificador").val(bid);
+	}
+
 	$(document).ready(function() {
 
 		$("#nombre").keyup(function() {
-			var nombre=$("#nombre").val();
-			var prim=nombre.substring(0,1);
-			var appaterno=$("#appaterno").val();
-			var seg=appaterno.substring(0,1);
-			var apmaterno=$("#apmaterno").val();
-			var ter=apmaterno.substring(0,1);
-			var año1=$("#fecha").val();
-			var id=prim+seg+ter+año1;
-			var bid=id.toUpperCase(id);
-			$("#identificador").val(bid);
+			reset();
 		});
 
 		$("#appaterno").keyup(function() {
-			var nombre=$("#nombre").val();
-			var prim=nombre.substring(0,1);
-			var appaterno=$("#appaterno").val();
-			var seg=appaterno.substring(0,1);
-			var apmaterno=$("#apmaterno").val();
-			var ter=apmaterno.substring(0,1);
-			var año1=$("#fecha").val();
-			var id=prim+seg+ter+año1;
-			var bid=id.toUpperCase(id);
-			$("#identificador").val(bid);
+			reset();
 		});
 
 		$("#apmaterno").keyup(function() {
-			var nombre=$("#nombre").val();
-			var prim=nombre.substring(0,1);
-			var appaterno=$("#appaterno").val();
-			var seg=appaterno.substring(0,1);
-			var apmaterno=$("#apmaterno").val();
-			var ter=apmaterno.substring(0,1);
-			var año1=$("#fecha").val();
-			var id=prim+seg+ter+año1;
-			var bid=id.toUpperCase(id);
-			$("#identificador").val(bid);
+			reset();
 		});
 
 		$("#fecha").change(function() {
-			var fecha_nac=new Date($("#fecha").val());
-			var hoy= new Date();
-		    var edad=Math.floor((hoy-fecha_nac) / (365.25 * 24 * 60 * 60 * 1000));
+			var fecha_nac = new Date($("#fecha").val());
+			var hoy =  new Date();
+		    var edad = Math.floor((hoy-fecha_nac) / (365.25 * 24 * 60 * 60 * 1000));
 		    $("#edad").val(edad);
-		    var nombre=$("#nombre").val();
-		    var prim=nombre.substring(0,1);
-		    var appaterno=$("#appaterno").val();
-		    var seg=appaterno.substring(0,1);
-		    var apmaterno=$("#apmaterno").val();
-		    var ter=apmaterno.substring(0,1);
-		    var id=prim+seg+ter+$("#fecha").val();
-		    var bid=id.toUpperCase(id);
-		    $("#identificador").val(bid);
+			reset();
 		});
 	});
 

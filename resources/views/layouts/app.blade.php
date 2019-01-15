@@ -167,7 +167,7 @@
                                 @foreach(Auth::user()->perfil->componentes as $componente)
                                     @if($componente->modulo->nombre == "crms")
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" onclick="AgregarNuevoTab('{{url ('crm2')}}','CRMs')">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" onclick="AgregarNuevoTab('{{ route('crms.index')}}','CRMs')">
                                                 <i class="fa fa-calendar" aria-hidden="true"></i> CRM
                                             </a>
                                         </li>

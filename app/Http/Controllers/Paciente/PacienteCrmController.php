@@ -32,12 +32,10 @@ class PacienteCrmController extends Controller
     {
         $crms = [];
         foreach (Paciente::get() as $paciente) {
-            if(count($paciente->crms) != 0)
+            if(count($paciente->crms) > 0)
                 $crms[] = $paciente->crms->last();
         }
-        // dd($crms);
-        $pacientes = Paciente::orderBy('nombre','desc')->get();
-        return view('crm.index', ['crms' => $crms, 'pacientes' => $pacientes]);
+        return view('crm.index', ['crms' => $crms]);
     }
 
     /**
@@ -45,9 +43,9 @@ class PacienteCrmController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Paciente $paciente)
     {
-        //
+        return view('paciente.crm.create', ['paciente' => $paciente]);
     }
 
     /**
@@ -58,67 +56,46 @@ class PacienteCrmController extends Controller
      */
     public function store(Request $request, Paciente $paciente)
     {
-        // dd($request->all());
+        $request->fecha_act = date('Y-m-d');
         $crm = PacienteCRM::create($request->all());
-        return redirect()->route('crm2.index');
+        return redirect()->route('crms.index');
     }
 
-    public function porFecha(Request $request) {
-        $crms = [];
-        foreach (Paciente::get() as $paciente) {
-            if(count($paciente->crms) != 0) {
-                $tmp = $paciente->crms()->whereBetween('fecha_cont', [$request->fechaD, $request->fechaH])->orderBy('fecha_cont', 'asc')->get()->first();
-                if($tmp != null)
-                    $crms[] = $tmp;
+    public function buscar(Request $request) {
+        $desde = $request->input('desde') ? $request->input('desde') : date('Y-m-d');
+        $hasta = $request->input('hasta') ? $request->input('hasta') : '9999-12-31';
+        $query = $request->input('query');
+        $crms = PacienteCRM::whereBetween('fecha_cont', [$desde, $hasta]);
+        if($query) {
+            $pacientes = Paciente::where('identificador','LIKE',"%$query%")->get();
+            $arrs = [];
+            foreach ($pacientes as $paciente)
+                $arrs[] = $paciente->id;
+            $crms = $crms->whereIn('paciente_id', $arrs);
+        }
+        $crms = $crms->get();
+        $arrs = [];
+        $auxs = [];
+        foreach ($crms as $crm) {
+            if(!in_array($crm->paciente->identificador, $arrs)) {
+                $arrs[] = $crm->paciente->identificador;
+                $tmp = [];
+                foreach ($crms as $crm2)
+                    if($crm->paciente->identificador == $crm2->paciente->identificador)
+                        $tmp[] = $crm2;
+                $auxs[$crm->paciente->identificador] = $tmp;
             }
         }
-        $todos = PacienteCRM::get();
-        $pacientes = Paciente::orderBy('nombre','desc')->get();
-        return view('crm.index',['crms' => $crms, 'todos' => $todos, 'pacientes' => $pacientes]);
-
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Paciente  $paciente
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Paciente $paciente)
-    {
-        //
+        $crms = [];
+        foreach ($auxs as $aux)
+            $crms[] = end($aux);
+        return view('paciente.crm.busqueda', ['crms' => $crms]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Paciente  $paciente
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Paciente $paciente)
-    {
-        //
+    public function pacientes(Request $request) {
+        $query = $request->input('query');
+        $pacientes = Paciente::where('identificador','LIKE',"%$query%")->get();
+        return view('paciente.crm.pacientes', ['pacientes' => $pacientes]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Paciente  $paciente
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Paciente $paciente)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Paciente  $paciente
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Paciente $paciente)
-    {
-        //
-    }
 }

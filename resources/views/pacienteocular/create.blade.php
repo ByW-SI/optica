@@ -66,7 +66,7 @@
 					<li><a href="{{ route('pacientes.anteojos.index', ['paciente' => $paciente]) }}">Anteojos:</a></li>
 					<li><a href="{{ route('pacientes.ortopedias.index', ['paciente' => $paciente]) }}">Ortopédico:</a></li>
 					<li><a href="{{ route('pacientes.citas.index', ['paciente' => $paciente]) }}">Citas:</a></li>
-					<li><a href="{{ route('pacientes.crm.index', ['paciente' => $paciente]) }}">CRM:</a></li> 
+					<li><a href="{{ route('pacientes.crms.create', ['paciente' => $paciente]) }}">CRM:</a></li> 
 				</ul>
 			</div>
 		</div>

@@ -23,10 +23,6 @@
 			<div class="tab-pane" id="cita">
 				@include('paciente.datos.citas')
 			</div>
-			<!-- CRM -->
-			<div class="tab-pane" id="crm">
-				@include('paciente.datos.crm')
-			</div>
 		</div>
 	</div>
 </div>

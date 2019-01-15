@@ -34,8 +34,8 @@ Route::resource('empleados.vacaciones', 'Empleado\EmpleadosVacacionesController'
 Route::resource('empleados.faltas', 'Empleado\EmpleadosFaltasAdministrativasController');
 
 // CRM
-Route::post('crm', 'Paciente\PacienteCrmController@store');
-Route::resource('crm2', 'Paciente\PacienteCrmController');
+// Route::post('crm', 'Paciente\PacienteCrmController@store');
+Route::resource('crms', 'Paciente\PacienteCrmController');
 
 // PACIENTES
 Route::post('cita', 'Paciente\PacienteCitaController@store');
@@ -50,7 +50,7 @@ Route::get('pacientes/{paciente}/tutores/{tutor}/select', 'Paciente\TutorControl
 Route::post('pacientes/{paciente}/tutores/{tutor}', 'Paciente\TutorController@bind')->name('pacientes.tutores.bind');
 Route::resource('tutores', 'Tutor\TutorController');
 Route::resource('pacientes.citas', 'Paciente\PacienteCitaController');
-Route::resource('pacientes.crm', 'Paciente\PacienteCrmController');
+Route::resource('pacientes.crms', 'Paciente\PacienteCrmController');
 Route::resource('pacientes.ortopedias', 'Paciente\PacienteHistorialOrtopedicoController');
 
 // SEGURIDAD
@@ -110,6 +110,8 @@ Route::get('buscarProducto3', 'Precio\PrecioController@buscar2');
 Route::get('buscarInventario', 'Inventario\InventarioController@buscar');
 Route::get('buscarPrecio', 'Precio\PrecioController@buscar');
 Route::get('buscarHistorial', 'Historial\HistorialController@buscar');
+Route::get('buscarCRM', 'Paciente\PacienteCrmController@buscar')->name('crms.buscar');
+Route::get('buscarPaciente', 'Paciente\PacienteCrmController@pacientes')->name('crms.pacientes');
 
 // AJAX
 Route::get('getareas', 'Area\AreaController@getAreas');

@@ -72,42 +72,42 @@
 					</div>
 				</div>
 			</div>
-			<div class="panel-body">
-				<form role="form" method="POST" action="{{ route('pacientes.crms.store', ['paciente' => $paciente]) }}">
-					{{ csrf_field() }}
-					<input type="hidden" name="paciente_id" value="{{ $paciente->id }}" id="paciente_id_crm">
+		</div>
+		<form role="form" method="POST" action="{{ route('pacientes.crms.store', ['paciente' => $paciente]) }}">
+			{{ csrf_field() }}
+			<input type="hidden" name="paciente_id" value="{{ $paciente->id }}" id="paciente_id_crm">
+			<div class="panel-default">
+				<div class="panel-body">
 					<div class="row">
-						<div class="form-group col-sm-3">
-							<label class="control-label" for="fecha_act">Fecha Actual:</label>
+						<div class="form-group col-sm-4">
+							<label class="control-label" for="fecha_act">Fecha actual:</label>
 							<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
 						</div>
-						<div class="form-group col-sm-3">
-							<label class="control-label" for="fecha_aviso"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha Aviso:</label>
+						<div class="form-group col-sm-4">
+							<label class="control-label" for="fecha_aviso">✱Fecha de aviso:</label>
 							<input type="date" class="form-control" id="fecha_aviso" name="fecha_aviso" required="" min="{{ date('Y-m-d') }}" max="2030-12-31">
 						</div>
-						<div class="form-group col-sm-3">
-							<label class="control-label" for="fecha_cont"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha siguiente contacto:</label>
+						<div class="form-group col-sm-4">
+							<label class="control-label" for="fecha_cont">✱Fecha de contacto:</label>
 							<input type="date" class="form-control" id="fecha_cont" name="fecha_cont" required="" min="{{ date('Y-m-d') }}" max="2030-12-31">
 						</div>
-						<div class="form-group col-sm-3">
-							<label class="control-label" for="hora"><i class="fa fa-asterisk" aria-hidden="true"></i>Hora:</label>
-							<input type="time" min="09:00" max="23:50" class="form-control" id="hora_crm" name="hora"  value="" required="">
+						<div class="form-group col-sm-4">
+							<label class="control-label" for="hora">Hora:</label>
+							<input type="text" class="form-control" id="hora_crm" name="hora">
 						</div>
-						<div class="form-group col-sm-3">
-							<label class="control-label" for="tipo_cont"><i class="fa fa-asterisk" aria-hidden="true"></i>Forma de contacto:</label>
-							<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" required="">
-								<option value="">Seleccione una Opción</option>
+						<div class="form-group col-sm-4">
+							<label class="control-label" for="tipo_cont">Forma de contacto:</label>
+							<select class="form-control" type="select" name="tipo_cont" id="tipo_cont">
 								<option id="Mail" value="Mail">Email/Correo Electronico</option>
 								<option value="Telefono">Telefono</option>
 								<option value="Cita">Cita</option>
 								<option value="Whatsapp">Whatsapp</option>
-								<option value="Otro">Otro</option>
+								<option value="Otro" selected="">Otro</option>
 							</select>
 						</div>
-						<div class="form-group col-sm-3">
-							<label class="control-label" for="status"><i class="fa fa-asterisk" aria-hidden="true"></i>Estado:</label>
-							<select class="form-control" type="select" name="status" id="status" required="">
-								<option value="">Seleccione una Opción</option>
+						<div class="form-group col-sm-4">
+							<label class="control-label" for="status">Estado:</label>
+							<select class="form-control" type="select" name="status" id="status">
 								<option id="Pendiente" value="Pendiente">Pendiente</option>
 								<option id="Cotizando" value="Cotizando">En Cotización</option>
 								<option id="Cancelado" value="Cancelado">Cancelado</option>
@@ -116,7 +116,7 @@
 								<option id="Revisa_doc" value="Revisa_doc">Revisando documento</option>
 								<option id="Proceso_aceptar" value="Proceso_aceptar">Proceso de Aceptación</option>
 								<option id="Entrega" value="Entrega">Para entrega</option>
-								<option id="Otro" value="Otro">Otro</option>
+								<option id="Otro" value="Otro" selected="">Otro</option>
 							</select>
 						</div>
 					</div>
@@ -134,26 +134,30 @@
 							<textarea class="form-control" rows="5" id="observaciones" name="observaciones" maxlength="500"></textarea>
 						</div>
 					</div>
+				</div>
+				<div class="panel-heading">
 					<div class="row">
-						<div class="form-group col-sm-12 text-center">
+						<div class="col-sm-4 col-sm-offset-4 text-center">
 							<a class="btn btn-warning" id="limpiarp" onclick="limpiarP()">
 								<strong>Limpiar</strong>
 							</a>
-							<button type="submit" id="submitcrm" class="btn btn-success">
-								<strong>Guardar</strong>
-							</button>
-							<a id="modificarp" class="btn btn-primary" onclick="modificarP()" style="display: none;">
-								<strong>Modificar</strong>
-							</a>
+			  				<button type="submit" class="btn btn-success">
+				  				<i class="fa fa-check-circle"></i> Guardar
+				  			</button>
+						</div>
+						<div class="col-sm-4 text-right text-danger">
+							<h5>✱Campos Requeridos</h5>
 						</div>
 					</div>
-				</form>
+				</div>
 			</div>
+		</form>
+		<div class="panel-default">
 			<div class="panel-body" id="crm_body">
 				<div class="row">
 					<div class="col-sm-12">
-						@if ($paciente->crms->count() > 0)
-							<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse;margin-bottom: 0px">
+						@if(count($paciente->crms) > 0)
+							<table class="table table-striped table-bordered table-hover" style="margin-bottom: 0px">
 								<tr class="info">
 									<th>Fecha contacto</th>
 									<th>Fecha aviso</th>
@@ -164,14 +168,14 @@
 									<th>Observaciones</th>
 								</tr>
 								@foreach($paciente->crms as $crm)
-									<tr onclick="crmP({{ $crm }})" title="Has Click Aquì para ver o modificar" style="cursor: pointer">
-										<td>{{ $crm->fecha_cont }}</td>
-										<td>{{ $crm->fecha_aviso }}</td>
+									<tr onclick="crmP({{ $crm }})">
+                                        <td>{{ date("d/m/Y", strtotime($crm->fecha_cont)) }}</td>
+                                        <td>{{ date("d/m/Y", strtotime($crm->fecha_aviso)) }}</td>
 										<td>{{ $crm->hora }}</td>
 										<td>{{ $crm->tipo_cont }}</td>
 										<td>{{ $crm->status }}</td>
-										<td>{{ substr($crm->acuerdos,0,50) }}...</td>
-										<td>{{ substr($crm->observaciones,0,50) }}...</td>
+										<td>{{ $crm->acuerdos ? substr($crm->acuerdos, 0, 50) : 'N/A' }}</td>
+										<td>{{ $crm->observaciones ? substr($crm->observaciones, 0, 50) : 'N/A' }}</td>
 									</tr>
 								@endforeach
 							</table>

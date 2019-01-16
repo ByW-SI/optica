@@ -89,7 +89,10 @@ class PacienteCrmController extends Controller
         $crms = [];
         foreach ($auxs as $aux)
             $crms[] = end($aux);
-        return view('paciente.crm.busqueda', ['crms' => $crms]);
+        if($request->input('selector') == 1)
+            return view('paciente.crm.busqueda', ['crms' => $crms]);
+        if($request->input('selector') == 2)
+            return view('paciente.crm.busqueda2', ['crms' => $crms]);
     }
 
     public function pacientes(Request $request) {

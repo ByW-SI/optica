@@ -28,8 +28,10 @@ class PacienteCrmController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Paciente $paciente)
     {
+        if($paciente->id)
+            return view('paciente.crm.create', ['paciente' => $paciente]);
         $crms = [];
         foreach (Paciente::get() as $paciente) {
             if(count($paciente->crms) > 0)
@@ -45,7 +47,7 @@ class PacienteCrmController extends Controller
      */
     public function create(Paciente $paciente)
     {
-        return view('paciente.crm.create', ['paciente' => $paciente]);
+        return redirect()->route('pacientes.crms.index', ['paciente' => $paciente]);
     }
 
     /**
@@ -58,6 +60,8 @@ class PacienteCrmController extends Controller
     {
         $request->fecha_act = date('Y-m-d');
         $crm = PacienteCRM::create($request->all());
+        if($paciente->id)
+            return redirect()->route('pacientes.crms.index', ['paciente' => $paciente]);
         return redirect()->route('crms.index');
     }
 

@@ -83,17 +83,19 @@
 							<label class="control-label" for="fecha_act">Fecha actual:</label>
 							<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
 						</div>
-						<div class="form-group col-sm-4">
-							<label class="control-label" for="fecha_aviso">✱Fecha de aviso:</label>
-							<input type="date" class="form-control" id="fecha_aviso" name="fecha_aviso" required="" min="{{ date('Y-m-d') }}" max="2030-12-31">
-						</div>
-						<div class="form-group col-sm-4">
-							<label class="control-label" for="fecha_cont">✱Fecha de contacto:</label>
-							<input type="date" class="form-control" id="fecha_cont" name="fecha_cont" required="" min="{{ date('Y-m-d') }}" max="2030-12-31">
-						</div>
+                        <div class="col-sm-4 form-group">
+                            <label class="control-label" for="fecha_aviso">✱Fecha de aviso:</label>
+                            <input type="date" class="form-control" id="fecha_aviso" name="fecha_aviso" required="required" min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime('+2 Months')) }}">
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            <label class="control-label" for="fecha_cont">✱Fecha de contacto:</label>
+                            <input type="date" class="form-control" id="fecha_cont" name="fecha_cont" required="required" min="{{ date('Y-m-d', strtotime('+2 Days')) }}" max="{{ date('Y-m-d', strtotime('+2 Months')) }}">
+                        </div>
+                    </div>
+                    <div class="row">
 						<div class="form-group col-sm-4">
 							<label class="control-label" for="hora">Hora:</label>
-							<input type="text" class="form-control" id="hora_crm" name="hora">
+							<input type="text" class="form-control" id="hora" name="hora">
 						</div>
 						<div class="form-group col-sm-4">
 							<label class="control-label" for="tipo_cont">Forma de contacto:</label>
@@ -127,7 +129,7 @@
 						</div>
 						<div class="form-group col-sm-4">
 							<label class="control-label" for="comentarios">Comentarios: </label>
-							<textarea class="form-control" rows="5" id="comentarios_crm" name="comentarios" maxlength="500"></textarea>
+							<textarea class="form-control" rows="5" id="comentarios" name="comentarios" maxlength="500"></textarea>
 						</div>
 						<div class="form-group col-sm-4">
 							<label class="control-label" for="observaciones">Observaciones: </label>
@@ -138,11 +140,14 @@
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-sm-4 col-sm-offset-4 text-center">
-							<a class="btn btn-warning" id="limpiarp" onclick="limpiarP()">
-								<strong>Limpiar</strong>
-							</a>
-			  				<button type="submit" class="btn btn-success">
-				  				<i class="fa fa-check-circle"></i> Guardar
+			  				<button type="reset" class="btn btn-danger" id="limpiar">
+				  				<i class="fa fa-trash"></i> Limpiar
+				  			</button>
+			  				<button type="button" class="btn btn-warning" id="editar" onclick="edit()" style="display: none;">
+				  				<i class="fa fa-pencil"></i> Editar
+				  			</button>
+			  				<button type="submit" class="btn btn-success" id="guardar">
+				  				<i class="fa fa-check"></i> Guardar
 				  			</button>
 						</div>
 						<div class="col-sm-4 text-right text-danger">
@@ -168,7 +173,7 @@
 									<th>Observaciones</th>
 								</tr>
 								@foreach($paciente->crms as $crm)
-									<tr onclick="crmP({{ $crm }})">
+									<tr onclick="crms({{ $crm }})">
                                         <td>{{ date("d/m/Y", strtotime($crm->fecha_cont)) }}</td>
                                         <td>{{ date("d/m/Y", strtotime($crm->fecha_aviso)) }}</td>
 										<td>{{ $crm->hora }}</td>
@@ -188,5 +193,47 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	
+	function crms(crm) {
+		document.getElementById('limpiar').style.display = 'none';
+		document.getElementById('editar').style.display = 'inline';
+		document.getElementById('guardar').style.display = 'none';
+		$('#fecha_aviso').val(crm.fecha_aviso);
+		$('#fecha_cont').val(crm.fecha_cont);
+		$('#hora').val(crm.hora);
+		$('#tipo_cont').val(crm.tipo_cont);
+		$('#status').val(crm.status);
+		$('#acuerdos').val(crm.acuerdos);
+		$('#comentarios').val(crm.comentarios);
+		$('#observaciones').val(crm.observaciones);
+		$('#fecha_aviso').prop('disabled', true);
+		$('#fecha_cont').prop('disabled', true);
+		$('#hora').prop('disabled', true);
+		$('#tipo_cont').prop('disabled', true);
+		$('#status').prop('disabled', true);
+		$('#acuerdos').prop('disabled', true);
+		$('#comentarios').prop('disabled', true);
+		$('#observaciones').prop('disabled', true);
+	}
+
+	function edit() {
+		document.getElementById('limpiar').style.display = 'inline';
+		document.getElementById('editar').style.display = 'none';
+		document.getElementById('guardar').style.display = 'inline';
+		$('#fecha_aviso').val('{{ date('Y-m-d') }}');
+		$('#fecha_cont').val('{{ date('Y-m-d', strtotime('+2 Days')) }}');
+		$('#fecha_aviso').prop('disabled', false);
+		$('#fecha_cont').prop('disabled', false);
+		$('#hora').prop('disabled', false);
+		$('#tipo_cont').prop('disabled', false);
+		$('#status').prop('disabled', false);
+		$('#acuerdos').prop('disabled', false);
+		$('#comentarios').prop('disabled', false);
+		$('#observaciones').prop('disabled', false);
+	}
+
+</script>
 
 @endsection

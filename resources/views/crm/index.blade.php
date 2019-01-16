@@ -1,18 +1,6 @@
 @extends('layouts.blank')
 @section('content')
 
-<style type="text/css">
-    
-    .modal {
-        overflow-y: auto;
-    }
-
-    .modal-open {
-        overflow-y: auto;
-    }
-
-</style>
-
 <div class="container">
     <div class="panel panel-group">
         <div class="panel-default">

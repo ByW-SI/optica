@@ -38,234 +38,285 @@
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                        <ul class="nav navbar-nav">
-                            &nbsp;
-                        </ul>
                         <ul class="nav navbar-nav navbar-right">
                             @auth
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                        <i class="fa fa-sign-out" aria-hidden="true"></i>Logout
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                            {{-- SEGURIDAD --}}
-                            @foreach(Auth::user()->perfil->componentes as $componente)
-                            @if($componente->modulo->nombre == "seguridad")
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <i class="fa fa-lock" aria-hidden="true"></i> Seguridad<span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    @foreach(Auth::user()->perfil->componentes as $c)
-                                    @if($c->nombre == "indice perfiles")
-                                    <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{url ('perfil')}}','Perfiles')">
-                                            <i class="fa fa-universal-access" aria-hidden="true"></i> Perfiles
-                                        </a>
-                                    </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>Logout
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                                {{-- SEGURIDAD --}}
+                                @foreach(Auth::user()->perfil->componentes as $componente)
+                                    @if($componente->modulo->nombre == "seguridad")
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                                <i class="fa fa-lock" aria-hidden="true"></i> Seguridad<span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                @foreach(Auth::user()->perfil->componentes as $c)
+                                                    @if($c->nombre == "indice perfiles")
+                                                        <li>
+                                                            <a href="#" onclick="AgregarNuevoTab('{{url ('perfil')}}','Perfiles')">
+                                                                <i class="fa fa-universal-access" aria-hidden="true"></i> Perfiles
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                    @if($c->nombre == "indice usuarios")
+                                                        <li>
+                                                            <a href="#" onclick="AgregarNuevoTab('{{url ('usuario')}}','Usuarios')">
+                                                                <i class="fa fa-user-circle" aria-hidden="true"></i> Usuarios
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                @endforeach          
+                                            </ul>
+                                        </li>
+                                        @break
                                     @endif
-                                    @if($c->nombre == "indice usuarios")
-                                    <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{url ('usuario')}}','Usuarios')">
-                                            <i class="fa fa-user-circle" aria-hidden="true"></i> Usuarios
-                                        </a>
-                                    </li>
+                                @endforeach
+                                {{-- RECURSOS HUMANOS --}}
+                                @foreach(Auth::user()->perfil->componentes as $componente)
+                                    @if($componente->modulo->nombre == "rh")
+                                        <li class="dropdown">
+                                            <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><i class="fa fa-briefcase" aria-hidden="true"></i> RH<span class="caret"></span> </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                @foreach(Auth::user()->perfil->componentes as $c)
+                                                    @if($c->nombre == "crear empleado")
+                                                        <li>
+                                                            <a href="#" onclick="AgregarNuevoTab('{{ url('/empleados/create')}}','Agrega Empleado')">
+                                                                <i class="fa fa-user-plus" aria-hidden="true"></i> Alta
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                    @if($c->nombre == "indice empleados")
+                                                        <li>
+                                                            <a href="#" onclick="AgregarNuevoTab('{{ url('/empleados')}}','Buscar empleado')">
+                                                                <i class="fa fa-search" aria-hidden="true"></i> Búsqueda
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                @endforeach                 
+                                            </ul>
+                                        </li>
+                                        @break
                                     @endif
-                                    @endforeach          
-                                </ul>
-                            </li>
-                            @break
-                            @endif
-                            @endforeach
-                            {{-- RECURSOS HUMANOS --}}
-                            @foreach(Auth::user()->perfil->componentes as $componente)
-                            @if($componente->modulo->nombre == "rh")
-                            <li class="dropdown">
-                                <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><i class="fa fa-briefcase" aria-hidden="true"></i> Recursos Humanos <span class="caret"></span> </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    @foreach(Auth::user()->perfil->componentes as $c)
-                                    @if($c->nombre == "crear empleado")
-                                    <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/empleados/create')}}','Agrega Empleado')">
-                                            <i class="fa fa-user-plus" aria-hidden="true"></i> Alta de Empleado
-                                        </a>
-                                    </li>
+                                @endforeach
+                                {{-- PRECARGAS --}}
+                                @foreach(Auth::user()->perfil->componentes as $componente)
+                                    @if($componente->modulo->nombre == "precargas")
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                                <i class="fa fa-refresh" aria-hidden="true"></i> Precargas<span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <a href="#" onclick="AgregarNuevoTab('{{ url('bajas') }}','Bajas')">
+                                                        <i class="fa fa-level-down" aria-hidden="true"></i> Bajas
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" onclick="AgregarNuevoTab('{{ url('contratos') }}','Contratos')">
+                                                        <i class="fa fa-file-text-o" aria-hidden="true"></i> Contratos
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" onclick="AgregarNuevoTab('{{ url('/areas') }}','Areas')">
+                                                        <i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas Areas
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" onclick="AgregarNuevoTab('{{ url('/puestos') }}','Puestos')">
+                                                        <i class="fa fa-users" aria-hidden="true"></i> Precargas Puestos
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" onclick="AgregarNuevoTab('{{ url('/bancos') }}','Bancos')">
+                                                        <i class="fa fa-bank" aria-hidden="true"></i> Precargas Bancos
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" onclick="AgregarNuevoTab('{{ url('/giros') }}','Giros')">
+                                                        <i class="fa fa-refresh" aria-hidden="true"></i> Giros
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" onclick="AgregarNuevoTab('{{ url('/formacontactos') }}','Forma de Contacto')">
+                                                        <i class="fa fa-phone" aria-hidden="true"></i> Forma Contactos
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        @break
                                     @endif
-                                    @if($c->nombre == "indice empleados")
-                                    <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/empleados')}}','Buscar empleado')">
-                                            <i class="fa fa-search" aria-hidden="true"></i> Busqueda de Empleados
-                                        </a>
-                                    </li>
+                                @endforeach
+                                {{-- CRMS --}}
+                                @foreach(Auth::user()->perfil->componentes as $componente)
+                                    @if($componente->modulo->nombre == "crms")
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" onclick="AgregarNuevoTab('{{ route('crms.index')}}','CRMs')">
+                                                <i class="fa fa-calendar" aria-hidden="true"></i> CRM
+                                            </a>
+                                        </li>
+                                        @break
                                     @endif
-                                    @endforeach                 
-                                </ul>
-                            </li>
-                            @break
-                            @endif
-                            @endforeach
-                            {{-- PRECARGAS --}}
-                            @foreach(Auth::user()->perfil->componentes as $componente)
-                            @if($componente->modulo->nombre == "precargas")
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <i class="fa fa-refresh" aria-hidden="true"></i> Precargas<span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#" onclick="AgregarNuevoTab('{{ url('bajas') }}','Bajas')"><i class="fa fa-level-down" aria-hidden="true"></i> Bajas</a></li>
-                                    <li><a href="#" onclick="AgregarNuevoTab('{{ url('contratos') }}','Contratos')"><i class="fa fa-file-text-o" aria-hidden="true"></i> Contratos</a></li>
-                                    <li><a href="#" onclick="AgregarNuevoTab('{{ url('/areas') }}','Areas')"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas Areas</a></li>
-                                    <li><a href="#" onclick="AgregarNuevoTab('{{ url('/puestos') }}','Puestos')"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas Puestos</a></li>
-                                    <li><a href="#" onclick="AgregarNuevoTab('{{ url('/bancos') }}','Bancos')"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas Bancos</a></li>
-                                    <li><a href="#" onclick="AgregarNuevoTab('{{ url('/giros') }}','Giros')"><i class="fa fa-refresh" aria-hidden="true"></i> Giros</a></li>
-                                    <li><a href="#" onclick="AgregarNuevoTab('{{ url('/formacontactos') }}','Forma de Contacto')"><i class="fa fa-refresh" aria-hidden="true"></i> Forma Contactos</a></li>
-                                </ul>
-                            </li>
-                            @break
-                            @endif
-                            @endforeach
-
-                            {{-- CRMS --}}
-                            @foreach(Auth::user()->perfil->componentes as $componente)
-                            @if($componente->modulo->nombre == "crms")
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" onclick="AgregarNuevoTab('{{url ('crm2')}}','CRMs')">
-                                    <i class="fa fa-calendar" aria-hidden="true"></i> CRM
-                                </a>
-                            </li>
-                            @break
-                            @endif
-                            @endforeach
-
-                            {{-- PROVEEDORES --}}
-                            @foreach(Auth::user()->perfil->componentes as $componente)
-                            @if($componente->modulo->nombre == "proveedores")
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-truck" aria-hidden="true"></i> Proveedores<span class="caret"></span> </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    @foreach(Auth::user()->perfil->componentes as $c)
-                                    @if($c->nombre == "crear proveedor")
-                                    <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/provedores/create')}}','Agregar Proveedor')">
-                                            <i class="fa fa-user-plus" aria-hidden="true"></i> Alta
-                                        </a>
-                                    </li>
+                                @endforeach
+                                {{-- PRODUCTOS --}}
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Productos<span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="#" onclick="AgregarNuevoTab('{{ route('productos.index') }}','Productos')">
+                                                <i class="fa fa-tags" aria-hidden="true"></i> Productos
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onclick="AgregarNuevoTab('{{ route('inventarios.index') }}','Inventario')">
+                                                <i class="fa fa-bars" aria-hidden="true"></i> Inventario
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onclick="AgregarNuevoTab('{{ route('precios.index') }}','Precios')">
+                                                <i class="fa fa-usd" aria-hidden="true"></i> Precios
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onclick="AgregarNuevoTab('{{ route('historials.index') }}','Precios')">
+                                                <i class="fa fa-history" aria-hidden="true"></i> Historial
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                {{-- PROVEEDORES --}}
+                                @foreach(Auth::user()->perfil->componentes as $componente)
+                                    @if($componente->modulo->nombre == "proveedores")
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-truck" aria-hidden="true"></i> Proveedores<span class="caret"></span> </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                @foreach(Auth::user()->perfil->componentes as $c)
+                                                    @if($c->nombre == "crear proveedor")
+                                                        <li>
+                                                            <a href="#" onclick="AgregarNuevoTab('{{ url('/provedores/create')}}','Agregar Proveedor')">
+                                                                <i class="fa fa-user-plus" aria-hidden="true"></i> Alta
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                    @if($c->nombre == "indice proveedores")
+                                                        <li>
+                                                            <a href="#" onclick="AgregarNuevoTab('{{ url('/provedores') }}','Buscar Proveedor')">
+                                                                <i class="fa fa-search" aria-hidden="true"></i> Busqueda
+                                                            </a>
+                                                       </li>
+                                                    @endif
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                        @break
                                     @endif
-                                    @if($c->nombre == "indice proveedores")
-                                    <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/provedores') }}','Buscar Proveedor')">
-                                            <i class="fa fa-search" aria-hidden="true"></i> Busqueda
-                                        </a>
-                                   </li>
+                                @endforeach
+                                {{-- SUCURSALES --}}
+                                @foreach(Auth::user()->perfil->componentes as $componente)
+                                    @if($componente->modulo->nombre == "sucursales")
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-university" aria-hidden="true">
+                                                </i> Sucursales<span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                @foreach(Auth::user()->perfil->componentes as $c)
+                                                    @if($c->nombre == "indice sucursales")
+                                                        <li>
+                                                           <a href="#" onclick="AgregarNuevoTab('{{ url('sucursales.index')}}','Ver Sucursales')">
+                                                                <i class="fa fa-bars" aria-hidden="true"></i> Lista de Sucursales
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                    @if($c->nombre == "crear sucursal")
+                                                        <li>
+                                                            <a href="#" onclick="AgregarNuevoTab('{{ url('sucursales.create')}}','Nueva Sucursal')">
+                                                                <i class="fa fa-plus" aria-hidden="true"></i> Agregar Sucursal
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                        @break
                                     @endif
-                                    @endforeach
-                                </ul>
-                            </li>
-                            @break
-                            @endif
-                            @endforeach
-                            {{-- SUCURSALES --}}
-                            @foreach(Auth::user()->perfil->componentes as $componente)
-                            @if($componente->modulo->nombre == "sucursales")
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-university" aria-hidden="true">
-                                    </i> Sucursales<span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    @foreach(Auth::user()->perfil->componentes as $c)
-                                    @if($c->nombre == "indice sucursales")
-                                    <li>
-                                       <a href="#" onclick="AgregarNuevoTab('{{ url('sucursales.index')}}','Ver Sucursales')">
-                                            <i class="fa fa-bars" aria-hidden="true"></i> Lista de Sucursales
-                                        </a>
-                                    </li>
+                                @endforeach
+                                {{-- CONVENIOS --}}
+                                @foreach(Auth::user()->perfil->componentes as $componente)
+                                    @if($componente->modulo->nombre == "convenios")
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                                <i class="fa fa-handshake-o" aria-hidden="true"></i> Convenios<span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                @foreach(Auth::user()->perfil->componentes as $c)
+                                                    @if($c->nombre == "crear convenio")
+                                                        <li>
+                                                            <a href="#" onclick="AgregarNuevoTab('{{ url('/convenios/create')}}','Agregar Convenio')">
+                                                                <i class="fa fa-user-plus" aria-hidden="true"></i> Alta
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                    @if($c->nombre == "indice convenios")
+                                                        <li>
+                                                            <a href="#" onclick="AgregarNuevoTab('{{ url('/convenios') }}','Buscar Convenios')">
+                                                                <i class="fa fa-search" aria-hidden="true"></i> Busqueda
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                        @break
                                     @endif
-                                    @if($c->nombre == "crear sucursal")
-                                    <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('sucursales.create')}}','Nueva Sucursal')">
-                                            <i class="fa fa-plus" aria-hidden="true"></i> Agregar Sucursal
-                                        </a>
-                                    </li>
+                                @endforeach
+                                {{-- PACIENTES --}}
+                                @foreach(Auth::user()->perfil->componentes as $componente)
+                                    @if($componente->modulo->nombre == "pacientes")
+                                        <li class="dropdown">
+                                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-md" aria-hidden="true"></i> Pacientes<span class="caret"></span></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                @foreach(Auth::user()->perfil->componentes as $c)
+                                                    @if($c->nombre == "crear paciente")
+                                                        <li>
+                                                            <a href="#" onclick="AgregarNuevoTab('{{ url('/pacientes/create')}}','Agregar Paciente')">
+                                                                <i class="fa fa-user-plus" aria-hidden="true"></i> Agregar Paciente
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                    @if($c->nombre == "indice pacientes")
+                                                        <li>
+                                                            <a href="#" onclick="AgregarNuevoTab('{{ url('/pacientes') }}','Buscar Paciente')">
+                                                                <i class="fa fa-search" aria-hidden="true"></i> Busqueda
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                @endforeach
+                                                <li>
+                                                    <a href="#" onclick="AgregarNuevoTab('{{ url('/tutores') }}','Tutores')">
+                                                        <i class="fa fa-male" aria-hidden="true"></i> Tutores
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        @break
                                     @endif
-                                    @endforeach
-                                </ul>
-                            </li>
-                            @break
-                            @endif
-                            @endforeach
-                            {{-- CONVENIOS --}}
-                            @foreach(Auth::user()->perfil->componentes as $componente)
-                            @if($componente->modulo->nombre == "convenios")
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <i class="fa fa-handshake-o" aria-hidden="true"></i> Convenios<span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    @foreach(Auth::user()->perfil->componentes as $c)
-                                    @if($c->nombre == "crear convenio")
-                                    <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/convenios/create')}}','Agregar Convenio')">
-                                            <i class="fa fa-user-plus" aria-hidden="true"></i> Alta
-                                        </a>
-                                    </li>
-                                    @endif
-                                    @if($c->nombre == "indice convenios")
-                                    <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/convenios') }}','Buscar Convenios')">
-                                            <i class="fa fa-search" aria-hidden="true"></i> Busqueda
-                                        </a>
-                                    </li>
-                                    @endif
-                                    @endforeach
-                                </ul>
-                            </li>
-                            @break
-                            @endif
-                            @endforeach
-                            {{-- PACIENTES --}}
-                            @foreach(Auth::user()->perfil->componentes as $componente)
-                            @if($componente->modulo->nombre == "pacientes")
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-md" aria-hidden="true"></i> Pacientes<span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    @foreach(Auth::user()->perfil->componentes as $c)
-                                    @if($c->nombre == "crear paciente")
-                                    <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/pacientes/create')}}','Agregar Paciente')">
-                                            <i class="fa fa-user-plus" aria-hidden="true"></i> Agregar Paciente
-                                        </a>
-                                    </li>
-                                    @endif
-                                    @if($c->nombre == "indice pacientes")
-                                    <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/pacientes') }}','Buscar Paciente')">
-                                            <i class="fa fa-search" aria-hidden="true"></i> Busqueda
-                                        </a>
-                                    </li>
-                                    @endif
-                                    @endforeach
-                                    {{-- <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/excel/pacientes') }}','Alta por Excel')">
-                                            <i class="fa fa-file-excel-o" aria-hidden="true"></i> Alta por Excel
-                                        </a>
-                                    </li> --}}
-                                </ul>
-                            </li>
-                            @break
-                            @endif
-                            @endforeach
+                                @endforeach
                             @endauth
                         </ul>
                     </div>
@@ -278,42 +329,13 @@
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script> 
         <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
-
-        {{-- <script type="text/javascript">
-            function formulario(elemento){
-                if (elemento.value == "Prospecto") {
-                    document.getElementById('cliente').style.display='none';
-                    document.getElementById('cliente1').style.display='none';
-                    document.getElementById('cliente2').style.display='none';
-                }
-                if (elemento.value == "Cliente") {
-                    document.getElementById('cliente').style.display='inline';
-                    document.getElementById('cliente1').style.display='inline';
-                    document.getElementById('cliente2').style.display='inline';
-                }
-            }
-            function persona(elemento){
-                if(elemento.value == "Fisica"){
-                    document.getElementById('perfisica').style.display='inline';
-                    document.getElementById('permoral').style.display='none';
-                }
-                if(elemento.value =="Moral"){
-                    document.getElementById('perfisica').style.display='none';
-                    document.getElementById('permoral').style.display='inline';
-                }
-            }
-        </script> --}} 
         <script src="{{ asset('js/sweetalert.js') }}"></script> 
         @include('sweet::alert') 
-        <!-- ********************************************** -->
-
-
         <!-- /.container -->
         <div class="container" style="width: 100%; height: 100%;">
             <ul id="tabsApp" class="nav nav-tabs"></ul>
             <div id="contenedortab" class="tab-content"></div>
         </div>
-
         <script src="{{ asset('js/pestanas.js') }}"></script>
         <script>
             $(document).ready(function(){

@@ -1,7 +1,4 @@
-<option id="precarga0" value="">Sin Definir</option>
-
+<option id="precarga0" value="">Seleccionar</option>
 @foreach ($precargas as $precarga)
-	{{-- expr --}}
-	<option id="{{$precarga->id}}" 
-		    value="{{$precarga->id}}">{{$precarga->nombre}}</option>
+	<option id="{{ $precarga->id }}" value="{{ $precarga->id }}">{{ $precarga->nombre }}</option>
 @endforeach

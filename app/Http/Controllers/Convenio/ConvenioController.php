@@ -125,24 +125,4 @@ class ConvenioController extends Controller
         return redirect()->route('denegado');
     }
 
-    public function buscar(Request $request) {
-        if($this->hasComponent('indice convenios')) {
-            $query = $request->input('busqueda');
-            $wordsquery = explode(' ', $query);
-            $convenios = Convenio::where(function($q) use($wordsquery) {
-                foreach($wordsquery as $word) {
-                    $q->orWhere('nombre', 'LIKE', "%$word%")
-                        ->orWhere('apellidopaterno', 'LIKE', "%$word%")
-                        ->orWhere('apellidomaterno', 'LIKE', "%$word%")
-                        ->orWhere('razonsocial', 'LIKE', "%$word%")
-                        ->orWhere('rfc', 'LIKE', "%$word%")
-                        ->orWhere('alias', 'LIKE', "%$word%")
-                        ->orWhere('tipopersona', 'LIKE', "%$word%");
-                }
-            })->get();
-            return view('convenios.busqueda', ['convenios'=>$convenios]);
-        }
-        return redirect()->route('denegado');
-    }
-
 }

@@ -29,9 +29,10 @@ class PacienteHistorialOcularController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Paciente $paciente)
     {
-        //
+        $oculares = $paciente->oculares;
+        return view('paciente.ocular.index', ['paciente' => $paciente, 'oculares' => $oculares]);
     }
 
     /**
@@ -41,10 +42,7 @@ class PacienteHistorialOcularController extends Controller
      */
     public function create(Paciente $paciente)
     {
-        
-        return view('pacienteocular.create',
-                    ['paciente'=>$paciente,
-                     'edit'=>false]);
+        return view('pacienteocular.create', ['paciente' => $paciente, 'edit' => false]);
     }
 
     /**
@@ -119,36 +117,25 @@ class PacienteHistorialOcularController extends Controller
         }
         
 
-        $path='ImagenOcular/'.$paciente->identificador;
+        $path = 'ImagenOcular/'.$paciente->identificador;
 
-        if($request->file('archivo_imagen')!= null){
-            $oculars->archivo_imagen =$request->archivo_imagen->storeAs('ImagenOcular/'.$paciente->identificador, $oculars->id.'.jpg');
+        if($request->file('archivo_imagen') != null){
+            $oculars->archivo_imagen = $request->archivo_imagen->storeAs('ImagenOcular/' . $paciente->identificador, $oculars->id . '.jpg');
             // dd($request->file('archivo_imagen'));
             // $oculars->archivo_imagen=$request->file('archivo_imagen')->store($path);
         }
         if($request->eje_oi == 'Otro')
             $oculars->eje_oi = $request->val_eje_oi;
-
         if($request->eje_od == 'Otro')
             $oculars->eje_od = $request->val_eje_od;
-        
-
-        
-
         $oculars->save();
-         Alert::success('Nuevo Historial Guardado', 'Continuar');
-    //***************************************************************/
-        if(isset($request->opciones[1])){
-            
-            $info=$request->all();
-            $pdf = PDF::loadView('pacienteocular.pdf', ['info'=>$info,'paciente'=>$paciente]);
+        Alert::success('Nuevo Historial Guardado', 'Continuar');
+        if(isset($request->opciones[1])) {
+            $info = $request->all();
+            $pdf = PDF::loadView('pacienteocular.pdf', ['info' => $info,'paciente' => $paciente]);
             return $pdf->download('Reporte_ocular.pdf');
-
-                }
-      
-
-       return redirect()->route('pacientes.show',['paciente'=>$paciente->id]);
-           
+        }
+        return redirect()->route('pacientes.show',['paciente' => $paciente->id]);
     }
 
     /**

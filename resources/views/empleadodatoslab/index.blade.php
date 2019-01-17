@@ -158,28 +158,28 @@
 
 <div class="well well-sm" align="center"><strong>Historial Laboral</strong></div>
     <table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px;">
-				<thead>
-					<tr class="info">
-						<th>Área</th>
-						<th>Puesto</th>
-						<th>Sucursal</th>
-						<th>Almacen</th>
-						<th>Salario Nominal</th>
-						<th>Tipo de Contrato</th>
-						<th>Fecha de Actualización</th>
-					</tr>
-				</thead>
-                <tbody>
-				@foreach ($datoslab as $dato)
-					<tr  class="active"
+		<thead>
+			<tr class="info">
+				<th>Área</th>
+				<th>Puesto</th>
+				<th>Sucursal</th>
+				<th>Almacen</th>
+				<th>Salario Nominal</th>
+				<th>Tipo de Contrato</th>
+				<th>Fecha de Actualización</th>
+			</tr>
+		</thead>
+        <tbody>
+			@foreach ($datoslab as $dato)
+				<tr  class="active"
 				    title="Has Click Aquì para Ver"
 					style="cursor: pointer"
 					data-toggle="modal" 
 					data-target="#{{$dato->id}}">
 
- 					@if($dato->area_id==null)
-						<td>NO DEFINIDO</td>
-						@else
+				@if($dato->area_id==null)
+					<td>NO DEFINIDO</td>
+					@else
 						 <?php $a='';?>
 							@foreach($areas as $area)
 								@if($dato->area_id==$area->id)

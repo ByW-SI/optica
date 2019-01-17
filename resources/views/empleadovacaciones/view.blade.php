@@ -34,20 +34,21 @@
 				
 				</div>
 				<div class="col-xs-12 offset-md-2 mt-3">
-							<div class="form-group col-xs-4">
-	    					<label class="control-label" for="diastomados">Número de días de vacaciones:</label>
-	    					<input type="text" class="form-control" id="dias_vac" name="diastomados">
-	  			</div>
+					<div class="form-group col-xs-4">
+    					<label class="control-label" for="diastomados">Número de días de vacaciones:</label>
+    					<input type="text" class="form-control" id="dias_vac" name="diastomados">
+	  				</div>
 				</div>
 				<div class="col-xs-12 offset-md-2 mt-3">
-							<div class="form-group col-xs-4">
-	    					<label class="control-label" for="diasrestantes">Días de vacaciones restantes:</label>
-	    					<input type="text" class="form-control" id="dias_vac_rest" name="diasrestantes">
-	  			</div>
+					<div class="form-group col-xs-4">
+    					<label class="control-label" for="diasrestantes">Días de vacaciones restantes:</label>
+    					<input type="text" class="form-control" id="dias_vac_rest" name="diasrestantes">
+	  				</div>
 				</div>
 				<div class="col-xs-12 offset-md-2 mt-6">
 					<div class="form-group col-xs-2">
-						<label class="" for="periodo1">Periodo de:<input type="text" class="form-control" id="dias_vac_rest" name="periodo1"></label> 
+						<label class="" for="periodo1">Periodo de:</label>
+						<input type="text" class="form-control" id="dias_vac_rest" name="periodo1"> 
 					</div>
 						<div class="form-group col-xs-2">
 							<label>al día : </label><input type="text" class="form-control" id="dias_vac_rest" name="periodo2">

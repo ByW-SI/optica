@@ -198,6 +198,11 @@
                                                 <i class="fa fa-history" aria-hidden="true"></i> Historial
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="#" onclick="AgregarNuevoTab('{{ route('ventas.create') }}','Punto de venta')">
+                                                <i class="fa fa-credit-card-alt" aria-hidden="true"></i> Punto de venta
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 {{-- PROVEEDORES --}}
@@ -346,5 +351,6 @@
                 });
             });
         </script> 
+        
     </body>
 </html>

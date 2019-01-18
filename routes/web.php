@@ -142,3 +142,7 @@ Route::get('inventarios/{inventario}/baja', 'Inventario\InventarioController@baj
 Route::post('inventarios/{inventario}/alta', 'Inventario\InventarioController@darAlta')->name('inventarios.alta.update');
 Route::post('inventarios/{inventario}/baja', 'Inventario\InventarioController@darBaja')->name('inventarios.baja.update');
 Route::resource('precios', 'Precio\PrecioController', ['except' => 'show', 'destroy']);
+
+
+// BLUEPRINT PUNTO DE VENTA
+Route::get('ventas','Producto\PuntoVentaController@create')->name('ventas.create');

@@ -123,6 +123,7 @@ Route::get('getalmacen', 'Almacen\AlmacenController@getAlmacen');
 Route::get('getbancos', 'Banco\BancoController@getBancos');
 Route::get('getgiros', 'Giro\GiroController@getGiros');
 Route::get('getcontacto', 'FormaContacto\FormaContactoController@getContactos');
+Route::get('getconvenio', 'Convenio\ConvenioTipoConvenioController@getConvenios');
 
 // SESSION
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -146,3 +147,4 @@ Route::resource('precios', 'Precio\PrecioController', ['except' => 'show', 'dest
 
 // BLUEPRINT PUNTO DE VENTA
 Route::get('ventas','Producto\PuntoVentaController@create')->name('ventas.create');
+Route::resource('pago', 'Producto\PuntoVentaController');

@@ -138,4 +138,14 @@ class ConvenioTipoConvenioController extends Controller
     {
         //
     }
+
+    public function getConvenios(Request $request)
+    {
+        $convenios = Convenio::all();
+        //return "{\"convenio\":\"$tipos_convenios\"}";
+        return response()->json(['convenios' => $convenios], 200);
+    }
+
+    //Crear metodo para recibir la peticion por ajax de la tabla tipoconvenio
+
 }

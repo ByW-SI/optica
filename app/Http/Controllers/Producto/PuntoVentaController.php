@@ -19,4 +19,10 @@ class PuntoVentaController extends Controller
     	return view('venta.create',['sucursales'=>$sucursales,'tipoconvenios'=>$tipoconvenios,'productos'=>$productos]);
     	// dd($sucursales);
     }
+
+    public function store(Request $request)
+    {
+    	$falta = $request->falta;
+    	return view('venta.pagos', ['datos_form' => $request->all()]);
+    }
 }

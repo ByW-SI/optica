@@ -10,9 +10,10 @@
 						</div>
 					</div>
 				</div>
-				<form>
+				<form role="form" method="POST" action="{{ url('pago') }}">
+					{{ csrf_field() }}
 					<div class="panel-body">
-						<div class="row">
+						<div class="row" id="panel_venta">
 							<div class="form-group col-sm-3">
 								<label class="control-label">
 									Fecha:
@@ -32,9 +33,21 @@
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">
-									Número de ticket:
+									Número de venta:
 								</label>
 								<input class="form-control" type="text" name="ticket" readonly="" id="ticket">
+							</div>
+							<div class="form-group col-sm-3">
+								<label class="control-label">
+									ID:
+								</label>
+								<input class="form-control" type="text" name="id" id="id_paciente" required>
+							</div>
+							<div class="form-group col-sm-3">
+								<label class="control-label">
+									Cantidad de trámites:
+								</label>
+								<input class="form-control" type="number" step="1" min="1" name="tramites" required>
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">
@@ -44,9 +57,12 @@
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">
-									Cantidad de trámites:
+									Tipo convenio:
 								</label>
-								<input class="form-control" type="number" step="1" min="1" name="tramites" required>
+								<select class="form-control" size="1" name="tipo_convenio" id="TConvenio" onchange="showTipoConvenio(this)">
+									<option value="particular">Particular</option>
+									<option value="convenio">Con convenio</option>
+								</select> 
 							</div>
 						</div>
 					</div>
@@ -67,6 +83,7 @@
 								  <input type="text" class="form-control" id="search_productos" placeholder="Buscar producto" aria-describedby="basic-addon2">
 								  <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
 								</div>
+								<br>
 							</div>
 						</div>
 						<div class="row" id="descripcion">
@@ -101,15 +118,17 @@
 								<tbody id="myProd"></tbody>
 							</table>
 						</div>
+						<!--
 						<div class="row">
 							<div class="form-group col-sm-6">
 								<label class="control-label">
 									Convenios:
 								</label>
 								<div class="input-group">
-								  <input type="text" class="form-control" id="search_convenios" placeholder="Buscar producto" aria-describedby="basic-addon2">
+								  <input type="text" class="form-control" id="search_convenios" placeholder="Buscar convenios" aria-describedby="basic-addon2">
 								  <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
 								</div>
+								<br>
 							</div>
 						</div>
 						<div class="row" id="descconvenio">
@@ -144,52 +163,76 @@
 								<tbody id="myConvenios"></tbody>
 							</table>
 						</div>
+						-->
 						<div class="row">
 							<div class="col-sm-4">
 								<div class="input-group">
 								  <span class="input-group-addon" id="basic-addon1">Fecha de entrega:</span>
-								  <input type="date" class="form-control" min="{{date('Y-m-d')}}" id="fecha" aria-describedby="basic-addon1">
+								  <input type="date" name="fecha" class="form-control" min="{{date('Y-m-d')}}" id="fecha" aria-describedby="basic-addon1">
 								</div>
 							</div>
 							<div class="col-sm-offset-4 col-sm-4">
-								<div class="input-group">
-								  <span class="input-group-addon" id="basic-addon1">Subtotal: $</span>
-								  <input type="number" readonly="" class="form-control" id="subtotal" aria-describedby="basic-addon1">
+								<div class="form-group">
+								  <span class="align-span" id="basic-addon1">Subtotal: $</span><input type="number" name="subtotal" readonly="" class="align-input" id="subtotal" aria-describedby="basic-addon1">
 								</div>
 							</div>
-							<div class="col-sm-offset-8 col-sm-4">
-								<div class="input-group">
-								  <span class="input-group-addon" id="basic-addon1">IVA: $</span>
-								  <input type="number" readonly="" class="form-control" id="iva" aria-describedby="basic-addon1">
+						</div>
+						<div class="row">
+							<div class="col-sm-offset-8 col-sm-5">
+								<div class="form-group">
+								  <span class="align-span" id="basic-addon1">IVA: $</span><input type="number" name="iva" readonly="" class="align-input" id="iva" aria-describedby="basic-addon1">
 								</div>
 							</div>
-							<div class="col-sm-offset-8 col-sm-4">
+							<div class="col-sm-offset-8 col-sm-5">
 								<div class="input-group">
-								  <span class="input-group-addon" id="basic-addon1">Total: $</span>
-								  <input type="number" readonly="" class="form-control" id="total" aria-describedby="basic-addon1">
+								  <span class="align-span" id="basic-addon1">Total: $</span><input type="number" name="total" readonly="" class="align-input" id="total" aria-describedby="basic-addon1">
 								</div>
 							</div>
-							<div class="col-sm-offset-8 col-sm-4">
+							<div class="col-sm-offset-8 col-sm-5">
 								<div class="input-group">
-								  <span class="input-group-addon" id="basic-addon1">A cuenta: $</span>
-								  <input type="number" class="form-control" step="0.01" min="0" id="cuenta" onchange="setFalta()" aria-describedby="basic-addon1">
+								  <span class="align-span" id="basic-addon1">A cuenta: $</span><input type="number" name="a_cuenta" class="align-input" style="background-color: #fff;" step="0.01" min="0" id="cuenta" onchange="setFalta()" aria-describedby="basic-addon1">
 								</div>
 							</div>
-							<div class="col-sm-offset-8 col-sm-4">
+							<div class="col-sm-offset-8 col-sm-5">
 								<div class="input-group">
-								  <span class="input-group-addon" id="basic-addon1">Falta: $</span>
-								  <input type="number" class="form-control" readonly="" id="falta" aria-describedby="basic-addon1">
+								  <span class="align-span" id="basic-addon1">Falta: $</span><input type="number" name="falta" class="align-input" readonly="" id="falta" aria-describedby="basic-addon1">
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-4 col-sm-offset-4 text-center">
-			  				<button type="submit" class="btn btn-success">
-				  				<i class="fa fa-check-circle"></i> Guardar
+			  				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#gridSystemModal">
+				  				<i class="fa fa-check-circle"></i> Pagar
 				  			</button>
 						</div>
 					</div>
+					<!-- ####### MODAL #####-->
+					<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="gridSystemModal">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="gridSystemModalLabel">Punto de venta</h4>
+					      </div>
+					      <div class="modal-body">
+					        <div class="row">
+					          <div class="col-sm-9">
+					            <h3>¿Estas seguro?</h3>
+					          </div>
+					        </div>
+					      </div>
+					      <div class="modal-footer">
+					        <div class="row">
+					        	<div class="col-sm-9">
+					        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					        		<button type="submit" class="btn btn-primary">Si</button>
+					        	</div>
+					        </div>
+					      </div>
+					    </div><!-- /.modal-content -->
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->
 				</form>
 			</div>
 		</div>
@@ -228,7 +271,7 @@
 	    			@endif
 	    		@endforeach
 	    	];
-	    	console.log(convenios);
+	    	//console.log(convenios);
 		    $("#search_productos").autocomplete({
 		        source: productos,
 		        minLength: 0,
@@ -239,17 +282,24 @@
 		    }).click(function () {
 		        $(this).autocomplete('search')
 		    });
-		    $("#search_convenios").autocomplete({
+		    $('#search_convenios').autocomplete({
 		        source: convenios,
 		        minLength: 0,
 		        select:function (event,ui) {
 		        	showConvenios(ui);
-		        	$("#search_convenios").val("");
+		        	$('#search_convenios').value("");
 		        }
 		    }).click(function () {
 		        $(this).autocomplete('search')
 		    });
+
+		    var pacientes = []
+
+		    $('#id_paciente').autocomplete({
+		    	source: pacientes
+		    })
 		});
+
 		function showProducto(element) {
 			var stringproducto=JSON.stringify(element.item.producto);
 			$("#descripcion").empty();
@@ -394,11 +444,10 @@
 			$("#subtotal").val(subtotal);
 			$("#iva").val(iva);
 			$("#total").val(total);
-
 		}
 		function addConvenio(convenio) {
 			// body...
-			console.log(convenio);
+			//console.log(convenio);
 			$(".total-prod").each(function(index){
 				if(index+1 <= convenio.num_prod){
 					total_desc = $(this).val()-($(this).val()*(convenio.desc_prod/100)); 
@@ -443,5 +492,67 @@
 			$(`#total${id}`).val(total);
 			setTotal();
 		}
+
+		function showTipoConvenio(select) {
+			if ($(select).val() == "convenio") {
+				$.ajax({
+					url : "getconvenio",
+					type : "GET",
+					dataType : "json",
+					data : {
+						query : 'text',
+						seccion : 'sec'
+					},
+				}).done(function(data) {
+					var option = '' ;
+					for (var i = 0; i < data.convenios.length; i++) 
+						option += `<option value="${data.convenios[i].id}">${data.convenios[i].nombre} ${data.convenios[i].apellidopaterno}</option>`;
+
+					convenios = `<div class="form-group col-sm-3" id="convenios">
+								<label class="control-label">
+									Convenio:
+								</label>
+								<select class="form-control" size="1" name="convenios_all" id="TConvenio" onchange="showTipoConvenio(this)">
+									${option}
+								</select> 
+							</div>`;
+					$('#panel_venta').append(convenios);
+				}).fail(function(data){
+					console.log('Fail' + data);
+				});
+				
+
+				
+			}
+			else if ($(select).val() == "particular") {
+				$('#convenios').remove();
+			}
+		}
 	</script>
+	<style type="text/css">
+		.align-span{
+			width: 100px;
+			display: inline-block;
+			padding: 10px 0px 10px 12px;
+			text-align: center;
+			background-color: #eee; 
+			line-height: 1;
+			border: 1px solid #ccd0d2;
+			border-radius: 4px;
+			border-bottom-right-radius: 0;
+			border-top-right-radius: 0;
+		}
+		.align-input{
+			width: 200px;
+			padding: 6px 12px 6px 0px;
+			border-radius: 4px;
+			background-color: #eee;
+			border: 1px solid #ccd0d2;
+			border-bottom-left-radius: 0;
+			border-top-left-radius: 0;
+		}
+		.form-group{
+			margin-bottom: 0px;
+		}
+	</style>
 @endsection

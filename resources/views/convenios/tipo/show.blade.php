@@ -20,6 +20,20 @@
 			</div>
 			<div class="panel-body">
 				<div class="row">
+						<div class="form-group col-sm-3">
+							<label class="control-label" for="desc_prod"> Número de tramites</label>
+							<div class="input-group">
+								<span class="input-group-addon">#</span><label type="number" class="form-control" id="num_tramites" name="num_tramites">{{$tipoconvenio->num_tramites}}</label>
+							</div>
+						</div>
+						<div class="form-group col-sm-3">
+							<label class="control-label" for="desc_prod"> Monto</label>
+							<div class="input-group">
+								<span class="input-group-addon">$</span><label type="number" class="form-control" id="monto" name="monto">{{$tipoconvenio->monto}}</label>
+							</div>
+						</div>
+					</div>
+				<div class="row">
 					<div class="form-group col-sm-3">
 						<label class="control-label" for="desc_prod"> Descuento por producto:</label>
 						<div class="input-group">

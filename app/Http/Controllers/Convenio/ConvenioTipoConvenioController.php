@@ -65,7 +65,9 @@ class ConvenioTipoConvenioController extends Controller
                 'valido_inicio'=>'required|date',
                 'valido_fin'=>'required|date',
                 'aplican'=>'required|string',
-                'convenio_id'=>'required|numeric'
+                'convenio_id'=>'required|numeric',
+                'num_tramites'=>'required|numeric|min:0',
+                'monto'=>'required|numeric|min:0',
 
             ];
             $this->validate($request, $rules);
@@ -120,6 +122,8 @@ class ConvenioTipoConvenioController extends Controller
             'valido_inicio'=>'required|date',
             'valido_fin'=>'required|date',
             'aplican'=>'required|string',
+            'num_tramites'=>'required|numeric|min:0',
+            'monto'=>'required|numeric|min:0',
 
         ];
         $this->validate($request,$rules);
@@ -142,7 +146,6 @@ class ConvenioTipoConvenioController extends Controller
     public function getConvenios(Request $request)
     {
         $convenios = Convenio::all();
-        //return "{\"convenio\":\"$tipos_convenios\"}";
         return response()->json(['convenios' => $convenios], 200);
     }
 

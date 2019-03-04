@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Producto;
 use App\Sucursal;
 use App\TipoConvenio;
+use App\Paciente;
 use Illuminate\Http\Request;
 
 class PuntoVentaController extends Controller
@@ -16,7 +17,8 @@ class PuntoVentaController extends Controller
     	$sucursales= Sucursal::get();
     	$tipoconvenios=TipoConvenio::get();
     	$productos=Producto::get();
-    	return view('venta.create',['sucursales'=>$sucursales,'tipoconvenios'=>$tipoconvenios,'productos'=>$productos]);
+    	$pacientes = Paciente::get();
+    	return view('venta.create',['sucursales'=>$sucursales,'tipoconvenios'=>$tipoconvenios,'productos'=>$productos,'pacientes'=>$pacientes]);
     	// dd($sucursales);
     }
 

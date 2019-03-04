@@ -45,18 +45,6 @@
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">
-									Cantidad de trámites:
-								</label>
-								<input class="form-control" type="number" step="1" min="1" name="tramites" required>
-							</div>
-							<div class="form-group col-sm-3">
-								<label class="control-label">
-									Número de autorización:
-								</label>
-								<input class="form-control" type="text" name="autorizacion" required>
-							</div>
-							<div class="form-group col-sm-3">
-								<label class="control-label">
 									Tipo convenio:
 								</label>
 								<select class="form-control" size="1" name="tipo_convenio" id="TConvenio" onchange="showTipoConvenio(this)">
@@ -118,14 +106,14 @@
 								<tbody id="myProd"></tbody>
 							</table>
 						</div>
-						<!--
+
 						<div class="row">
 							<div class="form-group col-sm-6">
 								<label class="control-label">
-									Convenios:
+									Descuentos:
 								</label>
 								<div class="input-group">
-								  <input type="text" class="form-control" id="search_convenios" placeholder="Buscar convenios" aria-describedby="basic-addon2">
+								  <input type="text" class="form-control" id="search_convenios" placeholder="Buscar descuentos" aria-describedby="basic-addon2">
 								  <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
 								</div>
 								<br>
@@ -133,6 +121,7 @@
 						</div>
 						<div class="row" id="descconvenio">
 						</div>
+						<br>
 						<div class="row">
 							<table class="table table-striped table-bordered table-hover">
 								<thead>
@@ -163,12 +152,12 @@
 								<tbody id="myConvenios"></tbody>
 							</table>
 						</div>
-						-->
+
 						<div class="row">
 							<div class="col-sm-4">
 								<div class="input-group">
 								  <span class="input-group-addon" id="basic-addon1">Fecha de entrega:</span>
-								  <input type="date" name="fecha" class="form-control" min="{{date('Y-m-d')}}" id="fecha" aria-describedby="basic-addon1">
+								  <input type="date" name="fecha" class="form-control" min="{{date('Y-m-d')}}" id="fecha" aria-describedby="basic-addon1" required="">
 								</div>
 							</div>
 							<div class="col-sm-offset-4 col-sm-4">
@@ -185,17 +174,17 @@
 							</div>
 							<div class="col-sm-offset-8 col-sm-5">
 								<div class="input-group">
-								  <span class="align-span" id="basic-addon1">Total: $</span><input type="number" name="total" readonly="" class="align-input" id="total" aria-describedby="basic-addon1">
+								  <span class="align-span" id="basic-addon1">Total: $</span><input type="number" name="total" readonly="" class="align-input" id="total" aria-describedby="basic-addon1" onchange="setFalta()">
 								</div>
 							</div>
 							<div class="col-sm-offset-8 col-sm-5">
 								<div class="input-group">
-								  <span class="align-span" id="basic-addon1">A cuenta: $</span><input type="number" name="a_cuenta" class="align-input" style="background-color: #fff;" step="0.01" min="0" id="cuenta" onchange="setFalta()" aria-describedby="basic-addon1">
+								  <span class="align-span" id="basic-addon1">Convenio: </span><input type="text" name="convenio" class="align-input" id="convenio_total" aria-describedby="basic-addon1">
 								</div>
 							</div>
 							<div class="col-sm-offset-8 col-sm-5">
 								<div class="input-group">
-								  <span class="align-span" id="basic-addon1">Falta: $</span><input type="number" name="falta" class="align-input" readonly="" id="falta" aria-describedby="basic-addon1">
+								  <span class="align-span" id="basic-addon1">Total a pagar: $</span><input type="number" name="falta" class="align-input" readonly="" id="falta" aria-describedby="basic-addon1">
 								</div>
 							</div>
 						</div>
@@ -244,6 +233,9 @@
 	<script type="text/javascript">
 		function setFalta(){
 			var falta = $("#total").val() - $("#cuenta").val();
+			/*
+			aqui tengo que restar el monto del convenio si es que hay convenio si no se pasa igual al total
+			*/
 			$("#falta").val(falta);
 		}
 		function getSucursal(sel){
@@ -256,7 +248,7 @@
 	    	var productos =[
 	    		@foreach ($productos as $producto)
 	    			{
-	    				label:"{{$producto->descripcion}} ${{$producto->precio['precio']}}",
+	    				label:"{{$producto->descripcion}} ${{$producto->precio}}",
 	    				producto:@json($producto),
 	    			},
 	    		@endforeach
@@ -271,13 +263,24 @@
 	    			@endif
 	    		@endforeach
 	    	];
+	    	console.log(convenios);
+	    	var pacientes =[
+	    		@foreach ($pacientes as $paciente)
+	    			@if($paciente->identificador)
+		    			{
+		    				label:"{{$paciente->identificador}}",
+		    				convenio:@json($paciente),
+		    			},
+	    			@endif
+	    		@endforeach
+	    	];
 	    	//console.log(convenios);
 		    $("#search_productos").autocomplete({
 		        source: productos,
 		        minLength: 0,
 		        select:function (event,ui) {
 		        	showProducto(ui);
-		        	$("#search_productos").val("");
+		        	$("#search_productos").value("");
 		        }
 		    }).click(function () {
 		        $(this).autocomplete('search')
@@ -293,11 +296,15 @@
 		        $(this).autocomplete('search')
 		    });
 
-		    var pacientes = []
-
 		    $('#id_paciente').autocomplete({
-		    	source: pacientes
-		    })
+		    	source: pacientes,
+		    	minLength: 0,
+		    	select:function(event,ui) {
+		    		$('#id_paciente').val(ui);
+		    	}
+		    }).click(function () {
+		        $(this).autocomplete('search')
+		    });
 		});
 
 		function showProducto(element) {
@@ -342,7 +349,7 @@
 						Precio:
 					</label>
 					<label class="form-control">
-						$${element.item.producto.precio.precio}
+						$${element.item.producto.precio}
 					</label>
 				</div>
 				<div class="form-group col-sm-3">
@@ -402,7 +409,7 @@
 		}
 		function addProducto(producto) {
 			// body...
-			console.log(producto);
+			//console.log(producto);
 
 
 			var rowHTML=
@@ -411,18 +418,18 @@
 				<td>${producto.marca}</td>
 				<td>${producto.categoria}</td>
 				<td>${producto.descripcion}</td>
-				<td id="precio${producto.id}" class="precio">${producto.precio.precio}</td>
+				<td id="precio${producto.id}" class="precio">${producto.precio}</td>
 				<td>
 					<div class="input-group">
 					  <span class="input-group-addon">Cantidad</span>
-					  <input type="number" min="1" step="1" value="1" onchange="setTotalP(${producto.id},${producto.precio.precio},this)" class="form-control">
+					  <input type="number" min="1" step="1" value="1" onchange="setTotalP(${producto.id},${producto.precio},this)" class="form-control">
 					  <span class="input-group-addon">Piezas</span>
 					</div>
 				</td>
 				<td>
 					<div class="input-group">
 					  	<span class="input-group-addon">Total:$</span>
-					  	<input type="number" min="1" step="1" value="${producto.precio.precio}" id="total${producto.id}" class="form-control total-prod" readonly>
+					  	<input type="number" min="1" step="1" value="${producto.precio}" id="total${producto.id}" class="form-control total-prod" readonly>
 				  		<span class="btn btn-danger input-group-addon" onclick="removeProducto('row${producto.id}')">
                        		<i class="fa fa-trash" aria-hidden="true"></i>
                        	</span>
@@ -437,9 +444,9 @@
 			var iva = 0;
 			var subtotal=0;
 			$(".total-prod").each(function(index){
-				subtotal = + subtotal + +($(this).val()*0.84);
-				iva = +iva + +($(this).val()*0.16);
-				total = +total + +$(this).val();
+				subtotal = subtotal +($(this).val()*0.84);
+				iva = iva + ($(this).val()*0.16);
+				total = total + $(this).val();
 			});
 			$("#subtotal").val(subtotal);
 			$("#iva").val(iva);
@@ -506,32 +513,65 @@
 				}).done(function(data) {
 					var option = '' ;
 					for (var i = 0; i < data.convenios.length; i++) 
-						option += `<option value="${data.convenios[i].id}">${data.convenios[i].nombre} ${data.convenios[i].apellidopaterno}</option>`;
+						option += `<option value="${data.convenios[i].nombre} ${data.convenios[i].apellidopaterno}">${data.convenios[i].nombre} ${data.convenios[i].apellidopaterno}</option>`;
 
-					convenios = `<div class="form-group col-sm-3" id="convenios">
-								<label class="control-label">
-									Convenio:
-								</label>
-								<select class="form-control" size="1" name="convenios_all" id="TConvenio" onchange="showTipoConvenio(this)">
-									${option}
-								</select> 
-							</div>`;
-					$('#panel_venta').append(convenios);
+					convenios = `<div class="form-group col-sm-3" id="tramites">
+									<label class="control-label">
+										Cantidad de trámites:
+									</label>
+									<input class="form-control" type="number" step="1" min="1" name="tramites" required>
+								</div>
+								<div class="form-group col-sm-3" id="autorizacion">
+									<label class="control-label">
+										Número de autorización:
+									</label>
+									<input class="form-control" type="text" name="autorizacion" required>
+								</div>
+								<div class="form-group col-sm-3" id="personal">
+									<label class="control-label">
+										Personal:
+									</label>
+									<select class="form-control" size="1" name="convenios_all" id="personal" required>
+										<option value="Docente">Docente</option>
+										<option value="Administrativo">Administrativo</option>
+										<option value="Jubilado">Jubilado</option>
+										<option value="Dependiente de Docente">Dependiente de Docente</option>
+										<option value="Dependiente Administrativo">Dependiente Administrativo</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-3" id="convenios">
+									<label class="control-label">
+										Convenio:
+									</label>
+									<select class="form-control" size="1" name="convenios_all" id="Convenio" onchange="setConveniofinal()">
+										<option value="">Seleccionar --</option>
+										${option}
+									</select> 
+								</div>`;
+						$('#panel_venta').append(convenios);
 				}).fail(function(data){
 					console.log('Fail' + data);
-				});
-				
-
-				
+				});			
 			}
 			else if ($(select).val() == "particular") {
 				$('#convenios').remove();
+				$('#autorizacion').remove();
+				$('#tramites').remove();
+				$('#personal').remove();
+				$('#convenio_total').val("");
 			}
+		}
+
+		function setConveniofinal(){
+			$('#convenio_total').val("");
+			var contenido = $('#Convenio option:selected').val();
+			console.log(contenido);
+			$('#convenio_total').val(contenido);
 		}
 	</script>
 	<style type="text/css">
 		.align-span{
-			width: 100px;
+			width: 130px;
 			display: inline-block;
 			padding: 10px 0px 10px 12px;
 			text-align: center;
@@ -544,7 +584,7 @@
 		}
 		.align-input{
 			width: 200px;
-			padding: 6px 12px 6px 0px;
+			padding: 6px 12px 6px 12px;
 			border-radius: 4px;
 			background-color: #eee;
 			border: 1px solid #ccd0d2;

@@ -137,10 +137,10 @@
 			// body...
 			$('#forma_pago').change(function(event) {
 				var option = $('#forma_pago option:selected').val();
-				var total = parseInt($('#total_pago').val(), 10);
-				var monto = parseInt($('#monto_pagar_TC').val(), 10);
-				var monto_ef = parseInt($('#monto_pagar_EF').val(), 10);
-				var monto_trans = parseInt($('#monto_pagar_TRANS').val(), 10);
+				var total = parseFloat($('#total_pago').val());
+				var monto = parseFloat($('#monto_pagar_TC').val());
+				var monto_ef = parseFloat($('#monto_pagar_EF').val());
+				var monto_trans = parseFloat($('#monto_pagar_TRANS').val());
 				if (option === "TC") {
 					$('#trans').hide();
 					$('#ef').hide();
@@ -177,10 +177,10 @@
 		});
 		function setSaldo() {
 			var option = $('#forma_pago option:selected').val();
-			var total = parseInt($('#total_pago').val(), 10);
-			var monto = parseInt($('#monto_pagar_TC').val(), 10);
-			var monto_ef = parseInt($('#monto_pagar_EF').val(), 10);
-			var monto_trans = parseInt($('#monto_pagar_TRANS').val(), 10);
+			var total = parseFloat($('#total_pago').val(), 10);
+			var monto = parseFloat($('#monto_pagar_TC').val(), 10);
+			var monto_ef = parseFloat($('#monto_pagar_EF').val(), 10);
+			var monto_trans = parseFloat($('#monto_pagar_TRANS').val(), 10);
 			if (option === "TC") {
 				if (isNaN(monto)) {
 					$('#saldo_TC').val(total.toString());

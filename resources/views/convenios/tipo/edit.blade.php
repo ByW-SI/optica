@@ -26,6 +26,16 @@
 					<input type="hidden" name="_method" value="PUT" required>
 					<div class="row">
 						<div class="form-group col-sm-3">
+							<label class="control-label" for="desc_prod"> Número de tramites</label>
+							<input class="form-control" type="number" step="1" min="1" name="num_tramites" required value="{{ $tipoconvenio->num_tramites }}">
+						</div>
+						<div class="form-group col-sm-3">
+							<label class="control-label" for="desc_prod"> Monto</label>
+							<input class="form-control" type="number" step="1" min="1" name="monto" required value="{{ $tipoconvenio->monto }}">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-3">
 							<label class="control-label" for="desc_prod"> Descuento por producto:</label>
 							<div class="input-group">
 								<input type="number" class="form-control" id="desc_prod" name="desc_prod" value="{{$tipoconvenio->desc_prod}}"><span class="input-group-addon">%</span>

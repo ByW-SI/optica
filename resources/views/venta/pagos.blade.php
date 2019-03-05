@@ -11,8 +11,14 @@
 						</div>
 					</div>
 				</div>
-				<form role="form" method="POST" action="{{ route('productos.store') }}" enctype="multipart/form-data">
+				<form role="form" method="POST" action="{{ url('pagar') }}">
+					{{ csrf_field() }}
 					<div class="panel-body">
+						<input type="hidden" name="productos_id" value="{{ $productos }}">
+						@foreach ($datos_form as $dato)
+							<input type="hidden" name="datos_form[]" value="{{ $dato }}">
+						@endforeach
+
 						<div class="row">
 							<div class="form-group col-sm-3">
 								<label class="control-label">
@@ -68,7 +74,7 @@
 								<label class="control-label">
 									Monto a pagar
 								</label>
-								<input type="text" name="monto_pagar_TC" class="form-control" id="monto_pagar_TC" pattern="[1-9]" onchange="setSaldo();">
+								<input type="text" name="monto_pagar_TC" class="form-control" id="monto_pagar_TC" onchange="setSaldo();">
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">
@@ -89,7 +95,7 @@
 								<label class="control-label">
 									Monto a pagar
 								</label>
-								<input type="text" name="monto_pagar_EF" class="form-control" pattern="[1-9]" id="monto_pagar_EF" onchange="setSaldo();">
+								<input type="text" name="monto_pagar_EF" class="form-control" id="monto_pagar_EF" onchange="setSaldo();">
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">

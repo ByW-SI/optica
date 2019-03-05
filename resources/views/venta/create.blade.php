@@ -174,7 +174,7 @@
 							</div>
 							<div class="col-sm-offset-8 col-sm-5">
 								<div class="input-group">
-								  <span class="align-span" id="basic-addon1">Total: $</span><input type="number" name="total" readonly="" class="align-input" id="total" aria-describedby="basic-addon1" onchange="setFalta()">
+								  <span class="align-span" id="basic-addon1">Total: $</span><input type="number" name="total" readonly="" class="align-input" id="total" aria-describedby="basic-addon1" >
 								</div>
 							</div>
 							<div class="col-sm-offset-8 col-sm-5">
@@ -232,12 +232,12 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript">
 		function setFalta(){
-			var falta = $("#total").val();
-			$('#falta').val(falta);
+			var falta = $('#total').val();
+			console.log(falta);
+			//$('#falta').val();
 			/*
 			aqui tengo que restar el monto del convenio si es que hay convenio si no se pasa igual al total
 			*/
-			$("#falta").val(falta);
 		}
 		function getSucursal(sel){
 			ticket = sel.value+"000001"
@@ -264,7 +264,6 @@
 	    			@endif
 	    		@endforeach
 	    	];
-	    	console.log(convenios);
 	    	var pacientes =[
 	    		@foreach ($pacientes as $paciente)
 	    			@if($paciente->identificador)
@@ -281,7 +280,7 @@
 		        minLength: 0,
 		        select:function (event,ui) {
 		        	showProducto(ui);
-		        	$("#search_productos").value("");
+		        	$('#search_productos').attr('value') = '';
 		        }
 		    }).click(function () {
 		        $(this).autocomplete('search')
@@ -291,7 +290,7 @@
 		        minLength: 0,
 		        select:function (event,ui) {
 		        	showConvenios(ui);
-		        	$('#search_convenios').value("");
+		        	$('#search_convenios').attr('value') = '';
 		        }
 		    }).click(function () {
 		        $(this).autocomplete('search')
@@ -423,18 +422,19 @@
 				<td>
 					<div class="input-group">
 					  <span class="input-group-addon">Cantidad</span>
-					  <input type="number" min="1" step="1" value="1" onchange="setTotalP(${producto.id},${producto.precio},this)" class="form-control">
+					  <input type="number" name="cantidad${producto.id}" min="1" step="1" value="1" onchange="setTotalP(${producto.id},${producto.precio},this)" class="form-control">
 					  <span class="input-group-addon">Piezas</span>
 					</div>
 				</td>
 				<td>
 					<div class="input-group">
 					  	<span class="input-group-addon">Total:$</span>
-					  	<input type="number" min="1" step="1" value="${producto.precio}" id="total${producto.id}" class="form-control total-prod" readonly>
+					  	<input type="number" name="total${producto.id}" min="1" step="1" value="${producto.precio}" id="total${producto.id}" class="form-control total-prod" readonly>
 				  		<span class="btn btn-danger input-group-addon" onclick="removeProducto('row${producto.id}')">
                        		<i class="fa fa-trash" aria-hidden="true"></i>
                        	</span>
 					</div>
+					<input type="hidden" name="producto_id[]" value="${producto.id}" />
 				</td>
 			</tr>`;
 			$('#myProd').append(rowHTML);
@@ -444,14 +444,19 @@
 			var total =0;
 			var iva = 0;
 			var subtotal=0;
+			var monto = parseInt({{ $tipoconvenios[0]->monto }}, 10);
 			$(".total-prod").each(function(index){
 				subtotal = subtotal +($(this).val()*0.84);
 				iva = iva + ($(this).val()*0.16);
-				total = total + $(this).val();
+				total = parseInt(total, 10) + parseInt($(this).val(), 10);
 			});
 			$("#subtotal").val(subtotal);
 			$("#iva").val(iva);
 			$("#total").val(total);
+			if ($('#Convenio').length)
+				$('#falta').val(total - monto);
+			else
+				$('#falta').val(total);
 		}
 		function addConvenio(convenio) {
 			// body...
@@ -532,7 +537,7 @@
 									<label class="control-label">
 										Personal:
 									</label>
-									<select class="form-control" size="1" name="convenios_all" id="personal" required>
+									<select class="form-control" size="1" name="personal" id="personal" required>
 										<option value="Docente">Docente</option>
 										<option value="Administrativo">Administrativo</option>
 										<option value="Jubilado">Jubilado</option>

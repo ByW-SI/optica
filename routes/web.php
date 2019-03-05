@@ -148,3 +148,4 @@ Route::resource('precios', 'Precio\PrecioController', ['except' => 'show', 'dest
 // BLUEPRINT PUNTO DE VENTA
 Route::get('ventas','Producto\PuntoVentaController@create')->name('ventas.create');
 Route::resource('pago', 'Producto\PuntoVentaController');
+Route::post('pagar', 'Producto\PuntoVentaController@guardarVenta');

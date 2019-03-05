@@ -26,6 +26,15 @@ class PuntoVentaController extends Controller
     public function store(Request $request)
     {
     	$bancos = Banco::get();
-    	return view('venta.pagos', ['datos_form' => $request->all(), 'bancos' => $bancos]);
+    	$productos = Array();
+    	return view('venta.pagos', ['datos_form' => $request->all(), 'bancos' => $bancos, 'productos' => $request['producto_id']]);
+    }
+
+    public function guardarVenta(Request $request)
+    {
+    	$datos = $request->all();
+    	$productos = Producto::find($request['productos_id']);
+
+    	return view('venta.ordenCompra', ['datos' => $datos, 'productos' => $productos]);
     }
 }

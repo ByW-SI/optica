@@ -50,6 +50,16 @@
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">
+									Banco
+								</label>
+								<select class="form-control" name="banco_TC" id="banco_TC">
+									@foreach($bancos as $banco)
+										<option value="{{ $banco->nombre }}">{{ $banco->nombre }}</option>
+									@endforeach
+								</select>
+							</div>
+							<div class="form-group col-sm-3">
+								<label class="control-label">
 									Ultimos 4 digitos Tarjeta
 								</label>
 								<input type="text" name="digitos" class="form-control">
@@ -91,6 +101,16 @@
 						<div class="row" id="trans" style="display: none;">
 							<div class="form-group col-sm-3">
 								<label class="control-label">
+									Banco
+								</label>
+								<select class="form-control" name="banco_TRANS" id="banco_TRANS">
+									@foreach($bancos as $banco)
+										<option value="{{ $banco->nombre }}">{{ $banco->nombre }}</option>
+									@endforeach
+								</select>
+							</div>
+							<div class="form-group col-sm-3">
+								<label class="control-label">
 									Referencia
 								</label>
 								<input type="text" name="referencia" class="form-control">
@@ -117,7 +137,7 @@
 
 						<div class="row">
 							<div class="form-group col-sm-3 text-center">
-								<button type="submit" class="btn btn-success">Guardar</button>								
+								<button type="submit" class="btn btn-success">Pagar</button>								
 							</div>
 						</div>
 					</div>

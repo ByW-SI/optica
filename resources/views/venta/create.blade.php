@@ -184,7 +184,7 @@
 							</div>
 							<div class="col-sm-offset-8 col-sm-5">
 								<div class="input-group">
-								  <span class="align-span" id="basic-addon1">Total a pagar: $</span><input type="number" name="falta" class="align-input" readonly="" id="falta" aria-describedby="basic-addon1">
+								  <span class="align-span">Total a pagar: $</span><input type="number" name="falta" class="align-input" readonly="" id="falta" aria-describedby="basic-addon1">
 								</div>
 							</div>
 						</div>
@@ -232,7 +232,8 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript">
 		function setFalta(){
-			var falta = $("#total").val() - $("#cuenta").val();
+			var falta = $("#total").val();
+			$('#falta').val(falta);
 			/*
 			aqui tengo que restar el monto del convenio si es que hay convenio si no se pasa igual al total
 			*/

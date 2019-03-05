@@ -7,6 +7,7 @@ use App\Producto;
 use App\Sucursal;
 use App\TipoConvenio;
 use App\Paciente;
+use App\Banco;
 use Illuminate\Http\Request;
 
 class PuntoVentaController extends Controller
@@ -24,7 +25,7 @@ class PuntoVentaController extends Controller
 
     public function store(Request $request)
     {
-    	$falta = $request->falta;
-    	return view('venta.pagos', ['datos_form' => $request->all()]);
+    	$bancos = Banco::get();
+    	return view('venta.pagos', ['datos_form' => $request->all(), 'bancos' => $bancos]);
     }
 }

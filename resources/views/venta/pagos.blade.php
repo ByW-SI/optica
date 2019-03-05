@@ -14,9 +14,11 @@
 				<form role="form" method="POST" action="{{ url('pagar') }}">
 					{{ csrf_field() }}
 					<div class="panel-body">
-						<input type="hidden" name="productos_id" value="{{ $productos }}">
-						@foreach ($datos_form as $dato)
-							<input type="hidden" name="datos_form[]" value="{{ $dato }}">
+						@foreach ($productos as $p)
+							<input type="hidden" name="productos_id[]" value="{{ $p }}">
+						@endforeach
+						@foreach ($cantidad as $c)
+							<input type="hidden" name="cantidad[]" value="{{ $c }}">
 						@endforeach
 
 						<div class="row">

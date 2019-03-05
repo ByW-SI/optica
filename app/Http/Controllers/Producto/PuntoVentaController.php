@@ -27,14 +27,29 @@ class PuntoVentaController extends Controller
     {
     	$bancos = Banco::get();
     	$productos = Array();
-    	return view('venta.pagos', ['datos_form' => $request->all(), 'bancos' => $bancos, 'productos' => $request['producto_id']]);
+    	$cantidad = Array();
+    	foreach($request['producto_id'] as $p){
+    		$productos[] = $p;
+    	}
+    	foreach($request['cantidad'] as $c){
+    		$cantidad[] = $c;
+    	}
+    
+    	return view('venta.pagos', ['datos_form' => $request->all(), 'bancos' => $bancos, 'productos' => $productos, 'cantidad' => $cantidad]);
     }
 
     public function guardarVenta(Request $request)
     {
     	$datos = $request->all();
-    	$productos = Producto::find($request['productos_id']);
+    	$productos = Array();
+    	$cantidad = Array();
+    	foreach ($request['productos_id'] as $id) {
+    		$productos[] = Producto::find($id);
+    	}
+    	foreach ($request['cantidad'] as $c) {
+    		$cantidad[] = $c;
+    	}
 
-    	return view('venta.ordenCompra', ['datos' => $datos, 'productos' => $productos]);
+    	return view('venta.ordenCompra', ['datos' => $datos, 'productos' => $productos, 'cantidad' => $cantidad]);
     }
 }

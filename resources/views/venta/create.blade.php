@@ -407,6 +407,7 @@
 				</div>
 				`);
 		}
+var cont = 0;
 		function addProducto(producto) {
 			// body...
 			//console.log(producto);
@@ -422,7 +423,7 @@
 				<td>
 					<div class="input-group">
 					  <span class="input-group-addon">Cantidad</span>
-					  <input type="number" name="cantidad${producto.id}" min="1" step="1" value="1" onchange="setTotalP(${producto.id},${producto.precio},this)" class="form-control">
+					  <input type="number" name="cantidad[${cont}]" min="1" step="1" value="1" onchange="setTotalP(${producto.id},${producto.precio},this)" class="form-control">
 					  <span class="input-group-addon">Piezas</span>
 					</div>
 				</td>
@@ -434,9 +435,10 @@
                        		<i class="fa fa-trash" aria-hidden="true"></i>
                        	</span>
 					</div>
-					<input type="hidden" name="producto_id[]" value="${producto.id}" />
+					<input type="hidden" name="producto_id[${cont}]" value="${producto.id}" />
 				</td>
 			</tr>`;
+			cont +=1;
 			$('#myProd').append(rowHTML);
 			setTotal();
 		}

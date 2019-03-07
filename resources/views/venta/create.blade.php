@@ -249,7 +249,7 @@
 	    	var productos =[
 	    		@foreach ($productos as $producto)
 	    			{
-	    				label:"{{$producto->descripcion}} ${{$producto->precio->precio}}",
+	    				label:"{{$producto->descripcion}} ${{$producto->precio}}",
 	    				producto:@json($producto),
 	    			},
 	    		@endforeach
@@ -525,13 +525,13 @@ var cont = 0;
 				}).done(function(data) {
 					var option = '' ;
 					for (var i = 0; i < data.convenios.length; i++) 
-						option += `<option value="${data.convenios[i].nombre} ${data.convenios[i].apellidopaterno}">${data.convenios[i].nombre} ${data.convenios[i].apellidopaterno}</option>`;
+						option += `<option value="${data.convenios[i].nombre ?data.convenios[i].nombre+" "+data.convenios[i].apellidopaterno : data.convenios[i].razonsocial}">${data.convenios[i].nombre ?data.convenios[i].nombre+" "+data.convenios[i].apellidopaterno:data.convenios[i].razonsocial} </option>`;
 
 					convenios = `<div class="form-group col-sm-3" id="tramites">
 									<label class="control-label">
 										Cantidad de trámites:
 									</label>
-									<input class="form-control" type="number" step="1" min="1" name="tramites" required>
+									<input class="form-control" type="number" step="1" min="1" name="tramites" id="tramites" required>
 								</div>
 								<div class="form-group col-sm-3" id="autorizacion">
 									<label class="control-label">

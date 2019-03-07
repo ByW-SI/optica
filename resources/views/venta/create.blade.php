@@ -249,7 +249,7 @@
 	    	var productos =[
 	    		@foreach ($productos as $producto)
 	    			{
-	    				label:"{{$producto->descripcion}} ${{$producto->precio->precio}}",
+	    				label:"{{$producto->descripcion}} ${{$producto->precio['precio']}}",
 	    				producto:@json($producto),
 	    			},
 	    		@endforeach
@@ -525,7 +525,7 @@ var cont = 0;
 				}).done(function(data) {
 					var option = '' ;
 					for (var i = 0; i < data.convenios.length; i++) 
-						option += `<option value="${data.convenios[i].nombre} ${data.convenios[i].apellidopaterno}">${data.convenios[i].nombre} ${data.convenios[i].apellidopaterno}</option>`;
+						option += `<option value="${data.convenios[i].nombre} ${data.convenios[i].apellidopaterno} ${data.convenios[i].razonsocial}">${data.convenios[i].nombre} ${data.convenios[i].apellidopaterno}</option>`;
 
 					convenios = `<div class="form-group col-sm-3" id="tramites">
 									<label class="control-label">

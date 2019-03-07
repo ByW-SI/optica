@@ -56,18 +56,18 @@ class ConvenioTipoConvenioController extends Controller
     {
         if($request->convenio_id == $convenio->id){
             $rules = [
-                'nombre'=>'required',
-                'descripcion'=>'required',
+                'nombre'=>'nullable',
+                'descripcion'=>'nullable',
                 'desc_prod'=>'nullable|numeric|min:0',
                 'num_prod'=>'nullable|numeric|min:0',
                 'desc_cita'=>'nullable|numeric|min:0',
                 'num_cita'=>'nullable|numeric|min:0',
                 'valido_inicio'=>'required|date',
                 'valido_fin'=>'required|date',
-                'aplican'=>'required|string',
-                'convenio_id'=>'required|numeric',
-                'num_tramites'=>'required|numeric|min:0',
-                'monto'=>'required|numeric|min:0',
+                'aplican'=>'nullable|string',
+                'convenio_id'=>'nullable|numeric',
+                'num_tramites'=>'nullable|numeric|min:0',
+                'monto'=>'nullable|numeric|min:0',
 
             ];
             $this->validate($request, $rules);

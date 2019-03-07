@@ -212,7 +212,7 @@
 					@endif
 					<div class="form-group col-sm-3">
 						<label class="control-label">Precio:</label>
-						<dd>{{ $producto->precio ? '$' . $producto->precio->precio : 'No disponible.' }}</dd>
+						<dd>{{ $producto->precio ? '$' . $producto->precio : 'No disponible.' }}</dd>
 					</div>
 					@if($producto->seccion == 'micas')
 						<div style="background: #f5f5f5;" class="col-sm-12 form-group">

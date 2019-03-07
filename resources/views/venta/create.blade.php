@@ -249,7 +249,7 @@
 	    	var productos =[
 	    		@foreach ($productos as $producto)
 	    			{
-	    				label:"{{$producto->descripcion}} ${{$producto->precio}}",
+	    				label:"{{$producto->descripcion}} ${{$producto->precio->precio}}",
 	    				producto:@json($producto),
 	    			},
 	    		@endforeach
@@ -446,8 +446,11 @@ var cont = 0;
 			var total =0;
 			var iva = 0;
 			var subtotal=0;
-			var monto = 0;
-			
+			@if (count($tipoconvenios) > 0)
+				var monto = parseInt({{ $tipoconvenios[0]->monto }}, 10);
+			@else
+				var monto = 0;
+			@endif
 			$(".total-prod").each(function(index){
 				subtotal = subtotal +($(this).val()*0.84);
 				iva = iva + ($(this).val()*0.16);

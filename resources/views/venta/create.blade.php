@@ -249,7 +249,7 @@
 	    	var productos =[
 	    		@foreach ($productos as $producto)
 	    			{
-	    				label:"{{$producto->descripcion}} ${{$producto->precio['precio']}}",
+	    				label:"{{$producto->descripcion}} ${{$producto->precio]}}",
 	    				producto:@json($producto),
 	    			},
 	    		@endforeach

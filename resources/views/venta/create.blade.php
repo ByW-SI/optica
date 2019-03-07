@@ -446,7 +446,8 @@ var cont = 0;
 			var total =0;
 			var iva = 0;
 			var subtotal=0;
-			var monto = parseInt({{ $tipoconvenios[0]->monto }}, 10);
+			var monto = 0;
+			
 			$(".total-prod").each(function(index){
 				subtotal = subtotal +($(this).val()*0.84);
 				iva = iva + ($(this).val()*0.16);

@@ -75,7 +75,7 @@ class Producto extends Model
         return $this->belongsToMany('App\Ventas')->withPivot('cantidad');
     }
 
-    public function ventas()
+    public function OrdenTrabajo()
     {
         return $this->belongsToMany('App\OrdenTrabajo');
     }

@@ -14,20 +14,13 @@
 				<form role="form" method="POST" action="{{ url('pagar') }}">
 					{{ csrf_field() }}
 					<div class="panel-body">
-						@foreach ($productos as $p)
-							<input type="hidden" name="productos_id[]" value="{{ $p }}">
-						@endforeach
-						@foreach ($cantidad as $c)
-							<input type="hidden" name="cantidad[]" value="{{ $c }}">
-						@endforeach
-
 						<div class="row">
 							<div class="form-group col-sm-3">
 								<label class="control-label">
 									Total a pagar
 								</label>
-								@if(isset($datos_form['falta']))
-									<input class="form-control" type="text" name="total_pago" id="total_pago" readonly="" value="{{ $datos_form['falta'] }}">
+								@if(isset($datos_form->total_pagar))
+									<input class="form-control" type="text" name="total_pago" id="total_pago" readonly="" value="{{ $datos_form->total_pagar }}">
 								@else
 									<input class="form-control" type="text" name="total_pago" id="total_pago" readonly="" value="{{ "0" }}">
 								@endif

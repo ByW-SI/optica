@@ -149,3 +149,4 @@ Route::resource('precios', 'Precio\PrecioController', ['except' => 'show', 'dest
 Route::get('ventas','Producto\PuntoVentaController@create')->name('ventas.create');
 Route::resource('pago', 'Producto\PuntoVentaController');
 Route::post('pagar', 'Producto\PuntoVentaController@guardarVenta');
+Route::post('guardar-orden', 'Producto\PuntoVentaController@guardarOrdenTrabajo');

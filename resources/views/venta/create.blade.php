@@ -157,7 +157,7 @@
 							<div class="col-sm-4">
 								<div class="input-group">
 								  <span class="input-group-addon" id="basic-addon1">Fecha de entrega:</span>
-								  <input type="date" name="fecha" class="form-control" min="{{date('Y-m-d')}}" id="fecha" aria-describedby="basic-addon1" required="">
+								  <input type="date" name="fecha_entrega" class="form-control" min="{{date('Y-m-d')}}" id="fecha" aria-describedby="basic-addon1" required="">
 								</div>
 							</div>
 							<div class="col-sm-offset-4 col-sm-4">

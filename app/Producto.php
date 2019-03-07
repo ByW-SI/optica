@@ -70,4 +70,14 @@ class Producto extends Model
         return $this->belongsTo('App\Provedor');
     }
 
+    public function ventas()
+    {
+        return $this->belongsToMany('App\Ventas')->withPivot('cantidad');
+    }
+
+    public function ventas()
+    {
+        return $this->belongsToMany('App\OrdenTrabajo');
+    }
+
 }

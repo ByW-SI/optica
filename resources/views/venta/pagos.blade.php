@@ -30,6 +30,7 @@
 									Forma de pago
 								</label>
 								<select class="form-control" name="forma_pago" id="forma_pago">
+									<option value="">Seleccionar --</option>
 									<option value="TC">Tarjeta de crédito/débito</option>
 									<option value="efectivo">Efectivo</option>
 									<option value="transferencia">Transferencia</option>
@@ -39,9 +40,9 @@
 						<div class="row" id="tc" style="display: none;">
 							<div class="form-group col-sm-3">
 								<label class="control-label">
-									Número de tarjeta
+									Ultimos 4 digitos Tarjeta
 								</label>
-								<input type="text" name="num_tarjeta" class="form-control">
+								<input type="text" name="digitos" class="form-control" maxlength="4" pattern="[0-9]{4,4}" id="digitos" placeholder="3454">
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">
@@ -54,16 +55,11 @@
 									Banco
 								</label>
 								<select class="form-control" name="banco_TC" id="banco_TC">
+									<option>Seleccionar Banco</option>
 									@foreach($bancos as $banco)
 										<option value="{{ $banco->nombre }}">{{ $banco->nombre }}</option>
 									@endforeach
 								</select>
-							</div>
-							<div class="form-group col-sm-3">
-								<label class="control-label">
-									Ultimos 4 digitos Tarjeta
-								</label>
-								<input type="text" name="digitos" class="form-control">
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">
@@ -138,7 +134,7 @@
 
 						<div class="row">
 							<div class="form-group col-sm-3 text-center">
-								<button type="submit" class="btn btn-success">Pagar</button>								
+								<button type="submit" class="btn btn-success" disabled>Pagar</button>								
 							</div>
 						</div>
 					</div>
@@ -166,35 +162,72 @@
 					$('#trans').hide();
 					$('#ef').hide();
 					$('#tc').show();
+					$('button[type=submit]').prop('disabled', false);
 					if (isNaN(monto)) {
 						$('#saldo_TC').val(total.toString());
 					} 
 					else {
 						$('#saldo_TC').val((total - monto).toString());	
 					}
+					$('input[name=monto_pagar_TC]').attr('required', '');
+					$('input[name=digitos]').attr('required', '');
+					$('input[name=num_ref]').attr('required', '');
+
+					$('input[name=monto_pagar_EF]').removeAttr('required');
+					$('input[name=referencia]').removeAttr('required');
+					$('input[name=fecha_deposito]').removeAttr('required');
+					$('input[name=monto_pagar_TRANS]').removeAttr('required');
 				}
 				else if (option === "efectivo") {
 					$('#trans').hide();
 					$('#tc').hide();
 					$('#ef').show();
+					$('button[type=submit]').prop('disabled', false);
 					if (isNaN(monto_ef)) {
 						$('#saldo_EF').val(total.toString());
 					} 
 					else {
 						$('#saldo_EF').val((total - monto_ef).toString());
 					}
-				} else {
+					$('input[name=monto_pagar_EF]').attr('required', '');
+
+					$('input[name=monto_pagar_TC]').removeAttr('required');
+					$('input[name=digitos]').removeAttr('required');
+					$('input[name=num_ref]').removeAttr('required');
+					$('input[name=referencia]').removeAttr('required');
+					$('input[name=fecha_deposito]').removeAttr('required');
+					$('input[name=monto_pagar_TRANS]').removeAttr('required');
+				} 
+				else if(option === "transferencia") {
 					$('#ef').hide();
 					$('#tc').hide();
 					$('#trans').show();
+					$('button[type=submit]').prop('disabled', false);
 					if (isNaN(monto_trans)) {
 						$('#saldo_TRANS').val(total.toString());
 					} 
 					else {
 						$('#saldo_TRANS').val((total - monto_trans).toString());
 					}
+					$('input[name=referencia]').attr('required', '');
+					$('input[name=fecha_deposito]').attr('required', '');
+					$('input[name=monto_pagar_TRANS]').attr('required', '');
+
+					$('input[name=monto_pagar_TC]').removeAttr('required');
+					$('input[name=digitos]').removeAttr('required');
+					$('input[name=num_ref]').removeAttr('required');
+					$('input[name=monto_pagar_EF]').removeAttr('required');
 				}
+				else{
+					$('#ef').hide();
+					$('#tc').hide();
+					$('#trans').hide();
+					$('button[type=submit]').prop('disabled', true);
+
+				}
+
 			});
+
 		});
 		function setSaldo() {
 			var option = $('#forma_pago option:selected').val();

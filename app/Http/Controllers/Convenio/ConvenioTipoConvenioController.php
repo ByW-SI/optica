@@ -121,7 +121,7 @@ class ConvenioTipoConvenioController extends Controller
             'num_cita'=>'nullable|numeric|min:0',
             'valido_inicio'=>'required|date',
             'valido_fin'=>'required|date',
-            'aplican'=>'required|string',
+            'aplican'=>'nullable|string',
             'num_tramites'=>'required|numeric|min:0',
             'monto'=>'required|numeric|min:0',
 

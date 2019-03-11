@@ -17,6 +17,7 @@ class CreateOrdenTrabajosTable extends Migration
             $table->increments('id');
             $table->date('fecha_entrega');
             $table->string('fecha_generacion');
+            $table->integer('ventas_id')->unsigned();
             $table->timestamps();
         });
     }

@@ -9,7 +9,9 @@ use App\TipoConvenio;
 use App\Paciente;
 use App\Banco;
 use App\Ventas;
+use App\OrdenTrabajo;
 use Illuminate\Http\Request;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class PuntoVentaController extends Controller
 {
@@ -26,8 +28,13 @@ class PuntoVentaController extends Controller
 
     public function store(Request $request)
     {
-
+    	$Venta_guardada = Ventas::where('numero_venta', $request['ticket'])->first();
     	$bancos = Banco::get();
+
+    	if (isset($Venta_guardada->id)) {
+    		return view('venta.pagos', ['datos_form' => $Venta_guardada, 'bancos' => $bancos]);
+    	}
+
     	$cantidad = Array();
     	$ventas = new Ventas();
     	$ventas->fecha_venta = $request['fecha'];
@@ -92,18 +99,48 @@ class PuntoVentaController extends Controller
     	
     	$ventas->save();
 
-    	return view('venta.ordenCompra', ['datos' => $ventas]);
+    	return view('venta.ordenTrabajo', ['datos' => $ventas]);
     }
 
     public function guardarOrdenTrabajo(Request $request)
     {
-    	$productos = Array();
-    	foreach ($request->productos as $producto) {
-    		$productos[] = explode(",", $producto);
+    	$ordenTrabajo = new OrdenTrabajo();
+    	$ordenTrabajo->fecha_entrega = $request['fecha_entrega'];
+    	$ordenTrabajo->fecha_generacion = $request['fecha_generacion'];
+    	$ordenTrabajo->save();
+
+    	$productos = $request['sel'];
+    	$cantidad = $request['cantidad'];
+    	$descuentos = $request['descuento'];
+    	$i = 0;
+
+    	foreach ($productos as $prod) {
+    		$ordenTrabajo->productos()->attach($prod, ['cantidad' => $cantidad[$i], 'descuento' => $descuentos[$i]]);
+    		$i += 1;
     	}
-    	for ($i=0; $i < count($productos); $i++) { 
-    		$productos[$i] = str_replace(["\"", "[", "]"], "", $productos[$i]);
-    	}
-    	return response()->json(['respuesta' => $productos], 200);
+
+    	Alert::success("La orden se genero con éxito")->persistent("Cerrar");
+    	return redirect()->route('ventas.create');
+
+    }
+
+    public function buscarProducto(Request $request) {
+    	$precios = Array();
+        $query = $request->input('query');
+        $seccion = $request->input('seccion');
+        $wordsquery = explode(' ', $query);
+        $productos = Producto::where(function($q) use($wordsquery) {
+            foreach ($wordsquery as $word) {
+                $q->orWhere('sku_interno', 'LIKE', "%$word%")
+                  ->orWhere('descripcion', 'LIKE', "%$word%")
+                  ->orWhere('sku', 'LIKE', "%$word%");
+            }
+        });
+        $productos = $productos->get();
+        foreach ($productos as $producto) {
+        	$precios[] = $producto->precio['precio'];
+        }
+
+        return response(['productos' => $productos, 'precios' => $precios], 200);
     }
 }

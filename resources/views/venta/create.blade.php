@@ -69,7 +69,9 @@
 								</label>
 								<div class="input-group">
 								  <input type="text" class="form-control" id="search_productos" placeholder="Buscar producto" aria-describedby="basic-addon2">
-								  <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
+								  <span class="input-group-btn">
+							        <button class="btn btn-default" id="busqProd" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+							      </span>								  
 								</div>
 								<br>
 							</div>
@@ -114,7 +116,9 @@
 								</label>
 								<div class="input-group">
 								  <input type="text" class="form-control" id="search_convenios" placeholder="Buscar descuentos" aria-describedby="basic-addon2">
-								  <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
+								  <span class="input-group-btn">
+							        <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+							      </span>
 								</div>
 								<br>
 							</div>
@@ -233,14 +237,14 @@
 	<script type="text/javascript">
 		function setFalta(){
 			var falta = $('#total').val();
-			console.log(falta);
+			//console.log(falta);
 			//$('#falta').val();
 			/*
 			aqui tengo que restar el monto del convenio si es que hay convenio si no se pasa igual al total
 			*/
 		}
 		function getSucursal(sel){
-			ticket = sel.value+"000001"
+			ticket = sel.value+"000004"
 			$("#ticket").val(ticket);
 		}
 		
@@ -249,7 +253,7 @@
 	    	var productos =[
 	    		@foreach ($productos as $producto)
 	    			{
-	    				label:"{{$producto->descripcion}} ${{$producto->precio}}",
+	    				label:"{{$producto->descripcion}} ${{$producto->precio['precio']}}",
 	    				producto:@json($producto),
 	    			},
 	    		@endforeach
@@ -274,17 +278,6 @@
 	    			@endif
 	    		@endforeach
 	    	];
-	    	//console.log(convenios);
-		    $("#search_productos").autocomplete({
-		        source: productos,
-		        minLength: 0,
-		        select:function (event,ui) {
-		        	showProducto(ui);
-		        	$('#search_productos').attr('value') = '';
-		        }
-		    }).click(function () {
-		        $(this).autocomplete('search')
-		    });
 		    $('#search_convenios').autocomplete({
 		        source: convenios,
 		        minLength: 0,
@@ -305,10 +298,19 @@
 		    }).click(function () {
 		        $(this).autocomplete('search')
 		    });
+
 		});
 
-		function showProducto(element) {
-			var stringproducto=JSON.stringify(element.item.producto);
+		function showProducto(seleccionado,productos, precio) {
+			var elemento;
+			var precio_prod;
+			for (var i = 0; i < productos.length; i++) {
+				if (productos[i].sku_interno === seleccionado) {
+					elemento = productos[i];
+					precio_prod = precio[i];
+				}
+			}
+			var stringproducto=JSON.stringify(elemento);
 			$("#descripcion").empty();
 			$("#search_productos").val("");
 			$("#descripcion").append(`
@@ -317,7 +319,7 @@
 						SKU:
 					</label>
 					<label class="form-control">
-						${element.item.producto.sku}
+						${elemento.sku}
 					</label>
 				</div>
 				<div class="form-group col-sm-4">
@@ -325,7 +327,7 @@
 						Marca:
 					</label>
 					<label class="form-control">
-						${element.item.producto.marca}
+						${elemento.marca}
 					</label>
 				</div>
 				<div class="form-group col-sm-4">
@@ -333,7 +335,7 @@
 						Modelo:
 					</label>
 					<label class="form-control">
-						${element.item.producto.modelo}
+						${elemento.modelo}
 					</label>
 				</div>
 				<div class="form-group col-sm-6">
@@ -341,7 +343,7 @@
 						Descripción:
 					</label>
 					<label class="form-control">
-						${element.item.producto.descripcion}
+						${elemento.descripcion}
 					</label>
 				</div>
 				<div class="form-group col-sm-3">
@@ -349,18 +351,18 @@
 						Precio:
 					</label>
 					<label class="form-control">
-						$${element.item.producto.precio}
+						${precio_prod}
 					</label>
 				</div>
 				<div class="form-group col-sm-3">
-					<a href="#" onclick='addProducto(${stringproducto})' class="btn btn-success">
+					<a href="#" onclick='addProducto(${stringproducto}, ${precio_prod})' class="btn btn-success">
                         Agregar
                     </a>
 				</div>
 				`);
 		}
 		function showConvenios(element) {
-			console.log(element);
+			//console.log(element);
 			var stringconvenio=JSON.stringify(element.item.convenio);
 			$("#descconvenio").empty();
 			$("#search_convenios").val("");
@@ -407,11 +409,8 @@
 				</div>
 				`);
 		}
-var cont = 0;
-		function addProducto(producto) {
-			// body...
-			//console.log(producto);
-
+		var cont = 0;
+		function addProducto(producto, precio) {
 
 			var rowHTML=
 			`<tr id="row${producto.id}">
@@ -419,18 +418,18 @@ var cont = 0;
 				<td>${producto.marca}</td>
 				<td>${producto.categoria}</td>
 				<td>${producto.descripcion}</td>
-				<td id="precio${producto.id}" class="precio">${producto.precio}</td>
+				<td id="precio${producto.id}" class="precio">${precio}</td>
 				<td>
 					<div class="input-group">
 					  <span class="input-group-addon">Cantidad</span>
-					  <input type="number" name="cantidad[${cont}]" min="1" step="1" value="1" onchange="setTotalP(${producto.id},${producto.precio},this)" class="form-control">
+					  <input type="number" name="cantidad[${cont}]" min="1" step="1" value="1" onchange="setTotalP(${producto.id},${precio},this)" class="form-control">
 					  <span class="input-group-addon">Piezas</span>
 					</div>
 				</td>
 				<td>
 					<div class="input-group">
 					  	<span class="input-group-addon">Total:$</span>
-					  	<input type="number" name="total${producto.id}" min="1" step="1" value="${producto.precio}" id="total${producto.id}" class="form-control total-prod" readonly>
+					  	<input type="number" name="total${producto.id}" min="1" step="1" value="${precio}" id="total${producto.id}" class="form-control total-prod" readonly>
 				  		<span class="btn btn-danger input-group-addon" onclick="removeProducto('row${producto.id}')">
                        		<i class="fa fa-trash" aria-hidden="true"></i>
                        	</span>
@@ -440,14 +439,16 @@ var cont = 0;
 			</tr>`;
 			cont +=1;
 			$('#myProd').append(rowHTML);
+			$("#descripcion").empty();
 			setTotal();
 		}
 		function setTotal(){
 			var total =0;
 			var iva = 0;
 			var subtotal=0;
+			console.log($('#num_tramites').val());
 			@if (count($tipoconvenios) > 0)
-				var monto = parseInt({{ $tipoconvenios[0]->monto }}, 10);
+				var monto = parseInt({{ $tipoconvenios[0]->monto }}, 10) * $('#num_tramites').val();
 			@else
 				var monto = 0;
 			@endif
@@ -505,6 +506,7 @@ var cont = 0;
 		}
 		function removeProducto(id){
 			$(`#${id}`).remove();
+			setTotal();
 		}
 		function setTotalP(id,precio,cantidad){
 			total = precio*cantidad.value;
@@ -531,7 +533,7 @@ var cont = 0;
 									<label class="control-label">
 										Cantidad de trámites:
 									</label>
-									<input class="form-control" type="number" step="1" min="1" name="tramites" id="tramites" required>
+									<input class="form-control" type="number" step="1" min="1" name="tramites" id="num_tramites" required>
 								</div>
 								<div class="form-group col-sm-3" id="autorizacion">
 									<label class="control-label">
@@ -561,6 +563,9 @@ var cont = 0;
 									</select> 
 								</div>`;
 						$('#panel_venta').append(convenios);
+						$('#num_tramites').bind('keyup mouseup', function() {
+							setTotal();
+						});
 				}).fail(function(data){
 					console.log('Fail' + data);
 				});			
@@ -580,7 +585,43 @@ var cont = 0;
 			console.log(contenido);
 			$('#convenio_total').val(contenido);
 		}
+var prod;
+var precios;
+
+		$('#search_productos').on('keyup',function(){
+			$value=$(this).val();
+			$.ajax({
+				url : "buscarProductoPV",
+				type : "GET",
+				dataType : "json",
+				data : {
+					query : $value,
+					seccion : ""
+				},
+			}).done(function (data) {
+				productos = new Array();
+				prod = new Array();
+				for (var i = 0; i < data.productos.length; i++) {
+					productos[productos.length] = {label: `${data.productos[i].sku_interno} - ${data.productos[i].descripcion}` };
+					prod[prod.length] = data.productos[i];
+				}
+				precios = data.precios;
+				 $("#search_productos").autocomplete({
+			        source: productos,
+			        minLength: 0
+			    }).click(function () {
+			        $(this).autocomplete('search')
+			    });
+			});
+		})
+		$('#busqProd').on('click', function() {
+			var prod_seleccionado = $('#search_productos').val();
+			showProducto(prod_seleccionado.split("-")[0].trim() ,prod, precios);
+		});
+
 	</script>
+
+
 	<style type="text/css">
 		.align-span{
 			width: 130px;

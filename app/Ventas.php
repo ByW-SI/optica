@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Producto;
+use App\OrdenTrabajo;
 
 class Ventas extends Model
 {
@@ -45,5 +46,10 @@ class Ventas extends Model
     public function productos()
     {
     	return $this->belongsToMany('App\Producto')->withPivot('cantidad');
+    }
+
+    public function ordenTrabajos($value='')
+    {
+        return $this->hasOne('App\OrdenTrabajo');
     }
 }

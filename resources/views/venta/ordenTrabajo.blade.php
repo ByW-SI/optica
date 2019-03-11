@@ -24,11 +24,14 @@
 										<th>SKU</th>
 										<th>Cantidad</th>
 										<th>Descuento</th>
+										<input type="hidden" name="id_venta" value="{{ $datos->id }}">
+										<input type="hidden" name="fecha_entrega" value="{{ $datos->fecha_venta }}">
+										<input type="hidden" name="fecha_generacion" value="{{ $datos->fecha_entrega }}">
 									</tr>
 									@foreach($datos->productos as $producto)
 										<tr>
 											<td>
-												<input type="checkbox" name="sel" class="control-label">
+												<input type="checkbox" name="sel[]" class="control-label" value="{{ $producto->id }}">
 											</td>
 											<td>{{ $producto->descripcion }}</td>
 											<td>
@@ -38,10 +41,14 @@
 													Sin SKU
 												@endif
 											</td>
-											<td name="cantidad">{{ $producto->pivot->cantidad }}</td>
+											<td>
+												{{ $producto->pivot->cantidad }}
+												<input type="hidden" name="cantidad[]" value="{{ $producto->pivot->cantidad }}">
+											</td>
 											<td>
 												@if(isset($datos->monto_convenio ))
 													{{ $datos->monto_convenio }}
+													<input type="hidden" name="descuento[]" value="{{ $datos->monto_convenio }}">
 												@else
 													Sin descuento
 												@endif
@@ -56,14 +63,10 @@
 					</div>
 					<br><br>
 					<div class="row">
-						<div class="col-sm-offset-1 col-sm-4 text-center">
-							<a class="btn btn-success" href="#">
-								<strong> Imprimir Ticket</strong></a>
-						</div>
-						<div class="row">
-							<div class="form-group col-sm-3 text-center">
-								<button type="submit" class="btn btn-success" onsubmit="guardarOrdenTrabajo()">Generar orden de trabajo</button>								
-							</div>
+						<div class="col-sm-offset-4 col-sm-4 text-center">
+							<button type="submit" class="btn btn-success">
+								<strong> Imprimir Ticket</strong>
+							</button>
 						</div>
 					</div>
 				</form>
@@ -78,7 +81,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script type="text/javascript">
-
+/*
 	$("#orden").on('submit', function(evt){
 	    evt.preventDefault();  
 	    var datos = new Array();
@@ -99,19 +102,19 @@
 	    console.log(JSON.parse(datos[0]));
 
 	    $.ajax({
-					url : "guardar-orden",
-					type : "POST",
-					dataType : "json",
-					data : {
-						productos : datos,
-					},
-				}).done(function(data) {
-					console.log(data);
-
-				}).fail(function(data){
-					console.log(data);
-				});	
+			url : "guardar-orden",
+			type : "POST",
+			dataType : "json",
+			data : {
+				productos : datos,
+			},
+		}).done(function(data) {
+			console.log(data);
+		}).fail(function(data){
+			console.log(data);
+		});	
 	 });
+	 */
 	
 </script>
 @endsection

@@ -112,6 +112,7 @@ Route::get('buscarPrecio', 'Precio\PrecioController@buscar');
 Route::get('buscarHistorial', 'Historial\HistorialController@buscar');
 Route::get('buscarCRM', 'Paciente\PacienteCrmController@buscar')->name('crms.buscar');
 Route::get('buscarPaciente', 'Paciente\PacienteCrmController@pacientes')->name('crms.pacientes');
+Route::get('buscarProductoPV', 'Producto\PuntoVentaController@buscarProducto');
 
 // AJAX
 Route::get('getareas', 'Area\AreaController@getAreas');

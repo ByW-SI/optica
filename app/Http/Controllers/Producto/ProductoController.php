@@ -160,7 +160,8 @@ class ProductoController extends Controller
         $productos = Producto::where(function($q) use($wordsquery) {
             foreach ($wordsquery as $word) {
                 $q->orWhere('sku_interno', 'LIKE', "%$word%")
-                  ->orWhere('descripcion', 'LIKE', "%$word%");
+                  ->orWhere('descripcion', 'LIKE', "%$word%")
+                  ->orWhere('sku', 'LIKE', "%$word%");
             }
         });
         if($seccion != '')
@@ -168,5 +169,6 @@ class ProductoController extends Controller
         $productos = $productos->get();
         return view('productos.busqueda', ['productos' => $productos]);
     }
+
 
 }

@@ -17,7 +17,7 @@ class CreateVentasTable extends Migration
             $table->increments('id');
             $table->date('fecha_venta')->nullable();
             $table->string('sucursal')->nullable();
-            $table->string('numero_venta')->nullable();
+            $table->string('numero_venta')->unique();
             $table->string('id_paciente')->nullable();  //este campo en la tabla paciente aparece como identificador
             $table->date('fecha_entrega')->nullable();
             $table->string('tipo_convenio')->nullable();

@@ -260,6 +260,15 @@
 				}
 			}
 		}
+
+		$("form").submit(function(e){
+		     e.preventDefault(); //lo debo de quitar 
+		     window.open('{{ url('ticket-venta') }}', '_blank');
+		     //if valid:
+		     //	this.submit();
+		     //window.location.href = 'http://ejemplo.com';
+
+		 });
 	</script>
 
 @endsection

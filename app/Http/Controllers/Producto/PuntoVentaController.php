@@ -11,6 +11,7 @@ use App\Banco;
 use App\Ventas;
 use App\OrdenTrabajo;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class PuntoVentaController extends Controller
@@ -22,7 +23,8 @@ class PuntoVentaController extends Controller
     	$tipoconvenios=TipoConvenio::get();
     	$productos=Producto::get();
     	$pacientes = Paciente::get();
-    	return view('venta.create',['sucursales'=>$sucursales,'tipoconvenios'=>$tipoconvenios,'productos'=>$productos,'pacientes'=>$pacientes]);
+        $ventas = Ventas::all()->last();
+    	return view('venta.create',['sucursales'=>$sucursales,'tipoconvenios'=>$tipoconvenios,'productos'=>$productos,'pacientes'=>$pacientes, 'num_venta' => $ventas->numero_venta]);
     	// dd($sucursales);
     }
 
@@ -142,5 +144,13 @@ class PuntoVentaController extends Controller
         }
 
         return response(['productos' => $productos, 'precios' => $precios], 200);
+    }
+
+    public function pdf(){
+         $ventas = Ventas::all()->last();
+         $sucursal = Sucursal::where('claveid', $ventas->sucursal)->first();
+         $paciente = Paciente::where('identificador', $ventas->id_paciente)->first();
+         $pdf = PDF::loadView('venta.ticket', ['ventas' => $ventas, 'sucursal' => $sucursal, 'paciente' => $paciente]);
+         return $pdf->download('ticket.pdf');
     }
 }

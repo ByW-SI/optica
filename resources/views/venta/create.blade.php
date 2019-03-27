@@ -243,8 +243,32 @@
 			aqui tengo que restar el monto del convenio si es que hay convenio si no se pasa igual al total
 			*/
 		}
+		function zfill(number, width) {
+		    var numberOutput = Math.abs(number); /* Valor absoluto del número */
+		    var length = number.toString().length; /* Largo del número */ 
+		    var zero = "0"; /* String de cero */  
+		    
+		    if (width <= length) {
+		        if (number < 0) {
+		             return ("-" + numberOutput.toString()); 
+		        } else {
+		             return numberOutput.toString(); 
+		        }
+		    } else {
+		        if (number < 0) {
+		            return ("-" + (zero.repeat(width - length)) + numberOutput.toString()); 
+		        } else {
+		            return ((zero.repeat(width - length)) + numberOutput.toString()); 
+		        }
+		    }
+		}
 		function getSucursal(sel){
-			ticket = sel.value+"000004"
+			ticket = sel.value; //"000004"
+			var num = '{{ $num_venta }}';
+			num = num.substring(ticket.length);
+			num = parseInt(num) + 1;
+			ticket = ticket + zfill(num, 6);
+			console.log(ticket);
 			$("#ticket").val(ticket);
 		}
 		

@@ -21,12 +21,6 @@
 			<div class="panel-body">
 				<div class="row">
 						<div class="form-group col-sm-3">
-							<label class="control-label" for="desc_prod"> Número de tramites</label>
-							<div class="input-group">
-								<span class="input-group-addon">#</span><label type="number" class="form-control" id="num_tramites" name="num_tramites">{{$tipoconvenio->num_tramites}}</label>
-							</div>
-						</div>
-						<div class="form-group col-sm-3">
 							<label class="control-label" for="desc_prod"> Monto</label>
 							<div class="input-group">
 								<span class="input-group-addon">$</span><label type="number" class="form-control" id="monto" name="monto">{{$tipoconvenio->monto}}</label>
@@ -94,6 +88,7 @@
 								<th>Nombre</th>
 								<th>Descuento</th>
 								<th>Numero de citas y productos (por año)</th>
+								<th>Monto</th>
 								<th>Valido de</th>
 								<th>Hasta</th>
 								<th>Operacion</th>
@@ -107,7 +102,9 @@
 								</td>
 								<td>{{ $tipo_convenio->num_prod ? $tipo_convenio->num_prod.' productos' : '' }}
 									<br>
-									{{ $tipo_convenio->num_cita ? $tipo_convenio->num_cita.' citas' : '' }}</td>
+									{{ $tipo_convenio->num_cita ? $tipo_convenio->num_cita.' citas' : '' }}
+								</td>
+								<td>{{ $tipo_convenio->monto }}</td>
 								<td>{{ $tipo_convenio->valido_inicio }}</td>
 								<td>{{ $tipo_convenio->valido_fin }}</td>
 								<td class="text-center">

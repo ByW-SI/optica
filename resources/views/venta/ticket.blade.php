@@ -26,41 +26,77 @@
 			  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No. Ticket: {{ $ventas->numero_venta }}
 			  </div>
 			  <div class="panel-body">
-			    <p>Nombre del cliente: {{ $paciente->nombre.' '.$paciente->appaterno.' '.$paciente->apmaterno }} </p>
+			    <div class="row">
+			    	<div class="col-xs-6">
+			    		Nombre del cliente: {{ $paciente->nombre.' '.$paciente->appaterno.' '.$paciente->apmaterno }}
+			    	</div>
+			    	@if($ventas->forma_pago === "TC")
+			    		<div class="col-xs-3">Método de Pago: Tarjeta de Crédito / Debito</div>
+			    	@elseif ($ventas->forma_pago === "transferencia")
+			    		<div class="col-xs-3">Método de Pago: Transferencia</div>
+			    	@else
+			    		<div class="col-xs-3">Método de Pago: Efectivo</div>
+			    	@endif
+			    </div>
 			    <div class="row">
 			    	<table class="table table-bordered">
 			    		<thead>
 			    			<tr>
-			    				<th>Cantidad</th>
-			    				<th>Descripción</th>
-								<th>Precio</th>
-								<th>Importe</th>
+			    				<th class="col-">Cantidad</th>
+			    				<th class="col-">Descripción</th>
+								<th class="col-">Precio</th>
+								<th class="col-">Importe</th>
 			    			</tr>
 			    		</thead>
 			    		<tbody>
 			    			@foreach($ventas->productos as $producto)
 			    			<tr>
-			    				<td>{{ $producto->pivot->cantidad }}</td>
-			    				<td>{{ $producto->descripcion }}</td>
-			    				<td>{{ $producto->precio['precio'] }}</td>
-			    				<td>{{ $producto->precio['precio'] * $producto->pivot->cantidad }}</td>
+			    				<td align="center">{{ $producto->pivot->cantidad }}</td>
+			    				<td align="center">{{ $producto->descripcion }}</td>
+			    				<td align="center">{{ $producto->precio['precio'] }}</td>
+			    				<td align="center">{{ $producto->precio['precio'] * $producto->pivot->cantidad }}</td>
 			    			</tr>
 			    			@endforeach
+			    			<tr>
+								<td colspan="3" class="sinBordes"></td>
+			    				<td><strong>Subtotal &nbsp;&nbsp;&nbsp;$ {{ $ventas->subtotal }}</strong></td>
+			    			</tr>
+			    			<tr>
+			    				<td colspan="3" class="sinBordes"></td>
+			    				<td><strong>IVA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{ $ventas->total * 0.16 }}</strong></td>
+			    			</tr>
+			    			<tr>
+			    				<td colspan="3" class="sinBordes"></td>
+			    				<td><strong>Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{ $ventas->total }}</strong></td>
+			    			</tr>
+			    			<tr>
+			    				<td colspan="3" class="sinBordes"></td>
+			    				<td><strong>Anticipo &nbsp;&nbsp;&nbsp;$ {{ $ventas->monto_pagar }}</strong></td>
+			    			</tr>
+			    			<tr>
+			    				<td colspan="3" class="sinBordes"></td>
+			    				<td><strong>Saldo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{ $ventas->saldo }}</strong></td>
+			    			</tr>
 			    		</tbody>
 			    	</table>
-			    	<div class="panel-heading">
-		              <div class="col-xs-3">
-		                <p>Quedo a sus ordenes: </p>
-		              </div>
-		              <div class="col-xs-offset-3 col-xs-6">
-		                <p>
-		                  <strong>Empleado</strong>
-		                </p>
-		                <p>
-		                  <strong>Ventas</strong>
-		                </p>
-		              </div>
-		            </div>
+			    	@if($ventas->tipo_convenio === "convenio")
+			    		<div class="panel-heading">
+							<div class="col-xs-3">
+								Convenio: {{ $ventas->convenio }}
+							</div>
+							<div class="col-xs-3">
+								No. tramites: {{ $ventas->cantidad_tramites }}
+							</div>
+							<div class="col-xs-4">
+								No. Autorización: {{ $ventas->numero_autorizacion }}
+							</div>
+			            </div>
+			    	@endif
+			    </div>
+			    <div class="row">
+			    	<div class="col-xs-offset-4">
+			    		<?php  echo ($barra); ?>
+			    	</div>
 			    </div>
 			  </div>
 			</div>

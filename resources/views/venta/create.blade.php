@@ -8,6 +8,11 @@
 						<div class="col-sm-4">
 							<h4>Punto de venta:</h4>
 						</div>
+						<div class="col-sm-4 text-center">
+							<a class="btn btn-primary" href="{{ route('pago.index') }}">
+								<i class="fa fa-eye"></i><strong> Ver Ventas</strong> 
+							</a>
+					</div>
 					</div>
 				</div>
 				<form role="form" method="POST" action="{{ url('pago') }}">
@@ -195,37 +200,11 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-4 col-sm-offset-4 text-center">
-			  				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#gridSystemModal">
+			  				<button type="submit" class="btn btn-success" data-toggle="modal" data-target="#gridSystemModal">
 				  				<i class="fa fa-check-circle"></i> Pagar
 				  			</button>
 						</div>
 					</div>
-					<!-- ####### MODAL #####-->
-					<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="gridSystemModal">
-					  <div class="modal-dialog" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        <h4 class="modal-title" id="gridSystemModalLabel">Punto de venta</h4>
-					      </div>
-					      <div class="modal-body">
-					        <div class="row">
-					          <div class="col-sm-9">
-					            <h3>¿Estas seguro?</h3>
-					          </div>
-					        </div>
-					      </div>
-					      <div class="modal-footer">
-					        <div class="row">
-					        	<div class="col-sm-9">
-					        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-					        		<button type="submit" class="btn btn-primary">Si</button>
-					        	</div>
-					        </div>
-					      </div>
-					    </div><!-- /.modal-content -->
-					  </div><!-- /.modal-dialog -->
-					</div><!-- /.modal -->
 				</form>
 			</div>
 		</div>

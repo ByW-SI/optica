@@ -256,11 +256,11 @@
 		.table > tbody > tr > th,
 		.table > tfoot > tr > th,
 		.table > thead > tr > td,
-		.table > tbody > tr > td,
 		.table > tfoot > tr > td {
 		  padding: 8px;
 		  line-height: 1.42857143;
 		  vertical-align: top;
+		  text-align: center;
 		  border-top: 1px solid #dddddd;
 		}
 		.table > thead > tr > th {
@@ -321,7 +321,7 @@
 		  padding: 15px;
 		}
 		.panel-heading {
-		  padding: 10px 15px;
+		  padding: 10px 5px;
 		  border-bottom: 1px solid transparent;
 		  border-top-right-radius: 3px;
 		  border-top-left-radius: 3px;

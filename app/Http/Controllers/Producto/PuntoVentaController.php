@@ -11,11 +11,24 @@ use App\Banco;
 use App\Ventas;
 use App\OrdenTrabajo;
 use Illuminate\Http\Request;
+use Milon\Barcode\DNS1D;
 use Barryvdh\DomPDF\Facade as PDF;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class PuntoVentaController extends Controller
 {
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $ventas = Ventas::all();
+        return view('venta.index', ['ventas' => $ventas]);
+    }
+
     //
     public function create()
     {
@@ -24,7 +37,13 @@ class PuntoVentaController extends Controller
     	$productos=Producto::get();
     	$pacientes = Paciente::get();
         $ventas = Ventas::all()->last();
-    	return view('venta.create',['sucursales'=>$sucursales,'tipoconvenios'=>$tipoconvenios,'productos'=>$productos,'pacientes'=>$pacientes, 'num_venta' => $ventas->numero_venta]);
+        if (isset($ventas)) {
+            return view('venta.create',['sucursales'=>$sucursales,'tipoconvenios'=>$tipoconvenios,'productos'=>$productos,'pacientes'=>$pacientes, 'num_venta' => $ventas->numero_venta]);
+        }
+        else{
+            return view('venta.create',['sucursales'=>$sucursales,'tipoconvenios'=>$tipoconvenios,'productos'=>$productos,'pacientes'=>$pacientes, 'num_venta' => $sucursales->claveid.'000000']);
+        }
+    	
     	// dd($sucursales);
     }
 
@@ -73,6 +92,19 @@ class PuntoVentaController extends Controller
     	return view('venta.pagos', ['datos_form' => $ventas, 'bancos' => $bancos]);
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Producto  $producto
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Ventas $venta, $id)
+    {
+        $venta = Ventas::find($id);
+        $paciente = Paciente::where('identificador', $venta->id_paciente)->first();
+        return view('venta.view', ['venta' => $venta, 'paciente' => $paciente]);
+    }
+
     public function guardarVenta(Request $request)
     {
     	$ventas = Ventas::all()->last();
@@ -109,19 +141,23 @@ class PuntoVentaController extends Controller
     	$ordenTrabajo = new OrdenTrabajo();
     	$ordenTrabajo->fecha_entrega = $request['fecha_entrega'];
     	$ordenTrabajo->fecha_generacion = $request['fecha_generacion'];
+        $ordenTrabajo->ventas_id = $request['id_venta'];
     	$ordenTrabajo->save();
 
     	$productos = $request['sel'];
     	$cantidad = $request['cantidad'];
     	$descuentos = $request['descuento'];
     	$i = 0;
+        if (isset($productos)) {
+            foreach ($productos as $prod) {
+                $ordenTrabajo->productos()->attach($prod, ['cantidad' => $cantidad[$i], 'descuento' => $descuentos[$i]]);
+                $i += 1;
+            }
+            Alert::success("La orden se genero con éxito")->persistent("Cerrar");
+            return redirect()->route('ventas.create');
+        }
 
-    	foreach ($productos as $prod) {
-    		$ordenTrabajo->productos()->attach($prod, ['cantidad' => $cantidad[$i], 'descuento' => $descuentos[$i]]);
-    		$i += 1;
-    	}
-
-    	Alert::success("La orden se genero con éxito")->persistent("Cerrar");
+    	Alert::success("La venta se guardo con éxito")->persistent("Cerrar");
     	return redirect()->route('ventas.create');
 
     }
@@ -146,11 +182,30 @@ class PuntoVentaController extends Controller
         return response(['productos' => $productos, 'precios' => $precios], 200);
     }
 
+    public function buscarVentas(Request $request) {
+        $desde = $request->input('desde') ? $request->input('desde') : date('Y-m-d');
+        $hasta = $request->input('hasta') ? $request->input('hasta') : '9999-12-31';
+        $query = $request->input('query');
+        $ventas = Ventas::whereBetween('fecha_venta', [$desde, $hasta]);
+        if($query) {
+            $sucursales = Sucursal::where('claveid','LIKE',"%$query%")->get();
+            $arrs = [];
+            foreach ($sucursales as $sucursal)
+                $arrs[] = $sucursal->claveid;
+            $ventas = $ventas->whereIn('sucursal', $arrs);
+        }
+
+        $ventas = $ventas->get();
+        return view('venta.busqueda', ['ventas' => $ventas]);
+    }
+
     public function pdf(){
          $ventas = Ventas::all()->last();
          $sucursal = Sucursal::where('claveid', $ventas->sucursal)->first();
          $paciente = Paciente::where('identificador', $ventas->id_paciente)->first();
-         $pdf = PDF::loadView('venta.ticket', ['ventas' => $ventas, 'sucursal' => $sucursal, 'paciente' => $paciente]);
+         $barra = new DNS1D();
+         $barra = $barra->getBarcodeHTML($ventas->id, "EAN13");
+         $pdf = PDF::loadView('venta.ticket', ['ventas' => $ventas, 'sucursal' => $sucursal, 'paciente' => $paciente, 'barra' => $barra]);
          return $pdf->download('ticket.pdf');
     }
 }

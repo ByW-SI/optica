@@ -25,8 +25,8 @@
 										<th>Cantidad</th>
 										<th>Descuento</th>
 										<input type="hidden" name="id_venta" value="{{ $datos->id }}">
-										<input type="hidden" name="fecha_entrega" value="{{ $datos->fecha_venta }}">
-										<input type="hidden" name="fecha_generacion" value="{{ $datos->fecha_entrega }}">
+										<input type="hidden" name="fecha_entrega" value="{{ $datos->fecha_entrega}}">
+										<input type="hidden" name="fecha_generacion" value="{{ $datos->fecha_venta }}">
 									</tr>
 									@foreach($datos->productos as $producto)
 										<tr>
@@ -65,7 +65,7 @@
 					<div class="row">
 						<div class="col-sm-offset-4 col-sm-4 text-center">
 							<button type="submit" class="btn btn-success">
-								<strong> Imprimir Ticket</strong>
+								<strong> Continuar</strong>
 							</button>
 						</div>
 					</div>
@@ -81,6 +81,10 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script type="text/javascript">
+
+	$(document).ready(function() {
+		w = window.open('{{ url('ticket-venta') }}', '_blank');
+	});
 /*
 	$("#orden").on('submit', function(evt){
 	    evt.preventDefault();  

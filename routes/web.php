@@ -152,3 +152,4 @@ Route::resource('pago', 'Producto\PuntoVentaController');
 Route::post('pagar', 'Producto\PuntoVentaController@guardarVenta');
 Route::post('guardar-orden', 'Producto\PuntoVentaController@guardarOrdenTrabajo');
 Route::get('ticket-venta', 'Producto\PuntoVentaController@pdf');
+Route::get('buscarVentas', 'Producto\PuntoVentaController@buscarVentas')->name('ventas.buscar');

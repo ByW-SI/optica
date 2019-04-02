@@ -203,6 +203,13 @@
                                                 <i class="fa fa-credit-card-alt" aria-hidden="true"></i> Punto de venta
                                             </a>
                                         </li>
+                                        @if(Auth::user()->perfil->nombre === "LABORATORISTA" || Auth::user()->perfil->nombre === "Admin")
+                                            <li>
+                                                <a href="#" onclick="AgregarNuevoTab('{{ route('ordenes.index') }}','Ordenes de Trabajo')">
+                                                    <i class="fa fa-clipboard" aria-hidden="true"></i> Ordenes Trabajo
+                                                </a>
+                                            </li>
+                                        @endif
                                     </ul>
                                 </li>
                                 {{-- PROVEEDORES --}}

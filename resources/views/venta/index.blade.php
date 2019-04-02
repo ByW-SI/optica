@@ -39,7 +39,7 @@
 				<div class="row" id="ventas">
 					<div class="col-sm-12">
 						@if(count($ventas) > 0)
-							<table class="table table-striped table-bordered table-hover" style="margin-bottom: 0px;">
+							<table class="table table-striped table-bordered table-hover" style="margin-bottom: 0px;" id="tabla_productos">
 								<tr class="info">
 									<th>ID Venta</th>
 									<th>Sucursal</th>
@@ -70,6 +70,11 @@
 										</td>
 									</tr>
 								@endforeach
+								<tr>
+									<td colspan="4">Total de ventas</td>
+									<td id="total" style="font-weight: bold;"></td>
+									<td colspan="2"></td>
+								</tr>
 							</table>
 						@else
 							<h4>No hay ventas disponibles.</h4>
@@ -97,12 +102,18 @@
                 selector : 1,
             },
         }).done(function(resultado){
-        	console.log(resultado);
             $("#ventas").html(resultado);
         }).fail(function(res){
-        	console.log("Fail", res);
         });
     }
+    $(document).ready(function() {
+    	var tabla = $('#tabla_productos tr');
+    	var total_ventas = 0;
+    	for (var i = 1; i < tabla.length- 1; i++) {
+    		total_ventas += parseInt(tabla[i].cells[4].innerHTML);
+    	}
+    	$('#total').text(total_ventas);
+    });
 
 </script>
 @endsection

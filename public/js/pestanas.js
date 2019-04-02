@@ -1,7 +1,8 @@
 $(document).ready(function () {
         $('.collapse').collapse({
-        toggle: false,
-    });
+            toggle: false,
+        });
+   
 });
 $(window).resize(function () {
     var heigh = parseInt($(window).height()) - 150;
@@ -96,4 +97,3 @@ function autoCerrar(obj) {
         return 0;
     });
 }
-

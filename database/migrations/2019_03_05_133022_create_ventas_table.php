@@ -15,6 +15,7 @@ class CreateVentasTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('empleado_id');
             $table->date('fecha_venta')->nullable();
             $table->string('sucursal')->nullable();
             $table->string('numero_venta')->unique();

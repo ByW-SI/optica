@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Producto;
 
 use App\Http\Controllers\Controller;
 use App\Producto;
+use Auth;
 use App\Sucursal;
+use App\OrdenTrabajo;
 use App\TipoConvenio;
 use App\Paciente;
 use App\Banco;
 use App\Ventas;
-use App\OrdenTrabajo;
+use App\Empleado;
+use App\Events\OrdenTrabajoSent;
 use Illuminate\Http\Request;
 use Milon\Barcode\DNS1D;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -41,7 +44,7 @@ class PuntoVentaController extends Controller
             return view('venta.create',['sucursales'=>$sucursales,'tipoconvenios'=>$tipoconvenios,'productos'=>$productos,'pacientes'=>$pacientes, 'num_venta' => $ventas->numero_venta]);
         }
         else{
-            return view('venta.create',['sucursales'=>$sucursales,'tipoconvenios'=>$tipoconvenios,'productos'=>$productos,'pacientes'=>$pacientes, 'num_venta' => $sucursales->claveid.'000000']);
+            return view('venta.create',['sucursales'=>$sucursales,'tipoconvenios'=>$tipoconvenios,'productos'=>$productos,'pacientes'=>$pacientes, 'num_venta' => 'UUUU000000']);
         }
     	
     	// dd($sucursales);
@@ -58,6 +61,9 @@ class PuntoVentaController extends Controller
 
     	$cantidad = Array();
     	$ventas = new Ventas();
+        $user = Auth::user();
+
+        $ventas->empleado_id = $user->empleado_id;
     	$ventas->fecha_venta = $request['fecha'];
     	$ventas->sucursal = $request['sucursal_id'];
     	$ventas->numero_venta = $request['ticket'];
@@ -101,8 +107,9 @@ class PuntoVentaController extends Controller
     public function show(Ventas $venta, $id)
     {
         $venta = Ventas::find($id);
+        $empleado = Empleado::find($venta->empleado_id);
         $paciente = Paciente::where('identificador', $venta->id_paciente)->first();
-        return view('venta.view', ['venta' => $venta, 'paciente' => $paciente]);
+        return view('venta.view', ['venta' => $venta, 'paciente' => $paciente, 'empleado' => $empleado]);
     }
 
     public function guardarVenta(Request $request)
@@ -110,6 +117,7 @@ class PuntoVentaController extends Controller
     	$ventas = Ventas::all()->last();
 
     	$ventas->forma_pago = $request['forma_pago'];
+
     	if ($request['forma_pago'] === "TC") {
 	    	$ventas->num_tarjeta = $request['num_tarjeta'];
 	    	$ventas->nombre_dueno_tarjeta = $request['nombre_tarjetaH'];
@@ -138,10 +146,14 @@ class PuntoVentaController extends Controller
 
     public function guardarOrdenTrabajo(Request $request)
     {
+        $user = Auth::user();
     	$ordenTrabajo = new OrdenTrabajo();
+        $venta = Ventas::find($request['id_venta']);
     	$ordenTrabajo->fecha_entrega = $request['fecha_entrega'];
     	$ordenTrabajo->fecha_generacion = $request['fecha_generacion'];
-        $ordenTrabajo->ventas_id = $request['id_venta'];
+        $ordenTrabajo->ventas_id = $venta->id;
+        $ordenTrabajo->numero_venta = $venta->numero_venta;
+        $ordenTrabajo->id_paciente = $venta->id_paciente;
     	$ordenTrabajo->save();
 
     	$productos = $request['sel'];
@@ -149,10 +161,13 @@ class PuntoVentaController extends Controller
     	$descuentos = $request['descuento'];
     	$i = 0;
         if (isset($productos)) {
+
             foreach ($productos as $prod) {
                 $ordenTrabajo->productos()->attach($prod, ['cantidad' => $cantidad[$i], 'descuento' => $descuentos[$i]]);
                 $i += 1;
             }
+
+            event(new OrdenTrabajoSent($user, $ordenTrabajo));
             Alert::success("La orden se genero con éxito")->persistent("Cerrar");
             return redirect()->route('ventas.create');
         }

@@ -16,6 +16,8 @@ class CreateOrdenTrabajosTable extends Migration
         Schema::create('orden_trabajos', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha_entrega');
+            $table->string('numero_venta');
+            $table->string('id_paciente');
             $table->string('fecha_generacion');
             $table->integer('ventas_id')->unsigned();
             $table->timestamps();

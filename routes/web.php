@@ -16,8 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-	if(Auth::check())
-    	return view('welcome');
+	if(Auth::check()){
+		$perfil = App\Perfil::find(Auth::user()->perfil_id);
+    	return view('welcome', ['perfil' => $perfil]);
+	}
 	return redirect()->route('login');
 })->name('home');
 
@@ -153,3 +155,4 @@ Route::post('pagar', 'Producto\PuntoVentaController@guardarVenta');
 Route::post('guardar-orden', 'Producto\PuntoVentaController@guardarOrdenTrabajo');
 Route::get('ticket-venta', 'Producto\PuntoVentaController@pdf');
 Route::get('buscarVentas', 'Producto\PuntoVentaController@buscarVentas')->name('ventas.buscar');
+Route::resource('ordenes', 'Producto\OrdenesTrabajoController');

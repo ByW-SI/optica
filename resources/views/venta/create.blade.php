@@ -29,7 +29,7 @@
 								<label class="control-label">
 									Sucursal:
 								</label>
-								<select name="sucursal_id" id="sucursal"  onchange="getSucursal(this)" class="form-control">
+								<select name="sucursal_id" id="sucursal"  onchange="getSucursal(this)" class="form-control" required>
 									<option value="">Seleccione la sucursal</option>
 									@foreach ($sucursales as $sucursal)
 										<option value="{{$sucursal->claveid}}">{{$sucursal->nombre}}</option>
@@ -242,13 +242,16 @@
 		    }
 		}
 		function getSucursal(sel){
-			ticket = sel.value; //"000004"
-			var num = '{{ $num_venta }}';
-			num = num.substring(ticket.length);
-			num = parseInt(num) + 1;
-			ticket = ticket + zfill(num, 6);
-			console.log(ticket);
+			ticket = sel.value;
+			if (ticket != '') {
+				var num = '{{ $num_venta }}';
+				num = num.substring(ticket.length);
+				num = parseInt(num) + 1;
+				ticket = ticket + zfill(num, 6);
+				console.log(ticket);
+			}
 			$("#ticket").val(ticket);
+			
 		}
 		
 		$(function () {

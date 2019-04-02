@@ -7,7 +7,7 @@
 			<div class="panel-heading">
 				<div class="row">
 					<div class="col-sm-3">
-						<h4>Datos de la Venta:</h4>
+						<h4>Datos de la Orden de Trabajo:</h4>
 					</div>
 					<div class="col-sm-3 text-center">
 						<a class="btn btn-primary" href="{{ route('pago.index') }}">

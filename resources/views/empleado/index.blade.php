@@ -11,7 +11,7 @@
 				<div class="input-group" id="datos1">
 					<div class="row">
 						<div class="col-sm-9">
-							<input type="text" list='browsers' id="empleado" name="query" class="form-control" placeholder="Buscar..." autofocus>
+							{{-- <input type="text" list='browsers' id="empleado" name="query" class="form-control" placeholder="Buscar..." autofocus> --}}
 						</div>
 						<div class="col-sm-3">
 							 <a class="btn btn-info" href="{{ route('empleados.create')}}">

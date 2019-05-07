@@ -302,8 +302,7 @@
 							{{-- expr --}}
 							checked="checked"
 						@endif> ¿Certificación?
-						</label>
-						
+						</label>						
 					</div>
 				<div class="form-group col-xs-4">
 						<label class="control-label" for="curso2" id="lbl_curso">Curso 2:</label>

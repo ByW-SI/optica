@@ -11,7 +11,7 @@
 				<div class="input-group" id="datos1">
 					<div class="row">
 						<div class="col-sm-9">
-							<input type="text" list='browsers' id="empleado" name="query" class="form-control" placeholder="Buscar..." autofocus>
+							{{-- <input type="text" list='browsers' id="empleado" name="query" class="form-control" placeholder="Buscar..." autofocus> --}}
 						</div>
 						<div class="col-sm-3">
 							 <a class="btn btn-info" href="{{ route('empleados.create')}}">
@@ -31,7 +31,7 @@
 	</div>
                    {{-- TABLA AJAX DE CLIENTES --}}
 	<div id="datos" name="datos" class="jumbotron">
-			<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px;">
+		<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px;">
 			<thead>
 				<tr class="info">
 					<th>@sortablelink('identificador','#')</th>

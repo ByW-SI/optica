@@ -13,7 +13,7 @@
 						
 					</div>
 					<div class="col-sm-3">
-						<a class="btn btn-warning" href="{{ route('empleados.create') }}"><strong>Editar Empleado</strong></a>
+						<a class="btn btn-warning" href="{{ route('empleados.edit', ['empleado' => $empleado]) }}"><strong>Editar Empleado</strong></a>
 						
 					</div>
 					<div class="col-sm-3">
@@ -30,7 +30,7 @@
 					</div>
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="sucursal">Sucursal:</label>
-						<dd>{{$empleado->sucursal->nombre}}</dd>
+						<dd>{{$empleado->sucursal ? $empleado->sucursal->nombre : "Sin definir"}}</dd>
 					</div>
 				</div>
 				<div class="col-xs-12 offset-md-2 mt-3">

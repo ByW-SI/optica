@@ -26,6 +26,12 @@
 					<input type="hidden" name="convenio_id" value="{{ $convenio->id }}" required>
 					<div class="row">
 						<div class="form-group col-sm-3">
+							<label class="control-label" for="desc_prod"> Monto</label>
+							<input class="form-control" type="number" step="1" min="1" name="monto" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-3">
 							<label class="control-label" for="desc_prod"> Descuento por producto:</label>
 							<div class="input-group">
 								<input type="number" class="form-control" id="desc_prod" name="desc_prod" value=""><span class="input-group-addon">%</span>
@@ -63,11 +69,11 @@
 					<div class="row">
 						<div class="form-group col-sm-3">
 							<label class="control-label" for="valido_inicio"> Valido de:</label>
-							<input type="date" class="form-control" id="valido_inicio" name="valido_inicio" value="">
+							<input type="date" class="form-control" id="valido_inicio" name="valido_inicio" value="" required="">
 						</div>
 						<div class="form-group col-sm-3">
 							<label class="control-label" for="valido_fin"> Valido hasta:</label>
-							<input type="date" class="form-control" id="valido_fin" name="valido_fin" value="">
+							<input type="date" class="form-control" id="valido_fin" name="valido_fin" value="" required="">
 						</div>
 						<div class="form-group col-sm-3">
 							<label class="control-label" for="aplican"> ¿A quién aplica?:</label>
@@ -89,6 +95,7 @@
 								<th>Nombre</th>
 								<th>Descuento</th>
 								<th>Numero de citas y productos (por año)</th>
+								<th>Monto</th>
 								<th>Valido de</th>
 								<th>Hasta</th>
 								<th>Operacion</th>
@@ -102,7 +109,9 @@
 								</td>
 								<td>{{ $tipo_convenio->num_prod ? $tipo_convenio->num_prod.' productos' : '' }}
 									<br>
-									{{ $tipo_convenio->num_cita ? $tipo_convenio->num_cita.' citas' : '' }}</td>
+									{{ $tipo_convenio->num_cita ? $tipo_convenio->num_cita.' citas' : '' }}
+								</td>
+								<td>{{ $tipo_convenio->monto }}</td>
 								<td>{{ $tipo_convenio->valido_inicio }}</td>
 								<td>{{ $tipo_convenio->valido_fin }}</td>
 								<td class="text-center">

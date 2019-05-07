@@ -1,121 +1,121 @@
 @extends('layouts.blank')
 @section('content')
 
-<div class="container" id="tab">
-	<form role="form" id="form-cliente" method="POST" action="{{ route('convenios.update',['convenio'=>$convenio]) }}" name="form">
-		{{ csrf_field() }}
-		<input type="hidden" name="_method" value="PUT">
-		<div role="application" class="panel panel-group" >
+<div class="container">
+	<div class="panel panel-group" >
+		<form  method="POST" action="{{ route('convenios.update', ['convenio' => $convenio]) }}">
+			{{ csrf_field() }}
+			<input type="hidden" name="_method" value="PUT">
 			<div class="panel-default">
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-sm-4">
-							<h4>Datos del Convenio: <small><i class="fa fa-asterisk" aria-hidden="true"></i>Requerido</small></h4>
+							<h4>Datos del Convenio:</h4>
 						</div>
 						<div class="col-sm-4 text-center">
-							<a class="btn btn-success" href="{{ route('convenios.create')}}"><strong>Agregar Convenio</strong></a>
+							<a class="btn btn-success" href="{{ route('convenios.create')}}">
+								<i class="fa fa-plus"></i><strong> Agregar Convenio</strong>
+							</a>
 						</div>
 						<div class="col-sm-4 text-center">
-							<a class="btn btn-info" href="{{ route('convenios.index') }}"><strong>Lista de Convenios</strong></a>
+							<a class="btn btn-primary" href="{{ route('convenios.index') }}">
+								<i class="fa fa-bars"></i><strong> Lista de Convenios</strong>
+							</a>
 						</div>
 					</div>
 				</div>
 				<div class="panel-body">
 					<div class="row">
 	  					<div class="form-group col-sm-3">
-	    					<label class="control-label" for="tipopersona"><i class="fa fa-asterisk" aria-hidden="true"></i>Tipo de Persona:</label>
+	    					<label class="control-label" for="tipopersona">✱Tipo de Persona:</label>
 	    					<select type="select" name="tipopersona" class="form-control" id="tipopersona" onchange="persona(this)">
 	    						<option id="Fisica" value="Fisica"<?php echo $convenio->tipopersona == 'Fisica' ? 'selected=""' : '' ?>>Fisica</option>
 	    						<option id="Moral" value="Moral"<?php echo $convenio->tipopersona == 'Moral' ? 'selected=""' : '' ?>>Moral</option>
 	    					</select>
 	  					</div>
 	  					<div class="form-group col-sm-3">
-	  						<label class="control-label" for="alias"><i class="fa fa-asterisk" aria-hidden="true"></i> Alias:</label>
+	  						<label class="control-label" for="alias">✱Alias:</label>
 	  						<input type="text" class="form-control" id="alias" name="alias" value="{{ $convenio->alias }}" required autofocus>
 	  					</div>
 	  					<div class="form-group col-sm-3">
-	  						<label class="control-label" for="rfc"><i class="fa fa-asterisk" aria-hidden="true"></i> RFC:</label>
+	  						<label class="control-label" for="rfc">✱RFC:</label>
 	  						<input type="text" class="form-control" id="rfc" name="rfc" value="{{ $convenio->rfc }}" required>
 	  					</div>
-	  					<div class="form-group col-sm-3">
-	  						<label class="control-label" for="vendedor">Vendedor:</label>
-	  						<input type="text" class="form-control" id="vendedor" name="vendedor" value="{{ $convenio->vendedor }}">
-	  					</div>
-					</div>
-					<div class="row" id="perfisica">
-						<div class="col-sm-3">
-	  						<label class="control-label" for="nombre"><i class="fa fa-asterisk" aria-hidden="true"></i> Nombre(s):</label>
-	  						<input type="text" class="form-control" id="nombre" name="nombre" value="{{ $convenio->nombre }}">
-	  					</div>
-	  					<div class="col-sm-3">
-	  						<label class="control-label" for="apellidopaterno"><i class="fa fa-asterisk" aria-hidden="true"></i> Apellido Paterno:</label>
-	  						<input type="text" class="form-control" id="apellidopaterno" name="apellidopaterno" value="{{ $convenio->apellidomaterno }}">
-	  					</div>
-	  					<div class="col-sm-3">
-	  						<label class="control-label" for="apellidomaterno">Apellido Materno:</label>
-	  						<input type="text" class="form-control" id="apellidomaterno" name="apellidomaterno" value="{{ $convenio->apellidomaterno }}">
-	  					</div>
-					</div>
-					<div class="row" id="permoral" style="display: none;">
-						<div class="col-sm-3">
-	  						<label class="control-label" for="razonsocial"><i class="fa fa-asterisk" aria-hidden="true"></i> Razon Social:</label>
-	  						<input type="text" class="form-control" id="razonsocial" name="razonsocial" value="{{ $convenio->razonsocial }}">
-	  					</div>
+						<div id="perfisica">
+							<div class="form-group col-sm-3">
+		  						<label class="control-label" for="nombre">✱Nombre(s):</label>
+		  						<input type="text" class="form-control" id="nombre" name="nombre" value="{{ $convenio->nombre }}">
+		  					</div>
+		  					<div class="form-group col-sm-3">
+		  						<label class="control-label" for="apellidopaterno">✱Apellido Paterno:</label>
+		  						<input type="text" class="form-control" id="apellidopaterno" name="apellidopaterno" value="{{ $convenio->apellidomaterno }}">
+		  					</div>
+		  					<div class="form-group col-sm-3">
+		  						<label class="control-label" for="apellidomaterno">Apellido Materno:</label>
+		  						<input type="text" class="form-control" id="apellidomaterno" name="apellidomaterno" value="{{ $convenio->apellidomaterno }}">
+		  					</div>
+						</div>
+						<div id="permoral" style="display: none;">
+							<div class="form-group col-sm-3">
+		  						<label class="control-label" for="razonsocial">✱Razon Social:</label>
+		  						<input type="text" class="form-control" id="razonsocial" name="razonsocial" value="{{ $convenio->razonsocial }}">
+		  					</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<ul role="tablist" class="nav nav-tabs">
-				<li class="active"><a href="#tab1">Dirección Fisica:</a></li>
-				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.direccionfiscal.index', ['convenio' => $convenio]) }}" class="ui-tabs-anchor" id="ui-id-2">Dirección Fiscal:</a></li>
-				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.contactos.index', ['convenio' => $convenio]) }}" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('convenios.tipoconvenios.index', ['convenio' => $convenio]) }}" class="ui-tabs-anchor" id="ui-id-4">Tipos de Convenios:</a></li>
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="{{ route('convenios.show', ['convenio' => $convenio]) }}">Dirección Fisica:</a></li>
+				<li><a href="{{ route('convenios.direccionfiscal.index', ['convenio' => $convenio]) }}">Dirección Fiscal:</a></li>
+				<li><a href="{{ route('convenios.contactos.index', ['convenio' => $convenio]) }}">Contacto:</a></li>
+				<li><a href="{{ route('convenios.tipoconvenios.index', ['convenio' => $convenio]) }}">Tipos de Convenios:</a></li>
 			</ul>
-			<div class="panel panel-default">
+			<div class="panel-default">
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-sm-4">
-							<h5>Dirección Fisica: <small><i class="fa fa-asterisk" aria-hidden="true"></i>Requerido</small></h5>
+							<h5>Dirección Fisica:</h5>
 						</div>
 					</div>
 				</div>
 				<div class="panel-body">
 					<div class="row">
 						<div class="form-group col-sm-3">
-	    					<label class="control-label" for="calle"><i class="fa fa-asterisk" aria-hidden="true"></i> Calle:</label>
+	    					<label class="control-label" for="calle">✱Calle:</label>
 	    					<input type="text" class="form-control" id="calle" name="calle" value="{{ $convenio->calle }}" required>
 	  					</div>
 	  					<div class="form-group col-sm-3">
-	    					<label class="control-label" for="numext"><i class="fa fa-asterisk" aria-hidden="true"></i> Numero exterior:</label>
+	    					<label class="control-label" for="numext">✱Numero exterior:</label>
 	    					<input type="text" class="form-control" id="numext" name="numext" value="{{ $convenio->numext }}" required>
 	  					</div>	
 	  					<div class="form-group col-sm-3">
 	    					<label class="control-label" for="numinter">Numero interior:</label>
 	    					<input type="text" class="form-control" id="numinter" name="numinter" value="{{ $convenio->numinter }}">
 	  					</div>	
-					</div>
-					<div class="row" id="perfisica">
 						<div class="form-group col-sm-3">
-	  						<label class="control-label" for="colonia"><i class="fa fa-asterisk" aria-hidden="true"></i> Colonia:</label>
+	  						<label class="control-label" for="colonia">✱Colonia:</label>
 	  						<input type="text" class="form-control" id="colonia" name="colonia" value="{{ $convenio->colonia }}" required>
 	  					</div>
+					</div>
+					<div class="row">
 	  					<div class="form-group col-sm-3">
-	  						<label class="control-label" for="municipio"><i class="fa fa-asterisk" aria-hidden="true"></i> Delegación o Municipio:</label>
+	  						<label class="control-label" for="municipio">✱Delegación o Municipio:</label>
 	  						<input type="text" class="form-control" id="municipio" name="municipio" value="{{ $convenio->municipio }}" required>
 	  					</div>
 	  					<div class="form-group col-sm-3">
-	  						<label class="control-label" for="ciudad"><i class="fa fa-asterisk" aria-hidden="true"></i> Ciudad:</label>
+	  						<label class="control-label" for="ciudad">✱Ciudad:</label>
 	  						<input type="text" class="form-control" id="ciudad" name="ciudad" value="{{ $convenio->ciudad }}" required>
 	  					</div>
 	  					<div class="form-group col-sm-3">
-	  						<label class="control-label" for="estado"><i class="fa fa-asterisk" aria-hidden="true"></i> Estado:</label>
+	  						<label class="control-label" for="estado">✱Estado:</label>
 	  						<input type="text" class="form-control" id="estado" name="estado" value="{{ $convenio->estado }}" required>
 	  					</div>
-					</div>
-					<div class="row" id="perfisica">
 						<div class="form-group col-sm-3">
 	  						<label class="control-label" for="calle1">Entre calle:</label>
 	  						<input type="text" class="form-control" id="calle1" name="calle1" value="{{ $convenio->calle1 }}">
 	  					</div>
+					</div>
+					<div class="row">
 	  					<div class="form-group col-sm-3">
 	  						<label class="control-label" for="calle2">Y calle:</label>
 	  						<input type="text" class="form-control" id="calle2" name="calle2" value="{{ $convenio->calle2 }}">
@@ -125,17 +125,22 @@
 	  						<input type="text" class="form-control" id="referencia" name="referencia" value="{{ $convenio->referencia }}">
 	  					</div>
 					</div>
-					<div class="row text-center">
-						<div class="col-sm-12">
-							<button type="submit" class="btn btn-success">
-						        <strong>Guardar</strong>
-							</button>
+				</div>
+				<div class="panel-footer">
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-4 text-center">
+			  				<button type="submit" class="btn btn-success">
+				  				<i class="fa fa-check-circle"></i> Guardar
+				  			</button>
+						</div>
+						<div class="col-sm-4 text-right text-danger">
+							<h5>✱Campos Requeridos</h5>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</form>
+		</form>
+	</div>
 </div>
 
 @endsection

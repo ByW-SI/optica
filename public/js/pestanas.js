@@ -1,7 +1,8 @@
 $(document).ready(function () {
         $('.collapse').collapse({
-        toggle: false,
-    });
+            toggle: false,
+        });
+   
 });
 $(window).resize(function () {
     var heigh = parseInt($(window).height()) - 150;
@@ -44,6 +45,9 @@ function AgregarNuevoTab(url, nombre) {
     var heigh = parseInt($(window).height()) - 150;
     titulo.setAttribute("data-toggle", "tab");
     titulo.setAttribute("href", "#tab" + numTab);
+    //var direc = "#tab" + numTab;
+   
+   // $(a[href=direc]).click();
     titulo.innerHTML = nombre + "  <span class='close alignright' onclick='CerrarTab(this);'><i class='fa fa-times-circle' aria-hidden='true'></i></span>";
     lblTab.appendChild(titulo);
     tabs.appendChild(lblTab);
@@ -93,4 +97,3 @@ function autoCerrar(obj) {
         return 0;
     });
 }
-

@@ -9,31 +9,35 @@ use Laravel\Scout\Searchable;
 
 class PacientesDatosGenerales extends Model
 {
-    use Sortable, SoftDeletes;
+	use Sortable, SoftDeletes;
 
-    protected $table = 'pacientes_datos_generales';
-    protected $fillable=[
-    	              'id',
-    	              'paciente_id',
-    	              'ocupacion',
-    	              'convenio',
-    	              'calle',
-    	              'numext',
-    	              'numint',
-    	              'cp',
-                      'municipio',
-                      'estado',
-                      'telcasa',
-                      'teloficina',
-                      'telcelular',
-                      'email',
-                      'trabajo',
-                      'servicio'];
+	protected $table = 'pacientes_datos_generales';
 
-    protected $hidden=[ 'created_at', 'updated_at','deleted_at'];
-    public $sortable=['id','paciente_id', 'convenio'];
+	protected $fillable = [
+		'id',
+		'paciente_id',
+		'ocupacion',
+		'convenio',
+		'calle',
+		'numext',
+		'numint',
+		'cp',
+		'municipio',
+		'estado',
+		'telcasa',
+		'teloficina',
+		'telcelular',
+		'email',
+		'trabajo',
+		'servicio',
+	];
 
-    public function paciente(){
-        return $this->belongsTo('App\Paciente', 'paciente_id');
-    }
+	protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+
+	public $sortable = ['id', 'paciente_id', 'convenio'];
+
+	public function paciente() {
+		return $this->belongsTo('App\Paciente');
+	}
+
 }

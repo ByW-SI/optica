@@ -11,6 +11,10 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
+        @if($perfil->nombre == "LABORATORISTA" || $perfil->nombre == "Admin")
+            <script src="{{ asset('js/notificaciones.js') }}"></script>
+        @endif
 
         <!-- Styles -->
         <style>

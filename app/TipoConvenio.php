@@ -20,7 +20,9 @@ class TipoConvenio extends Model
     	'descripcion',
     	'valido_inicio',
     	'valido_fin',
-    	'aplican'
+    	'aplican',
+        'num_tramites',
+        'monto'
     ];
 
     protected $hidden = [

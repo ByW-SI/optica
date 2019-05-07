@@ -8,7 +8,7 @@
 				<div class="input-group">
 					<div class="row">
 						<div class="col-sm-9">
-							<input type="text" id="provedor" name="query" class="form-control" placeholder="Buscar..." autofocus onKeypress="if(event.keyCode == 13) event.returnValue = false;">
+							{{--  <input type="text" id="provedor" name="query" class="form-control" placeholder="Buscar..." autofocus onKeypress="if(event.keyCode == 13) event.returnValue = false;">--}}
 					   </div>
 					   <div class="col-sm-3">
 					   		<a class="btn btn-info" href="{{ route('provedores.create')}}">

@@ -56,16 +56,18 @@ class ConvenioTipoConvenioController extends Controller
     {
         if($request->convenio_id == $convenio->id){
             $rules = [
-                'nombre'=>'required',
-                'descripcion'=>'required',
+                'nombre'=>'nullable',
+                'descripcion'=>'nullable',
                 'desc_prod'=>'nullable|numeric|min:0',
                 'num_prod'=>'nullable|numeric|min:0',
                 'desc_cita'=>'nullable|numeric|min:0',
                 'num_cita'=>'nullable|numeric|min:0',
                 'valido_inicio'=>'required|date',
                 'valido_fin'=>'required|date',
-                'aplican'=>'required|string',
-                'convenio_id'=>'required|numeric'
+                'aplican'=>'nullable|string',
+                'convenio_id'=>'nullable|numeric',
+                'num_tramites'=>'nullable|numeric|min:0',
+                'monto'=>'nullable|numeric|min:0',
 
             ];
             $this->validate($request, $rules);
@@ -119,7 +121,9 @@ class ConvenioTipoConvenioController extends Controller
             'num_cita'=>'nullable|numeric|min:0',
             'valido_inicio'=>'required|date',
             'valido_fin'=>'required|date',
-            'aplican'=>'required|string',
+            'aplican'=>'nullable|string',
+            'num_tramites'=>'required|numeric|min:0',
+            'monto'=>'required|numeric|min:0',
 
         ];
         $this->validate($request,$rules);
@@ -138,4 +142,13 @@ class ConvenioTipoConvenioController extends Controller
     {
         //
     }
+
+    public function getConvenios(Request $request)
+    {
+        $convenios = Convenio::all();
+        return response()->json(['convenios' => $convenios], 200);
+    }
+
+    //Crear metodo para recibir la peticion por ajax de la tabla tipoconvenio
+
 }

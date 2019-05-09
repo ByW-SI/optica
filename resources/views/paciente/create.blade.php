@@ -84,11 +84,11 @@
 	
 	function reset() {
 		var nombre = $("#nombre").val();
-		var prim = nombre.substring(0, 2);
+		var prim = nombre.substring(0, 1);
 		var appaterno = $("#appaterno").val();
-		var seg = appaterno.substring(0, 2);
+		var seg = appaterno.substring(0, 1);
 		var apmaterno = $("#apmaterno").val();
-		var ter = apmaterno.substring(0, 2);
+		var ter = apmaterno.substring(0, 1);
 	    var aux = $("#fecha").val().split('-');
 		var año1 = aux.length > 1 ? aux[0].substring(2, 4) + aux[1] + aux[2] : '';
 		var id = prim + seg + ter + año1;

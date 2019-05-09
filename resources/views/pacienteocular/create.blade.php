@@ -484,35 +484,6 @@
 						</div>
 						<div class="row text-center">
 							<div class="form-group col-sm-6">
-								<label class="control-label">Ojo izquierdo</label>
-								<div class="row">
-									<div class="col-sm-4">
-										<label class="control-label">Plana</label>
-										<select class="form-control" name="queratometria_oi_plana">
-											@for($i = 32; $i <= 55; $i += 0.25)
-												<option value="{{ number_format($i, 2) }}">{{ number_format($i, 2) }}</option>
-											@endfor
-										</select>
-									</div>
-									<div class="col-sm-4">
-										<label class="control-label">Curva</label>
-										<select class="form-control" name="queratometria_oi_curva">
-											@for($i = 32; $i <= 55; $i += 0.25)
-												<option value="{{ number_format($i, 2) }}">{{ number_format($i, 2) }}</option>
-											@endfor
-										</select>
-									</div>
-									<div class="col-sm-4">
-										<label class="control-label">Eje</label>
-										<select class="form-control" name="queratometria_oi_eje">
-											@for($i = 0; $i <= 100; $i += 5)
-												<option value="{{ $i }}">{{ $i }}</option>
-											@endfor
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="form-group col-sm-6">
 								<label class="control-label">Ojo derecho</label>
 								<div class="row">
 									<div class="col-sm-4">
@@ -534,6 +505,35 @@
 									<div class="col-sm-4">
 										<label class="control-label">Eje</label>
 										<select class="form-control" name="queratometria_od_eje">
+											@for($i = 0; $i <= 100; $i += 5)
+												<option value="{{ $i }}">{{ $i }}</option>
+											@endfor
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-sm-6">
+								<label class="control-label">Ojo izquierdo</label>
+								<div class="row">
+									<div class="col-sm-4">
+										<label class="control-label">Plana</label>
+										<select class="form-control" name="queratometria_oi_plana">
+											@for($i = 32; $i <= 55; $i += 0.25)
+												<option value="{{ number_format($i, 2) }}">{{ number_format($i, 2) }}</option>
+											@endfor
+										</select>
+									</div>
+									<div class="col-sm-4">
+										<label class="control-label">Curva</label>
+										<select class="form-control" name="queratometria_oi_curva">
+											@for($i = 32; $i <= 55; $i += 0.25)
+												<option value="{{ number_format($i, 2) }}">{{ number_format($i, 2) }}</option>
+											@endfor
+										</select>
+									</div>
+									<div class="col-sm-4">
+										<label class="control-label">Eje</label>
+										<select class="form-control" name="queratometria_oi_eje">
 											@for($i = 0; $i <= 100; $i += 5)
 												<option value="{{ $i }}">{{ $i }}</option>
 											@endfor
@@ -573,10 +573,10 @@
 								<h5>Parámetro</h5>
 							</div>
 							<div class="form-group col-sm-4">
-								<h5>Ojo izquierdo</h5>
+								<h5>Ojo derecho</h5>
 							</div>
 							<div class="form-group col-sm-4">
-								<h5>Ojo derecho</h5>
+								<h5>Ojo izquierdo</h5>
 							</div>
 						</div>
 						<div class="row text-center">
@@ -716,16 +716,16 @@
 								<input class="form-control" type="time" name="hora_tono" id="hora_tono" value="{{ date('H:i') }}">
 							</div>
 							<div class="form-group col-sm-3">
-								<label class="control-label">Ojo izquierdo:</label>
-								<select class="form-control" name="tonometria_oi" id="tonometria_oi">
+								<label class="control-label">Ojo derecho:</label>
+								<select class="form-control" name="tonometria_od" id="tonometria_od">
 									@for($i = 10; $i <= 35; $i++)
 										<option value="{{ $i }}">{{ $i }} mm/Hg</option>
 									@endfor
 								</select>
 							</div>
 							<div class="form-group col-sm-3">
-								<label class="control-label">Ojo derecho:</label>
-								<select class="form-control" name="tonometria_od" id="tonometria_od">
+								<label class="control-label">Ojo izquierdo:</label>
+								<select class="form-control" name="tonometria_oi" id="tonometria_oi">
 									@for($i = 10; $i <= 35; $i++)
 										<option value="{{ $i }}">{{ $i }} mm/Hg</option>
 									@endfor
@@ -741,96 +741,6 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						<div class="row">
-							<div class="col-sm-12 text-center">
-								<h4>Ojo izquierdo</h4>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-sm-4">
-								<label class="control-label">ESF:</label>
-								<select class="form-control" name="esf_oi" id="esf_oi" required>
-									<option value="">Seleccionar</option>
-									@for($i = 25; $i >= -25; $i -= 0.25)
-										<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}">{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
-									@endfor
-								</select>
-							</div>
-							<div class="form-group col-sm-4">
-								<label class="control-label">CIL:</label>
-								<select class="form-control" name="cil_oi" id="cil_oi">
-									<option value="">Seleccionar</option>
-									@for($i = -0.25; $i >= -15; $i -= 0.25)
-										<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}">{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
-									@endfor
-								</select>
-							</div>
-							<div class="form-group col-sm-4" id="eje_oi_div" style="display: none;">
-								<label class="control-label">Eje:</label>
-								<select class="form-control" name="eje_oi" id="eje_oi">
-									<option value="">Seleccionar</option>
-									@for($i = 0; $i <= 100; $i += 5)
-										<option value="{{ $i }}">{{ $i }}</option>
-									@endfor
-									<option value="Otro">Otro</option>
-								</select>
-							</div>
-							<div class="form-group col-sm-4" id="val_oi" style="display: none;">
-								<label class="control-label">Valor eje:</label>
-								<input class="form-control" type="text" name="val_eje_oi">
-							</div>
-							<div class="form-group col-sm-4">
-								<label class="control-label">ADD:</label>
-								<select class="form-control" name="add_oi" id="add_oi">
-									<option value="">Seleccionar</option>
-									@for($i = 1; $i <= 3.5; $i += 0.25)
-										<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}">{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
-									@endfor
-								</select>
-							</div>
-							<div class="form-group col-sm-4">
-								<label class="control-label">AV:</label>
-								<select class="form-control" name="av_oi" id="av_oi" required>
-									<option value="">Seleccionar</option>
-									<option value="20/400">20/400</option>
-									<option value="20/300">20/300</option>
-									<option value="20/200">20/200</option>
-									<option value="20/150">20/150</option>
-									<option value="20/120">20/120</option>
-									<option value="20/100">20/100</option>
-									<option value="20/70">20/70</option>
-									<option value="20/60">20/60</option>
-									<option value="20/50">20/50</option>
-									<option value="20/40">20/40</option>
-									<option value="20/30">20/30</option>
-									<option value="20/25">20/25</option>
-									<option value="20/20">20/20</option>
-									<option value="20/15">20/15</option>
-									<option value="20/10">20/10</option>
-									<option value="S.P.L">S.P.L</option>
-									<option value="N.P.L">N.P.L</option>
-									<option value="Protésis">Protésis</option>
-								</select>
-							</div>
-							<div class="form-group col-sm-4">
-								<label class="control-label">DNP lejos:</label>
-								<select class="form-control" name="dnp_oi_lejos" required>
-									<option value="">Seleccionar</option>
-									@for($i = 20; $i <= 50; $i += 0.5)
-										<option value="{{ number_format($i, 2) }}">{{ number_format($i, 2) }} mm</option>
-									@endfor
-								</select>
-							</div>
-							<div class="form-group col-sm-4">
-								<label class="control-label">DNP cerca:</label>
-								<select class="form-control" name="dnp_oi_cerca" required>
-									<option value="">Seleccionar</option>
-									@for($i = 20; $i <= 50; $i += 0.5)
-										<option value="{{ number_format($i, 2) }}">{{ number_format($i, 2) }} mm</option>
-									@endfor
-								</select>
-							</div>
-						</div>
 						<div class="row">
 							<div class="col-sm-12 text-center">
 								<h4>Ojo derecho</h4>
@@ -915,6 +825,96 @@
 							<div class="col-sm-4">
 								<label class="control-label">DNP cerca:</label>
 								<select class="form-control" name="dnp_od_cerca" required>
+									<option value="">Seleccionar</option>
+									@for($i = 20; $i <= 50; $i += 0.5)
+										<option value="{{ number_format($i, 2) }}">{{ number_format($i, 2) }} mm</option>
+									@endfor
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 text-center">
+								<h4>Ojo izquierdo</h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-sm-4">
+								<label class="control-label">ESF:</label>
+								<select class="form-control" name="esf_oi" id="esf_oi" required>
+									<option value="">Seleccionar</option>
+									@for($i = 25; $i >= -25; $i -= 0.25)
+										<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}">{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
+									@endfor
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label class="control-label">CIL:</label>
+								<select class="form-control" name="cil_oi" id="cil_oi">
+									<option value="">Seleccionar</option>
+									@for($i = -0.25; $i >= -15; $i -= 0.25)
+										<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}">{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
+									@endfor
+								</select>
+							</div>
+							<div class="form-group col-sm-4" id="eje_oi_div" style="display: none;">
+								<label class="control-label">Eje:</label>
+								<select class="form-control" name="eje_oi" id="eje_oi">
+									<option value="">Seleccionar</option>
+									@for($i = 0; $i <= 100; $i += 5)
+										<option value="{{ $i }}">{{ $i }}</option>
+									@endfor
+									<option value="Otro">Otro</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4" id="val_oi" style="display: none;">
+								<label class="control-label">Valor eje:</label>
+								<input class="form-control" type="text" name="val_eje_oi">
+							</div>
+							<div class="form-group col-sm-4">
+								<label class="control-label">ADD:</label>
+								<select class="form-control" name="add_oi" id="add_oi">
+									<option value="">Seleccionar</option>
+									@for($i = 1; $i <= 3.5; $i += 0.25)
+										<option value="{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}">{{ $i > 0 ? '+' . number_format($i, 2) : number_format($i, 2) }}</option>
+									@endfor
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label class="control-label">AV:</label>
+								<select class="form-control" name="av_oi" id="av_oi" required>
+									<option value="">Seleccionar</option>
+									<option value="20/400">20/400</option>
+									<option value="20/300">20/300</option>
+									<option value="20/200">20/200</option>
+									<option value="20/150">20/150</option>
+									<option value="20/120">20/120</option>
+									<option value="20/100">20/100</option>
+									<option value="20/70">20/70</option>
+									<option value="20/60">20/60</option>
+									<option value="20/50">20/50</option>
+									<option value="20/40">20/40</option>
+									<option value="20/30">20/30</option>
+									<option value="20/25">20/25</option>
+									<option value="20/20">20/20</option>
+									<option value="20/15">20/15</option>
+									<option value="20/10">20/10</option>
+									<option value="S.P.L">S.P.L</option>
+									<option value="N.P.L">N.P.L</option>
+									<option value="Protésis">Protésis</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label class="control-label">DNP lejos:</label>
+								<select class="form-control" name="dnp_oi_lejos" required>
+									<option value="">Seleccionar</option>
+									@for($i = 20; $i <= 50; $i += 0.5)
+										<option value="{{ number_format($i, 2) }}">{{ number_format($i, 2) }} mm</option>
+									@endfor
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label class="control-label">DNP cerca:</label>
+								<select class="form-control" name="dnp_oi_cerca" required>
 									<option value="">Seleccionar</option>
 									@for($i = 20; $i <= 50; $i += 0.5)
 										<option value="{{ number_format($i, 2) }}">{{ number_format($i, 2) }} mm</option>

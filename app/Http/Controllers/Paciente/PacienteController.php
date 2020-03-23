@@ -13,11 +13,12 @@ use UxWeb\SweetAlert\SweetAlert as Alert;
 class PacienteController extends Controller
 {
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware(function ($request, $next) {
-            if(Auth::check()) {
+            if (Auth::check()) {
                 foreach (Auth::user()->perfil->componentes as $componente)
-                    if($componente->modulo->nombre == "pacientes")
+                    if ($componente->modulo->nombre == "pacientes")
                         return $next($request);
                 return redirect()->route('denegado');
             } else
@@ -32,7 +33,7 @@ class PacienteController extends Controller
     public function index()
     {
         $pacientes = Paciente::sortable()->paginate(10);
-        return view('paciente.index',['pacientes'=>$pacientes]);
+        return view('paciente.index', ['pacientes' => $pacientes]);
     }
 
     /**
@@ -45,8 +46,10 @@ class PacienteController extends Controller
         //
 
         // Alert::message('Welcome back!');
-        return view('paciente.create',
-                   ['edit'=>false]);
+        return view(
+            'paciente.create',
+            ['edit' => false]
+        );
     }
 
     /**
@@ -57,8 +60,8 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        $ident = Paciente::where('identificador',$request->identificador)->get();
-         if (count($ident) != 0) {
+        $ident = Paciente::where('identificador', $request->identificador)->get();
+        if (count($ident) != 0) {
             Alert::error('Error', 'Ya se ha Registrado un paciente con le mismo ID')->persistent("Cerrar");
             return redirect()->back();
         } else {
@@ -67,7 +70,7 @@ class PacienteController extends Controller
             return redirect()->route('pacientes.show', ['paciente' => $paciente->id]);
         }
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -76,13 +79,17 @@ class PacienteController extends Controller
      */
     public function show($id)
     {
-        $paciente=Paciente::where('id',$id)->first();
-        $sucursales=Sucursal::orderBy('nombre')->get();
-        $citas=Cita::orderBy('proxima_cita')->get();
-       return view('paciente.view',
-                  ['paciente'  =>$paciente,
-                   'sucursales'=>$sucursales,
-                   'citas'     =>$citas]);
+        $paciente = Paciente::where('id', $id)->first();
+        $sucursales = Sucursal::orderBy('nombre')->get();
+        $citas = Cita::orderBy('proxima_cita')->get();
+        return view(
+            'paciente.view',
+            [
+                'paciente'  => $paciente,
+                'sucursales' => $sucursales,
+                'citas'     => $citas
+            ]
+        );
     }
 
     /**
@@ -92,13 +99,17 @@ class PacienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {  
+    {
 
-        $paciente=Paciente::where('id',$id)->first();
+        $paciente = Paciente::where('id', $id)->first();
 
-       return view('paciente.create',
-                  ['paciente'=>$paciente,
-                   'edit'=>true]);
+        return view(
+            'paciente.create',
+            [
+                'paciente' => $paciente,
+                'edit' => true
+            ]
+        );
     }
 
     /**
@@ -110,10 +121,18 @@ class PacienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $paciente=Paciente::where('id',$id)->first();
+
+        $existePaciente = Paciente::where('id', '!=', $id)->where('identificador', $request->identificador)->get();
+
+        if (count($existePaciente) != 0) {
+            Alert::error('Error', 'Ya se ha Registrado un paciente con le mismo ID')->persistent("Cerrar");
+            return redirect()->back();
+        }
+
+        $paciente = Paciente::where('id', $id)->first();
         $paciente->update($request->all());
         Alert::success('Datos de Paciente Actualizados');
-        return redirect()->route('pacientes.show',['id'=>$id]);
+        return redirect()->route('pacientes.show', ['id' => $id]);
     }
 
     /**
@@ -127,19 +146,19 @@ class PacienteController extends Controller
         //
     }
 
-    public function buscar(Request $request) {
+    public function buscar(Request $request)
+    {
         $query = $request->input('busqueda');
         $wordsquery = explode(' ', $query);
-        $pacientes= Paciente::where(function($q) use($wordsquery) {
+        $pacientes = Paciente::where(function ($q) use ($wordsquery) {
             foreach ($wordsquery as $word) {
-              $q->orWhere('nombre','LIKE',"%$word%")
-                ->orWhere('appaterno','LIKE',"%$word%")
-                ->orWhere('apmaterno','LIKE',"%$word%")
-                ->orWhere('identificador','LIKE',"%$word%");
+                $q->orWhere('nombre', 'LIKE', "%$word%")
+                    ->orWhere('appaterno', 'LIKE', "%$word%")
+                    ->orWhere('apmaterno', 'LIKE', "%$word%")
+                    ->orWhere('identificador', 'LIKE', "%$word%");
             }
         })->sortable()->paginate(10);
         $pacientes->withPath('buscarpaciente?busqueda=' . $query);
         return view('paciente.busqueda', ['pacientes' => $pacientes]);
     }
-
 }
